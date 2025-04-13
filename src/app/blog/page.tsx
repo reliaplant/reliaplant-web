@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { fetchBlogPosts } from "@/services/database.service";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";

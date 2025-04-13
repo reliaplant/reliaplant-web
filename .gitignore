@@ -46,3 +46,5 @@ next-env.d.ts
 firebase-debug.log
 **/node_modules/@next/swc-darwin-arm64/
 **/*.node
+firebase/
+firebase/**/*

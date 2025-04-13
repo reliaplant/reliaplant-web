@@ -1,4 +1,5 @@
 "use client"; // 👈 Agregamos esta línea para indicar que es un componente del cliente
+import { type ReactElement } from "react";
 import Image from "next/image";
 import software from "@/assets/rcap1.webp";
 import { Add, Alarm, Close, Warning } from '@carbon/icons-react';
@@ -12,7 +13,7 @@ import FormularioContacto from "@/components/FormularioContacto";
 // Si no usas flujograma, es mejor quitar la importación o agregar un módulo .d.ts para archivos SVG
 // import flujograma from "@/assets/rcm-s.svg";
 
-export default function RcmPage(): JSX.Element {
+export default function RcmPage(): ReactElement {
   const [activeSection, setActiveSection] = useState("0");
   const [showModal, setShowModal] = useState(false);
 

@@ -400,7 +400,7 @@ export default function SistemaIndicadoresPage() {
                           </div>
                           <div className="bg-red-100 p-2 text-center rounded">
                             <span className="font-bold text-red-800">Crítico</span>
-                            <p className="text-red-800 mb-0">> 5h</p>
+                            <p className="text-red-800 mb-0">{'>'}5h</p>
                           </div>
                         </div>
                       </div>
@@ -408,7 +408,7 @@ export default function SistemaIndicadoresPage() {
                       <div>
                         <h5 className="font-bold text-gray90 mb-2">Acciones recomendadas</h5>
                         <ul className="list-disc pl-5 text-gray70">
-                          <li>Si MTTR > 5h: Revisar procedimientos de diagnóstico, disponibilidad de repuestos y herramientas.</li>
+                          <li>Si MTTR {'>'} 5h: Revisar procedimientos de diagnóstico, disponibilidad de repuestos y herramientas.</li>
                           <li>Si tendencia es creciente por 3 períodos consecutivos: Analizar causas raíz y reforzar capacitación técnica.</li>
                           <li>Para equipos críticos con MTTR elevado: Implementar programa de mejora específico.</li>
                         </ul>

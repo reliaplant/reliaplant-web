@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { MdError, MdCheckCircle, MdPending } from "react-icons/md";
 
-function IconWithTooltip({ icon, tooltipText }) {
+interface IconWithTooltipProps {
+  icon: React.ReactNode;
+  tooltipText: string;
+}
+
+function IconWithTooltip({ icon, tooltipText }: IconWithTooltipProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

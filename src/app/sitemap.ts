@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const getRoutesFromApp = (dir: string): string[] => {
     const files = fs.readdirSync(dir);
-    const routes = [];
+    const routes: string[] = [];
 
     files.forEach((file) => {
       const fullPath = path.join(dir, file);

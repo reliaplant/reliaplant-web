@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { RequestQuote, DataAnalytics, Headset, Certificate, AcademyPath, Enterprise } from '@carbon/icons-react';
+import { RequestQuote, DataAnalytics, Headset, Certificate, Enterprise } from '@carbon/icons-react';
 import { Users, BookOpen, Clock, Target, Shield, Award, GraduationCap, Layers, CheckSquare, Monitor, Laptop, BookOpen as BookOpenIcon, Star, Calendar, MessageSquare, ArrowRight } from "lucide-react";
 import Image from 'next/image';
 import logoP21 from "@/assets/logo-p21-negro.webp";
