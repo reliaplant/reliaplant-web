@@ -1,26 +1,426 @@
-@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bgIA {
+  background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
+  box-shadow: 0 12px 36px #d0e2ff;
+  border-width: 1px;
+  border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite, borderAnimation 3s ease infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.borderIA {
+  border: 1px solid;
+  border-color: #ffffff;
+  animation: borderAnimation 4s ease infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 70% 70%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes borderAnimation {
+  0% {
+    border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
+  }
+  50% {
+    border-image: linear-gradient(to bottom, rgb(91, 137, 222), #ffffff) 1;
+  }
+  100% {
+    border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
+  }
 }
+
+.skeleton-loading {
+  background: linear-gradient(90deg, transparent 25%, #d0e2ff 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: skeletonAnimation 5s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes skeletonAnimation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.image-animation {
+  animation: imageOpacitySaturation 5s ease-in-out infinite;
+}
+
+@keyframes imageOpacitySaturation {
+  0% {
+    opacity: 1;
+    filter: saturate(100%);
+    background-position: 0% 0%;
+  }
+  25% {
+    opacity: 0.5;
+    filter: saturate(75%);
+    background-position: 50% 0%;
+  }
+  50% {
+    opacity: 0.0;
+    filter: saturate(50%);
+    background-position: 100% 0%;
+  }
+  75% {
+    opacity: 0.5;
+    filter: saturate(75%);
+    background-position: 50% 0%;
+  }
+  100% {
+    opacity: 1;
+    filter: saturate(100%);
+    background-position: 0% 0%;
+  }
+}
+
+.filter-blue{
+  filter: hue-rotate(180deg) saturate(100%) brightness(50%) !important;
+}
+
+/* Importa los estilos de Carbon */
+
+.font-Source-Serif{
+  font-family: 'Source Serif 4', 'Source Serif 4 Fallback' !important;
+}
+
+.font-Literata{
+  font-family: 'Literata', 'Literata Fallback' !important;
+}
+
+:root {
+  --font-big-shoulders: "Big Shoulders Display", sans-serif;
+  --font-zen-dots: "Zen Dots", sans-serif;
+
+}
+
+.font-BigShoulders {
+  font-family: var(--font-big-shoulders) !important;
+}
+
+.font-ZenDots{
+  font-family: var(--font-zen-dots) !important;
+}
+
+@import "./quill.snow.css";
+
+:root{
+
+    --black-a90: rgb(0 0 0/.9);
+    --color-text: var(--black-a90);
+  
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+  
+    --line-height-default: 1.25;
+    --line-height-open: 1.5;
+  
+    --font-size-small: 1rem;
+    --font-size-medium: 1.1rem;
+    --font-size-large: 1.3rem;
+    --font-size-xlarge: 1.5rem;
+}
+
+/* Estilos para los títulos */
+h1, h2, h3, h4, h5, h6, p {
+    color: #2c3e50;
+    /* margin-bottom: 1.5rem; */
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+strong {
+    font-weight: 700 !important;
+}
+
+/* Estilos para los párrafos */
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Estilos para listas */
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    transition: 1s;
+}
+
+/* Estilos para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+/* Estilos para las listas de definiciones */
+dl {
+    margin-bottom: 1.5rem;
+}
+
+dt {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+dd {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para botones */
+button {
+    /* background-color:  #0f62fe; */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    /* background-color: black; */
+}
+
+
+
+/* Estilos para imágenes */
+/* img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1.5rem;
+} */
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 0.875rem;
+    }
+}
+
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+/* ScrollToTop.css */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #17a9f5;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #0684c8;
+  }
+  
+  .scroll-to-top.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  
+/* QUILL */
+
+
+.ql-editor {
+    font-family:  Helvetica, Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  } 
+  
+  .ql-editor p{
+    color: var(--color-text) !important;
+    font-size: var(--font-size-medium) !important;
+    line-height: var(--line-height-open) !important;;
+    margin: 1.6rem 0rem !important;
+  }
+  
+  .ql-editor figure{
+    text-align: center;
+    margin: 1.6rem 0rem !important;
+  }
+  
+  .ql-editor a{
+    font-size: var(--font-size-medium) !important;;
+  }
+  
+  .ql-editor li{
+    color: var(--color-text) !important;;
+    font-size: var(--font-size-medium) !important;
+    margin: 1rem 0rem !important;;
+  }
+  
+  .ql-editor h2{
+    font-size: var(--font-size-xlarge) !important;
+    font-weight: var(--font-weight-bold)!important;
+    margin: 1.6rem 0rem !important;
+    line-height: var(--line-height-default) !important;
+  }
+  .ql-editor h3 {
+    font-size: var(--font-size-large) !important;
+    font-weight: var(--font-weight-bold) !important;
+    margin: 1.6rem 0rem !important;
+    line-height: var(--line-height-default) !important;
+  }
+  
+  @media (min-width: 768px) {
+    .ql-editor h3 {
+      margin-top: 2.8rem !important; /* Aumenta el margen superior en pantallas grandes */
+    }
+    .ql-editor h2 {
+      margin-top: 2.8rem !important; /* Aumenta el margen superior en pantallas grandes */
+    }
+  }
+  
+  .ql-editor blockquote{
+    color: var(--color-text) !important;;
+    font-size: var(--font-size-small) !important;
+    line-height: var(--line-height-open) !important;
+    margin: 1.1rem 2.4rem !important;
+  
+  }
+  
+  .ql-editor img{
+    object-fit: contain !important;
+  }
+  
+  .ql-editor p span,
+  .ql-editor h2 span,
+  .ql-editor h3 span,
+  .ql-editor blockquote span {
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+
+  /* INDICE */
+
+  .toc {
+    position: fixed; /* Fijar la tabla de contenido en su posición */
+    top: 64px; /* Ajusta este valor según la altura de tu encabezado sticky */
+    left: 0px; /* Ajusta la posición horizontal si es necesario */
+    width: 23%; /* Ancho fijo para la tabla de contenido */
+    height: calc(100vh - 50px); /* Altura total de la vista menos el espacio reservado */
+    overflow-y: auto; /* Scroll vertical si el contenido excede la altura */
+    box-shadow: 5px 0px 5px -5px rgba(0, 0, 0, 0.1); /* Sombra solo a la derecha */
+    z-index: 0;
+    }
+    
+    .sticky {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: white;
+    }
+    
+  
+
+  
