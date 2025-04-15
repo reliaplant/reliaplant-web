@@ -5,7 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .bgIA {
   background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
   box-shadow: 0 12px 36px #d0e2ff;
@@ -120,8 +119,6 @@
 .font-ZenDots{
   font-family: var(--font-zen-dots) !important;
 }
-
-@import "./quill.snow.css";
 
 :root{
 
@@ -420,7 +417,6 @@ button:hover {
       z-index: 50;
       background: white;
     }
-    
-  
 
-  
+
+

@@ -1,7 +1,7 @@
 "use client"; // 👈 Agregamos esta línea para indicar que es un componente del cliente
 import { type ReactElement } from "react";
 import Image from "next/image";
-import software from "@/assets/rcap1.webp";
+import software from "@../../../public/assets/rcap1.webp";
 import { Add, Alarm, Close, Warning } from '@carbon/icons-react';
 
 
@@ -37,7 +37,7 @@ export default function RcmPage(): ReactElement {
 
   return (
     <div className="w-full">
-      <div className="relative h-[84vh] flex items-center justify-start bg-cover bg-center bg-[url('../assets/fondo-landing-rcm.png')]"
+      <div className="relative h-[84vh] flex items-center justify-start bg-cover bg-center bg-[url('/assets/fondo-landing-rcm.png')]"
       >
         {/* Capa de degradado oscuro */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray90/70 to-gray90/80 flex flex-row"></div>
@@ -130,13 +130,13 @@ export default function RcmPage(): ReactElement {
 
       <div className=" flex flex-row gap-10 p-20 bg-gray90">
         <div className="w-full text-center min-h-[200vh]">
-          <div
-            className="h-[96vh] relative bg-[url('../assets/bg-proceso-rcm.svg')] bg-h-auto bg-center"
+            <div
+            className="h-[96vh] relative bg-[url('/assets/bg-proceso-rcm.svg')] bg-h-auto bg-center"
             style={{
               top: '2vh',
               position: 'sticky',
             }}
-          >
+            >
 
             <div className="absolute left-[20%] top-[4%] w-[60%] h-[5%] flex items-center justify-center text-[0.5vw] text-white text-lg font-bold text-[1.7vw]">PROCESO DE RCM OPTIMIZADO</div>
 

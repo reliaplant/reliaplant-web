@@ -4,10 +4,33 @@ import { MdMoney, MdBuild, MdAccessibility } from "react-icons/md";
 import { Clock, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Análisis de Mantenibilidad",
+    title: "Análisis de Mantenibilidad | Reliaplant",
+    description: "Análisis de Mantenibilidad y Manejo Mecánico (MHA). Optimiza los tiempos de intervención y mejora la seguridad operativa a través de estudios detallados de accesibilidad y maniobras.",
+    keywords: ["análisis de mantenibilidad", "MHA", "manejo mecánico", "mantenimiento industrial", "accesibilidad", "maniobras", "izaje", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Análisis de Mantenibilidad (MHA) | Reliaplant",
+        description: "Mejora la mantenibilidad de tus activos industriales con estudios MHA detallados. Reduce tiempos de intervención y optimiza la seguridad operativa.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgMantenibilidad.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Análisis de Mantenibilidad Industrial'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/mantenibilidad',
     },
-    description: "Análisis de Mantenibilidad y Manejo Mecánico (MHA)",
+    twitter: {
+        card: "summary_large_image",
+        title: "Análisis de Mantenibilidad (MHA) | Reliaplant",
+        description: "Optimiza la mantenibilidad de tus activos industriales con estudios profesionales de accesibilidad y manejo mecánico.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgMantenibilidad.jpg',
+            alt: 'Análisis de Mantenibilidad Industrial'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/mantenibilidad",
+    },
 }
 
 export default function MantenibilidadPage() {
@@ -39,7 +62,7 @@ export default function MantenibilidadPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-full z-10 w-[60vw] bg-[url('../assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
+                    <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
                     </div>
                 </div>
             </div>
@@ -363,7 +386,7 @@ export default function MantenibilidadPage() {
                             </p>
                         </div>
                     </div>
-                    <div className="h-[45vh] z-10 w-1/2 bg-[url('../assets/bgMantenibilidad3.jpg')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[45vh] z-10 w-1/2 bg-[url('/assets/bgMantenibilidad3.jpg')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
             
@@ -406,7 +429,7 @@ export default function MantenibilidadPage() {
                             </ul>
                         </div>
                     </div>
-                    <div className="h-[45vh] z-10 w-1/2 bg-[url('../assets/bgMantenibilidad2.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[45vh] z-10 w-1/2 bg-[url('/assets/bgMantenibilidad2.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
             
@@ -450,7 +473,7 @@ export default function MantenibilidadPage() {
                             Documentamos pasos de ejecución recomendados para cada mantenimiento, facilitando su inclusión en sistemas CMMS como SAP PM o Maximo, y entregamos reportes claros con esquemas y planillas que ilustran cómo remover e instalar componentes de forma segura y eficiente.
                         </p>
                     </div>
-                    <div className="h-[45vh] z-10 w-1/2 bg-[url('../assets/bgMantenibilidad4.png')] bg-cover bg-center"></div>
+                    <div className="h-[45vh] z-10 w-1/2 bg-[url('/assets/bgMantenibilidad4.png')] bg-cover bg-center"></div>
                 </div>
             </div>
 
@@ -469,7 +492,7 @@ export default function MantenibilidadPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[30vw] z-10 w-[50vw] bg-[url('../assets/bgMantenibilidad1.png')] bg-cover bg-center transform -scale-x-100" >
+                    <div className="h-[30vw] z-10 w-[50vw] bg-[url('/assets/bgMantenibilidad1.png')] bg-cover bg-center transform -scale-x-100" >
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>

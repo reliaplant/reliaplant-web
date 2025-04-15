@@ -34,10 +34,19 @@ import back7 from "@/assets/back7.webp"
 import back8 from "@/assets/back8.webp"
 import modelArrows from "@/assets/modelArrows.svg"
 
+// Define types for popup content and props
+interface PopupContent {
+  title: string;
+  description: string;
+}
 
+interface SimplePopupProps {
+  title: string;
+  description: string;
+  onClose: () => void;
+}
 
-
-const SimplePopup = ({ title, description, onClose }) => {
+const SimplePopup = ({ title, description, onClose }: SimplePopupProps) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-opacity-50" >
             <div className="bg-white p-6 rounded-md shadow-md w-[80%] max-w-md">
@@ -56,12 +65,12 @@ const SimplePopup = ({ title, description, onClose }) => {
 
 export default function ModeloConfiabilidad() {
     const [showPopup, setShowPopup] = useState(false);
-    const [popupContent, setPopupContent] = useState({
+    const [popupContent, setPopupContent] = useState<PopupContent>({
         title: "",
         description: "",
     });
 
-    const handleOpenPopup = (title, description) => {
+    const handleOpenPopup = (title: string, description: string) => {
         setPopupContent({ title, description });
         setShowPopup(true);
     };
@@ -69,7 +78,7 @@ export default function ModeloConfiabilidad() {
     return (
         <div className="px-[8vw] my-12">
             
-            <div className="bg-[url('../assets/modelGrid.svg')] relative">
+            <div className="bg-[url('/assets/modelGrid.svg')] relative">
             <Image src={modelArrows} alt="Criticidad" layout="fill" className="absolute z-50 image-animation"/>
             <Image src={modelArrows} alt="Criticidad" layout="fill" className="absolute z-100 skeleton-loading"/>
 

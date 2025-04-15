@@ -1,5 +1,17 @@
+import { Metadata } from 'next'
 import { Add, Asset, Category, DataAnalytics, Headset, Industry, Number_1, Number_2, Number_3, Number_4, ArrowRight, CheckmarkOutline, SupportVectorMachine, IdManagement, DocumentImport, DiagramReference, SelectWindow, Gears, IbmKnowledgeCatalogPremium } from '@carbon/icons-react';
 import { ChartBarDecreasing } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Sistema de Indicadores para Gestión de Mantenimiento | ReliaPLANT',
+  description: 'Diseño e implementación de tableros de control con KPIs basados en normas internacionales BS EN 15341:2019 y SMRP para optimizar la gestión de mantenimiento industrial.',
+  keywords: 'KPI mantenimiento, indicadores mantenimiento, sistema de indicadores, gestión de mantenimiento, MTTR, MTBF, disponibilidad operacional, tablero de control mantenimiento',
+  openGraph: {
+    title: 'Sistema de Indicadores para Gestión de Mantenimiento | ReliaPLANT',
+    description: 'Diseño e implementación de tableros de control con KPIs basados en normas internacionales para optimizar la gestión de mantenimiento industrial.',
+    images: ['/assets/bgDiagnostico.jpg'],
+  }
+}
 
 export default function SistemaIndicadoresPage() {
     return (
@@ -28,7 +40,7 @@ export default function SistemaIndicadoresPage() {
                                 <Headset size={20} className="text-white" />
                             </button>
                     </div>
-                    <div className="h-full z-10 w-[50vw] bg-[url('../assets/bgDiagnostico.jpg')] bg-cover bg-center">
+                    <div className="h-full z-10 w-[50vw] bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>

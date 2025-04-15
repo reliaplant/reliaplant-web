@@ -2,36 +2,36 @@
 
 import React from 'react';
 import Image from "next/image";
-import turbocompresor from "@/assets/tubocompresorSinFondo.png";
-import fondoPlataforma from "@/assets/FondoPlataforma.webp";
-import pozo from "@/assets/pozo.jpg";
-import flare from "@/assets/flare.jpg";
-import fansblowers from "@/assets/FANSBLOWERS.png";
-import procesoConfiabilidad from "@/assets/procesoCconfiabilidad.png";
+import turbocompresor from "../../../public/assets/tubocompresorSinFondo.png";
+import fondoPlataforma from "../../../public/assets/FondoPlataforma.webp";
+import pozo from "../../../public/assets/pozo.jpg";
+import flare from "../../../public/assets/flare.jpg";
+import procesoConfiabilidad from "../../../public/assets/procesoConfiabilidad.png";
 import Industrias from '@/components/industrias';
 
-import pegandotag from "@/assets/pegandotag.jpeg";
-import bgKPIs from "@/assets/bgKPIs.jpg";
-import bgDiagnostico from "@/assets/bgDiagnostico.jpg";
-import bgEstrategias from "@/assets/bgEstrategias.jpg";
-import bgMRO from "@/assets/bgMRO.jpg";
-import bgPrcedimientos from "@/assets/bgProcedimientos.jpg";
-import bgDigitalizacion from "@/assets/bgDigitalizacion.jpg";
-import bgMantenibilidad from "@/assets/bgMantenibilidad.jpg";
-import bgRAM from "@/assets/bgRAM.png";
-import bgCapacitacion from "@/assets/bgCapacitacion.jpg";
-import bgCapacidad from "@/assets/bgCapacidad.png";
-import bgMatrizCapacitacion from "@/assets/bgMatrizCapacitacion.png";
-import bgAsesoria from "@/assets/bgAsesoria.jpg";
-import bgPersonal from "@/assets/bgPersonal.jpg";
-import bgPerformance from "@/assets/bgPerformance3.jpg";
-import bgSoftware from "@/assets/bgSoftware.jpg";
-import bgRCM from "@/assets/bgRCM.jpg";
-import bgACR from "@/assets/bgACR.jpg";
-import bgObsolescencia from "@/assets/bgObsolescencia.jpg";
-import bgSeleccion from "@/assets/bgSeleccion.jpg";
-import bgVidaUtil from "@/assets/bgVidaUtil.jpg";
-import bgLCC from "@/assets/bgLCC.jpg";
+import pegandotag from "../../../public/assets/pegandotag.jpeg";
+import bgConfiabilidad from "../../../public/assets/bgConfiabilidad.jpg";
+import bgKPIs from "../../../public/assets/bgKPIs.jpg";
+import bgDiagnostico from "../../../public/assets/bgDiagnostico.jpg";
+import bgEstrategias from "../../../public/assets/bgEstrategias.jpg";
+import bgMRO from "../../../public/assets/bgMRO.jpg";
+import bgPrcedimientos from "../../../public/assets/bgProcedimientos.jpg";
+import bgDigitalizacion from "../../../public/assets/bgDigitalizacion.jpg";
+import bgMantenibilidad from "../../../public/assets/bgMantenibilidad.jpg";
+import bgRAM from "../../../public/assets/bgRAM.png";
+import bgCapacitacion from "../../../public/assets/bgCapacitacion.jpg";
+import bgCapacidad from "../../../public/assets/bgCapacidad.png";
+import bgMatrizCapacitacion from "../../../public/assets/bgMatrizCapacitacion.png";
+import bgAsesoria from "../../../public/assets/bgAsesoria.jpg";
+import bgPersonal from "../../../public/assets/bgPersonal.jpg";
+import bgPerformance from "../../../public/assets/bgPerformance3.jpg";
+import bgSoftware from "../../../public/assets/bgSoftware.jpg";
+import bgRCM from "../../../public/assets/bgRCM.jpg";
+import bgACR from "../../../public/assets/bgACR.jpg";
+import bgObsolescencia from "../../../public/assets/bgObsolescencia.jpg";
+import bgSeleccion from "../../../public/assets/bgSeleccion.jpg";
+import bgVidaUtil from "../../../public/assets/bgVidaUtil.jpg";
+import bgLCC from "../../../public/assets/bgLCC.jpg";
 
 
 
@@ -56,10 +56,10 @@ import bgLCC from "@/assets/bgLCC.jpg";
 
 
 
-import planta from "@/assets/planta.jpg";
+import planta from "../../../public/assets/planta.jpg";
 
 
-import back3 from "@/assets/back3.webp";
+import back3 from "../../../public/assets/back3.webp";
 
 interface ConsultingCard {
   title: string;
@@ -143,9 +143,6 @@ export default function ConsultoriaPage() {
 
         </div>
 
-        <div className="h-full p-16 z-10 w-[60vw]  bg-[url('../assets/FANSBLOWERS.png')] bg-cover bg-center" >
-
-        </div>
       </div>
 
       <div className="h-[80vh] bg-cover bg-center bg-no-repeat bg-opacity-0">

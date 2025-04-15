@@ -5,10 +5,33 @@ import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Conctacto",
+    title: "Análisis RAM | Gestión de Confiabilidad | Reliaplant",
+    description: "Evaluación especializada de Confiabilidad, Disponibilidad y Mantenibilidad (RAM) de sistemas industriales. Optimiza el rendimiento operativo identificando cuellos de botella y mejoras en el diseño.",
+    keywords: ["análisis RAM", "confiabilidad", "disponibilidad", "mantenibilidad", "sistemas industriales", "optimización operativa", "reliaplant", "gestión de activos"],
+    openGraph: {
+        title: "Análisis RAM | Reliaplant",
+        description: "Evaluación RAM para mejorar la disponibilidad y confiabilidad de sistemas industriales. Identifica oportunidades de optimización y reducción de costos OPEX.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgRAM.png',
+            width: 1200,
+            height: 630,
+            alt: 'Análisis RAM'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/analisis-ram',
     },
-    description: "Desc Contacto",
+    twitter: {
+        card: "summary_large_image",
+        title: "Análisis RAM | Reliaplant",
+        description: "Evaluación profesional de Confiabilidad, Disponibilidad y Mantenibilidad para sistemas industriales. Optimiza el rendimiento y reduce costos operativos.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgRAM.png',
+            alt: 'Análisis RAM'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/analisis-ram",
+    },
 }
 
 export default function Contacto() {
@@ -44,7 +67,7 @@ export default function Contacto() {
                             />
                         </div>
                     </div>
-                    <div className="h-[40vh] md:h-full w-full md:w-[50vw] lg:w-[60vw] mt-4 md:mt-0 bg-[url('../assets/bgRAM.png')] bg-cover bg-center">
+                    <div className="h-[40vh] md:h-full w-full md:w-[50vw] lg:w-[60vw] mt-4 md:mt-0 bg-[url('/assets/bgRAM.png')] bg-cover bg-center">
                     </div>
                 </div>
             </div>
@@ -153,7 +176,7 @@ export default function Contacto() {
                             <li><strong>Consolidación de Documentos</strong>: Se agrupa toda la documentación de soporte necesaria para asegurar la integridad del análisis.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgRAM1.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM1.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
 
                 {/* Step 2 */}
@@ -177,7 +200,7 @@ export default function Contacto() {
                             <li><strong>Fundamentación Técnica</strong>: Los criterios se respaldan en fuentes reconocidas como manuales técnicos y datos históricos.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgRAM2.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM2.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
 
                 {/* Step 3 */}
@@ -201,7 +224,7 @@ export default function Contacto() {
                             <li><strong>Ajuste al Contexto Operativo</strong>: La caracterización considera las condiciones específicas de operación.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgRAM3.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM3.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
 
                 {/* Step 4 */}
@@ -225,7 +248,7 @@ export default function Contacto() {
                             <li><strong>Propuestas de Mejora</strong>: Se plantean alternativas para optimizar la mantenibilidad y el diseño del sistema.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgRAM4.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM4.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
 
@@ -243,7 +266,7 @@ export default function Contacto() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[40vh] md:h-[29vw] w-full md:w-[50vw] bg-[url('../assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100">
+                    <div className="h-[40vh] md:h-[29vw] w-full md:w-[50vw] bg-[url('/assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100">
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>

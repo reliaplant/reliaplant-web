@@ -6,7 +6,7 @@ import Link from "next/link";
 import dynamic from 'next/dynamic';
 import { useRouter, usePathname } from 'next/navigation';
 import { ChevronDown, Close, DecisionNode, Category, ArrowUpRight, Model, Menu } from '@carbon/icons-react';
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactElement } from "react";
 
 // Dynamically import components that might use context
 const AbrirFormContacto = dynamic(() => import('./AbrirFormContacto'), { ssr: false });
@@ -14,6 +14,24 @@ const AbrirFormContacto = dynamic(() => import('./AbrirFormContacto'), { ssr: fa
 interface ConsultingCard {
   title: string;
   link: string;
+}
+
+interface ConsultingCategory {
+  title: string;
+  items: ConsultingCard[];
+}
+
+interface SoftwareItem {
+  title: string;
+  description: string;
+  link: string;
+  icon: ReactElement;
+}
+
+interface Section {
+  id: string;
+  title: string;
+  data: ConsultingCategory[] | SoftwareItem[];
 }
 
 const gestion: ConsultingCard[] = [
@@ -70,17 +88,25 @@ export default function HeaderMovil() {
     };
   }, [menuOpen]);
 
-  const sections = [
-    { id: "servicios", title: "Servicios de Consultoría", data: [
-      { title: "Gestión", items: gestion },
-      { title: "Metodologías de Confiabilidad", items: MejorasEconomicas },
-      { title: "Personal", items: PersonalEspecialista }
-    ]},
-    { id: "software", title: "Software", data: [
-      { title: "RCA", description: "Eliminación de defectos mediante Análisis Causa Raíz", link: "/consultoria/rca", icon: <Category size={24} /> },
-      { title: "RCM", description: "Planes de mantenimiento para equipos críticos y no críticos", link: "/consultoria/rcm", icon: <DecisionNode size={24} /> },
-      { title: "RAM", description: "Análisis de disponibilidad de sistemas complejos", link: "/ram", icon: <Model size={24} /> }
-    ]}
+  const sections: Section[] = [
+    { 
+      id: "servicios", 
+      title: "Servicios de Consultoría", 
+      data: [
+        { title: "Gestión", items: gestion },
+        { title: "Metodologías de Confiabilidad", items: MejorasEconomicas },
+        { title: "Personal", items: PersonalEspecialista }
+      ] as ConsultingCategory[]
+    },
+    { 
+      id: "software", 
+      title: "Software", 
+      data: [
+        { title: "RCA", description: "Eliminación de defectos mediante Análisis Causa Raíz", link: "/consultoria/rca", icon: <Category size={24} /> },
+        { title: "RCM", description: "Planes de mantenimiento para equipos críticos y no críticos", link: "/consultoria/rcm", icon: <DecisionNode size={24} /> },
+        { title: "RAM", description: "Análisis de disponibilidad de sistemas complejos", link: "/ram", icon: <Model size={24} /> }
+      ] as SoftwareItem[]
+    }
   ];
 
   const toggleMenu = () => {
@@ -152,7 +178,7 @@ export default function HeaderMovil() {
                     <div className="p-2 mb-4">
                       {section.id === "servicios" ? (
                         // Servicios de Consultoría content
-                        section.data.map((category, idx) => (
+                        (section.data as ConsultingCategory[]).map((category, idx) => (
                           <div key={idx} className="mb-6">
                             <h3 className="text-lg mb-4 font-bold text-black border-b border-black pb-2 p">{category.title}</h3>
                             <ul className="space-y-3 pl-2">
@@ -173,7 +199,7 @@ export default function HeaderMovil() {
                       ) : (
                         // Software content
                         <div className="space-y-4 mt-2">
-                          {section.data.map((item, idx) => (
+                          {(section.data as SoftwareItem[]).map((item, idx) => (
                             <Link 
                               href={item.link} 
                               key={idx} 

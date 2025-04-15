@@ -8,6 +8,31 @@ export const metadata: Metadata = {
         absolute: "Asesoría Continua en Confiabilidad Industrial | RELIAPLANT",
     },
     description: "Servicio de acompañamiento continuo para la optimización de mantenimiento y confiabilidad, adaptado a tus necesidades cambiantes.",
+    keywords: ["asesoría continua", "consultoría industrial", "confiabilidad", "mantenimiento", "optimización industrial", "reliaplant"],
+    openGraph: {
+        title: "Asesoría Continua en Confiabilidad Industrial | RELIAPLANT",
+        description: "Servicio de acompañamiento continuo para optimización de mantenimiento y confiabilidad industrial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/consultor1.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Asesoría Continua en Confiabilidad'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/asesoria-continua',
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Asesoría Continua en Confiabilidad | RELIAPLANT",
+        description: "Acompañamiento continuo para la optimización de mantenimiento y confiabilidad industrial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/consultor1.jpg',
+            alt: 'Asesoría Continua en Confiabilidad'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/asesoria-continua",
+    },
 }
 
 export default function AsesoriaConstante() {
@@ -40,7 +65,7 @@ export default function AsesoriaConstante() {
                             />
                         </div>
                     </div>
-                    <div className="h-[30vh] md:h-[55vh] w-full bg-[url('../assets/consultor1.jpg')] bg-cover bg-center">
+                    <div className="h-[30vh] md:h-[55vh] w-full bg-[url('/assets/consultor1.jpg')] bg-cover bg-center">
                     </div>
                 </div>
             </div>

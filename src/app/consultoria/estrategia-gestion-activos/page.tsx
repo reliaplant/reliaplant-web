@@ -1,17 +1,46 @@
-'use client';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Estrategia de Gestión de Activos ISO 55000 | Reliaplant",
+  description: "Implementamos sistemas de gestión de activos basados en ISO 55000. Optimice el ciclo de vida de sus activos industriales, reduzca costos y mejore el desempeño organizacional con nuestra consultoría especializada.",
+  keywords: ["ISO 55000", "gestión de activos", "asset management", "consultoría", "ciclo de vida", "mantenimiento industrial", "reliaplant", "confiabilidad"],
+  openGraph: {
+    title: "Estrategia de Gestión de Activos ISO 55000 | Reliaplant",
+    description: "Implementación de sistemas de gestión de activos ISO 55000 para optimizar el desempeño y rentabilidad de sus activos industriales.",
+    images: [{
+      url: 'https://reliaplant-2c104.web.app/assets/bgGestionActivos.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Gestión de Activos ISO 55000'
+    }],
+    type: 'website',
+    url: 'https://reliaplant-2c104.web.app/consultoria/estrategia-gestion-activos',
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Estrategia de Gestión de Activos ISO 55000 | Reliaplant",
+    description: "Consultoría especializada en implementación de sistemas de gestión de activos según ISO 55000. Optimice sus activos industriales.",
+    images: [{
+      url: 'https://reliaplant-2c104.web.app/assets/bgGestionActivos.jpg',
+      alt: 'Gestión de Activos ISO 55000'
+    }],
+  },
+  alternates: {
+    canonical: "https://reliaplant-2c104.web.app/consultoria/estrategia-gestion-activos",
+  }
+};
 
 import { useState } from 'react';
 import { Add, Asset, Category, Headset, Industry, Number_1, Number_2, Number_3, Number_4, Number_5, ArrowRight, CheckmarkOutline, DocumentImport, Document, Loop, SettingsAdjust, GroupResource } from '@carbon/icons-react';
 import Image from 'next/image';
 
 export default function EstrategiaGestionActivosPage() {
-  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="">
       {/* Hero Section */}
       <div className="relative h-[80vh] flex items-end">
-        <div className="absolute inset-0 bg-[url('../assets/bgGestionActivos.jpg')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('/assets/bgGestionActivos.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         <div className="relative z-10 p-[2vw] py-8 text-left w-2/5 bg-white hover:bg-gray90 transition-colors group shadow-xl m-12 top-[40vh]">
@@ -80,7 +109,7 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Description Section */}
-      <div className="relative  h-screen bg-[url('../assets/bgGestionActivos2.jpg')] bg-cover bg-center">
+      <div className="relative  h-screen bg-[url('/assets/bgGestionActivos2.jpg')] bg-cover bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-blue10/20 to-blue20/10"></div>
         <div className="relative z-10 flex flex-col h-full justify-start w-2/5">
 

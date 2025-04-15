@@ -1,12 +1,33 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "PRIVACIDAD",
-    description: "Descripcion sobre ABOUT AECM",
-    robots: {
-        index: false,
-        follow: true
-    }
+    title: "Diagnóstico de la Gestión de Mantenimiento | Evaluación Integral | Reliaplant",
+    description: "Evaluación integral de la gestión de mantenimiento en 15 áreas clave. Identifique oportunidades de mejora, optimice procesos y eleve la confiabilidad de sus activos industriales.",
+    keywords: ["diagnóstico de mantenimiento", "gestión de mantenimiento", "evaluación integral", "confiabilidad", "activos industriales", "optimización", "reliaplant", "consultoría"],
+    openGraph: {
+        title: "Diagnóstico de la Gestión de Mantenimiento | Reliaplant",
+        description: "Evaluación profesional de su sistema de gestión de mantenimiento: procesos, indicadores, planes y estrategias para una mayor confiabilidad operacional.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgDiagnostico.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Diagnóstico de Gestión de Mantenimiento'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/diagnostico-gestion',
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Diagnóstico de la Gestión de Mantenimiento | Reliaplant",
+        description: "Evaluación integral de sistemas de gestión de mantenimiento. 15 áreas clave para optimizar la confiabilidad de sus activos industriales.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgDiagnostico.jpg',
+            alt: 'Diagnóstico de Gestión de Mantenimiento'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/diagnostico-gestion",
+    },
 }
 
 const evaluationData = [
@@ -64,7 +85,7 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className="h-[40vh] md:h-full w-full md:w-[60vw] mt-4 md:mt-0 md:p-16 z-10 bg-[url('../assets/bgDiagnostico.jpg')] bg-cover bg-center">
+                    <div className="h-[40vh] md:h-full w-full md:w-[60vw] mt-4 md:mt-0 md:p-16 z-10 bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
                     </div>
                 </div>
 

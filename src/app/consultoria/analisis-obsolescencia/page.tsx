@@ -6,10 +6,33 @@ import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Conctacto",
+    title: "Análisis de Obsolescencia | Gestión de Mantenimiento | Reliaplant",
+    description: "Servicio especializado de análisis de obsolescencia de equipos industriales. Evaluamos el ciclo de vida de tus activos críticos y desarrollamos estrategias proactivas y reactivas para gestionar la obsolescencia.",
+    keywords: ["análisis de obsolescencia", "gestión de mantenimiento", "ciclo de vida de activos", "obsolescencia industrial", "mantenimiento industrial", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Análisis de Obsolescencia | Reliaplant",
+        description: "Análisis profesional de obsolescencia de equipos industriales: evaluación de riesgos, estrategias proactivas y reactivas para mantener la continuidad operativa.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgObsolescencia.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Análisis de Obsolescencia Industrial'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/analisis-obsolescencia',
     },
-    description: "Desc Contacto",
+    twitter: {
+        card: "summary_large_image",
+        title: "Análisis de Obsolescencia | Reliaplant",
+        description: "Análisis profesional de obsolescencia para equipos industriales. Optimiza la gestión del ciclo de vida de tus activos críticos.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgObsolescencia.jpg',
+            alt: 'Análisis de Obsolescencia Industrial'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/analisis-obsolescencia",
+    },
 }
 
 export default function Contacto() {
@@ -39,7 +62,7 @@ export default function Contacto() {
                             />
                         </div>
                     </div>
-                    <div className="h-[30vh] md:h-full  w-full md:w-[60vw] bg-[url('../assets/bgObsolescencia.jpg')] bg-cover bg-center">
+                    <div className="h-[30vh] md:h-full  w-full md:w-[60vw] bg-[url('/assets/bgObsolescencia.jpg')] bg-cover bg-center">
                     </div>
                 </div>
             </div>
@@ -111,7 +134,7 @@ export default function Contacto() {
 
             <div className="px-4 sm:px-[8vw] py-[2vh] md:py-[4vh] bg-gray10">
                 <div className="h-[50vh] md:h-[100vh] w-[100%] py-4">
-                    <div className="h-full  w-full bg-[url('../assets/bgObsolescencia.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-full  w-full bg-[url('/assets/bgObsolescencia.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
 

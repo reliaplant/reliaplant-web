@@ -5,10 +5,33 @@ import { PiggyBank, Timer } from "lucide-react";
 
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Conctacto",
+    title: "Optimización de Inventario MRO | Gestión de Repuestos | Reliaplant",
+    description: "Servicio especializado de optimización de inventario MRO. Mejora la gestión de repuestos industriales con análisis de criticidad, cálculo del número óptimo y políticas eficientes de almacenamiento.",
+    keywords: ["optimización MRO", "gestión de repuestos", "inventario industrial", "número óptimo de repuestos", "NOR", "min-max inventario", "mantenimiento industrial", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Optimización de Inventario MRO | Reliaplant",
+        description: "Optimización profesional de inventarios industriales: reducción de costos, mayor disponibilidad y gestión eficiente de repuestos críticos.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgMRO.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Optimización de Inventario MRO'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/optimizacion-mro',
     },
-    description: "Desc Contacto",
+    twitter: {
+        card: "summary_large_image",
+        title: "Optimización de Inventario MRO | Reliaplant",
+        description: "Optimización profesional de inventarios industriales y gestión eficiente de repuestos para mantenimiento.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgMRO.jpg',
+            alt: 'Optimización de Inventario MRO'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/optimizacion-mro",
+    },
 }
 
 export default function OptimizacionMRO() {
@@ -42,7 +65,7 @@ export default function OptimizacionMRO() {
                         </div>
                     </div>
                     {/* Imagen */}
-                    <div className="w-full md:w-[60vw] h-64 md:h-full bg-[url('../assets/bgMRO.jpg')] bg-cover bg-center mt-4 md:mt-0"></div>
+                    <div className="w-full md:w-[60vw] h-64 md:h-full bg-[url('/assets/bgMRO.jpg')] bg-cover bg-center mt-4 md:mt-0"></div>
                 </div>
             </div>
 
@@ -283,7 +306,7 @@ export default function OptimizacionMRO() {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <div className="h-[45vh] bg-[url('../assets/optimizacionMRO1.png')] bg-cover bg-center"></div>
+                        <div className="h-[45vh] bg-[url('/assets/optimizacionMRO1.png')] bg-cover bg-center"></div>
                     </div>
                 </div>
             </div>
@@ -332,7 +355,7 @@ export default function OptimizacionMRO() {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <div className="h-[45vh] bg-[url('../assets/optimizacionMRO2.png')] bg-cover bg-center"></div>
+                        <div className="h-[45vh] bg-[url('/assets/optimizacionMRO2.png')] bg-cover bg-center"></div>
                     </div>
                 </div>
             </div>
@@ -383,7 +406,7 @@ export default function OptimizacionMRO() {
                         </p>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <div className="h-[45vh] bg-[url('../assets/optimizacionMRO3.png')] bg-cover bg-center"></div>
+                        <div className="h-[45vh] bg-[url('/assets/optimizacionMRO3.png')] bg-cover bg-center"></div>
                     </div>
                 </div>
             </div>
@@ -403,7 +426,7 @@ export default function OptimizacionMRO() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[30vw] w-[50vw] bg-[url('../assets/consultor1.jpg')] bg-cover bg-center transform -scale-x-100" >
+                    <div className="h-[30vw] w-[50vw] bg-[url('/assets/consultor1.jpg')] bg-cover bg-center transform -scale-x-100" >
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
 
                     </div>

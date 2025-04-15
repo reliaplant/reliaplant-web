@@ -4,10 +4,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import fansblowers from "@/assets/FANSBLOWERS.png";
 import Image from "next/image";
 import { Add, Asset, Category, ChevronDown, Close, DecisionNode, Number_7, Query, Share, Subflow, Warning, ArrowUpRight, Industry, Activity, EventWarning, TransformInstructions, ArrowRight, RequestQuote, SupportVectorMachine, DataAnalytics, Headset, Number_1, Number_2, Number_3, Number_4, QuestionAnswering, Search } from '@carbon/icons-react';
 import { Paperclip } from "lucide-react";
+import fansblowers from "../../../public/assets/FANSBLOWERS.png";
 
 
 
@@ -99,7 +99,7 @@ export default async function BlogPage() {
               </button>
             </div>
           </div>
-          <div className="h-full z-10 w-[60vw] bg-[url('../assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
+          <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
           </div>
         </div>
       </div>

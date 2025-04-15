@@ -1,56 +1,35 @@
 import { MetadataRoute } from "next";
-import path from "path";
-import fs from 'fs';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Get static routes
-  const appDirectory = path.join(process.cwd(), 'src/app');
-  const postsDirectory = path.join(process.cwd(), 'src/posts');
+  const baseUrl = process.env.HOST_URL || 'https://reliaplant.com';
 
-  const getRoutesFromApp = (dir: string): string[] => {
-    const files = fs.readdirSync(dir);
-    const routes: string[] = [];
+  // Rutas de consultoría
+  const consultoriaRoutes = [
+    '/consultoria',
+    '/consultoria/registro-activos',
+    '/consultoria/sistema-indicadores',
+    '/consultoria/diagnostico-gestion',
+    '/consultoria/estrategia-gestion-activos',
+    '/consultoria/manuales-corporativos',
+    '/consultoria/analisis-ram',
+    '/consultoria/analisis-lcc',
+    '/consultoria/analisis-obsolescencia',
+    '/consultoria/asesoria-continua',
+    '/consultoria/capacitacion',
+    '/consultoria/mantenibilidad',
+    '/consultoria/matriz-responsabilidades',
+    '/consultoria/optimizacion-mro',
 
-    files.forEach((file) => {
-      const fullPath = path.join(dir, file);
-      const stat = fs.statSync(fullPath);
+    '/consultoria/rcm',
+    '/consultoria/rca',
+  ];
 
-      if (stat.isDirectory()) {
-        const isDynamicRoute = /\[.*\]/.test(file)
-        if (!isDynamicRoute) {
-          const subFiles = fs.readdirSync(fullPath);
-          const filesWithBrackets = subFiles.filter((subFile) => /\[.*\]/.test(subFile));
-          if (filesWithBrackets.length === 0) {
-            routes.push(file)
-          }
-        } 
-      }
-    });
-    return routes;
-  };
-
-  // Get MD files
-  const getMDRoutes = (dir: string): string[] => {
-    const files = fs.readdirSync(dir);
-    return files
-      .filter(file => file.endsWith('.md'))
-      .map(file => file.replace('.md', ''));
-  };
-
-  const staticRoutes = getRoutesFromApp(appDirectory);
-  const mdRoutes = getMDRoutes(postsDirectory);
-
-  const staticEntries = staticRoutes.map((route): MetadataRoute.Sitemap[0] => ({
-    url: `${process.env.HOST_URL}/${route}`,
-    changeFrequency: 'monthly',
-    priority: 1,
-  }));
-
-  const mdEntries = mdRoutes.map((route): MetadataRoute.Sitemap[0] => ({
-    url: `${process.env.HOST_URL}/blog/${route}`,
+  const consultoriaEntries = consultoriaRoutes.map((route): MetadataRoute.Sitemap[0] => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...mdEntries];
+  return consultoriaEntries;
 }

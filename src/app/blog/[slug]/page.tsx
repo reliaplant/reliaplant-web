@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import reliaplantMini from "@/assets/reliaplantMini.svg";
+import reliaplantMini from "@../../../public/assets/reliaplantMini.svg";
 import remarkGfm from "remark-gfm"; // Already imported, now we'll use it
 
 interface Post {

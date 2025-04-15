@@ -30,10 +30,6 @@ const Sunflowerr = Sunflower({
   weight: "300"
 }); // Nombre corregido
 
-
-
-
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

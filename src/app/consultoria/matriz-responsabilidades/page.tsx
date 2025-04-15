@@ -3,10 +3,33 @@ import { Add, Asset, Category, ChevronDown, Close, DecisionNode, Number_7, Query
 import { Users, Clock, Target, Shield, Award, BookOpen, GraduationCap, ClipboardList, CheckSquare, Table } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Matriz de Responsabilidades, Competencias y Planes de Formación | RELIAPLANT",
-    },
+    title: "Matriz de Responsabilidades | Gestión de Competencias | Reliaplant",
     description: "Creamos el puente entre RH y Mantenimiento para definir competencias, habilidades y responsabilidades del personal técnico, estableciendo una estructura organizacional sostenible.",
+    keywords: ["matriz de responsabilidades", "competencias técnicas", "gestión de mantenimiento", "desarrollo organizacional", "planes de formación", "mantenimiento industrial", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Matriz de Responsabilidades y Competencias | Reliaplant",
+        description: "Definición estructurada de responsabilidades y competencias para organizaciones de mantenimiento de clase mundial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgResponsabilidades.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Matriz de Responsabilidades'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/matriz-responsabilidades',
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Matriz de Responsabilidades y Competencias | Reliaplant",
+        description: "Definición profesional de responsabilidades y competencias para equipos de mantenimiento industrial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgResponsabilidades.jpg',
+            alt: 'Matriz de Responsabilidades'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/matriz-responsabilidades",
+    },
 }
 
 export default function MatrizResponsabilidades() {
@@ -41,11 +64,11 @@ export default function MatrizResponsabilidades() {
                             </button>
                         </div>
                     </div>
-                    <div className="hidden md:block h-full w-full bg-[url('../assets/bgResponsabilidades.jpg')] bg-cover bg-center">
+                    <div className="hidden md:block h-full w-full bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center">
                     </div>
                 </div>
             </div>
-            <div className="h-full w-full bg-[url('../assets/bgResponsabilidades.jpg')] bg-cover bg-center block md:hidden">
+            <div className="h-full w-full bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center block md:hidden">
             </div>
 
             <div className="mt-24 px-4 md:px-16 flex flex-col md:flex-row gap-8">

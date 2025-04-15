@@ -1,7 +1,6 @@
 import logo from "@/assets/logoReliaplant.svg";
 import Image from "next/image";
 import Link from "next/link";
-import BannerHeader from "./bannerHeader";
 import FormularioContacto from "./FormularioContacto";
 import { Add, Asset, Category, ChevronDown, Close, DecisionNode, Number_7, Query, Share, Subflow, Warning, ArrowUpRight, Model } from '@carbon/icons-react';
 import BotonAsesorRCM from "@/app/consultoria/rcm/BotonAsesorRCM";

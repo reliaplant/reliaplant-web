@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { RequestQuote, DataAnalytics, Headset, Certificate, Enterprise } from '@carbon/icons-react';
 import { Users, BookOpen, Clock, Target, Shield, Award, GraduationCap, Layers, CheckSquare, Monitor, Laptop, BookOpen as BookOpenIcon, Star, Calendar, MessageSquare, ArrowRight } from "lucide-react";
 import Image from 'next/image';
-import logoP21 from "@/assets/logo-p21-negro.webp";
+import logoP21 from "@/../../public/assets/logo-p21-negro.webp";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata: Metadata = {
@@ -10,6 +10,31 @@ export const metadata: Metadata = {
         absolute: "Capacitación en Mantenimiento y Confiabilidad | RELIAPLANT",
     },
     description: "Programas de formación profesional para elevar el nivel de tu equipo y alcanzar la excelencia operativa en mantenimiento y confiabilidad industrial.",
+    keywords: ["capacitación mantenimiento", "formación confiabilidad", "entrenamiento industrial", "desarrollo profesional", "gestión de activos", "reliaplant", "predictiva21"],
+    openGraph: {
+        title: "Capacitación en Mantenimiento y Confiabilidad | RELIAPLANT",
+        description: "Programas formativos diseñados para desarrollar las competencias técnicas y transformar la gestión de activos en una ventaja competitiva.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgCapacitacion.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Capacitación en Mantenimiento Industrial'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/capacitacion',
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Capacitación en Mantenimiento y Confiabilidad | RELIAPLANT",
+        description: "Programas formativos para desarrollar competencias técnicas en mantenimiento y confiabilidad industrial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgCapacitacion.jpg',
+            alt: 'Capacitación en Mantenimiento Industrial'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/capacitacion",
+    },
 }
 
 export default function Capacitacion() {
@@ -44,7 +69,7 @@ export default function Capacitacion() {
                             />
                         </div>
                     </div>
-                    <div className="h-[55vh] w-full md:w-[55vw] bg-[url('../assets/bgCapacitacion.jpg')] bg-cover bg-center">
+                    <div className="h-[55vh] w-full md:w-[55vw] bg-[url('/assets/bgCapacitacion.jpg')] bg-cover bg-center">
                     </div>
                 </div>
                 <div className="mt-6 md:mt-12 bg-blue10 p-4 md:p-6 flex flex-col md:flex-row items-center">
@@ -213,7 +238,7 @@ export default function Capacitacion() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-1/2 h-[30vh] md:h-[60vh] bg-[url('../assets/bgCapacitacion2.webp')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="w-full md:w-1/2 h-[30vh] md:h-[60vh] bg-[url('/assets/bgCapacitacion2.webp')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
 

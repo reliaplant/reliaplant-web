@@ -4,10 +4,33 @@ import { MdMoney, MdScience } from "react-icons/md";
 import { Binoculars, Compass } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Conctacto",
+    title: "Registro de Activos en CMMS | Gestión de Mantenimiento | Reliaplant",
+    description: "Servicio especializado de construcción del registro de activos en CMMS. Optimiza la gestión de mantenimiento con estructuras organizadas, taxonomía adecuada y datos maestros completos para cada activo industrial.",
+    keywords: ["registro de activos", "CMMS", "gestión de mantenimiento", "asset register", "taxonomía de activos", "datos maestros", "mantenimiento industrial", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Registro de Activos en CMMS | Reliaplant",
+        description: "Construcción del registro de activos para mantenimiento de clase mundial: estructura organizada, facilidad para análisis y gestión eficiente por criticidad.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgAssetRegister.png',
+            width: 1200,
+            height: 630,
+            alt: 'Registro de Activos en CMMS'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/registro-activos',
     },
-    description: "Desc Contacto",
+    twitter: {
+        card: "summary_large_image",
+        title: "Registro de Activos en CMMS | Reliaplant",
+        description: "Construcción profesional del registro de activos para sistemas CMMS. Mejora la confiabilidad y eficiencia del mantenimiento industrial.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgAssetRegister.png',
+            alt: 'Registro de Activos en CMMS'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/registro-activos",
+    },
 }
 
 export default function Contacto() {
@@ -41,7 +64,7 @@ export default function Contacto() {
                         </div>
                     </div>
                     {/* Imagen */}
-                    <div className="h-64 md:h-full z-10 w-full md:w-[60vw] bg-[url('../assets/bgAssetRegister.png')] bg-cover bg-center">
+                    <div className="h-64 md:h-full z-10 w-full md:w-[60vw] bg-[url('/assets/bgAssetRegister.png')] bg-cover bg-center">
                     </div>
                 </div>
             </div>
@@ -146,7 +169,7 @@ export default function Contacto() {
                             </ul>
                         </div>
                     </div>
-                    <div className="w-full md:w-1/2 h-48 md:h-[45vh] z-10 bg-[url('../assets/redlinesDTI.png')] bg-contain bg-center bg-no-repeat"></div>
+                    <div className="w-full md:w-1/2 h-48 md:h-[45vh] z-10 bg-[url('/assets/redlinesDTI.png')] bg-contain bg-center bg-no-repeat"></div>
                 </div>
             </div>
 
@@ -174,7 +197,7 @@ export default function Contacto() {
                             </ul>
                         </div>
                     </div>
-                    <div className="w-full md:w-1/2 h-48 md:h-auto z-10 bg-[url('../assets/pegandotag.jpeg')] bg-contain bg-center bg-no-repeat"></div>
+                    <div className="w-full md:w-1/2 h-48 md:h-auto z-10 bg-[url('/assets/pegandotag.jpeg')] bg-contain bg-center bg-no-repeat"></div>
                 </div>
             </div>
 
@@ -199,7 +222,7 @@ export default function Contacto() {
                             </ul>
                         </div>
                     </div>
-                    <div className="w-full md:w-1/2 h-48 md:h-auto z-10 bg-[url('../assets/bgAssetRegister.png')] bg-contain bg-center bg-no-repeat"></div>
+                    <div className="w-full md:w-1/2 h-48 md:h-auto z-10 bg-[url('/assets/bgAssetRegister.png')] bg-contain bg-center bg-no-repeat"></div>
                 </div>
             </div>
 
@@ -216,7 +239,7 @@ export default function Contacto() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-64 md:h-[29vw] z-10 w-full md:w-[50vw] bg-[url('../assets/consultor2.jpg')] bg-cover bg-center transform md:-scale-x-100">
+                    <div className="h-64 md:h-[29vw] z-10 w-full md:w-[50vw] bg-[url('/assets/consultor2.jpg')] bg-cover bg-center transform md:-scale-x-100">
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ export default function Home() {
                         </button>
                     </div>
                 </div>
-                <div className="h-full w-[50vw] bg-[url('../assets/bgRAM.png')] bg-cover bg-center">
+                <div className="h-full w-[50vw] bg-[url('/assets/bgRAM.png')] bg-cover bg-center">
                     <div className="bg-gradient-to-r from-white to-transparent h-full"></div>
                 </div>
             </div>
@@ -266,7 +266,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="bg-[url('../assets/consultor1.jpg')] bg-cover bg-center rounded">
+                    <div className="bg-[url('/assets/consultor1.jpg')] bg-cover bg-center rounded">
                         {/* Imagen de consultor o equipo trabajando */}
                     </div>
                 </div>
@@ -326,7 +326,7 @@ export default function Home() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[29vw] z-10 w-[50vw] bg-[url('../assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100">
+                    <div className="h-[29vw] z-10 w-[50vw] bg-[url('/assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100">
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>

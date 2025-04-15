@@ -3,11 +3,34 @@ import { DocumentAdd, DocumentView, DocumentImport, RequestQuote, Template, Flow
 import { BookOpen, FileText, ClipboardCheck, Users, Layers, Settings, Check, BookCopy, Library, FileSearch, Award, ScrollText, BarChart2, ShieldCheck, UserCog, Workflow } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: {
-        absolute: "Manuales Corporativos y Procedimientos de Mantenimiento | RELIAPLANT",
+    title: "Manuales Corporativos y Procedimientos de Mantenimiento | Reliaplant",
+    description: "Desarrollo profesional de documentación técnica y manuales corporativos para mantenimiento industrial. Estandariza procesos, preserva conocimiento y optimiza la gestión de activos.",
+    keywords: ["manuales corporativos", "procedimientos de mantenimiento", "documentación técnica", "gestión de activos", "estandarización de procesos", "ISO 55000", "reliaplant", "confiabilidad"],
+    openGraph: {
+        title: "Manuales Corporativos y Procedimientos de Mantenimiento | Reliaplant",
+        description: "Documentación técnica estructurada que estandariza procesos y consolida las mejores prácticas para garantizar la excelencia operativa en mantenimiento.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgProcedimientos2.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Manuales Corporativos y Procedimientos'
+        }],
+        type: 'website',
+        url: 'https://reliaplant-2c104.web.app/consultoria/manuales-corporativos',
     },
-    description: "Desarrollo de documentación técnica estandarizada para optimizar los procesos de mantenimiento y confiabilidad en tu organización.",
-}
+    twitter: {
+        card: "summary_large_image",
+        title: "Manuales Corporativos y Procedimientos de Mantenimiento | Reliaplant",
+        description: "Desarrollo de documentación técnica estandarizada para optimizar los procesos de mantenimiento y confiabilidad en tu organización.",
+        images: [{
+            url: 'https://reliaplant-2c104.web.app/assets/bgProcedimientos2.jpg',
+            alt: 'Manuales Corporativos y Procedimientos'
+        }],
+    },
+    alternates: {
+        canonical: "https://reliaplant-2c104.web.app/consultoria/manuales-corporativos",
+    },
+};
 
 export default function ManualesCorporativos() {
     return (
@@ -36,7 +59,7 @@ export default function ManualesCorporativos() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[30vh] md:h-full z-10 w-full md:w-[55vw] bg-[url('../assets/bgProcedimientos2.jpg')] bg-cover bg-center">
+                    <div className="h-[30vh] md:h-full z-10 w-full md:w-[55vw] bg-[url('/assets/bgProcedimientos2.jpg')] bg-cover bg-center">
                     </div>
                 </div>
             </div>

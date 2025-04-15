@@ -6,15 +6,13 @@ import Image from 'next/image';
 // Image imports
 import turbocompresor from "@/assets/tubocompresorSinFondo.png";
 import fondoPlataforma from "@/assets/FondoPlataforma.webp";
-import pegandotag from "@/assets/pegandotag.jpeg";
+import pegandotag from "../../public/assets/pegandotag.jpeg";
 import pozo from "@/assets/pozo.jpg";
 import flare from "@/assets/flare.jpg";
-import fansblowers from "@/assets/FANSBLOWERS.png";
 import planta from "@/assets/planta.jpg";
 import back3 from "@/assets/back3.webp";
 
 // Component imports
-import ModeloConfiabilidad2 from "./ModeloConfiabilidad2";
 import EquiposPlanta from "./equiposplanta";
 
 export default function Industrias() {

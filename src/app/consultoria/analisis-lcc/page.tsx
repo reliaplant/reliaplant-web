@@ -39,7 +39,7 @@ export default function Contacto() {
                         />
                         </div>
                     </div>
-                    <div className="w-full md:w-[60vw] h-[30vh] md:h-[55vh] bg-[url('../assets/bgLCC1.png')] bg-contain bg-no-repeat bg-center" >
+                    <div className="w-full md:w-[60vw] h-[30vh] md:h-[55vh] bg-[url('/assets/bgLCC1.png')] bg-contain bg-no-repeat bg-center" >
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ export default function Contacto() {
                             <li>Evaluar el impacto de diferentes estrategias de mantenimiento en la disponibilidad.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgRAM.png')] bg-cover bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center"></div>
                 </div>
             </div>
 
@@ -166,7 +166,7 @@ export default function Contacto() {
                             <li>Evaluación del impacto económico (lucro cesante) debido a paradas programadas y no programadas.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgLCC3.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC3.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@ export default function Contacto() {
                             <li>Estudio de sensibilidad que considera los costos acumulados y los beneficios económicos de cada alternativa.</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgLCC2.png')] bg-contain bg-no-repeat bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC2.png')] bg-contain bg-no-repeat bg-center"></div>
                 </div>
             </div>
 
@@ -218,7 +218,7 @@ export default function Contacto() {
                             <li>Parámetros económicos: TIR (Tasa Interna de Retorno), VPN (Valor Presente Neto) y CAE (Costo Anual Equivalente).</li>
                         </ul>
                     </div>
-                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('../assets/bgLCC.jpg')] bg-cover bg-center"></div>
+                    <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC.jpg')] bg-cover bg-center"></div>
                 </div>
             </div>
             {/* <div className="px-[4vw] bg-gradient-to-l from-blue60 to-gray10 ">
@@ -236,7 +236,7 @@ export default function Contacto() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-[29vw]  w-[50vw] bg-[url('../assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100" >
+                    <div className="h-[29vw]  w-[50vw] bg-[url('/assets/consultor2.jpg')] bg-cover bg-center transform -scale-x-100" >
                         <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
                     </div>
                 </div>
