@@ -31,7 +31,7 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps & { buttonColor?: strin
         <>
             <div className='flex flex-row w-full z-[9999]'>
                 <div className={`${desktopClass} w-full`} onClick={() => setShowModal(true)}>
-                    <button className={`w-full ${desktopClass} py-3 px-4 font-light text-base md:text-[1.1rem] flex flex-row items-center justify-center md:justify-start gap-4 md:gap-8 ${buttonColor}`}>
+                    <button className={`w-full ${desktopClass} py-3 px-4 font-light text-base md:text-sm flex flex-row items-center justify-center md:justify-start gap-4 md:gap-8 ${buttonColor}`}>
                         <span className={textColor}>{buttonText}</span>
                         {icon !== 'none' && icon}
                     </button>

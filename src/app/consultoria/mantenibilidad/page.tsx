@@ -36,24 +36,26 @@ export const metadata: Metadata = {
 export default function MantenibilidadPage() {
     return (
         <div>
-            <div className='px-[4vw]'>
-                <div className="relative h-[55vh] flex items-center justify-start ">
-                    {/* Contenido */}
-                    <div className="relative z-10 text-whites w-[40vw] h-full bg-gray10 p-8 px-12 flex flex-col justify-between">
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                    {/* Texto */}
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flw-row">
-                                <span className="text-blue60 font-light">
-                                    <a href="/" className="text-blue60 hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
-                                    <a href="/consultoria" className="text-blue60 hover:underline">Consultoria</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
                                     Análisis de Mantenibilidad
                                 </span>
                             </div>
-                            <h1 className="text-6xl font-light text-black">Análisis de Mantenibilidad (MHA)</h1>
-                            <div className='mt-8 text-[1.15vw] leading-[136%]'>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                Análisis de Mantenibilidad (MHA)
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
                                 La mantenibilidad de tus activos industriales se convierte en un factor crítico para garantizar la continuidad operacional y la rentabilidad de tus instalaciones. Combinamos metodologías avanzadas de Análisis de Mantenibilidad y Manejo Mecánico (MHA) con un enfoque sistemático desde el diseño conceptual hasta la operación diaria.
                             </div>
                         </div>
-                        <div>
+                        <div className="mt-8 md:mt-6">
                             <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90">
                                 <span>
                                     Solicita una cotización
@@ -62,7 +64,9 @@ export default function MantenibilidadPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
+                    {/* Imagen */}
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                     </div>
                 </div>
             </div>

@@ -36,44 +36,46 @@ export default function MatrizResponsabilidades() {
     return (
         <div>
             {/* Wrapper actualizado para móvil */}
-            <div className="px-4 md:pl-8">
-                <div className="relative h-[55vh] flex flex-col md:flex-row items-center justify-start">
-                    {/* Contenido */}
-                    <div className="relative text-whites w-full md:w-2/5 h-full bg-gray10 p-4 md:p-8 md:px-12 flex flex-col justify-between">
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                    {/* Texto */}
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flex-row">
-                                <span className="text-blue60 font-light">
-                                    <a href="/" className="text-blue60 hover:underline">Inicio</a>
-                                    <span className="mx-2 text-gray60">{'/'}</span>
-                                    <a href="/consultoria" className="text-blue60 hover:underline">Consultoria</a>
-                                    <span className="mx-2 text-gray60">{'/'}</span>
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
                                     Matriz de Responsabilidades
                                 </span>
                             </div>
-                            <h1 className="text-3xl md:text-6xl font-light text-black">Definición de responsabilidades y competencias</h1>
-                            <div className="mt-8 text-lg leading-[136%]">
+                            <h1 className="">
+                                Definición de responsabilidades y competencias
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
                                 Creamos el puente entre Recursos Humanos y el área de Mantenimiento para definir perfiles técnicos que especifiquen responsabilidades, habilidades y competencias, estableciendo una estructura organizacional de mantenimiento sostenible en el tiempo.
                             </div>
                         </div>
-                        <div>
-                            <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90">
-                                <span>
-                                    Solicita una cotización
-                                </span>
+                        <div className="mt-8 md:mt-6">
+                            <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90 px-6 py-3">
+                                <span>Solicita una cotización</span>
                                 <RequestQuote size={20} className="text-white" />
                             </button>
                         </div>
                     </div>
-                    <div className="hidden md:block h-full w-full bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center">
+                    {/* Imagen */}
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                     </div>
                 </div>
             </div>
             <div className="h-full w-full bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center block md:hidden">
             </div>
 
-            <div className="mt-24 px-4 md:px-16 flex flex-col md:flex-row gap-8">
+            <div className="px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] py-8 md:py-12 flex flex-col md:flex-row gap-8">
+
                 <div className="w-full md:w-full">
-                    <h3 className="text-6xl font-light">La base técnica para una organización de clase mundial</h3>
+                    <h2 className="text-2xl md:text-4xl font-light mb-8">La base técnica para una organización de clase mundial</h2>
+
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-8">
                         <div className="border p-6 flex flex-col justify-between h-[30vh]">
                             <div className="flex flex-col">
@@ -81,7 +83,7 @@ export default function MatrizResponsabilidades() {
                                 <span className="text-gray60 mt-4">Establecemos con claridad qué hace cada rol, delimitando alcances de gestión, autoridad y rendición de cuentas para cada posición en el área de mantenimiento.</span>
                             </div>
                             <div>
-                                <ClipboardList size={48} className="text-blue60" />
+                                <ClipboardList size={36} className="text-blue60" />
                             </div>
                         </div>
                         <div className="border p-6 flex flex-col justify-between h-[30vh]">
@@ -90,7 +92,7 @@ export default function MatrizResponsabilidades() {
                                 <span className="text-gray60 mt-4">Identificamos los conocimientos específicos requeridos para cada posición, desde habilidades técnicas hasta dominios metodológicos de confiabilidad y mantenimiento.</span>
                             </div>
                             <div>
-                                <CheckSquare size={48} className="text-blue60" />
+                                <CheckSquare size={36} className="text-blue60" />
                             </div>
                         </div>
                         <div className="border p-6 flex flex-col justify-between h-[30vh]">
@@ -99,7 +101,7 @@ export default function MatrizResponsabilidades() {
                                 <span className="text-gray60 mt-4">Desarrollamos itinerarios formativos personalizados que cierran la brecha entre las competencias actuales y las requeridas para un desempeño óptimo.</span>
                             </div>
                             <div>
-                                <GraduationCap size={48} className="text-blue60" />
+                                <GraduationCap size={36} className="text-blue60" />
                             </div>
                         </div>
                         <div className="border p-6 flex flex-col justify-between h-[30vh]">
@@ -108,7 +110,7 @@ export default function MatrizResponsabilidades() {
                                 <span className="text-gray60 mt-4">Alineamos la matriz con los sistemas CMMS y RH para asegurar que la asignación de trabajos considera las competencias certificadas del personal.</span>
                             </div>
                             <div>
-                                <Table size={48} className="text-blue60" />
+                                <Table size={36} className="text-blue60" />
                             </div>
                         </div>
                     </div>

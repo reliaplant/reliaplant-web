@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add the @layer directive right after the Tailwind imports */
+@layer base {
+
+}
+
 .bgIA {
   background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
   box-shadow: 0 12px 36px #d0e2ff;
@@ -116,307 +121,200 @@
   font-family: var(--font-big-shoulders) !important;
 }
 
-.font-ZenDots{
-  font-family: var(--font-zen-dots) !important;
+.font-ZenDots{  font-family: var(--font-zen-dots) !important;}
+
+/* Clear heading styles - remove any existing @layer or previous styles */
+
+/* HEADING STYLES - RESPONSIVE AND CONSISTENT */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem ;
+  color: #2c3e50 ;
+  line-height: 1.25 ;
 }
 
-:root{
-
-    --black-a90: rgb(0 0 0/.9);
-    --color-text: var(--black-a90);
-  
-    --font-weight-regular: 400;
-    --font-weight-bold: 600;
-  
-    --line-height-default: 1.25;
-    --line-height-open: 1.5;
-  
-    --font-size-small: 1rem;
-    --font-size-medium: 1.1rem;
-    --font-size-large: 1.3rem;
-    --font-size-xlarge: 1.5rem;
-}
-
-/* Estilos para los títulos */
-h1, h2, h3, h4, h5, h6, p {
-    color: #2c3e50;
-    /* margin-bottom: 1.5rem; */
-}
-
+/* h1 styles */
 h1 {
-    font-size: 2rem;
-    font-weight: bold;
+  font-size: 1.875rem ; /* 30px */
+  font-weight: 400 ;
 }
 
+/* h2 styles */
 h2 {
-    font-size: 1.7rem;
-    font-weight: bold;
+  font-size: 1.5rem ; /* 24px */
+  margin-bottom: 2.4rem;
 }
 
+/* h3 styles */
 h3 {
-    font-size: 1.5rem;
-    font-weight: normal;
+  font-size: 1.1rem ; /* 16px */
 }
 
+/* h4 styles */
 h4 {
-    font-size: 1.3rem;
-    font-weight: bold;
+  font-size: 1rem ; /* 16px */
+  font-weight: 500 ;
 }
 
+/* h5 styles */
 h5 {
-    font-size: 1.1rem;
-    font-weight: bold;
+  font-size: 1rem ; /* 16px */
+  font-weight: 500 ;
+
 }
 
+/* h6 styles */
 h6 {
-    font-size: 1.1rem;
-    font-weight: bold;
+  font-size: 0.875rem ; /* 14px */
+  font-weight: 600 ;
 }
 
-strong {
-    font-weight: 700 !important;
+/* RESPONSIVE BREAKPOINTS */
+/* sm breakpoint (640px and up) */
+@media (min-width: 640px) {
+  h1 { font-size: 2rem ; } /* 32px */
+  h2 { font-size: 1.625rem ; } /* Increased slightly from base */
+  h3 { font-size: 1.225rem ; } /* 17px */
+  h4 { font-size: 1.0625rem ; } /* 17px */
+  h5 { font-size: 1.0625rem ; } /* 17px */
+  h6 { font-size: 0.875rem ; } /* 14px */
 }
 
-/* Estilos para los párrafos */
+/* md breakpoint (768px and up) */
+@media (min-width: 768px) {
+  h1 { font-size: 2.5rem ; } /* 40px */
+  h2 { font-size: 1.875rem ; } /* Reduced from 2.25rem to 1.875rem (30px) */
+  h3 { font-size: 1.25rem ; } /* 18px */
+  h4 { font-size: 1.125rem ; } /* 18px */
+  h5 { font-size: 1.125rem ; } /* 18px */
+  h6 { font-size: 1rem ; } /* 16px */
+}
+
+/* lg breakpoint (1024px and up) */
+@media (min-width: 1024px) {
+  h1 { font-size: 3rem ; } /* Reduced from 3.25rem to 3rem (48px) */
+  h2 { font-size: 2.125rem ; } /* Significantly reduced from 2.5rem to 2.125rem (34px) */
+  h3 { font-size: 1.45rem ; } /* 20px */
+  h4 { font-size: 1.25rem ; } /* 20px */
+  h5 { font-size: 1.25rem ; } /* 20px */
+  h6 { font-size: 1.0625rem ; } /* Reduced from 1.125rem to 1.0625rem (17px) */
+}
+
+/* TEXT ELEMENTS - RESPONSIVE AND CONSISTENT */
 p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.4;
+  font-size: 1rem ; /* 16px */
+  line-height: 1.5 ;
+  margin-bottom: 1rem ;
+  font-weight: 400 ;
+  color: #333 ;
 }
 
-/* Estilos para listas */
 ul, ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
+  padding-left: 1.5rem ;
+  margin-bottom: 1.5rem ;
+  line-height: 1.5 ;
 }
 
-ul li, ol li {
-    margin-bottom: 0.5rem;
+li {
+  font-size: 1rem ;
+  margin-bottom: 0.5rem ;
+  color: #333 ;
 }
 
-/* Estilos para los enlaces */
-a {
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+blockquote {
+  font-size: 1rem ;
+  font-style: italic ;
+  border-left: 4px solid #e2e8f0 ;
+  padding-left: 1rem ;
+  margin: 1.5rem 0 1.5rem 0 ;
+  color: #4a5568 ;
 }
 
-a:hover {
-    text-decoration: underline;
-    transition: 1s;
+code, pre {
+  font-family: monospace ;
+  font-size: 0.9375rem ; /* 15px */
+  background-color: #f7fafc ;
+  border-radius: 3px ;
 }
 
-/* Estilos para las tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
+pre {
+  padding: 1rem ;
+  margin: 1.5rem 0 ;
+  overflow-x: auto ;
 }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+code {
+  padding: 0.2rem 0.4rem ;
 }
 
-th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-}
-
-/* Estilos para las listas de definiciones */
-dl {
-    margin-bottom: 1.5rem;
-}
-
-dt {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-dd {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Estilos para botones */
-button {
-    /* background-color:  #0f62fe; */
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    /* background-color: black; */
-}
-
-
-
-/* Estilos para imágenes */
-/* img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 1.5rem;
-} */
-
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    h4 {
-        font-size: 1.25rem;
-    }
-
-    h5 {
-        font-size: 1rem;
-    }
-
-    h6 {
-        font-size: 0.875rem;
-    }
-}
-
-.grecaptcha-badge {
-    visibility: hidden !important;
-}
-
-/* ScrollToTop.css */
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: #17a9f5;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease-in-out;
+/* RESPONSIVE BREAKPOINTS FOR TEXT ELEMENTS */
+/* sm breakpoint (640px and up) */
+@media (min-width: 640px) {
+  p, li { 
+    font-size: 1.0625rem !important; /* 17px */
   }
   
-  .scroll-to-top:hover {
-    background-color: #0684c8;
+  blockquote {
+    font-size: 1.0625rem !important; /* 17px */
   }
   
-  .scroll-to-top.hidden {
-    opacity: 0;
-    pointer-events: none;
+  code, pre {
+    font-size: 1rem !important; /* 16px */
   }
-  
-  
-/* QUILL */
+}
 
+/* md breakpoint (768px and up) */
+@media (min-width: 768px) {
+  p, li { 
+    font-size: 1.125rem !important; /* 18px */
+  }
+  
+  blockquote {
+    font-size: 1.125rem !important; /* 18px */
+    padding-left: 1.25rem !important;
+  }
+  
+  code, pre {
+    font-size: 1.0625rem !important; /* 17px */
+  }
+}
 
-.ql-editor {
-    font-family:  Helvetica, Arial, sans-serif !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  } 
-  
-  .ql-editor p{
-    color: var(--color-text) !important;
-    font-size: var(--font-size-medium) !important;
-    line-height: var(--line-height-open) !important;;
-    margin: 1.6rem 0rem !important;
+/* lg breakpoint (1024px and up) */
+@media (min-width: 1024px) {
+  p, li { 
+    font-size: 1.125rem !important; /* Keep at 18px */
+    line-height: 1.6 !important; /* Slightly increase line height for better readability */
   }
   
-  .ql-editor figure{
-    text-align: center;
-    margin: 1.6rem 0rem !important;
+  blockquote {
+    font-size: 1.25rem !important; /* 20px */
+    padding-left: 1.5rem !important;
   }
   
-  .ql-editor a{
-    font-size: var(--font-size-medium) !important;;
+  code, pre {
+    font-size: 1.0625rem !important; /* Keep at 17px */
   }
-  
-  .ql-editor li{
-    color: var(--color-text) !important;;
-    font-size: var(--font-size-medium) !important;
-    margin: 1rem 0rem !important;;
-  }
-  
-  .ql-editor h2{
-    font-size: var(--font-size-xlarge) !important;
-    font-weight: var(--font-weight-bold)!important;
-    margin: 1.6rem 0rem !important;
-    line-height: var(--line-height-default) !important;
-  }
-  .ql-editor h3 {
-    font-size: var(--font-size-large) !important;
-    font-weight: var(--font-weight-bold) !important;
-    margin: 1.6rem 0rem !important;
-    line-height: var(--line-height-default) !important;
-  }
-  
-  @media (min-width: 768px) {
-    .ql-editor h3 {
-      margin-top: 2.8rem !important; /* Aumenta el margen superior en pantallas grandes */
-    }
-    .ql-editor h2 {
-      margin-top: 2.8rem !important; /* Aumenta el margen superior en pantallas grandes */
-    }
-  }
-  
-  .ql-editor blockquote{
-    color: var(--color-text) !important;;
-    font-size: var(--font-size-small) !important;
-    line-height: var(--line-height-open) !important;
-    margin: 1.1rem 2.4rem !important;
-  
-  }
-  
-  .ql-editor img{
-    object-fit: contain !important;
-  }
-  
-  .ql-editor p span,
-  .ql-editor h2 span,
-  .ql-editor h3 span,
-  .ql-editor blockquote span {
-    color: inherit !important;
-    font-size: inherit !important;
-    line-height: inherit !important;
-  }
+}
 
-  /* INDICE */
+.contentSection {
+  padding: 2rem 1rem !important; /* py-8 px-4 */
+}
 
-  .toc {
-    position: fixed; /* Fijar la tabla de contenido en su posición */
-    top: 64px; /* Ajusta este valor según la altura de tu encabezado sticky */
-    left: 0px; /* Ajusta la posición horizontal si es necesario */
-    width: 23%; /* Ancho fijo para la tabla de contenido */
-    height: calc(100vh - 50px); /* Altura total de la vista menos el espacio reservado */
-    overflow-y: auto; /* Scroll vertical si el contenido excede la altura */
-    box-shadow: 5px 0px 5px -5px rgba(0, 0, 0, 0.1); /* Sombra solo a la derecha */
-    z-index: 0;
-    }
-    
-    .sticky {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: white;
-    }
+@media (min-width: 640px) {
+  .contentSection {
+    padding-left: 1.5rem !important; /* sm:px-6 */
+    padding-right: 1.5rem !important;
+  }
+}
 
+@media (min-width: 768px) {
+  .contentSection {
+    padding: 3rem 3vw !important; /* md:py-12 md:px-[3vw] */
+  }
+}
 
-
+@media (min-width: 1024px) {
+  .contentSection {
+    padding-left: 5vw !important; /* lg:px-[5vw] */
+    padding-right: 5vw !important;
+  }
+}

@@ -38,36 +38,40 @@ export default function Contacto() {
     return (
         <div>
             {/* Hero Section */}
-            <div className='px-[4vw] sm:px-[4vw]'>
-                <div className="relative min-h-[60vh] md:h-[55vh] flex flex-col md:flex-row items-start md:items-center justify-start">
-                    {/* Content */}
-                    <div className="relative text-whites w-full md:w-[50vw] lg:w-[40vw] h-full bg-gray10 p-4 sm:p-6 md:p-8 md:px-12 flex flex-col justify-between">
+            {/* Header */}
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                    {/* Texto */}
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flex-row text-sm md:text-base">
-                                <span className="text-blue60 font-light">
-                                    <a href="/" className="hidden sm:inline hover:underline">Inicio</a>
-                                    <span className="hidden sm:inline mx-2 text-gray60">{'/'}</span>
-                                    <a href="/consultoria" className="hover:underline">Consultoria</a>
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a>
                                     <span className="mx-2 text-gray60">{'/'}</span>
-                                    <span>Análisis RAM</span>
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a>
+                                    <span className="mx-2 text-gray60">{'/'}</span>
+                                    Análisis RAM
                                 </span>
                             </div>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mt-4">Análisis RAM</h1>
-                            <div className='mt-4 md:mt-8 text-base sm:text-lg md:text-xl lg:text-[1.15vw] leading-relaxed md:leading-[136%]'>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                Análisis RAM
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
                                 Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez
                                 de la organización y la fase en la que se encuentra.
                             </div>
                         </div>
-                        <div className="mt-6">
+                        <div className="mt-8 md:mt-6">
                             <AbrirFormContacto
                                 buttonText="Habla con un especialista"
-                                // icon={null}
                                 icon={<Headset size={20} className="text-white" />}
                                 buttonColor="bg-gray90"
                             />
                         </div>
                     </div>
-                    <div className="h-[40vh] md:h-full w-full md:w-[50vw] lg:w-[60vw] mt-4 md:mt-0 bg-[url('/assets/bgRAM.png')] bg-cover bg-center">
+                    {/* Imagen */}
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgRAM.png')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                     </div>
                 </div>
             </div>

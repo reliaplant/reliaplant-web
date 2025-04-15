@@ -38,26 +38,29 @@ export default function OptimizacionMRO() {
     return (
 
         <div>
-            <div className='px-[4vw]'>
-                <div className="relative flex flex-col md:flex-row items-center justify-start h-auto md:h-[55vh]">
+            {/* Header */}
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
                     {/* Texto */}
-                    <div className="relative w-full md:w-[40vw] h-auto md:h-full bg-gray10 p-8 px-12 flex flex-col justify-between">
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flex-row">
-                                <span className="text-blue60 font-light">
-                                    <a href="/" className="text-blue60 hover:underline">Inicio</a>
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a>
                                     <span className="mx-2 text-gray60">{'/'}</span>
-                                    <a href="/consultoria" className="text-blue60 hover:underline">Consultoria</a>
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a>
                                     <span className="mx-2 text-gray60">{'/'}</span>
-                                    <a href="/consultoria/analisis-ram" className="text-blue60 hover:underline">Análisis RAM</a>
+                                    Optimización de Inventario
                                 </span>
                             </div>
-                            <h1 className="mt-4 text-4xl md:text-6xl font-light text-black">Optimización de Inventario</h1>
-                            <div className="mt-4 text-base md:text-lg leading-[136%]">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                Optimización de Inventario
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
                                 La gestión del inventario de partes y repuestos es un pilar esencial para la rentabilidad de tu negocio. Nuestros expertos, respaldados por herramientas informáticas y metodologías probadas, están listos para acompañarte en el diseño de soluciones personalizadas que se ajusten a tus necesidades específicas.
                             </div>
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-8 md:mt-6">
                             <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 bg-gray90 p-2">
                                 <span>Solicita una cotización</span>
                                 <RequestQuote size={20} className="text-white" />
@@ -65,7 +68,9 @@ export default function OptimizacionMRO() {
                         </div>
                     </div>
                     {/* Imagen */}
-                    <div className="w-full md:w-[60vw] h-64 md:h-full bg-[url('/assets/bgMRO.jpg')] bg-cover bg-center mt-4 md:mt-0"></div>
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgMRO.jpg')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+                    </div>
                 </div>
             </div>
 

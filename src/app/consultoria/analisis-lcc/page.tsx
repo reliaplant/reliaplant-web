@@ -14,32 +14,38 @@ export const metadata: Metadata = {
 export default function Contacto() {
     return (
         <div>
-            <div className='px-[4vw]'>
-                {/* Hero section - made responsive */}
-                <div className="relative flex flex-col md:flex-row items-center justify-start md:gap-8">
-                    {/* Contenido */}
-                    <div className="relative text-whites w-full md:w-[40vw] min-h-[50vh] md:h-full bg-gray10 p-4 md:p-8 md:px-12 flex flex-col justify-between">
+            {/* Header */}
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                    {/* Texto */}
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flex-row text-sm md:text-base">
-                                <span className="text-blue60 font-light">
-                                    <a href="/">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> <a href="/consultoria">Consultoria</a> <span className="mx-2 text-gray60">{'/'}</span> RUL y LCC
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    RUL y LCC
                                 </span>
                             </div>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black">Vida Útil Remanente y Análisis de Costo de Ciclo de Vida</h1>
-                            <div className='mt-4 md:mt-8 text-base md:text-lg lg:text-xl leading-relaxed md:leading-[136%]'>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                Vida Útil Remanente y Análisis de Costo de Ciclo de Vida
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
                                 La Vida Útil Remanente (RUL) estima el tiempo restante durante el cual un activo puede operar 
                                 de forma segura, eficiente y económica antes de requerir su retiro.
                             </div>
-                         </div>
-                        <div className="mt-6">
-                        <AbrirFormContacto
-                            buttonText="Habla con un especialista"
-                            icon={<Headset size={20} className="text-white" />}
-                            buttonColor="bg-gray90"
-                        />
+                        </div>
+                        <div className="mt-8 md:mt-6">
+                            <AbrirFormContacto
+                                buttonText="Habla con un especialista"
+                                icon={<Headset size={20} className="text-white" />}
+                                buttonColor="bg-gray90"
+                            />
                         </div>
                     </div>
-                    <div className="w-full md:w-[60vw] h-[30vh] md:h-[55vh] bg-[url('/assets/bgLCC1.png')] bg-contain bg-no-repeat bg-center" >
+                    {/* Imagen */}
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgLCC1.png')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                     </div>
                 </div>
             </div>

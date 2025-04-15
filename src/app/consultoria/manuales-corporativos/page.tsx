@@ -35,34 +35,39 @@ export const metadata: Metadata = {
 export default function ManualesCorporativos() {
     return (
         <div>
-            <div className="">
-                <div className="relative h-[55vh] flex flex-col md:flex-row items-center justify-start">
-                    {/* Contenido */}
-                    <div className="relative z-10 text-whites w-full md:w-[45vw] h-full bg-gray10 p-4 md:p-8 md:px-12 flex flex-col justify-between">
-                        <div>
-                            <div className="flex flex-row">
-                                <span className="text-blue60 font-light text-sm md:text-base">
-                                    Inicio <span className="mx-2 text-gray60">{'/'}</span> Consultoria <span className="mx-2 text-gray60">{'/'}</span> Manuales y Procedimientos
-                                </span>
+                {/* Header */}
+                <div className="">
+                    <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                        {/* Texto */}
+                        <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+                            <div>
+                                <div className="flex flex-row flex-wrap">
+                                    <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                        <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                        <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                        Manuales y Procedimientos
+                                    </span>
+                                </div>
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                    Manuales Corporativos y Procedimientos de Mantenimiento
+                                </h1>
+                                <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
+                                    Documentación técnica estructurada que estandariza procesos, asegura la transmisión del conocimiento y consolida las mejores prácticas en tu organización para garantizar la excelencia operativa.
+                                </div>
                             </div>
-                            <h1 className="text-3xl md:text-6xl font-light text-black">Manuales Corporativos y Procedimientos de Mantenimiento</h1>
-                            <div className="mt-4 md:mt-8 text-base md:text-[1.15vw] leading-[136%]">
-                                Documentación técnica estructurada que estandariza procesos, asegura la transmisión del conocimiento y consolida las mejores prácticas en tu organización para garantizar la excelencia operativa.
+                            <div className="mt-8 md:mt-6">
+                                <button className="font-light text-[1rem] md:text-[1.1rem] flex flex-row items-center gap-4 md:gap-8 mb-4 bg-gray90 text-white px-6 py-3">
+                                    <span>Solicita una cotización</span>
+                                    <RequestQuote size={20} className="text-white" />
+                                </button>
                             </div>
                         </div>
-                        <div>
-                            <button className="font-light text-[1rem] md:text-[1.1rem] flex flex-row items-center gap-4 md:gap-8 mb-4 bg-gray90">
-                                <span>
-                                    Solicita una cotización
-                                </span>
-                                <RequestQuote size={20} className="text-white" />
-                            </button>
+                        {/* Imagen */}
+                        <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgProcedimientos2.jpg')] bg-cover bg-center">
+                            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                         </div>
-                    </div>
-                    <div className="h-[30vh] md:h-full z-10 w-full md:w-[55vw] bg-[url('/assets/bgProcedimientos2.jpg')] bg-cover bg-center">
                     </div>
                 </div>
-            </div>
 
             <div className="mt-8 md:mt-16 px-4 md:px-[8vw]">
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16">

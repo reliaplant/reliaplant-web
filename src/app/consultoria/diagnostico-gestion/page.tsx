@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
+import { Headset } from '@carbon/icons-react';
 
 export const metadata: Metadata = {
     title: "Diagnóstico de la Gestión de Mantenimiento | Evaluación Integral | Reliaplant",
@@ -50,72 +52,51 @@ const evaluationData = [
 
 export default function DiagnosticoGestion() {
     return (
-        <div className="">
-            <div className='px-4 md:px-[8vw] py-4 flex flex-col md:flex-row justify-between items-start md:items-center fixed top-0 z-50 border-b shadow-md bg-white w-full gap-4 md:gap-24'>
-                <div>
-                    <div className="flex flex-row text-sm md:text-base">
-                        <span className="text-blue60 font-light">
-                            <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span>
-                            <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span>
-                            Sistema de Indicadores
-                        </span>
-                    </div>
-                    <div className='text-sm md:text-lg'>¿Tiene curiosidad por saber cómo                 
-                        <a href="/" className="font-ZenDots text-xs md:text-sm cursor-pointer pl-1.5 pr-2 text-blue60">RELIAPLANT</a>
-                        puede ayudar a su empresa? <br />Realice un autodiagnóstico y <strong>deje que nuestro equipo le indique los próximos pasos</strong>. 
-                    </div>
-                </div>
-
-                <button className='bg-gray90 transition-all duration-300 text-white hover:after:content-["→"] hover:after:ml-2 hover:bg-blue60 hover:text-white hover:bg-gray90 text-sm md:text-base px-4 py-2 mt-2 md:mt-0 w-full md:w-auto'>
-                    Tomar autodiagnóstico
-                </button>
-            </div>
-
-            <div className='py-12 px-4 md:px-[8vw] bg-gray10 mt-20 md:mt-16'>
-                <div className="relative h-auto md:h-[68vh] flex flex-col md:flex-row items-center justify-start">
-                    {/* Contenido */}
-                    <div className="relative z-10 text-whites w-full md:w-[40vw] bg-white p-4 md:p-8 md:pt-12">
-                        <h1 className="text-3xl md:text-6xl font-light">Diagnóstico de la Gestión de Mantenimiento</h1>
-                        <div className='mt-4 md:mt-8 text-base md:text-[1.15vw] leading-[136%]'>
-                            Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez
-                            de la organización y la fase en la que se encuentra. <br /><br />La base para la ejecución de los estudios inicia
-                            con el registro de activos. Logrado esto, es posible jerarquizar instalaciones, sistemas y equipos en
-                            cualquier tipo de industria, asignar estrategias de Gerencia de Activo tales como: <strong>MCC, IBR, NOR,
-                                ACR</strong> y mejorar la gestión del mantenimiento.
-                        </div>
-                    </div>
-
-                    <div className="h-[40vh] md:h-full w-full md:w-[60vw] mt-4 md:mt-0 md:p-16 z-10 bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
-                    </div>
-                </div>
-
-                <div className="bg-cover bg-center bg-no-repeat bg-opacity-0 py-4">
-                    <div className='pt-12'>
-                        <div className='flex flex-col md:flex-row gap-6 md:gap-8 py-12 md:py-24'>
-                            <div className='text-xl md:text-2xl w-full md:w-1/3'>¿Cuál es el grado de madurez de su organización?</div>
-                            <div className='w-full md:w-2/4'>
-                                <div className='text-base md:text-xl bg-gray10 text-black font-light'>
-                                    Se han construido muchos <strong>"Modelos de Confiabilidad"</strong> silimares al mostrado abajo. La clave no esta en cuál en cuál modelo tomar, sino <strong>adaptar a uno al contexto propio</strong>. Nuestro equipo de consultores puede ayudar a su organización a establecer una cultura de confiabilidad.
-                                </div>
-                                <div className='flex flex-col md:flex-row gap-4 md:gap-8 mt-6 md:mt-8'>
-                                    <button className='bg-gray90 hover:bg-gray90 text-sm md:text-base px-4 py-2'>
-                                        Tomar autodiagnóstico en línea
-                                    </button>
-                                    <button className='border-2 border-blue60 hover:bg-blue20 text-blue60 text-sm md:text-base px-4 py-2 mt-3 md:mt-0'>
-                                        Descargar guía de implementación
-                                    </button>
-                                </div>
+        <div className="mx-auto">
+            {/* Header */}
+            <div className="">
+                <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+                    {/* Texto */}
+                    <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+                        <div>
+                            <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                                    Diagnóstico de Gestión
+                                </span>
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                                Diagnóstico de la Gestión de Mantenimiento
+                            </h1>
+                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
+                                Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez
+                                de la organización y la fase en la que se encuentra. La base para la ejecución de los estudios inicia
+                                con el registro de activos.
                             </div>
                         </div>
+                        <div className="mt-8 md:mt-6">
+                            <AbrirFormContacto
+                                buttonText="Habla con un especialista"
+                                icon={<Headset size={20} className="text-white" />}
+                                buttonColor="bg-gray90"
+                            />
+                        </div>
+                    </div>
+                    {/* Imagen */}
+                    <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
+                        <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
                     </div>
                 </div>
             </div>
 
-            <div className="px-4 md:px-[8vw] flex flex-col md:flex-row gap-8 md:gap-24 py-8 md:py-16">
+           
+            {/* Phases section */}
+            <div className="bg-blue-50 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] flex flex-col md:flex-row gap-8 md:gap-12 py-8 md:py-12">
                 <div className="w-full md:w-1/2">
-                    <h2 className="text-2xl md:text-4xl font-semibold mb-6 md:mb-8">Fases del Diagnóstico</h2>
+                    <h2 className="text-2xl md:text-4xl font-light mb-6 md:mb-8">Fases del Diagnóstico</h2>
                     <div className="mb-8">
-                        <h3 className="text-xl md:text-2xl font-semibold bg-blue20 px-2 py-1 text-blue60 mb-4 md:mb-8">
+                        <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
                             FASE I: PREPARACIÓN DEL TRABAJO
                         </h3>
                         <p className="text-sm md:text-base">
@@ -131,7 +112,7 @@ export default function DiagnosticoGestion() {
                         </ul>
                     </div>
                     <div className="mb-8">
-                        <h3 className="text-xl md:text-2xl font-semibold bg-blue20 px-2 py-1 text-blue60 mb-4 md:mb-8">
+                        <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
                             FASE II: VISITA A OFICINAS Y CAMPO, ENTREVISTAS AL PERSONAL Y RECOPILACIÓN DE INFORMACIÓN
                         </h3>
                         <p className="text-sm md:text-base">
@@ -139,7 +120,7 @@ export default function DiagnosticoGestion() {
                         </p>
                     </div>
                     <div className="mb-8">
-                        <h3 className="text-xl md:text-2xl font-semibold bg-blue20 px-2 py-1 text-blue60 mb-4 md:mb-8">
+                        <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
                             FASE III: ELABORACIÓN DE REPORTE DE DIAGNÓSTICO
                         </h3>
                         <p className="text-sm md:text-base mb-3">
@@ -151,7 +132,7 @@ export default function DiagnosticoGestion() {
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 mt-6 md:mt-0">
-                    <h2 className="text-2xl md:text-4xl font-semibold mb-6 md:mb-8">Áreas del Diagnóstico</h2>
+                    <h2 className="text-2xl md:text-4xl font-light mb-6 md:mb-8">Áreas del Diagnóstico</h2>
 
                     <div className="overflow-x-auto">
                         <table className="min-w-full mt-4 md:mt-8">
@@ -178,19 +159,20 @@ export default function DiagnosticoGestion() {
                 </div>
             </div>
 
-            <div className='bg-gray10 p-4 md:p-[8vw]'>
-                <div className='bg-white p-4 md:p-[2vw]'>
-                    <div className='border-b border-black'>
-                        <div className='border-b-2 border-blue60 w-fit text-sm md:text-base'>
+            {/* Evaluation areas details */}
+            <div className="py-8 md:py-12 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw]">
+                <div className="bg-white ">
+                    <div className="border-b border-black">
+                        <div className="border-b-2 border-blue60 w-fit text-sm md:text-base">
                             DESCRIPCIÓN BREVE DE LAS AREAS DE EVALUACIÓN
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E1</span> - EVALUACIÓN DE LA GESTIÓN Y ESTRUCTURA DEL DEPARTAMENTO DE MANTENIMIENTO
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E1</span> - EVALUACIÓN DE LA GESTIÓN Y ESTRUCTURA DEL DEPARTAMENTO DE MANTENIMIENTO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Analizar la visión, estructura y alineación del departamento de mantenimiento con la gestión de activos.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión del manual corporativo de mantenimiento y manual de gestión de activos.</li>
@@ -206,11 +188,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E2</span> - REVISIÓN DEL SISTEMA DE INDICADORES PARA LA EVALUACIÓN DEL SISTEMA DE GESTIÓN DE MANTENIMIENTO
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E2</span> - REVISIÓN DEL SISTEMA DE INDICADORES PARA LA EVALUACIÓN DEL SISTEMA DE GESTIÓN DE MANTENIMIENTO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Analizar la estructura, documentación, herramientas de visualización y su relación con las metas organizacionales.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Indicadores de Nivel 1 (Estratégicos): Relacionados con la toma de decisiones a nivel corporativo. Evalúan el impacto del mantenimiento en la rentabilidad, el ciclo de vida de los activos y el cumplimiento de objetivos de largo plazo.</li>
@@ -222,11 +204,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E3</span> - REVISIÓN DE PLANES DE MANTENIMIENTO EXISTENTES POR TIPO DE EQUIPO
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E3</span> - REVISIÓN DE PLANES DE MANTENIMIENTO EXISTENTES POR TIPO DE EQUIPO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión de los planes de mantenimiento preventivos por familia y tipo de equipo.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión de los mantenimientos rutinarios ejecutados por operaciones.</li>
@@ -237,11 +219,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E4</span> - REVISIÓN DE LA ESTRATEGIA Y GESTIÓN DEL MANTENIMIENTO PREDICTIVO
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E4</span> - REVISIÓN DE LA ESTRATEGIA Y GESTIÓN DEL MANTENIMIENTO PREDICTIVO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Evaluar la gestión del mantenimiento predictivo, asegurando su alineación con la estrategia de confiabilidad de la organización. Se analizarán los métodos, modelos y herramientas utilizadas en el mantenimiento predictivo para determinar su efectividad y oportunidades de mejora.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Análisis de la madurez del programa predictivo.</li>
@@ -256,11 +238,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E5</span> - REVISIÓN DE LA ESTRUCTURA DE ACTIVOS E INFORMACIÓN DISPONIBLE EN CMMS
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E5</span> - REVISIÓN DE LA ESTRUCTURA DE ACTIVOS E INFORMACIÓN DISPONIBLE EN CMMS
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Evaluar la estructura actual de activos en el CMMS (SAP PM) para identificar oportunidades de mejora en la gestión del mantenimiento, optimización de la jerarquía de activos y alineación con estrategias de confiabilidad.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Extracción y análisis del listado de activos en CMMS y su alineación con estándares cómo la ISO 14224.</li>
@@ -273,11 +255,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E6</span> - GESTIÓN DE LA DOCUMENTACIÓN TÉCNICA
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E6</span> - GESTIÓN DE LA DOCUMENTACIÓN TÉCNICA
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Documentación por equipo:</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Manual del Fabricante / Datasheets: Especificaciones técnicas y guías de operación.</li>
@@ -297,11 +279,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E7</span> - REVISIÓN DE LOS CRITERIOS DE ASIGNACIÓN DE CRITICIDAD
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E7</span> - REVISIÓN DE LOS CRITERIOS DE ASIGNACIÓN DE CRITICIDAD
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión de los criterios de evaluación de criticidad según el procedimiento existente.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Comparación de los resultados de criticidad con datos de desempeño de activos en SAP PM (órdenes correctivas y preventivas, horas de intervención, costos de mantenimiento, indicadores de confiabilidad, etc.).</li>
@@ -310,11 +292,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E8</span> - INVESTIGACIÓN DE INCIDENTES Y FALLAS
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E8</span> - INVESTIGACIÓN DE INCIDENTES Y FALLAS
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión del procedimiento corporativo para la investigación de problemas recurrentes y catastróficos.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión del sistema de gestión de los análisis causa raíz.</li>
@@ -325,11 +307,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E9</span> - ELABORACIÓN DE PRESUPUESTO Y CONTROL DE COSTOS DE MANTENIMIENTO
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E9</span> - CONTROL DE COSTOS DE MANTENIMIENTO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Verificación de existencia de registros y análisis de costos de mantenimiento.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión de frecuencias de revisión de y análisis de costos de mantenimiento.</li>
@@ -339,11 +321,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E10</span> - EVALUACIONES ECONÓMICAS PARA LA TOMA DE DECISIONES
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E10</span> - EVALUACIONES ECONÓMICAS PARA LA TOMA DE DECISIONES
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión del procedimiento corporativo de evaluaciones económicas como soporte para la toma de decisiones.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Verificación de la aplicación de análisis de optimización costo - riesgo para determinar frecuencias óptimas de tareas de mantenimiento e inspección.</li>
@@ -352,11 +334,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E11</span> - GESTIÓN DE LA OBSOLESCENCIA
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E11</span> - GESTIÓN DE LA OBSOLESCENCIA
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión del sistema de gestión para el manejo de la obsolescencia.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión de los procedimientos establecidos para la gestión de obsolescencia.</li>
@@ -368,11 +350,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E12</span> - REVISIÓN DE PROCEDIMIENTOS PARA EL MANEJO Y OPTIMIZACIÓN DE REPUESTOS MRO (GESTIÓN DE MATERIALES y SERVICIOS CONTRATADOS)
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E12</span> - REVISIÓN DE PROCEDIMIENTOS PARA EL MANEJO Y OPTIMIZACIÓN DE REPUESTOS MRO
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión del proceso de procura de materiales y servicios.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión del proceso de selección de proveedores de materiales y servicios.</li>
@@ -383,11 +365,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E13</span> - REVISIÓN DEL GRADO DE MADUREZ DE INGENIERÍA DE CONFIABILIDAD EN RELACIÓN A LAS METODOLOGÍAS APLICADAS
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E13</span> - REVISIÓN DEL GRADO DE MADUREZ DE INGENIERÍA DE CONFIABILIDAD
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Verificación de aplicación del análisis de criticidad a equipos y sistemas.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Verificación de aplicación de AMEF, MCC para desarrollar planes de mantenimiento.</li>
@@ -397,11 +379,11 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E14</span> - GESTIÓN DE LA FORMACIÓN DEL PERSONAL
+                    <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E14</span> - GESTIÓN DE LA FORMACIÓN DEL PERSONAL
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Revisión de la matriz de roles, responsabilidades, conocimientos y competencias.</p>
                             <ul className="list-disc ml-4 mt-2">
                                 <li>Revisión de los planes de formación.</li>
@@ -414,13 +396,33 @@ export default function DiagnosticoGestion() {
                         </div>
                     </div>
 
-                    <div className='border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12'>
-                        <div className='w-full md:w-[30vw] text-sm md:text-base font-bold'>
-                            <span className="bg-blue20 text-blue60 px-2 py-1">E15</span> - ANÁLISIS DE BRECHAS DEL PERSONAL / ENCUESTA AL PERSONAL
+                    <div className="border-b-0 flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
+                        <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
+                            <span className="text-blue60 ">E15</span> - ANÁLISIS DE BRECHAS DEL PERSONAL / ENCUESTA AL PERSONAL
                         </div>
-                        <div className="w-full md:w-2/3 text-sm md:text-base">
+                        <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Evaluación de brechas en conocimientos clave mediante la aplicación de una prueba diagnóstica en línea (120 preguntas) diferenciada por nivel: técnico, supervisión y gerencial. El objetivo es identificar deficiencias en competencias fundamentales para una gestión de mantenimiento eficiente y sistemática.</p>
                             <p className="mt-2">Análisis de percepción del personal a través de una encuesta estructurada que permite evaluar su visión sobre la eficiencia de los procesos, disponibilidad de recursos y áreas críticas. Este ejercicio busca identificar patrones y oportunidades de mejora que podrían no ser evidentes para la gerencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Add a madurez section */}
+            <div className="py-8 md:py-12 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw]">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                    <div className="text-xl md:text-2xl w-full md:w-1/3">¿Cuál es el grado de madurez de su organización?</div>
+                    <div className="w-full md:w-2/3">
+                        <div className="text-base md:text-lg bg-gray10 p-4 text-black font-light">
+                            Se han construido muchos <strong>"Modelos de Confiabilidad"</strong> similares al mostrado abajo. La clave no está en cuál modelo tomar, sino <strong>adaptar a uno al contexto propio</strong>. Nuestro equipo de consultores puede ayudar a su organización a establecer una cultura de confiabilidad.
+                        </div>
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-6 md:mt-8">
+                            <button className="bg-gray90 hover:bg-blue60 transition duration-300 text-white text-sm md:text-base px-4 py-2">
+                                Tomar autodiagnóstico en línea
+                            </button>
+                            <button className="border-2 border-blue60 hover:transition duration-300 text-blue60 text-sm md:text-base px-4 py-2 mt-3 md:mt-0">
+                                Descargar guía de implementación
+                            </button>
                         </div>
                     </div>
                 </div>

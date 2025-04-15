@@ -4,7 +4,6 @@ import Link from "next/link";
 import FormularioContacto from "./FormularioContacto";
 import { Add, Asset, Category, ChevronDown, Close, DecisionNode, Number_7, Query, Share, Subflow, Warning, ArrowUpRight, Model } from '@carbon/icons-react';
 import BotonAsesorRCM from "@/app/consultoria/rcm/BotonAsesorRCM";
-import ClapButton from "./ClapButton";
 import AbrirFormContacto from "./AbrirFormContacto";
 import HeaderMovil from "./HeaderMovil";
 
@@ -52,20 +51,20 @@ export default function Header() {
   ];
 
   return (
-    <div className="left-0 w-full z-50 sticky top-0 ">
+    <div className="left-0 w-full z-50 sticky top-0 bg-white">
       {/* Header principal */}
-      <header className="bg-White w-full z-50 border-b hidden md:block">
+      <header className="bg-White w-full z-50 shadow-sm hidden md:block">
         {/* <header className="bg-transparent fixed top-0 w-full z-50">  */}
 
-        <nav className="flex flex-row justify-between">
-          <ul className="flex items-center p-0 m-0 pl-6 ">
-            <div className="ml-[5vw]">
+        <nav className="flex flex-row justify-between px-[5vw]">
+          <ul className="flex items-center p-0 m-0 ">
+            <div className="">
               <Link href="/">
-                <span className="font-ZenDots text-gray100 text-xl cursor-pointer">RELIAPLANT</span>
+                <span className="font-ZenDots text-gray100 text-lg cursor-pointer">RELIAPLANT</span>
               </Link>
             </div>
             <div className="pl-8 font-thin text-2xl text-gray30 mr-4">|</div>
-            <div className="hover:bg-gray10 mb-0 text-md relative group px-4 pl-6 h-full flex items-center">
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
               <a
                 href="/servicios"
                 className="font-normal relative no-underline hover:no-underline text-gray60"
@@ -77,13 +76,13 @@ export default function Header() {
                 <div>
                   <div className='bg-white flex flex-row gap-4'>
                     {sections.map((section, sectionIndex) => (
-                      <div key={sectionIndex} className={`w-[20vw] left-pr-4 pr-2 ${sectionIndex !== sections.length - 1 ? 'border-r' : ''}`}>
-                        <div className="flex flex-col items-center">
+                      <div key={sectionIndex} className={`w-[20vw] pr-4 ${sectionIndex !== sections.length - 1 ? 'border-r' : ''}`}>
+                        <div className="flex flex-col">
                           <h2 className="text-[1rem] font-bold text-black w-full">{section.title}</h2>
-                          <div className="">
+                          <div className="w-full">
                             {section.data.map((service, serviceIndex) => (
                               <Link key={serviceIndex} href={service.link} className='no-underline'>
-                                <div className='pt-2 text-md text-gray60 hover:underline cursor-pointer font-regular'>
+                                <div className='pt-2 text-md text-gray60 hover:underline cursor-pointer font-medium'>
                                   {service.title}
                                 </div>
                               </Link>
@@ -98,7 +97,7 @@ export default function Header() {
             </div>
 
 
-            <div className="hover:bg-gray10 mb-0 text-md relative group px-4 pl-6 h-full flex items-center">
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
               <a
                 href="/software"
                 className="font-normal relative no-underline hover:no-underline text-gray60 "
@@ -147,7 +146,7 @@ export default function Header() {
             <AbrirFormContacto />
             <Link href="/software" className="no-underline">
                 <button
-                className="bg-transparent mr-8 hover:bg-gray10 hover:text-black text-black flex flex-row items-center px-4 py-2 hover:bg-gray20 whitespace-nowrap"
+                className="font-semibold text-sm h-full bg-transparent mr-8 hover:bg-gray10 hover:text-black text-black flex flex-row items-center px-4 py-2 hover:bg-gray20 whitespace-nowrap"
                 >
                 Ir a Software
                 <ArrowUpRight size={16} className="ml-1 text-gray60 border-b-2 " />

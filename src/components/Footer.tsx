@@ -5,7 +5,7 @@ import logo from "@/assets/logo.jpg";
 
 export default function Footer() {
   return (
-    <footer className="px-4 sm:px-[6vw] lg:px-[8vw] py-8 sm:py-12 lg:py-16 text-sm text-white80 bg-gray100">
+    <footer className="px-4 sm:px-[6vw] lg:px-[5vw] py-8 sm:py-12 lg:py-16 text-sm text-white80 bg-gray100">
       <div className="flex flex-col md:flex-row gap-8 md:gap-12">
         {/* Logo section */}
         <div className="w-full md:w-1/4 mb-6 md:mb-0">
