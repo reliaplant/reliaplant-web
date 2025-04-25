@@ -30,9 +30,7 @@ function IconWithTooltip({ icon, tooltipText }: IconWithTooltipProps) {
 
 export default function EquiposPlanta() {
   return (
-    <div
-      className="relative h-[100vh] flex items-center justify-start bg-cover bg-center bg-[url('/assets/planta.jpg')]"
-    >
+    <div className="relative h-[100vh] flex items-center justify-start bg-cover bg-center bg-[url('/assets/planta.jpg')]">
       {/* Capa de degradado oscuro para mejorar la legibilidad */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/80"></div>
 

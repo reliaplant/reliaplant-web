@@ -1,8 +1,14 @@
-"use client"
-import React, { useState, useEffect, FormEvent, ChangeEvent } from 'react';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import { createUser, getRefCollection, getSecondaryRefCollection, saveInfoRequest, sendEmail } from '@/services/firebase';
+"use client";
+import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import {
+  createUser,
+  getRefCollection,
+  getSecondaryRefCollection,
+  saveInfoRequest,
+  sendEmail,
+} from "@/services/firebase";
 
 interface FormularioContactoProps {
   type?: string;
@@ -38,7 +44,11 @@ export default function FormularioContacto({
   anuncio = null,
   interes = "",
   subject = "Nuevo llenado formulario curso",
-  recipients = ["liliana.giraldo@predyc.com", "andres.gonzalez@predyc.com", "desarrollo@predyc.com"],
+  recipients = [
+    "liliana.giraldo@predyc.com",
+    "andres.gonzalez@predyc.com",
+    "desarrollo@predyc.com",
+  ],
   responsable = "",
   origen = "",
   lugar = "footer",
@@ -48,16 +58,16 @@ export default function FormularioContacto({
   btnText = "Solicitar información",
 }: FormularioContactoProps) {
   const [formData, setFormData] = useState<FormData>({
-    nombre: '',
-    email: '',
-    telefono: '',
-    interes: '',
-    cantidadPersonas: '',
-    cargo: '',
-    empresa: '',
-    pais: '',
+    nombre: "",
+    email: "",
+    telefono: "",
+    interes: "",
+    cantidadPersonas: "",
+    cargo: "",
+    empresa: "",
+    pais: "",
   });
-  
+
   let copy = ["ventas@predyc.com", "desarrollo@predyc.com"];
   const [captchaValido, setCaptchaValido] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -66,7 +76,7 @@ export default function FormularioContacto({
   // Corrige la URL de reCAPTCHA (elimina el corchete de más al final)
   useEffect(() => {
     if (!window.grecaptcha) {
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = `https://www.google.com/recaptcha/api.js?render=6LchjzgqAAAAANYV88dFOY4uGWoT4_2rF8x9OvCE`;
       script.async = true;
       document.body.appendChild(script);
@@ -86,12 +96,17 @@ export default function FormularioContacto({
 
   // Función para construir el contenido del correo
   const buildEmailContent = (data: FormData) => {
-    const sender = 'ventas@predyc.com';
-    const recipientsMail = recipients.length > 0 ? recipients : ['ventas@predyc.com'];
-    const subjectMail = subject || 'Nuevo registro formulario en Predyc';
+    const sender = "ventas@predyc.com";
+    const recipientsMail =
+      recipients.length > 0 ? recipients : ["ventas@predyc.com"];
+    const subjectMail = subject || "Nuevo registro formulario en Predyc";
 
     const htmlContentFinal = `
-      <p><strong>${data.nombre}</strong> ha llenado el formulario en <strong>${lugar}</strong> interesado en <strong>${data.interes}</strong></p>
+      <p><strong>${
+        data.nombre
+      }</strong> ha llenado el formulario en <strong>${lugar}</strong> interesado en <strong>${
+      data.interes
+    }</strong></p>
       <h3>Datos del contacto:</h3>
       <ul>
         <li><strong>Tipo:</strong> ${type}</li>
@@ -103,14 +118,20 @@ export default function FormularioContacto({
         <li><strong>País:</strong> ${data.pais}</li>
         <li><strong>Origen:</strong> ${origen}</li>
         <li><strong>Interes:</strong> ${data.interesUser || data.interes}</li>
-        ${data.cantidadPersonas ? `<li><strong>Cantidad interesados:</strong> ${data.cantidadPersonas}</li>` : ''}
+        ${
+          data.cantidadPersonas
+            ? `<li><strong>Cantidad interesados:</strong> ${data.cantidadPersonas}</li>`
+            : ""
+        }
       </ul>
     `;
 
     return { sender, recipientsMail, subjectMail, htmlContentFinal };
   };
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -119,7 +140,7 @@ export default function FormularioContacto({
     setFormData({
       ...formData,
       telefono: value,
-      pais: country.countryCode.toUpperCase()
+      pais: country.countryCode.toUpperCase(),
     });
   };
 
@@ -129,14 +150,17 @@ export default function FormularioContacto({
     const origenLocal = window.location.href;
     let currentOrigen = origenLocal; // Usar variable local en lugar de mutar props
     let validCaptcha = false;
-    
+
     try {
       // Asegurarse de que grecaptcha esté disponible
       if (!window.grecaptcha) {
-        throw new Error('reCAPTCHA no está cargado');
+        throw new Error("reCAPTCHA no está cargado");
       }
-      
-      const token = await window.grecaptcha.execute('6LchjzgqAAAAANYV88dFOY4uGWoT4_2rF8x9OvCE', { action: 'submit' });
+
+      const token = await window.grecaptcha.execute(
+        "6LchjzgqAAAAANYV88dFOY4uGWoT4_2rF8x9OvCE",
+        { action: "submit" }
+      );
       if (token) {
         setCaptchaValido(true);
         validCaptcha = true;
@@ -144,8 +168,8 @@ export default function FormularioContacto({
         setCaptchaValido(false);
         validCaptcha = false;
       }
-      
-      const docRef = await getSecondaryRefCollection('infoRequestRegisterP21');
+
+      const docRef = await getSecondaryRefCollection("infoRequestRegisterP21");
 
       const customerData = {
         id: docRef.id,
@@ -168,27 +192,27 @@ export default function FormularioContacto({
         isMobile: isMobile,
       };
 
-      console.log('customerData', customerData);
+      console.log("customerData", customerData);
       await saveInfoRequest(customerData);
 
       setIsSubmitted(true);
-      
+
       const userData = {
         name: formData.nombre,
         createdAt: +new Date(),
         displayName: formData.nombre,
         job: formData.cargo,
         email: formData.email,
-        phoneNumber: formData.telefono
+        phoneNumber: formData.telefono,
       };
-      
+
       createUser(userData, mailchimpTagIn);
 
       if (validCaptcha) {
-        let { sender, recipientsMail, subjectMail, htmlContentFinal } = buildEmailContent(formData);
+        let { sender, recipientsMail, subjectMail, htmlContentFinal } =
+          buildEmailContent(formData);
         // await sendEmail(sender, recipientsMail, subjectMail, htmlContentFinal, copy);
       }
-
     } catch (error) {
       console.error("Error al ejecutar reCAPTCHA:", error);
       alert("Error al verificar el captcha. Inténtalo de nuevo.");
@@ -200,9 +224,12 @@ export default function FormularioContacto({
       {isSubmitted ? (
         <div className="flex items-center justify-center min-h-[250px] bg-white text-center  px-8">
           <div>
-            <h2 className="text-xl font-semibold">Hemos recibido tu solicitud</h2>
+            <h2 className="text-xl font-semibold">
+              Hemos recibido tu solicitud
+            </h2>
             <p className="text-sm text-gray-600 mt-6 mb-0">
-              Uno de nuestros asesores se está comunicando contigo en la brevedad
+              Uno de nuestros asesores se está comunicando contigo en la
+              brevedad
             </p>
           </div>
         </div>
@@ -220,7 +247,7 @@ export default function FormularioContacto({
               required
             />
           </div>
-  
+
           {/* Email */}
           <div className="mb-3">
             <input
@@ -233,27 +260,33 @@ export default function FormularioContacto({
               required
             />
           </div>
-  
+
           {/* Teléfono */}
           <div className="mb-3">
             <PhoneInput
-              country={'mx'}
+              country={"mx"}
               value={formData.telefono}
               onChange={handlePhoneChange}
               inputStyle={{
-                width: '100%',
-                height: '30px',
-                padding: '0.75rem',
-                paddingLeft: '45px',
-                borderRadius: '0.125rem',
-                border: '1px solid #d1d5db',
+                width: "100%",
+                height: "30px",
+                padding: "0.75rem",
+                paddingLeft: "45px",
+                borderRadius: "0.125rem",
+                border: "1px solid #d1d5db",
               }}
               specialLabel=""
             />
           </div>
-  
+
           {/* Interés y cantidad */}
-          <div className={`mb-3 ${formData.interes === 'empresa' ? 'grid grid-cols-1 md:grid-cols-2 gap-2' : 'grid grid-cols-1'}`}>
+          <div
+            className={`mb-3 ${
+              formData.interes === "empresa"
+                ? "grid grid-cols-1 md:grid-cols-2 gap-2"
+                : "grid grid-cols-1"
+            }`}
+          >
             <select
               name="interes"
               value={formData.interes}
@@ -267,8 +300,8 @@ export default function FormularioContacto({
               <option value="individual">Individual</option>
               <option value="empresa">Empresa</option>
             </select>
-  
-            {formData.interes === 'empresa' && (
+
+            {formData.interes === "empresa" && (
               <select
                 name="cantidadPersonas"
                 value={formData.cantidadPersonas}
@@ -287,9 +320,11 @@ export default function FormularioContacto({
               </select>
             )}
           </div>
-  
+
           {/* Cargo y Empresa */}
-          <div className={`mb-[5px] md:mb-3 grid grid-cols-1 md:grid-cols-2 gap-2 `}>
+          <div
+            className={`mb-[5px] md:mb-3 grid grid-cols-1 md:grid-cols-2 gap-2 `}
+          >
             <select
               name="cargo"
               value={formData.cargo}
@@ -307,7 +342,9 @@ export default function FormularioContacto({
               <option value="Ingeniero de Mantenimiento / Confiabilidad">
                 Ingeniero de Mantenimiento / Confiabilidad
               </option>
-              <option value="Jefe de Mantenimiento">Jefe de Mantenimiento</option>
+              <option value="Jefe de Mantenimiento">
+                Jefe de Mantenimiento
+              </option>
               <option value="Supervisor de Mantenimiento">
                 Supervisor de Mantenimiento
               </option>
@@ -334,7 +371,7 @@ export default function FormularioContacto({
               required
             />
           </div>
-  
+
           {/* Botón de enviar */}
           <button
             type="submit"
@@ -342,10 +379,10 @@ export default function FormularioContacto({
           >
             {btnText}
           </button>
-  
+
           {/* Política de privacidad */}
           <p className="text-center text-[10px] text-gray-500 mt-4 mb-0">
-            This site is protected by reCAPTCHA and the Google{' '}
+            This site is protected by reCAPTCHA and the Google{" "}
             <a
               href="https://policies.google.com/privacy"
               target="_blank"
@@ -353,8 +390,8 @@ export default function FormularioContacto({
               className="text-blue-500"
             >
               Privacy Policy
-            </a>{' '}
-            and{' '}
+            </a>{" "}
+            and{" "}
             <a
               href="https://policies.google.com/terms"
               target="_blank"
@@ -362,7 +399,7 @@ export default function FormularioContacto({
               className="text-blue-500"
             >
               Terms of Service
-            </a>{' '}
+            </a>{" "}
             apply.
           </p>
         </form>

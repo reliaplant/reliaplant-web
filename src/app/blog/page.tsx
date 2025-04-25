@@ -5,12 +5,37 @@ import matter from "gray-matter";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import { Add, Asset, Category, ChevronDown, Close, DecisionNode, Number_7, Query, Share, Subflow, Warning, ArrowUpRight, Industry, Activity, EventWarning, TransformInstructions, ArrowRight, RequestQuote, SupportVectorMachine, DataAnalytics, Headset, Number_1, Number_2, Number_3, Number_4, QuestionAnswering, Search } from '@carbon/icons-react';
+import {
+  Add,
+  Asset,
+  Category,
+  ChevronDown,
+  Close,
+  DecisionNode,
+  Number_7,
+  Query,
+  Share,
+  Subflow,
+  Warning,
+  ArrowUpRight,
+  Industry,
+  Activity,
+  EventWarning,
+  TransformInstructions,
+  ArrowRight,
+  RequestQuote,
+  SupportVectorMachine,
+  DataAnalytics,
+  Headset,
+  Number_1,
+  Number_2,
+  Number_3,
+  Number_4,
+  QuestionAnswering,
+  Search,
+} from "@carbon/icons-react";
 import { Paperclip } from "lucide-react";
 import fansblowers from "../../../public/assets/FANSBLOWERS.png";
-
-
-
 
 interface Post {
   slug: string;
@@ -24,8 +49,6 @@ interface Post {
   tags: string;
   author: string;
 }
-
-
 
 async function getPosts(): Promise<Post[]> {
   const postsDir = path.join(process.cwd(), "src", "posts");
@@ -41,8 +64,7 @@ async function getPosts(): Promise<Post[]> {
         slug: filename.replace(/\.md$/, ""),
         title: data.title || "Sin título",
         excerpt:
-          data.excerpt ||
-          content.substring(0, 200).replace(/\n/g, " ") + "...",
+          data.excerpt || content.substring(0, 200).replace(/\n/g, " ") + "...",
         content: content,
         date: data.date || "",
         subtitle: data.subtitle || "",
@@ -62,9 +84,9 @@ export const metadata: Metadata = {
   description: "DESC BLOG",
   robots: {
     index: true,
-    follow: true
-  }
-}
+    follow: true,
+  },
+};
 
 export default async function BlogPage() {
   const posts = await getPosts();
@@ -72,52 +94,55 @@ export default async function BlogPage() {
   return (
     <div className="">
       <div className="px-[0vw]">
-
-
         <div className="relative h-[32vh] flex items-center justify-start ">
           {/* Contenido */}
           <div className="relative z-10 text-whites w-[40vw] h-full bg-gray10 p-[2vw]  flex flex-col justify-between">
             <div>
               <div className="flex flw-row">
                 <span className="text-blue60 font-light">
-                  Inicio <span className="mx-2 text-gray60">{'/'}</span> Publicaciones técnicas
+                  Inicio <span className="mx-2 text-gray60">{"/"}</span>{" "}
+                  Publicaciones técnicas
                 </span>
               </div>
-              <h1 className="text-5xl font-light text-black  ">Publicaciones</h1>
-
+              <h1 className="text-5xl font-light text-black  ">
+                Publicaciones
+              </h1>
             </div>
             <div className="bg-gray20 p-4 hover:bg-white group">
-              <div className='text-[1vw] leading-[136%]'>
-                Encuentra aquí las publicaciones más recientes de RP Tech & Associates. <br />
-                si deseas publicar tu articulo a traves de RP tech & Associates, comunicate con nosotros.
+              <div className="text-[1vw] leading-[136%]">
+                Encuentra aquí las publicaciones más recientes de RP Tech &
+                Associates. <br />
+                si deseas publicar tu articulo a traves de RP tech & Associates,
+                comunicate con nosotros.
               </div>
               <button className="mt-4 font-light text-[0.9rem] flex flex-row items-center gap-8 group-hover:bg-gray90 transition-100">
-                <span>
-                  Comparte tu artículo
-                </span>
+                <span>Comparte tu artículo</span>
                 <Paperclip size={20} className="text-white" />
               </button>
             </div>
           </div>
-          <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center" >
-          </div>
+          <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center"></div>
         </div>
       </div>
 
       <div className="px-[2vw] pt-[2vw]">
         <div className="bg-gray10 p-4 border flex flex-row justify-between items-center">
-            <div>
-              <strong className="text-gray60">Recibe notificaciones sobre nuevas publicaciones y noticias de RP Tech Team. </strong>
-            </div>
-            <div>
-              <button className="border-2 bg-transparent text-gray60 border-gray60 hover:bg-white">Suscribirse al newsletter</button>
-            </div>
+          <div>
+            <strong className="text-gray60">
+              Recibe notificaciones sobre nuevas publicaciones y noticias de RP
+              Tech Team.{" "}
+            </strong>
+          </div>
+          <div>
+            <button className="border-2 bg-transparent text-gray60 border-gray60 hover:bg-white">
+              Suscribirse al newsletter
+            </button>
+          </div>
         </div>
       </div>
 
       <div className="px-[4vw] mt-12">
-        <div className="flex flex-col items-center">
-        </div>
+        <div className="flex flex-col items-center"></div>
 
         <div className=" mb-8">
           <h2>Publicaciones destacadas</h2>
@@ -129,23 +154,29 @@ export default async function BlogPage() {
               key={post.slug}
               className="hover:shadow-lg transition-shadow border border-gray60 shadow-md hover:bg-gray10 min-h-[50vh] hover:cursor-pointer bg-white"
             >
-
               <div className="h-[50%] w-full relative">
-                <Image src={fansblowers} alt="Criticidad" layout="fill" objectFit="cover" />
+                <Image
+                  src={fansblowers}
+                  alt="Criticidad"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
               <div className="h-[50%] flex flex-col justify-between p-4">
                 <div>
                   <h2 className="text-xl mb-2 leading-[125%]">
-                    <Link href={`/blog/${post.slug}`} className="font-normal ">{post.title}</Link>
+                    <Link href={`/blog/${post.slug}`} className="font-normal ">
+                      {post.title}
+                    </Link>
                   </h2>
-                  <p className="text-gray60 font-normal text-sm">{post.excerpt}</p>
+                  <p className="text-gray60 font-normal text-sm">
+                    {post.excerpt}
+                  </p>
                 </div>
-                <div className="text-sm text-gray-500 mt-2 px-2   border border-gray50 w-fit flex flex-row items-center bg-gray80 text-white">
+                <div className="text-sm mt-2 px-2   border border-gray50 w-fit flex flex-row items-center bg-gray80 text-white">
                   <span>{post.tags}</span>
                 </div>
               </div>
-
-
             </div>
           ))}
         </div>
@@ -174,18 +205,18 @@ export default async function BlogPage() {
               <div className="">
                 <div>
                   <h2 className="text-xl mb-2">
-                    <Link href={`/blog/${post.slug}`} className="font-normal">{post.title}</Link>
+                    <Link href={`/blog/${post.slug}`} className="font-normal">
+                      {post.title}
+                    </Link>
                   </h2>
-                  <p className="text-gray60 font-normal text-sm mb-0">{post.excerpt}</p>
+                  <p className="text-gray60 font-normal text-sm mb-0">
+                    {post.excerpt}
+                  </p>
                 </div>
               </div>
               <div>
                 <ArrowUpRight size={20} className="text-gray60 " />
-
               </div>
-
-
-
             </div>
           ))}
         </div>

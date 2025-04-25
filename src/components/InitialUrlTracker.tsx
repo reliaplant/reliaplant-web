@@ -5,7 +5,10 @@ import { useEffect } from "react";
 
 export default function InitialUrlTracker() {
   useEffect(() => {
-    if (typeof window !== "undefined" && !sessionStorage.getItem("initialUrl")) {
+    if (
+      typeof window !== "undefined" &&
+      !sessionStorage.getItem("initialUrl")
+    ) {
       sessionStorage.setItem("initialUrl", window.location.href);
     }
   }, []);

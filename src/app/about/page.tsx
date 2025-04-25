@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
-export const metadata: Metadata =  {
+export const metadata: Metadata = {
   title: {
     absolute: "Sobre AECM",
   },
   description: "Descripcion sobre ABOUT AECM",
-}
+};
 
 export default function AboutPage() {
   return (

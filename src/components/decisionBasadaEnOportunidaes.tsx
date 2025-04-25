@@ -59,9 +59,7 @@ export default function TextCarousel() {
           animate={{ y: -20, scale: 0.7, opacity: 0.5 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          <span className="gradient-span text-3xl">
-            {texts[prevIndex]}
-          </span>
+          <span className="gradient-span text-3xl">{texts[prevIndex]}</span>
         </motion.div>
       </div>
 
@@ -73,9 +71,7 @@ export default function TextCarousel() {
           animate={{ y: 0, scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          <span className="gradient-span text-4xl">
-            {texts[currentIndex]}
-          </span>
+          <span className="gradient-span text-4xl">{texts[currentIndex]}</span>
         </motion.div>
       </div>
     </div>
