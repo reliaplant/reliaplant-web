@@ -1,23 +1,31 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
 
-/* Add the @layer directive right after the Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
-
+  :root {
+    --font-big-shoulders: "Big Shoulders Display", sans-serif;
+    --font-zen-dots: "Zen Dots", sans-serif;
+  }
 }
 
-.bgIA {
-  background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
-  box-shadow: 0 12px 36px #d0e2ff;
-  border-width: 1px;
-  border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
-  background-size: 200% 200%;
-  animation: gradientAnimation 5s ease infinite, borderAnimation 3s ease infinite;
-}
+@layer components {
+  .bgIA {
+    background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
+    box-shadow: 0 12px 36px #d0e2ff;
+    border-width: 1px;
+    border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite, borderAnimation 3s ease infinite;
+  }
 
-.borderIA {
-  border: 1px solid;
-  border-color: #ffffff;
-  animation: borderAnimation 4s ease infinite;
+  .borderIA {
+    border: 1px solid;
+    border-color: #ffffff;
+    animation: borderAnimation 4s ease infinite;
+  }
 }
 
 @keyframes gradientAnimation {
@@ -104,12 +112,6 @@
 
 .font-Literata{
   font-family: 'Literata', 'Literata Fallback' !important;
-}
-
-:root {
-  --font-big-shoulders: "Big Shoulders Display", sans-serif;
-  --font-zen-dots: "Zen Dots", sans-serif;
-
 }
 
 .font-BigShoulders {
