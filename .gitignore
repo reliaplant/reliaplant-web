@@ -48,3 +48,6 @@ firebase-debug.log
 **/*.node
 firebase/
 firebase/**/*
+
+# vscode
+/.vscode
