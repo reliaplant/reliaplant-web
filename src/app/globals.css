@@ -1,23 +1,58 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Add the @layer directive right after the Tailwind imports */
 @layer base {
+  :root {
+    --font-big-shoulders: "Big Shoulders Display", sans-serif;
+    --font-zen-dots: "Zen Dots", sans-serif;
+  }
 
+  /* HEADING STYLES - RESPONSIVE AND CONSISTENT */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    line-height: 1.25;
+  }
+  
+  /* Text elements base styles */
+  p, li {
+    color: #333;
+    line-height: 1.5;
+  }
 }
 
-.bgIA {
-  background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
-  box-shadow: 0 12px 36px #d0e2ff;
-  border-width: 1px;
-  border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
-  background-size: 200% 200%;
-  animation: gradientAnimation 5s ease infinite, borderAnimation 3s ease infinite;
-}
+@layer components {
+  .bgIA {
+    background: linear-gradient(to bottom, white, white, white, white, #d0e2ff 100%);
+    box-shadow: 0 12px 36px #d0e2ff;
+    border-width: 1px;
+    border-image: linear-gradient(to bottom, #ffffff, rgb(91, 137, 222)) 1;
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite, borderAnimation 3s ease infinite;
+  }
 
-.borderIA {
-  border: 1px solid;
-  border-color: #ffffff;
-  animation: borderAnimation 4s ease infinite;
+  .borderIA {
+    border: 1px solid;
+    border-color: #ffffff;
+    animation: borderAnimation 4s ease infinite;
+  }
+
+  .font-Source-Serif {
+    font-family: 'Source Serif 4', 'Source Serif 4 Fallback' !important;
+  }
+
+  .font-Literata {
+    font-family: 'Literata', 'Literata Fallback' !important;
+  }
+
+  .font-BigShoulders {
+    font-family: var(--font-big-shoulders) !important;
+  }
+
+  .font-ZenDots {
+    font-family: var(--font-zen-dots) !important;
+  }
 }
 
 @keyframes gradientAnimation {
@@ -98,34 +133,7 @@
 
 /* Importa los estilos de Carbon */
 
-.font-Source-Serif{
-  font-family: 'Source Serif 4', 'Source Serif 4 Fallback' !important;
-}
-
-.font-Literata{
-  font-family: 'Literata', 'Literata Fallback' !important;
-}
-
-:root {
-  --font-big-shoulders: "Big Shoulders Display", sans-serif;
-  --font-zen-dots: "Zen Dots", sans-serif;
-
-}
-
-.font-BigShoulders {
-  font-family: var(--font-big-shoulders) !important;
-}
-
-.font-ZenDots{  font-family: var(--font-zen-dots) !important;}
-
 /* Clear heading styles - remove any existing @layer or previous styles */
-
-/* HEADING STYLES - RESPONSIVE AND CONSISTENT */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1rem ;
-  color: #2c3e50 ;
-  line-height: 1.25 ;
-}
 
 /* h1 styles */
 h1 {

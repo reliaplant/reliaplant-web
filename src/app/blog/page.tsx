@@ -189,7 +189,7 @@ export default async function BlogPage() {
             <input
               type="text"
               placeholder="Buscar"
-              className="shadow-[0_0px_15px_rgba(0,0,0,0.15)] h-12 w-full outline outline-1 outline-gray30 focus:outline-gray60 p-4 pl-12"
+              className="shadow-[0_0px_15px_rgba(0,0,0,0.15)] h-12 w-full outline-1 outline-gray30 focus:outline-gray60 p-4 pl-12"
             />
             <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
               <Search size={20} className="text-gray60 " />
