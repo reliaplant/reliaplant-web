@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <div className="left-0 w-full z-50 sticky top-0 bg-white">
       {/* Header principal */}
-      <header className="bg-White w-full z-50 shadow-sm hidden md:block">
+      <header className="bg-White w-full z-50 shadow-md hidden md:block">
         {/* <header className="bg-transparent fixed top-0 w-full z-50">  */}
 
         <nav className="flex flex-row justify-between px-[5vw]">
@@ -78,7 +78,7 @@ export default function Header() {
                     {sections.map((section, sectionIndex) => (
                       <div key={sectionIndex} className={`w-[20vw] pr-4 ${sectionIndex !== sections.length - 1 ? 'border-r' : ''}`}>
                         <div className="flex flex-col">
-                          <h2 className="text-[1rem] font-bold text-black w-full">{section.title}</h2>
+                          <span className="text-[1rem] font-bold text-black w-full">{section.title}</span>
                           <div className="w-full">
                             {section.data.map((service, serviceIndex) => (
                               <Link key={serviceIndex} href={service.link} className='no-underline'>

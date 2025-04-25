@@ -59,21 +59,21 @@ export default function DiagnosticoGestion() {
                     {/* Texto */}
                     <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
                         <div>
-                            <div className="flex flex-row flex-wrap">
-                                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
-                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span> 
-                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span> 
+                        <div className="flex flex-row flex-wrap">
+                                <span className="text-blue60 font-light mb-4">
+                                    <a href="/" className="hover:underline">Inicio</a> <span className="mx-2 text-gray60">{'/'}</span>
+                                    <a href="/consultoria" className="hover:underline">Consultoría</a> <span className="mx-2 text-gray60">{'/'}</span>
                                     Diagnóstico de Gestión
                                 </span>
                             </div>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                            <h1 className="">
                                 Diagnóstico de la Gestión de Mantenimiento
                             </h1>
-                            <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
+                            <h4>
                                 Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez
                                 de la organización y la fase en la que se encuentra. La base para la ejecución de los estudios inicia
                                 con el registro de activos.
-                            </div>
+                            </h4>
                         </div>
                         <div className="mt-8 md:mt-6">
                             <AbrirFormContacto
@@ -92,9 +92,8 @@ export default function DiagnosticoGestion() {
 
            
             {/* Phases section */}
-            <div className="bg-blue-50 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] flex flex-col md:flex-row gap-8 md:gap-12 py-8 md:py-12">
-                <div className="w-full md:w-1/2">
-                    <h2 className="text-2xl md:text-4xl font-light mb-6 md:mb-8">Fases del Diagnóstico</h2>
+            <div className="contentSection">
+                    <h2 className="">Fases del Diagnóstico</h2>
                     <div className="mb-8">
                         <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
                             FASE I: PREPARACIÓN DEL TRABAJO
@@ -130,13 +129,12 @@ export default function DiagnosticoGestion() {
                             Dicho reporte se efectuará en forma de reporte PDF y presentación en PowerPoint, en la cual se mostrarán los resultados obtenidos en cada uno de los procesos evaluados. Igualmente se incluirá una estrategia general de implementación y un roadmap, mostrando los pasos a seguir para implementar las recomendaciones.
                         </p>
                     </div>
-                </div>
-                <div className="w-full md:w-1/2 mt-6 md:mt-0">
-                    <h2 className="text-2xl md:text-4xl font-light mb-6 md:mb-8">Áreas del Diagnóstico</h2>
-
+            </div>
+            <div className="contentSection bg-gray-100">
+                    <h2 className="">Áreas del Diagnóstico</h2>
                     <div className="overflow-x-auto">
-                        <table className="min-w-full mt-4 md:mt-8">
-                            <thead className="bg-gray-50">
+                        <table className="min-w-full border">
+                            <thead className="bg-gray-50 border">
                                 <tr>
                                     <th scope="col" className="px-3 md:px-6 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase">
                                         Área
@@ -148,7 +146,7 @@ export default function DiagnosticoGestion() {
                             </thead>
                             <tbody className="bg-white">
                                 {evaluationData.map((item, index) => (
-                                    <tr key={index}>
+                                    <tr key={index} className="border">
                                         <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-medium text-gray-900">{item.area}</td>
                                         <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500">{item.description}</td>
                                     </tr>
@@ -157,15 +155,14 @@ export default function DiagnosticoGestion() {
                         </table>
                     </div>
                 </div>
-            </div>
 
             {/* Evaluation areas details */}
             <div className="py-8 md:py-12 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw]">
                 <div className="bg-white ">
                     <div className="border-b border-black">
-                        <div className="border-b-2 border-blue60 w-fit text-sm md:text-base">
+                        <h2 className="">
                             DESCRIPCIÓN BREVE DE LAS AREAS DE EVALUACIÓN
-                        </div>
+                        </h2>
                     </div>
 
                     <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
@@ -403,26 +400,6 @@ export default function DiagnosticoGestion() {
                         <div className="w-full md:w-[70%] text-sm md:text-base">
                             <p>Evaluación de brechas en conocimientos clave mediante la aplicación de una prueba diagnóstica en línea (120 preguntas) diferenciada por nivel: técnico, supervisión y gerencial. El objetivo es identificar deficiencias en competencias fundamentales para una gestión de mantenimiento eficiente y sistemática.</p>
                             <p className="mt-2">Análisis de percepción del personal a través de una encuesta estructurada que permite evaluar su visión sobre la eficiencia de los procesos, disponibilidad de recursos y áreas críticas. Este ejercicio busca identificar patrones y oportunidades de mejora que podrían no ser evidentes para la gerencia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Add a madurez section */}
-            <div className="py-8 md:py-12 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw]">
-                <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-                    <div className="text-xl md:text-2xl w-full md:w-1/3">¿Cuál es el grado de madurez de su organización?</div>
-                    <div className="w-full md:w-2/3">
-                        <div className="text-base md:text-lg bg-gray10 p-4 text-black font-light">
-                            Se han construido muchos <strong>"Modelos de Confiabilidad"</strong> similares al mostrado abajo. La clave no está en cuál modelo tomar, sino <strong>adaptar a uno al contexto propio</strong>. Nuestro equipo de consultores puede ayudar a su organización a establecer una cultura de confiabilidad.
-                        </div>
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-6 md:mt-8">
-                            <button className="bg-gray90 hover:bg-blue60 transition duration-300 text-white text-sm md:text-base px-4 py-2">
-                                Tomar autodiagnóstico en línea
-                            </button>
-                            <button className="border-2 border-blue60 hover:transition duration-300 text-blue60 text-sm md:text-base px-4 py-2 mt-3 md:mt-0">
-                                Descargar guía de implementación
-                            </button>
                         </div>
                     </div>
                 </div>

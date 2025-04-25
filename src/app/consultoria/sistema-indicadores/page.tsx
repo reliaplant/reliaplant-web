@@ -30,12 +30,12 @@ export default function SistemaIndicadoresPage() {
                                     Sistema de Indicadores
                                 </span>
                             </div>
-                            <h1 className="font-light text-black leading-tight">
+                            <h1 className="">
                                 Sistema de Indicadores para Gestión de Mantenimiento
                             </h1>
-                            <h5 className="">
+                            <h4 className="">
                                 Diseño y desarrollo de tableros de control con KPIs basados en normas internacionales para optimizar y monitorear la gestión de mantenimiento.
-                            </h5>
+                            </h4>
                         </div>
                         <div className="mt-8 md:mt-6">
                             <AbrirFormContacto
