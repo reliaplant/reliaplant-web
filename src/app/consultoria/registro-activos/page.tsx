@@ -92,15 +92,15 @@ export default function Contacto() {
           <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
             <div>
               <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4">
+                <span className="text-reliablue font-light mb-4">
                   <a href="/" className="hover:underline">
                     Inicio
                   </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
+                  <span className="mx-2 text-reliagray">{"/"}</span>
                   <a href="/consultoria" className="hover:underline">
                     Consultoria
                   </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
+                  <span className="mx-2 text-reliagray">{"/"}</span>
                   Registro de Activos
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function Contacto() {
       <div className="contentSection">
         <h2>
           El Mantenimiento de Clase Mundial{" "}
-          <span className="text-blue60">
+          <span className="text-reliablue">
             requiere un registro de activos de la misma altura
           </span>
           .
@@ -189,7 +189,7 @@ export default function Contacto() {
             equipos, subequipos y componentes.
           </p>
           <div>
-            <TreeView size={48} className="text-blue60" />
+            <TreeView size={48} className="text-reliablue" />
           </div>
         </div>
 
@@ -200,7 +200,7 @@ export default function Contacto() {
             para todas las familias de equipo.
           </p>
           <div>
-            <DataVolume size={48} className="text-blue60" />
+            <DataVolume size={48} className="text-reliablue" />
           </div>
         </div>
 
@@ -211,7 +211,7 @@ export default function Contacto() {
             datos en campo mediante placa e inpsecciónes 360.
           </p>
           <div>
-            <Inspection size={48} className="text-blue60" />
+            <Inspection size={48} className="text-reliablue" />
           </div>
         </div>
 
@@ -222,7 +222,7 @@ export default function Contacto() {
             registro de activos siguiendo las políticas de la empresa.
           </p>
           <div>
-            <SyncSettings size={48} className="text-blue60" />
+            <SyncSettings size={48} className="text-reliablue" />
           </div>
         </div>
       </div>
@@ -438,27 +438,6 @@ export default function Contacto() {
           <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/bgAssetRegister.png')] bg-contain bg-center bg-no-repeat"></div>
         </div>
       </div>
-
-      {/* Sección: Banner Final */}
-      {/* <div className="px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] bg-gradient-to-l from-blue60 to-gray10 mt-16">
-                <div className="flex flex-col-reverse md:flex-row bg-gray20 justify-between hover:bg-white transition-all duration-300 hover:shadow-xl">
-                    <div className="p-6 md:p-[4vw] w-full md:w-[40vw]">
-                        <h3 className="font-light leading-tight">Confiabilidad desde el diseño</h3>
-                        <p className="mt-6 text-gray-700 leading-relaxed">
-                            Implementamos las mejores prácticas de la industria para garantizar que tu CMMS esté alineado con los estándares más altos, proporcionando datos precisos y útiles para la toma de decisiones.
-                        </p>
-                        <div className="mt-8 md:mt-12">
-                            <button className="bg-gray-900 text-white px-6 py-3 rounded-sm font-light flex flex-row items-center gap-4 hover:bg-blue60 transition duration-300">
-                                <span>Agenda con un especialista</span>
-                                <Headset size={20} />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="h-64 md:h-[29vw] z-10 w-full md:w-[50vw] bg-[url('/assets/consultor2.jpg')] bg-cover bg-center transform md:-scale-x-100">
-                        <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
-                    </div>
-                </div>
-            </div> */}
     </div>
   );
 }

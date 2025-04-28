@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { colores_custom } from "./src/styles/colores";
 
 const config: Config = {
   content: [
@@ -10,12 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ...colores_custom,
         // Direct color values, no variable references
         black: "#000000",
         black100: "#000000",
         blackHover: "#212121",
-        reliablue: "#0f62fe",
 
         white: "#ffffff",
         white0: "#ffffff",
