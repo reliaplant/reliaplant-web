@@ -45,20 +45,20 @@ export default function Home() {
       <div className="relative h-[70vh] flex items-center justify-start border-b">
         <div className="w-[50vw] p-[8vw] flex flex-col justify-center">
           <h1 className="text-[4rem] font-light leading-[1.1]">
-            Soluciones de <span className="text-blue60">Confiabilidad</span>{" "}
+            Soluciones de <span className="text-reliablue">Confiabilidad</span>{" "}
             para Optimizar tu Planta Industrial
           </h1>
-          <p className="mt-8 text-[1.3vw] leading-[136%] text-gray80">
+          <p className="mt-8 text-[1.3vw] leading-[136%] text-reliadarkgray">
             Maximiza el rendimiento de tus activos y reduce costos de
             mantenimiento con nuestros servicios especializados y soluciones de
             software.
           </p>
           <div className="mt-12 flex gap-4">
-            <button className="bg-black text-white px-8 py-3 flex items-center gap-2 hover:bg-blue60 transition duration-300">
+            <button className="bg-black text-white px-8 py-3 flex items-center gap-2 hover:bg-reliablue transition duration-300">
               <span>Ver servicios</span>
               <ArrowRight size={20} />
             </button>
-            <button className="border-2 border-blue60 text-blue60 px-8 py-3 flex items-center gap-2 hover:bg-blue20 transition duration-300">
+            <button className="border-2 border-reliablue text-reliablue px-8 py-3 flex items-center gap-2 hover:bg-relialightblue transition duration-300">
               <span>Consulta con especialistas</span>
               <Headset size={20} />
             </button>
@@ -74,7 +74,7 @@ export default function Home() {
           <h2 className="text-5xl font-light mb-8">
             Nuestros Servicios de Consultoría
           </h2>
-          <p className="text-xl text-gray60 max-w-4xl mx-auto">
+          <p className="text-xl text-reliagray max-w-4xl mx-auto">
             Ofrecemos soluciones personalizadas para optimizar la confiabilidad,
             disponibilidad y mantenibilidad de tus activos industriales.
           </p>
@@ -84,18 +84,18 @@ export default function Home() {
           <Link href="/consultoria/analisis-ram" className="no-underline">
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <Analytics size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <Analytics size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">Análisis RAM</h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Modelación de sistemas para predecir la confiabilidad,
                   disponibilidad y mantenibilidad de tus activos críticos.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -103,20 +103,20 @@ export default function Home() {
           <Link href="/consultoria/rcm" className="no-underline">
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <DecisionNode size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <DecisionNode size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">
                   Mantenimiento Centrado en Confiabilidad
                 </h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Metodología para desarrollar planes de mantenimiento
                   optimizados reduciendo fallas y aumentando productividad.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -124,20 +124,20 @@ export default function Home() {
           <Link href="/consultoria/mantenibilidad" className="no-underline">
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <Target size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <Target size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">
                   Análisis de Mantenibilidad
                 </h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Mejora el acceso a equipos, optimiza maniobras de
                   mantenimiento y reduce tiempos de intervención.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -150,20 +150,20 @@ export default function Home() {
           >
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <BarChart3 size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <BarChart3 size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">
                   Análisis de Criticidad
                 </h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Jerarquización de activos para priorizar recursos y reducir
                   riesgos operacionales y de seguridad.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -171,20 +171,20 @@ export default function Home() {
           <Link href="/consultoria/rca" className="no-underline">
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <Category size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <Category size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">
                   Análisis Causa Raíz
                 </h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Identificación de causas fundamentales de fallas para
                   implementar soluciones definitivas.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -192,20 +192,20 @@ export default function Home() {
           <Link href="/consultoria/optimizacion-mro" className="no-underline">
             <div className="border p-6 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-blue20 p-4 w-fit rounded-full mb-4">
-                  <DataTable size={32} className="text-blue60" />
+                <div className="bg-relialightblue p-4 w-fit rounded-full mb-4">
+                  <DataTable size={32} className="text-reliablue" />
                 </div>
                 <h3 className="text-2xl font-normal mb-4">
                   Optimización de Inventario
                 </h3>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Estrategias para mantener niveles óptimos de inventario MRO,
                   reduciendo costos y asegurando disponibilidad.
                 </p>
               </div>
               <div className="mt-8 flex justify-between items-center">
-                <span className="text-blue60 font-light">Conocer más</span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <span className="text-reliablue font-light">Conocer más</span>
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -213,7 +213,7 @@ export default function Home() {
 
         <div className="mt-12 text-center">
           <Link href="/servicios">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center mx-auto gap-2">
+            <button className="border-2 border-reliablue bg-white hover:bg-relialightblue text-reliablue px-8 py-3 flex items-center mx-auto gap-2">
               <span>Ver todos los servicios</span>
               <ArrowRight size={20} />
             </button>
@@ -221,10 +221,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-24 px-[8vw] bg-gray10">
+      <div className="py-24 px-[8vw] bg-graylightgray">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-light mb-8">Software Especializado</h2>
-          <p className="text-xl text-gray60 max-w-4xl mx-auto">
+          <p className="text-xl text-reliagray max-w-4xl mx-auto">
             Herramientas potentes para el análisis y gestión de la confiabilidad
             de tus activos industriales
           </p>
@@ -233,57 +233,57 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-12">
           <Link href="/rca" className="no-underline">
             <div className="bg-white p-8 hover:shadow-lg transition duration-300">
-              <div className="bg-gray20 p-6 inline-block mb-6">
+              <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Category size={48} />
               </div>
               <h3 className="text-3xl font-normal mb-4">RCA</h3>
-              <p className="text-gray60 mb-6">
+              <p className="text-reliagray mb-6">
                 Software para análisis causa raíz que facilita la eliminación de
                 defectos recurrentes en tu planta.
               </p>
               <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
+                <span className="text-reliablue font-light">
                   Explorar software
                 </span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
 
           <Link href="/rcm" className="no-underline">
             <div className="bg-white p-8 hover:shadow-lg transition duration-300">
-              <div className="bg-gray20 p-6 inline-block mb-6">
+              <div className="bg-graylightgray p-6 inline-block mb-6">
                 <DecisionNode size={48} />
               </div>
               <h3 className="text-3xl font-normal mb-4">RCM</h3>
-              <p className="text-gray60 mb-6">
+              <p className="text-reliagray mb-6">
                 Plataforma para desarrollar planes de mantenimiento optimizados
                 para equipos críticos y no críticos.
               </p>
               <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
+                <span className="text-reliablue font-light">
                   Explorar software
                 </span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
 
           <Link href="/ram" className="no-underline">
             <div className="bg-white p-8 hover:shadow-lg transition duration-300">
-              <div className="bg-gray20 p-6 inline-block mb-6">
+              <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Analytics size={48} />
               </div>
               <h3 className="text-3xl font-normal mb-4">RAM</h3>
-              <p className="text-gray60 mb-6">
+              <p className="text-reliagray mb-6">
                 Herramienta para el análisis de disponibilidad de sistemas
                 complejos mediante simulaciones avanzadas.
               </p>
               <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
+                <span className="text-reliablue font-light">
                   Explorar software
                 </span>
-                <ArrowUpRight size={20} className="text-blue60" />
+                <ArrowUpRight size={20} className="text-reliablue" />
               </div>
             </div>
           </Link>
@@ -291,7 +291,7 @@ export default function Home() {
 
         <div className="mt-12 text-center">
           <Link href="/software">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center mx-auto gap-2">
+            <button className="border-2 border-reliablue bg-white hover:bg-relialightblue text-reliablue px-8 py-3 flex items-center mx-auto gap-2">
               <span>Ver todo el software</span>
               <ArrowRight size={20} />
             </button>
@@ -303,7 +303,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-16">
           <div>
             <h2 className="text-5xl font-light mb-8">¿Por qué elegirnos?</h2>
-            <p className="text-xl text-gray60 mb-12">
+            <p className="text-xl text-reliagray mb-12">
               En RELIAPLANT combinamos experiencia en confiabilidad industrial
               con metodologías avanzadas y software especializado para ofrecer
               soluciones integrales y personalizadas.
@@ -311,34 +311,34 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-8">
               <div className="flex flex-col gap-3">
-                <Checkmark size={32} className="text-blue60" />
+                <Checkmark size={32} className="text-reliablue" />
                 <h4 className="text-xl font-normal">Experiencia comprobada</h4>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Más de 15 años en proyectos de confiabilidad para industrias
                   de alta exigencia.
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <Checkmark size={32} className="text-blue60" />
+                <Checkmark size={32} className="text-reliablue" />
                 <h4 className="text-xl font-normal">
                   Metodologías optimizadas
                 </h4>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Procesos eficientes adaptados a tus necesidades específicas.
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <Checkmark size={32} className="text-blue60" />
+                <Checkmark size={32} className="text-reliablue" />
                 <h4 className="text-xl font-normal">Software especializado</h4>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Herramientas tecnológicas que potencian los resultados de
                   nuestros servicios.
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <Checkmark size={32} className="text-blue60" />
+                <Checkmark size={32} className="text-reliablue" />
                 <h4 className="text-xl font-normal">Enfoque integral</h4>
-                <p className="text-gray60">
+                <p className="text-reliagray">
                   Abarcamos todos los aspectos de la confiabilidad para
                   resultados sostenibles.
                 </p>
@@ -346,7 +346,7 @@ export default function Home() {
             </div>
 
             <div className="mt-12">
-              <button className="bg-black text-white px-8 py-3 flex items-center gap-2 hover:bg-blue60 transition duration-300">
+              <button className="bg-black text-white px-8 py-3 flex items-center gap-2 hover:bg-reliablue transition duration-300">
                 <span>Conoce nuestra metodología</span>
                 <ArrowRight size={20} />
               </button>
@@ -359,9 +359,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-[8vw] py-24 bg-gray80 text-white">
+      <div className="px-[8vw] py-24 bg-reliadarkgray text-white">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-light mb-8">
+          <h2 className="text-5xl font-light text-reliablue mb-8">
             Sectores industriales que atendemos
           </h2>
           <p className="text-xl text-gray30 max-w-4xl mx-auto">
@@ -371,33 +371,41 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-4 gap-8">
-          <div className="p-6 border border-gray60 hover:border-blue60 transition duration-300">
-            <Industry size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal mb-3">Oil & Gas</h3>
+          <div className="p-6 border border-reliagray hover:border-reliablue transition duration-300">
+            <Industry size={48} className="text-reliablue mb-4" />
+            <h3 className="text-2xl font-normal text-reliablue mb-3">
+              Oil & Gas
+            </h3>
             <p className="text-gray30">
               Mejora la disponibilidad de equipos críticos y cumple con los
               estándares de seguridad más exigentes.
             </p>
           </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 transition duration-300">
-            <Activity size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal mb-3">Minería</h3>
+          <div className="p-6 border border-reliagray hover:border-reliablue transition duration-300">
+            <Activity size={48} className="text-reliablue mb-4" />
+            <h3 className="text-2xl font-normal text-reliablue mb-3">
+              Minería
+            </h3>
             <p className="text-gray30">
               Optimiza operaciones continuas y reduce tiempos de inactividad en
               equipos de alto valor.
             </p>
           </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 transition duration-300">
-            <SettingsAdjust size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal mb-3">Manufactura</h3>
+          <div className="p-6 border border-reliagray hover:border-reliablue transition duration-300">
+            <SettingsAdjust size={48} className="text-reliablue mb-4" />
+            <h3 className="text-2xl font-normal text-reliablue mb-3">
+              Manufactura
+            </h3>
             <p className="text-gray30">
               Incrementa la productividad manteniendo altos estándares de
               calidad en procesos continuos.
             </p>
           </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 transition duration-300">
-            <Layers size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal mb-3">Infraestructura</h3>
+          <div className="p-6 border border-reliagray hover:border-reliablue transition duration-300">
+            <Layers size={48} className="text-reliablue mb-4" />
+            <h3 className="text-2xl font-normal text-reliablue mb-3">
+              Infraestructura
+            </h3>
             <p className="text-gray30">
               Asegura la operatividad de instalaciones críticas y servicios
               esenciales.
@@ -406,8 +414,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-[4vw] bg-gradient-to-l from-blue60 to-gray10">
-        <div className="flex flex-row bg-gray20 justify-between hover:bg-white transition-all duration-100 hover:shadow-xl">
+      <div className="px-[4vw] bg-gradient-to-l from-reliablue to-graylightgray">
+        <div className="flex flex-row bg-graylightgray justify-between hover:bg-white transition-all duration-100 hover:shadow-xl">
           <div className="p-[4vw] w-[40vw]">
             <h3 className="text-5xl font-light">
               ¿Buscas optimizar la disponibilidad de tus activos?
