@@ -87,36 +87,42 @@ export default function Home() {
             Icon={Analytics}
             title="Análisis RAM"
             description="Modelación de sistemas para predecir la confiabilidad, disponibilidad y mantenibilidad de tus activos críticos."
+            variant="default"
           />
           <ServiceCard
             href="/consultoria/rcm"
             Icon={DecisionNode}
             title="Mantenimiento Centrado en Confiabilidad"
             description="Metodología para desarrollar planes de mantenimiento optimizados reduciendo fallas y aumentando productividad."
+            variant="default"
           />
           <ServiceCard
             href="/consultoria/mantenibilidad"
             Icon={Target}
             title="Análisis de Mantenibilidad"
             description="Mejora el acceso a equipos, optimiza maniobras de mantenimiento y reduce tiempos de intervención."
+            variant="default"
           />
           <ServiceCard
             href="/consultoria/analisis-criticidad"
             Icon={BarChart3}
             title="Análisis de Criticidad"
             description="Jerarquización de activos para priorizar recursos y reducir riesgos operacionales y de seguridad."
+            variant="default"
           />
           <ServiceCard
             href="/consultoria/rca"
             Icon={Category}
             title="Análisis Causa Raíz"
             description="Identificación de causas fundamentales de fallas para implementar soluciones definitivas."
+            variant="default"
           />
           <ServiceCard
             href="/consultoria/optimizacion-mro"
             Icon={DataTable}
             title="Optimización de Inventario"
             description="Estrategias para mantener niveles óptimos de inventario MRO, reduciendo costos y asegurando disponibilidad."
+            variant="default"
           />
         </div>
 
@@ -308,42 +314,30 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-6 border border-gray60 hover:border-blue60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <Industry size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal text-blue60 mb-3">Oil & Gas</h3>
-            <p className="text-gray30">
-              Mejora la disponibilidad de equipos críticos y cumple con los
-              estándares de seguridad más exigentes.
-            </p>
-          </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <Activity size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal text-blue60 mb-3">Minería</h3>
-            <p className="text-gray30">
-              Optimiza operaciones continuas y reduce tiempos de inactividad en
-              equipos de alto valor.
-            </p>
-          </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <SettingsAdjust size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal text-blue60 mb-3">
-              Manufactura
-            </h3>
-            <p className="text-gray30">
-              Incrementa la productividad manteniendo altos estándares de
-              calidad en procesos continuos.
-            </p>
-          </div>
-          <div className="p-6 border border-gray60 hover:border-blue60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <Layers size={48} className="text-blue60 mb-4" />
-            <h3 className="text-2xl font-normal text-blue60 mb-3">
-              Infraestructura
-            </h3>
-            <p className="text-gray30">
-              Asegura la operatividad de instalaciones críticas y servicios
-              esenciales.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={Industry}
+            title="Oil & Gas"
+            description="Mejora la disponibilidad de equipos críticos y cumple con los estándares de seguridad más exigentes."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Activity}
+            title="Minería"
+            description="Optimiza operaciones continuas y reduce tiempos de inactividad en equipos de alto valor."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={SettingsAdjust}
+            title="Manufactura"
+            description="Incrementa la productividad manteniendo altos estándares de calidad en procesos continuos."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Layers}
+            title="Infraestructura"
+            description="Asegura la operatividad de instalaciones críticas y servicios esenciales."
+            variant="dark"
+          />
         </div>
       </div>
     </>

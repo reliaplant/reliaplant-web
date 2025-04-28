@@ -124,7 +124,7 @@ export default function MatrizResponsabilidades() {
               </div>
             </div>
             <div className="mt-8 md:mt-6">
-              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90 px-6 py-3">
+              <button className="font-light text-[1.1rem] text-white flex flex-row items-center gap-8 mb-4 bg-gray90 px-6 py-3">
                 <span>Solicita una cotización</span>
                 <RequestQuote size={20} className="text-white" />
               </button>
@@ -145,7 +145,7 @@ export default function MatrizResponsabilidades() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-8">
-            <div className="border p-6 flex flex-col justify-between h-[30vh]">
+            <div className="border p-6 flex flex-col justify-between">
               <div className="flex flex-col">
                 <span className="text-[1.4rem]">
                   Definición de Responsabilidades
@@ -160,7 +160,7 @@ export default function MatrizResponsabilidades() {
                 <ClipboardList size={36} className="text-blue60" />
               </div>
             </div>
-            <div className="border p-6 flex flex-col justify-between h-[30vh]">
+            <div className="border p-6 flex flex-col justify-between">
               <div className="flex flex-col">
                 <span className="text-[1.4rem]">Mapeo de Competencias</span>
                 <span className="text-gray60 mt-4">
@@ -173,7 +173,7 @@ export default function MatrizResponsabilidades() {
                 <CheckSquare size={36} className="text-blue60" />
               </div>
             </div>
-            <div className="border p-6 flex flex-col justify-between h-[30vh]">
+            <div className="border p-6 flex flex-col justify-between">
               <div className="flex flex-col">
                 <span className="text-[1.4rem]">
                   Planes de Formación Específicos
@@ -188,7 +188,7 @@ export default function MatrizResponsabilidades() {
                 <GraduationCap size={36} className="text-blue60" />
               </div>
             </div>
-            <div className="border p-6 flex flex-col justify-between h-[30vh]">
+            <div className="border p-6 flex flex-col justify-between">
               <div className="flex flex-col">
                 <span className="text-[1.4rem]">
                   Integración con Sistemas de Gestión
@@ -252,16 +252,19 @@ export default function MatrizResponsabilidades() {
               Los Tres Pilares de la Matriz
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-              <div className="bg-white p-6 hover:shadow-lg transition duration-300 border border-gray30 h-[350px] flex flex-col">
-                <Document size={32} className="text-blue60 mb-4" />
-                <h3 className="text-xl font-normal mb-2">
+              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+                <Document
+                  size={32}
+                  className="text-blue60 mb-4 flex-shrink-0"
+                />
+                <h3 className="text-lg sm:text-xl font-normal mb-3">
                   1. Estructura de Responsabilidades
                 </h3>
-                <p className="text-gray60 flex-grow">
+                <p className="text-gray60 mb-4">
                   Define qué hace cada posición dentro del flujo de trabajo de
                   mantenimiento:
                 </p>
-                <ul className="list-disc pl-6 text-gray60 mt-4">
+                <ul className="list-disc pl-6 text-gray60 space-y-2">
                   <li>Toma de decisiones técnicas</li>
                   <li>Definición de prioridades</li>
                   <li>Gestión de recursos</li>
@@ -269,16 +272,19 @@ export default function MatrizResponsabilidades() {
                   <li>Ejecución técnica especializada</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 hover:shadow-lg transition duration-300 border border-gray30 h-[350px] flex flex-col">
-                <Certificate size={32} className="text-blue60 mb-4" />
-                <h3 className="text-xl font-normal mb-2">
+              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+                <Certificate
+                  size={32}
+                  className="text-blue60 mb-4 flex-shrink-0"
+                />
+                <h3 className="text-lg sm:text-xl font-normal mb-3">
                   2. Mapa de Competencias
                 </h3>
-                <p className="text-gray60 flex-grow">
+                <p className="text-gray60 mb-4">
                   Establece el conjunto de conocimientos y habilidades
                   necesarios:
                 </p>
-                <ul className="list-disc pl-6 text-gray60 mt-4">
+                <ul className="list-disc pl-6 text-gray60 space-y-2">
                   <li>Técnicas (mecánica, eléctrica, instrumentación)</li>
                   <li>Metodológicas (RCM, FMEA, RCA)</li>
                   <li>Normativas (NFPA, ISO, ASME, etc)</li>
@@ -286,15 +292,18 @@ export default function MatrizResponsabilidades() {
                   <li>Gestión (planificación, costos, liderazgo)</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 hover:shadow-lg transition duration-300 border border-gray30 h-[350px] flex flex-col">
-                <UserAccess size={32} className="text-blue60 mb-4" />
-                <h3 className="text-xl font-normal mb-2">
+              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+                <UserAccess
+                  size={32}
+                  className="text-blue60 mb-4 flex-shrink-0"
+                />
+                <h3 className="text-lg sm:text-xl font-normal mb-3">
                   3. Plan de Formación
                 </h3>
-                <p className="text-gray60 flex-grow">
+                <p className="text-gray60 mb-4">
                   Desarrolla itinerarios formativos personalizados:
                 </p>
-                <ul className="list-disc pl-6 text-gray60 mt-4">
+                <ul className="list-disc pl-6 text-gray60 space-y-2">
                   <li>Cursos específicos por nivel y especialidad</li>
                   <li>Certificaciones técnicas necesarias</li>
                   <li>Programas de mentoring interno</li>

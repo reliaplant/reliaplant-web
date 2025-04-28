@@ -34,6 +34,7 @@ import {
 import { MdMoney, MdScience } from "react-icons/md";
 import { Binoculars, Compass } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Registro de Activos en CMMS | Gestión de Mantenimiento | Reliaplant",
@@ -182,49 +183,30 @@ export default function Contacto() {
 
       {/* Section: Características */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] ">
-        <div className="border border-gray-200 p-6 md:p-8 rounded-sm flex flex-col justify-between">
-          <h4 className="font-semibold mb-4">Asset Register</h4>
-          <p className="text-gray70 flex-grow">
-            Diseña una taxonomía de activos para tu planta, desde los sistemas,
-            equipos, subequipos y componentes.
-          </p>
-          <div>
-            <TreeView size={48} className="text-reliablue" />
-          </div>
-        </div>
-
-        <div className="border border-gray-200 p-6 md:p-8 rounded-sm flex flex-col justify-between">
-          <h4 className="font-semibold mb-4">Información Técnica</h4>
-          <p className="text-gray70 flex-grow">
-            Creación de los datos técnicos maestros para los activos a nivel
-            para todas las familias de equipo.
-          </p>
-          <div>
-            <DataVolume size={48} className="text-reliablue" />
-          </div>
-        </div>
-
-        <div className="border border-gray-200 p-6 md:p-8 rounded-sm flex flex-col justify-between">
-          <h4 className="font-semibold mb-4">Validación en sitio</h4>
-          <p className="text-gray70 flex-grow">
-            Levantamiento fotográfico de los equipos para validación de los
-            datos en campo mediante placa e inpsecciónes 360.
-          </p>
-          <div>
-            <Inspection size={48} className="text-reliablue" />
-          </div>
-        </div>
-
-        <div className="border border-gray-200 p-6 md:p-8 rounded-sm flex flex-col justify-between">
-          <h4 className="font-semibold mb-4">Estandarización</h4>
-          <p className="text-gray70 flex-grow">
-            Creación de los lineamientos para la modificación y creación del
-            registro de activos siguiendo las políticas de la empresa.
-          </p>
-          <div>
-            <SyncSettings size={48} className="text-reliablue" />
-          </div>
-        </div>
+        <ServiceCard
+          title="Asset Register"
+          description="Diseña una taxonomía de activos para tu planta, desde los sistemas, equipos, subequipos y componentes."
+          Icon={TreeView}
+          variant="default"
+        />
+        <ServiceCard
+          title="Información Técnica"
+          description="Creación de los datos técnicos maestros para los activos a nivel para todas las familias de equipo."
+          Icon={DataVolume}
+          variant="default"
+        />
+        <ServiceCard
+          title="Validación en sitio"
+          description="Levantamiento fotográfico de los equipos para validación de los datos en campo mediante placa e inpsecciónes 360."
+          Icon={Inspection}
+          variant="default"
+        />
+        <ServiceCard
+          title="Estandarización"
+          description="Creación de los lineamientos para la modificación y creación del registro de activos siguiendo las políticas de la empresa."
+          Icon={SyncSettings}
+          variant="default"
+        />
       </div>
 
       {/* Sección del Proceso 1 */}

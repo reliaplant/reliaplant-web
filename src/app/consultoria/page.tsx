@@ -165,31 +165,32 @@ export default function ConsultoriaPage() {
 
   return (
     <div className="bg-gray10">
-      <div className="bg-blue20 px-[8vw] py-8 flex flex-row justify-between items-center">
-        <div className="w-2/3 text-lg">
+      <div className="bg-blue20 px-4 md:px-8 lg:px-[8vw] py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="w-full md:w-2/3 text-base md:text-lg">
           ¿Tiene curiosidad por saber cómo RELIAPLANT Consulting puede ayudar a
           su empresa? Realice un autodiagnóstico y{" "}
           <strong>deje que nuestro equipo le indique los próximos pasos</strong>
           .{" "}
         </div>
-        <button className='border-2 border-blue60 text-blue60 transition-all duration-300 hover:after:content-["→"] hover:after:ml-2 hover:bg-blue60 hover:text-white'>
+        <button className='border-2 border-blue60 text-blue60 px-4 py-2 transition-all duration-300 hover:after:content-["→"] hover:after:ml-2 hover:bg-blue60 hover:text-white whitespace-nowrap'>
           Tomar autodiagnóstico
         </button>
       </div>
 
-      <div className="mt-16 px-[8vw]">
+      <div className="mt-8 md:mt-16 px-4 md:px-8 lg:px-[8vw]">
         <div className="border-b border-black">
-          <div className="border-b-2 border-blue60 w-fit text-[2vw] pl-8">
+          <div className="border-b-2 border-blue60 w-fit text-xl md:text-2xl pl-4 md:pl-8">
             CONSULTORIA
           </div>
         </div>
       </div>
 
-      <div className="relative px-[8vw] h-[55vh] flex items-center justify-start">
-        {/* Contenido */}
-        <div className="relative z-10 text-whites w-[40vw] h-full bg-white p-8">
-          <h1 className="text-6xl font-light  ">Mejora de la Confiabilidad</h1>
-          <div className="mt-8 text-[1.15vw] leading-[136%]">
+      <div className="relative px-4 md:px-8 lg:px-[8vw] min-h-[400px] md:h-[55vh] flex items-center justify-start">
+        <div className="relative z-10 text-whites w-full md:w-[500px] lg:w-[600px] h-full bg-white p-4 md:p-8">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light">
+            Mejora de la Confiabilidad
+          </h1>
+          <div className="mt-4 md:mt-8 text-base md:text-lg leading-relaxed">
             Los estudios orientados a la mejora Confiabilidad son realizados de
             acuerdo con la madurez de la organización y la fase en la que se
             encuentra. <br />
@@ -204,93 +205,91 @@ export default function ConsultoriaPage() {
         </div>
       </div>
 
-      <div className="h-[80vh] bg-cover bg-center bg-no-repeat bg-opacity-0">
-        <div className="px-[8vw] pt-12">
-          <div className="flex flex-row gap-8 py-24">
-            <div className="text-2xl w-1/3">
-              {" "}
+      <div className="min-h-[500px] bg-cover bg-center bg-no-repeat">
+        <div className="px-4 md:px-8 lg:px-[8vw] py-8">
+          <div className="flex flex-col md:flex-row gap-8 py-8">
+            <div className="text-xl md:text-2xl w-full md:w-1/3">
               ¿Cuál es el grado de madurez de su organización?
             </div>
-            <div className="w-2/4">
-              <div className="text-xl bg-gray10 text-black font-light ">
+            <div className="w-full md:w-2/4">
+              <div className="text-base md:text-xl bg-gray10 text-black font-light">
                 Se han construido muchos{" "}
-                <strong>"Modelos de Confiabilidad"</strong> silimares al
-                mostrado abajo. La clave no esta en cuál en cuál modelo tomar,
-                sino <strong>adaptar a uno al contexto propio</strong>. Nuestro
+                <strong>"Modelos de Confiabilidad"</strong> similares al
+                mostrado abajo. La clave no esta en cuál modelo tomar, sino{" "}
+                <strong>adaptar a uno al contexto propio</strong>. Nuestro
                 equipo de consultores puede ayudar a su organización a
-                establecer una cultura de confiabilidad.{" "}
+                establecer una cultura de confiabilidad.
               </div>
-              <div className="flex flex-row gap-8 mt-8">
-                <button className="bg-blue60 hover:bg-gray90">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-8">
+                <button className="bg-blue60 hover:bg-gray90 px-4 py-2 text-white">
                   Quiero implementar un modelo de confiabilidad
                 </button>
-                <button className="border-2 border-blue60 hover:bg-blue20 text-blue60">
+                <button className="border-2 border-blue60 hover:bg-blue20 text-blue60 px-4 py-2">
                   Descargar guía de implementación
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="h-full w-full relative bg-gray20 p-8">
-            <div className="border-b border-black mb-8">
-              <div className="border-b-2 border-blue60 w-fit">
+          <div className="w-full bg-gray20 p-4 md:p-8 mt-8">
+            <div className="border-b border-black mb-4 md:mb-8">
+              <div className="border-b-2 border-blue60 w-fit text-lg md:text-xl">
                 Modelo para la Mejora de Confiabilidad
               </div>
             </div>
-
-            <Image
-              src={procesoConfiabilidad}
-              alt="Proceso de Confiabilidad"
-              layout="fit"
-              objectFit="cover"
-            />
-          </div>
-          <div className="pt-2">
-            <span className="text-[0.7vw] text-gray50">
-              Referencia Copyright PREDICTIVA21 - Modelo de la Confiabilidad
-            </span>
+            <div className="relative w-full aspect-[16/9]">
+              <Image
+                src={procesoConfiabilidad}
+                alt="Proceso de Confiabilidad"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="pt-4">
+              <span className="text-xs md:text-sm text-gray50">
+                Referencia Copyright PREDICTIVA21 - Modelo de la Confiabilidad
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-gray10 p-[8vw] mt-96">
-        <div className="bg-white p-[2vw]">
-          <div className="border-b border-black">
-            <div className="border-b-2 border-blue60 w-fit text-[1]">
+      <div className="bg-gray10 py-16 px-4 md:px-[8vw]">
+        <div className="bg-white p-4 md:p-[2vw]">
+          <div className="border-b border-black mb-6">
+            <div className="border-b-2 border-blue60 w-fit text-xl md:text-2xl">
               Cartera de Servicios
             </div>
           </div>
           {sections.map((section, sectionIndex) => (
             <div
               key={sectionIndex}
-              className={`flex flex-row pb-4 pt-4  ${
-                sectionIndex !== sections.length - 1 ? "border-b-2" : ""
+              className={`flex flex-col md:flex-row pb-8 ${
+                sectionIndex !== sections.length - 1 ? "border-b-2 mb-8" : ""
               }`}
             >
-              <div className="w-[30vw] flex flex-col items-center">
-                <h2 className="text-xl font-bold text-black w-full">
+              <div className="w-full md:w-[30vw] mb-4 md:mb-0">
+                <h2 className="text-lg md:text-xl font-bold text-black">
                   {section.title}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-[100vw] ">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                 {section.data.map((service, serviceIndex) => (
                   <div
                     key={serviceIndex}
-                    className={`border-dashed border-blue20 p-4 transition-transform duration-300 ${
-                      serviceIndex % 4 !== 3 ? "border-r" : ""
-                    } ${
-                      serviceIndex > 3 ? "border-t" : ""
-                    } hover:outline hover:outline-blue60 hover:z50 hover:border-blue60 hover:bg-blue10 hover:border-0 hover:cursor-pointer`}
+                    className="border border-blue20 p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue60 hover:bg-blue10"
                   >
-                    <div className="h-[12vw] relative">
+                    <div className="h-48 md:h-[12vw] relative">
                       <Image
                         src={service.image}
-                        className="w-full h-full object-cover"
+                        className="rounded-lg object-cover"
                         alt={service.alt}
-                        layout="fill"
+                        fill
                       />
                     </div>
-                    <div className="pt-2 text-sm">{service.title}</div>
+                    <div className="pt-3 text-sm md:text-base">
+                      {service.title}
+                    </div>
                   </div>
                 ))}
               </div>

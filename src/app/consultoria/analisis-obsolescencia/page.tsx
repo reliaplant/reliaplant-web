@@ -118,7 +118,7 @@ export default function Contacto() {
           </div>
           {/* Imagen */}
           <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgObsolescencia.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+            <div className="absolute inset-0 md:bg-transparent"></div>
           </div>
         </div>
       </div>

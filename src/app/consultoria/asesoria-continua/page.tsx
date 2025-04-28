@@ -306,11 +306,11 @@ export default function AsesoriaConstante() {
             </div>
             <div className="mt-6">
               <AbrirFormContacto
-                buttonText="Solicita asesoria part-time"
-                icon={<ArrowRight size={20} />}
+                buttonText="Solicita asesoría part-time"
+                icon={<ArrowRight size={20} className="text-white" />}
                 buttonColor="bg-gray90"
                 fullDesktop={true}
-                modalTitle="Solicita asesoria part-time"
+                modalTitle="Solicita asesoría part-time"
               />
             </div>
           </div>
