@@ -270,16 +270,16 @@ const config: Config = {
         warmGrayHover90: "#343232",
         warmGrayHover100: "#2c2626",
 
-        white10: "rgba(255, 255, 255, 0.1)",  // Blanco casi transparente
+        white10: "rgba(255, 255, 255, 0.1)", // Blanco casi transparente
         white20: "rgba(255, 255, 255, 0.2)",
         white30: "rgba(255, 255, 255, 0.3)",
         white40: "rgba(255, 255, 255, 0.4)",
-        white50: "rgba(255, 255, 255, 0.5)",  // Blanco con transparencia media
+        white50: "rgba(255, 255, 255, 0.5)", // Blanco con transparencia media
         white60: "rgba(255, 255, 255, 0.6)",
         white70: "rgba(255, 255, 255, 0.7)",
         white80: "rgba(255, 255, 255, 0.8)",
         white90: "rgba(255, 255, 255, 0.9)",
-        white100: "rgba(255, 255, 255, 1.0)",  // Blanco sólido
+        white100: "rgba(255, 255, 255, 1.0)", // Blanco sólido
 
         red5: "#FF0000",
         gray4: "#27272C",
@@ -300,28 +300,26 @@ const config: Config = {
       },
       keyframes: {
         fade: {
-          "0%, 100%": { 
-            opacity: "1", 
+          "0%, 100%": {
+            opacity: "1",
             filter: "hue-rotate(0deg)", // Color original
           },
-          "50%": { 
-            opacity: "0.2", 
+          "50%": {
+            opacity: "0.2",
             filter: "hue-rotate(90deg)", // Cambia el tono
           },
         },
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
   // Make sure Tailwind doesn't purge required styles
   safelist: [
     // Add essential classes that might be purged
-    'bg-blue60',
-    'text-white',
+    "bg-blue60",
+    "text-white",
     // Add any other classes that might be missing
-  ]
+  ],
 };
 
 export default config;
