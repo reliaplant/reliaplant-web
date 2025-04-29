@@ -29,8 +29,6 @@ import {
 } from "@carbon/icons-react";
 import { MdMoney, MdScience } from "react-icons/md";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
-import BannerPrincipal from "@/components/BannerPrincipal";
-import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Análisis RAM | Gestión de Confiabilidad | Reliaplant",
@@ -81,12 +79,49 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <div>
-      <BannerPrincipal
-        title="Análisis RAM"
-        description="Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez de la organización y la fase en la que se encuentra."
-        currentPath="Análisis RAM"
-        image="/assets/bgRAM.png"
-      />
+      {/* Hero Section */}
+      {/* Header */}
+      <div className="">
+        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+          {/* Texto */}
+          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+            <div>
+              <div className="flex flex-row flex-wrap">
+                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
+                  <a href="/" className="hover:underline">
+                    Inicio
+                  </a>
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  <a href="/consultoria" className="hover:underline">
+                    Consultoría
+                  </a>
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  Análisis RAM
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+                Análisis RAM
+              </h1>
+              <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
+                Los estudios orientados a la mejora Confiabilidad son realizados
+                de acuerdo con la madurez de la organización y la fase en la que
+                se encuentra.
+              </div>
+            </div>
+            <div className="mt-8 md:mt-6">
+              <AbrirFormContacto
+                buttonText="Habla con un especialista"
+                icon={<Headset size={20} className="text-white" />}
+                buttonColor="bg-gray90"
+              />
+            </div>
+          </div>
+          {/* Imagen */}
+          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgRAM.png')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Introduction Section */}
       <div className="mt-12 md:mt-24 px-4 sm:px-[8vw] flex flex-col md:flex-row gap-8 md:gap-24">
@@ -129,34 +164,71 @@ export default function Contacto() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 sm:px-[8vw] mt-12 md:mt-24">
-        <ServiceCard
-          title="Evalúa instalaciones completas"
-          description="Modela sistemas complejos hasta instalaciones que se encuentran en fase de diseño."
-          Icon={Industry}
-          variant="default"
-        />
-        <ServiceCard
-          title="Aumenta la Disponibilidad"
-          description="Analiza la disponibilidad de tus sistemas y equipos para mejorar la eficiencia operativa."
-          Icon={Activity}
-          variant="default"
-        />
-        <ServiceCard
-          title="Identifica cuellos de botella"
-          description="Detecta y elimina los cuellos de botella en tus procesos para optimizar el rendimiento."
-          Icon={EventWarning}
-          variant="default"
-        />
-        <ServiceCard
-          title="Mejora el diseño"
-          description="Implementa mejoras en el diseño de tus sistemas para aumentar la confiabilidad y eficiencia."
-          Icon={TransformInstructions}
-          variant="default"
-        />
+        <div className="border p-4 flex flex-col justify-between min-h-[220px] sm:h-[25vh]">
+          <div className="flex flex-col">
+            <span className="text-xl md:text-[1.4rem]">
+              Evalúa instalaciones completas
+            </span>
+            <span className="text-gray60 text-sm sm:text-base">
+              {" "}
+              Modela sistemas complejos hasta instalaciones que se encuentran en
+              fase de diseño.
+            </span>
+          </div>
+          <div>
+            <Industry size={48} className="text-blue60 md:size-[64px]" />
+          </div>
+        </div>
+        <div className="border p-4 flex flex-col justify-between min-h-[220px] sm:h-[25vh]">
+          <div className="flex flex-col">
+            <span className="text-xl md:text-[1.4rem]">
+              Aumenta la Disponibilidad
+            </span>
+            <span className="text-gray60 text-sm sm:text-base">
+              {" "}
+              Analiza la disponibilidad de tus sistemas y equipos para mejorar
+              la eficiencia operativa.
+            </span>
+          </div>
+          <div>
+            <Activity size={48} className="text-blue60 md:size-[64px]" />
+          </div>
+        </div>
+        <div className="border p-4 flex flex-col justify-between min-h-[220px] sm:h-[25vh]">
+          <div className="flex flex-col">
+            <span className="text-xl md:text-[1.4rem]">
+              Identifica cuellos de botella
+            </span>
+            <span className="text-gray60 text-sm sm:text-base">
+              {" "}
+              Detecta y elimina los cuellos de botella en tus procesos para
+              optimizar el rendimiento.
+            </span>
+          </div>
+          <div>
+            <EventWarning size={48} className="text-blue60 md:size-[64px]" />
+          </div>
+        </div>
+        <div className="border p-4 flex flex-col justify-between min-h-[220px] sm:h-[25vh]">
+          <div className="flex flex-col">
+            <span className="text-xl md:text-[1.4rem]">Mejora el diseño</span>
+            <span className="text-gray60 text-sm sm:text-base">
+              {" "}
+              Implementa mejoras en el diseño de tus sistemas para aumentar la
+              confiabilidad y eficiencia.
+            </span>
+          </div>
+          <div>
+            <TransformInstructions
+              size={48}
+              className="text-blue60 md:size-[64px]"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Process Section Header */}
-      <div className="mt-16 md:mt-24 px-4 sm:px-[8vw] border-b top-0 z-20 bg-white">
+      <div className="mt-16 md:mt-24 px-4 sm:px-[8vw] border-b sticky top-0 z-20 bg-white">
         <div className="flex flex-col sm:flex-row gap-4 justify-between py-2">
           <div className="flex flex-col justify-end">
             <h2 className="text-xl md:text-2xl border-blue60 border-b-4 w-fit">

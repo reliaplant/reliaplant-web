@@ -21,95 +21,75 @@ export default function Industrias() {
   return (
     <div className="bg-gray20">
       {/* Tabs Navigation */}
-      <div className="w-full">
-        <div className="flex flex-col md:flex-row justify-center items-stretch w-full">
-          <div className="flex justify-center items-center text-center px-8 py-4 md:py-0 font-bold bg-gray90 text-white w-full md:w-auto">
+      <div className="">
+        <div className="flex flex-row justify-center items-center">
+          <div className="min-h-[10vh] flex justify-center items-center text-center px-[3vw] font-bold bg-gray90 text-white">
             CASOS DE ESTUDIO
           </div>
           <div
-            className={`flex-1 p-6 flex flex-col border-gray10 border-l text-black font-bold cursor-pointer ${
-              activeTab === 0 ? "bg-blue60 text-white" : "bg-gray30 text-gray60"
+            className={` p-4 py-3 min-h-[10vh] flex flex-col justify-center items-center border-gray10 border-l text-black font-bold cursor-pointer ${
+              activeTab === 0
+                ? "bg-blue60 text-white"
+                : "bg-gray30 text-gray60 "
             }`}
             onClick={() => setActiveTab(0)}
           >
-            <span
-              className={`font-light text-sm self-start ${
-                activeTab === 0 ? "text-white" : "text-gray90"
-              }`}
-            >
+            <span className="font-light w-full text-blue10 text-sm">
               Caso 1
             </span>
-            <span className="text-center flex-1 flex items-center">
-              Levantamiento de +7000 activos físicos
-            </span>
+            Levantamiento de +7000 activos físicos
           </div>
           <div
-            className={`flex-1 p-6 flex flex-col border-gray10 border-l text-black font-bold cursor-pointer ${
-              activeTab === 1 ? "bg-blue60 text-white" : "bg-gray30 text-gray60"
+            className={`p-4 py-3 min-h-[10vh] flex flex-col justify-center items-center border-gray10 border-l text-black font-bold cursor-pointer ${
+              activeTab === 1
+                ? "bg-blue60 text-white"
+                : "bg-gray30 text-gray60 "
             }`}
             onClick={() => setActiveTab(1)}
           >
-            <span
-              className={`font-light text-sm self-start ${
-                activeTab === 1 ? "text-white" : "text-gray90"
-              }`}
-            >
+            <span className="font-light w-full text-blue10 text-sm">
               Caso 2
             </span>
-            <span className="text-center flex-1 flex items-center">
-              Aplicación de RCM a hipercompresor
-            </span>
+            Aplicación de RCM a hipercompresor
           </div>
           <div
-            className={`flex-1 p-6 flex flex-col border-gray10 border-l text-black font-bold cursor-pointer ${
-              activeTab === 2 ? "bg-blue60 text-white" : "bg-gray30 text-gray60"
+            className={`p-4 py-3 min-h-[10vh] flex flex-col justify-center items-center border-gray10 border-l text-black font-bold cursor-pointer ${
+              activeTab === 2
+                ? "bg-blue60 text-white"
+                : "bg-gray30 text-gray60 "
             }`}
             onClick={() => setActiveTab(2)}
           >
-            <span
-              className={`font-light text-sm self-start ${
-                activeTab === 2 ? "text-white" : "text-gray90"
-              }`}
-            >
+            <span className="font-light w-full text-blue10 text-sm">
               Caso 3
             </span>
-            <span className="text-center flex-1 flex items-center">
-              Estudios RAM para diseño de plataformas offshore
-            </span>
+            Estudios RAM para diseño de plataformas offshore
           </div>
           <div
-            className={`flex-1 p-6 flex flex-col border-gray10 border-l text-black font-bold cursor-pointer ${
-              activeTab === 4 ? "bg-blue60 text-white" : "bg-gray30 text-gray60"
+            className={`p-4 py-3 min-h-[10vh] flex flex-col justify-center items-center border-gray10 border-l text-black font-bold cursor-pointer ${
+              activeTab === 4
+                ? "bg-blue60 text-white"
+                : "bg-gray30 text-gray60 "
             }`}
             onClick={() => setActiveTab(4)}
           >
-            <span
-              className={`font-light text-sm self-start ${
-                activeTab === 4 ? "text-white" : "text-gray90"
-              }`}
-            >
-              Caso 4
+            <span className="font-light w-full text-blue10 text-sm">
+              Caso 5
             </span>
-            <span className="text-center flex-1 flex items-center">
-              Desarrollo de batería de estudios de confiabilidad para Plataforma
-            </span>
+            Desarrollo de batería de estudios de confiabilidad para Plataforma
           </div>
           <div
-            className={`flex-1 p-6 flex flex-col border-gray10 border-l text-black font-bold cursor-pointer ${
-              activeTab === 5 ? "bg-blue60 text-white" : "bg-gray30 text-gray60"
+            className={`p-4 py-3 min-h-[10vh] flex flex-col justify-center items-center border-gray10 border-l text-black font-bold cursor-pointer ${
+              activeTab === 5
+                ? "bg-blue60 text-white"
+                : "bg-gray30 text-gray60 "
             }`}
             onClick={() => setActiveTab(5)}
           >
-            <span
-              className={`font-light text-sm self-start ${
-                activeTab === 5 ? "text-white" : "text-gray90"
-              }`}
-            >
+            <span className="font-light w-full text-blue10 text-sm">
               Caso 5
             </span>
-            <span className="text-center flex-1 flex items-center">
-              Análisis causa raíz de turbomáquina con falla catastrófica
-            </span>
+            Análisis causa raíz de turbomáquina con falla catastrófica
           </div>
         </div>
       </div>
@@ -118,8 +98,8 @@ export default function Industrias() {
 
       {/* Image Grid */}
       <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
-        <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
-          <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+        <div className="flex flex-row gap-8 px-[8vw] py-16">
+          <div className="w-[36vw] h-[30vw] relative">
             <Image
               src={pegandotag}
               alt="Imagen 1"
@@ -128,7 +108,7 @@ export default function Industrias() {
               className="border"
             />
           </div>
-          <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+          <div className="w-[46vw] h-min-[30vw] relative border border-blue30 p-8">
             <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
             <h3 className="text-gray-90 mt-4 text-[1.7vw]">
               Levantamiento de +7000 activos físicos
@@ -137,14 +117,14 @@ export default function Industrias() {
               INDUSTRIA OIL & GAS - HOUSTON, USA.
             </div>
             <div>
-              <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+              <p className="text-gray-70 mt-8 text-[1.2vw]">
                 En este proyecto, se realizó un levantamiento detallado de más
                 de 7000 activos físicos en la industria de Oil & Gas en Houston,
                 USA. El objetivo fue identificar y catalogar cada activo para
                 mejorar la gestión y mantenimiento de los mismos, asegurando una
                 operación más eficiente y segura.
               </p>
-              <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+              <button className="bg-blue60 hover:bg-gray90">
                 Leer completo
               </button>
             </div>

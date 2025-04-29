@@ -36,7 +36,6 @@ import {
   Workflow,
 } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
-import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Manuales Corporativos y Procedimientos de Mantenimiento | Reliaplant",
@@ -90,12 +89,47 @@ export const metadata: Metadata = {
 export default function ManualesCorporativos() {
   return (
     <div>
-      <BannerPrincipal
-        title="Manuales Corporativos y Procedimientos de Mantenimiento"
-        description="Documentación técnica estructurada que estandariza procesos, asegura la transmisión del conocimiento y consolida las mejores prácticas en tu organización para garantizar la excelencia operativa."
-        currentPath="Manuales y procedimientos"
-        image="/assets/bgProcedimientos2.jpg"
-      />
+      {/* Header */}
+      <div className="">
+        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+          {/* Texto */}
+          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+            <div>
+              <div className="flex flex-row flex-wrap">
+                <span className="text-blue60 font-light mb-4">
+                  <a href="/" className="hover:underline">
+                    Inicio
+                  </a>{" "}
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  <a href="/consultoria" className="hover:underline">
+                    Consultoría
+                  </a>{" "}
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  Manuales y procedimientos
+                </span>
+              </div>
+              <h1>Manuales Corporativos y Procedimientos de Mantenimiento</h1>
+              <h4>
+                Documentación técnica estructurada que estandariza procesos,
+                asegura la transmisión del conocimiento y consolida las mejores
+                prácticas en tu organización para garantizar la excelencia
+                operativa.
+              </h4>
+            </div>
+            <div className="mt-8 md:mt-6">
+              <AbrirFormContacto
+                buttonText="Habla con un especialista"
+                icon={<Headset size={20} className="text-white" />}
+                buttonColor="bg-gray90"
+              />
+            </div>
+          </div>
+          {/* Imagen */}
+          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgProcedimientos2.jpg')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+          </div>
+        </div>
+      </div>
 
       <div className="contentSection">
         <div className="flex flex-col md:flex-row gap-8 md:gap-16">

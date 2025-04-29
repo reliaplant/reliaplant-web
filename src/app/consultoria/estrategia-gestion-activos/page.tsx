@@ -77,50 +77,101 @@ export default function EstrategiaGestionActivosPage() {
         <div className="absolute inset-0 bg-[url('/assets/bgGestionActivos.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
-        <div className="relative z-10 p-[2vw] py-8 text-left lg:w-2/5 w-full bg-white shadow-xl m-12 top-[40vh]">
+        <div className="relative z-10 p-[2vw] py-8 text-left w-2/5 bg-white hover:bg-gray90 transition-colors group shadow-xl m-12 top-[40vh]">
           <div className="mb-4">
-            <span className="font-light">
-              Inicio <span className="mx-2 text-gray60">{"/"}</span> Consultoría{" "}
-              <span className="mx-2 text-gray60">{"/"}</span> Gestión de Activos
+            <span className="font-light group-hover:text-white">
+              Inicio{" "}
+              <span className="mx-2 text-gray60 group-hover:text-white">
+                {"/"}
+              </span>{" "}
+              Consultoría{" "}
+              <span className="mx-2 text-gray60 group-hover:text-white">
+                {"/"}
+              </span>{" "}
+              Gestión de Activos
             </span>
           </div>
-          <h1 className="text-5xl font-light mb-4">
+          <h1 className="text-5xl font-light mb-4 group-hover:text-white">
             Estrategia de Gestión de Activos ISO 55000
           </h1>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 group-hover:text-white">
             Implementamos los principios de la norma ISO 55000 para desarrollar
             una estrategia integral de gestión de activos físicos alineada con
             los objetivos de su organización.
           </p>
-          <button className="bg-blue60 text-white font-light text-lg flex flex-row items-center justify-between gap-4 py-4 px-6 rounded w-full hover:bg-blue70 transition-colors duration-200">
-            <span>Solicitar una consulta</span>
-            <ArrowRight size={20} />
+          <button className="bg-blue60 font-light text-lg flex flex-row items-center gap-4 py-4 rounded group-hover:bg-white group-hover:text-blue60 w-full relative overflow-hidden">
+            <style
+              dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes shimmer {
+                  0% { background-position: 200% 0; }
+                  100% { background-position: -200% 0; }
+                }
+                
+                @keyframes shimmerDark {
+                  0% { background-position: 200% 0; }
+                  100% { background-position: -200% 0; }
+                }
+              `,
+              }}
+            />
+            <div
+              className="absolute inset-0 group-hover:opacity-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)",
+                backgroundSize: "200% 100%",
+                animation: "shimmer 1.5s infinite linear",
+              }}
+            />
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(167, 212, 255, 0.9), transparent)",
+                backgroundSize: "200% 100%",
+                animation: "shimmerDark 1.5s infinite linear",
+              }}
+            />
+            <span className="relative z-10 group-hover:text-black">
+              Solicitar una consulta
+            </span>
+            <ArrowRight
+              size={20}
+              className="relative z-10 text-white group-hover:text-black"
+            />
           </button>
           <div className="flex flex-col gap-4 mt-6">
-            <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">
-              <div className="bg-gray90 p-3 rounded-full">
-                <Asset size={24} className="text-white" />
+            <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row group-hover:bg-gray90 transition-colors">
+              <div className="bg-gray90 p-3 rounded-full group-hover:bg-white">
+                <Asset
+                  size={24}
+                  className="text-white group-hover:text-black"
+                />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-4 text-gray90">
+                <h3 className="text-xl font-bold mb-4 text-gray90 group-hover:text-white">
                   Enfoque de ciclo de vida completo
                 </h3>
-                <p className="text-gray90 mb-0">
+                <p className="text-gray90 mb-0 group-hover:text-white">
                   Gestionamos los activos desde la planificación y adquisición
                   hasta la disposición final, optimizando el costo total de
                   propiedad y extendiendo su vida útil.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">
-              <div className="bg-gray90 p-3 rounded-full">
-                <SettingsAdjust size={24} className="text-white" />
+            <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row group-hover:bg-gray90 transition-colors">
+              <div className="bg-gray90 p-3 rounded-full group-hover:bg-white">
+                <SettingsAdjust
+                  size={24}
+                  className="text-white group-hover:text-black"
+                />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-4 text-gray90">
+                <h3 className="text-xl font-bold mb-4 text-gray90 group-hover:text-white">
                   Alineación con objetivos organizacionales
                 </h3>
-                <p className="text-gray90 mb-0">
+                <p className="text-gray90 mb-0 group-hover:text-white">
                   Vinculamos la estrategia de gestión de activos con los
                   objetivos estratégicos de su empresa, asegurando que cada
                   activo contribuya al éxito del negocio.
@@ -140,7 +191,7 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Implementation Phases */}
-      <div className="bg-gray90 py-[3vh] px-[10vw]">
+      <div className="bg-gray90 py-[10vh] px-[10vw]">
         <h2 className="text-4xl font-light mb-16 text-center text-white">
           Fases de implementación
         </h2>
@@ -265,12 +316,12 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Key Elements Section */}
-      <div className="py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-8 text-center">
+      <div className="py-[10vh] px-[10vw]">
+        <h2 className="text-4xl font-light mb-16 text-center">
           Elementos clave del sistema ISO 55000
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white shadow-md border overflow-hidden">
             <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
             <div className="p-8">
@@ -328,13 +379,13 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Framework Diagram */}
-      <div className="bg-gray10 py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-6 text-center">
+      <div className="bg-gray10 py-[10vh] px-[10vw]">
+        <h2 className="text-4xl font-light mb-10 text-center">
           Marco de referencia ISO 55000
         </h2>
 
-        <div className="bg-white p-8 shadow-md mb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="bg-white p-8 shadow-md mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-bold mb-6">Contexto y alcance</h3>
               <p className="mb-4 text-gray70">
@@ -441,12 +492,12 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Benefits Section */}
-      <div className="px-[10vw] py-[3vh]">
-        <h2 className="text-4xl font-light mb-8 text-center">
+      <div className="px-[10vw] py-[10vh]">
+        <h2 className="text-4xl font-light mb-12 text-center">
           Beneficios para su organización
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="border-l-4 border-blue60 pl-6 py-2">
             <h3 className="text-xl font-bold mb-3">
               Retorno óptimo de las inversiones
@@ -493,12 +544,12 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Reference Standard */}
-      <div className="bg-gray10 py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-6 text-center">
+      <div className="bg-gray10 py-[8vh] px-[10vw]">
+        <h2 className="text-4xl font-light mb-10 text-center">
           Familia de normas ISO 55000
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-6 shadow-md">
             <h3 className="text-xl font-bold mb-4">ISO 55000</h3>
             <p className="text-gray70">

@@ -40,8 +40,6 @@ import {
   LineChart,
   BookOpen,
 } from "lucide-react";
-import { ServiceCard } from "@/components/ServiceCard";
-import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: {
@@ -55,27 +53,53 @@ export const metadata: Metadata = {
 export default function AnalisisRCA() {
   return (
     <div>
-      <BannerPrincipal
-        title="Análisis de Causa Raíz para Eliminación de Defectos"
-        description="Metodología estructurada para identificar las verdaderas causas de fallas recurrentes, incidentes y no conformidades, implementando soluciones definitivas que evitan su repetición y mejoran la confiabilidad de tus activos."
-        currentPath="Análisis RCA"
-        image="/assets/bgRAM.png"
-      />
+      <div className="px-[4vw]">
+        <div className="relative h-[55vh] flex items-center justify-start">
+          {/* Contenido */}
+          <div className="relative z-10 text-whites w-[45vw] h-full bg-gray10 p-8 px-12 flex flex-col justify-between">
+            <div>
+              <div className="flex flw-row">
+                <span className="text-blue60 font-light">
+                  Inicio <span className="mx-2 text-gray60">{"/"}</span>{" "}
+                  Consultoria <span className="mx-2 text-gray60">{"/"}</span>{" "}
+                  Análisis RCA
+                </span>
+              </div>
+              <h1 className="text-6xl font-light text-black">
+                Análisis de Causa Raíz para Eliminación de Defectos
+              </h1>
+              <div className="mt-8 text-[1.15vw] leading-[136%]">
+                Metodología estructurada para identificar las verdaderas causas
+                de fallas recurrentes, incidentes y no conformidades,
+                implementando soluciones definitivas que evitan su repetición y
+                mejoran la confiabilidad de tus activos.
+              </div>
+            </div>
+            <div>
+              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4">
+                <span>Solicita una investigación</span>
+                <RequestQuote size={20} className="text-white" />
+              </button>
+            </div>
+          </div>
+          <div className="h-full z-10 w-[55vw] bg-[url('/assets/bgRAM.png')] bg-cover bg-center"></div>
+        </div>
+      </div>
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw]">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-          <div className="w-full lg:w-1/2">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6 lg:mb-8">
+      <div className="mt-16 px-[8vw]">
+        <div className="flex flex-row gap-16">
+          <div className="w-1/2">
+            <h2 className="text-4xl font-light mb-8">
               La diferencia entre tratar síntomas y resolver problemas
             </h2>
-            <p className="text-base sm:text-lg lg:text-[1.15vw] leading-relaxed lg:leading-[136%] mb-6">
+            <p className="text-[1.15vw] leading-[136%] mb-6">
               Las fallas recurrentes y los incidentes operacionales representan
               no solo pérdidas económicas directas, sino también riesgos para la
               seguridad, el medio ambiente y la continuidad del negocio. La
               reacción común es implementar soluciones rápidas que solo atienden
               los síntomas visibles.
             </p>
-            <p className="text-base sm:text-lg lg:text-[1.15vw] leading-relaxed lg:leading-[136%] mb-6">
+            <p className="text-[1.15vw] leading-[136%] mb-6">
               El Análisis de Causa Raíz (RCA) es una metodología sistemática y
               basada en evidencias que busca identificar los factores
               fundamentales que originan los problemas. Nuestra aplicación del
@@ -84,11 +108,11 @@ export default function AnalisisRCA() {
               correctivas que eliminen definitivamente el riesgo de recurrencia.
             </p>
 
-            <div className="mt-8 p-4 sm:p-6 bg-gray10">
+            <div className="mt-8 p-6 bg-gray10">
               <h3 className="text-xl font-medium mb-4">
                 Fundamentos de nuestro enfoque
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
@@ -117,16 +141,16 @@ export default function AnalisisRCA() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 border">
-            <div className="p-6 sm:p-8 bg-gray90 text-white">
-              <h3 className="text-xl sm:text-2xl font-normal text-blue60 mb-6">
+          <div className="w-1/2 border">
+            <div className="p-8 bg-gray80 text-white">
+              <h3 className="text-2xl font-normal mb-6">
                 ¿Cuándo es necesario un RCA formal?
               </h3>
               <p className="text-gray30 mb-6">
                 Situaciones que ameritan un análisis estructurado de causa raíz:
               </p>
             </div>
-            <div className="p-6 sm:p-8">
+            <div className="p-8">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
@@ -218,18 +242,18 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-24 px-4 sm:px-[8vw] border-b">
-        <div className="flex flex-row gap-4 justify-between pb-2">
+      <div className="mt-24 px-[8vw] border-b sticky top-0 z-20">
+        <div className="flex flex-row gap-4 justify-between">
           <div className="flex flex-col justify-end">
-            <h2 className="text-xl sm:text-2xl border-blue60 border-b-4 w-fit">
+            <h2 className="border-blue60 border-b-4 w-fit">
               Nuestra metodología
             </h2>
           </div>
         </div>
       </div>
 
-      <div className="px-4 sm:px-[8vw] py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="px-[8vw] py-12">
+        <div className="grid grid-cols-4 gap-6">
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
               <Number_1 size={28} />
@@ -326,11 +350,11 @@ export default function AnalisisRCA() {
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-12 bg-blue10 p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0">
-          <div className="sm:mr-6 flex-shrink-0">
+        <div className="mt-12 bg-blue10 p-6 flex items-center">
+          <div className="mr-6 flex-shrink-0">
             <TreeView size={48} className="text-blue60" />
           </div>
-          <p className="text-sm sm:text-base lg:text-[1.15vw] leading-relaxed lg:leading-[136%]">
+          <p className="text-[1.15vw] leading-[136%]">
             Nuestro enfoque combina el rigor técnico del Árbol Lógico de Fallas
             con técnicas complementarias como 5-Porqués, Ishikawa y Análisis de
             Barreras cuando son necesarias, adaptando la metodología al contexto
@@ -339,25 +363,25 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw]">
-        <h2 className="text-2xl sm:text-4xl font-light mb-8 sm:mb-12 text-center">
+      <div className="mt-16 px-[8vw]">
+        <h2 className="text-4xl font-light mb-12 text-center">
           El poder del Árbol Lógico de Fallas
         </h2>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
-          <div className="w-full lg:w-1/2">
-            <div className="border p-4 sm:p-8 bg-gray10">
+        <div className="flex flex-row gap-12 items-center">
+          <div className="w-1/2">
+            <div className="border p-8 bg-gray10">
               <div className="flex justify-center">
                 <img
                   src="/arbol-logico.png"
                   alt="Diagrama de Árbol Lógico de Fallas"
-                  className="w-full sm:w-[80%] h-auto"
+                  className="w-[80%] h-auto"
                 />
               </div>
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2">
+          <div className="w-1/2">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-gray10 flex-shrink-0">
@@ -427,50 +451,82 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-24 px-4 sm:px-[8vw] bg-gray90 text-white py-8 sm:py-16">
-        <h2 className="text-2xl sm:text-4xl font-light text-blue60 mb-8 sm:mb-12">
+      <div className="mt-24 px-[8vw] bg-gray80 text-white py-16">
+        <h2 className="text-4xl font-light mb-12">
           Roles y responsabilidades en la investigación
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ServiceCard
-            Icon={Users}
-            title="Equipo Natural de Trabajo"
-            description="Grupo multidisciplinario conformado específicamente para cada investigación, integrado por especialistas técnicos, operadores, supervisores y representantes de seguridad y calidad."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={FileSearch}
-            title="Líder de Investigación"
-            description="Especialista en análisis RCA que guía la aplicación metodológica, facilita las sesiones de trabajo, verifica la consistencia lógica y asegura la objetividad del proceso."
-          />
-          <ServiceCard
-            Icon={AlertCircle}
-            title="Expertos Técnicos"
-            description="Profesionales con conocimiento especializado en los sistemas o equipos involucrados, que aportan su expertise para la validación de hipótesis y el desarrollo de soluciones."
-          />
-          <ServiceCard
-            Icon={BookOpen}
-            title="Documentador"
-            description="Responsable de registrar hallazgos, evidencias y decisiones durante la investigación, así como de compilar la documentación final del análisis y las recomendaciones."
-          />
-          <ServiceCard
-            Icon={CheckCircle2}
-            title="Responsables de Implementación"
-            description="Encargados de ejecutar las acciones correctivas y preventivas derivadas del análisis, dentro de los plazos y con los recursos asignados."
-          />
-          <ServiceCard
-            Icon={ClipboardList}
-            title="Verificadores"
-            description="Evalúan la efectividad de las acciones implementadas y confirman que las causas raíz identificadas hayan sido efectivamente eliminadas o mitigadas."
-          />
+        <div className="grid grid-cols-3 gap-6">
+          <div className="p-6 border border-gray60">
+            <Users size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">
+              Equipo Natural de Trabajo
+            </h3>
+            <p className="text-gray30">
+              Grupo multidisciplinario conformado específicamente para cada
+              investigación, integrado por especialistas técnicos, operadores,
+              supervisores y representantes de seguridad y calidad.
+            </p>
+          </div>
+
+          <div className="p-6 border border-gray60">
+            <FileSearch size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">Líder de Investigación</h3>
+            <p className="text-gray30">
+              Especialista en análisis RCA que guía la aplicación metodológica,
+              facilita las sesiones de trabajo, verifica la consistencia lógica
+              y asegura la objetividad del proceso.
+            </p>
+          </div>
+
+          <div className="p-6 border border-gray60">
+            <AlertCircle size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">Expertos Técnicos</h3>
+            <p className="text-gray30">
+              Profesionales con conocimiento especializado en los sistemas o
+              equipos involucrados, que aportan su expertise para la validación
+              de hipótesis y el desarrollo de soluciones.
+            </p>
+          </div>
+
+          <div className="p-6 border border-gray60">
+            <BookOpen size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">Documentador</h3>
+            <p className="text-gray30">
+              Responsable de registrar hallazgos, evidencias y decisiones
+              durante la investigación, así como de compilar la documentación
+              final del análisis y las recomendaciones.
+            </p>
+          </div>
+
+          <div className="p-6 border border-gray60">
+            <CheckCircle2 size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">
+              Responsables de Implementación
+            </h3>
+            <p className="text-gray30">
+              Encargados de ejecutar las acciones correctivas y preventivas
+              derivadas del análisis, dentro de los plazos y con los recursos
+              asignados.
+            </p>
+          </div>
+
+          <div className="p-6 border border-gray60">
+            <ClipboardList size={32} className="text-blue60 mb-4" />
+            <h3 className="text-xl font-normal mb-3">Verificadores</h3>
+            <p className="text-gray30">
+              Evalúan la efectividad de las acciones implementadas y confirman
+              que las causas raíz identificadas hayan sido efectivamente
+              eliminadas o mitigadas.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw] mb-16 sm:mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="border p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-light mb-6">
+      <div className="mt-16 px-[8vw]">
+        <div className="grid grid-cols-2 gap-12">
+          <div className="border p-8">
+            <h3 className="text-2xl font-light mb-6">
               Herramientas y formatos especializados
             </h3>
             <div className="space-y-4">
@@ -540,10 +596,8 @@ export default function AnalisisRCA() {
             </div>
           </div>
 
-          <div className="border p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-light mb-6">
-              Beneficios comprobados
-            </h3>
+          <div className="border p-8">
+            <h3 className="text-2xl font-light mb-6">Beneficios comprobados</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
@@ -593,6 +647,29 @@ export default function AnalisisRCA() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-[4vw] bg-gradient-to-l from-blue60 to-gray10 mt-16">
+        <div className="flex flex-row bg-gray20 justify-between hover:bg-white transition-all duration-100 hover:shadow-xl">
+          <div className="p-[4vw] w-[40vw]">
+            <h3 className="text-5xl font-light">
+              ¿Enfrentando fallas recurrentes o incidentes complejos?
+            </h3>
+            <h4 className="mt-8 text-2xl font-normal">
+              Nuestro equipo de especialistas en análisis RCA puede ayudarte a
+              identificar las verdaderas causas y eliminarlas definitivamente.
+            </h4>
+            <div className="mt-12">
+              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4">
+                <span>Consulta con un especialista</span>
+                <Headset size={20} className="text-white" />
+              </button>
+            </div>
+          </div>
+          <div className="h-[29vw] z-10 w-[50vw] bg-[url('/assets/bgRAM.png')] bg-cover bg-center transform -scale-x-100">
+            <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
           </div>
         </div>
       </div>

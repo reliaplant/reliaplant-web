@@ -2,7 +2,7 @@
 import { type ReactElement } from "react";
 import Image from "next/image";
 import software from "@../../../public/assets/rcap1.webp";
-import { Add, Alarm, Close, Warning, Headset } from "@carbon/icons-react";
+import { Add, Alarm, Close, Warning } from "@carbon/icons-react";
 
 import React, { useEffect, useState } from "react";
 import { Clock, Cross, Trash } from "lucide-react";
@@ -40,27 +40,25 @@ export default function RcmPage(): ReactElement {
 
   return (
     <div className="w-full">
-      <div className="relative min-h-screen lg:h-[84vh] flex flex-col lg:flex-row items-center justify-start bg-cover bg-center bg-[url('/assets/fondo-landing-rcm.png')]">
+      <div className="relative h-[84vh] flex items-center justify-start bg-cover bg-center bg-[url('/assets/fondo-landing-rcm.png')]">
         {/* Capa de degradado oscuro */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray90/70 to-gray90/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray90/70 to-gray90/80 flex flex-row"></div>
 
         {/* Contenido */}
-        <div className="relative z-10 text-whites px-4 lg:px-[8vw] w-full lg:w-1/2 py-8 lg:py-0">
-          <h1 className="text-3xl lg:text-5xl font-bold text-white uppercase">
+        <div className="relative z-10 text-whites px-[8vw] w-1/2">
+          <h1 className="text-5xl font-bold text-white uppercase ">
             MANTENIMIENTO CENTRADO EN CONFIABILIDAD
           </h1>
-          <p className="mt-4 text-lg lg:text-xl text-white">
+          <p className="mt-4 text-xl text-white">
             La metodología de Mantenimiento Centrada en Confiabilidad ayudará a
             tu personal de Mantenimiento a crear planes de mantenimiento
             efectivos, auditables y trazables en el tiempo.
           </p>
         </div>
 
-        <div className="relative h-auto lg:h-full p-4 lg:p-8 bg-blue10 z-10 w-full lg:w-1/2 flex flex-col justify-center items-center">
-          <h2 className="text-xl lg:text-2xl mt-4 mb-4">
-            ¿RCM con Reliaplant?
-          </h2>
-          <p className="text-sm lg:text-base">
+        <div className="h-full p-8 bg-blue10 z-10 w-1/2 flex flex-col justify-center items-center">
+          <h2 className="mt-4 mb-4">¿RCM con Reliaplant?</h2>
+          <p>
             RELIAPLANT ha compilado años de profunda experiencia en la
             aplicación del RCM tomando como referencia las mejores prácticas
             internacionales y los lineamientos del estándar SAE JA1011 y JA1012.
@@ -68,49 +66,42 @@ export default function RcmPage(): ReactElement {
             los PM para los sistemas y activos que desees dentro de una planta,
             o varias.
           </p>
-          <div className="p-2 text-base lg:text-lg mt-4">
-            Jusitifcación para hacer un RCM
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-            {/* Card 1 */}
-            <div className="flex flex-col items-center justify-center border border-blue40 min-h-[180px] h-auto sm:h-[18vh] p-4 overflow-hidden">
-              <Trash size={32} className="mb-2 flex-shrink-0" />
-              <p className="mt-2 mb-0 text-center text-sm break-words">
+          <div className="p-2 text-lg">Jusitifcación para hacer un RCM</div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col items-center justify-center border border-blue40 h-[18vh] p-[1-vh] px-[2vh]">
+              <Trash size={32} />
+              <p className="mt-2 mb-0 text-center">
                 Existen actividades innecesarias, duplicadas o que se realizan
                 muy frecuentemente.
               </p>
             </div>
-            {/* Card 2 */}
-            <div className="flex flex-col items-center justify-center border border-blue40 min-h-[180px] h-auto sm:h-[18vh] p-4 overflow-hidden">
-              <MdOutlineAssignment size={32} className="mb-2 flex-shrink-0" />
-              <p className="mt-2 mb-0 text-center text-sm break-words">
+            <div className="flex flex-col items-center justify-center border border-blue40 h-[18vh] p-[2vh]">
+              <MdOutlineAssignment size={32} />
+              <p className="mt-2 mb-0 text-center">
                 El plan PM no contempla actividades que minimicen las fallas
                 repetitivas.
               </p>
             </div>
-            {/* Card 3 */}
-            <div className="flex flex-col items-center justify-center border border-blue40 min-h-[180px] h-auto sm:h-[18vh] p-4 overflow-hidden">
-              <Clock size={32} className="mb-2 flex-shrink-0" />
-              <p className="mt-2 mb-0 text-center text-sm break-words">
+            <div className="flex flex-col items-center justify-center border border-blue40 h-[18vh] p-[2vh]">
+              <Clock size={32} />
+              <p className="mt-2 mb-0 text-center">
                 Las tareas no están sincronizadas en el tiempo y la carga
                 administrativa que se genera en OTs es muy grande.
               </p>
             </div>
-            {/* Card 4 */}
-            <div className="flex flex-col items-center justify-center border border-blue40 min-h-[180px] h-auto sm:h-[18vh] p-4 overflow-hidden">
-              <MdOutlinePeopleAlt size={32} className="mb-2 flex-shrink-0" />
-              <p className="mt-2 mb-0 text-center text-sm break-words">
+            <div className="flex flex-col items-center justify-center border border-blue40 h-[18vh] p-[2vh]">
+              <MdOutlinePeopleAlt size={32} />
+              <p className="mt-2 mb-0 text-center">
                 Los ejecutores de mantenimiento no realizan las tareas del PM
                 actual.
               </p>
             </div>
           </div>
           <button
-            className="bg-blue60 hover:bg-blue80 text-white px-8 py-3 flex items-center justify-center gap-2 w-full max-w-md transition duration-300 mt-8"
+            className="bg-blue60 mt-4 w-full"
             onClick={() => setShowModal(true)}
           >
-            <span>Hablar con un especialista</span>
-            <Headset size={20} />
+            Hablar con un especialista
           </button>
 
           {showModal && (

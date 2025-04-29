@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { Headset } from "@carbon/icons-react";
-import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title:
@@ -109,12 +108,47 @@ const evaluationData = [
 export default function DiagnosticoGestion() {
   return (
     <div className="mx-auto">
-      <BannerPrincipal
-        title="Diagnóstico de la Gestión de Mantenimiento"
-        description="Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez de la organización y la fase en la que se encuentra. La base para la ejecución de los estudios inicia con el registro de activos."
-        currentPath="Diagnóstico de Gestión"
-        image="/assets/bgDiagnostico.jpg"
-      />
+      {/* Header */}
+      <div className="">
+        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+          {/* Texto */}
+          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+            <div>
+              <div className="flex flex-row flex-wrap">
+                <span className="text-blue60 font-light mb-4">
+                  <a href="/" className="hover:underline">
+                    Inicio
+                  </a>{" "}
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  <a href="/consultoria" className="hover:underline">
+                    Consultoría
+                  </a>{" "}
+                  <span className="mx-2 text-gray60">{"/"}</span>
+                  Diagnóstico de Gestión
+                </span>
+              </div>
+              <h1 className="">Diagnóstico de la Gestión de Mantenimiento</h1>
+              <h4>
+                Los estudios orientados a la mejora Confiabilidad son realizados
+                de acuerdo con la madurez de la organización y la fase en la que
+                se encuentra. La base para la ejecución de los estudios inicia
+                con el registro de activos.
+              </h4>
+            </div>
+            <div className="mt-8 md:mt-6">
+              <AbrirFormContacto
+                buttonText="Habla con un especialista"
+                icon={<Headset size={20} className="text-white" />}
+                buttonColor="bg-gray90"
+              />
+            </div>
+          </div>
+          {/* Imagen */}
+          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Phases section */}
       <div className="contentSection">
