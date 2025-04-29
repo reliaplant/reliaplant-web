@@ -22,6 +22,7 @@ import {
 } from "@carbon/icons-react";
 import { ChartBarDecreasing } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Sistema de Indicadores para Gestión de Mantenimiento | ReliaPLANT",
@@ -40,48 +41,12 @@ export const metadata: Metadata = {
 export default function SistemaIndicadoresPage() {
   return (
     <div className="mx-auto">
-      {/* Header */}
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoría
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  Sistema de Indicadores
-                </span>
-              </div>
-              <h1 className="">
-                Sistema de Indicadores para Gestión de Mantenimiento
-              </h1>
-              <h4 className="">
-                Diseño y desarrollo de tableros de control con KPIs basados en
-                normas internacionales para optimizar y monitorear la gestión de
-                mantenimiento.
-              </h4>
-            </div>
-            <div className="mt-8 md:mt-6">
-              <AbrirFormContacto
-                buttonText="Habla con un especialista"
-                icon={<Headset size={20} className="text-white" />}
-                buttonColor="bg-gray90"
-              />
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgDiagnostico.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Sistema de Indicadores para Gestión de Mantenimiento"
+        description="Diseño y desarrollo de tableros de control con KPIs basados en normas internacionales para optimizar y monitorear la gestión de mantenimiento."
+        currentPath="Sistema de Indicadores"
+        image="/assets/bgDiagnostico.jpg"
+      />
 
       {/* Description section */}
       <div className="contentSection">

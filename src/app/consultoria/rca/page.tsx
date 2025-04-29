@@ -41,6 +41,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: {
@@ -54,38 +55,12 @@ export const metadata: Metadata = {
 export default function AnalisisRCA() {
   return (
     <div>
-      <div className="px-4 sm:px-[4vw]">
-        <div className="relative flex flex-col md:flex-row">
-          {/* Contenido */}
-          <div className="relative z-10 text-whites w-full md:w-[45vw] bg-gray10 p-4 sm:p-8 md:px-12 flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light text-sm">
-                  Inicio <span className="mx-2 text-gray60">{"/"}</span>{" "}
-                  Consultoria <span className="mx-2 text-gray60">{"/"}</span>{" "}
-                  Análisis RCA
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black">
-                Análisis de Causa Raíz para Eliminación de Defectos
-              </h1>
-              <div className="mt-8 text-base sm:text-lg md:text-xl leading-relaxed">
-                Metodología estructurada para identificar las verdaderas causas
-                de fallas recurrentes, incidentes y no conformidades,
-                implementando soluciones definitivas que evitan su repetición y
-                mejoran la confiabilidad de tus activos.
-              </div>
-            </div>
-            <div className="mt-8 md:mt-0">
-              <button className="bg-blue60 hover:bg-blue80 text-white px-8 py-3 flex items-center justify-center gap-2 w-full md:w-auto transition duration-300">
-                <span>Solicita una investigación</span>
-                <RequestQuote size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          <div className="h-[300px] md:h-[55vh] w-full md:w-[55vw] bg-[url('/assets/bgRAM.png')] bg-contain bg-no-repeat bg-center"></div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Análisis de Causa Raíz para Eliminación de Defectos"
+        description="Metodología estructurada para identificar las verdaderas causas de fallas recurrentes, incidentes y no conformidades, implementando soluciones definitivas que evitan su repetición y mejoran la confiabilidad de tus activos."
+        currentPath="Análisis RCA"
+        image="/assets/bgRAM.png"
+      />
 
       <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">

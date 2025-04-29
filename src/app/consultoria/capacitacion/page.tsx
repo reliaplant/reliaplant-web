@@ -28,6 +28,7 @@ import Image from "next/image";
 import logoP21 from "@/../../public/assets/logo-p21-negro.webp";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { ServiceCard } from "@/components/ServiceCard";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: {
@@ -79,69 +80,29 @@ export const metadata: Metadata = {
 export default function Capacitacion() {
   return (
     <div>
-      {/* Header */}
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoría
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <span>Capacitación</span>
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
-                Servicios de Capacitación
-              </h1>
-              <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
-                Programas formativos diseñados para desarrollar las competencias
-                técnicas de tu equipo y transformar la gestión de activos en una
-                ventaja competitiva para tu organización.
-              </div>
-            </div>
-            <div className="mt-8 md:mt-6">
-              <AbrirFormContacto
-                buttonText="Hablar con un especialista"
-                icon={<ArrowRight size={20} className="text-white" />}
-                buttonColor="bg-gray90"
-                modalTitle="Habla con un especialista sobre capacitación"
-              />
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgCapacitacion.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
+      <BannerPrincipal
+        title="Servicios de Capacitación"
+        description="Programas formativos diseñados para desarrollar las competencias técnicas de tu equipo y transformar la gestión de activos en una ventaja competitiva para tu organización."
+        currentPath="Capacitación"
+        image="/assets/bgCapacitacion.jpg"
+      />
 
-        <div className="mt-6 md:mt-12 bg-blue10 p-4 md:p-6 flex flex-col md:flex-row items-center">
-          <a
-            href="https://predictiva21.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image src={logoP21} alt="Criticidad" width={150} height={50} />
+      <div className="mt-6 md:mt-12 bg-blue10 p-4 md:p-6 flex flex-col md:flex-row items-center">
+        <a
+          href="https://predictiva21.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={logoP21} alt="Criticidad" width={150} height={50} />
+        </a>
+        <p className="mt-2 md:mt-0 text-sm md:text-lg leading-[136%] mb-0 ml-0 md:ml-4">
+          Nuestros programas de capacitación y formación son impartidos en
+          colaboración con{" "}
+          <a href="https://predictiva21.com" className="text-blue60 underline">
+            Predictiva21
           </a>
-          <p className="mt-2 md:mt-0 text-sm md:text-lg leading-[136%] mb-0 ml-0 md:ml-4">
-            Nuestros programas de capacitación y formación son impartidos en
-            colaboración con{" "}
-            <a
-              href="https://predictiva21.com"
-              className="text-blue60 underline"
-            >
-              Predictiva21
-            </a>
-            , nuestro socio estratégico en desarrollo profesional.
-          </p>
-        </div>
+          , nuestro socio estratégico en desarrollo profesional.
+        </p>
       </div>
 
       <div className="mt-12 md:mt-24 px-4 md:px-[8vw] border-b top-0 z-20">

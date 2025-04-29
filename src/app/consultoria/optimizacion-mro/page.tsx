@@ -31,6 +31,7 @@ import {
 } from "@carbon/icons-react";
 import { MdMoney, MdScience } from "react-icons/md";
 import { PiggyBank, Timer } from "lucide-react";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Optimización de Inventario MRO | Gestión de Repuestos | Reliaplant",
@@ -82,50 +83,12 @@ export const metadata: Metadata = {
 export default function OptimizacionMRO() {
   return (
     <div>
-      {/* Header */}
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4 text-sm">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoría
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  Optimización de Inventario
-                </span>
-              </div>
-              <h1 className="text-3xl font-light text-black leading-tight">
-                Optimización de Inventario
-              </h1>
-              <div className="mt-6 text-base text-gray-600 leading-relaxed">
-                La gestión del inventario de partes y repuestos es un pilar
-                esencial para la rentabilidad de tu negocio. Nuestros expertos,
-                respaldados por herramientas informáticas y metodologías
-                probadas, están listos para acompañarte en el diseño de
-                soluciones personalizadas que se ajusten a tus necesidades
-                específicas.
-              </div>
-            </div>
-            <div className="mt-8">
-              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 bg-gray90 p-2">
-                <span>Solicita una cotización</span>
-                <RequestQuote size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgMRO.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Optimización de Inventario"
+        description="La gestión del inventario de partes y repuestos es un pilar esencial para la rentabilidad de tu negocio. Nuestros expertos, respaldados por herramientas informáticas y metodologías probadas, están listos para acompañarte en el diseño de soluciones personalizadas que se ajusten a tus necesidades específicas."
+        currentPath="Optimización de Inventario"
+        image="/assets/bgMRO.jpg"
+      />
 
       <div className="mt-24 px-[8vw] flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/2">

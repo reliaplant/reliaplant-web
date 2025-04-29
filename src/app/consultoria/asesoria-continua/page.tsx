@@ -20,6 +20,7 @@ import {
   Calendar,
   MessageSquare,
 } from "lucide-react";
+import BannerPrincipal from "@/components/BannerPrincipal";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata: Metadata = {
@@ -71,47 +72,12 @@ export const metadata: Metadata = {
 export default function AsesoriaConstante() {
   return (
     <div>
-      <div className="px-4 md:px-[4vw]">
-        <div className="relative h-auto md:h-[55vh] flex flex-col md:flex-row items-center md:justify-start">
-          {/* Contenido */}
-          <div className="relative text-whites w-full md:w-[45vw] h-full bg-gray10 p-8 px-6 md:px-12 flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row">
-                <span className="text-blue60 font-light">
-                  <a href="/" className="text-blue60 hover:underline">
-                    Inicio
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a
-                    href="/consultoria"
-                    className="text-blue60 hover:underline"
-                  >
-                    Consultoria
-                  </a>
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  Asesoría Continua
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-light text-black">
-                Asesoría Continua
-              </h1>
-              <div className="mt-6 text-base md:text-lg leading-[136%]">
-                Un modelo flexible de acompañamiento permanente que evoluciona
-                con las necesidades de tu organización. Para quienes buscan un
-                socio estratégico, no sólo un consultor puntual.
-              </div>
-            </div>
-            <div className="mt-6">
-              <AbrirFormContacto
-                buttonText="Habla con un especialista"
-                icon={<Headset size={20} className="text-white" />}
-                buttonColor="bg-gray90"
-              />
-            </div>
-          </div>
-          <div className="h-[30vh] md:h-[55vh] w-full bg-[url('/assets/consultor1.jpg')] bg-cover bg-center"></div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Asesoría Continua"
+        description="Un modelo flexible de acompañamiento permanente que evoluciona con las necesidades de tu organización. Para quienes buscan un socio estratégico, no sólo un consultor puntual."
+        currentPath="Asesoría Continua"
+        image="/assets/consultor1.jpg"
+      />
 
       <div className="mt-16 px-4 md:px-[8vw]">
         <div className="flex flex-col md:flex-row gap-16">

@@ -42,6 +42,8 @@ import {
   CheckSquare,
   Table,
 } from "lucide-react";
+import BannerPrincipal from "@/components/BannerPrincipal";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Matriz de Responsabilidades | Gestión de Competencias | Reliaplant",
@@ -93,50 +95,12 @@ export const metadata: Metadata = {
 export default function MatrizResponsabilidades() {
   return (
     <div>
-      {/* Wrapper actualizado para móvil */}
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoría
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  Matriz de Responsabilidades
-                </span>
-              </div>
-              <h1 className="">
-                Definición de responsabilidades y competencias
-              </h1>
-              <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
-                Creamos el puente entre Recursos Humanos y el área de
-                Mantenimiento para definir perfiles técnicos que especifiquen
-                responsabilidades, habilidades y competencias, estableciendo una
-                estructura organizacional de mantenimiento sostenible en el
-                tiempo.
-              </div>
-            </div>
-            <div className="mt-8 md:mt-6">
-              <button className="font-light text-[1.1rem] text-white flex flex-row items-center gap-8 mb-4 bg-gray90 px-6 py-3">
-                <span>Solicita una cotización</span>
-                <RequestQuote size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
-      </div>
-      <div className="h-full w-full bg-[url('/assets/bgResponsabilidades.jpg')] bg-cover bg-center block md:hidden"></div>
+      <BannerPrincipal
+        title="Definición de responsabilidades y competencias"
+        description="Creamos el puente entre Recursos Humanos y el área de Mantenimiento para definir perfiles técnicos que especifiquen responsabilidades, habilidades y competencias, estableciendo una estructura organizacional de mantenimiento sostenible en el tiempo."
+        currentPath="Matriz de Responsabilidades"
+        image="/assets/bgResponsabilidades.jpg"
+      />
 
       <div className="px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] py-8 md:py-12 flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-full">
@@ -145,64 +109,30 @@ export default function MatrizResponsabilidades() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-8">
-            <div className="border p-6 flex flex-col justify-between">
-              <div className="flex flex-col">
-                <span className="text-[1.4rem]">
-                  Definición de Responsabilidades
-                </span>
-                <span className="text-gray60 mt-4">
-                  Establecemos con claridad qué hace cada rol, delimitando
-                  alcances de gestión, autoridad y rendición de cuentas para
-                  cada posición en el área de mantenimiento.
-                </span>
-              </div>
-              <div>
-                <ClipboardList size={36} className="text-blue60" />
-              </div>
-            </div>
-            <div className="border p-6 flex flex-col justify-between">
-              <div className="flex flex-col">
-                <span className="text-[1.4rem]">Mapeo de Competencias</span>
-                <span className="text-gray60 mt-4">
-                  Identificamos los conocimientos específicos requeridos para
-                  cada posición, desde habilidades técnicas hasta dominios
-                  metodológicos de confiabilidad y mantenimiento.
-                </span>
-              </div>
-              <div>
-                <CheckSquare size={36} className="text-blue60" />
-              </div>
-            </div>
-            <div className="border p-6 flex flex-col justify-between">
-              <div className="flex flex-col">
-                <span className="text-[1.4rem]">
-                  Planes de Formación Específicos
-                </span>
-                <span className="text-gray60 mt-4">
-                  Desarrollamos itinerarios formativos personalizados que
-                  cierran la brecha entre las competencias actuales y las
-                  requeridas para un desempeño óptimo.
-                </span>
-              </div>
-              <div>
-                <GraduationCap size={36} className="text-blue60" />
-              </div>
-            </div>
-            <div className="border p-6 flex flex-col justify-between">
-              <div className="flex flex-col">
-                <span className="text-[1.4rem]">
-                  Integración con Sistemas de Gestión
-                </span>
-                <span className="text-gray60 mt-4">
-                  Alineamos la matriz con los sistemas CMMS y RH para asegurar
-                  que la asignación de trabajos considera las competencias
-                  certificadas del personal.
-                </span>
-              </div>
-              <div>
-                <Table size={36} className="text-blue60" />
-              </div>
-            </div>
+            <ServiceCard
+              Icon={ClipboardList}
+              title="Definición de Responsabilidades"
+              description="Establecemos con claridad qué hace cada rol, delimitando alcances de gestión, autoridad y rendición de cuentas para cada posición en el área de mantenimiento."
+              variant="default"
+            />
+            <ServiceCard
+              Icon={CheckSquare}
+              title="Mapeo de Competencias"
+              description="Identificamos los conocimientos específicos requeridos para cada posición, desde habilidades técnicas hasta dominios metodológicos de confiabilidad y mantenimiento."
+              variant="default"
+            />
+            <ServiceCard
+              Icon={GraduationCap}
+              title="Planes de Formación Específicos"
+              description="Desarrollamos itinerarios formativos personalizados que cierran la brecha entre las competencias actuales y las requeridas para un desempeño óptimo."
+              variant="default"
+            />
+            <ServiceCard
+              Icon={Table}
+              title="Integración con Sistemas de Gestión"
+              description="Alineamos la matriz con los sistemas CMMS y RH para asegurar que la asignación de trabajos considera las competencias certificadas del personal."
+              variant="default"
+            />
           </div>
         </div>
       </div>

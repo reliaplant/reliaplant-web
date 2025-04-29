@@ -31,6 +31,7 @@ import {
 } from "@carbon/icons-react";
 import { MdMoney, MdBuild, MdAccessibility } from "react-icons/md";
 import { Clock, ShieldCheck } from "lucide-react";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Análisis de Mantenibilidad | Reliaplant",
@@ -82,49 +83,12 @@ export const metadata: Metadata = {
 export default function MantenibilidadPage() {
   return (
     <div>
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-blue60 font-light mb-4 text-sm md:text-md">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoría
-                  </a>{" "}
-                  <span className="mx-2 text-gray60">{"/"}</span>
-                  Análisis de Mantenibilidad
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
-                Análisis de Mantenibilidad (MHA)
-              </h1>
-              <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed">
-                La mantenibilidad de tus activos industriales se convierte en un
-                factor crítico para garantizar la continuidad operacional y la
-                rentabilidad de tus instalaciones. Combinamos metodologías
-                avanzadas de Análisis de Mantenibilidad y Manejo Mecánico (MHA)
-                con un enfoque sistemático desde el diseño conceptual hasta la
-                operación diaria.
-              </div>
-            </div>
-            <div className="mt-8 md:mt-6">
-              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90 text-white px-8 py-3">
-                <span>Solicita una cotización</span>
-                <RequestQuote size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Análisis de Mantenibilidad (MHA)"
+        description="La mantenibilidad de tus activos industriales se convierte en un factor crítico para garantizar la continuidad operacional y la rentabilidad de tus instalaciones. Combinamos metodologías avanzadas de Análisis de Mantenibilidad y Manejo Mecánico (MHA) con un enfoque sistemático desde el diseño conceptual hasta la operación diaria."
+        currentPath="Análisis de Mantenibilidad"
+        image="/assets/bgMantenibilidad.jpg"
+      />
 
       <div className="mt-24 px-4 sm:px-[8vw]">
         <h3 className="text-4xl sm:text-6xl lg:text-8xl font-light mb-12 lg:mb-16">
