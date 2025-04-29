@@ -35,7 +35,6 @@ import { MdMoney, MdScience } from "react-icons/md";
 import { Binoculars, Compass } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { ServiceCard } from "@/components/ServiceCard";
-import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Registro de Activos en CMMS | Gestión de Mantenimiento | Reliaplant",
@@ -87,12 +86,48 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <div>
-      <BannerPrincipal
-        title="Construcción del Registro de Activos en CMMS"
-        description="Logra que toda la información en el CMMS asociada a los activos esté correcta, completa y alineada con las mejores prácticas de la industria. Desde la recolección de datos en campo, la definición de estructuras, construcción de la taxonomía y carga en CMMS."
-        currentPath="Registro de Activos"
-        image="/assets/bgAssetRegister.png"
-      />
+      {/* Header */}
+      <div className="">
+        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+          {/* Texto */}
+          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+            <div>
+              <div className="flex flex-row flex-wrap">
+                <span className="text-reliablue font-light mb-4">
+                  <a href="/" className="hover:underline">
+                    Inicio
+                  </a>{" "}
+                  <span className="mx-2 text-reliagray">{"/"}</span>
+                  <a href="/consultoria" className="hover:underline">
+                    Consultoria
+                  </a>{" "}
+                  <span className="mx-2 text-reliagray">{"/"}</span>
+                  Registro de Activos
+                </span>
+              </div>
+              <h1 className="">Construcción del Registro de Activos en CMMS</h1>
+              <h4 className="">
+                Logra que toda la información en el CMMS asociada a los activos
+                esté correcta, completa y alineada con las mejores prácticas de
+                la industria. Desde la recolección de datos en campo, la
+                definición de estructuras, construcción de la taxonomía y carga
+                en CMMS.
+              </h4>
+            </div>
+            <div className="mt-8 md:mt-6">
+              <AbrirFormContacto
+                buttonText="Habla con un especialista"
+                icon={<Headset size={20} className="text-white" />}
+                buttonColor="bg-gray90"
+              />
+            </div>
+          </div>
+          {/* Imagen */}
+          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgAssetRegister.png')] bg-cover bg-center">
+            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Section: Beneficios */}
       <div className="contentSection">

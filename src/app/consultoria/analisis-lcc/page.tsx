@@ -41,7 +41,7 @@ export default function Contacto() {
   return (
     <div>
       {/* Header */}
-      <div className="">
+      <div>
         <div className="relative flex flex-col">
           {/* Banner de imagen */}
           <div className="relative w-full bg-[url('/assets/bgLCC1.png')] bg-contain bg-no-repeat bg-center aspect-[16/6]">
@@ -64,14 +64,14 @@ export default function Contacto() {
                   RUL y LCC
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-black leading-tight">
+              <h1 className="leading-[1.1]">
                 Vida Útil Remanente y Análisis de Costo de Ciclo de Vida
               </h1>
-              <div className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl">
+              <h4>
                 La Vida Útil Remanente (RUL) estima el tiempo restante durante
                 el cual un activo puede operar de forma segura, eficiente y
                 económica antes de requerir su retiro.
-              </div>
+              </h4>
               <div className="mt-8">
                 <AbrirFormContacto
                   buttonText="Habla con un especialista"
@@ -190,7 +190,7 @@ export default function Contacto() {
               Metodología RUL y LCC
             </h2>
           </div>
-          <div className="">
+          <div>
             <AbrirFormContacto
               buttonText="¿Dudas?"
               icon={null}

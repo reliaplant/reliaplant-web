@@ -108,7 +108,7 @@ const evaluationData = [
 
 export default function DiagnosticoGestion() {
   return (
-    <div className="mx-auto">
+    <div>
       <BannerPrincipal
         title="Diagnóstico de la Gestión de Mantenimiento"
         description="Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez de la organización y la fase en la que se encuentra. La base para la ejecución de los estudios inicia con el registro de activos."
@@ -118,17 +118,15 @@ export default function DiagnosticoGestion() {
 
       {/* Phases section */}
       <div className="contentSection">
-        <h2 className="">Fases del Diagnóstico</h2>
-        <div className="mb-8">
-          <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
-            FASE I: PREPARACIÓN DEL TRABAJO
-          </h3>
-          <p className="text-sm md:text-base">
+        <h2>Fases del Diagnóstico</h2>
+        <div>
+          <h3>FASE I: PREPARACIÓN DEL TRABAJO</h3>
+          <p>
             EL CONSULTOR establecerá comunicación con personal del CLIENTE para
             preparar todos los aspectos relacionados con la logística del
             SERVICIO, incluyendo lo siguiente:
           </p>
-          <ul className="list-disc ml-4 text-sm md:text-base mt-2">
+          <ul className="list-disc ml-4 mt-2">
             <li>
               Requerimientos para el lugar de reunión con el personal del
               CLIENTE
@@ -148,11 +146,11 @@ export default function DiagnosticoGestion() {
           </ul>
         </div>
         <div className="mb-8">
-          <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
+          <h3>
             FASE II: VISITA A OFICINAS Y CAMPO, ENTREVISTAS AL PERSONAL Y
             RECOPILACIÓN DE INFORMACIÓN
           </h3>
-          <p className="text-sm md:text-base">
+          <p>
             EL CONSULTOR se trasladará un periodo de 2 semanas continuas (10
             días hábiles continuos, de lunes a viernes) a las instalaciones del
             cliente para realizar actividades de revisión de información,
@@ -162,17 +160,15 @@ export default function DiagnosticoGestion() {
           </p>
         </div>
         <div className="mb-8">
-          <h3 className="text-xl md:text-2xl font-semibold text-blue60 mb-4 md:mb-8">
-            FASE III: ELABORACIÓN DE REPORTE DE DIAGNÓSTICO
-          </h3>
-          <p className="text-sm md:text-base mb-3">
+          <h3>FASE III: ELABORACIÓN DE REPORTE DE DIAGNÓSTICO</h3>
+          <p>
             Terminada la visita a planta, el personal de EL CONSULTOR se
             trasladará a sus oficinas en el estado de Querétaro para preparar el
             informe final con los hallazgos realizados, las oportunidades de
             mejora identificadas y las recomendaciones dirigidas a
             aprovecharlas.
           </p>
-          <p className="text-sm md:text-base">
+          <p>
             Dicho reporte se efectuará en forma de reporte PDF y presentación en
             PowerPoint, en la cual se mostrarán los resultados obtenidos en cada
             uno de los procesos evaluados. Igualmente se incluirá una estrategia
@@ -182,7 +178,7 @@ export default function DiagnosticoGestion() {
         </div>
       </div>
       <div className="contentSection bg-gray-100">
-        <h2 className="">Áreas del Diagnóstico</h2>
+        <h2>Áreas del Diagnóstico</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full border">
             <thead className="bg-gray-50 border">
@@ -218,18 +214,18 @@ export default function DiagnosticoGestion() {
       </div>
 
       {/* Evaluation areas details */}
-      <div className="py-8 md:py-12 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw]">
-        <div className="bg-white ">
+      <div className="contentSection">
+        <div className="bg-white">
           <div className="border-b border-black">
-            <h2 className="">DESCRIPCIÓN BREVE DE LAS AREAS DE EVALUACIÓN</h2>
+            <h2>DESCRIPCIÓN BREVE DE LAS AREAS DE EVALUACIÓN</h2>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E1</span> - EVALUACIÓN DE LA
-              GESTIÓN Y ESTRUCTURA DEL DEPARTAMENTO DE MANTENIMIENTO
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E1</span> - EVALUACIÓN DE LA GESTIÓN
+              Y ESTRUCTURA DEL DEPARTAMENTO DE MANTENIMIENTO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Analizar la visión, estructura y alineación del departamento de
                 mantenimiento con la gestión de activos.
@@ -267,20 +263,19 @@ export default function DiagnosticoGestion() {
                 <li>Visita de campo con levantamiento fotográfico general.</li>
               </ul>
               <p className="mt-2">
-                {" "}
                 Nota: Esta fase requiere la participación del gerente de activos
                 y confiabilidad para garantizar una evaluación integral.
               </p>
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E2</span> - REVISIÓN DEL SISTEMA DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E2</span> - REVISIÓN DEL SISTEMA DE
               INDICADORES PARA LA EVALUACIÓN DEL SISTEMA DE GESTIÓN DE
               MANTENIMIENTO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Analizar la estructura, documentación, herramientas de
                 visualización y su relación con las metas organizacionales.
@@ -327,12 +322,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E3</span> - REVISIÓN DE PLANES DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E3</span> - REVISIÓN DE PLANES DE
               MANTENIMIENTO EXISTENTES POR TIPO DE EQUIPO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión de los planes de mantenimiento preventivos por familia
                 y tipo de equipo.
@@ -359,12 +354,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E4</span> - REVISIÓN DE LA
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E4</span> - REVISIÓN DE LA
               ESTRATEGIA Y GESTIÓN DEL MANTENIMIENTO PREDICTIVO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Evaluar la gestión del mantenimiento predictivo, asegurando su
                 alineación con la estrategia de confiabilidad de la
@@ -405,12 +400,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E5</span> - REVISIÓN DE LA
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E5</span> - REVISIÓN DE LA
               ESTRUCTURA DE ACTIVOS E INFORMACIÓN DISPONIBLE EN CMMS
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Evaluar la estructura actual de activos en el CMMS (SAP PM) para
                 identificar oportunidades de mejora en la gestión del
@@ -440,12 +435,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E6</span> - GESTIÓN DE LA
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E6</span> - GESTIÓN DE LA
               DOCUMENTACIÓN TÉCNICA
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>Documentación por equipo:</p>
               <ul className="list-disc ml-4 mt-2">
                 <li>
@@ -490,12 +485,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E7</span> - REVISIÓN DE LOS
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E7</span> - REVISIÓN DE LOS
               CRITERIOS DE ASIGNACIÓN DE CRITICIDAD
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión de los criterios de evaluación de criticidad según el
                 procedimiento existente.
@@ -515,12 +510,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E8</span> - INVESTIGACIÓN DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E8</span> - INVESTIGACIÓN DE
               INCIDENTES Y FALLAS
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión del procedimiento corporativo para la investigación de
                 problemas recurrentes y catastróficos.
@@ -539,12 +534,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E9</span> - CONTROL DE COSTOS DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E9</span> - CONTROL DE COSTOS DE
               MANTENIMIENTO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Verificación de existencia de registros y análisis de costos de
                 mantenimiento.
@@ -566,12 +561,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E10</span> - EVALUACIONES
-              ECONÓMICAS PARA LA TOMA DE DECISIONES
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E10</span> - EVALUACIONES ECONÓMICAS
+              PARA LA TOMA DE DECISIONES
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión del procedimiento corporativo de evaluaciones
                 económicas como soporte para la toma de decisiones.
@@ -592,12 +587,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E11</span> - GESTIÓN DE LA
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E11</span> - GESTIÓN DE LA
               OBSOLESCENCIA
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión del sistema de gestión para el manejo de la
                 obsolescencia.
@@ -628,12 +623,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E12</span> - REVISIÓN DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E12</span> - REVISIÓN DE
               PROCEDIMIENTOS PARA EL MANEJO Y OPTIMIZACIÓN DE REPUESTOS MRO
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>Revisión del proceso de procura de materiales y servicios.</p>
               <ul className="list-disc ml-4 mt-2">
                 <li>
@@ -650,12 +645,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E13</span> - REVISIÓN DEL GRADO DE
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E13</span> - REVISIÓN DEL GRADO DE
               MADUREZ DE INGENIERÍA DE CONFIABILIDAD
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Verificación de aplicación del análisis de criticidad a equipos
                 y sistemas.
@@ -677,12 +672,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E14</span> - GESTIÓN DE LA
-              FORMACIÓN DEL PERSONAL
+          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E14</span> - GESTIÓN DE LA FORMACIÓN
+              DEL PERSONAL
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Revisión de la matriz de roles, responsabilidades, conocimientos
                 y competencias.
@@ -708,12 +703,12 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b-0 flex flex-col md:flex-row py-6 md:py-8 gap-4 md:gap-12">
-            <div className="w-full md:w-[30%] text-sm md:text-base font-bold">
-              <span className="text-blue60 ">E15</span> - ANÁLISIS DE BRECHAS
-              DEL PERSONAL / ENCUESTA AL PERSONAL
+          <div className="border-b-0 flex flex-col md:flex-row py-8 gap-12">
+            <div className="w-full md:w-[30%] font-bold">
+              <span className="text-blue60">E15</span> - ANÁLISIS DE BRECHAS DEL
+              PERSONAL / ENCUESTA AL PERSONAL
             </div>
-            <div className="w-full md:w-[70%] text-sm md:text-base">
+            <div className="w-full md:w-[70%]">
               <p>
                 Evaluación de brechas en conocimientos clave mediante la
                 aplicación de una prueba diagnóstica en línea (120 preguntas)

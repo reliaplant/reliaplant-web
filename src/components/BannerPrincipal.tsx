@@ -34,8 +34,8 @@ export default function BannerPrincipal({
                 {currentPath}
               </span>
             </div>
-            <h1 className="">{title}</h1>
-            <h4 className="">{description}</h4>
+            <h1>{title}</h1>
+            <h4>{description}</h4>
           </div>
           <div className="mt-8 md:mt-6">
             <AbrirFormContacto

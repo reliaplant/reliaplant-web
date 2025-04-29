@@ -39,43 +39,45 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export default function Home() {
   return (
     <>
-      <div className="relative min-h-[70vh] flex flex-col lg:flex-row items-center justify-start border-b">
+      <div className="relative min-h-[70vh] bg-gray-100 flex flex-col lg:flex-row items-center justify-start border-b">
         <div className="w-full lg:w-[50vw] order-2 lg:order-1 pt-0 pb-8 px-8 lg:px-[8vw] flex flex-col justify-center items-center lg:items-start">
-          <h1 className="text-[4rem] font-light leading-[1.1]">
+          <h1>
             Soluciones de <span className="text-blue60">Confiabilidad</span>{" "}
             para Optimizar tu Planta Industrial
           </h1>
-          <p className="mt-8 text-lg lg:text-[1.3vw] leading-[136%] text-gray90">
+          <h4>
             Maximiza el rendimiento de tus activos y reduce costos de
             mantenimiento con nuestros servicios especializados y soluciones de
             software.
-          </p>
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center sm:items-start">
-            <button className="bg-black text-white px-8 py-3 flex items-center justify-center gap-2 hover:bg-blue60 transition duration-300">
-              <span>Ver servicios</span>
-              <ArrowRight size={20} />
+          </h4>
+          <div className="mt-12 flex flex-row gap-4 w-full items-center justify-center lg:justify-start">
+            <button className="h-[46px] border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-6 py-3 flex items-center justify-center gap-2 transition duration-300 text-base">
+              <span className="whitespace-nowrap font-bold">Ver servicios</span>
+              <ArrowRight size={20} className="text-blue60" />
             </button>
-            <button className="border-2 border-blue60 text-blue60 px-8 py-3 flex items-center justify-center gap-2 hover:bg-blue20 transition duration-300">
-              <span>Consulta con especialistas</span>
-              <Headset size={20} />
-            </button>
+            <AbrirFormContacto
+              buttonText="Habla con un especialista"
+              icon={<Headset size={20} className="text-white" />}
+              buttonColor="bg-black"
+              textColor="text-white"
+              modalTitle="Consulta con nuestros especialistas"
+            />
           </div>
         </div>
         <div className="h-[40vh] lg:h-[70vh] w-full lg:w-[50vw] order-1 lg:order-2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center relative">
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-white to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-gray-100 to-transparent"></div>
         </div>
       </div>
 
-      <div className="py-24 px-[8vw]">
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl font-light mb-8">
-            Nuestros Servicios de Consultoría
-          </h2>
-          <p className="text-xl text-gray60 max-w-4xl mx-auto">
+      <div className="contentSection">
+        <div>
+          <h2>Nuestros Servicios de Consultoría</h2>
+          <p className="text-gray60 max-w-4xl text-left">
             Ofrecemos soluciones personalizadas para optimizar la confiabilidad,
             disponibilidad y mantenibilidad de tus activos industriales.
           </p>
@@ -126,9 +128,9 @@ export default function Home() {
           />
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 ">
           <Link href="/servicios">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center mx-auto gap-2">
+            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center gap-2">
               <span>Ver todos los servicios</span>
               <ArrowRight size={20} />
             </button>
@@ -136,10 +138,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-24 px-[8vw] bg-graylightgray">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-light mb-8">Software Especializado</h2>
-          <p className="text-xl text-gray60 max-w-4xl mx-auto">
+      <div className="contentSections bg-graylightgray">
+        <div>
+          <h2>Software Especializado</h2>
+          <p className="text-gray60 max-w-4xl text-left">
             Herramientas potentes para el análisis y gestión de la confiabilidad
             de tus activos industriales
           </p>
@@ -151,7 +153,7 @@ export default function Home() {
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Category size={48} />
               </div>
-              <h3 className="text-3xl font-normal mb-4">RCA</h3>
+              <h3>RCA</h3>
               <p className="text-gray60 mb-6">
                 Software para análisis causa raíz que facilita la eliminación de
                 defectos recurrentes en tu planta.
@@ -170,7 +172,7 @@ export default function Home() {
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <DecisionNode size={48} />
               </div>
-              <h3 className="text-3xl font-normal mb-4">RCM</h3>
+              <h3>RCM</h3>
               <p className="text-gray60 mb-6">
                 Plataforma para desarrollar planes de mantenimiento optimizados
                 para equipos críticos y no críticos.
@@ -189,7 +191,7 @@ export default function Home() {
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Analytics size={48} />
               </div>
-              <h3 className="text-3xl font-normal mb-4">RAM</h3>
+              <h3>RAM</h3>
               <p className="text-gray60 mb-6">
                 Herramienta para el análisis de disponibilidad de sistemas
                 complejos mediante simulaciones avanzadas.
@@ -204,9 +206,9 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-2 ">
           <Link href="/software">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center mx-auto gap-2">
+            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center gap-2">
               <span>Ver todo el software</span>
               <ArrowRight size={20} />
             </button>
@@ -214,74 +216,64 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-24 px-[8vw]">
+      <div className="contentSectionn">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="text-left">
-            <h2 className="text-4xl lg:text-5xl font-light mb-6 lg:mb-8">
-              ¿Por qué elegirnos?
-            </h2>
-            <p className="text-lg lg:text-xl text-gray60 mb-8 lg:mb-12">
+            <h2>¿Por qué elegirnos?</h2>
+            <p className="text-gray60 mb-8 lg:mb-12">
               En RELIAPLANT combinamos experiencia en confiabilidad industrial
               con metodologías avanzadas y software especializado para ofrecer
               soluciones integrales y personalizadas.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 justify-start">
+              <div className="flex flex-col gap-4 min-h-[160px]">
+                <div className="flex items-center gap-3 justify-start h-12">
                   <Checkmark
                     size={32}
-                    className="text-blue60 relative bottom-[1px]"
+                    className="text-blue60 relative bottom-[1px] shrink-0"
                   />
-                  <h4 className="text-xl font-normal leading-none">
-                    Experiencia comprobada
-                  </h4>
+                  <h3 className="m-0">Experiencia comprobada</h3>
                 </div>
-                <p className="text-gray60 text-left">
+                <p className="text-gray60 text-left grow">
                   Más de 15 años en proyectos de confiabilidad para industrias
                   de alta exigencia.
                 </p>
               </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 justify-start">
+              <div className="flex flex-col gap-4 min-h-[160px]">
+                <div className="flex items-center gap-3 justify-start h-12">
                   <Checkmark
                     size={32}
-                    className="text-blue60 relative bottom-[1px]"
+                    className="text-blue60 relative bottom-[1px] shrink-0"
                   />
-                  <h4 className="text-xl font-normal leading-none">
-                    Metodologías optimizadas
-                  </h4>
+                  <h3 className="m-0">Metodologías optimizadas</h3>
                 </div>
-                <p className="text-gray60 text-left">
+                <p className="text-gray60 text-left grow">
                   Procesos eficientes adaptados a tus necesidades específicas.
                 </p>
               </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 justify-start">
+              <div className="flex flex-col gap-4 min-h-[160px]">
+                <div className="flex items-center gap-3 justify-start h-12">
                   <Checkmark
                     size={32}
-                    className="text-blue60 relative bottom-[1px]"
+                    className="text-blue60 relative bottom-[1px] shrink-0"
                   />
-                  <h4 className="text-xl font-normal leading-none">
-                    Software especializado
-                  </h4>
+                  <h3 className="m-0">Software especializado</h3>
                 </div>
-                <p className="text-gray60 text-left">
+                <p className="text-gray60 text-left grow">
                   Herramientas tecnológicas que potencian los resultados de
                   nuestros servicios.
                 </p>
               </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 justify-start">
+              <div className="flex flex-col gap-4 min-h-[160px]">
+                <div className="flex items-center gap-3 justify-start h-12">
                   <Checkmark
                     size={32}
-                    className="text-blue60 relative bottom-[1px]"
+                    className="text-blue60 relative bottom-[1px] shrink-0"
                   />
-                  <h4 className="text-xl font-normal leading-none">
-                    Enfoque integral
-                  </h4>
+                  <h3 className="m-0">Enfoque integral</h3>
                 </div>
-                <p className="text-gray60 text-left">
+                <p className="text-gray60 text-left grow">
                   Abarcamos todos los aspectos de la confiabilidad para
                   resultados sostenibles.
                 </p>
@@ -302,12 +294,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-[8vw] py-24 bg-gray90 text-white">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-light text-blue60 mb-8">
-            Sectores industriales que atendemos
-          </h2>
-          <p className="text-xl text-gray30 max-w-4xl mx-auto">
+      <div className="contentSectionn bg-gray90 text-white">
+        <div>
+          <h2 className="text-blue60">Sectores industriales que atendemos</h2>
+          <p className="text-gray30 max-w-4xl text-left">
             Nuestras soluciones están diseñadas para adaptarse a las necesidades
             específicas de diferentes industrias
           </p>

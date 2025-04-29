@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FiX } from "react-icons/fi";
 import FormularioContacto from "./FormularioContacto";
 import { usePathname } from "next/navigation";
@@ -24,22 +24,44 @@ const AbrirFormContacto: React.FC<
   modalTitle = "Hablar con un especialista",
 }) => {
   const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowModal(false);
+      }
+    };
+
+    if (showModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal]);
 
   // Si fullDesktop es true, se usará w-full en escritorio, de lo contrario md:w-fit.
   const desktopClass = fullDesktop ? "w-full" : "md:w-fit";
 
   return (
     <>
-      <div className="flex flex-row w-full z-[9999]">
+      <div className="flex flex-row w-full z-[30]">
         <div
           className={`${desktopClass} w-full`}
           onClick={() => setShowModal(true)}
         >
           <button
-            className={`w-full ${desktopClass} py-3 px-4 font-light text-base md:text-sm flex flex-row items-center justify-center md:justify-start gap-4 md:gap-8 ${buttonColor}`}
+            className={`w-full ${desktopClass} py-3 px-6 font-light text-base flex flex-row items-center justify-center gap-2 ${buttonColor} hover:opacity-80`}
           >
-            <span className={textColor}>{buttonText}</span>
+            <span className={`font-bold whitespace-nowrap ${textColor}`}>
+              {buttonText}
+            </span>
             {icon !== "none" && icon}
           </button>
         </div>
@@ -47,7 +69,10 @@ const AbrirFormContacto: React.FC<
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-gray90/40">
-          <div className="bg-white p-8 shadow-lg md:w-1/2 w-full md:h-fit h-screen">
+          <div
+            ref={modalRef}
+            className="bg-white p-8 shadow-lg md:w-1/2 w-full md:h-fit h-screen"
+          >
             <div className="mb-6 flex flex-row justify-between items-center">
               <span className="font-ZenDots text-gray100 text-xl">
                 RELIAPLANT

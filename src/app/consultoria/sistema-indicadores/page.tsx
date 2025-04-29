@@ -23,6 +23,7 @@ import {
 import { ChartBarDecreasing } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import BannerPrincipal from "@/components/BannerPrincipal";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Sistema de Indicadores para Gestión de Mantenimiento | ReliaPLANT",
@@ -50,7 +51,7 @@ export default function SistemaIndicadoresPage() {
 
       {/* Description section */}
       <div className="contentSection">
-        <h2 className="">Sistema integral de evaluación mediante KPIs</h2>
+        <h2>Sistema integral de evaluación mediante KPIs</h2>
         <p className="text-gray70">
           Nuestro servicio de definición y construcción de un Sistema de
           Indicadores de gestión de mantenimiento está basado en los
@@ -92,56 +93,33 @@ export default function SistemaIndicadoresPage() {
         <h2>Fases de implementación del servicio</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-6 border relative flex flex-col h-full">
-            <div className="bg-blue60 p-2 rounded w-12 h-12 flex items-center justify-center mb-4">
-              <DiagramReference size={24} className="text-white" />
-            </div>
-            <h4 className="font-semibold mb-4">Diagnóstico inicial</h4>
-            <p className="text-gray70 flex-grow">
-              Evaluación de la estructura organizativa, procesos actuales y
-              sistemas de información disponibles. Identificación de brechas
-              respecto a mejores prácticas en medición del desempeño.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={DiagramReference}
+            title="Diagnóstico inicial"
+            description="Evaluación de la estructura organizativa, procesos actuales y sistemas de información disponibles. Identificación de brechas respecto a mejores prácticas en medición del desempeño."
+            variant="default"
+          />
 
-          <div className="bg-white p-6 border relative flex flex-col h-full">
-            <div className="bg-blue60 p-2 rounded w-12 h-12 flex items-center justify-center mb-4">
-              <SelectWindow size={24} className="text-white" />
-            </div>
-            <h4 className="font-semibold mb-4">
-              Selección y definición de KPIs
-            </h4>
-            <p className="text-gray70 flex-grow">
-              Identificación de indicadores estratégicos alineados con objetivos
-              organizacionales. Mapeo de procesos clave y definición de métricas
-              para cada nivel jerárquico.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={SelectWindow}
+            title="Selección y definición de KPIs"
+            description="Identificación de indicadores estratégicos alineados con objetivos organizacionales. Mapeo de procesos clave y definición de métricas para cada nivel jerárquico."
+            variant="default"
+          />
 
-          <div className="bg-white p-6 border relative flex flex-col h-full">
-            <div className="bg-blue60 p-2 rounded w-12 h-12 flex items-center justify-center mb-4">
-              <Gears size={24} className="text-white" />
-            </div>
-            <h4 className="font-semibold mb-4">Diseño del sistema</h4>
-            <p className="text-gray70 flex-grow">
-              Alineación del tablero con las bases de dato disponibles y diseño
-              visual (CMMS/ERP). Elaboración de los flujos de información.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={Gears}
+            title="Diseño del sistema"
+            description="Alineación del tablero con las bases de dato disponibles y diseño visual (CMMS/ERP). Elaboración de los flujos de información."
+            variant="default"
+          />
 
-          <div className="bg-white p-6 border relative flex flex-col h-full">
-            <div className="bg-blue60 p-2 rounded w-12 h-12 flex items-center justify-center mb-4">
-              <IbmKnowledgeCatalogPremium size={24} className="text-white" />
-            </div>
-            <h4 className="font-semibold mb-4">
-              Implementación y capacitación
-            </h4>
-            <p className="text-gray70 flex-grow">
-              Soporte y apoyo durante la implementación del tabler con equipo
-              técnico del CMMS. Formación del personal en interpretación y uso
-              de los indicadores.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={IbmKnowledgeCatalogPremium}
+            title="Implementación y capacitación"
+            description="Soporte y apoyo durante la implementación del tabler con equipo técnico del CMMS. Formación del personal en interpretación y uso de los indicadores."
+            variant="default"
+          />
         </div>
       </div>
 
@@ -213,9 +191,9 @@ export default function SistemaIndicadoresPage() {
 
       {/* Indicator Evaluation Criteria */}
       <div className="contentSection">
-        <h2 className="">Ficha de indicadores y criterios de evaluación</h2>
+        <h2>Ficha de indicadores y criterios de evaluación</h2>
 
-        <div className="">
+        <div>
           <p className="text-gray70 mb-6">
             Un componente esencial de nuestro sistema es la creación de fichas
             técnicas detalladas para cada indicador. Estas fichas garantizan la
@@ -224,11 +202,11 @@ export default function SistemaIndicadoresPage() {
           </p>
 
           <div className="flex items-start gap-8">
-            <div className="">
+            <div>
               <h3 className="mb-6 mt-12">
                 Elementos de la ficha del indicador
               </h3>
-              <ul className="">
+              <ul>
                 <li className="flex items-start gap-3">
                   <ArrowRight
                     size={20}
@@ -536,7 +514,7 @@ export default function SistemaIndicadoresPage() {
 
       {/* References Section */}
       <div className="contentSection">
-        <h2 className="">Referencias metodológicas</h2>
+        <h2>Referencias metodológicas</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           <div className="flex items-start gap-4">

@@ -10,7 +10,7 @@
 
   /* HEADING STYLES - RESPONSIVE AND CONSISTENT */
   h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
     line-height: 1.25;
   }
@@ -137,8 +137,8 @@
 
 /* h1 styles */
 h1 {
-  font-size: 1.875rem ; /* 30px */
-  font-weight: 400 ;
+  font-size: 3rem; /* 48px */
+  font-weight: 400;
 }
 
 /* h2 styles */
@@ -174,41 +174,69 @@ h6 {
 /* RESPONSIVE BREAKPOINTS */
 /* sm breakpoint (640px and up) */
 @media (min-width: 640px) {
-  h1 { font-size: 2rem ; } /* 32px */
-  h2 { font-size: 1.625rem ; } /* Increased slightly from base */
-  h3 { font-size: 1.225rem ; } /* 17px */
-  h4 { font-size: 1.0625rem ; } /* 17px */
-  h5 { font-size: 1.0625rem ; } /* 17px */
-  h6 { font-size: 0.875rem ; } /* 14px */
+  h2 { font-size: 1.625rem; } /* Increased slightly from base */
+  h3 { font-size: 1.225rem; } /* 17px */
+  h4 { font-size: 1.0625rem; } /* 17px */
+  h5 { font-size: 1.0625rem; } /* 17px */
+  h6 { font-size: 0.875rem; } /* 14px */
 }
 
 /* md breakpoint (768px and up) */
 @media (min-width: 768px) {
-  h1 { font-size: 2.5rem ; } /* 40px */
-  h2 { font-size: 1.875rem ; } /* Reduced from 2.25rem to 1.875rem (30px) */
-  h3 { font-size: 1.25rem ; } /* 18px */
-  h4 { font-size: 1.125rem ; } /* 18px */
-  h5 { font-size: 1.125rem ; } /* 18px */
-  h6 { font-size: 1rem ; } /* 16px */
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+  p, li { 
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  blockquote {
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  code, pre {
+    font-size: 1.0625rem;
+    margin-bottom: 1rem;
+  }
 }
 
 /* lg breakpoint (1024px and up) */
 @media (min-width: 1024px) {
-  h1 { font-size: 3rem ; } /* Reduced from 3.25rem to 3rem (48px) */
-  h2 { font-size: 2.125rem ; } /* Significantly reduced from 2.5rem to 2.125rem (34px) */
-  h3 { font-size: 1.45rem ; } /* 20px */
-  h4 { font-size: 1.25rem ; } /* 20px */
-  h5 { font-size: 1.25rem ; } /* 20px */
-  h6 { font-size: 1.0625rem ; } /* Reduced from 1.125rem to 1.0625rem (17px) */
+  h2 { font-size: 2.125rem; } /* Significantly reduced from 2.5rem to 2.125rem (34px) */
+  h3 { font-size: 1.45rem; } /* 20px */
+  h4 { font-size: 1.25rem; } /* 20px */
+  h5 { font-size: 1.25rem; } /* 20px */
+  h6 { font-size: 1.0625rem; } /* Reduced from 1.125rem to 1.0625rem (17px) */
+  p, li { 
+    font-size: 1.125rem; /* Keep at 18px */
+    line-height: 1.6; /* Slightly increase line height for better readability */
+    margin-bottom: 0.75rem;
+  }
+  
+  blockquote {
+    font-size: 1.25rem; /* 20px */
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  code, pre {
+    font-size: 1.0625rem; /* Keep at 17px */
+    margin-bottom: 1.25rem;
+  }
 }
 
 /* TEXT ELEMENTS - RESPONSIVE AND CONSISTENT */
 p {
-  font-size: 1rem ; /* 16px */
-  line-height: 1.5 ;
-  margin-bottom: 1rem ;
-  font-weight: 400 ;
-  color: #333 ;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: #333;
 }
 
 ul, ol {
@@ -253,71 +281,122 @@ code {
 /* sm breakpoint (640px and up) */
 @media (min-width: 640px) {
   p, li { 
-    font-size: 1.0625rem !important; /* 17px */
+    font-size: 1.0625rem; /* 17px */
   }
   
   blockquote {
-    font-size: 1.0625rem !important; /* 17px */
+    font-size: 1.0625rem; /* 17px */
   }
   
   code, pre {
-    font-size: 1rem !important; /* 16px */
+    font-size: 1rem; /* 16px */
   }
 }
 
-/* md breakpoint (768px and up) */
 @media (min-width: 768px) {
   p, li { 
-    font-size: 1.125rem !important; /* 18px */
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
   }
   
   blockquote {
-    font-size: 1.125rem !important; /* 18px */
-    padding-left: 1.25rem !important;
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
   }
   
   code, pre {
-    font-size: 1.0625rem !important; /* 17px */
+    font-size: 1.0625rem;
+    margin-bottom: 1rem;
   }
 }
 
 /* lg breakpoint (1024px and up) */
 @media (min-width: 1024px) {
   p, li { 
-    font-size: 1.125rem !important; /* Keep at 18px */
-    line-height: 1.6 !important; /* Slightly increase line height for better readability */
+    font-size: 1.125rem; /* Keep at 18px */
+    line-height: 1.6; /* Slightly increase line height for better readability */
+    margin-bottom: 0.75rem;
   }
   
   blockquote {
-    font-size: 1.25rem !important; /* 20px */
-    padding-left: 1.5rem !important;
+    font-size: 1.25rem; /* 20px */
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   
   code, pre {
-    font-size: 1.0625rem !important; /* Keep at 17px */
+    font-size: 1.0625rem; /* Keep at 17px */
+    margin-bottom: 1.25rem;
   }
 }
 
-.contentSection {
-  padding: 2rem 1rem !important; /* py-8 px-4 */
-}
-
-@media (min-width: 640px) {
-  .contentSection {
-    padding-left: 1.5rem !important; /* sm:px-6 */
-    padding-right: 1.5rem !important;
+@layer utilities {
+  /* Esta capa tendrá la mayor especificidad */
+  html body .contentSection {
+    padding: 2rem 1rem;
+    margin: 2.5rem 0;
   }
-}
 
-@media (min-width: 768px) {
-  .contentSection {
-    padding: 3rem 3vw !important; /* md:py-12 md:px-[3vw] */
+  @media (min-width: 640px) {
+    html body .contentSection {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
-}
 
-@media (min-width: 1024px) {
-  .contentSection {
-    padding-left: 5vw !important; /* lg:px-[5vw] */
-    padding-right: 5vw !important;
+  @media (min-width: 768px) {
+    html body .contentSection {
+      padding: 3rem 3vw;
+    }
+
+    html body p,
+    html body li { 
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    html body blockquote {
+      font-size: 1.125rem;
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    html body code,
+    html body pre {
+      font-size: 1.0625rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html body .contentSection {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+
+    html body p,
+    html body li { 
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    
+    html body blockquote {
+      font-size: 1.25rem;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    html body code,
+    html body pre {
+      font-size: 1.0625rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  .contentSections {
+    padding-left: 8vw;
+    padding-right: 8vw;
   }
 }

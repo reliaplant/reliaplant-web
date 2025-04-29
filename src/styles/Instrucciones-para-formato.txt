@@ -1,0 +1,12 @@
+No utilices y remueve modificadores de tamaño de texto
+
+Títulos y párrafos centradas a la izquierda
+
+Utiliza una jerarquía en los títulos
+h2 para los títulos principales (h1 esta reservado para el Bannerprincipal)
+h3 para subtítulos
+etc
+
+En caso de requerir un ejemplo usar la página de sistema-indicadores
+
+Utiliza contentSection para los los márgenes de las secciones principales
