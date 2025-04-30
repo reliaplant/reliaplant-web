@@ -452,7 +452,7 @@ export default function SistemaIndicadoresPage() {
         </div>
       </div>
 
-      <div className="contentSection ">
+      <div className="contentSection">
         {/* Example table */}
         <h2>Ejemplo de tabla de indicadores</h2>
         <div className="overflow-x-auto">

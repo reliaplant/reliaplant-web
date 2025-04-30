@@ -77,7 +77,7 @@ export default function Home() {
       <div className="contentSection">
         <div>
           <h2>Nuestros Servicios de Consultoría</h2>
-          <p className="text-gray60 max-w-4xl text-left">
+          <p className="text-gray60 text-left">
             Ofrecemos soluciones personalizadas para optimizar la confiabilidad,
             disponibilidad y mantenibilidad de tus activos industriales.
           </p>
@@ -138,7 +138,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="contentSections bg-graylightgray">
+      <div className="contentSection bg-graylightgray">
         <div>
           <h2>Software Especializado</h2>
           <p className="text-gray60 max-w-4xl text-left">
@@ -216,7 +216,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="contentSectionn">
+      <div className="contentSection">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="text-left">
             <h2>¿Por qué elegirnos?</h2>
@@ -294,7 +294,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="contentSectionn bg-gray90 text-white">
+      <div className="contentSection bg-gray90">
         <div>
           <h2 className="text-blue60">Sectores industriales que atendemos</h2>
           <p className="text-gray30 max-w-4xl text-left">

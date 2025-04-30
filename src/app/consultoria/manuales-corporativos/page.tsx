@@ -37,6 +37,7 @@ import {
 } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import BannerPrincipal from "@/components/BannerPrincipal";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Manuales Corporativos y Procedimientos de Mantenimiento | Reliaplant",
@@ -101,13 +102,13 @@ export default function ManualesCorporativos() {
         <div className="flex flex-col md:flex-row gap-8 md:gap-16">
           <div className="w-full md:w-1/2">
             <h2>Gestión del conocimiento para la excelencia operativa</h2>
-            <p className="text-base md:text-[1.15vw] leading-[136%] mb-6">
+            <p className="leading-[136%] mb-6">
               En la moderna gestión de activos, el conocimiento estructurado se
               ha convertido en un pilar fundamental que separa a las
               organizaciones de excelencia de aquellas que operan en estado
               reactivo.
             </p>
-            <p className="text-base md:text-[1.15vw] leading-[136%] mb-6">
+            <p className="leading-[136%] mb-6">
               Nuestros servicios de desarrollo documental transforman el
               conocimiento tácito de tu organización en sistemas estructurados
               que garantizan continuidad operativa, facilitan la toma de
@@ -117,25 +118,25 @@ export default function ManualesCorporativos() {
           </div>
 
           <div className="w-full md:w-1/2 border">
-            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-6">
+            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
               <div className="p-1 bg-blue60 text-white rounded-full">
                 <Check size={16} />
               </div>
               <p className="mb-0">Preservación del conocimiento crítico</p>
             </div>
-            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-6">
+            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
               <div className="p-1 bg-blue60 text-white rounded-full">
                 <Check size={16} />
               </div>
               <p className="mb-0">Estandarización de procesos</p>
             </div>
-            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-6">
+            <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
               <div className="p-1 bg-blue60 text-white rounded-full">
                 <Check size={16} />
               </div>
               <p className="mb-0">Cumplimiento normativo y regulatorio</p>
             </div>
-            <div className="gap-3 h-1/4 flex flex-row items-center px-6">
+            <div className="gap-3 h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
               <div className="p-1 bg-blue60 text-white rounded-full">
                 <Check size={16} />
               </div>
@@ -149,7 +150,7 @@ export default function ManualesCorporativos() {
         <h2>Soluciones documentales</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <div className="border p-4 md:p-6 pb-6 relative flex flex-col justify-between">
+          <div className="border border-gray90 p-4 md:p-6 pb-6 relative shadow-lg flex flex-col justify-between">
             <div>
               <Library size={36} className="text-blue60 mb-4" />
               <h3>Biblioteca Digital Documentada</h3>
@@ -161,21 +162,15 @@ export default function ManualesCorporativos() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Control de versiones automatizado
-                  </span>
+                  <span>Control de versiones automatizado</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Flujos de trabajo de aprobación
-                  </span>
+                  <span>Flujos de trabajo de aprobación</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Gestión de permisos por roles
-                  </span>
+                  <span>Gestión de permisos por roles</span>
                 </li>
               </ul>
             </div>
@@ -188,7 +183,7 @@ export default function ManualesCorporativos() {
             </div>
           </div>
 
-          <div className="border-2 border-gray90 p-4 md:p-6 pb-6 relative shadow-lg flex flex-col justify-between">
+          <div className="border border-gray90 p-4 md:p-6 pb-6 relative shadow-lg flex flex-col justify-between">
             <div>
               <BookCopy size={36} className="text-blue60 mb-4" />
               <h3>Manual Corporativo de Mantenimiento y/o Confiabilidad</h3>
@@ -200,21 +195,15 @@ export default function ManualesCorporativos() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Modelo de gestión integral
-                  </span>
+                  <span>Modelo de gestión integral</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Estrategias y procesos definidos
-                  </span>
+                  <span>Estrategias y procesos definidos</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span className="text-sm md:text-base">
-                    Roles y responsabilidades claras
-                  </span>
+                  <span>Roles y responsabilidades claras</span>
                 </li>
               </ul>
             </div>
@@ -256,7 +245,7 @@ export default function ManualesCorporativos() {
             </div>
             <div className="">
               <div className="flex flex-row items-start gap-2 md:gap-3 border p-2 bg-gray10">
-                <p className="text-gray60 text-xs md:text-base mb-0">
+                <p className="text-gray60 mb-0">
                   Metodologías de evaluación: Ishikawa, 5 Porqués, Árbol Lógico
                 </p>
               </div>
@@ -394,67 +383,51 @@ export default function ManualesCorporativos() {
         </div>
       </div>
 
-      <div className="mt-12 md:mt-24 px-4 md:px-[8vw] bg-gray10 text-white py-8 md:py-16">
+      <div className="contentSection bg-gray10 text-white">
         <h2>Beneficios de la gestión documental estructurada</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <div className="p-4 md:p-6 border bg-white">
-            <UserCog size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Preservación del conocimiento</h3>
-            <p>
-              Retención del expertise técnico crítico dentro de la organización,
-              reduciendo la dependencia de personal específico y facilitando la
-              curva de aprendizaje.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={UserCog}
+            title="Preservación del conocimiento"
+            description="Retención del expertise técnico crítico dentro de la organización, reduciendo la dependencia de personal específico y facilitando la curva de aprendizaje."
+            variant="default"
+          />
 
-          <div className="p-4 md:p-6 border bg-white">
-            <Workflow size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Estandarización de procesos</h3>
-            <p>
-              Homogeneización de criterios y métodos de trabajo en todas las
-              áreas, garantizando consistencia y calidad en la ejecución de
-              actividades técnicas.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={Workflow}
+            title="Estandarización de procesos"
+            description="Homogeneización de criterios y métodos de trabajo en todas las áreas, garantizando consistencia y calidad en la ejecución de actividades técnicas."
+            variant="default"
+          />
 
-          <div className="p-4 md:p-6 border bg-white">
-            <ShieldCheck size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Cumplimiento normativo</h3>
-            <p>
-              Alineación con requisitos regulatorios y estándares
-              internacionales facilitando auditorías y certificaciones.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={ShieldCheck}
+            title="Cumplimiento normativo"
+            description="Alineación con requisitos regulatorios y estándares internacionales facilitando auditorías y certificaciones."
+            variant="default"
+          />
 
-          <div className="p-4 md:p-6 border bg-white">
-            <Settings size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Mejora continua</h3>
-            <p>
-              Base documental que sustenta la evaluación de procesos,
-              identificación de oportunidades y aplicación sistemática de
-              mejoras.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={Settings}
+            title="Mejora continua"
+            description="Base documental que sustenta la evaluación de procesos, identificación de oportunidades y aplicación sistemática de mejoras."
+            variant="default"
+          />
 
-          <div className="p-4 md:p-6 border bg-white">
-            <Users size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Desarrollo de capacidades</h3>
-            <p>
-              Marco estructurado para la identificación de necesidades de
-              capacitación y establecimiento de rutas de desarrollo profesional.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={Users}
+            title="Desarrollo de capacidades"
+            description="Marco estructurado para la identificación de necesidades de capacitación y establecimiento de rutas de desarrollo profesional."
+            variant="default"
+          />
 
-          <div className="p-4 md:p-6 border bg-white">
-            <BarChart2 size={28} className="text-blue60 mb-2 md:mb-4" />
-            <h3>Toma de decisiones informada</h3>
-            <p>
-              Criterios y metodologías claras que aseguran consistencia y
-              objetividad en decisiones técnicas y económicas relacionadas con
-              activos.
-            </p>
-          </div>
+          <ServiceCard
+            Icon={BarChart2}
+            title="Toma de decisiones informada"
+            description="Criterios y metodologías claras que aseguran consistencia y objetividad en decisiones técnicas y económicas relacionadas con activos."
+            variant="default"
+          />
         </div>
       </div>
     </div>

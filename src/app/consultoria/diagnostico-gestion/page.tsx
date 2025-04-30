@@ -126,7 +126,7 @@ export default function DiagnosticoGestion() {
             preparar todos los aspectos relacionados con la logística del
             SERVICIO, incluyendo lo siguiente:
           </p>
-          <ul className="list-disc ml-4 mt-2">
+          <ul className="list-disc ml-4">
             <li>
               Requerimientos para el lugar de reunión con el personal del
               CLIENTE
@@ -183,16 +183,10 @@ export default function DiagnosticoGestion() {
           <table className="min-w-full border">
             <thead className="bg-gray-50 border">
               <tr>
-                <th
-                  scope="col"
-                  className="px-3 md:px-6 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                >
+                <th scope="col" className="px-6 py-3 text-left">
                   Área
                 </th>
-                <th
-                  scope="col"
-                  className="px-3 md:px-6 py-2 md:py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                >
+                <th scope="col" className="px-6 py-3 text-left">
                   Descripción
                 </th>
               </tr>
@@ -200,12 +194,8 @@ export default function DiagnosticoGestion() {
             <tbody className="bg-white">
               {evaluationData.map((item, index) => (
                 <tr key={index} className="border">
-                  <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-medium text-gray-900">
-                    {item.area}
-                  </td>
-                  <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-500">
-                    {item.description}
-                  </td>
+                  <td className="px-6 py-4">{item.area}</td>
+                  <td className="px-6 py-4">{item.description}</td>
                 </tr>
               ))}
             </tbody>

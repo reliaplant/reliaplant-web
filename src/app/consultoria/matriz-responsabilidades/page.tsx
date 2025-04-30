@@ -102,162 +102,146 @@ export default function MatrizResponsabilidades() {
         image="/assets/bgResponsabilidades.jpg"
       />
 
-      <div className="px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] py-8 md:py-12 flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-full">
-          <h2 className="text-2xl md:text-4xl font-light mb-8">
-            La base técnica para una organización de clase mundial
-          </h2>
+      <section className="contentSection">
+        <h2>La base técnica para una organización de clase mundial</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+          <ServiceCard
+            Icon={ClipboardList}
+            title="Definición de Responsabilidades"
+            description="Establecemos con claridad qué hace cada rol, delimitando alcances de gestión, autoridad y rendición de cuentas para cada posición en el área de mantenimiento."
+            variant="default"
+          />
+          <ServiceCard
+            Icon={CheckSquare}
+            title="Mapeo de Competencias"
+            description="Identificamos los conocimientos específicos requeridos para cada posición, desde habilidades técnicas hasta dominios metodológicos de confiabilidad y mantenimiento."
+            variant="default"
+          />
+          <ServiceCard
+            Icon={GraduationCap}
+            title="Planes de Formación Específicos"
+            description="Desarrollamos itinerarios formativos personalizados que cierran la brecha entre las competencias actuales y las requeridas para un desempeño óptimo."
+            variant="default"
+          />
+          <ServiceCard
+            Icon={Table}
+            title="Integración con Sistemas de Gestión"
+            description="Alineamos la matriz con los sistemas CMMS y RH para asegurar que la asignación de trabajos considera las competencias certificadas del personal."
+            variant="default"
+          />
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 mt-8">
-            <ServiceCard
-              Icon={ClipboardList}
-              title="Definición de Responsabilidades"
-              description="Establecemos con claridad qué hace cada rol, delimitando alcances de gestión, autoridad y rendición de cuentas para cada posición en el área de mantenimiento."
-              variant="default"
-            />
-            <ServiceCard
-              Icon={CheckSquare}
-              title="Mapeo de Competencias"
-              description="Identificamos los conocimientos específicos requeridos para cada posición, desde habilidades técnicas hasta dominios metodológicos de confiabilidad y mantenimiento."
-              variant="default"
-            />
-            <ServiceCard
-              Icon={GraduationCap}
-              title="Planes de Formación Específicos"
-              description="Desarrollamos itinerarios formativos personalizados que cierran la brecha entre las competencias actuales y las requeridas para un desempeño óptimo."
-              variant="default"
-            />
-            <ServiceCard
-              Icon={Table}
-              title="Integración con Sistemas de Gestión"
-              description="Alineamos la matriz con los sistemas CMMS y RH para asegurar que la asignación de trabajos considera las competencias certificadas del personal."
-              variant="default"
-            />
+      <section className="contentSection bg-white">
+        <div className="flex flex-col gap-8">
+          <div>
+            <h2>Cerrando la brecha entre Recursos Humanos y Mantenimiento</h2>
+            <p className="text-lg leading-[136%] mt-4">
+              Las áreas de mantenimiento industrial enfrentan constantemente un
+              desafío dual: por un lado, la necesidad de contar con personal
+              especializado para cada tipo de equipo o sistema; por otro, la
+              dificultad para definir claramente qué competencias exactas
+              requiere cada puesto y cómo desarrollarlas.
+            </p>
+            <p className="text-lg leading-[136%] mt-4">
+              Nuestra metodología crea un puente entre Recursos Humanos y
+              Mantenimiento, estableciendo un lenguaje común que permite:
+            </p>
+          </div>
+          <div>
+            <ul className="list-disc pl-6">
+              <li className="mb-2">
+                Definir con precisión qué debe saber hacer cada posición
+              </li>
+              <li className="mb-2">
+                Clasificar las competencias como Obligatorias (O) o Deseables
+                (D)
+              </li>
+              <li className="mb-2">
+                Crear planes de desarrollo específicos para cada nivel y rol
+              </li>
+              <li className="mb-2">
+                Establecer un sistema de certificación interna de habilidades
+              </li>
+              <li className="mb-2">
+                Asegurar que el trabajo correcto sea asignado al técnico
+                correcto
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="px-4 md:px-16 py-[10vh] flex flex-col md:flex-row gap-8 md:gap-24">
-        <div className="w-full md:w-1/2">
-          <h2 className="font-normal">
-            Cerrando la brecha entre Recursos Humanos y Mantenimiento
-          </h2>
-          <p className="text-lg leading-[136%] mt-4">
-            Las áreas de mantenimiento industrial enfrentan constantemente un
-            desafío dual: por un lado, la necesidad de contar con personal
-            especializado para cada tipo de equipo o sistema; por otro, la
-            dificultad para definir claramente qué competencias exactas requiere
-            cada puesto y cómo desarrollarlas.
-          </p>
-          <p className="text-lg leading-[136%] mt-4">
-            Nuestra metodología crea un puente entre Recursos Humanos y
-            Mantenimiento, estableciendo un lenguaje común que permite:
-          </p>
-        </div>
-        <div className="w-full md:w-1/2">
-          <ul className="list-disc">
-            <li className="mb-2 text-xl">
-              Definir con precisión qué debe saber hacer cada posición
-            </li>
-            <li className="mb-2 text-xl">
-              Clasificar las competencias como Obligatorias (O) o Deseables (D)
-            </li>
-            <li className="mb-2 text-xl">
-              Crear planes de desarrollo específicos para cada nivel y rol
-            </li>
-            <li className="mb-2 text-xl">
-              Establecer un sistema de certificación interna de habilidades
-            </li>
-            <li className="mb-2 text-xl">
-              Asegurar que el trabajo correcto sea asignado al técnico correcto
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="px-4 md:px-16 bg-gray20 py-12">
-        <div>
-          <div className="">
-            <h2 className="text-4xl font-light mb-8 text-center">
-              Los Tres Pilares de la Matriz
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
-                <Document
-                  size={32}
-                  className="text-blue60 mb-4 flex-shrink-0"
-                />
-                <h3 className="text-lg sm:text-xl font-normal mb-3">
-                  1. Estructura de Responsabilidades
-                </h3>
-                <p className="text-gray60 mb-4">
-                  Define qué hace cada posición dentro del flujo de trabajo de
-                  mantenimiento:
-                </p>
-                <ul className="list-disc pl-6 text-gray60 space-y-2">
-                  <li>Toma de decisiones técnicas</li>
-                  <li>Definición de prioridades</li>
-                  <li>Gestión de recursos</li>
-                  <li>Planificación estratégica</li>
-                  <li>Ejecución técnica especializada</li>
-                </ul>
-              </div>
-              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
-                <Certificate
-                  size={32}
-                  className="text-blue60 mb-4 flex-shrink-0"
-                />
-                <h3 className="text-lg sm:text-xl font-normal mb-3">
-                  2. Mapa de Competencias
-                </h3>
-                <p className="text-gray60 mb-4">
-                  Establece el conjunto de conocimientos y habilidades
-                  necesarios:
-                </p>
-                <ul className="list-disc pl-6 text-gray60 space-y-2">
-                  <li>Técnicas (mecánica, eléctrica, instrumentación)</li>
-                  <li>Metodológicas (RCM, FMEA, RCA)</li>
-                  <li>Normativas (NFPA, ISO, ASME, etc)</li>
-                  <li>Tecnológicas (SAP, CMMS, análisis de datos)</li>
-                  <li>Gestión (planificación, costos, liderazgo)</li>
-                </ul>
-              </div>
-              <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
-                <UserAccess
-                  size={32}
-                  className="text-blue60 mb-4 flex-shrink-0"
-                />
-                <h3 className="text-lg sm:text-xl font-normal mb-3">
-                  3. Plan de Formación
-                </h3>
-                <p className="text-gray60 mb-4">
-                  Desarrolla itinerarios formativos personalizados:
-                </p>
-                <ul className="list-disc pl-6 text-gray60 space-y-2">
-                  <li>Cursos específicos por nivel y especialidad</li>
-                  <li>Certificaciones técnicas necesarias</li>
-                  <li>Programas de mentoring interno</li>
-                  <li>Evaluaciones prácticas de competencias</li>
-                  <li>Actualización continua según nuevas tecnologías</li>
-                </ul>
-              </div>
-            </div>
+      <section className="contentSection bg-gray20">
+        <h2>Los Tres Pilares de la Matriz</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+            <Document size={32} className="text-blue60 mb-4 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl font-normal mb-3">
+              1. Estructura de Responsabilidades
+            </h3>
+            <p className="text-gray60 mb-4">
+              Define qué hace cada posición dentro del flujo de trabajo de
+              mantenimiento:
+            </p>
+            <ul className="list-disc pl-6 text-gray60 space-y-2">
+              <li>Toma de decisiones técnicas</li>
+              <li>Definición de prioridades</li>
+              <li>Gestión de recursos</li>
+              <li>Planificación estratégica</li>
+              <li>Ejecución técnica especializada</li>
+            </ul>
+          </div>
+          <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+            <Certificate size={32} className="text-blue60 mb-4 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl font-normal mb-3">
+              2. Mapa de Competencias
+            </h3>
+            <p className="text-gray60 mb-4">
+              Establece el conjunto de conocimientos y habilidades necesarios:
+            </p>
+            <ul className="list-disc pl-6 text-gray60 space-y-2">
+              <li>Técnicas (mecánica, eléctrica, instrumentación)</li>
+              <li>Metodológicas (RCM, FMEA, RCA)</li>
+              <li>Normativas (NFPA, ISO, ASME, etc)</li>
+              <li>Tecnológicas (SAP, CMMS, análisis de datos)</li>
+              <li>Gestión (planificación, costos, liderazgo)</li>
+            </ul>
+          </div>
+          <div className="bg-white p-4 sm:p-6 hover:shadow-lg transition duration-300 border border-gray30 flex flex-col">
+            <UserAccess size={32} className="text-blue60 mb-4 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl font-normal mb-3">
+              3. Plan de Formación
+            </h3>
+            <p className="text-gray60 mb-4">
+              Desarrolla itinerarios formativos personalizados:
+            </p>
+            <ul className="list-disc pl-6 text-gray60 space-y-2">
+              <li>Cursos específicos por nivel y especialidad</li>
+              <li>Certificaciones técnicas necesarias</li>
+              <li>Programas de mentoring interno</li>
+              <li>Evaluaciones prácticas de competencias</li>
+              <li>Actualización continua según nuevas tecnologías</li>
+            </ul>
           </div>
         </div>
+
         <div className="mt-24 flex flex-col md:flex-row gap-12">
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light mb-6">
-              Ejemplo de Matriz de Competencias
-            </h2>
+            <h2>Ejemplo de Matriz de Competencias</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full bg-white border">
                 <thead className="bg-gray80 text-black">
                   <tr>
-                    <th className="py-2 px-4 border">Cargo</th>
-                    <th className="py-2 px-4 border">RCM/FMEA</th>
-                    <th className="py-2 px-4 border">Análisis Vibraciones</th>
-                    <th className="py-2 px-4 border">Termografía</th>
-                    <th className="py-2 px-4 border">SAP/CMMS</th>
+                    <th className="py-2 px-4 border text-gray20">Cargo</th>
+                    <th className="py-2 px-4 border text-gray20">RCM/FMEA</th>
+                    <th className="py-2 px-4 border text-gray20">
+                      Análisis Vibraciones
+                    </th>
+                    <th className="py-2 px-4 border text-gray20">
+                      Termografía
+                    </th>
+                    <th className="py-2 px-4 border text-gray20">SAP/CMMS</th>
                   </tr>
                 </thead>
                 <tbody className="text-center">
@@ -326,9 +310,7 @@ export default function MatrizResponsabilidades() {
           </div>
 
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-light mb-6">
-              Categorías de Competencias que Mapeamos
-            </h2>
+            <h2>Categorías de Competencias que Mapeamos</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border p-4 bg-white">
                 <h3 className="font-medium text-xl mb-3">
@@ -378,19 +360,13 @@ export default function MatrizResponsabilidades() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-24 px-4 md:px-16 border-b ">
-        <div className="flex flex-col md:flex-row gap-4 justify-between">
-          <div className="flex flex-col justify-end">
-            <h2 className="border-blue60 border-b-4 w-fit">Nuestro Proceso</h2>
-          </div>
-          <button className="h-14 bg-black text-white px-8">¿Dudas?</button>
-        </div>
-      </div>
-
-      <div className="px-4 md:px-8 bg-gray">
-        <div className="flex flex-col md:flex-row gap-4 md:gap-12">
+      <section className="contentSection bg-gray">
+        <h2 className="border-blue60 border-b-4 w-fit mb-12">
+          Nuestro Proceso
+        </h2>
+        <div className="flex flex-col md:flex-row gap-12">
           <div className="w-full md:w-1/4 py-8 mb-16 border-black relative">
             <div className="flex flex-row gap-4">
               <div className="p-2 bg-gray20 w-fit h-fit">
@@ -514,7 +490,7 @@ export default function MatrizResponsabilidades() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

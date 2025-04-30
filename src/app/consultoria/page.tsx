@@ -165,8 +165,8 @@ export default function ConsultoriaPage() {
 
   return (
     <div className="bg-gray10">
-      <div className="bg-blue20 px-4 md:px-8 lg:px-[8vw] py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="w-full md:w-2/3 text-base md:text-lg">
+      <div className="bg-blue20 contentSection flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="w-full md:w-2/3">
           ¿Tiene curiosidad por saber cómo RELIAPLANT Consulting puede ayudar a
           su empresa? Realice un autodiagnóstico y{" "}
           <strong>deje que nuestro equipo le indique los próximos pasos</strong>
@@ -177,42 +177,34 @@ export default function ConsultoriaPage() {
         </button>
       </div>
 
-      <div className="mt-8 md:mt-16 px-4 md:px-8 lg:px-[8vw]">
-        <div className="border-b border-black">
-          <div className="border-b-2 border-blue60 w-fit text-xl md:text-2xl pl-4 md:pl-8">
-            CONSULTORIA
-          </div>
+      <div className="contentSection">
+        <div className="border-b border-black mb-8">
+          <h2 className="border-b-2 border-blue60 w-fit">CONSULTORIA</h2>
         </div>
-      </div>
 
-      <div className="relative px-4 md:px-8 lg:px-[8vw] min-h-[400px] md:h-[55vh] flex items-center justify-start">
-        <div className="relative z-10 text-whites w-full md:w-[500px] lg:w-[600px] h-full bg-white p-4 md:p-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light">
-            Mejora de la Confiabilidad
-          </h1>
-          <div className="mt-4 md:mt-8 text-base md:text-lg leading-relaxed">
-            Los estudios orientados a la mejora Confiabilidad son realizados de
-            acuerdo con la madurez de la organización y la fase en la que se
-            encuentra. <br />
-            <br />
-            La base para la ejecución de los estudios inicia con el registro de
-            activos. Logrado esto, es posible jerarquizar instalaciones,
-            sistemas y equipos en cualquier tipo de industria, asignar
-            estrategias de Gerencia de Activo tales como:{" "}
-            <strong>MCC, IBR, NOR, ACR</strong> y mejorar la gestión del
-            mantenimiento.
-          </div>
-        </div>
-      </div>
-
-      <div className="min-h-[500px] bg-cover bg-center bg-no-repeat">
-        <div className="px-4 md:px-8 lg:px-[8vw] py-8">
-          <div className="flex flex-col md:flex-row gap-8 py-8">
-            <div className="text-xl md:text-2xl w-full md:w-1/3">
-              ¿Cuál es el grado de madurez de su organización?
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full md:w-1/2">
+            <div className="bg-white p-8">
+              <h2>Mejora de la Confiabilidad</h2>
+              <div className="mt-8">
+                Los estudios orientados a la mejora Confiabilidad son realizados
+                de acuerdo con la madurez de la organización y la fase en la que
+                se encuentra. <br />
+                <br />
+                La base para la ejecución de los estudios inicia con el registro
+                de activos. Logrado esto, es posible jerarquizar instalaciones,
+                sistemas y equipos en cualquier tipo de industria, asignar
+                estrategias de Gerencia de Activo tales como:{" "}
+                <strong>MCC, IBR, NOR, ACR</strong> y mejorar la gestión del
+                mantenimiento.
+              </div>
             </div>
-            <div className="w-full md:w-2/4">
-              <div className="text-base md:text-xl bg-gray10 text-black font-light">
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <div className="flex flex-col h-full">
+              <h3>¿Cuál es el grado de madurez de su organización?</h3>
+              <div className="bg-gray10 text-black mt-8">
                 Se han construido muchos{" "}
                 <strong>"Modelos de Confiabilidad"</strong> similares al
                 mostrado abajo. La clave no esta en cuál modelo tomar, sino{" "}
@@ -220,7 +212,7 @@ export default function ConsultoriaPage() {
                 equipo de consultores puede ayudar a su organización a
                 establecer una cultura de confiabilidad.
               </div>
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-8">
+              <div className="flex flex-col md:flex-row gap-4 mt-8">
                 <button className="bg-blue60 hover:bg-gray90 px-4 py-2 text-white">
                   Quiero implementar un modelo de confiabilidad
                 </button>
@@ -230,36 +222,38 @@ export default function ConsultoriaPage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="w-full bg-gray20 p-4 md:p-8 mt-8">
-            <div className="border-b border-black mb-4 md:mb-8">
-              <div className="border-b-2 border-blue60 w-fit text-lg md:text-xl">
-                Modelo para la Mejora de Confiabilidad
-              </div>
-            </div>
-            <div className="relative w-full aspect-[16/9]">
-              <Image
-                src={procesoConfiabilidad}
-                alt="Proceso de Confiabilidad"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div className="pt-4">
-              <span className="text-xs md:text-sm text-gray50">
-                Referencia Copyright PREDICTIVA21 - Modelo de la Confiabilidad
-              </span>
-            </div>
+      <div className="contentSection">
+        <div className="w-full bg-gray20 p-8 mt-8">
+          <div className="border-b border-black mb-4">
+            <h2 className="border-b-2 border-blue60 w-fit">
+              Modelo para la Mejora de Confiabilidad
+            </h2>
+          </div>
+          <div className="relative w-full aspect-[16/9]">
+            <Image
+              src={procesoConfiabilidad}
+              alt="Proceso de Confiabilidad"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="pt-4">
+            <span className="text-xs md:text-sm text-gray50">
+              Referencia Copyright PREDICTIVA21 - Modelo de la Confiabilidad
+            </span>
           </div>
         </div>
       </div>
 
-      <div className="bg-gray10 py-16 px-4 md:px-[8vw]">
-        <div className="bg-white p-4 md:p-[2vw]">
+      <div className="contentSection bg-gray10">
+        <div className="bg-white p-8">
           <div className="border-b border-black mb-6">
-            <div className="border-b-2 border-blue60 w-fit text-xl md:text-2xl">
+            <h2 className="border-b-2 border-blue60 w-fit">
               Cartera de Servicios
-            </div>
+            </h2>
           </div>
           {sections.map((section, sectionIndex) => (
             <div
@@ -269,9 +263,7 @@ export default function ConsultoriaPage() {
               }`}
             >
               <div className="w-full md:w-[30vw] mb-4 md:mb-0">
-                <h2 className="text-lg md:text-xl font-bold text-black">
-                  {section.title}
-                </h2>
+                <h3>{section.title}</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                 {section.data.map((service, serviceIndex) => (

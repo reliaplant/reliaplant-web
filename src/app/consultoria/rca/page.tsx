@@ -62,20 +62,20 @@ export default function AnalisisRCA() {
         image="/assets/bgRAM.png"
       />
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw]">
+      <div className="contentSection">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6 lg:mb-8">
+            <h2 className="mb-6">
               La diferencia entre tratar síntomas y resolver problemas
             </h2>
-            <p className="text-base sm:text-lg lg:text-[1.15vw] leading-relaxed lg:leading-[136%] mb-6">
+            <p className="mb-6">
               Las fallas recurrentes y los incidentes operacionales representan
               no solo pérdidas económicas directas, sino también riesgos para la
               seguridad, el medio ambiente y la continuidad del negocio. La
               reacción común es implementar soluciones rápidas que solo atienden
               los síntomas visibles.
             </p>
-            <p className="text-base sm:text-lg lg:text-[1.15vw] leading-relaxed lg:leading-[136%] mb-6">
+            <p className="mb-6">
               El Análisis de Causa Raíz (RCA) es una metodología sistemática y
               basada en evidencias que busca identificar los factores
               fundamentales que originan los problemas. Nuestra aplicación del
@@ -85,9 +85,7 @@ export default function AnalisisRCA() {
             </p>
 
             <div className="mt-8 p-4 sm:p-6 bg-gray10">
-              <h3 className="text-xl font-medium mb-4">
-                Fundamentos de nuestro enfoque
-              </h3>
+              <h3 className="mb-4">Fundamentos de nuestro enfoque</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
@@ -119,7 +117,7 @@ export default function AnalisisRCA() {
 
           <div className="w-full lg:w-1/2 border">
             <div className="p-6 sm:p-8 bg-gray90 text-white">
-              <h3 className="text-xl sm:text-2xl font-normal text-blue60 mb-6">
+              <h3 className="font-normal text-blue60 mb-6">
                 ¿Cuándo es necesario un RCA formal?
               </h3>
               <p className="text-gray30 mb-6">
@@ -218,25 +216,18 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-24 px-4 sm:px-[8vw] border-b">
-        <div className="flex flex-row gap-4 justify-between pb-2">
-          <div className="flex flex-col justify-end">
-            <h2 className="text-xl sm:text-2xl border-blue60 border-b-4 w-fit">
-              Nuestra metodología
-            </h2>
-          </div>
+      <div className="contentSection">
+        <div className="border-b mb-8">
+          <h2 className="border-blue60 border-b-4 w-fit">
+            Nuestra metodología
+          </h2>
         </div>
-      </div>
-
-      <div className="px-4 sm:px-[8vw] py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
               <Number_1 size={28} />
             </div>
-            <h3 className="text-xl font-medium mb-3">
-              Notificación y Preparación
-            </h3>
+            <h3 className="mb-3">Notificación y Preparación</h3>
             <p className="text-gray60 mb-6">
               Activación del protocolo RCA, conformación del equipo investigador
               multidisciplinario y recopilación inicial de evidencias.
@@ -259,9 +250,7 @@ export default function AnalisisRCA() {
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
               <Number_2 size={28} />
             </div>
-            <h3 className="text-xl font-medium mb-3">
-              Investigación y Análisis
-            </h3>
+            <h3 className="mb-3">Investigación y Análisis</h3>
             <p className="text-gray60 mb-6">
               Aplicación del Árbol Lógico de Fallas para descomponer el evento
               en sus factores causales físicos, humanos y sistémicos.
@@ -282,9 +271,7 @@ export default function AnalisisRCA() {
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
               <Number_3 size={28} />
             </div>
-            <h3 className="text-xl font-medium mb-3">
-              Recomendaciones y Plan de Acción
-            </h3>
+            <h3 className="mb-3">Recomendaciones y Plan de Acción</h3>
             <p className="text-gray60 mb-6">
               Desarrollo de soluciones específicas para eliminar las causas
               identificadas, con evaluaciones de factibilidad técnica y
@@ -306,9 +293,7 @@ export default function AnalisisRCA() {
             <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
               <Number_4 size={28} />
             </div>
-            <h3 className="text-xl font-medium mb-3">
-              Implementación y Seguimiento
-            </h3>
+            <h3 className="mb-3">Implementación y Seguimiento</h3>
             <p className="text-gray60 mb-6">
               Ejecución del plan de acción, verificación de la eficacia de las
               soluciones y documentación de lecciones aprendidas.
@@ -330,7 +315,7 @@ export default function AnalisisRCA() {
           <div className="sm:mr-6 flex-shrink-0">
             <TreeView size={48} className="text-blue60" />
           </div>
-          <p className="text-sm sm:text-base lg:text-[1.15vw] leading-relaxed lg:leading-[136%]">
+          <p className="text-sm leading-relaxed">
             Nuestro enfoque combina el rigor técnico del Árbol Lógico de Fallas
             con técnicas complementarias como 5-Porqués, Ishikawa y Análisis de
             Barreras cuando son necesarias, adaptando la metodología al contexto
@@ -339,10 +324,8 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw]">
-        <h2 className="text-2xl sm:text-4xl font-light mb-8 sm:mb-12 text-center">
-          El poder del Árbol Lógico de Fallas
-        </h2>
+      <div className="contentSection">
+        <h2 className="mb-8">El poder del Árbol Lógico de Fallas</h2>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
           <div className="w-full lg:w-1/2">
@@ -364,9 +347,7 @@ export default function AnalisisRCA() {
                   <GitBranch size={32} className="text-blue60" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
-                    Mapeo estructurado
-                  </h3>
+                  <h3 className="mb-2">Mapeo estructurado</h3>
                   <p className="text-gray60">
                     Organiza la investigación en un esquema lógico que conecta
                     el evento principal con sus factores causales, facilitando
@@ -380,9 +361,7 @@ export default function AnalisisRCA() {
                   <Target size={32} className="text-blue60" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
-                    Enfoque en la evidencia
-                  </h3>
+                  <h3 className="mb-2">Enfoque en la evidencia</h3>
                   <p className="text-gray60">
                     Cada ramificación del árbol debe sustentarse en evidencia
                     verificable, eliminando especulaciones y garantizando
@@ -396,9 +375,7 @@ export default function AnalisisRCA() {
                   <Microscope size={32} className="text-blue60" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
-                    Profundidad multinivel
-                  </h3>
+                  <h3 className="mb-2">Profundidad multinivel</h3>
                   <p className="text-gray60">
                     Permite descender desde los mecanismos físicos de falla
                     hasta los factores humanos y organizacionales que
@@ -412,9 +389,7 @@ export default function AnalisisRCA() {
                   <LineChart size={32} className="text-blue60" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
-                    Precisión cuantificable
-                  </h3>
+                  <h3 className="mb-2">Precisión cuantificable</h3>
                   <p className="text-gray60">
                     Facilita la asignación de probabilidades y la evaluación del
                     impacto relativo de cada causa, optimizando la priorización
@@ -427,8 +402,8 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-24 px-4 sm:px-[8vw] bg-gray90 text-white py-8 sm:py-16">
-        <h2 className="text-2xl sm:text-4xl font-light text-blue60 mb-8 sm:mb-12">
+      <div className="contentSection bg-gray90 text-white">
+        <h2 className="text-blue60 mb-8">
           Roles y responsabilidades en la investigación
         </h2>
 
@@ -467,19 +442,17 @@ export default function AnalisisRCA() {
         </div>
       </div>
 
-      <div className="mt-8 sm:mt-16 px-4 sm:px-[8vw] mb-16 sm:mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="border p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-light mb-6">
-              Herramientas y formatos especializados
-            </h3>
+      <div className="contentSection">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="border p-8">
+            <h2 className="mb-6">Herramientas y formatos especializados</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="p-2 bg-blue60 rounded-full flex-shrink-0">
                   <SyncSettings size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">
+                  <h4 className="mb-1">
                     Software de modelado de árboles lógicos
                   </h4>
                   <p className="text-gray60 text-sm">
@@ -495,7 +468,7 @@ export default function AnalisisRCA() {
                   <DataVolume size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">
+                  <h4 className="mb-1">
                     Matrices de recolección de evidencias
                   </h4>
                   <p className="text-gray60 text-sm">
@@ -511,9 +484,7 @@ export default function AnalisisRCA() {
                   <QuestionAnswering size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">
-                    Guías de entrevista especializada
-                  </h4>
+                  <h4 className="mb-1">Guías de entrevista especializada</h4>
                   <p className="text-gray60 text-sm">
                     Protocolos diseñados para extraer información crucial sin
                     inducir sesgos, aplicando técnicas de entrevista cognitiva y
@@ -527,9 +498,7 @@ export default function AnalisisRCA() {
                   <Inspection size={20} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">
-                    Laboratorio móvil de análisis
-                  </h4>
+                  <h4 className="mb-1">Laboratorio móvil de análisis</h4>
                   <p className="text-gray60 text-sm">
                     Equipamiento portátil para análisis metalúrgico, de
                     lubricantes, vibraciones y otras pruebas in-situ que
@@ -540,10 +509,8 @@ export default function AnalisisRCA() {
             </div>
           </div>
 
-          <div className="border p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-light mb-6">
-              Beneficios comprobados
-            </h3>
+          <div className="border p-8">
+            <h2 className="mb-6">Beneficios comprobados</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>

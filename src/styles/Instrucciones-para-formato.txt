@@ -1,4 +1,4 @@
-No utilices y remueve modificadores de tamaño de texto
+No utilices y remueve modificadores de tamaño de texto y fonts personalizados
 
 Títulos y párrafos centradas a la izquierda
 
@@ -9,4 +9,4 @@ etc
 
 En caso de requerir un ejemplo usar la página de sistema-indicadores
 
-Utiliza contentSection para los los márgenes de las secciones principales
+Utiliza contentSection para los los márgenes de las secciones principales y quitales margenes o paddings personalizados, ya que de esto se encarga el contentSection

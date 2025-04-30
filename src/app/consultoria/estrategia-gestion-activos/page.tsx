@@ -84,7 +84,7 @@ export default function EstrategiaGestionActivosPage() {
               <span className="mx-2 text-gray60">{"/"}</span> Gestión de Activos
             </span>
           </div>
-          <h1 className="text-5xl font-light mb-4">
+          <h1 className="text-5xl mb-4">
             Estrategia de Gestión de Activos ISO 55000
           </h1>
           <p className="text-lg mb-6">
@@ -92,7 +92,7 @@ export default function EstrategiaGestionActivosPage() {
             una estrategia integral de gestión de activos físicos alineada con
             los objetivos de su organización.
           </p>
-          <button className="bg-blue60 text-white font-light text-lg flex flex-row items-center justify-between gap-4 py-4 px-6 rounded w-full hover:bg-blue70 transition-colors duration-200">
+          <button className="bg-blue60 text-white text-lg flex flex-row items-center justify-between gap-4 py-4 px-6 rounded w-full hover:bg-blue70 transition-colors duration-200">
             <span>Solicitar una consulta</span>
             <ArrowRight size={20} />
           </button>
@@ -141,7 +141,7 @@ export default function EstrategiaGestionActivosPage() {
 
       {/* Implementation Phases */}
       <div className="bg-gray90 py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-16 text-center text-white">
+        <h2 className="mb-16 text-center text-white">
           Fases de implementación
         </h2>
 
@@ -265,8 +265,8 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Key Elements Section */}
-      <div className="py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-8 text-center">
+      <div className="contentSection">
+        <h2 className="mb-8 text-center">
           Elementos clave del sistema ISO 55000
         </h2>
 
@@ -274,7 +274,7 @@ export default function EstrategiaGestionActivosPage() {
           <div className="bg-white shadow-md border overflow-hidden">
             <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-6">Política y estrategia</h3>
+              <h3 className="mb-6">Política y estrategia</h3>
               <p className="mb-6 text-gray70">
                 Documentos que definen el compromiso de la organización con los
                 principios de gestión de activos y los objetivos que se
@@ -291,9 +291,7 @@ export default function EstrategiaGestionActivosPage() {
           <div className="bg-white shadow-md border overflow-hidden">
             <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-6">
-                Personas y organización
-              </h3>
+              <h3 className="mb-6">Personas y organización</h3>
               <p className="mb-6 text-gray70">
                 Estructura organizacional, roles, responsabilidades y
                 competencias necesarias para implementar y mantener el sistema
@@ -310,9 +308,7 @@ export default function EstrategiaGestionActivosPage() {
           <div className="bg-white shadow-md border overflow-hidden">
             <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-6">
-                Evaluación del desempeño
-              </h3>
+              <h3 className="mb-6">Evaluación del desempeño</h3>
               <p className="mb-6 text-gray70">
                 Sistemas para medir, monitorear, analizar y evaluar el desempeño
                 de los activos y la efectividad del sistema de gestión.
@@ -328,15 +324,13 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Framework Diagram */}
-      <div className="bg-gray10 py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-6 text-center">
-          Marco de referencia ISO 55000
-        </h2>
+      <div className="contentSection bg-gray10">
+        <h2 className="mb-6 text-center">Marco de referencia ISO 55000</h2>
 
         <div className="bg-white p-8 shadow-md mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Contexto y alcance</h3>
+              <h3 className="mb-6">Contexto y alcance</h3>
               <p className="mb-4 text-gray70">
                 La implementación de un Sistema de Gestión de Activos basado en
                 ISO 55000 considera:
@@ -384,9 +378,7 @@ export default function EstrategiaGestionActivosPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-6">
-                Integración con otros sistemas
-              </h3>
+              <h3 className="mb-6">Integración con otros sistemas</h3>
               <p className="mb-4 text-gray70">
                 El sistema de gestión de activos se integra con otros sistemas
                 de gestión existentes:
@@ -441,10 +433,8 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Benefits Section */}
-      <div className="px-[10vw] py-[3vh]">
-        <h2 className="text-4xl font-light mb-8 text-center">
-          Beneficios para su organización
-        </h2>
+      <div className="contentSection">
+        <h2 className="mb-8 text-center">Beneficios para su organización</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="border-l-4 border-blue60 pl-6 py-2">
@@ -493,10 +483,8 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Reference Standard */}
-      <div className="bg-gray10 py-[3vh] px-[10vw]">
-        <h2 className="text-4xl font-light mb-6 text-center">
-          Familia de normas ISO 55000
-        </h2>
+      <div className="bg-gray10 contentSection">
+        <h2 className="mb-6 text-center">Familia de normas ISO 55000</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 shadow-md">

@@ -32,6 +32,7 @@ import {
 import { MdMoney, MdBuild, MdAccessibility } from "react-icons/md";
 import { Clock, ShieldCheck } from "lucide-react";
 import BannerPrincipal from "@/components/BannerPrincipal";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Análisis de Mantenibilidad | Reliaplant",
@@ -90,76 +91,35 @@ export default function MantenibilidadPage() {
         image="/assets/bgMantenibilidad.jpg"
       />
 
-      <div className="mt-24 px-4 sm:px-[8vw]">
-        <h3 className="text-4xl sm:text-6xl lg:text-8xl font-light mb-12 lg:mb-16">
-          Mayor Disponibilidad
-        </h3>
+      <section className="contentSection">
+        <h2>Mayor Disponibilidad</h2>
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full lg:w-[60%]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-              <div className="border p-4 sm:p-6 flex flex-col justify-between min-h-[320px] sm:min-h-[360px] overflow-hidden">
-                <div className="flex flex-col h-full">
-                  <span className="text-lg sm:text-[1.4rem] font-medium mb-4">
-                    Menos Tiempos Fuera de Servicio
-                  </span>
-                  <span className="text-gray60 text-sm sm:text-base flex-grow mb-6">
-                    Al abordar anticipadamente problemas de accesibilidad,
-                    maniobra y sustitución de componentes, el MHA disminuye los
-                    tiempos de paro correctivos y preventivos.
-                  </span>
-                  <div className="flex-shrink-0">
-                    <Clock size={48} className="text-blue60" />
-                  </div>
-                </div>
-              </div>
-              <div className="border p-4 sm:p-6 flex flex-col justify-between min-h-[320px] sm:min-h-[360px] overflow-hidden">
-                <div className="flex flex-col h-full">
-                  <span className="text-lg sm:text-[1.4rem] font-medium mb-4">
-                    Aumento de Seguridad y Productividad
-                  </span>
-                  <span className="text-gray60 text-sm sm:text-base flex-grow mb-6">
-                    El análisis contempla ergonomía, riesgos asociados al manejo
-                    mecánico y selección de facilidades de izaje apropiadas para
-                    proteger equipos y optimizar eficiencia.
-                  </span>
-                  <div className="flex-shrink-0">
-                    <ShieldCheck size={48} className="text-blue60" />
-                  </div>
-                </div>
-              </div>
-              <div className="border p-4 sm:p-6 flex flex-col justify-between min-h-[320px] sm:min-h-[360px] overflow-hidden">
-                <div className="flex flex-col h-full">
-                  <span className="text-lg sm:text-[1.4rem] font-medium mb-4">
-                    Planificación Precisa de Recursos
-                  </span>
-                  <span className="text-gray60 text-sm sm:text-base flex-grow mb-6">
-                    Identificamos métodos de izaje adecuados y rutas seguras
-                    para remover e instalar grandes componentes, optimizando
-                    costos y reduciendo improvisaciones.
-                  </span>
-                  <div className="flex-shrink-0">
-                    <IbmKnowledgeCatalogPremium
-                      size={48}
-                      className="text-blue60"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="border p-4 sm:p-6 flex flex-col justify-between min-h-[320px] sm:min-h-[360px] overflow-hidden">
-                <div className="flex flex-col h-full">
-                  <span className="text-lg sm:text-[1.4rem] font-medium mb-4">
-                    Mejor Toma de Decisiones
-                  </span>
-                  <span className="text-gray60 text-sm sm:text-base flex-grow mb-6">
-                    Un MHS detallado puede integrarse en etapas de diseño o
-                    rediseño, proponiendo instalaciones que simplifiquen
-                    trabajos futuros de mantenimiento.
-                  </span>
-                  <div className="flex-shrink-0">
-                    <Tuning size={48} className="text-blue60" />
-                  </div>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <ServiceCard
+                Icon={Clock}
+                title="Menos Tiempos Fuera de Servicio"
+                description="Al abordar anticipadamente problemas de accesibilidad, maniobra y sustitución de componentes, el MHA disminuye los tiempos de paro correctivos y preventivos."
+                variant="default"
+              />
+              <ServiceCard
+                Icon={ShieldCheck}
+                title="Aumento de Seguridad y Productividad"
+                description="El análisis contempla ergonomía, riesgos asociados al manejo mecánico y selección de facilidades de izaje apropiadas para proteger equipos y optimizar eficiencia."
+                variant="default"
+              />
+              <ServiceCard
+                Icon={IbmKnowledgeCatalogPremium}
+                title="Planificación Precisa de Recursos"
+                description="Identificamos métodos de izaje adecuados y rutas seguras para remover e instalar grandes componentes, optimizando costos y reduciendo improvisaciones."
+                variant="default"
+              />
+              <ServiceCard
+                Icon={Tuning}
+                title="Mejor Toma de Decisiones"
+                description="Un MHS detallado puede integrarse en etapas de diseño o rediseño, proponiendo instalaciones que simplifiquen trabajos futuros de mantenimiento."
+                variant="default"
+              />
             </div>
 
             <div className="mt-8 sm:mt-12">
@@ -171,53 +131,48 @@ export default function MantenibilidadPage() {
           </div>
 
           <div className="w-full lg:w-[35%] ml-auto">
-            <div className="max-w-[500px]">
-              <h2 className="text-2xl sm:text-3xl font-normal mb-6">
-                Lograrás:
-              </h2>
-              <div className="text-base sm:text-[1.15vw] leading-relaxed sm:leading-[136%] space-y-4">
-                <p>
-                  Identificar desafíos técnicos, logísticos y de seguridad que
-                  puedan impactar la ejecución de los mantenimientos.
-                </p>
-                <p>
-                  Proponer soluciones que reduzcan al mínimo los tiempos de
-                  intervención, faciliten el acceso a los equipos y mejoren la
-                  disponibilidad de la planta.
-                </p>
-                <p>
-                  Optimizar la planificación de recursos y herramientas mediante
-                  un Material Handling Study (MHS) que determine métodos de
-                  izaje adecuados y rutas seguras.
-                </p>
-                <p>
-                  Mejorar la toma de decisiones en ingeniería y diseño
-                  (FEED/EPC) al integrar consideraciones de mantenibilidad desde
-                  etapas tempranas.
-                </p>
-                <p>
-                  Estandarizar soluciones de izaje y acceso, evitando
-                  improvisaciones en el día a día y disminuyendo costos
-                  logísticos y riesgos.
-                </p>
-                <p>
-                  Diseñar planes de maniobra adecuados y minimizar riesgos
-                  ergonómicos, incorporando metodologías y normas
-                  internacionales.
-                </p>
-                <p>
-                  Complementar otras metodologías de confiabilidad como Análisis
-                  RAM y RCM para una visión holística de la operación.
-                </p>
-              </div>
+            <h2>Lograrás:</h2>
+            <div className="leading-relaxed space-y-4">
+              <p>
+                Identificar desafíos técnicos, logísticos y de seguridad que
+                puedan impactar la ejecución de los mantenimientos.
+              </p>
+              <p>
+                Proponer soluciones que reduzcan al mínimo los tiempos de
+                intervención, faciliten el acceso a los equipos y mejoren la
+                disponibilidad de la planta.
+              </p>
+              <p>
+                Optimizar la planificación de recursos y herramientas mediante
+                un Material Handling Study (MHS) que determine métodos de izaje
+                adecuados y rutas seguras.
+              </p>
+              <p>
+                Mejorar la toma de decisiones en ingeniería y diseño (FEED/EPC)
+                al integrar consideraciones de mantenibilidad desde etapas
+                tempranas.
+              </p>
+              <p>
+                Estandarizar soluciones de izaje y acceso, evitando
+                improvisaciones en el día a día y disminuyendo costos logísticos
+                y riesgos.
+              </p>
+              <p>
+                Diseñar planes de maniobra adecuados y minimizar riesgos
+                ergonómicos, incorporando metodologías y normas internacionales.
+              </p>
+              <p>
+                Complementar otras metodologías de confiabilidad como Análisis
+                RAM y RCM para una visión holística de la operación.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="px-4 sm:px-[8vw] mt-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 bg-gray20">
-          <div className="flex flex-col p-4 sm:p-8">
+      <section className="contentSection">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 bg-gray20">
+          <div className="flex flex-col p-8">
             <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               30%
             </h2>
@@ -226,7 +181,7 @@ export default function MantenibilidadPage() {
               recomendaciones de un análisis de mantenibilidad.
             </p>
           </div>
-          <div className="flex flex-col p-4 sm:p-8">
+          <div className="flex flex-col p-8">
             <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               45%
             </h2>
@@ -235,7 +190,7 @@ export default function MantenibilidadPage() {
               accesibilidad que podrían ser resueltos con un análisis MHA.
             </p>
           </div>
-          <div className="flex flex-col p-4 sm:p-8">
+          <div className="flex flex-col p-8">
             <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               25%
             </h2>
@@ -244,7 +199,7 @@ export default function MantenibilidadPage() {
               sistemáticos de manejo mecánico y izaje.
             </p>
           </div>
-          <div className="flex flex-col p-4 sm:p-8">
+          <div className="flex flex-col p-8">
             <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               3x
             </h2>
@@ -255,8 +210,8 @@ export default function MantenibilidadPage() {
           </div>
         </div>
         <div className="border-t-2 bg-gray20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col items-center justify-center p-8">
               <h2 className="text-lg sm:text-xl font-normal text-gray80 text-center mb-6">
                 Distribución de factores que afectan la mantenibilidad
               </h2>
@@ -333,7 +288,7 @@ export default function MantenibilidadPage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8">
+            <div className="flex flex-col items-center justify-center p-8">
               <h2 className="text-lg sm:text-xl font-normal text-gray80 text-center mb-6">
                 Impacto de problemas de accesibilidad y manejo
               </h2>
@@ -410,7 +365,7 @@ export default function MantenibilidadPage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8">
+            <div className="flex flex-col items-center justify-center p-8">
               <h2 className="text-lg sm:text-xl font-normal text-gray80 text-center mb-6">
                 Beneficios del estudio MHA/MHS
               </h2>
@@ -489,326 +444,300 @@ export default function MantenibilidadPage() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-24 px-4 sm:px-[8vw] border-b top-0 z-20 bg-white">
-        <div className="flex flex-col sm:flex-row gap-4 justify-between py-4">
-          <div className="flex flex-col justify-end">
-            <h2 className="border-blue60 border-b-4 w-fit text-xl sm:text-2xl">
+      <section className="contentSection">
+        <div className="border-b bg-white">
+          <div className="flex flex-col sm:flex-row gap-4 justify-between py-4">
+            <h2 className="border-blue60 border-b-4 w-fit">
               Proceso del Análisis de Mantenibilidad
             </h2>
-          </div>
-          <button className="h-12 sm:h-14 px-4 bg-black text-white">
-            ¿Dudas?
-          </button>
-        </div>
-      </div>
-
-      <div className="px-4 sm:px-[8vw]">
-        <div className="p-8  mb-16 border-black flex flex-col lg:flex-row gap-8 sm:gap-24 relative">
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-row gap-4 items-center relative">
-              <div className="p-2 bg-gray10 w-fit h-fit ">
-                <Number_1 size={40} className="text-black" />
-              </div>
-              <h3 className="font-normal text-base sm:text-lg">
-                Identificación de Activos y Recolección de Datos
-              </h3>
-            </div>
-
-            <div className="mt-4 sm:mt-8"></div>
-            <div className="mt-4 sm:mt-8"></div>
-            <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%]">
-              En esta primera fase, recopilamos y validamos toda la información
-              necesaria para el estudio:
-            </p>
-            <div className="mt-4 leading-relaxed sm:leading-[136%]">
-              <strong>Documentación técnica</strong>
-              <br /> <br />
-              <ul className="list-disc">
-                <li>
-                  Revisamos P&IDs, planos 3D, taxonomías de equipo, históricos
-                  de fallas y tasas de demanda de repuestos.
-                </li>
-                <li>Manuales de operación y mantenimiento del fabricante.</li>
-                <li>Planos de diseño y diagramas de sistemas y equipos.</li>
-                <li>Procedimientos de mantenimiento existentes.</li>
-                <li>Historial de modificaciones y actualizaciones técnicas.</li>
-              </ul>
-            </div>
-            <div className="mt-4 leading-relaxed sm:leading-[136%]">
-              <strong>Asset Register</strong>
-              <br /> <br />
-              <ul className="list-disc">
-                <li>
-                  Integramos información clave en un Asset Register que servirá
-                  de base para los estudios de mantenibilidad y manejo mecánico.
-                </li>
-                <li>
-                  Establecemos una estructura taxonómica para evaluar sistemas,
-                  subsistemas y componentes.
-                </li>
-                <li>
-                  Identificamos componentes críticos que requieren manejo
-                  mecánico especial.
-                </li>
-                <li>
-                  Documentamos pesos, dimensiones y frecuencias de intervención
-                  para componentes críticos.
-                </li>
-              </ul>
-            </div>
+            <button className="h-12 bg-black text-white px-4">¿Dudas?</button>
           </div>
         </div>
-      </div>
 
-      <div className="px-4 sm:px-[8vw]">
-        <div className="p-4 sm:p-8 border-t mb-8 sm:mb-16 border-black flex flex-col lg:flex-row gap-8 sm:gap-24 relative">
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-row gap-4 items-center relative">
-              <div className="p-2 bg-gray10 w-fit h-fit">
-                <Number_2 size={32} className="text-black sm:size-40" />
+        <div>
+          <div className="border-gray-200 mb-8">
+            <div className="flex flex-col lg:flex-row gap-8 mt-8">
+              <div className="w-full lg:w-1/2">
+                <h3 className="flex items-center">
+                  <span className="p-2 bg-gray10 shrink-0">
+                    <Number_1 size={40} className="text-black" />
+                  </span>
+                  <span className="ml-4">
+                    Identificación de Activos y Recolección de Datos
+                  </span>
+                </h3>
+                <p className="leading-relaxed mt-4">
+                  En esta primera fase, recopilamos y validamos toda la
+                  información necesaria para el estudio:
+                </p>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Documentación técnica</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Revisamos P&IDs, planos 3D, taxonomías de equipo,
+                      históricos de fallas y tasas de demanda de repuestos.
+                    </li>
+                    <li>
+                      Manuales de operación y mantenimiento del fabricante.
+                    </li>
+                    <li>Planos de diseño y diagramas de sistemas y equipos.</li>
+                    <li>Procedimientos de mantenimiento existentes.</li>
+                    <li>
+                      Historial de modificaciones y actualizaciones técnicas.
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Asset Register</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Integramos información clave en un Asset Register que
+                      servirá de base para los estudios de mantenibilidad y
+                      manejo mecánico.
+                    </li>
+                    <li>
+                      Establecemos una estructura taxonómica para evaluar
+                      sistemas, subsistemas y componentes.
+                    </li>
+                    <li>
+                      Identificamos componentes críticos que requieren manejo
+                      mecánico especial.
+                    </li>
+                    <li>
+                      Documentamos pesos, dimensiones y frecuencias de
+                      intervención para componentes críticos.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h3 className="font-normal text-base sm:text-lg">
-                Criterios y Alcance de Análisis (Screening y Categorización)
-              </h3>
             </div>
-            <div className="mt-4 sm:mt-8">
-              <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%]">
-                Con la información recopilada, definimos criterios claros para
-                el análisis de mantenibilidad:
-              </p>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Selección de equipos a estudiar</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    Definimos los criterios de selección de equipos considerando
-                    pesos, dimensiones, frecuencia de mantenimiento y
-                    criticidad.
-                  </li>
-                  <li>
-                    Priorizamos componentes según impacto en la producción y
-                    complejidad de intervención.
-                  </li>
-                  <li>
-                    Identificamos equipos con requisitos especiales de
-                    mantenibilidad o izaje.
-                  </li>
-                  <li>
-                    Categorizamos los activos según su criticidad para la
-                    operación.
-                  </li>
-                </ul>
+          </div>
+
+          <div className="border-t border-gray-200 mb-8">
+            <div className="flex flex-col lg:flex-row gap-8 mt-8">
+              <div className="w-full lg:w-1/2">
+                <h3 className="flex items-center">
+                  <span className="p-2 bg-gray10 shrink-0">
+                    <Number_2 size={40} className="text-black" />
+                  </span>
+                  <span className="ml-4">
+                    Criterios y Alcance de Análisis (Screening y Categorización)
+                  </span>
+                </h3>
+                <p className="leading-relaxed mt-4">
+                  Con la información recopilada, definimos criterios claros para
+                  el análisis de mantenibilidad:
+                </p>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Selección de equipos a estudiar</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Definimos los criterios de selección de equipos
+                      considerando pesos, dimensiones, frecuencia de
+                      mantenimiento y criticidad.
+                    </li>
+                    <li>
+                      Priorizamos componentes según impacto en la producción y
+                      complejidad de intervención.
+                    </li>
+                    <li>
+                      Identificamos equipos con requisitos especiales de
+                      mantenibilidad o izaje.
+                    </li>
+                    <li>
+                      Categorizamos los activos según su criticidad para la
+                      operación.
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Documentación de restricciones</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Documentamos limitaciones de espacio en instalaciones
+                      existentes.
+                    </li>
+                    <li>
+                      Identificamos tipos de equipos móviles permitidos en
+                      planta.
+                    </li>
+                    <li>
+                      Catalogamos condiciones de seguridad específicas del
+                      sitio.
+                    </li>
+                    <li>
+                      Recopilamos normas internas y regulaciones aplicables.
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gray10 p-4">
+                  <p className="leading-relaxed mt-4">
+                    El proceso de screening y categorización permite enfocar los
+                    esfuerzos en aquellos componentes que realmente son críticos
+                    y que presentan mayores desafíos para el mantenimiento.
+                  </p>
+                </div>
               </div>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Documentación de restricciones</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    Documentamos limitaciones de espacio en instalaciones
-                    existentes.
-                  </li>
-                  <li>
-                    Identificamos tipos de equipos móviles permitidos en planta.
-                  </li>
-                  <li>
-                    Catalogamos condiciones de seguridad específicas del sitio.
-                  </li>
-                  <li>
-                    Recopilamos normas internas y regulaciones aplicables.
-                  </li>
-                </ul>
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad3.jpg')] bg-contain bg-no-repeat bg-center"></div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-200 mb-8">
+            <div className="flex flex-col lg:flex-row gap-8 mt-8">
+              <div className="w-full lg:w-1/2">
+                <h3 className="flex items-center">
+                  <span className="p-2 bg-gray10 shrink-0">
+                    <Number_3 size={40} className="text-black" />
+                  </span>
+                  <span className="ml-4">
+                    Evaluación de Facilidad de Mantenimiento y Análisis Mecánico
+                  </span>
+                </h3>
+                <p className="leading-relaxed mt-4">
+                  En esta fase crucial, realizamos un análisis detallado de la
+                  mantenibilidad de los equipos seleccionados:
+                </p>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Checklist de Mantenibilidad</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Analizamos accesibilidad a puntos de inspección y
+                      componentes críticos.
+                    </li>
+                    <li>
+                      Evaluamos pasos para desensamble y secuencias de
+                      desmontaje.
+                    </li>
+                    <li>
+                      Determinamos el espacio disponible para maniobras de
+                      mantenimiento.
+                    </li>
+                    <li>
+                      Identificamos necesidades de herramientas especiales (como
+                      spreader beams).
+                    </li>
+                    <li>
+                      Incluimos aspectos HSE, como riesgos ambientales y
+                      manipulación de fluidos tóxicos.
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Mechanical Handling Study (MHS)</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Determinamos qué facilidades de elevación son necesarias:
+                      polipastos, monorrieles, grúas fijas o móviles.
+                    </li>
+                    <li>
+                      Ubicamos posibles rutas de izaje y evaluamos condiciones
+                      estructurales.
+                    </li>
+                    <li>
+                      Analizamos la capacidad de carga de vigas, resistencia de
+                      suelos y accesos.
+                    </li>
+                    <li>
+                      Evaluamos la disponibilidad de áreas para almacenamiento
+                      temporal (laydown areas).
+                    </li>
+                    <li>
+                      Diseñamos procedimientos para maniobras seguras con
+                      componentes pesados.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className="bg-gray10 p-4">
-                <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%] mt-4">
-                  El proceso de screening y categorización permite enfocar los
-                  esfuerzos en aquellos componentes que realmente son críticos y
-                  que presentan mayores desafíos para el mantenimiento.
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad2.png')] bg-contain bg-no-repeat bg-center"></div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-200 mb-8">
+            <div className="flex flex-col lg:flex-row gap-8 mt-8">
+              <div className="w-full lg:w-1/2">
+                <h3 className="flex items-center">
+                  <span className="p-2 bg-gray10 shrink-0">
+                    <Number_4 size={40} className="text-black" />
+                  </span>
+                  <span className="ml-4">
+                    Detección de Problemas y Recomendaciones de Diseño
+                  </span>
+                </h3>
+                <p className="leading-relaxed mt-4">
+                  Tras el análisis exhaustivo, identificamos problemas y
+                  desarrollamos soluciones concretas:
+                </p>
+                <div className="mt-4 leading-relaxed">
+                  <strong>
+                    Identificación de issues y acciones mitigadoras
+                  </strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      Elaboramos una lista de inconvenientes que dificultan el
+                      mantenimiento (espacios reducidos, pesos excesivos, etc.).
+                    </li>
+                    <li>
+                      Detectamos riesgos de "object drop" sobre áreas sensibles
+                      de la planta.
+                    </li>
+                    <li>
+                      Proponemos medidas correctivas como instalación de
+                      padeyes, grúas fijas o rediseño de plataformas.
+                    </li>
+                    <li>
+                      Optimizamos rutas de acceso para intervenciones más
+                      eficientes.
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-4 leading-relaxed">
+                  <strong>Deliverables y resultados esperados</strong>
+                  <br /> <br />
+                  <ul className="list-disc">
+                    <li>
+                      <strong>
+                        Informe Detallado de Mantenibilidad (MHA/MHS):
+                      </strong>{" "}
+                      Listado de equipos, problemas potenciales y layouts
+                      esquemáticos.
+                    </li>
+                    <li>
+                      <strong>Checklist de Revisión:</strong> Documentación de
+                      puntos de inspección, necesidades de desmontaje y equipo
+                      especializado.
+                    </li>
+                    <li>
+                      <strong>Sugerencias de Diseño:</strong> Especificaciones
+                      técnicas para permanently installed lifting facilities.
+                    </li>
+                    <li>
+                      <strong>Material de Capacitación:</strong> Para personal
+                      de operaciones, mantenimiento y seguridad.
+                    </li>
+                  </ul>
+                </div>
+                <p className="leading-relaxed mt-4 p-4 bg-gray10">
+                  Documentamos pasos de ejecución recomendados para cada
+                  mantenimiento, facilitando su inclusión en sistemas CMMS como
+                  SAP PM o Maximo, y entregamos reportes claros con esquemas y
+                  planillas que ilustran cómo remover e instalar componentes de
+                  forma segura y eficiente.
                 </p>
               </div>
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad4.png')] bg-cover bg-center"></div>
             </div>
-          </div>
-          <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad3.jpg')] bg-contain bg-no-repeat bg-center"></div>
-        </div>
-      </div>
-
-      <div className="px-4 sm:px-[8vw]">
-        <div className="p-4 sm:p-8 border-t mb-8 sm:mb-16 border-black flex flex-col lg:flex-row gap-8 sm:gap-24 relative">
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-row gap-4 items-center relative">
-              <div className="p-2 bg-gray10 w-fit h-fit">
-                <Number_3 size={32} className="text-black sm:size-40" />
-              </div>
-              <h3 className="font-normal text-base sm:text-lg">
-                Evaluación de Facilidad de Mantenimiento y Análisis Mecánico
-              </h3>
-            </div>
-
-            <div className="mt-4 sm:mt-8">
-              <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%]">
-                En esta fase crucial, realizamos un análisis detallado de la
-                mantenibilidad de los equipos seleccionados:
-              </p>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Checklist de Mantenibilidad</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    Analizamos accesibilidad a puntos de inspección y
-                    componentes críticos.
-                  </li>
-                  <li>
-                    Evaluamos pasos para desensamble y secuencias de desmontaje.
-                  </li>
-                  <li>
-                    Determinamos el espacio disponible para maniobras de
-                    mantenimiento.
-                  </li>
-                  <li>
-                    Identificamos necesidades de herramientas especiales (como
-                    spreader beams).
-                  </li>
-                  <li>
-                    Incluimos aspectos HSE, como riesgos ambientales y
-                    manipulación de fluidos tóxicos.
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Mechanical Handling Study (MHS)</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    Determinamos qué facilidades de elevación son necesarias:
-                    polipastos, monorrieles, grúas fijas o móviles.
-                  </li>
-                  <li>
-                    Ubicamos posibles rutas de izaje y evaluamos condiciones
-                    estructurales.
-                  </li>
-                  <li>
-                    Analizamos la capacidad de carga de vigas, resistencia de
-                    suelos y accesos.
-                  </li>
-                  <li>
-                    Evaluamos la disponibilidad de áreas para almacenamiento
-                    temporal (laydown areas).
-                  </li>
-                  <li>
-                    Diseñamos procedimientos para maniobras seguras con
-                    componentes pesados.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad2.png')] bg-contain bg-no-repeat bg-center"></div>
-        </div>
-      </div>
-
-      <div className="px-4 sm:px-[8vw]">
-        <div className="p-4 sm:p-8 border-t mb-8 sm:mb-16 border-black flex flex-col lg:flex-row gap-8 sm:gap-24 relative">
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-row gap-4 items-center relative">
-              <div className="p-2 bg-gray10 w-fit h-fit">
-                <Number_4 size={32} className="text-black sm:size-40" />
-              </div>
-              <h3 className="font-normal text-base sm:text-lg">
-                Detección de Problemas y Recomendaciones de Diseño
-              </h3>
-            </div>
-
-            <div className="mt-4 sm:mt-8">
-              <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%]">
-                Tras el análisis exhaustivo, identificamos problemas y
-                desarrollamos soluciones concretas:
-              </p>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Identificación de issues y acciones mitigadoras</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    Elaboramos una lista de inconvenientes que dificultan el
-                    mantenimiento (espacios reducidos, pesos excesivos, etc.).
-                  </li>
-                  <li>
-                    Detectamos riesgos de "object drop" sobre áreas sensibles de
-                    la planta.
-                  </li>
-                  <li>
-                    Proponemos medidas correctivas como instalación de padeyes,
-                    grúas fijas o rediseño de plataformas.
-                  </li>
-                  <li>
-                    Optimizamos rutas de acceso para intervenciones más
-                    eficientes.
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-4 leading-relaxed sm:leading-[136%]">
-                <strong>Deliverables y resultados esperados</strong>
-                <br /> <br />
-                <ul className="list-disc">
-                  <li>
-                    <strong>
-                      Informe Detallado de Mantenibilidad (MHA/MHS):
-                    </strong>{" "}
-                    Listado de equipos, problemas potenciales y layouts
-                    esquemáticos.
-                  </li>
-                  <li>
-                    <strong>Checklist de Revisión:</strong> Documentación de
-                    puntos de inspección, necesidades de desmontaje y equipo
-                    especializado.
-                  </li>
-                  <li>
-                    <strong>Sugerencias de Diseño:</strong> Especificaciones
-                    técnicas para permanently installed lifting facilities.
-                  </li>
-                  <li>
-                    <strong>Material de Capacitación:</strong> Para personal de
-                    operaciones, mantenimiento y seguridad.
-                  </li>
-                </ul>
-              </div>
-              <p className="text-sm sm:text-base leading-relaxed sm:leading-[136%] mt-4 p-4 bg-gray10">
-                Documentamos pasos de ejecución recomendados para cada
-                mantenimiento, facilitando su inclusión en sistemas CMMS como
-                SAP PM o Maximo, y entregamos reportes claros con esquemas y
-                planillas que ilustran cómo remover e instalar componentes de
-                forma segura y eficiente.
-              </p>
-            </div>
-          </div>
-          <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad4.png')] bg-cover bg-center"></div>
-        </div>
-      </div>
-
-      <div className="px-[4vw] bg-gradient-to-l from-blue60 to-gray10 ">
-        <div className=" flex flex-row bg-gray20 justify-between hover:bg-white transition-all duration-100 hover:shadow-xl">
-          <div className="p-[4vw] w-[40vw]">
-            <h3 className="text-5xl font-light">
-              ¿Listo para implementar un MHA completo en tus instalaciones?
-            </h3>
-            <h4 className="mt-8 text-lg font-normal">
-              Combinamos nuestra experiencia en mantenibilidad, manejo mecánico
-              y confiabilidad para entregar un análisis que impulse la
-              seguridad, mejore la disponibilidad de tus activos y optimice los
-              costos operativos.
-            </h4>
-            <div className="mt-12">
-              <button className="font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 bg-gray90">
-                <span>Agenda con un especialista</span>
-                <Headset size={20} className="text-white" />
-              </button>
-            </div>
-          </div>
-          <div className="h-[30vw] z-10 w-[50vw] bg-[url('/assets/bgMantenibilidad1.png')] bg-cover bg-center transform -scale-x-100">
-            <div className="bg-gradient-to-l from-gray20 via-transparent to-transparent h-full w-full"></div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

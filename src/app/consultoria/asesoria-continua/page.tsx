@@ -79,10 +79,10 @@ export default function AsesoriaConstante() {
         image="/assets/consultor1.jpg"
       />
 
-      <div className="mt-16 px-4 md:px-[8vw]">
+      <div className="contentSection">
         <div className="flex flex-col md:flex-row gap-16">
           <div className="w-full md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-light mb-8">
+            <h2 className="mb-8">
               Cuando necesitas más que un proyecto puntual
             </h2>
             <p className="leading-[136%] mb-6">
@@ -100,9 +100,7 @@ export default function AsesoriaConstante() {
             </p>
 
             <div className="mt-8 p-6 bg-gray10">
-              <h3 className="text-xl font-medium mb-4">
-                Un socio estratégico a tu lado
-              </h3>
+              <h3 className="mb-4">Un socio estratégico a tu lado</h3>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
@@ -134,9 +132,7 @@ export default function AsesoriaConstante() {
 
           <div className="w-full md:w-1/2 border">
             <div className="p-8 bg-gray20 text-white">
-              <h3 className="text-2xl font-normal mb-6">
-                ¿Este servicio es para mí?
-              </h3>
+              <h3 className="mb-6">¿Este servicio es para mí?</h3>
               <p className="text-gray60 mb-6">
                 La Asesoría Continua es ideal para organizaciones que:
               </p>
@@ -232,101 +228,95 @@ export default function AsesoriaConstante() {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="mt-24 px-4 md:px-[8vw] border-b">
-        <div className="flex flex-row gap-4 justify-between">
-          <div className="flex flex-col justify-end">
-            <h2 className="border-blue60 border-b-4 w-fit">
-              Modalidades de acompañamiento
-            </h2>
-          </div>
-        </div>
-      </div>
+        <div className="mt-16">
+          <h2 className="border-blue60 border-b-4 w-fit mb-12">
+            Modalidades de acompañamiento
+          </h2>
 
-      <div className="px-4 md:px-[8vw] py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="border p-6 pb-6 relative flex flex-col justify-between">
-            <div>
-              <DataAnalytics size={42} className="text-blue60 mb-4" />
-              <h3 className="text-xl font-medium mb-4">Asesor Part-time</h3>
-              <p className="text-gray60 mb-6">
-                Uno de nuestros especialistas dedicará un número fijo de días al
-                mes para trabajar con tu equipo, ya sea remoto o presencial
-                según las necesidades.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Desde 2 días al mes</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Con previa planificación</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Extensión de horas si se requiere </span>
-                </li>
-              </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="border-2 border-gray90 p-6 pb-6 relative flex flex-col justify-between">
+              <div>
+                <DataAnalytics size={42} className="text-blue60 mb-4" />
+                <h3 className="mb-4">Asesor Part-time</h3>
+                <p className="text-gray60 mb-6">
+                  Uno de nuestros especialistas dedicará un número fijo de días
+                  al mes para trabajar con tu equipo, ya sea remoto o presencial
+                  según las necesidades.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Desde 2 días al mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Con previa planificación</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Extensión de horas si se requiere </span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <AbrirFormContacto
+                  buttonText="Solicita asesoría part-time"
+                  icon={<ArrowRight size={20} className="text-white" />}
+                  buttonColor="bg-gray90"
+                  fullDesktop={true}
+                  modalTitle="Solicita asesoría part-time"
+                />
+              </div>
             </div>
-            <div className="mt-6">
-              <AbrirFormContacto
-                buttonText="Solicita asesoría part-time"
-                icon={<ArrowRight size={20} className="text-white" />}
-                buttonColor="bg-gray90"
-                fullDesktop={true}
-                modalTitle="Solicita asesoría part-time"
-              />
-            </div>
-          </div>
 
-          <div className="border-2 border-blue60 p-6 pb-6 relative shadow-lg flex flex-col justify-between">
-            <div>
-              <Analytics size={42} className="text-blue60 mb-4" />
-              <h3 className="text-xl font-medium mb-4">Aseoría continua</h3>
-              <p className="text-gray60 mb-6">
-                Un consultor senior se integra como parte de tu equipo
-                directivo, liderando la gestión de confiabilidad y mantenimiento
-                de tu organización.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Dedicación semanal fija</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Participación en comités directivos</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
-                  <span>Desarrollo de estrategias integrales</span>
-                </li>
-              </ul>
-            </div>
-            <div className="mt-6">
-              <AbrirFormContacto
-                buttonText="Solicita asesoría continua"
-                icon={<ArrowRight size={20} />}
-                buttonColor="bg-blue60"
-                fullDesktop={true}
-                modalTitle="Solicita asesoría continua"
-              />
+            <div className="border-2 border-blue60 p-6 pb-6 relative shadow-lg flex flex-col justify-between">
+              <div>
+                <Analytics size={42} className="text-blue60 mb-4" />
+                <h3 className="mb-4">Aseoría continua</h3>
+                <p className="text-gray60 mb-6">
+                  Un consultor senior se integra como parte de tu equipo
+                  directivo, liderando la gestión de confiabilidad y
+                  mantenimiento de tu organización.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Dedicación semanal fija</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Participación en comités directivos</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <span>Desarrollo de estrategias integrales</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <AbrirFormContacto
+                  buttonText="Solicita asesoría continua"
+                  icon={<ArrowRight size={20} />}
+                  buttonColor="bg-blue60"
+                  fullDesktop={true}
+                  modalTitle="Solicita asesoría continua"
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-12 bg-blue10 p-6 flex items-center">
-          <div className="mr-6 flex-shrink-0">
-            <MessageSquare size={36} className="text-blue60" />
+          <div className="mt-12 bg-blue10 p-6 flex items-center">
+            <div className="mr-6 flex-shrink-0">
+              <MessageSquare size={36} className="text-blue60" />
+            </div>
+            <p className="leading-[136%] mb-0">
+              Todas nuestras modalidades de asesoría continua son
+              personalizables según tus necesidades específicas. Podemos ajustar
+              la dedicación, el enfoque técnico y los entregables para
+              alinearnos perfectamente con tus objetivos organizacionales.
+            </p>
           </div>
-          <p className="leading-[136%] mb-0">
-            Todas nuestras modalidades de asesoría continua son personalizables
-            según tus necesidades específicas. Podemos ajustar la dedicación, el
-            enfoque técnico y los entregables para alinearnos perfectamente con
-            tus objetivos organizacionales.
-          </p>
         </div>
       </div>
     </div>

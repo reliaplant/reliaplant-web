@@ -35,6 +35,7 @@ import { MdMoney, MdScience } from "react-icons/md";
 import { Binoculars, Compass } from "lucide-react";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { ServiceCard } from "@/components/ServiceCard";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export const metadata: Metadata = {
   title: "Registro de Activos en CMMS | Gestión de Mantenimiento | Reliaplant",
@@ -86,137 +87,94 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <div>
-      {/* Header */}
-      <div className="">
-        <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
-          {/* Texto */}
-          <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
-            <div>
-              <div className="flex flex-row flex-wrap">
-                <span className="text-reliablue font-light mb-4">
-                  <a href="/" className="hover:underline">
-                    Inicio
-                  </a>{" "}
-                  <span className="mx-2 text-reliagray">{"/"}</span>
-                  <a href="/consultoria" className="hover:underline">
-                    Consultoria
-                  </a>{" "}
-                  <span className="mx-2 text-reliagray">{"/"}</span>
-                  Registro de Activos
-                </span>
-              </div>
-              <h1 className="">Construcción del Registro de Activos en CMMS</h1>
-              <h4 className="">
-                Logra que toda la información en el CMMS asociada a los activos
-                esté correcta, completa y alineada con las mejores prácticas de
-                la industria. Desde la recolección de datos en campo, la
-                definición de estructuras, construcción de la taxonomía y carga
-                en CMMS.
-              </h4>
-            </div>
-            <div className="mt-8 md:mt-6">
-              <AbrirFormContacto
-                buttonText="Habla con un especialista"
-                icon={<Headset size={20} className="text-white" />}
-                buttonColor="bg-gray90"
-              />
-            </div>
-          </div>
-          {/* Imagen */}
-          <div className="relative md:absolute md:right-0 h-64 md:h-full w-full md:w-[50vw] bg-[url('/assets/bgAssetRegister.png')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-black/30 md:bg-transparent"></div>
-          </div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Construcción del Registro de Activos en CMMS"
+        description="Logra que toda la información en el CMMS asociada a los activos esté correcta, completa y alineada con las mejores prácticas de la industria. Desde la recolección de datos en campo, la definición de estructuras, construcción de la taxonomía y carga en CMMS."
+        currentPath="Registro de Activos"
+        image="/assets/bgAssetRegister.png"
+      />
 
-      {/* Section: Beneficios */}
+      {/* Section: Beneficios y Características */}
       <div className="contentSection">
         <h2>
           El Mantenimiento de Clase Mundial{" "}
-          <span className="text-reliablue">
+          <span className="text-blue60">
             requiere un registro de activos de la misma altura
           </span>
-          .
         </h2>
-        <div className="">
-          <div>
-            <h3 className="mb-8">Del registro de activos lograrás:</h3>
-            <ul className="list-disc pl-5 space-y-3 text-gray-600">
-              <li>
-                <span className="font-medium text-gray-900">
-                  Estructura organizada:
-                </span>{" "}
-                Equipos agrupados lógicamente para una gestión y control de
-                mantenimiento eficiente.
-              </li>
-              <li>
-                <span className="font-medium text-gray-900">
-                  Facilidad para análisis:
-                </span>{" "}
-                Recopilación simple de datos de fallas, indicadores y costos por
-                ubicaciones y equipos.
-              </li>
-              <li>
-                <span className="font-medium text-gray-900">
-                  Asignación eficiente:
-                </span>{" "}
-                Planes de mantenimiento según necesidades específicas.
-              </li>
-              <li>
-                <span className="font-medium text-gray-900">
-                  Gestión por criticidad:
-                </span>{" "}
-                Priorización de órdenes de trabajo y backlog según la criticidad
-                de los activos.
-              </li>
-              <li>
-                <span className="font-medium text-gray-900">
-                  Minimización del downtime:
-                </span>{" "}
-                Creación de listas BOM críticas para asegurar disponibilidad de
-                repuestos.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <h3 className="mb-6">Del registro de activos lograrás:</h3>
 
-      {/* Section: Características */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 md:px-[3vw] lg:px-[5vw] ">
-        <ServiceCard
-          title="Asset Register"
-          description="Diseña una taxonomía de activos para tu planta, desde los sistemas, equipos, subequipos y componentes."
-          Icon={TreeView}
-          variant="default"
-        />
-        <ServiceCard
-          title="Información Técnica"
-          description="Creación de los datos técnicos maestros para los activos a nivel para todas las familias de equipo."
-          Icon={DataVolume}
-          variant="default"
-        />
-        <ServiceCard
-          title="Validación en sitio"
-          description="Levantamiento fotográfico de los equipos para validación de los datos en campo mediante placa e inpsecciónes 360."
-          Icon={Inspection}
-          variant="default"
-        />
-        <ServiceCard
-          title="Estandarización"
-          description="Creación de los lineamientos para la modificación y creación del registro de activos siguiendo las políticas de la empresa."
-          Icon={SyncSettings}
-          variant="default"
-        />
+        <ul className="list-disc pl-5 space-y-3 text-gray-600 mb-12">
+          <li>
+            <span className="font-medium text-gray-900">
+              Estructura organizada:
+            </span>{" "}
+            Equipos agrupados lógicamente para una gestión y control de
+            mantenimiento eficiente.
+          </li>
+          <li>
+            <span className="font-medium text-gray-900">
+              Facilidad para análisis:
+            </span>{" "}
+            Recopilación simple de datos de fallas, indicadores y costos por
+            ubicaciones y equipos.
+          </li>
+          <li>
+            <span className="font-medium text-gray-900">
+              Asignación eficiente:
+            </span>{" "}
+            Planes de mantenimiento según necesidades específicas.
+          </li>
+          <li>
+            <span className="font-medium text-gray-900">
+              Gestión por criticidad:
+            </span>{" "}
+            Priorización de órdenes de trabajo y backlog según la criticidad de
+            los activos.
+          </li>
+          <li>
+            <span className="font-medium text-gray-900">
+              Minimización del downtime:
+            </span>{" "}
+            Creación de listas BOM críticas para asegurar disponibilidad de
+            repuestos.
+          </li>
+        </ul>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ServiceCard
+            title="Asset Register"
+            description="Diseña una taxonomía de activos para tu planta, desde los sistemas, equipos, subequipos y componentes."
+            Icon={TreeView}
+            variant="default"
+          />
+          <ServiceCard
+            title="Información Técnica"
+            description="Creación de los datos técnicos maestros para los activos a nivel para todas las familias de equipo."
+            Icon={DataVolume}
+            variant="default"
+          />
+          <ServiceCard
+            title="Validación en sitio"
+            description="Levantamiento fotográfico de los equipos para validación de los datos en campo mediante placa e inpsecciónes 360."
+            Icon={Inspection}
+            variant="default"
+          />
+          <ServiceCard
+            title="Estandarización"
+            description="Creación de los lineamientos para la modificación y creación del registro de activos siguiendo las políticas de la empresa."
+            Icon={SyncSettings}
+            variant="default"
+          />
+        </div>
       </div>
 
       {/* Sección del Proceso 1 */}
       <div className="contentSection">
-        <h2 className="mb-12">
-          Proceso de Construcción del Registro de Activos
-        </h2>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative">
+        <h2>Proceso de Construcción del Registro de Activos</h2>
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative mt-6">
           <div className="w-full md:w-1/2">
-            <div className="">
+            <div>
               <h3 className="font-semibold">
                 Revisión, Definición y Preparación
               </h3>
@@ -296,9 +254,9 @@ export default function Contacto() {
 
       {/* Sección del Proceso 2 */}
       <div className="contentSection">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative mt-6">
           <div className="w-full md:w-1/2">
-            <div className="">
+            <div>
               <h3 className="font-semibold">
                 Levantamiento y Construcción del Registro de Activos
               </h3>
@@ -364,9 +322,9 @@ export default function Contacto() {
 
       {/* Sección del Proceso 3 */}
       <div className="contentSection">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative mt-6">
           <div className="w-full md:w-1/2">
-            <div className="">
+            <div>
               <h3 className="font-semibold">Consolidación y carga al CMMS</h3>
             </div>
             <div className="mt-6">
