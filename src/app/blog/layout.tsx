@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Blog - Pizo',
-  description: 'Artículos y noticias sobre bienes raíces, propiedades y más.',
+  title: "Blog",
+  description: "Artículos y noticias sobre la confiabilidad en Latinoamérica.",
 };
 
 export default function BlogLayout({
@@ -8,9 +8,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {children}
-    </div>
-  );
+  return <div className="bg-gray-50">{children}</div>;
 }

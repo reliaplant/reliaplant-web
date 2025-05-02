@@ -168,6 +168,7 @@ export default function Header() {
               >
                 SOFTWARE
               </a>
+
               <ChevronDown
                 size={16}
                 className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
@@ -223,6 +224,14 @@ export default function Header() {
                   </Link>
                 </div>
               </div>
+            </div>
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
+              <a
+                href="/blog"
+                className="font-normal relative no-underline hover:no-underline text-gray60"
+              >
+                BLOG
+              </a>
             </div>
           </ul>
           <div className="flex flex-row gap2 hover:shadow-lg">
