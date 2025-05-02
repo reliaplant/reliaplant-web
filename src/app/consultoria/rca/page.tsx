@@ -455,7 +455,7 @@ export default function AnalisisRCA() {
                   <h4 className="mb-1">
                     Software de modelado de árboles lógicos
                   </h4>
-                  <p className="text-gray60 text-sm">
+                  <p>
                     Herramientas digitales para la construcción, validación y
                     documentación de árboles de falla complejos, facilitando su
                     análisis y comunicación.
@@ -471,7 +471,7 @@ export default function AnalisisRCA() {
                   <h4 className="mb-1">
                     Matrices de recolección de evidencias
                   </h4>
-                  <p className="text-gray60 text-sm">
+                  <p>
                     Formatos estructurados para documentar sistemáticamente
                     observaciones, entrevistas, resultados de pruebas y análisis
                     de laboratorio.
@@ -485,7 +485,7 @@ export default function AnalisisRCA() {
                 </div>
                 <div>
                   <h4 className="mb-1">Guías de entrevista especializada</h4>
-                  <p className="text-gray60 text-sm">
+                  <p>
                     Protocolos diseñados para extraer información crucial sin
                     inducir sesgos, aplicando técnicas de entrevista cognitiva y
                     forense.
@@ -499,7 +499,7 @@ export default function AnalisisRCA() {
                 </div>
                 <div>
                   <h4 className="mb-1">Laboratorio móvil de análisis</h4>
-                  <p className="text-gray60 text-sm">
+                  <p>
                     Equipamiento portátil para análisis metalúrgico, de
                     lubricantes, vibraciones y otras pruebas in-situ que
                     preservan la integridad de la evidencia.
@@ -513,7 +513,7 @@ export default function AnalisisRCA() {
             <h2 className="mb-6">Beneficios comprobados</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Reducción de hasta un 85% en la recurrencia de fallas en
                   equipos críticos.
@@ -521,7 +521,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Disminución significativa de horas de mantenimiento no
                   planificado.
@@ -529,7 +529,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Optimización de procedimientos de operación y mantenimiento
                   basados en hallazgos de las investigaciones.
@@ -537,7 +537,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Desarrollo de capacidades internas para identificación
                   temprana de condiciones de falla potencial.
@@ -545,7 +545,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Transformación cultural hacia un enfoque basado en evidencias
                   para la solución de problemas.
@@ -553,7 +553,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue60 rounded-full mt-2"></div>
+                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
                 <p>
                   Integración efectiva de las lecciones aprendidas en la gestión
                   de activos y procesos.

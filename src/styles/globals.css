@@ -19,7 +19,7 @@
   
   /* Text elements base styles */
   p, li {
-    color: #333;
+    color: #525252;
     line-height: 1.5;
   }
 
@@ -234,7 +234,7 @@ p {
   line-height: 1.5;
   margin-bottom: 1.5rem;
   font-weight: 400;
-  color: #333;
+  color: #525252;
 }
 
 ul, ol {
@@ -246,7 +246,7 @@ ul, ol {
 li {
   font-size: 1rem ;
   margin-bottom: 0.5rem ;
-  color: #333 ;
+  color: #525252 ;
 }
 
 blockquote {

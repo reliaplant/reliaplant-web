@@ -52,7 +52,7 @@ export default function SistemaIndicadoresPage() {
       {/* Description section */}
       <div className="contentSection">
         <h2>Sistema integral de evaluación mediante KPIs</h2>
-        <p className="text-gray70">
+        <p>
           Nuestro servicio de definición y construcción de un Sistema de
           Indicadores de gestión de mantenimiento está basado en los
           lineamientos y mejores prácticas de documentos de referencia
@@ -66,7 +66,7 @@ export default function SistemaIndicadoresPage() {
           <div className="flex items-start gap-4">
             <div>
               <h3 className="mb-4">Diseño del sistema de indicadores</h3>
-              <p className="text-gray70">
+              <p>
                 Establecimiento de los KPIs para la supervisión y análisis de
                 los indicadores en tiempo real, vinculado con herramientas de
                 análisis de datos para apoyar la toma de decisiones informadas
@@ -77,7 +77,7 @@ export default function SistemaIndicadoresPage() {
           <div className="flex items-start gap-4">
             <div>
               <h3 className="mb-4">Basado en referencias internacionales</h3>
-              <p className="text-gray70">
+              <p>
                 El sistema está alineado con el marco de las buenas prácticas de
                 la SMRP y los estándares británicos EN-BS-15341:2019 y 2007,
                 asegurando la correcta definición, selección y aplicación de los
@@ -203,9 +203,7 @@ export default function SistemaIndicadoresPage() {
 
           <div className="flex items-start gap-8">
             <div>
-              <h3 className="mb-6 mt-12">
-                Elementos de la ficha del indicador
-              </h3>
+              <h3 className="mt-6">Elementos de la ficha del indicador</h3>
               <ul>
                 <li className="flex items-start gap-3">
                   <ArrowRight
@@ -214,7 +212,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Descripción y propósito:</span>
-                    <p className="text-gray70">
+                    <p>
                       Explicación clara del objetivo y relevancia del indicador
                       para la gestión del mantenimiento.
                     </p>
@@ -227,7 +225,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Fórmula de cálculo:</span>
-                    <p className="text-gray70">
+                    <p>
                       Expresión matemática precisa y variables involucradas en
                       su medición.
                     </p>
@@ -240,7 +238,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Frecuencia de medición:</span>
-                    <p className="text-gray70">
+                    <p>
                       Intervalo temporal óptimo para la evaluación (diaria,
                       semanal, mensual, trimestral).
                     </p>
@@ -253,7 +251,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Responsable:</span>
-                    <p className="text-gray70">
+                    <p>
                       Persona o rol encargado de la recopilación, análisis y
                       reporte del indicador.
                     </p>
@@ -267,7 +265,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Fuentes de datos:</span>
-                    <p className="text-gray70">
+                    <p>
                       Sistemas, registros o documentos de donde se extrae la
                       información requerida.
                     </p>
@@ -280,7 +278,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Meta u objetivo:</span>
-                    <p className="text-gray70">
+                    <p>
                       Valor de referencia que indica el desempeño esperado,
                       basado en estándares de la industria o historia de la
                       organización.
@@ -294,7 +292,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Umbral de alerta:</span>
-                    <p className="text-gray70">
+                    <p>
                       Niveles que delimitan un desempeño aceptable, moderado o
                       crítico (sistema de semáforos).
                     </p>
@@ -307,7 +305,7 @@ export default function SistemaIndicadoresPage() {
                   />
                   <div>
                     <span className="font-bold">Acciones recomendadas:</span>
-                    <p className="text-gray70">
+                    <p>
                       Procedimientos sugeridos ante desviaciones significativas
                       respecto a las metas establecidas.
                     </p>
@@ -335,7 +333,7 @@ export default function SistemaIndicadoresPage() {
               <div>
                 <div className="mb-6">
                   <h5 className="text-gray90 mb-2">Descripción y propósito</h5>
-                  <p className="text-gray70">
+                  <p>
                     Mide el tiempo promedio que toma reparar un equipo tras una
                     falla. Permite evaluar la eficiencia del mantenimiento
                     correctivo, la capacidad de respuesta del equipo técnico y
@@ -356,12 +354,12 @@ export default function SistemaIndicadoresPage() {
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div>
                     <h5 className="text-gray90 mb-2">Unidad de medida</h5>
-                    <p className="text-gray70">Horas</p>
+                    <p>Horas</p>
                   </div>
 
                   <div>
                     <h5 className="text-gray90 mb-2">Frecuencia</h5>
-                    <p className="text-gray70">Semanal / Mensual</p>
+                    <p>Semanal / Mensual</p>
                   </div>
                 </div>
 
@@ -369,7 +367,7 @@ export default function SistemaIndicadoresPage() {
                   <h5 className="text-gray90 mb-2">
                     Relación con otros indicadores
                   </h5>
-                  <p className="text-gray70">
+                  <p>
                     Se analiza en conjunto con Disponibilidad Operacional, MTBF
                     y Porcentaje de mantenimiento correctivo versus preventivo.
                   </p>
@@ -379,12 +377,12 @@ export default function SistemaIndicadoresPage() {
               <div>
                 <div className="mb-6">
                   <h5 className="text-gray90 mb-2">Responsable</h5>
-                  <p className="text-gray70">Supervisor de Mantenimiento</p>
+                  <p>Supervisor de Mantenimiento</p>
                 </div>
 
                 <div className="mb-6">
                   <h5 className="text-gray90 mb-2">Fuente de datos</h5>
-                  <p className="text-gray70">
+                  <p>
                     Sistema CMMS, Órdenes de trabajo, Registros de mantenimiento
                   </p>
                 </div>
@@ -529,7 +527,7 @@ export default function SistemaIndicadoresPage() {
                 específicas para medir la madurez y efectividad de los programas
                 de mantenimiento y confiabilidad.
               </p>
-              <p className="text-gray70">
+              <p>
                 Estas prácticas están estructuradas en cinco pilares:
                 negocio/gestión, fiabilidad de manufactura, fiabilidad de
                 equipos, organización/liderazgo y gestión del trabajo, brindando
@@ -550,7 +548,7 @@ export default function SistemaIndicadoresPage() {
                 de indicadores clave de desempeño en el ámbito del
                 mantenimiento.
               </p>
-              <p className="text-gray70">
+              <p>
                 Esta norma amplía la visión en la gestión de activos físicos y
                 define un repertorio de KPIs distribuidos en diversas áreas de
                 la función de mantenimiento (técnicos, económicos,
@@ -569,7 +567,7 @@ export default function SistemaIndicadoresPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="border-l-4 border-blue30 pl-6 py-2">
             <h3 className="mb-3">Visibilidad y control en tiempo real</h3>
-            <p className="text-gray70">
+            <p>
               Monitoreo continuo del comportamiento de los procesos de
               mantenimiento, identificando oportunidades de mejora y minimizando
               la variabilidad en las operaciones.
@@ -578,7 +576,7 @@ export default function SistemaIndicadoresPage() {
 
           <div className="border-l-4 border-blue30 pl-6 py-2">
             <h3 className="mb-3">Toma de decisiones basada en datos</h3>
-            <p className="text-gray70">
+            <p>
               Información confiable y filtrable por nivel jerárquico, lo que
               reduce la subjetividad y facilita la implementación de acciones
               correctivas o preventivas efectivas.
@@ -587,7 +585,7 @@ export default function SistemaIndicadoresPage() {
 
           <div className="border-l-4 border-blue30 pl-6 py-2">
             <h3 className="mb-3">Mayor eficiencia y confiabilidad</h3>
-            <p className="text-gray70">
+            <p>
               Seguimiento sistemático que reduce tiempos de inactividad, evita
               fallas recurrentes, fomenta la programación efectiva y optimiza
               los recursos disponibles.
@@ -596,7 +594,7 @@ export default function SistemaIndicadoresPage() {
 
           <div className="border-l-4 border-blue30 pl-6 py-2">
             <h3 className="mb-3">Cultura de mejora continua</h3>
-            <p className="text-gray70">
+            <p>
               El sistema de indicadores se convierte en una herramienta de
               aprendizaje, impulsando la participación de todo el personal en la
               búsqueda de la excelencia operativa.

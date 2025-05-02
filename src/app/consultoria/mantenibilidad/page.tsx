@@ -121,13 +121,6 @@ export default function MantenibilidadPage() {
                 variant="default"
               />
             </div>
-
-            <div className="mt-8 sm:mt-12">
-              <button className="w-full sm:w-auto border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 font-light text-[1.1rem] flex flex-row items-center gap-8 mb-4 px-8 py-3">
-                <span>Agenda con un especialista</span>
-                <Headset size={20} className="text-blue60" />
-              </button>
-            </div>
           </div>
 
           <div className="w-full lg:w-[35%] ml-auto">
@@ -173,37 +166,37 @@ export default function MantenibilidadPage() {
       <section className="contentSection">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 bg-gray20">
           <div className="flex flex-col p-8">
-            <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               30%
             </h2>
-            <p className="mt-4 text-gray80 font-light">
+            <p className="mt-2 text-gray80">
               reducción promedio en tiempos de mantenimiento al aplicar las
               recomendaciones de un análisis de mantenibilidad.
             </p>
           </div>
           <div className="flex flex-col p-8">
-            <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               45%
             </h2>
-            <p className="mt-4 text-gray80 font-light">
+            <p className="mt-2 text-gray80">
               de las intervenciones de mantenimiento presentan problemas de
               accesibilidad que podrían ser resueltos con un análisis MHA.
             </p>
           </div>
           <div className="flex flex-col p-8">
-            <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               25%
             </h2>
-            <p className="mt-4 text-gray80 font-light">
+            <p className="mt-2 text-gray80">
               de incremento en seguridad operativa al implementar procedimientos
               sistemáticos de manejo mecánico y izaje.
             </p>
           </div>
           <div className="flex flex-col p-8">
-            <h2 className="text-5xl sm:text-7xl font-light bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               3x
             </h2>
-            <p className="mt-4 text-gray80 font-light">
+            <p className="mt-2 text-gray80">
               de retorno sobre la inversión al integrar análisis de
               mantenibilidad en las fases tempranas de diseño (FEED).
             </p>
@@ -217,10 +210,10 @@ export default function MantenibilidadPage() {
               </h2>
               <div className="w-full mt-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     38.5%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Accesibilidad
                   </span>
                 </div>
@@ -231,10 +224,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     25.7%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Manejo mecánico
                   </span>
                 </div>
@@ -245,10 +238,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     18.3%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Ergonomía
                   </span>
                 </div>
@@ -259,10 +252,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     12.4%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Documentación
                   </span>
                 </div>
@@ -273,10 +266,8 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
-                    5.1%
-                  </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">5.1%</span>
+                  <span className="text-gray70 text-sm sm:text-base">
                     Otros factores
                   </span>
                 </div>
@@ -294,10 +285,10 @@ export default function MantenibilidadPage() {
               </h2>
               <div className="w-full mt-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     42.3%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Aumento de tiempos
                   </span>
                 </div>
@@ -308,10 +299,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     28.7%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Riesgos de seguridad
                   </span>
                 </div>
@@ -322,10 +313,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     15.4%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Costos adicionales
                   </span>
                 </div>
@@ -336,10 +327,8 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
-                    9.8%
-                  </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">9.8%</span>
+                  <span className="text-gray70 text-sm sm:text-base">
                     Daños a equipos
                   </span>
                 </div>
@@ -350,10 +339,8 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
-                    3.8%
-                  </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">3.8%</span>
+                  <span className="text-gray70 text-sm sm:text-base">
                     Otros impactos
                   </span>
                 </div>
@@ -371,10 +358,10 @@ export default function MantenibilidadPage() {
               </h2>
               <div className="w-full mt-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     36.2%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Reducción de MTTR
                   </span>
                 </div>
@@ -385,10 +372,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     28.4%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Mejora en seguridad
                   </span>
                 </div>
@@ -399,10 +386,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     18.7%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Reducción de costos
                   </span>
                 </div>
@@ -413,10 +400,10 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     12.5%
                   </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">
                     Planificación efectiva
                   </span>
                 </div>
@@ -427,10 +414,8 @@ export default function MantenibilidadPage() {
                   ></div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <span className="text-gray70 font-light text-sm sm:text-base">
-                    4.2%
-                  </span>
-                  <span className="text-gray70 font-light text-sm sm:text-base">
+                  <span className="text-gray70 text-sm sm:text-base">4.2%</span>
+                  <span className="text-gray70 text-sm sm:text-base">
                     Otros beneficios
                   </span>
                 </div>

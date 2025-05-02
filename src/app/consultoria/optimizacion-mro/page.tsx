@@ -167,7 +167,7 @@ export default function OptimizacionMRO() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 bg-gray80 p-8">
           <div className="flex flex-col">
-            <h2 className="bg-gradient-to-r from-blue20 to-blue60 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               40%
             </h2>
             <p className="mt-4 text-gray20">
@@ -176,7 +176,7 @@ export default function OptimizacionMRO() {
             </p>
           </div>
           <div className="flex flex-col">
-            <h2 className="bg-gradient-to-r from-blue20 to-blue60 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               68%
             </h2>
             <p className="mt-4 text-gray20">
@@ -186,7 +186,7 @@ export default function OptimizacionMRO() {
             </p>
           </div>
           <div className="flex flex-col">
-            <h2 className="bg-gradient-to-r from-blue20 to-blue60 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               37%
             </h2>
             <p className="mt-4 text-gray20">
@@ -194,7 +194,7 @@ export default function OptimizacionMRO() {
             </p>
           </div>
           <div className="flex flex-col">
-            <h2 className="bg-gradient-to-r from-blue20 to-blue60 text-transparent bg-clip-text">
+            <h2 className="bg-gradient-to-r from-blue60 to-blue20 text-transparent bg-clip-text">
               31%
             </h2>
             <p className="mt-4 text-gray20">

@@ -206,11 +206,11 @@ export default function DiagnosticoGestion() {
       {/* Evaluation areas details */}
       <div className="contentSection">
         <div className="bg-white">
-          <div className="border-b border-black">
+          <div className="border-b">
             <h2>DESCRIPCIÓN BREVE DE LAS AREAS DE EVALUACIÓN</h2>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E1</span> - EVALUACIÓN DE LA GESTIÓN
               Y ESTRUCTURA DEL DEPARTAMENTO DE MANTENIMIENTO
@@ -259,7 +259,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E2</span> - REVISIÓN DEL SISTEMA DE
               INDICADORES PARA LA EVALUACIÓN DEL SISTEMA DE GESTIÓN DE
@@ -312,7 +312,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E3</span> - REVISIÓN DE PLANES DE
               MANTENIMIENTO EXISTENTES POR TIPO DE EQUIPO
@@ -344,7 +344,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E4</span> - REVISIÓN DE LA
               ESTRATEGIA Y GESTIÓN DEL MANTENIMIENTO PREDICTIVO
@@ -390,7 +390,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E5</span> - REVISIÓN DE LA
               ESTRUCTURA DE ACTIVOS E INFORMACIÓN DISPONIBLE EN CMMS
@@ -425,7 +425,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E6</span> - GESTIÓN DE LA
               DOCUMENTACIÓN TÉCNICA
@@ -475,7 +475,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E7</span> - REVISIÓN DE LOS
               CRITERIOS DE ASIGNACIÓN DE CRITICIDAD
@@ -500,7 +500,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E8</span> - INVESTIGACIÓN DE
               INCIDENTES Y FALLAS
@@ -524,7 +524,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E9</span> - CONTROL DE COSTOS DE
               MANTENIMIENTO
@@ -551,7 +551,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E10</span> - EVALUACIONES ECONÓMICAS
               PARA LA TOMA DE DECISIONES
@@ -577,7 +577,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E11</span> - GESTIÓN DE LA
               OBSOLESCENCIA
@@ -613,7 +613,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E12</span> - REVISIÓN DE
               PROCEDIMIENTOS PARA EL MANEJO Y OPTIMIZACIÓN DE REPUESTOS MRO
@@ -635,7 +635,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E13</span> - REVISIÓN DEL GRADO DE
               MADUREZ DE INGENIERÍA DE CONFIABILIDAD
@@ -662,7 +662,7 @@ export default function DiagnosticoGestion() {
             </div>
           </div>
 
-          <div className="border-b border-black flex flex-col md:flex-row py-8 gap-12">
+          <div className="border-b flex flex-col md:flex-row py-8 gap-12">
             <div className="w-full md:w-[30%] font-bold">
               <span className="text-blue60">E14</span> - GESTIÓN DE LA FORMACIÓN
               DEL PERSONAL

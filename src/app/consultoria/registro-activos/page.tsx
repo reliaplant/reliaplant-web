@@ -170,7 +170,7 @@ export default function Contacto() {
       </div>
 
       {/* Sección del Proceso 1 */}
-      <div className="contentSection">
+      <div className="contentSection border-b pb-12">
         <h2>Proceso de Construcción del Registro de Activos</h2>
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative mt-6">
           <div className="w-full md:w-1/2">
@@ -253,7 +253,7 @@ export default function Contacto() {
       </div>
 
       {/* Sección del Proceso 2 */}
-      <div className="contentSection">
+      <div className="contentSection border-b pb-12">
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 relative mt-6">
           <div className="w-full md:w-1/2">
             <div>

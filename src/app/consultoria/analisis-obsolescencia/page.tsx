@@ -90,7 +90,7 @@ export default function Contacto() {
       />
 
       <div className="contentSection">
-        <div className="bg-gray20 text-white p-4 flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
+        <div className="bg-gray10 text-white p-4 flex flex-col md:flex-row items-start md:items-center justify-center gap-4">
           <div className="flex justify-center w-full md:w-auto">
             <AlertOctagon size={32} className="text-black" />
           </div>
@@ -119,12 +119,6 @@ export default function Contacto() {
             análisis RAM, puedes tomar decisiones informadas para aumentar la
             confiabilidad y eficiencia de tus procesos.
           </p>
-          <div className="mt-8">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 flex flex-row items-center gap-4 md:gap-8 mb-4 px-6 py-3">
-              <span>Agenda con un especialista</span>
-              <Headset size={20} className="text-blue60" />
-            </button>
-          </div>
         </div>
       </div>
 

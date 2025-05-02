@@ -56,10 +56,6 @@ export default function Home() {
             software.
           </h4>
           <div className="mt-12 flex flex-row gap-4 w-full items-center justify-center lg:justify-start">
-            <button className="h-[46px] border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-6 py-3 flex items-center justify-center gap-2 transition duration-300 text-base">
-              <span className="whitespace-nowrap font-bold">Ver servicios</span>
-              <ArrowRight size={20} className="text-blue60" />
-            </button>
             <AbrirFormContacto
               buttonText="Habla con un especialista"
               icon={<Headset size={20} className="text-white" />}
@@ -278,13 +274,6 @@ export default function Home() {
                   resultados sostenibles.
                 </p>
               </div>
-            </div>
-
-            <div className="mt-12 flex justify-center lg:justify-start">
-              <button className="bg-black text-white px-8 py-3 flex items-center gap-2 hover:bg-blue60 transition duration-300">
-                <span>Conoce nuestra metodología</span>
-                <ArrowRight size={20} />
-              </button>
             </div>
           </div>
 
