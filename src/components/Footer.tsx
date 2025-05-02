@@ -24,64 +24,76 @@ export default function Footer() {
           <h6 className={styles.sectionTitle}>Servicios y consultoría</h6>
           <ul className={styles.list}>
             <li>
-              <a className={styles.link} href="#">
+              <Link
+                className={styles.link}
+                href="/consultoria/registro-activos"
+              >
                 Construcción del Registro de Activos en CMMS (Taxonomía)
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/indicadores">
                 Desarrollo del sistema de indicadores
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={styles.link} href="#">
+              <Link
+                className={styles.link}
+                href="/consultoria/diagnostico-gestion"
+              >
                 Diagnóstico de la Gestión de Mantenimiento
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={styles.link} href="#">
+              <Link
+                className={styles.link}
+                href="/consultoria/optimizacion-mro"
+              >
                 Optimización de Inventario / Número Óptimo de partes
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/analisis-lcc">
                 Análisis de Costo de Ciclo de Vida
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/analisis-lcc">
                 Análisis de vida útil remanente
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/rca">
                 Análisis Causa Raíz (Investigación de fallas)
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/analisis-ram">
                 Análisis RAM
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
-                Análisis de Manteninbilidad
-              </a>
+              <Link className={styles.link} href="/consultoria/mantenibilidad">
+                Análisis de Mantenibilidad
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria/capacidad">
                 Análisis de capacidad efectiva de producción
-              </a>
+              </Link>
             </li>
             <li className="hidden sm:block">
-              <a className={styles.link} href="#">
+              <Link
+                className={styles.link}
+                href="/consultoria/asesoria-continua"
+              >
                 Asignación de personal técnico especialista
-              </a>
+              </Link>
             </li>
             <li className="sm:hidden">
-              <a className={styles.link} href="#">
+              <Link className={styles.link} href="/consultoria">
                 Ver todos los servicios →
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -94,24 +106,24 @@ export default function Footer() {
               <h6 className={styles.sectionTitle}>Software</h6>
               <ul className={styles.list}>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/software/demo">
                     Solicita una demo
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/contacto">
                     Habla con nuestro equipo
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/soporte">
                     Soporte Técnico
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/software/desarrollo">
                     Software a la medida
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -121,24 +133,19 @@ export default function Footer() {
               <h6 className={styles.sectionTitle}>Legal</h6>
               <ul className={styles.list}>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/contacto">
                     Contacto
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="#">
+                  <Link className={styles.link} href="/legal/terminos">
                     Términos de uso
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="#">
-                    Política de privcidad
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.link} href="#">
-                    Preferencias de cookies
-                  </a>
+                  <Link className={styles.link} href="/legal/privacidad">
+                    Política de privacidad
+                  </Link>
                 </li>
               </ul>
             </div>

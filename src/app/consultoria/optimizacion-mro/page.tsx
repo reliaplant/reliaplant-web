@@ -125,38 +125,38 @@ export default function OptimizacionMRO() {
           <div className="w-full md:w-1/2">
             <div>
               <h2>Lograrás:</h2>
-              <p className="text-base leading-relaxed">
+              <p className="leading-relaxed">
                 Revisar el inventario de forma integral, clasificando e
                 identificando ítems críticos con base en datos de demanda,
                 criticidad y disponibilidad financiera.
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Diseñar estrategias específicas para equipos críticos (Clase A)
                 mediante el método del Número Óptimo de Repuestos (NOR),
                 equilibrando la inversión en stock contra el riesgo de paradas.
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Aumentar la disponibilidad y confiabilidad de la planta, al
                 asegurar que los repuestos más esenciales se encuentren siempre
                 a mano.
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Identificar cuellos de botella logísticos y de abastecimiento, y
                 formular recomendaciones realistas de acuerdo a los lead times y
                 convenios con proveedores.
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Reducir costos de almacenamiento, liberando capital y evitando
                 la obsolescencia de repuestos que realmente no justifican su
                 permanencia en bodega.
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Ofrecer lineamientos claros para la gestión de inventarios,
                 fáciles de actualizar con el paso del tiempo y los cambios en la
                 operación (por ejemplo, si se adquiere equipo nuevo o se
                 modifica el régimen de producción).
               </p>
-              <p className="text-base leading-relaxed mt-4">
+              <p className="leading-relaxed mt-4">
                 Proveer reportes y capacitaciones que facilitan la comunicación
                 de resultados y el empoderamiento del equipo interno para
                 mantener y ajustar el modelo a futuro.
@@ -212,27 +212,24 @@ export default function OptimizacionMRO() {
               Proceso de Optimización de Inventario
             </h2>
           </div>
-          <button className="h-14 bg-black text-white px-8 hover:bg-gray80 transition-colors duration-300 flex items-center">
-            ¿Dudas?
-          </button>
         </div>
 
         <div className="flex flex-col gap-16">
           {/* Primer paso */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-24">
             <div className="w-full">
-              <div className="flex items-center">
-                <span className="p-2 bg-gray10 shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center p-2 bg-gray10">
                   <Number_1 size={40} className="text-black" />
-                </span>
-                <h3 className="ml-4">
+                </div>
+                <h3 className="mb-0">
                   Revisión de la información y definición de criterios
                 </h3>
               </div>
 
               <div className="mt-8"></div>
               <div className="mt-8"></div>
-              <p className="text-base leading-relaxed">
+              <p className="leading-relaxed">
                 En este primer paso, recopilamos y validamos la información
                 básica necesaria para el estudio:
               </p>
@@ -390,16 +387,16 @@ export default function OptimizacionMRO() {
           {/* Segundo paso */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-24 border-t pt-16">
             <div className="w-full md:w-1/2">
-              <div className="flex items-center">
-                <span className="p-2 bg-gray10 shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center p-2 bg-gray10">
                   <Number_2 size={40} className="text-black" />
-                </span>
-                <h3 className="ml-4">
+                </div>
+                <h3 className="mb-0">
                   Análisis de criticidad y clasificación de los repuestos
                 </h3>
               </div>
               <div className="mt-8"></div>
-              <p className="text-base leading-relaxed">
+              <p className="leading-relaxed">
                 Con la información recopilada, el siguiente paso es clasificar
                 los repuestos con base en su impacto en la operación, su costo y
                 su frecuencia de utilización. A menudo utilizamos metodologías
@@ -445,13 +442,13 @@ export default function OptimizacionMRO() {
                 </ul>
               </div>
               <div className="bg-gray10 p-4 mt-4">
-                <p className="text-base leading-relaxed mt-4">
+                <p className="leading-relaxed mt-4">
                   Este esfuerzo de categorización ayuda a enfocar los esfuerzos
                   de optimización, de modo que primero se atiendan los repuestos
                   que realmente son críticos o representan un riesgo económico
                   elevado.
                 </p>
-                <p className="text-base leading-relaxed mt-4">
+                <p className="leading-relaxed mt-4">
                   Para los repuestos Clase A se aplican metodologías más
                   avanzadas, como el Número Óptimo de Repuestos (NOR). Para los
                   ítems Clases B y C, con mayor rotación, se ajustan frecuencias
@@ -468,17 +465,17 @@ export default function OptimizacionMRO() {
           {/* Tercer paso */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-24 border-t pt-16">
             <div className="w-full md:w-1/2">
-              <div className="flex items-center">
-                <span className="p-2 bg-gray10 shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center p-2 bg-gray10">
                   <Number_3 size={40} className="text-black" />
-                </span>
-                <h3 className="ml-4">
+                </div>
+                <h3 className="mb-0">
                   Cálculo del Número Óptimo de Repuestos (NOR) y métodos de
                   Mínimos y Máximos
                 </h3>
               </div>
               <div className="mt-8"></div>
-              <p className="text-base leading-relaxed">
+              <p className="leading-relaxed">
                 En esta fase, se realiza el cálculo del Número Óptimo de
                 Repuestos (NOR) y se aplican métodos de Mínimos y Máximos para
                 la gestión de inventarios:
@@ -555,17 +552,17 @@ export default function OptimizacionMRO() {
           {/* Cuarto paso */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-24 border-t pt-16">
             <div className="w-full md:w-1/2">
-              <div className="flex items-center">
-                <span className="p-2 bg-gray10 shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center p-2 bg-gray10">
                   <Number_4 size={40} className="text-black" />
-                </span>
-                <h3 className="ml-4">
+                </div>
+                <h3 className="mb-0">
                   Actualización de políticas de inventario e implementación
                 </h3>
               </div>
               <div className="mt-8"></div>
               <div className="mt-8"></div>
-              <p className="text-base leading-relaxed">
+              <p className="leading-relaxed">
                 Tras el cálculo y la clasificación de los repuestos en su número
                 óptimo o en sus niveles de Mínimos y Máximos, documentamos los
                 resultados y proponemos una revisión formal de las políticas de
@@ -620,7 +617,7 @@ export default function OptimizacionMRO() {
                   </li>
                 </ul>
               </div>
-              <p className="text-base leading-relaxed mt-4 p-4 bg-gray10">
+              <p className="leading-relaxed mt-4 p-4 bg-gray10">
                 La implementación de estas políticas puede requerir también
                 capacitaciones al personal de planificación, logística y
                 mantenimiento, de manera que comprendan la lógica detrás de los

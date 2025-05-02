@@ -8,7 +8,7 @@ import {
   getSecondaryRefCollection,
   saveInfoRequest,
   sendEmail,
-} from "@/services/firebase";
+} from "@/shared/firebase";
 
 interface FormularioContactoProps {
   type?: string;
@@ -309,9 +309,7 @@ export default function FormularioContacto({
                 className="w-full px-1 py-1 text-sm  border border-gray-300"
                 required
               >
-                <option value="" disabled>
-                  Para cuantas personas
-                </option>
+                <option value="">Para cuantas personas</option>
                 <option value="1">Para 1 persona</option>
                 <option value="2">Para 2 personas</option>
                 <option value="5">Para 5 personas</option>

@@ -452,7 +452,6 @@ export default function MantenibilidadPage() {
             <h2 className="border-blue60 border-b-4 w-fit">
               Proceso del Análisis de Mantenibilidad
             </h2>
-            <button className="h-12 bg-black text-white px-4">¿Dudas?</button>
           </div>
         </div>
 

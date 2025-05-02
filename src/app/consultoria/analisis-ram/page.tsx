@@ -162,13 +162,6 @@ export default function Contacto() {
                 Proceso del Análisis RAM
               </h2>
             </div>
-            <div className="hidden sm:block">
-              <AbrirFormContacto
-                buttonText="¿Dudas?"
-                icon={null}
-                buttonColor="bg-gray90"
-              />
-            </div>
           </div>
         </div>
 

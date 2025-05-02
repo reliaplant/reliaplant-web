@@ -109,7 +109,7 @@ export default function Header() {
           <ul className="flex items-center p-0 m-0 ">
             <div className="">
               <Link href="/">
-                <span className="font-ZenDots text-gray100 text-lg cursor-pointer">
+                <span className="text-gray100 text-xl cursor-pointer font-ZenDots">
                   RELIAPLANT
                 </span>
               </Link>

@@ -155,13 +155,6 @@ export default function Contacto() {
               Metodología RUL y LCC
             </h2>
           </div>
-          <div>
-            <AbrirFormContacto
-              buttonText="¿Dudas?"
-              icon={null}
-              buttonColor="bg-gray90"
-            />
-          </div>
         </div>
 
         {/* Section 1 */}

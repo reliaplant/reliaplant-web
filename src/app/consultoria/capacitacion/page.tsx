@@ -144,7 +144,7 @@ export default function Capacitacion() {
               <div className="mt-4">
                 <AbrirFormContacto
                   buttonText="Solicita capacitación online"
-                  icon={<ArrowRight size={20} />}
+                  icon={<ArrowRight size={20} className="text-white" />}
                   buttonColor="bg-gray90"
                   fullDesktop={true}
                   modalTitle="Solicita capacitación online"
@@ -177,7 +177,7 @@ export default function Capacitacion() {
               <div className="mt-4">
                 <AbrirFormContacto
                   buttonText="Solicita capacitación presencial"
-                  icon={<ArrowRight size={20} />}
+                  icon={<ArrowRight size={20} className="text-white" />}
                   buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita capacitación presencial"
@@ -210,7 +210,7 @@ export default function Capacitacion() {
               <div className="mt-4">
                 <AbrirFormContacto
                   buttonText="Solicita programa personalizado"
-                  icon={<ArrowRight size={20} />}
+                  icon={<ArrowRight size={20} className="text-white" />}
                   buttonColor="bg-gray90"
                   fullDesktop={true}
                   modalTitle="Solicita programa personalizado"

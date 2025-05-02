@@ -1,226 +1,154 @@
-import { Metadata } from "next";
-import fs from "fs/promises";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import Image from "next/image";
-import {
-  Add,
-  Asset,
-  Category,
-  ChevronDown,
-  Close,
-  DecisionNode,
-  Number_7,
-  Query,
-  Share,
-  Subflow,
-  Warning,
-  ArrowUpRight,
-  Industry,
-  Activity,
-  EventWarning,
-  TransformInstructions,
-  ArrowRight,
-  RequestQuote,
-  SupportVectorMachine,
-  DataAnalytics,
-  Headset,
-  Number_1,
-  Number_2,
-  Number_3,
-  Number_4,
-  QuestionAnswering,
-  Search,
-} from "@carbon/icons-react";
-import { Paperclip } from "lucide-react";
-import fansblowers from "../../../public/assets/FANSBLOWERS.png";
+import { getPublishedBlogPosts, getAllContributors } from "@/shared/firebase";
+import { BlogPost, BlogContributor } from "@/app/admin/blog-editor/types";
 
-interface Post {
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  date: string;
-  subtitle: string;
-  keywords: string;
-  description: string;
-  tags: string;
-  author: string;
-}
+async function getBlogData() {
+  try {
+    const posts = await getPublishedBlogPosts();
+    const contributors = await getAllContributors();
 
-async function getPosts(): Promise<Post[]> {
-  const postsDir = path.join(process.cwd(), "src", "posts");
-  const filenames = await fs.readdir(postsDir);
-  const posts: Post[] = [];
-
-  for (const filename of filenames) {
-    if (filename.endsWith(".md")) {
-      const filePath = path.join(postsDir, filename);
-      const fileContent = await fs.readFile(filePath, "utf8");
-      const { data, content } = matter(fileContent);
-      posts.push({
-        slug: filename.replace(/\.md$/, ""),
-        title: data.title || "Sin título",
-        excerpt:
-          data.excerpt || content.substring(0, 200).replace(/\n/g, " ") + "...",
-        content: content,
-        date: data.date || "",
-        subtitle: data.subtitle || "",
-        keywords: data.keywords || "",
-        description: data.description || "",
-        tags: data.tags || "",
-        author: data.author || "",
-      });
-    }
+    return {
+      posts,
+      contributorsMap: contributors.reduce((map, contributor) => {
+        map[contributor.name] = contributor;
+        return map;
+      }, {} as Record<string, BlogContributor>),
+    };
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return {
+      posts: [],
+      contributorsMap: {},
+    };
   }
-
-  return posts;
 }
-
-export const metadata: Metadata = {
-  title: "BLOG",
-  description: "DESC BLOG",
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  try {
+    const { posts, contributorsMap } = await getBlogData();
 
-  return (
-    <div className="">
-      <div className="px-[0vw]">
-        <div className="relative h-[32vh] flex items-center justify-start ">
-          {/* Contenido */}
-          <div className="relative z-10 text-whites w-[40vw] h-full bg-gray10 p-[2vw]  flex flex-col justify-between">
-            <div>
-              <div className="flex flw-row">
-                <span className="text-blue60 font-light">
-                  Inicio <span className="mx-2 text-gray60">{"/"}</span>{" "}
-                  Publicaciones técnicas
-                </span>
-              </div>
-              <h1 className="text-5xl font-light text-black  ">
-                Publicaciones
-              </h1>
-            </div>
-            <div className="bg-gray20 p-4 hover:bg-white group">
-              <div className="text-[1vw] leading-[136%]">
-                Encuentra aquí las publicaciones más recientes de RP Tech &
-                Associates. <br />
-                si deseas publicar tu articulo a traves de RP tech & Associates,
-                comunicate con nosotros.
-              </div>
-              <button className="mt-4 font-light text-[0.9rem] flex flex-row items-center gap-8 group-hover:bg-gray90 transition-100">
-                <span>Comparte tu artículo</span>
-                <Paperclip size={20} className="text-white" />
-              </button>
-            </div>
+    const formatDate = (dateString: string) => {
+      try {
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat("es-MX", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }).format(date);
+      } catch (e) {
+        return dateString;
+      }
+    };
+
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-8 text-center">Blog</h1>
+
+        {posts.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-gray-500 text-lg">
+              No hay publicaciones disponibles.
+            </p>
           </div>
-          <div className="h-full z-10 w-[60vw] bg-[url('/assets/bgMantenibilidad.jpg')] bg-cover bg-center"></div>
-        </div>
-      </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => {
+              const contributor = contributorsMap[post.author];
+              const postSlug = post.slug || post.id;
 
-      <div className="px-[2vw] pt-[2vw]">
-        <div className="bg-gray10 p-4 border flex flex-row justify-between items-center">
-          <div>
-            <strong className="text-gray60">
-              Recibe notificaciones sobre nuevas publicaciones y noticias de RP
-              Tech Team.{" "}
-            </strong>
-          </div>
-          <div>
-            <button className="border-2 bg-transparent text-gray60 border-gray60 hover:bg-white">
-              Suscribirse al newsletter
-            </button>
-          </div>
-        </div>
-      </div>
+              return (
+                <Link
+                  href={`/blog/${postSlug}`}
+                  key={post.id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="relative h-48 w-full">
+                    {post.coverImage ? (
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span className="text-gray-400">Sin imagen</span>
+                      </div>
+                    )}
+                  </div>
 
-      <div className="px-[4vw] mt-12">
-        <div className="flex flex-col items-center"></div>
-
-        <div className=" mb-8">
-          <h2>Publicaciones destacadas</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {posts.slice(0, 4).map((post) => (
-            <div
-              key={post.slug}
-              className="hover:shadow-lg transition-shadow border border-gray60 shadow-md hover:bg-gray10 min-h-[50vh] hover:cursor-pointer bg-white"
-            >
-              <div className="h-[50%] w-full relative">
-                <Image
-                  src={fansblowers}
-                  alt="Criticidad"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="h-[50%] flex flex-col justify-between p-4">
-                <div>
-                  <h2 className="text-xl mb-2 leading-[125%]">
-                    <Link href={`/blog/${post.slug}`} className="font-normal ">
+                  <div className="p-5">
+                    <h2 className="text-xl font-semibold mb-2 line-clamp-2">
                       {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray60 font-normal text-sm">
-                    {post.excerpt}
-                  </p>
-                </div>
-                <div className="text-sm mt-2 px-2   border border-gray50 w-fit flex flex-row items-center bg-gray80 text-white">
-                  <span>{post.tags}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+                    </h2>
 
-      <div className="px-[4vw] mb-48">
-        <div className="mt-24 mb-8 flex flex-row justify-between items-center">
-          <h2>RP Tech & Associates Publications</h2>
-          <div className="relative w-1/2">
-            <input
-              type="text"
-              placeholder="Buscar"
-              className="shadow-[0_0px_15px_rgba(0,0,0,0.15)] h-12 w-full outline-1 outline-gray30 focus:outline-gray60 p-4 pl-12"
-            />
-            <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-              <Search size={20} className="text-gray60 " />
-            </div>
+                    <div className="flex items-center mb-3">
+                      {contributor?.photo ? (
+                        <img
+                          src={contributor.photo}
+                          alt={contributor.name}
+                          className="w-8 h-8 rounded-full mr-2 object-cover"
+                        />
+                      ) : (
+                        <div className="w-8 h-8 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
+                          <span className="text-gray-500 font-medium text-xs">
+                            {post.author.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-sm font-medium">{post.author}</p>
+                        <p className="text-xs text-gray-500">
+                          {formatDate(post.publishDate)}
+                        </p>
+                      </div>
+                    </div>
+
+                    {post.summary && (
+                      <p className="text-gray-600 mb-3 line-clamp-3">
+                        {post.summary}
+                      </p>
+                    )}
+
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {post.tags.length > 3 && (
+                          <span className="text-gray-500 text-xs">
+                            +{post.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
-        </div>
-        <div className="mt-16">
-          {posts.slice(4, 100).map((post) => (
-            <div
-              key={post.slug}
-              className="hover:bg-gray10 hover:cursor-pointer flex flex-row gap-8 p-4 border-t border-gray60 h-fit justify-between"
-            >
-              <div className="">
-                <div>
-                  <h2 className="text-xl mb-2">
-                    <Link href={`/blog/${post.slug}`} className="font-normal">
-                      {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray60 font-normal text-sm mb-0">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </div>
-              <div>
-                <ArrowUpRight size={20} className="text-gray60 " />
-              </div>
-            </div>
-          ))}
-        </div>
+        )}
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error rendering blog page:", error);
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-3xl font-bold mb-4">Error al cargar el blog</h1>
+        <p className="text-gray-600 mb-8">
+          Lo sentimos, ha ocurrido un error al intentar cargar el blog.
+        </p>
+        <Link
+          href="/"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+        >
+          Volver al inicio
+        </Link>
+      </div>
+    );
+  }
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,7 +7,7 @@
 @layer base {
   :root {
     --font-big-shoulders: "Big Shoulders Display", sans-serif;
-    --font-zen-dots: "Zen Dots", sans-serif;
+    --font-zen-dots: "Zen Dots", cursive;
   }
 
   /* HEADING STYLES - RESPONSIVE AND CONSISTENT */
@@ -19,6 +21,10 @@
   p, li {
     color: #333;
     line-height: 1.5;
+  }
+
+  .font-ZenDots {
+    font-family: "Zen Dots", cursive !important;
   }
 }
 
