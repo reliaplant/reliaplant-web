@@ -225,24 +225,21 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <div className="hover:bg-gray10 mb-0 text-sm relative group px-6 h-full flex items-center">
+            {/* <div className="hover:bg-gray10 mb-0 text-sm relative group px-6 h-full flex items-center">
               <a
                 href="/blog"
                 className="font-normal relative no-underline hover:no-underline text-gray60"
               >
                 BLOG
               </a>
-            </div>
+            </div> */}
           </ul>
-          <div className="flex flex-row gap2 hover:shadow-lg">
+          <div className="flex flex-row items-center">
             <AbrirFormContacto />
             <Link href="/software" className="no-underline">
-              <button className="font-semibold text-sm h-full bg-transparent mr-8 hover:text-black text-black flex flex-row items-center px-4 py-2 hover:bg-gray20 whitespace-nowrap">
+              <button className="font-semibold text-sm bg-transparent text-black flex flex-row items-center px-4 py-3 hover:bg-gray20 transition-colors whitespace-nowrap">
                 Ir a Software
-                <ArrowUpRight
-                  size={16}
-                  className="ml-1 text-gray60 border-b-2 "
-                />
+                <ArrowUpRight size={20} className="ml-1 font-bold" />
               </button>
             </Link>
           </div>

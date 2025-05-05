@@ -120,7 +120,9 @@ export default function DiagnosticoGestion() {
       <div className="contentSection">
         <h2>Fases del Diagnóstico</h2>
         <div>
-          <h3>FASE I: PREPARACIÓN DEL TRABAJO</h3>
+          <h3>
+            <span className="text-blue60">FASE I:</span> PREPARACIÓN DEL TRABAJO
+          </h3>
           <p>
             EL CONSULTOR establecerá comunicación con personal del CLIENTE para
             preparar todos los aspectos relacionados con la logística del
@@ -147,8 +149,8 @@ export default function DiagnosticoGestion() {
         </div>
         <div className="mb-8">
           <h3>
-            FASE II: VISITA A OFICINAS Y CAMPO, ENTREVISTAS AL PERSONAL Y
-            RECOPILACIÓN DE INFORMACIÓN
+            <span className="text-blue60">FASE II:</span> VISITA A OFICINAS Y
+            CAMPO, ENTREVISTAS AL PERSONAL Y RECOPILACIÓN DE INFORMACIÓN
           </h3>
           <p>
             EL CONSULTOR se trasladará un periodo de 2 semanas continuas (10
@@ -160,7 +162,10 @@ export default function DiagnosticoGestion() {
           </p>
         </div>
         <div className="mb-8">
-          <h3>FASE III: ELABORACIÓN DE REPORTE DE DIAGNÓSTICO</h3>
+          <h3>
+            <span className="text-blue60">FASE III:</span> ELABORACIÓN DE
+            REPORTE DE DIAGNÓSTICO
+          </h3>
           <p>
             Terminada la visita a planta, el personal de EL CONSULTOR se
             trasladará a sus oficinas en el estado de Querétaro para preparar el
