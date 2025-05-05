@@ -2,7 +2,7 @@ import Link from "next/link";
 import {
   getPublishedBlogPosts,
   getAllContributors,
-} from "../../shared/firebase";
+} from "../../lib/firebase/firebase";
 import { BlogPost, BlogContributor } from "../admin/blog-editor/types";
 
 async function getBlogData() {

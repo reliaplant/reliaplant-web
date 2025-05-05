@@ -8,7 +8,7 @@ import imageCompression from "browser-image-compression";
 import {
   uploadBlogImage,
   getAllContributors,
-} from "../../../../shared/firebase";
+} from "../../../../lib/firebase/firebase";
 import ClientSideRichEditor from "./ClientSideRichEditor";
 
 interface BlogFormProps {

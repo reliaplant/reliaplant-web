@@ -11,7 +11,7 @@ import {
   uploadContributorPhoto,
 } from "../utils/firebase";
 import Link from "next/link";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { ArrowLeft } from "@carbon/icons-react";
 import imageCompression from "browser-image-compression";
 
 // Simple loading component
@@ -195,7 +195,7 @@ function ContributorForm() {
           href="/admin?tab=blog"
           className="inline-flex items-center text-indigo-600 hover:text-indigo-800"
         >
-          <ArrowLeftIcon className="h-4 w-4 mr-1" />
+          <ArrowLeft className="h-4 w-4 mr-1" />
           Volver al panel
         </Link>
       </div>

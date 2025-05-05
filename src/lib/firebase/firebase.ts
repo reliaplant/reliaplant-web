@@ -1,6 +1,4 @@
-import { initializeApp } from "firebase/app";
 import {
-  getFirestore,
   doc,
   addDoc,
   collection,
@@ -14,27 +12,14 @@ import {
   where,
 } from "firebase/firestore";
 import {
-  getStorage,
   ref,
   uploadBytes,
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
 
-import { BlogPost, BlogContributor } from "../app/admin/blog-editor/types";
-
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-};
-
-export const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+import { BlogPost, BlogContributor } from "../../app/admin/blog-editor/types";
+import { app, db, storage } from "./config";
 
 // BLOG FUNCTIONS
 const BLOG_COLLECTION = "blogPosts";
@@ -240,6 +225,24 @@ export async function sendEmail(
     await addDoc(collection(db, "mailQueue"), emailData);
   } catch (error) {
     console.error("Error queuing email:", error);
+    throw error;
+  }
+}
+
+export async function getContributor(
+  id: string
+): Promise<BlogContributor | null> {
+  try {
+    const docRef = doc(db, CONTRIBUTORS_COLLECTION, id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() } as BlogContributor;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Error getting contributor:", error);
     throw error;
   }
 }

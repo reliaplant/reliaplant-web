@@ -29,7 +29,7 @@ interface ConsultingCard {
 const gestion: ConsultingCard[] = [
   {
     title: "Construcción del Registro de Activos en CMMS (Taxonomía)",
-    link: "/consultoria/registro-activos ",
+    link: "/consultoria/registro-activos",
   },
   {
     title: "Desarrollo del sistema de indicadores",
@@ -163,7 +163,7 @@ export default function Header() {
 
             <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
               <a
-                href="/software"
+                href="http://app.reliaplant.com/"
                 className="font-normal relative no-underline hover:no-underline text-gray60 "
               >
                 SOFTWARE
