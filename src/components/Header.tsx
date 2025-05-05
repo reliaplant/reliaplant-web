@@ -176,7 +176,7 @@ export default function Header() {
               <div className="mt-[36px] absolute left-0 top-2 hidden p-2 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
                 <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
                   <Link
-                    href="/rca"
+                    href="/consultoria/rca"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
                     <div className="bg-gray20 p-4">
@@ -192,7 +192,7 @@ export default function Header() {
                 </div>
                 <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
                   <Link
-                    href="/rcm"
+                    href="/consultoria/rcm"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
                     <div className="bg-gray20 p-4 ">
@@ -203,22 +203,6 @@ export default function Header() {
                       <span className="text-gray60 text-[.9rem]">
                         Planes de mantenimiento para equipos críticos y no
                         críticos
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-                <div className="px-2 py-2 flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
-                  <Link
-                    href="/ram"
-                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                  >
-                    <div className="bg-gray20 p-4 ">
-                      <Model size={32} />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-black">RAM</span>
-                      <span className="text-gray60 text-[.9rem]">
-                        Análisis de disponibilidad de sistemas complejos
                       </span>
                     </div>
                   </Link>
@@ -236,12 +220,12 @@ export default function Header() {
           </ul>
           <div className="flex flex-row items-center">
             <AbrirFormContacto />
-            <Link href="/software" className="no-underline">
+            <a href="http://app.reliaplant.com/" className="no-underline">
               <button className="font-semibold text-sm bg-transparent text-black flex flex-row items-center px-4 py-3 hover:bg-gray20 transition-colors whitespace-nowrap">
                 Ir a Software
                 <ArrowUpRight size={20} className="ml-1 font-bold" />
               </button>
-            </Link>
+            </a>
           </div>
         </nav>
       </header>
