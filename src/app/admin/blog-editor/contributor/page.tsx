@@ -1,18 +1,18 @@
 "use client";
 
-import { useState, useEffect, FormEvent, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
-import { BlogContributor } from '@/app/admin/blog-editor/types';
-import { 
-  getContributor, 
-  createContributor, 
-  updateContributor, 
-  uploadContributorPhoto 
-} from '@/app/admin/blog-editor/utils/firebase';
-import Link from 'next/link';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import imageCompression from 'browser-image-compression';
+import { useState, useEffect, FormEvent, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
+import { BlogContributor } from "../types";
+import {
+  getContributor,
+  createContributor,
+  updateContributor,
+  uploadContributorPhoto,
+} from "../utils/firebase";
+import Link from "next/link";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import imageCompression from "browser-image-compression";
 
 // Simple loading component
 const LoadingSpinner = () => (
@@ -34,22 +34,22 @@ export default function ContributorFormPage() {
 function ContributorForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const contributorId = searchParams.get('id');
+  const contributorId = searchParams.get("id");
   const isEditing = !!contributorId;
 
   const [loading, setLoading] = useState(isEditing);
   const [submitting, setSubmitting] = useState(false);
   const [contributor, setContributor] = useState<BlogContributor>({
-    name: '',
-    email: '',
-    bio: '',
-    photo: '',
+    name: "",
+    email: "",
+    bio: "",
+    photo: "",
     active: true,
     socialMedia: {
-      twitter: '',
-      linkedin: '',
-      instagram: ''
-    }
+      twitter: "",
+      linkedin: "",
+      instagram: "",
+    },
   });
 
   useEffect(() => {
@@ -65,38 +65,40 @@ function ContributorForm() {
       if (data) {
         setContributor(data);
       } else {
-        toast.error('No se encontró el articulista');
-        router.push('/admin');
+        toast.error("No se encontró el articulista");
+        router.push("/admin");
       }
     } catch (error) {
-      console.error('Error fetching contributor:', error);
-      toast.error('Error al cargar los datos del articulista');
+      console.error("Error fetching contributor:", error);
+      toast.error("Error al cargar los datos del articulista");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    if (name.includes('.')) {
-      const [parent, child] = name.split('.');
-      if (parent === 'socialMedia') {
-        setContributor(prev => ({
+    if (name.includes(".")) {
+      const [parent, child] = name.split(".");
+      if (parent === "socialMedia") {
+        setContributor((prev) => ({
           ...prev,
           socialMedia: {
             ...prev.socialMedia,
-            [child]: value
-          }
+            [child]: value,
+          },
         }));
       }
     } else {
-      setContributor(prev => ({ ...prev, [name]: value }));
+      setContributor((prev) => ({ ...prev, [name]: value }));
     }
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
-    setContributor(prev => ({ ...prev, [name]: checked }));
+    setContributor((prev) => ({ ...prev, [name]: checked }));
   };
 
   const handlePhotoChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -110,29 +112,29 @@ function ContributorForm() {
         maxWidthOrHeight: 1920,
         useWebWorker: true,
       };
-      
+
       const compressedFile = await imageCompression(file, options);
-      
+
       // For preview purposes, create a local URL
       const localUrl = URL.createObjectURL(compressedFile);
-      setContributor(prev => ({ 
-        ...prev, 
-        photo: localUrl, 
-        photoFile: compressedFile 
+      setContributor((prev) => ({
+        ...prev,
+        photo: localUrl,
+        photoFile: compressedFile,
       }));
-      
-      toast.success('Imagen cargada correctamente');
+
+      toast.success("Imagen cargada correctamente");
     } catch (error) {
-      console.error('Error al cargar la imagen:', error);
-      toast.error('Error al cargar la imagen');
+      console.error("Error al cargar la imagen:", error);
+      toast.error("Error al cargar la imagen");
     }
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     if (!contributor.name || !contributor.email) {
-      toast.error('El nombre y el email son obligatorios');
+      toast.error("El nombre y el email son obligatorios");
       return;
     }
 
@@ -143,12 +145,18 @@ function ContributorForm() {
       let photoUrl = contributor.photo;
       if (contributor.photoFile) {
         if (isEditing && contributorId) {
-          photoUrl = await uploadContributorPhoto(contributor.photoFile, contributorId);
+          photoUrl = await uploadContributorPhoto(
+            contributor.photoFile,
+            contributorId
+          );
         } else {
           // For new contributors, we'll upload the photo after creating the contributor
           // to have an ID for the storage path
-          const tempId = 'temp-' + Date.now();
-          photoUrl = await uploadContributorPhoto(contributor.photoFile, tempId);
+          const tempId = "temp-" + Date.now();
+          photoUrl = await uploadContributorPhoto(
+            contributor.photoFile,
+            tempId
+          );
         }
       }
 
@@ -156,21 +164,21 @@ function ContributorForm() {
       const { photoFile, ...dataToSubmit } = contributor;
       const submitData = {
         ...dataToSubmit,
-        photo: photoUrl
+        photo: photoUrl,
       };
 
       if (isEditing && contributorId) {
         await updateContributor(contributorId, submitData);
-        toast.success('Articulista actualizado correctamente');
+        toast.success("Articulista actualizado correctamente");
       } else {
         await createContributor(submitData);
-        toast.success('Articulista creado correctamente');
+        toast.success("Articulista creado correctamente");
       }
 
-      router.push('/admin');
+      router.push("/admin");
     } catch (error) {
-      console.error('Error saving contributor:', error);
-      toast.error('Error al guardar el articulista');
+      console.error("Error saving contributor:", error);
+      toast.error("Error al guardar el articulista");
     } finally {
       setSubmitting(false);
     }
@@ -183,7 +191,10 @@ function ContributorForm() {
   return (
     <div className="container mx-auto p-4 max-w-4xl">
       <div className="mb-6">
-        <Link href="/admin?tab=blog" className="inline-flex items-center text-indigo-600 hover:text-indigo-800">
+        <Link
+          href="/admin?tab=blog"
+          className="inline-flex items-center text-indigo-600 hover:text-indigo-800"
+        >
           <ArrowLeftIcon className="h-4 w-4 mr-1" />
           Volver al panel
         </Link>
@@ -191,13 +202,16 @@ function ContributorForm() {
 
       <div className="bg-white p-6 rounded-lg shadow">
         <h1 className="text-2xl font-bold mb-6">
-          {isEditing ? 'Editar Articulista' : 'Nuevo Articulista'}
+          {isEditing ? "Editar Articulista" : "Nuevo Articulista"}
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nombre*
               </label>
               <input
@@ -212,7 +226,10 @@ function ContributorForm() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email*
               </label>
               <input
@@ -228,7 +245,10 @@ function ContributorForm() {
           </div>
 
           <div>
-            <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="bio"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Biografía
             </label>
             <textarea
@@ -242,7 +262,10 @@ function ContributorForm() {
           </div>
 
           <div>
-            <label htmlFor="photo" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="photo"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Foto de perfil
             </label>
             <div className="flex items-center space-x-4">
@@ -267,14 +290,17 @@ function ContributorForm() {
             <h2 className="font-medium text-lg mb-2">Redes sociales</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label htmlFor="socialMedia.twitter" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="socialMedia.twitter"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Twitter
                 </label>
                 <input
                   type="text"
                   id="socialMedia.twitter"
                   name="socialMedia.twitter"
-                  value={contributor.socialMedia?.twitter || ''}
+                  value={contributor.socialMedia?.twitter || ""}
                   onChange={handleChange}
                   className="w-full p-2 border rounded focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="@username"
@@ -282,14 +308,17 @@ function ContributorForm() {
               </div>
 
               <div>
-                <label htmlFor="socialMedia.linkedin" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="socialMedia.linkedin"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   LinkedIn
                 </label>
                 <input
                   type="text"
                   id="socialMedia.linkedin"
                   name="socialMedia.linkedin"
-                  value={contributor.socialMedia?.linkedin || ''}
+                  value={contributor.socialMedia?.linkedin || ""}
                   onChange={handleChange}
                   className="w-full p-2 border rounded focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="URL completa"
@@ -297,14 +326,17 @@ function ContributorForm() {
               </div>
 
               <div>
-                <label htmlFor="socialMedia.instagram" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="socialMedia.instagram"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Instagram
                 </label>
                 <input
                   type="text"
                   id="socialMedia.instagram"
                   name="socialMedia.instagram"
-                  value={contributor.socialMedia?.instagram || ''}
+                  value={contributor.socialMedia?.instagram || ""}
                   onChange={handleChange}
                   className="w-full p-2 border rounded focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="@username"
@@ -322,7 +354,10 @@ function ContributorForm() {
               onChange={handleCheckboxChange}
               className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
             />
-            <label htmlFor="active" className="ml-2 block text-sm text-gray-900">
+            <label
+              htmlFor="active"
+              className="ml-2 block text-sm text-gray-900"
+            >
               Articulista activo
             </label>
           </div>
@@ -338,10 +373,10 @@ function ContributorForm() {
               type="submit"
               disabled={submitting}
               className={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-                submitting ? 'opacity-50 cursor-not-allowed' : ''
+                submitting ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              {submitting ? 'Guardando...' : isEditing ? 'Actualizar' : 'Crear'}
+              {submitting ? "Guardando..." : isEditing ? "Actualizar" : "Crear"}
             </button>
           </div>
         </form>

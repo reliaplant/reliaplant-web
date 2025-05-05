@@ -17,7 +17,7 @@ import {
   getDownloadURL,
   deleteObject,
 } from "firebase/storage";
-import { db } from "@/shared/firebase"; // Updated import path to use shared Firebase service
+import { db } from "../../../../shared/firebase"; // Updated import path to use shared Firebase service
 import { BlogPost, BlogContributor } from "../types";
 
 const BLOG_COLLECTION = "blogPosts";

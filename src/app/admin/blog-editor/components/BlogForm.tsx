@@ -5,7 +5,10 @@ import { BlogPost, BlogContributor } from "../types";
 import { Add, Close } from "@carbon/icons-react";
 import toast from "react-hot-toast";
 import imageCompression from "browser-image-compression";
-import { uploadBlogImage, getAllContributors } from "@/shared/firebase";
+import {
+  uploadBlogImage,
+  getAllContributors,
+} from "../../../../shared/firebase";
 import ClientSideRichEditor from "./ClientSideRichEditor";
 
 interface BlogFormProps {

@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { getPublishedBlogPosts, getAllContributors } from "@/shared/firebase";
-import { BlogPost, BlogContributor } from "@/app/admin/blog-editor/types";
+import {
+  getPublishedBlogPosts,
+  getAllContributors,
+} from "../../shared/firebase";
+import { BlogPost, BlogContributor } from "../admin/blog-editor/types";
 
 async function getBlogData() {
   try {

@@ -10,6 +10,8 @@ import {
   updateDoc,
   query,
   orderBy,
+  deleteDoc,
+  where,
 } from "firebase/firestore";
 import {
   getStorage,
@@ -19,7 +21,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 
-import { BlogPost, BlogContributor } from "@/app/admin/blog-editor/types";
+import { BlogPost, BlogContributor } from "../app/admin/blog-editor/types";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -38,6 +40,21 @@ export const storage = getStorage(app);
 const BLOG_COLLECTION = "blogPosts";
 const CONTRIBUTORS_COLLECTION = "blogContributors";
 
+// Create a new blog post
+export async function createBlogPost(blogPost: BlogPost): Promise<string> {
+  try {
+    const docRef = await addDoc(collection(db, BLOG_COLLECTION), {
+      ...blogPost,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding blog post:", error);
+    throw error;
+  }
+}
+
 // Get a single blog post by ID
 export async function getBlogPost(id: string): Promise<BlogPost | null> {
   try {
@@ -55,21 +72,6 @@ export async function getBlogPost(id: string): Promise<BlogPost | null> {
   }
 }
 
-// Create a new blog post
-export async function createBlogPost(blogPost: BlogPost): Promise<string> {
-  try {
-    const docRef = await addDoc(collection(db, BLOG_COLLECTION), {
-      ...blogPost,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
-    return docRef.id;
-  } catch (error) {
-    console.error("Error adding blog post:", error);
-    throw error;
-  }
-}
-
 // Update an existing blog post
 export async function updateBlogPost(
   id: string,
@@ -83,6 +85,35 @@ export async function updateBlogPost(
     });
   } catch (error) {
     console.error("Error updating blog post:", error);
+    throw error;
+  }
+}
+
+// Delete a blog post
+export async function deleteBlogPost(id: string): Promise<void> {
+  try {
+    await deleteDoc(doc(db, BLOG_COLLECTION, id));
+  } catch (error) {
+    console.error("Error deleting blog post:", error);
+    throw error;
+  }
+}
+
+// Get all blog posts
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  try {
+    const q = query(
+      collection(db, BLOG_COLLECTION),
+      orderBy("publishDate", "desc")
+    );
+
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as BlogPost[];
+  } catch (error) {
+    console.error("Error getting blog posts:", error);
     throw error;
   }
 }
@@ -120,6 +151,26 @@ export async function getAllContributors(): Promise<BlogContributor[]> {
     })) as BlogContributor[];
   } catch (error) {
     console.error("Error getting contributors:", error);
+    throw error;
+  }
+}
+
+// Get published blog posts
+export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
+  try {
+    const q = query(
+      collection(db, BLOG_COLLECTION),
+      where("published", "==", true),
+      orderBy("publishDate", "desc")
+    );
+
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as BlogPost[];
+  } catch (error) {
+    console.error("Error getting published blog posts:", error);
     throw error;
   }
 }

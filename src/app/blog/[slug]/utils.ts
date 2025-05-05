@@ -1,5 +1,5 @@
-import { getAllBlogPosts } from "@/shared/firebase";
-import { BlogPost } from "@/app/admin/blog-editor/types";
+import { getAllBlogPosts } from "../../../shared/firebase";
+import { BlogPost } from "../../admin/blog-editor/types";
 
 // Helper function to get blog post by slug
 export async function getBlogPostBySlug(

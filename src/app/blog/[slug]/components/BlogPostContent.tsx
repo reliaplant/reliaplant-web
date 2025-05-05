@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getAllBlogPosts, getContributor } from "@/shared/firebase";
-import { BlogPost, BlogContributor } from "@/app/admin/blog-editor/types";
+import { getAllBlogPosts, getContributor } from "../../../../shared/firebase";
+import { BlogPost, BlogContributor } from "../../../admin/blog-editor/types";
 
 // Helper function to get blog post by slug (client-side version)
 async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {

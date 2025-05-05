@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getAllBlogPosts } from "@/shared/firebase";
-import { BlogPost } from "@/app/admin/blog-editor/types";
+import { getAllBlogPosts } from "../../../shared/firebase";
+import { BlogPost } from "../../admin/blog-editor/types";
 import BlogPostContent from "./components/BlogPostContent";
 import { Metadata } from "next";
 import { a } from "framer-motion/client";

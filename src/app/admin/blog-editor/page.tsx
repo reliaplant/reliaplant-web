@@ -5,7 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import BlogForm from "./components/BlogForm";
 import BlogPreview from "./components/BlogPreview";
 import { BlogPost } from "./types";
-import { getBlogPost, createBlogPost, updateBlogPost } from "@/shared/firebase";
+import {
+  getBlogPost,
+  createBlogPost,
+  updateBlogPost,
+} from "../../../shared/firebase";
 import { toast, Toaster } from "react-hot-toast";
 
 // Simple loading component

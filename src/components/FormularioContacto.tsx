@@ -8,7 +8,7 @@ import {
   getSecondaryRefCollection,
   saveInfoRequest,
   sendEmail,
-} from "@/shared/firebase";
+} from "../shared/firebase";
 
 interface FormularioContactoProps {
   type?: string;

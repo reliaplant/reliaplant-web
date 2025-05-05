@@ -7,8 +7,8 @@ import {
   deleteBlogPost,
   getAllContributors,
   deleteContributor,
-} from "@/app/admin/blog-editor/utils/firebase";
-import { BlogPost, BlogContributor } from "@/app/admin/blog-editor/types";
+} from "../blog-editor/utils/firebase";
+import { BlogPost, BlogContributor } from "../blog-editor/types";
 import { Add, Edit, TrashCan, View } from "@carbon/icons-react";
 import { toast } from "react-hot-toast";
 
