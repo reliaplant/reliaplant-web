@@ -9,7 +9,7 @@ import {
   getBlogPost,
   createBlogPost,
   updateBlogPost,
-} from "../../../lib/firebase/firebase";
+} from "../../../lib/firebase/blog";
 import { toast, Toaster } from "react-hot-toast";
 
 // Simple loading component

@@ -153,9 +153,12 @@ export default function Footer() {
 
           {/* CTA Button */}
           <div className="mt-8 md:mt-12">
-            <button className="w-full sm:w-auto px-4 py-3 border-2 border-gray60 bg-gray90 hover:bg-blue60 transition-colors">
+            <a
+              href="http://app.reliaplant.com/"
+              className="inline-block w-full sm:w-auto px-4 py-3 border-2 border-gray60 bg-gray90 hover:bg-blue60 transition-colors text-white80 hover:text-white"
+            >
               Ir a software <span className="pl-2"></span> &rarr;
-            </button>
+            </a>
           </div>
         </div>
       </div>

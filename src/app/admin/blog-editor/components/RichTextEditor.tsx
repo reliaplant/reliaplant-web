@@ -7,7 +7,7 @@ import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import { useState, useCallback } from "react";
-import { uploadBlogImage } from "../../../../lib/firebase/firebase";
+import { uploadBlogImage } from "../../../../lib/firebase/blog";
 
 type RichTextEditorProps = {
   value: string;

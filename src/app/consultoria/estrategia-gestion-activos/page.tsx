@@ -68,6 +68,7 @@ import {
   GroupResource,
 } from "@carbon/icons-react";
 import Image from "next/image";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export default function EstrategiaGestionActivosPage() {
   return (
@@ -92,10 +93,11 @@ export default function EstrategiaGestionActivosPage() {
             una estrategia integral de gestión de activos físicos alineada con
             los objetivos de su organización.
           </p>
-          <button className="bg-blue60 text-white text-lg flex flex-row items-center justify-between gap-4 py-4 px-6 rounded w-full hover:bg-blue70 transition-colors duration-200">
-            <span>Solicitar una consulta</span>
-            <ArrowRight size={20} />
-          </button>
+          <AbrirFormContacto
+            buttonText="Solicitar una consulta"
+            fullDesktop={true}
+            modalTitle="Solicitar consultoría en Gestión de Activos"
+          />
           <div className="flex flex-col gap-4 mt-6">
             <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">
               <div className="bg-gray90 p-3 rounded-full">

@@ -1,4 +1,4 @@
-import { getAllBlogPosts } from "../../../lib/firebase/firebase";
+import { getAllBlogPosts } from "../../../lib/firebase/blog";
 import { BlogPost } from "../../admin/blog-editor/types";
 
 // Helper function to get blog post by slug

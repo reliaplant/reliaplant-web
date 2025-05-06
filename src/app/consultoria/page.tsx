@@ -2,15 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import turbocompresor from "../../../public/assets/tubocompresorSinFondo.png";
-import fondoPlataforma from "../../../public/assets/FondoPlataforma.webp";
-import pozo from "../../../public/assets/pozo.jpg";
-import flare from "../../../public/assets/flare.jpg";
 import procesoConfiabilidad from "../../../public/assets/procesoConfiabilidad.png";
 import Industrias from "@/components/industrias";
-
 import pegandotag from "../../../public/assets/pegandotag.jpeg";
-import bgConfiabilidad from "../../../public/assets/bgConfiabilidad.jpg";
 import bgKPIs from "../../../public/assets/bgKPIs.jpg";
 import bgDiagnostico from "../../../public/assets/bgDiagnostico.jpg";
 import bgEstrategias from "../../../public/assets/bgEstrategias.jpg";
@@ -32,10 +26,6 @@ import bgObsolescencia from "../../../public/assets/bgObsolescencia.jpg";
 import bgSeleccion from "../../../public/assets/bgSeleccion.jpg";
 import bgVidaUtil from "../../../public/assets/bgVidaUtil.jpg";
 import bgLCC from "../../../public/assets/bgLCC.jpg";
-
-import planta from "../../../public/assets/planta.jpg";
-
-import back3 from "../../../public/assets/back3.webp";
 
 interface ConsultingCard {
   title: string;

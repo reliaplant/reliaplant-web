@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getAllBlogPosts, getContributor } from "@/lib/firebase/firebase";
+import { getAllBlogPosts, getContributor } from "@/lib/firebase/blog";
 import { BlogPost, BlogContributor } from "../../../admin/blog-editor/types";
 
 // Helper function to get blog post by slug (client-side version)

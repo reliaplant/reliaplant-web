@@ -9,128 +9,100 @@ import {
   FiMail,
   FiBarChart2,
 } from "react-icons/fi";
+import { IconType } from "react-icons";
+
+interface AdminCardProps {
+  title: string;
+  description: string;
+  icon: IconType;
+  color: string;
+  href?: string;
+  onClick?: () => void;
+}
+
+function AdminCard({
+  title,
+  description,
+  icon: Icon,
+  color,
+  href,
+  onClick,
+}: AdminCardProps) {
+  const CardContent = () => (
+    <div className="h-full bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
+      <div className="p-5 h-full flex flex-col">
+        <div className="flex items-start flex-grow">
+          <div className={`flex-shrink-0 bg-${color}-100 rounded-md p-3`}>
+            <Icon className={`h-6 w-6 text-${color}-600`} />
+          </div>
+          <div className="ml-5">
+            <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+            <p className="mt-1 text-sm text-gray-500">{description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return href ? (
+    <Link href={href}>
+      <CardContent />
+    </Link>
+  ) : (
+    <div onClick={onClick}>
+      <CardContent />
+    </div>
+  );
+}
 
 export default function AdminPage() {
-  const [greeting] = useState(`Good ${getTimeOfDay()}`);
-
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="text-gray-600 mt-1">{greeting}, Administrator</p>
-        </div>
-      </header>
-
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Blog Management Card */}
-            <Link href="/admin/blog-editor">
-              <div className="bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
-                <div className="p-5">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 bg-green-100 rounded-md p-3">
-                      <FiEdit className="h-6 w-6 text-green-600" />
-                    </div>
-                    <div className="ml-5">
-                      <h3 className="text-lg font-medium text-gray-900">
-                        Blog Management
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Write, edit, and publish blog posts
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <AdminCard
+              title="Editor del Blog"
+              description="Escribir y publicar entradas del blog"
+              icon={FiEdit}
+              color="green"
+              href="/admin/blog-editor"
+            />
 
-            {/* User Management Card */}
-            <div className="bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-blue-100 rounded-md p-3">
-                    <FiUsers className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div className="ml-5">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      User Management
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Manage user accounts and permissions
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <AdminCard
+              title="Gestor del Blog"
+              description="Gestionar y moderar contenido del blog"
+              icon={FiEdit}
+              color="red"
+              href="/admin/blog-manager"
+            />
 
-            {/* Analytics Card */}
-            <div className="bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-purple-100 rounded-md p-3">
-                    <FiBarChart2 className="h-6 w-6 text-purple-600" />
-                  </div>
-                  <div className="ml-5">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Analytics
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      View website traffic and performance
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <AdminCard
+              title="Gestión de Formularios"
+              description="Administrar los formularios de contacto y sus datos"
+              icon={FiUsers}
+              color="blue"
+              href="/admin/form-manager"
+            />
 
-            {/* Settings Card */}
-            <div className="bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-gray-100 rounded-md p-3">
-                    <FiSettings className="h-6 w-6 text-gray-600" />
-                  </div>
-                  <div className="ml-5">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Settings
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Configure site settings and preferences
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <AdminCard
+              title="Configuración"
+              description="Configurar ajustes y preferencias del sitio"
+              icon={FiSettings}
+              color="gray"
+              onClick={() => console.log("Settings clicked")}
+            />
 
-            {/* Email Campaign Card */}
-            <div className="bg-white overflow-hidden shadow rounded-lg transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-yellow-100 rounded-md p-3">
-                    <FiMail className="h-6 w-6 text-yellow-600" />
-                  </div>
-                  <div className="ml-5">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      Email Campaigns
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Create and manage email marketing campaigns
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <AdminCard
+              title="Campañas de Email"
+              description="Crear y gestionar campañas de email marketing"
+              icon={FiMail}
+              color="yellow"
+              onClick={() => console.log("Email campaigns clicked")}
+            />
           </div>
         </div>
       </main>
     </div>
   );
-}
-
-function getTimeOfDay() {
-  const hour = new Date().getHours();
-  if (hour < 12) return "morning";
-  if (hour < 18) return "afternoon";
-  return "evening";
 }

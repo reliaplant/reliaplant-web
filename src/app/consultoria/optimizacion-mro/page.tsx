@@ -29,7 +29,6 @@ import {
   IbmKnowledgeCatalogPremium,
   Tuning,
 } from "@carbon/icons-react";
-import { MdMoney, MdScience } from "react-icons/md";
 import { PiggyBank, Timer } from "lucide-react";
 import BannerPrincipal from "@/components/BannerPrincipal";
 import { ServiceCard } from "@/components/ServiceCard";

@@ -21,18 +21,6 @@ interface FormularioContactoProps {
   pagina?: string;
 }
 
-interface FormData {
-  nombre: string;
-  email: string;
-  telefono: string;
-  interes: string;
-  cantidadPersonas: string;
-  cargo: string;
-  empresa: string;
-  pais: string;
-  [key: string]: string; // Para permitir acceso dinámico con formData[name]
-}
-
 export default function FormularioContacto({
   type = "info",
   campana = "",
@@ -45,12 +33,14 @@ export default function FormularioContacto({
   btnText = "Solicitar información",
   pagina = "",
 }: FormularioContactoProps) {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<
+    Omit<FormContactData, "date" | "isMobile">
+  >({
     nombre: "",
     email: "",
     telefono: "",
     interes: "",
-    cantidadPersonas: "",
+    cantidadPersonas: null,
     cargo: "",
     empresa: "",
     pais: "",
@@ -210,7 +200,6 @@ export default function FormularioContacto({
             {formData.interes === "empresa" && (
               <select
                 name="cantidadPersonas"
-                value={formData.cantidadPersonas}
                 onChange={handleInputChange}
                 className="w-full px-1 py-1 text-sm  border border-gray-300"
                 required
