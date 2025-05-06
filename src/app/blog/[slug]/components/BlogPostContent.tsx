@@ -12,18 +12,25 @@ async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     const posts = await getAllBlogPosts();
 
+    // Verificación adicional para manejar casos donde posts no sea un array
+    if (!Array.isArray(posts)) {
+      console.error("getAllBlogPosts no devolvió un array");
+      return null;
+    }
+
     // First, try to find by slug
     const postBySlug = posts.find(
-      (post) => post.published && post.slug === slug
+      (post) => post?.published && post?.slug === slug
     );
     if (postBySlug) return postBySlug;
 
     // If not found, try to find by ID (fallback)
-    const postById = posts.find((post) => post.published && post.id === slug);
+    const postById = posts.find((post) => post?.published && post?.id === slug);
     return postById || null;
   } catch (error) {
     console.error("Error fetching blog post:", error);
-    throw error; // Propagate the error
+    // No propagar el error, en su lugar devolver null para mejor manejo de errores
+    return null;
   }
 }
 
@@ -34,12 +41,18 @@ export default function BlogPostContent({ slug }: { slug: string }) {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    // Variable para controlar si el componente está montado
+    let isMounted = true;
+
     async function fetchData() {
       try {
+        if (!isMounted) return;
         setLoading(true);
 
         // Get the blog post data
         const postData = await getBlogPostBySlug(slug);
+
+        if (!isMounted) return;
 
         if (!postData) {
           setError(new Error("Post not found"));
@@ -50,20 +63,37 @@ export default function BlogPostContent({ slug }: { slug: string }) {
 
         // Get contributor data if available
         if (postData.contributorId) {
-          const contributorData = await getContributor(postData.contributorId);
-          setContributor(contributorData);
+          try {
+            const contributorData = await getContributor(
+              postData.contributorId
+            );
+            if (isMounted && contributorData) {
+              setContributor(contributorData);
+            }
+          } catch (contributorError) {
+            console.error("Error fetching contributor:", contributorError);
+            // No bloquear la visualización del post si hay error con el contributor
+          }
         }
       } catch (err) {
+        if (!isMounted) return;
         setError(err instanceof Error ? err : new Error("An error occurred"));
         console.error("Error rendering blog post page:", err);
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     }
 
     if (slug) {
       fetchData();
     }
+
+    // Cleanup function para evitar memory leaks
+    return () => {
+      isMounted = false;
+    };
   }, [slug]);
 
   const formatDate = (dateString: string) => {

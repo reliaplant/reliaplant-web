@@ -1,5 +1,8 @@
 import { MetadataRoute } from "next";
 
+// Esta línea es necesaria para exportación estática
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.HOST_URL || "https://reliaplant.com";
 
