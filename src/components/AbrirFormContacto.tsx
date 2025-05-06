@@ -97,6 +97,7 @@ const AbrirFormContacto: React.FC<
               responsable=""
               lugar="diplomado"
               btnText="Solicitar información"
+              pagina={pathname}
             />
           </div>
         </div>

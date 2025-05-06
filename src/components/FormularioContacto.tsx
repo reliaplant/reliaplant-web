@@ -2,13 +2,7 @@
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import {
-  createUser,
-  getRefCollection,
-  getSecondaryRefCollection,
-  saveInfoRequest,
-  sendEmail,
-} from "../lib/firebase/firebase";
+import { FormContactData, saveFormContact } from "@/lib/firebase/form_contact";
 
 interface FormularioContactoProps {
   type?: string;
@@ -24,6 +18,7 @@ interface FormularioContactoProps {
   mailchimpTagIn?: string;
   btnTextColorClass?: string;
   btnText?: string;
+  pagina?: string;
 }
 
 interface FormData {
@@ -43,19 +38,12 @@ export default function FormularioContacto({
   campana = "",
   anuncio = null,
   interes = "",
-  subject = "Nuevo llenado formulario curso",
-  recipients = [
-    "liliana.giraldo@predyc.com",
-    "andres.gonzalez@predyc.com",
-    "desarrollo@predyc.com",
-  ],
-  responsable = "",
   origen = "",
   lugar = "footer",
   colorClass = "bg-blue60 hover:bg-gray80",
-  mailchimpTagIn = "footer",
   btnTextColorClass = "text-white ",
   btnText = "Solicitar información",
+  pagina = "",
 }: FormularioContactoProps) {
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
@@ -68,20 +56,8 @@ export default function FormularioContacto({
     pais: "",
   });
 
-  let copy = ["ventas@predyc.com", "desarrollo@predyc.com"];
-  const [captchaValido, setCaptchaValido] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
-  // Corrige la URL de reCAPTCHA (elimina el corchete de más al final)
-  useEffect(() => {
-    if (!window.grecaptcha) {
-      const script = document.createElement("script");
-      script.src = `https://www.google.com/recaptcha/api.js?render=6LchjzgqAAAAANYV88dFOY4uGWoT4_2rF8x9OvCE`;
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -93,41 +69,6 @@ export default function FormularioContacto({
 
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  // Función para construir el contenido del correo
-  const buildEmailContent = (data: FormData) => {
-    const sender = "ventas@predyc.com";
-    const recipientsMail =
-      recipients.length > 0 ? recipients : ["ventas@predyc.com"];
-    const subjectMail = subject || "Nuevo registro formulario en Predyc";
-
-    const htmlContentFinal = `
-      <p><strong>${
-        data.nombre
-      }</strong> ha llenado el formulario en <strong>${lugar}</strong> interesado en <strong>${
-      data.interes
-    }</strong></p>
-      <h3>Datos del contacto:</h3>
-      <ul>
-        <li><strong>Tipo:</strong> ${type}</li>
-        <li><strong>Nombre:</strong> ${data.nombre}</li>
-        <li><strong>Correo:</strong> ${data.email}</li>
-        <li><strong>Teléfono:</strong> ${data.telefono}</li>
-        <li><strong>Cargo:</strong> ${data.cargo}</li>
-        <li><strong>Empresa:</strong> ${data.empresa}</li>
-        <li><strong>País:</strong> ${data.pais}</li>
-        <li><strong>Origen:</strong> ${origen}</li>
-        <li><strong>Interes:</strong> ${data.interesUser || data.interes}</li>
-        ${
-          data.cantidadPersonas
-            ? `<li><strong>Cantidad interesados:</strong> ${data.cantidadPersonas}</li>`
-            : ""
-        }
-      </ul>
-    `;
-
-    return { sender, recipientsMail, subjectMail, htmlContentFinal };
-  };
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -146,76 +87,41 @@ export default function FormularioContacto({
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const initialUrl = sessionStorage.getItem("initialUrl");
     const origenLocal = window.location.href;
-    let currentOrigen = origenLocal; // Usar variable local en lugar de mutar props
-    let validCaptcha = false;
 
     try {
-      // Asegurarse de que grecaptcha esté disponible
-      if (!window.grecaptcha) {
-        throw new Error("reCAPTCHA no está cargado");
-      }
-
-      const token = await window.grecaptcha.execute(
-        "6LchjzgqAAAAANYV88dFOY4uGWoT4_2rF8x9OvCE",
-        { action: "submit" }
-      );
-      if (token) {
-        setCaptchaValido(true);
-        validCaptcha = true;
-      } else {
-        setCaptchaValido(false);
-        validCaptcha = false;
-      }
-
-      const docRef = await getSecondaryRefCollection("infoRequestRegisterP21");
-
-      const customerData = {
-        id: docRef.id,
-        content_name: anuncio || null,
-        responsables: responsable,
-        campana: campana || null,
-        name: formData.nombre,
-        email: formData.email,
-        origen: currentOrigen,
-        initialUrl: initialUrl,
-        telefono: formData.telefono,
+      const formContactData: FormContactData = {
+        nombre: formData.nombre.trim(),
+        email: formData.email.trim(),
+        telefono: formData.telefono.trim(),
+        interes: formData.interes,
         cargo: formData.cargo,
-        interesUser: formData.interes,
-        empresa: formData.empresa,
+        empresa: formData.empresa.trim(),
         pais: formData.pais,
         date: new Date(),
-        validCaptcha: validCaptcha,
-        cantidad: formData.cantidadPersonas || null,
-        type: type,
         isMobile: isMobile,
+        origen: origenLocal,
+        pagina: pagina || null,
+        type: type || null,
+        campana: campana || null,
+        anuncio: anuncio || null,
       };
 
-      console.log("customerData", customerData);
-      await saveInfoRequest(customerData);
+      if (formData.cantidadPersonas) {
+        formContactData.cantidadPersonas = formData.cantidadPersonas;
+      }
 
-      setIsSubmitted(true);
-
-      const userData = {
-        name: formData.nombre,
-        createdAt: +new Date(),
-        displayName: formData.nombre,
-        job: formData.cargo,
-        email: formData.email,
-        phoneNumber: formData.telefono,
-      };
-
-      createUser(userData, mailchimpTagIn);
-
-      if (validCaptcha) {
-        let { sender, recipientsMail, subjectMail, htmlContentFinal } =
-          buildEmailContent(formData);
-        // await sendEmail(sender, recipientsMail, subjectMail, htmlContentFinal, copy);
+      const result = await saveFormContact(formContactData);
+      if (result) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error("No se pudo guardar el formulario");
       }
     } catch (error) {
-      console.error("Error al ejecutar reCAPTCHA:", error);
-      alert("Error al verificar el captcha. Inténtalo de nuevo.");
+      console.error("Error al guardar el formulario:", error);
+      alert(
+        "Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde."
+      );
     }
   };
 

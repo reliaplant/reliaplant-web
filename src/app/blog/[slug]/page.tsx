@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllBlogPosts } from "@/lib/firebase/firebase";
+import { getAllBlogPosts } from "@/lib/firebase/blog";
 import { BlogPost } from "../../admin/blog-editor/types";
 import BlogPostContent from "./components/BlogPostContent";
 import { Metadata } from "next";

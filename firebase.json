@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "reliaplant-webpage",
+    "site": "reliaplant-pruebas",
     "public": "out",
     "ignore": [
       "firebase.json",
@@ -10,5 +10,8 @@
     "frameworksBackend": {
       "region": "us-central1"
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
   }
 }
