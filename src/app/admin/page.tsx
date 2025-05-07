@@ -57,52 +57,59 @@ function AdminCard({
 
 export default function AdminPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <AdminCard
-              title="Editor del Blog"
-              description="Escribir y publicar entradas del blog"
-              icon={FiEdit}
-              color="green"
-              href="/admin/blog-editor"
-            />
+    <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div className="px-4 py-6 sm:px-0">
+        <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard</h1>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <AdminCard
+            title="Editor del Blog"
+            description="Escribir y publicar entradas del blog"
+            icon={FiEdit}
+            color="green"
+            href="/admin/blog-editor"
+          />
 
-            <AdminCard
-              title="Gestor del Blog"
-              description="Gestionar y moderar contenido del blog"
-              icon={FiEdit}
-              color="red"
-              href="/admin/blog-manager"
-            />
+          <AdminCard
+            title="Gestor del Blog"
+            description="Gestionar y moderar contenido del blog"
+            icon={FiEdit}
+            color="red"
+            href="/admin/blog-manager"
+          />
 
-            <AdminCard
-              title="Gestión de Formularios"
-              description="Administrar los formularios de contacto y sus datos"
-              icon={FiUsers}
-              color="blue"
-              href="/admin/form-manager"
-            />
+          <AdminCard
+            title="Gestión de Formularios"
+            description="Administrar los formularios de contacto y sus datos"
+            icon={FiUsers}
+            color="blue"
+            href="/admin/form-manager"
+          />
 
-            <AdminCard
-              title="Configuración"
-              description="Configurar ajustes y preferencias del sitio"
-              icon={FiSettings}
-              color="gray"
-              onClick={() => console.log("Settings clicked")}
-            />
+          <AdminCard
+            title="Configuración"
+            description="Configurar ajustes y preferencias del sitio"
+            icon={FiSettings}
+            color="gray"
+            onClick={() => console.log("Settings clicked")}
+          />
 
-            <AdminCard
-              title="Campañas de Email"
-              description="Crear y gestionar campañas de email marketing"
-              icon={FiMail}
-              color="yellow"
-              onClick={() => console.log("Email campaigns clicked")}
-            />
-          </div>
+          <AdminCard
+            title="Campañas de Email"
+            description="Crear y gestionar campañas de email marketing"
+            icon={FiMail}
+            color="yellow"
+            onClick={() => console.log("Email campaigns clicked")}
+          />
+
+          <AdminCard
+            title="Estadísticas"
+            description="Ver estadísticas y análisis del sitio"
+            icon={FiBarChart2}
+            color="purple"
+            onClick={() => console.log("Analytics clicked")}
+          />
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -90,7 +90,7 @@ const PersonalEspecialista: ConsultingCard[] = [
   },
 ];
 
-export default function Header({ isAdmin = false }: { isAdmin?: boolean }) {
+export default function Header() {
   const sections = [
     { title: "Gestión", data: gestion },
     { title: "Metodologías de Confiabilidad", data: MejorasEconomicas },
@@ -109,135 +109,121 @@ export default function Header({ isAdmin = false }: { isAdmin?: boolean }) {
                 </span>
               </Link>
             </div>
-            {!isAdmin ? (
-              <>
-                <div className="pl-8 font-thin text-2xl text-gray30 mr-4 h-full flex items-center">
-                  |
-                </div>
-                <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
-                  <a
-                    href="/servicios"
-                    className="font-normal relative no-underline hover:no-underline text-gray60"
-                  >
-                    SERVICIOS DE CONSULTORÍA
-                  </a>
-                  <ChevronDown
-                    size={16}
-                    className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
-                  />
-                  <div className="mt-[36px] absolute left-0 top-2 hidden p-6 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
-                    <div>
-                      <div className="bg-white flex flex-row gap-4">
-                        {sections.map((section, sectionIndex) => (
-                          <div
-                            key={sectionIndex}
-                            className={`w-[20vw] pr-4 ${
-                              sectionIndex !== sections.length - 1
-                                ? "border-r"
-                                : ""
-                            }`}
-                          >
-                            <div className="flex flex-col">
-                              <span className="text-[1rem] font-bold text-black w-full">
-                                {section.title}
-                              </span>
-                              <div className="w-full">
-                                {section.data.map((service, serviceIndex) => (
-                                  <Link
-                                    key={serviceIndex}
-                                    href={service.link}
-                                    className="no-underline"
-                                  >
-                                    <div className="pt-2 text-md text-gray60 hover:underline cursor-pointer font-medium">
-                                      {service.title}
-                                    </div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
-                  <a
-                    href="http://app.reliaplant.com/"
-                    className="font-normal relative no-underline hover:no-underline text-gray60 "
-                  >
-                    SOFTWARE
-                  </a>
-
-                  <ChevronDown
-                    size={16}
-                    className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
-                  />
-                  <div className="mt-[36px] absolute left-0 top-2 hidden p-2 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
-                    <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
-                      <Link
-                        href="/consultoria/rca"
-                        className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                      >
-                        <div className="bg-gray20 p-4">
-                          <Category size={32} />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-black">RCA</span>
-                          <span className="text-gray60 text-[.9rem]">
-                            Eliminación de defectos mediante Análisis Causa Raíz
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
-                      <Link
-                        href="/consultoria/rcm"
-                        className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                      >
-                        <div className="bg-gray20 p-4 ">
-                          <DecisionNode size={32} />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-black">RCM</span>
-                          <span className="text-gray60 text-[.9rem]">
-                            Planes de mantenimiento para equipos críticos y no
-                            críticos
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="h-full flex items-center pl-8">
-                <div className="font-thin text-2xl text-gray30 mr-4">|</div>
-                <div className="w-[60vw]"></div>
-              </div>
-            )}
-          </ul>
-          {!isAdmin ? (
-            <div className="flex flex-row items-center h-full">
-              <AbrirFormContacto />
-              <a href="http://app.reliaplant.com/" className="no-underline">
-                <button className="font-semibold text-sm bg-transparent text-black flex flex-row items-center px-4 py-3 hover:bg-gray20 transition-colors whitespace-nowrap">
-                  Ir a Software
-                  <ArrowUpRight size={20} className="ml-1 font-bold" />
-                </button>
-              </a>
+            <div className="pl-8 font-thin text-2xl text-gray30 mr-4 h-full flex items-center">
+              |
             </div>
-          ) : (
-            <div className="w-[200px] h-full flex items-center"></div>
-          )}
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
+              <a href="/servicios" className="relative text-gray60">
+                SERVICIOS DE CONSULTORÍA
+              </a>
+              <ChevronDown
+                size={16}
+                className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
+              />
+              <div className="mt-[36px] absolute left-0 top-2 hidden p-6 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
+                <div>
+                  <div className="bg-white flex flex-row gap-4">
+                    {sections.map((section, sectionIndex) => (
+                      <div
+                        key={sectionIndex}
+                        className={`w-[20vw] pr-4 ${
+                          sectionIndex !== sections.length - 1 ? "border-r" : ""
+                        }`}
+                      >
+                        <div className="flex flex-col">
+                          <span className="text-[1rem] font-bold text-black w-full">
+                            {section.title}
+                          </span>
+                          <div className="w-full">
+                            {section.data.map((service, serviceIndex) => (
+                              <Link
+                                key={serviceIndex}
+                                href={service.link}
+                                className="no-underline"
+                              >
+                                <div className="pt-2 text-md text-gray60 hover:underline cursor-pointer font-medium">
+                                  {service.title}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
+              <a
+                href="http://app.reliaplant.com/"
+                className="relative text-gray60 "
+              >
+                SOFTWARE
+              </a>
+
+              <ChevronDown
+                size={16}
+                className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
+              />
+              <div className="mt-[36px] absolute left-0 top-2 hidden p-2 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
+                <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
+                  <Link
+                    href="/consultoria/rca"
+                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                  >
+                    <div className="bg-gray20 p-4">
+                      <Category size={32} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-black">RCA</span>
+                      <span className="text-gray60 text-[.9rem]">
+                        Eliminación de defectos mediante Análisis Causa Raíz
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
+                  <Link
+                    href="/consultoria/rcm"
+                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                  >
+                    <div className="bg-gray20 p-4 ">
+                      <DecisionNode size={32} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-black">RCM</span>
+                      <span className="text-gray60 text-[.9rem]">
+                        Planes de mantenimiento para equipos críticos y no
+                        críticos
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="hover:bg-gray10 mb-0 text-sm relative group px-6 h-full flex items-center">
+              <Link href="/blog" className="relative text-gray60">
+                BLOG
+              </Link>
+            </div>
+          </ul>
+          <div className="flex flex-row items-center h-full">
+            <AbrirFormContacto />
+            <a href="http://app.reliaplant.com/" className="no-underline">
+              <button className="font-semibold text-sm bg-transparent text-black flex flex-row items-center px-4 py-3 hover:bg-gray20 transition-colors whitespace-nowrap">
+                Ir a Software
+                <ArrowUpRight size={20} className="ml-1 font-bold" />
+              </button>
+            </a>
+          </div>
         </nav>
       </header>
-      {!isAdmin && (
-        <div className="md:hidden">
-          <HeaderMovil />
-        </div>
-      )}
+      <div className="md:hidden">
+        <HeaderMovil />
+      </div>
     </div>
   );
 }

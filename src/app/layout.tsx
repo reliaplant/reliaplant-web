@@ -16,7 +16,6 @@ import {
   Zen_Dots,
   IBM_Plex_Sans,
 } from "next/font/google";
-// import "@carbon/styles/css/styles.css";
 
 const IbmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -45,7 +44,7 @@ export default function RootLayout({
       <body className={IbmPlexSans.className}>
         <InitialUrlTracker />
         <Header />
-        <main className="">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
