@@ -2,31 +2,32 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Cambiamos de "export" a una build dinámica (eliminando la línea output)
 
-  // Ignoramos las rutas problemáticas en la exportación estática
+  // Configuración de imágenes del archivo JS
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
+
   skipTrailingSlashRedirect: true,
   skipMiddlewareUrlNormalize: true,
 
-  // Excluir rutas del build estático
   distDir: process.env.NODE_ENV === "production" ? ".next" : ".next-dev",
 
-  // Configurar paths excluidos
   webpack: (config) => {
-    // Excluir locales de moment.js
     config.ignoreWarnings = [{ message: /moment-locales/ }];
     return config;
   },
 
-  // Ignorar errores específicos durante la exportación
   onDemandEntries: {
-    // Período en ms donde las páginas se mantienen en el buffer
     maxInactiveAge: 25 * 1000,
-    // Número de páginas que se mantienen en memoria
     pagesBufferLength: 2,
   },
 
-  // Configuración de headers de seguridad
   async headers() {
     return [
       {

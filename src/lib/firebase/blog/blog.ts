@@ -99,16 +99,39 @@ export async function uploadBlogImage(
   file: File,
   postId: string
 ): Promise<string> {
-  try {
-    const storageRef = ref(storage, `blog-images/${postId}/${file.name}`);
+  if (!file) {
+    throw new Error("No file provided");
+  }
 
-    await uploadBytes(storageRef, file);
+  try {
+    // Create a unique filename with original file extension
+    const fileExtension = file.name.split(".").pop();
+    const timestamp = new Date().getTime();
+    const uniqueFilename = `${timestamp}-${crypto.randomUUID()}.${fileExtension}`;
+
+    // Ensure the path is correct and exists
+    const storagePath = `blogReliaplant/${postId}/${uniqueFilename}`;
+    const storageRef = ref(storage, storagePath);
+
+    const metadata = {
+      contentType: file.type,
+      cacheControl: "public, max-age=31536000",
+    };
+
+    // Upload the file
+    await uploadBytes(storageRef, file, metadata);
+
+    // Verify the upload by trying to get the download URL
     const downloadURL = await getDownloadURL(storageRef);
+
+    if (!downloadURL) {
+      throw new Error("Failed to get download URL after upload");
+    }
 
     return downloadURL;
   } catch (error) {
     console.error("Error uploading image:", error);
-    throw error;
+    throw new Error(`Failed to upload image`);
   }
 }
 

@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
 import { getAllContributors } from "@/lib/firebase/blog/contributor";
 import { BlogPost, BlogContributor } from "@/types/blog";
+
+// Forzamos el modo dinámico para evitar problemas de tipo con Next.js 15
+export const dynamic = "force-dynamic";
 
 async function getBlogData() {
   try {
@@ -24,12 +28,8 @@ async function getBlogData() {
   }
 }
 
-// Add proper type for the page component
-export default async function BlogPage({
-  params,
-}: {
-  params?: { slug?: string };
-}) {
+// Usamos any para resolver el problema de tipo con los parámetros
+export default async function BlogPage({ params }: any) {
   try {
     const { posts, contributorsMap } = await getBlogData();
 
@@ -70,10 +70,13 @@ export default async function BlogPage({
                 >
                   <div className="relative h-48 w-full">
                     {post.coverImage ? (
-                      <img
+                      <Image
                         src={post.coverImage}
                         alt={post.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        priority
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : (
                       <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -89,10 +92,13 @@ export default async function BlogPage({
 
                     <div className="flex items-center mb-3">
                       {contributor?.photo ? (
-                        <img
+                        <Image
                           src={contributor.photo}
                           alt={contributor.name}
-                          className="w-8 h-8 rounded-full mr-2 object-cover"
+                          width={32}
+                          height={32}
+                          loading="eager"
+                          className="rounded-full mr-2 object-cover"
                         />
                       ) : (
                         <div className="w-8 h-8 bg-gray-200 rounded-full mr-2 flex items-center justify-center">

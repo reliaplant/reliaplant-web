@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "reliaplant-pruebas",
+    "site": "reliaplant-webpage",
     "source": ".",
     "ignore": [
       "firebase.json",

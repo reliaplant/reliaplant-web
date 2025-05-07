@@ -7,6 +7,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "./config";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "./config";
 
 export const loginAdmin = async (email: string, password: string) => {
   try {
@@ -64,6 +66,18 @@ export const createAdminAccount = async (
     });
 
     return userCredential.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const setUserAsAdmin = async (email: string) => {
+  try {
+    await setDoc(doc(db, "admins", email), {
+      role: "admin",
+      createdAt: new Date(),
+    });
+    return true;
   } catch (error) {
     throw error;
   }

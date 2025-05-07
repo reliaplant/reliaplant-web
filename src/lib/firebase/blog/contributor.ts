@@ -40,37 +40,21 @@ export async function getAllContributors(): Promise<BlogContributor[]> {
 }
 
 export async function getContributor(
-  id: string,
-  maxRetries = 3
+  id: string
 ): Promise<BlogContributor | null> {
-  for (let attempt = 0; attempt < maxRetries; attempt++) {
-    try {
-      const docRef = doc(db, CONTRIBUTORS_COLLECTION, id);
-      const docSnap = await getDoc(docRef);
+  try {
+    const docRef = doc(db, CONTRIBUTORS_COLLECTION, id);
+    const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        return { id: docSnap.id, ...docSnap.data() } as BlogContributor;
-      } else {
-        return null;
-      }
-    } catch (error: any) {
-      if (attempt === maxRetries - 1) {
-        if (error?.code === "auth/network-request-failed") {
-          console.error("Network connection issue detected:", error);
-          throw new Error(
-            "Unable to load contributor data. Please check your internet connection."
-          );
-        }
-        console.error("Error getting contributor:", error);
-        throw error;
-      }
-      // Wait before retrying (exponential backoff)
-      await new Promise((resolve) =>
-        setTimeout(resolve, Math.pow(2, attempt) * 1000)
-      );
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() } as BlogContributor;
+    } else {
+      return null;
     }
+  } catch (error) {
+    console.error("Error getting contributor:", error);
+    throw error;
   }
-  throw new Error("Maximum retry attempts reached");
 }
 
 export async function createContributor(

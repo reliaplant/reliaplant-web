@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getAllBlogPosts } from "@/lib/firebase/blog/blog";
-import { BlogPost } from "../../../types/blog";
+import { BlogPost } from "@/types/blog";
 import BlogPostContent from "./components/BlogPostContent";
 import { Metadata } from "next";
 
@@ -14,53 +14,10 @@ const MOCK_SLUGS = [
 ];
 
 // Función mejorada para generar rutas estáticas durante el build
-export async function generateStaticParams() {
-  console.log("Generando parámetros estáticos para blog posts...");
-
-  // Usamos mock data para asegurar que la build se complete
-  if (process.env.NODE_ENV === "production") {
-    console.log(
-      "Usando datos estáticos para la generación de rutas en producción"
-    );
-    return MOCK_SLUGS.map((slug) => ({ slug }));
-  }
-
-  try {
-    // Obtener todas las entradas del blog
-    const posts = await getAllBlogPosts();
-
-    // Verificar que posts sea un array
-    if (!Array.isArray(posts)) {
-      console.warn("getAllBlogPosts no devolvió un array. Usando array vacío.");
-      return MOCK_SLUGS.map((slug) => ({ slug }));
-    }
-
-    // Filtrar posts publicados con slug o id válido
-    const validPosts = posts.filter(
-      (post) => post && post.published === true && (post.slug || post.id)
-    );
-
-    console.log(
-      `Generando ${validPosts.length} rutas estáticas para blog posts.`
-    );
-
-    // Si no hay posts, usar mocks para evitar errores
-    if (validPosts.length === 0) {
-      return MOCK_SLUGS.map((slug) => ({ slug }));
-    }
-
-    // Mapear cada post a un objeto de parámetros con slug
-    return validPosts.map((post) => ({
-      slug: post.slug || post.id,
-    }));
-  } catch (error) {
-    // Manejo de errores detallado para diagnóstico durante el build
-    console.error("Error al generar parámetros estáticos:", error);
-
-    // Devolver datos de muestra para que la build no falle
-    console.log("Usando datos de muestra debido al error");
-    return MOCK_SLUGS.map((slug) => ({ slug }));
-  }
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return MOCK_SLUGS.map((slug) => ({
+    slug,
+  }));
 }
 
 // Helper function to get blog post by slug
@@ -82,19 +39,22 @@ async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
     return postById || null;
   } catch (error) {
     console.error("Error fetching blog post:", error);
-    return null; // Return null instead of throwing to prevent build failures
+    return null;
   }
 }
+
+// Necesitamos usar dynamic = 'force-dynamic' para evitar errores en Next.js 15
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: { slug: string };
 }): Promise<Metadata> {
-  const resolvedParams = await params;
+  const { slug } = params;
 
   try {
-    const post = await getBlogPostBySlug(resolvedParams.slug);
+    const post = await getBlogPostBySlug(slug);
 
     if (!post) {
       return {
@@ -121,18 +81,20 @@ export async function generateMetadata({
     console.error("Error generating metadata:", error);
     return {
       title: "Error",
-      description: "Hubo un error al cargar este artículo",
+      description: "Ha ocurrido un error al cargar el artículo.",
     };
   }
 }
 
+// TEMPORARY: Use any for props to test if type error goes away
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: { slug: string };
 }) {
-  const resolvedParams = await params;
-  const post = await getBlogPostBySlug(resolvedParams.slug);
+  const { slug } = params;
+
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
