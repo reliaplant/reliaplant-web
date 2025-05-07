@@ -1,41 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { BlogPost, BlogContributor } from "@/types/blog";
 import Link from "next/link";
-import { getAllBlogPosts, getContributor } from "@/lib/firebase/blog";
-import { BlogPost, BlogContributor } from "../../../admin/blog-editor/types";
+import { useState, useEffect } from "react";
+import { getContributor } from "@/lib/firebase/blog/contributor";
 
-// Helper function to get blog post by slug (client-side version)
-async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (!slug) return null;
-
-  try {
-    const posts = await getAllBlogPosts();
-
-    // Verificación adicional para manejar casos donde posts no sea un array
-    if (!Array.isArray(posts)) {
-      console.error("getAllBlogPosts no devolvió un array");
-      return null;
-    }
-
-    // First, try to find by slug
-    const postBySlug = posts.find(
-      (post) => post?.published && post?.slug === slug
-    );
-    if (postBySlug) return postBySlug;
-
-    // If not found, try to find by ID (fallback)
-    const postById = posts.find((post) => post?.published && post?.id === slug);
-    return postById || null;
-  } catch (error) {
-    console.error("Error fetching blog post:", error);
-    // No propagar el error, en su lugar devolver null para mejor manejo de errores
-    return null;
-  }
+interface BlogPostContentProps {
+  post: BlogPost;
 }
 
-export default function BlogPostContent({ slug }: { slug: string }) {
-  const [post, setPost] = useState<BlogPost | null>(null);
+export default function BlogPostContent({ post }: BlogPostContentProps) {
   const [contributor, setContributor] = useState<BlogContributor | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -44,29 +18,15 @@ export default function BlogPostContent({ slug }: { slug: string }) {
     // Variable para controlar si el componente está montado
     let isMounted = true;
 
-    async function fetchData() {
+    async function fetchContributor() {
       try {
         if (!isMounted) return;
         setLoading(true);
 
-        // Get the blog post data
-        const postData = await getBlogPostBySlug(slug);
-
-        if (!isMounted) return;
-
-        if (!postData) {
-          setError(new Error("Post not found"));
-          return;
-        }
-
-        setPost(postData);
-
         // Get contributor data if available
-        if (postData.contributorId) {
+        if (post.contributorId) {
           try {
-            const contributorData = await getContributor(
-              postData.contributorId
-            );
+            const contributorData = await getContributor(post.contributorId);
             if (isMounted && contributorData) {
               setContributor(contributorData);
             }
@@ -86,15 +46,13 @@ export default function BlogPostContent({ slug }: { slug: string }) {
       }
     }
 
-    if (slug) {
-      fetchData();
-    }
+    fetchContributor();
 
     // Cleanup function para evitar memory leaks
     return () => {
       isMounted = false;
     };
-  }, [slug]);
+  }, [post]);
 
   const formatDate = (dateString: string) => {
     try {

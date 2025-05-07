@@ -10,13 +10,17 @@ import {
   deleteDoc,
   where,
 } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
-import { BlogPost, BlogContributor } from "../../app/admin/blog-editor/types";
-import { db, storage } from "./config";
+import { BlogPost } from "@/types/blog";
+import { db, storage } from "../config";
 
 const BLOG_COLLECTION = "blogPosts";
-const CONTRIBUTORS_COLLECTION = "blogContributors";
 
 export async function createBlogPost(blogPost: BlogPost): Promise<string> {
   try {
@@ -108,24 +112,6 @@ export async function uploadBlogImage(
   }
 }
 
-export async function getAllContributors(): Promise<BlogContributor[]> {
-  try {
-    const q = query(
-      collection(db, CONTRIBUTORS_COLLECTION),
-      orderBy("name", "asc")
-    );
-
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as BlogContributor[];
-  } catch (error) {
-    console.error("Error getting contributors:", error);
-    throw error;
-  }
-}
-
 export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
   try {
     const q = query(
@@ -145,20 +131,12 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
   }
 }
 
-export async function getContributor(
-  id: string
-): Promise<BlogContributor | null> {
+export async function deleteBlogImage(imageUrl: string): Promise<void> {
   try {
-    const docRef = doc(db, CONTRIBUTORS_COLLECTION, id);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      return { id: docSnap.id, ...docSnap.data() } as BlogContributor;
-    } else {
-      return null;
-    }
+    const imageRef = ref(storage, imageUrl);
+    await deleteObject(imageRef);
   } catch (error) {
-    console.error("Error getting contributor:", error);
+    console.error("Error deleting blog image:", error);
     throw error;
   }
 }

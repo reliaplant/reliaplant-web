@@ -3,12 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
-  getAllBlogPosts,
-  deleteBlogPost,
   getAllContributors,
   deleteContributor,
-} from "../blog-editor/utils/firebase";
-import { BlogPost, BlogContributor } from "../blog-editor/types";
+} from "@/lib/firebase/blog/contributor";
+import { getAllBlogPosts, deleteBlogPost } from "@/lib/firebase/blog/blog";
+import { BlogPost, BlogContributor } from "../../../types/blog";
 import { Add, Edit, TrashCan, View } from "@carbon/icons-react";
 import { toast } from "react-hot-toast";
 

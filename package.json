@@ -4,8 +4,7 @@
   "private": false,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build_debug": "next build --debug",
+    "build": "next build --debug",
     "start": "next start",
     "lint": "next lint",
     "release:patch": "npm version patch",

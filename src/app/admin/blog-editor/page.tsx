@@ -4,12 +4,12 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import BlogForm from "./components/BlogForm";
 import BlogPreview from "./components/BlogPreview";
-import { BlogPost } from "./types";
+import { BlogPost } from "@/types/blog";
 import {
   getBlogPost,
   createBlogPost,
   updateBlogPost,
-} from "../../../lib/firebase/blog";
+} from "@/lib/firebase/blog/blog";
 import { toast, Toaster } from "react-hot-toast";
 
 // Simple loading component

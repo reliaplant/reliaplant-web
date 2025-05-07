@@ -5,7 +5,7 @@ export interface BlogPost {
   author: string;
   contributorId?: string; // Add reference to the contributor ID
   coverImage: string;
-  tags: string[];
+  tags: string[]; // Add this line to define tags as string array
   publishDate: string;
   published: boolean;
   createdAt?: string;
@@ -29,7 +29,7 @@ export interface BlogContributor {
     twitter?: string;
     linkedin?: string;
     instagram?: string;
-  }; 
+  };
   createdAt?: string;
   updatedAt?: string;
   photoFile?: File; // Property to handle file uploads

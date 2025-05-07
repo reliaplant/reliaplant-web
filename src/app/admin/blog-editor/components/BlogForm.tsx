@@ -1,14 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { BlogPost, BlogContributor } from "../types";
+import { BlogPost, BlogContributor } from "../../../../types/blog";
 import { Add, Close } from "@carbon/icons-react";
 import toast from "react-hot-toast";
 import imageCompression from "browser-image-compression";
-import {
-  uploadBlogImage,
-  getAllContributors,
-} from "../../../../lib/firebase/blog";
+import { uploadBlogImage } from "@/lib/firebase/blog/blog";
+import { getAllContributors } from "@/lib/firebase/blog/contributor";
 import ClientSideRichEditor from "./ClientSideRichEditor";
 
 interface BlogFormProps {

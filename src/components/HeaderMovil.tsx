@@ -164,12 +164,6 @@ export default function HeaderMovil() {
           link: "/consultoria/rcm",
           icon: <DecisionNode size={24} />,
         },
-        {
-          title: "RAM",
-          description: "Análisis de disponibilidad de sistemas complejos",
-          link: "/ram",
-          icon: <Model size={24} />,
-        },
       ] as SoftwareItem[],
     },
   ];
@@ -304,6 +298,17 @@ export default function HeaderMovil() {
                 </div>
               ))}
 
+              {/* Blog Link */}
+              <div className="border-b border-gray-200">
+                <Link
+                  href="/blog"
+                  className="flex justify-between items-center w-full py-4 px-2"
+                  onClick={handleLinkClick}
+                >
+                  <span className="font-medium text-black">Blog</span>
+                </Link>
+              </div>
+
               {/* Additional buttons */}
               <div className="mt-6 space-y-4">
                 <div onClick={handleLinkClick}>
@@ -313,16 +318,16 @@ export default function HeaderMovil() {
                   />
                 </div>
 
-                <Link
-                  href="/software"
-                  className="block w-full"
+                <a
+                  href="http://app.reliaplant.com/"
+                  className="block w-full no-underline"
                   onClick={handleLinkClick}
                 >
                   <button className="w-full py-3 px-4 border border-gray-300 bg-gray-50 text-gray-800 flex items-center justify-center gap-2">
                     Ir a Software
                     <ArrowUpRight size={16} />
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

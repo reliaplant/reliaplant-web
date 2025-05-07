@@ -1,9 +1,7 @@
 import Link from "next/link";
-import {
-  getPublishedBlogPosts,
-  getAllContributors,
-} from "../../lib/firebase/blog";
-import { BlogPost, BlogContributor } from "../admin/blog-editor/types";
+import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
+import { getAllContributors } from "@/lib/firebase/blog/contributor";
+import { BlogPost, BlogContributor } from "@/types/blog";
 
 async function getBlogData() {
   try {
@@ -26,7 +24,12 @@ async function getBlogData() {
   }
 }
 
-export default async function BlogPage() {
+// Add proper type for the page component
+export default async function BlogPage({
+  params,
+}: {
+  params?: { slug?: string };
+}) {
   try {
     const { posts, contributorsMap } = await getBlogData();
 

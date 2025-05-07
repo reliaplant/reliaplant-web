@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  output: "export", // Exportación estática para el despliegue
+  // Cambiamos de "export" a una build dinámica (eliminando la línea output)
+
   // Ignoramos las rutas problemáticas en la exportación estática
   skipTrailingSlashRedirect: true,
   skipMiddlewareUrlNormalize: true,
@@ -23,6 +24,37 @@ const nextConfig: NextConfig = {
     maxInactiveAge: 25 * 1000,
     // Número de páginas que se mantienen en memoria
     pagesBufferLength: 2,
+  },
+
+  // Configuración de headers de seguridad
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "origin-when-cross-origin",
+          },
+        ],
+      },
+    ];
   },
 };
 

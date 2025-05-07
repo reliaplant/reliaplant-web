@@ -3,13 +3,13 @@
 import { useState, useEffect, FormEvent, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
-import { BlogContributor } from "../types";
+import { BlogContributor } from "../../../../types/blog";
 import {
   getContributor,
   createContributor,
   updateContributor,
   uploadContributorPhoto,
-} from "../utils/firebase";
+} from "@/lib/firebase/blog/contributor";
 import Link from "next/link";
 import { ArrowLeft } from "@carbon/icons-react";
 import imageCompression from "browser-image-compression";

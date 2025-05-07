@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getAllBlogPosts } from "@/lib/firebase/blog";
-import { BlogPost } from "../../admin/blog-editor/types";
+import { getAllBlogPosts } from "@/lib/firebase/blog/blog";
+import { BlogPost } from "../../../types/blog";
 import BlogPostContent from "./components/BlogPostContent";
 import { Metadata } from "next";
 
@@ -86,9 +86,15 @@ async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }> | { slug: string };
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+
   try {
-    const post = await getBlogPostBySlug(params.slug);
+    const post = await getBlogPostBySlug(resolvedParams.slug);
 
     if (!post) {
       return {
@@ -120,14 +126,17 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 }
 
-// Usando any para evitar problemas de tipos con el build estático
-export default function BlogPostPage(props: any) {
-  // Verificamos si tenemos el slug
-  const slug = props.params?.slug;
-  if (!slug) {
-    return <div>Error: No se especificó un slug</div>;
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }> | { slug: string };
+}) {
+  const resolvedParams = await params;
+  const post = await getBlogPostBySlug(resolvedParams.slug);
+
+  if (!post) {
+    notFound();
   }
 
-  // Pasamos el slug directamente al componente cliente
-  return <BlogPostContent slug={slug} />;
+  return <BlogPostContent post={post} />;
 }

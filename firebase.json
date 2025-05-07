@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "reliaplant-pruebas",
-    "public": "out",
+    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,42 +1,18 @@
 import React from "react";
 import {
-  Add,
-  Asset,
-  ChevronDown,
-  Close,
   DecisionNode,
   Category,
-  Query,
-  Share,
-  Subflow,
-  Warning,
   ArrowUpRight,
   Industry,
   Activity,
-  EventWarning,
-  TransformInstructions,
   ArrowRight,
-  RequestQuote,
-  SupportVectorMachine,
-  DataAnalytics,
   Headset,
   Analytics,
   DataTable,
   SettingsAdjust,
   Checkmark,
-  ArrowDown,
-  ArrowUpLeft,
-  Bar,
 } from "@carbon/icons-react";
-import {
-  Clock,
-  ShieldCheck,
-  Target,
-  BarChart3,
-  ScrollText,
-  Layers,
-} from "lucide-react";
-import Image from "next/image";
+import { Target, BarChart3, Layers } from "lucide-react";
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
@@ -44,8 +20,8 @@ import AbrirFormContacto from "@/components/AbrirFormContacto";
 export default function Home() {
   return (
     <>
-      <div className="relative min-h-[70vh] bg-gray-100 flex flex-col lg:flex-row items-center justify-start border-b">
-        <div className="w-full lg:w-[50vw] order-2 lg:order-1 pt-0 pb-8 px-8 lg:px-[8vw] flex flex-col justify-center items-center lg:items-start">
+      <div className="relative h-[600px] bg-gray-100 flex flex-col lg:flex-row items-center justify-start border-b">
+        <div className="w-full lg:w-[50vw] order-2 lg:order-1 py-16 px-6 lg:px-16 flex flex-col justify-center items-center lg:items-start">
           <h1>
             Soluciones de <span className="text-blue60">Confiabilidad</span>{" "}
             para Optimizar tu Planta Industrial
@@ -65,7 +41,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="h-[40vh] lg:h-[70vh] w-full lg:w-[50vw] order-1 lg:order-2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center relative">
+        <div className="h-[300px] lg:h-[600px] w-full lg:w-[50vw] order-1 lg:order-2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center relative">
           <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-gray-100 to-transparent"></div>
         </div>
       </div>
