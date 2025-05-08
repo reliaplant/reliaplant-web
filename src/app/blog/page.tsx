@@ -4,8 +4,9 @@ import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
 import { getAllContributors } from "@/lib/firebase/blog/contributor";
 import { BlogPost, BlogContributor } from "@/types/blog";
 
-// Forzamos el modo dinámico para evitar problemas de tipo con Next.js 15
-export const dynamic = "force-dynamic";
+// Cambiamos la configuración de la página para revalidar los datos frecuentemente
+export const revalidate = 0; // Revalidate at every request
+export const dynamic = "force-dynamic"; // Disable static optimization
 
 async function getBlogData() {
   try {

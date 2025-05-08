@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "reliaplant-2c104"
-  }
+    "default": "reliaplant-webpage"
+  },
+  "targets": {
+    "reliaplant-2c104": {
+      "hosting": {
+        "reliaplant-webpage": [
+          "reliaplant-webpage"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
 
   // Configuración de imágenes del archivo JS
   images: {
@@ -15,6 +16,9 @@ const nextConfig: NextConfig = {
 
   skipTrailingSlashRedirect: true,
   skipMiddlewareUrlNormalize: true,
+
+  // Configuración para Firebase Hosting con renderizado dinámico
+  output: "standalone",
 
   distDir: process.env.NODE_ENV === "production" ? ".next" : ".next-dev",
 

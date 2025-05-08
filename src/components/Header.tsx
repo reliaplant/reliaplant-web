@@ -100,14 +100,17 @@ export default function Header() {
             <div className="pl-8 font-thin text-2xl text-gray30 mr-4 h-full flex items-center">
               |
             </div>
-            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
-              <a href="/consultoria" className="relative text-gray60">
-                SERVICIOS DE CONSULTORÍA
-              </a>
-              <ChevronDown
-                size={16}
-                className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
-              />
+            <div className="mb-0 text-sm relative group h-full">
+              <Link
+                href="/consultoria"
+                className="h-full px-4 pl-6 hover:bg-gray10 flex items-center"
+              >
+                <span className="text-gray60">SERVICIOS DE CONSULTORÍA</span>
+                <ChevronDown
+                  size={16}
+                  className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
+                />
+              </Link>
               <div className="mt-[36px] absolute left-0 top-2 hidden p-6 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
                 <div>
                   <div className="bg-white flex flex-row gap-4">
@@ -143,18 +146,17 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="hover:bg-gray10 mb-0 text-sm relative group px-4 pl-6 h-full flex items-center">
-              <a
+            <div className="mb-0 text-sm relative group h-full">
+              <Link
                 href="http://app.reliaplant.com/"
-                className="relative text-gray60 "
+                className="h-full px-4 pl-6 hover:bg-gray10 flex items-center text-gray60"
               >
-                SOFTWARE
-              </a>
-
-              <ChevronDown
-                size={16}
-                className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
-              />
+                <span>SOFTWARE</span>
+                <ChevronDown
+                  size={16}
+                  className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray60"
+                />
+              </Link>
               <div className="mt-[36px] absolute left-0 top-2 hidden p-2 bg-white shadow-md border border-gray30 text-black group-hover:block z-50">
                 <div className="px-2 py-2 border-b flex flex-row items-center w-[40vw] gap-4 hover:bg-gray10 hover:cursor-pointer">
                   <Link
@@ -192,8 +194,11 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="hover:bg-gray10 mb-0 text-sm relative group px-6 h-full flex items-center">
-              <Link href="/blog" className="relative text-gray60">
+            <div className="mb-0 text-sm relative group h-full">
+              <Link
+                href="/blog"
+                className="h-full px-6 hover:bg-gray10 flex items-center text-gray60"
+              >
                 BLOG
               </Link>
             </div>

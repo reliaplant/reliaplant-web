@@ -9,9 +9,20 @@
     ],
     "frameworksBackend": {
       "region": "us-central1"
-    }
+    },
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "nextServer"
+      }
+    ]
   },
   "firestore": {
     "rules": "firestore.rules"
+  },
+  "functions": {
+    "source": ".",
+    "runtime": "nodejs18"
   }
 }
