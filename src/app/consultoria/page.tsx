@@ -1,5 +1,4 @@
-"use client";
-
+export const dynamic = "force-static";
 import React from "react";
 import Image from "next/image";
 import procesoConfiabilidad from "../../../public/assets/procesoConfiabilidad.png";

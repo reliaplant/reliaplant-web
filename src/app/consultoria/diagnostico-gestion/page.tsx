@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { Metadata } from "next";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { Headset } from "@carbon/icons-react";

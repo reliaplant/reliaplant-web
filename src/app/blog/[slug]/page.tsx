@@ -2,6 +2,21 @@ import { Metadata } from "next";
 import { getAllBlogPosts } from "@/lib/firebase/blog/blog";
 import BlogPostContent from "./components/BlogPostContent";
 
+// Add this function to generate static paths for all blog posts
+export async function generateStaticParams() {
+  try {
+    const posts = await getAllBlogPosts();
+    return posts
+      .filter((post) => post.published)
+      .map((post) => ({
+        slug: post.slug || post.id,
+      }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
+}
+
 export async function generateMetadata({
   params,
 }: {
