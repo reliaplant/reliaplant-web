@@ -86,11 +86,11 @@ export default function AdminPage() {
           />
 
           <AdminCard
-            title="Configuración"
-            description="Configurar ajustes y preferencias del sitio"
+            title="Configuración de cuenta"
+            description="Configurar, añadir y editar usuarios"
             icon={FiSettings}
             color="gray"
-            onClick={() => console.log("Settings clicked")}
+            href="admin/account"
           />
 
           <AdminCard
