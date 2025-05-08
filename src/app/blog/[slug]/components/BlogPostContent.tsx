@@ -4,35 +4,51 @@ import { BlogPost, BlogContributor } from "@/types/blog";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getContributor } from "@/lib/firebase/blog/contributor";
+import { getAllBlogPosts } from "@/lib/firebase/blog/blog";
 
 interface BlogPostContentProps {
-  post: BlogPost;
+  slug: string;
 }
 
-export default function BlogPostContent({ post }: BlogPostContentProps) {
+export default function BlogPostContent({ slug }: BlogPostContentProps) {
+  const [post, setPost] = useState<BlogPost | null>(null);
   const [contributor, setContributor] = useState<BlogContributor | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    // Variable para controlar si el componente está montado
     let isMounted = true;
 
-    async function fetchContributor() {
+    async function fetchData() {
       try {
         if (!isMounted) return;
         setLoading(true);
 
+        // Fetch post data
+        const posts = await getAllBlogPosts();
+        const foundPost = posts.find(
+          (post) => post.published && (post.slug === slug || post.id === slug)
+        );
+
+        if (!foundPost) {
+          throw new Error("Post not found");
+        }
+
+        if (isMounted) {
+          setPost(foundPost);
+        }
+
         // Get contributor data if available
-        if (post.contributorId) {
+        if (foundPost.contributorId) {
           try {
-            const contributorData = await getContributor(post.contributorId);
+            const contributorData = await getContributor(
+              foundPost.contributorId
+            );
             if (isMounted && contributorData) {
               setContributor(contributorData);
             }
           } catch (contributorError) {
             console.error("Error fetching contributor:", contributorError);
-            // No bloquear la visualización del post si hay error con el contributor
           }
         }
       } catch (err) {
@@ -46,13 +62,12 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
       }
     }
 
-    fetchContributor();
+    fetchData();
 
-    // Cleanup function para evitar memory leaks
     return () => {
       isMounted = false;
     };
-  }, [post]);
+  }, [slug]);
 
   const formatDate = (dateString: string) => {
     try {
