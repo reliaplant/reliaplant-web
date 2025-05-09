@@ -14,7 +14,7 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "nextServer"
+        "function": "nextApp"
       }
     ]
   },

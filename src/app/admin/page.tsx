@@ -89,7 +89,7 @@ export default function AdminPage() {
             description="Configurar, añadir y editar usuarios"
             icon={FiSettings}
             color="gray"
-            href="admin/account"
+            href="/admin/account"
           />
 
           <AdminCard
