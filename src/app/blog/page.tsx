@@ -10,21 +10,36 @@ export const dynamic = "force-dynamic"; // Disable static optimization
 
 async function getBlogData() {
   try {
+    console.log("Iniciando carga de datos del blog...");
     const posts = await getPublishedBlogPosts();
+    console.log(`Posts cargados: ${posts.length}`);
+
     const contributors = await getAllContributors();
+    console.log(`Contributors cargados: ${contributors.length}`);
+
+    const contributorsMap = contributors.reduce((map, contributor) => {
+      if (contributor?.active && contributor?.name) {
+        map[contributor.name] = contributor;
+      }
+      return map;
+    }, {} as Record<string, BlogContributor>);
+
+    console.log(
+      "Mapa de contributors creado:",
+      Object.keys(contributorsMap).length
+    );
 
     return {
-      posts,
-      contributorsMap: contributors.reduce((map, contributor) => {
-        map[contributor.name] = contributor;
-        return map;
-      }, {} as Record<string, BlogContributor>),
+      posts: posts || [],
+      contributorsMap,
+      timestamp: Date.now(),
     };
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    console.error("Error detallado al cargar datos del blog:", error);
     return {
       posts: [],
       contributorsMap: {},
+      timestamp: Date.now(),
     };
   }
 }
@@ -99,7 +114,7 @@ export default async function BlogPage({ params }: any) {
                           width={32}
                           height={32}
                           loading="eager"
-                          className="rounded-full mr-2 object-cover"
+                          className="rounded-full mr-2 object-cover w-8 h-8"
                         />
                       ) : (
                         <div className="w-8 h-8 bg-gray-200 rounded-full mr-2 flex items-center justify-center">

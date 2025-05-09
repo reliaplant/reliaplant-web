@@ -229,22 +229,31 @@ export default function BlogForm({
                 <div className="animate-pulse">Cargando articulistas...</div>
               </div>
             ) : contributors.length > 0 ? (
-              <select
-                name="author"
-                value={blogPost.author}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-              >
-                <option value="" disabled>
-                  Seleccionar articulista
-                </option>
-                {contributors.map((contributor) => (
-                  <option key={contributor.id} value={contributor.name}>
-                    {contributor.name}
+              <div className="flex items-center gap-2">
+                <select
+                  name="author"
+                  value={blogPost.author}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded"
+                  required
+                >
+                  <option value="" disabled>
+                    Seleccionar articulista
                   </option>
-                ))}
-              </select>
+                  {contributors.map((contributor) => (
+                    <option key={contributor.id} value={contributor.name}>
+                      {contributor.name}
+                    </option>
+                  ))}
+                </select>
+                <a
+                  href="/admin/contributor?return=blog"
+                  target="_blank"
+                  className="bg-indigo-600 text-white px-3 py-2 rounded text-sm hover:bg-indigo-700 whitespace-nowrap"
+                >
+                  Editar articulistas
+                </a>
+              </div>
             ) : (
               <div className="flex items-center gap-2">
                 <input
@@ -257,7 +266,7 @@ export default function BlogForm({
                   placeholder="No hay articulistas - introduce un nombre"
                 />
                 <a
-                  href="/admin/blog-editor/contributor?return=blog"
+                  href="/admin/contributor?return=blog"
                   target="_blank"
                   className="bg-indigo-600 text-white px-3 py-2 rounded text-sm hover:bg-indigo-700"
                 >

@@ -8,6 +8,8 @@ import {
   query,
   orderBy,
   deleteDoc,
+  where,
+  writeBatch,
 } from "firebase/firestore";
 import {
   ref,
@@ -23,18 +25,38 @@ const CONTRIBUTORS_COLLECTION = "blogContributors";
 
 export async function getAllContributors(): Promise<BlogContributor[]> {
   try {
+    console.log("Iniciando carga de contributors...");
     const q = query(
       collection(db, CONTRIBUTORS_COLLECTION),
-      orderBy("name", "asc")
+      orderBy("updatedAt", "desc")
     );
 
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as BlogContributor[];
+
+    if (querySnapshot.empty) {
+      console.log("No hay contributors");
+      return [];
+    }
+
+    const contributors = querySnapshot.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        name: data.name || "",
+        email: data.email || "",
+        bio: data.bio || "",
+        photo: data.photo || "",
+        active: data.active ?? true,
+        socialMedia: data.socialMedia || {},
+        updatedAt: data.updatedAt || new Date().toISOString(),
+        createdAt: data.createdAt || new Date().toISOString(),
+      } as BlogContributor;
+    });
+
+    console.log(`Encontrados ${contributors.length} contributors`);
+    return contributors;
   } catch (error) {
-    console.error("Error getting contributors:", error);
+    console.error("Error detallado al obtener contributors:", error);
     throw error;
   }
 }
@@ -78,13 +100,75 @@ export async function updateContributor(
   contributor: Partial<BlogContributor>
 ): Promise<void> {
   try {
+    // Si hay una foto nueva y existe una foto anterior, eliminar la anterior
+    const existingContributor = await getContributor(id);
+    if (!existingContributor) {
+      throw new Error("Contributor not found");
+    }
+
+    if (
+      contributor.photo &&
+      existingContributor.photo &&
+      existingContributor.photo !== contributor.photo &&
+      existingContributor.photo.startsWith(
+        "https://firebasestorage.googleapis.com/"
+      )
+    ) {
+      try {
+        await deleteContributorPhoto(existingContributor.photo);
+      } catch (error) {
+        console.warn("No se pudo eliminar la foto anterior:", error);
+      }
+    }
+
     const contributorRef = doc(db, CONTRIBUTORS_COLLECTION, id);
-    await updateDoc(contributorRef, {
+    const updateData = {
       ...contributor,
       updatedAt: new Date().toISOString(),
+    };
+    await updateDoc(contributorRef, updateData);
+
+    // Actualizar todos los posts relacionados con este contributor
+    await updateContributorPosts(id, {
+      ...updateData,
+      id, // Aseguramos que el ID se incluya en la actualización
     });
   } catch (error) {
     console.error("Error updating contributor:", error);
+    throw error;
+  }
+}
+
+async function updateContributorPosts(
+  contributorId: string,
+  contributorData: Partial<BlogContributor>
+): Promise<void> {
+  try {
+    const q = query(
+      collection(db, "blogPosts"),
+      where("contributorId", "==", contributorId)
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    const batch = writeBatch(db);
+    querySnapshot.docs.forEach((doc) => {
+      const postRef = doc.ref;
+      batch.update(postRef, {
+        contributor: {
+          id: contributorId,
+          name: contributorData.name,
+          photo: contributorData.photo,
+          bio: contributorData.bio,
+          socialMedia: contributorData.socialMedia,
+        },
+        updatedAt: new Date().toISOString(),
+      });
+    });
+
+    await batch.commit();
+  } catch (error) {
+    console.error("Error updating contributor posts:", error);
     throw error;
   }
 }
@@ -103,9 +187,14 @@ export async function uploadContributorPhoto(
   contributorId: string
 ): Promise<string> {
   try {
+    // Usar timestamp para evitar conflictos de nombres
+    const timestamp = Date.now();
+    const fileExtension = file.name.split(".").pop();
+    const fileName = `photo_${timestamp}.${fileExtension}`;
+
     const storageRef = ref(
       storage,
-      `blog-contributors/${contributorId}/${file.name}`
+      `blog-contributors/${contributorId}/${fileName}`
     );
     await uploadBytes(storageRef, file);
     const downloadURL = await getDownloadURL(storageRef);
@@ -118,6 +207,12 @@ export async function uploadContributorPhoto(
 
 export async function deleteContributorPhoto(photoUrl: string): Promise<void> {
   try {
+    // Verificar si la URL es una URL de Firebase Storage
+    if (!photoUrl.startsWith("https://firebasestorage.googleapis.com/")) {
+      console.warn("Invalid storage URL, skipping delete");
+      return;
+    }
+
     const photoRef = ref(storage, photoUrl);
     await deleteObject(photoRef);
   } catch (error) {

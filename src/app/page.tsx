@@ -99,15 +99,6 @@ export default function Home() {
             variant="default"
           />
         </div>
-
-        <div className="mt-8 ">
-          <Link href="/servicios">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center gap-2">
-              <span>Ver todos los servicios</span>
-              <ArrowRight size={20} />
-            </button>
-          </Link>
-        </div>
       </div>
 
       <div className="contentSection bg-graylightgray">

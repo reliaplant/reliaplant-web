@@ -16,6 +16,7 @@ import {
   getDownloadURL,
   deleteObject,
 } from "firebase/storage";
+import { isClient } from "@/lib/utils/isClient";
 
 import { BlogPost } from "@/types/blog";
 import { db, storage } from "../config";
@@ -103,6 +104,10 @@ export async function uploadBlogImage(
     throw new Error("No file provided");
   }
 
+  if (!isClient()) {
+    throw new Error("Image upload must be performed on the client side");
+  }
+
   try {
     // Create a unique filename with original file extension
     const fileExtension = file.name.split(".").pop();
@@ -143,11 +148,21 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
       orderBy("publishDate", "desc")
     );
 
+    // Forzar una nueva consulta
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => ({
+
+    if (querySnapshot.empty) {
+      console.log("No hay posts publicados");
+      return [];
+    }
+
+    const posts = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as BlogPost[];
+
+    console.log(`Encontrados ${posts.length} posts publicados`);
+    return posts;
   } catch (error) {
     console.error("Error getting published blog posts:", error);
     throw error;
@@ -155,7 +170,17 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
 }
 
 export async function deleteBlogImage(imageUrl: string): Promise<void> {
+  if (!isClient()) {
+    throw new Error("Image deletion must be performed on the client side");
+  }
+
   try {
+    // Si la URL es una Blob URL, revocarla antes de eliminar
+    if (imageUrl.startsWith("blob:")) {
+      URL.revokeObjectURL(imageUrl);
+      return;
+    }
+
     const imageRef = ref(storage, imageUrl);
     await deleteObject(imageRef);
   } catch (error) {

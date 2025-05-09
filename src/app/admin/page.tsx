@@ -93,11 +93,11 @@ export default function AdminPage() {
           />
 
           <AdminCard
-            title="Campañas de Email"
-            description="Crear y gestionar campañas de email marketing"
+            title="Configuración de articulistas"
+            description="Crear, gestionar y editar articulistas"
             icon={FiMail}
             color="yellow"
-            onClick={() => console.log("Email campaigns clicked")}
+            href="admin/contributor"
           />
 
           <AdminCard
