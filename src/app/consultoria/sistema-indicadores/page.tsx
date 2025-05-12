@@ -2,12 +2,6 @@ export const dynamic = "force-static";
 
 import { Metadata } from "next";
 import {
-  Add,
-  Asset,
-  Category,
-  DataAnalytics,
-  Headset,
-  Industry,
   Number_1,
   Number_2,
   Number_3,
@@ -22,8 +16,6 @@ import {
   Gears,
   IbmKnowledgeCatalogPremium,
 } from "@carbon/icons-react";
-import { ChartBarDecreasing } from "lucide-react";
-import AbrirFormContacto from "@/components/AbrirFormContacto";
 import BannerPrincipal from "@/components/BannerPrincipal";
 import { ServiceCard } from "@/components/ServiceCard";
 

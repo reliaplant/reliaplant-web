@@ -181,6 +181,7 @@ export default function ManualesCorporativos() {
                 buttonText="Habla con un especialista"
                 icon={<Headset size={20} className="text-white" />}
                 buttonColor="bg-gray90"
+                especial="Biblioteca Digital Documentada"
               />
             </div>
           </div>
@@ -214,6 +215,7 @@ export default function ManualesCorporativos() {
                 buttonText="Habla con un especialista"
                 icon={<Headset size={20} className="text-white" />}
                 buttonColor="bg-gray90"
+                especial="Manual Corporativo de Mantenimiento y/o Confiabilidad"
               />
             </div>
           </div>

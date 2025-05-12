@@ -2,40 +2,11 @@ export const dynamic = "force-static";
 
 import { Metadata } from "next";
 import {
-  Add,
-  Asset,
-  Category,
-  ChevronDown,
-  Close,
-  DecisionNode,
-  Number_7,
-  Query,
-  Share,
-  Subflow,
-  Warning,
-  ArrowUpRight,
-  Industry,
-  Activity,
-  EventWarning,
-  TransformInstructions,
-  ArrowRight,
-  RequestQuote,
-  SupportVectorMachine,
-  DataAnalytics,
-  Headset,
-  Number_1,
-  Number_2,
-  Number_3,
-  Number_4,
-  QuestionAnswering,
   TreeView,
   DataVolume,
   SyncSettings,
   Inspection,
 } from "@carbon/icons-react";
-import { MdMoney, MdScience } from "react-icons/md";
-import { Binoculars, Compass } from "lucide-react";
-import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { ServiceCard } from "@/components/ServiceCard";
 import BannerPrincipal from "@/components/BannerPrincipal";
 

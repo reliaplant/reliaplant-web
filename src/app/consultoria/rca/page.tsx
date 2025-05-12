@@ -2,20 +2,6 @@ export const dynamic = "force-static";
 
 import { Metadata } from "next";
 import {
-  Query,
-  Share,
-  Subflow,
-  Warning,
-  ArrowUpRight,
-  Industry,
-  Activity,
-  EventWarning,
-  TransformInstructions,
-  ArrowRight,
-  RequestQuote,
-  SupportVectorMachine,
-  DataAnalytics,
-  Headset,
   Number_1,
   Number_2,
   Number_3,

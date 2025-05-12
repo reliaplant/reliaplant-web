@@ -10,7 +10,8 @@ export interface FormContactData {
   date: Date;
   isMobile: boolean;
   origen?: string | null;
-  pagina?: string | null;
+  direccion?: string | null;
+  especial?: string | null;
   type?: string | null;
   campana?: string | null;
   anuncio?: string | null;

@@ -99,6 +99,7 @@ export default function EstrategiaGestionActivosPage() {
             buttonText="Solicitar una consulta"
             fullDesktop={true}
             modalTitle="Solicitar consultoría en Gestión de Activos"
+            especial="Consultoría en Gestión de Activos"
           />
           <div className="flex flex-col gap-4 mt-6">
             <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">

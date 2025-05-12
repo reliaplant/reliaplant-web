@@ -18,7 +18,8 @@ interface FormularioContactoProps {
   mailchimpTagIn?: string;
   btnTextColorClass?: string;
   btnText?: string;
-  pagina?: string;
+  especial?: string;
+  direccion?: string;
 }
 
 export default function FormularioContacto({
@@ -31,7 +32,8 @@ export default function FormularioContacto({
   colorClass = "bg-blue60 hover:bg-gray80",
   btnTextColorClass = "text-white ",
   btnText = "Solicitar información",
-  pagina = "",
+  especial = "",
+  direccion = "",
 }: FormularioContactoProps) {
   const [formData, setFormData] = useState<
     Omit<FormContactData, "date" | "isMobile">
@@ -40,7 +42,6 @@ export default function FormularioContacto({
     email: "",
     telefono: "",
     interes: "",
-    cantidadPersonas: null,
     cargo: "",
     empresa: "",
     pais: "",
@@ -91,15 +92,12 @@ export default function FormularioContacto({
         date: new Date(),
         isMobile: isMobile,
         origen: origenLocal,
-        pagina: pagina || null,
+        especial: especial || null,
+        direccion: direccion || window.location.pathname,
         type: type || null,
         campana: campana || null,
         anuncio: anuncio || null,
       };
-
-      if (formData.cantidadPersonas) {
-        formContactData.cantidadPersonas = formData.cantidadPersonas;
-      }
 
       const result = await saveFormContact(formContactData);
       if (result) {
@@ -175,19 +173,13 @@ export default function FormularioContacto({
             />
           </div>
 
-          {/* Interés y cantidad */}
-          <div
-            className={`mb-3 ${
-              formData.interes === "empresa"
-                ? "grid grid-cols-1 md:grid-cols-2 gap-2"
-                : "grid grid-cols-1"
-            }`}
-          >
+          {/* Interés */}
+          <div className="mb-3">
             <select
               name="interes"
               value={formData.interes}
               onChange={handleInputChange}
-              className="w-full px-1 py-1 text-sm  border border-gray-300"
+              className="w-full px-1 py-1 text-sm border border-gray-300"
               required
             >
               <option value="" disabled>
@@ -196,22 +188,6 @@ export default function FormularioContacto({
               <option value="individual">Individual</option>
               <option value="empresa">Empresa</option>
             </select>
-
-            {formData.interes === "empresa" && (
-              <select
-                name="cantidadPersonas"
-                onChange={handleInputChange}
-                className="w-full px-1 py-1 text-sm  border border-gray-300"
-                required
-              >
-                <option value="">Para cuantas personas</option>
-                <option value="1">Para 1 persona</option>
-                <option value="2">Para 2 personas</option>
-                <option value="5">Para 5 personas</option>
-                <option value="+10">Para más de 10 personas</option>
-                <option value="+25">Para más de 25 personas</option>
-              </select>
-            )}
           </div>
 
           {/* Cargo y Empresa */}

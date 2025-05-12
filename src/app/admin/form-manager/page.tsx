@@ -175,16 +175,27 @@ export default function FormManagerPage() {
                                     <strong>Dispositivo:</strong>{" "}
                                     {form.isMobile ? "Móvil" : "Desktop"}
                                   </p>
-                                </div>
-                                <div className="space-y-2">
                                   {form.origen && (
                                     <p className="text-sm">
                                       <strong>Origen:</strong> {form.origen}
                                     </p>
                                   )}
-                                  {form.pagina && (
+                                </div>
+                                <div className="space-y-2">
+                                  {form.direccion && (
                                     <p className="text-sm">
-                                      <strong>Página:</strong> {form.pagina}
+                                      <strong>Dirección:</strong>{" "}
+                                      {form.direccion}
+                                    </p>
+                                  )}
+                                  {form.especial && (
+                                    <p className="text-sm">
+                                      <strong>Especial:</strong> {form.especial}
+                                    </p>
+                                  )}
+                                  {form.type && (
+                                    <p className="text-sm">
+                                      <strong>Tipo:</strong> {form.type}
                                     </p>
                                   )}
                                   {form.campana && (
@@ -197,11 +208,13 @@ export default function FormManagerPage() {
                                       <strong>Anuncio:</strong> {form.anuncio}
                                     </p>
                                   )}
-                                  <p className="text-sm">
-                                    <strong>Fecha:</strong>{" "}
-                                    {form.date.toLocaleDateString()}
-                                  </p>
                                 </div>
+                              </div>
+                              <div className="mt-2">
+                                <p className="text-sm">
+                                  <strong>Fecha:</strong>{" "}
+                                  {form.date.toLocaleDateString()}
+                                </p>
                               </div>
                             </div>
                           )}

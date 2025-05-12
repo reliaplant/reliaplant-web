@@ -204,7 +204,7 @@ export default function Header() {
             </div>
           </ul>
           <div className="flex flex-row items-center h-full">
-            <AbrirFormContacto />
+            <AbrirFormContacto especial="header" />
             <a href="http://app.reliaplant.com/" className="no-underline">
               <button className="font-semibold text-sm bg-transparent text-black flex flex-row items-center px-4 py-3.5 hover:bg-gray20 transition-colors whitespace-nowrap">
                 Ir a Software

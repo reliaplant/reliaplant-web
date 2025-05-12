@@ -268,6 +268,7 @@ export default function AsesoriaConstante() {
                   buttonColor="bg-gray90"
                   fullDesktop={true}
                   modalTitle="Solicita asesoría part-time"
+                  especial="Asesor Part-time"
                 />
               </div>
             </div>
@@ -303,6 +304,7 @@ export default function AsesoriaConstante() {
                   buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita asesoría continua"
+                  especial="Asesoría continua"
                 />
               </div>
             </div>

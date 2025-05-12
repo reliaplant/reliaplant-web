@@ -11,40 +11,26 @@ import {
   DataTable,
   SettingsAdjust,
   Checkmark,
+  RequestQuote,
+  Chemistry,
+  Restaurant,
+  Document,
+  Power,
 } from "@carbon/icons-react";
-import { Target, BarChart3, Layers } from "lucide-react";
+import { Target, Layers, Building } from "lucide-react";
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
-import AbrirFormContacto from "@/components/AbrirFormContacto";
+import BannerPrincipal from "@/components/BannerPrincipal";
 
 export default function Home() {
   return (
     <>
-      <div className="relative h-[600px] bg-gray-100 flex flex-col lg:flex-row items-center justify-start border-b">
-        <div className="w-full lg:w-[50vw] order-2 lg:order-1 py-16 px-6 lg:px-16 flex flex-col justify-center items-center lg:items-start">
-          <h1>
-            Soluciones de <span className="text-blue60">Confiabilidad</span>{" "}
-            para Optimizar tu Planta Industrial
-          </h1>
-          <h4>
-            Maximiza el rendimiento de tus activos y reduce costos de
-            mantenimiento con nuestros servicios especializados y soluciones de
-            software.
-          </h4>
-          <div className="mt-12 flex flex-row gap-4 w-full items-center justify-center lg:justify-start">
-            <AbrirFormContacto
-              buttonText="Habla con un especialista"
-              icon={<Headset size={20} className="text-white" />}
-              buttonColor="bg-black"
-              textColor="text-white"
-              modalTitle="Consulta con nuestros especialistas"
-            />
-          </div>
-        </div>
-        <div className="h-[300px] lg:h-[600px] w-full lg:w-[50vw] order-1 lg:order-2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center relative">
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-gray-100 to-transparent"></div>
-        </div>
-      </div>
+      <BannerPrincipal
+        title="Soluciones de Confiabilidad para Optimizar tu Planta Industrial"
+        description="Maximiza el rendimiento de tus activos y reduce costos de mantenimiento con nuestros servicios especializados y soluciones de software."
+        currentPath=""
+        image="/assets/bgRAM.png"
+      />
 
       <div className="contentSection">
         <div>
@@ -78,10 +64,10 @@ export default function Home() {
             variant="default"
           />
           <ServiceCard
-            href="/consultoria/analisis-criticidad"
-            Icon={BarChart3}
-            title="Análisis de Criticidad"
-            description="Jerarquización de activos para priorizar recursos y reducir riesgos operacionales y de seguridad."
+            href="/consultoria/analisis-lcc"
+            Icon={RequestQuote}
+            title="Análisis RUL y LCC"
+            description="Determina el momento óptimo para reemplazar o modernizar activos mediante evaluación técnico-económica del ciclo de vida."
             variant="default"
           />
           <ServiceCard
@@ -111,7 +97,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Link href="/rca" className="no-underline">
+          <Link href="/consultoria/rca" className="no-underline">
             <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Category size={48} />
@@ -130,7 +116,7 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/rcm" className="no-underline">
+          <Link href="/consultoria/rcm" className="no-underline">
             <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <DecisionNode size={48} />
@@ -149,7 +135,7 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/ram" className="no-underline">
+          <Link href="/consultoria/analisis-ram" className="no-underline">
             <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="bg-graylightgray p-6 inline-block mb-6">
                 <Analytics size={48} />
@@ -166,15 +152,6 @@ export default function Home() {
                 <ArrowUpRight size={20} className="text-blue60" />
               </div>
             </div>
-          </Link>
-        </div>
-
-        <div className="mt-2 ">
-          <Link href="/software">
-            <button className="border-2 border-blue60 bg-white hover:bg-blue20 text-blue60 px-8 py-3 flex items-center gap-2">
-              <span>Ver todo el software</span>
-              <ArrowRight size={20} />
-            </button>
           </Link>
         </div>
       </div>
@@ -279,9 +256,33 @@ export default function Home() {
             variant="dark"
           />
           <ServiceCard
-            Icon={Layers}
-            title="Infraestructura"
-            description="Asegura la operatividad de instalaciones críticas y servicios esenciales."
+            Icon={Chemistry}
+            title="Petroquímica"
+            description="Garantiza la confiabilidad de procesos químicos complejos y mantén altos estándares de seguridad."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Restaurant}
+            title="Alimentos y bebidas"
+            description="Asegura la continuidad operativa mientras cumples con estrictas normas de inocuidad y calidad."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Document}
+            title="Pulpa y papel"
+            description="Maximiza la eficiencia en procesos continuos y reduce pérdidas por paradas no programadas."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Building}
+            title="Cemento y materiales"
+            description="Optimiza el rendimiento de equipos críticos en entornos de alta exigencia y desgaste."
+            variant="dark"
+          />
+          <ServiceCard
+            Icon={Power}
+            title="Energía eléctrica"
+            description="Mantén la confiabilidad en la generación y distribución de energía con estrategias especializadas."
             variant="dark"
           />
         </div>

@@ -150,6 +150,7 @@ export default function Capacitacion() {
                   buttonColor="bg-gray90"
                   fullDesktop={true}
                   modalTitle="Solicita capacitación online"
+                  especial="Capacitaciones Online"
                 />
               </div>
             </div>
@@ -183,6 +184,7 @@ export default function Capacitacion() {
                   buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita capacitación presencial"
+                  especial="Capacitaciones Presenciales"
                 />
               </div>
             </div>
@@ -216,6 +218,7 @@ export default function Capacitacion() {
                   buttonColor="bg-gray90"
                   fullDesktop={true}
                   modalTitle="Solicita programa personalizado"
+                  especial="Solicitud de programa personalizado"
                 />
               </div>
             </div>

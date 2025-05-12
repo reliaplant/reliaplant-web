@@ -76,6 +76,7 @@ export default function Contacto() {
                   buttonText="Habla con un especialista"
                   icon={<Headset size={20} className="text-white" />}
                   buttonColor="bg-gray90"
+                  especial="LCC main banner"
                 />
               </div>
             </div>

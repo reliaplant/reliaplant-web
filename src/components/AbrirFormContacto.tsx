@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiX } from "react-icons/fi";
 import FormularioContacto from "./FormularioContacto";
-import { usePathname } from "next/navigation";
 import { RequestQuote } from "@carbon/icons-react";
 
 interface AbrirFormContactoProps {
@@ -11,6 +10,7 @@ interface AbrirFormContactoProps {
   textColor?: string;
   fullDesktop?: boolean;
   modalTitle?: string;
+  especial?: string; // Make it optional since we'll get it automatically
 }
 
 const AbrirFormContacto: React.FC<
@@ -22,10 +22,15 @@ const AbrirFormContacto: React.FC<
   textColor = "text-white",
   fullDesktop = false,
   modalTitle = "Hablar con un especialista",
+  especial,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+  const [currentPath, setCurrentPath] = useState<string>("");
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -97,7 +102,8 @@ const AbrirFormContacto: React.FC<
               responsable=""
               lugar="diplomado"
               btnText="Solicitar información"
-              pagina={pathname}
+              especial={especial || "header"}
+              direccion={currentPath}
             />
           </div>
         </div>
