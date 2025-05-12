@@ -278,10 +278,6 @@ export default function ConsultoriaPage() {
           ))}
         </div>
       </div>
-
-      <div className="">
-        <Industrias />
-      </div>
     </div>
   );
 }

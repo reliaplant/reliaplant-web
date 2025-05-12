@@ -11,6 +11,7 @@ interface AbrirFormContactoProps {
   fullDesktop?: boolean;
   modalTitle?: string;
   especial?: string; // Make it optional since we'll get it automatically
+  className?: string; // Add this line
 }
 
 const AbrirFormContacto: React.FC<
@@ -23,6 +24,7 @@ const AbrirFormContacto: React.FC<
   fullDesktop = false,
   modalTitle = "Hablar con un especialista",
   especial,
+  className, // Add this line
 }) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ const AbrirFormContacto: React.FC<
     <>
       <div className="flex flex-row w-full z-[30]">
         <div
-          className={`${desktopClass} w-full`}
+          className={`${desktopClass} w-full ${className || ""}`} // Add className here
           onClick={() => setShowModal(true)}
         >
           <button
