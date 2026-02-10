@@ -1,292 +1,497 @@
+'use client';
+
 import React from "react";
 import {
-  DecisionNode,
-  Category,
-  ArrowUpRight,
-  Industry,
-  Activity,
-  ArrowRight,
-  Headset,
+  Catalog,
+  ChartLineData,
   Analytics,
-  DataTable,
-  SettingsAdjust,
-  Checkmark,
-  RequestQuote,
-  Chemistry,
-  Restaurant,
-  Document,
-  Power,
+  CloudApp,
+  Network_3,
+  CheckmarkFilled,
+  ArrowRight,
+  ChevronRight,
+  Chip,
+  Lightning,
+  DataStructured,
 } from "@carbon/icons-react";
-import { Target, Layers, Building } from "lucide-react";
 import Link from "next/link";
-import { ServiceCard } from "@/components/ServiceCard";
-import BannerPrincipal from "@/components/BannerPrincipal";
 
 export default function Home() {
+  const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
+
   return (
     <>
-      <BannerPrincipal
-        title="Soluciones de Confiabilidad para Optimizar tu Planta Industrial"
-        description="Maximiza el rendimiento de tus activos y reduce costos de mantenimiento con nuestros servicios especializados y soluciones de software."
-        currentPath=""
-        image="/assets/bgRAM.png"
-      />
-
-      <div className="contentSection">
-        <div>
-          <h2>Nuestros Servicios de Consultoría</h2>
-          <p className="text-gray60 text-left">
-            Ofrecemos soluciones personalizadas para optimizar la confiabilidad,
-            disponibilidad y mantenibilidad de tus activos industriales.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard
-            href="/consultoria/analisis-ram"
-            Icon={Analytics}
-            title="Análisis RAM"
-            description="Modelación de sistemas para predecir la confiabilidad, disponibilidad y mantenibilidad de tus activos críticos."
-            variant="default"
-          />
-          <ServiceCard
-            href="/consultoria/rcm"
-            Icon={DecisionNode}
-            title="Mantenimiento Centrado en Confiabilidad"
-            description="Metodología para desarrollar planes de mantenimiento optimizados reduciendo fallas y aumentando productividad."
-            variant="default"
-          />
-          <ServiceCard
-            href="/consultoria/mantenibilidad"
-            Icon={Target}
-            title="Análisis de Mantenibilidad"
-            description="Mejora el acceso a equipos, optimiza maniobras de mantenimiento y reduce tiempos de intervención."
-            variant="default"
-          />
-          <ServiceCard
-            href="/consultoria/analisis-lcc"
-            Icon={RequestQuote}
-            title="Análisis RUL y LCC"
-            description="Determina el momento óptimo para reemplazar o modernizar activos mediante evaluación técnico-económica del ciclo de vida."
-            variant="default"
-          />
-          <ServiceCard
-            href="/consultoria/rca"
-            Icon={Category}
-            title="Análisis Causa Raíz"
-            description="Identificación de causas fundamentales de fallas para implementar soluciones definitivas."
-            variant="default"
-          />
-          <ServiceCard
-            href="/consultoria/optimizacion-mro"
-            Icon={DataTable}
-            title="Optimización de Inventario"
-            description="Estrategias para mantener niveles óptimos de inventario MRO, reduciendo costos y asegurando disponibilidad."
-            variant="default"
-          />
-        </div>
-      </div>
-
-      <div className="contentSection bg-graylightgray">
-        <div>
-          <h2>Software Especializado</h2>
-          <p className="text-gray60 max-w-4xl text-left">
-            Herramientas potentes para el análisis y gestión de la confiabilidad
-            de tus activos industriales
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Link href="/consultoria/rca" className="no-underline">
-            <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="bg-graylightgray p-6 inline-block mb-6">
-                <Category size={48} />
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-40 pb-24 px-8">
+        {/* Decorative background circles */}
+        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Hero Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/40 px-4 py-2 rounded-full text-sm font-medium text-blue-300 mb-6">
+                <Chip size={16} />
+                <span>Inteligencia Artificial integrada</span>
               </div>
-              <h3>RCA</h3>
-              <p className="text-gray60 mb-6">
-                Software para análisis causa raíz que facilita la eliminación de
-                defectos recurrentes en tu planta.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
-                  Explorar software
+              
+              <h1 className="text-5xl font-bold leading-tight mb-6">
+                Plataforma integral de{" "}
+                <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                  confiabilidad industrial
                 </span>
-                <ArrowUpRight size={20} className="text-blue60" />
+              </h1>
+              
+              <p className="text-xl text-white/70 mb-8 max-w-xl leading-relaxed">
+                Taxonomía, criticidad, RCM y RCA potenciados con IA. Todo en un solo lugar para equipos de confiabilidad.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  href="#contacto" 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
+                >
+                  Comenzar prueba gratis
+                  <ArrowRight size={20} />
+                </Link>
+                <Link 
+                  href="#funcionalidades" 
+                  className="border border-white/30 hover:border-white hover:bg-white/5 text-white px-8 py-3.5 rounded font-medium inline-flex items-center gap-2 transition-all"
+                >
+                  Ver funcionalidades
+                </Link>
               </div>
             </div>
-          </Link>
 
-          <Link href="/consultoria/rcm" className="no-underline">
-            <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="bg-graylightgray p-6 inline-block mb-6">
-                <DecisionNode size={48} />
-              </div>
-              <h3>RCM</h3>
-              <p className="text-gray60 mb-6">
-                Plataforma para desarrollar planes de mantenimiento optimizados
-                para equipos críticos y no críticos.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
-                  Explorar software
-                </span>
-                <ArrowUpRight size={20} className="text-blue60" />
+            {/* Hero Visual - Module Tabs Mockup */}
+            <div className="relative">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-lg">
+                <div className="flex gap-1.5 mb-3">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                
+                <div className="flex gap-1 mb-3">
+                  <div className="px-3 py-2 text-xs font-semibold rounded-t bg-blue-500/20 text-blue-400 uppercase">
+                    Registro de activos
+                  </div>
+                  <div className="px-3 py-2 text-xs font-semibold rounded-t bg-white/5 text-white/40 uppercase">
+                    RCM
+                  </div>
+                  <div className="px-3 py-2 text-xs font-semibold rounded-t bg-white/5 text-white/40 uppercase">
+                    RCA
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <div className="flex-1 bg-white/5 rounded-lg p-4 space-y-2">
+                    <div className="h-2 bg-teal-500/30 rounded w-3/4" />
+                    <div className="h-2 bg-teal-500/20 rounded w-1/2 ml-4" />
+                    <div className="h-2 bg-teal-500/20 rounded w-2/3 ml-4" />
+                    <div className="h-2 bg-yellow-500/30 rounded w-1/2 ml-8" />
+                    <div className="h-2 bg-blue-500/30 rounded w-3/4" />
+                  </div>
+                  <div className="flex-1 bg-white/5 rounded-lg p-4 space-y-3">
+                    <div className="flex items-center justify-between text-xs text-white/50">
+                      <span>Criticidad</span>
+                      <span className="text-red-400 font-semibold">ALTA</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-white/50">
+                      <span>Última falla</span>
+                      <span className="text-white/70">15 días</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs text-white/50">
+                      <span>MTBF</span>
+                      <span className="text-white/70">320 h</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </Link>
-
-          <Link href="/consultoria/analisis-ram" className="no-underline">
-            <div className="bg-white p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="bg-graylightgray p-6 inline-block mb-6">
-                <Analytics size={48} />
-              </div>
-              <h3>RAM</h3>
-              <p className="text-gray60 mb-6">
-                Herramienta para el análisis de disponibilidad de sistemas
-                complejos mediante simulaciones avanzadas.
-              </p>
-              <div className="flex justify-between items-center">
-                <span className="text-blue60 font-light">
-                  Explorar software
-                </span>
-                <ArrowUpRight size={20} className="text-blue60" />
-              </div>
-            </div>
-          </Link>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="contentSection">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="text-left">
-            <h2>¿Por qué elegirnos?</h2>
-            <p className="text-gray60 mb-8 lg:mb-12">
-              En RELIAPLANT combinamos experiencia en confiabilidad industrial
-              con metodologías avanzadas y software especializado para ofrecer
-              soluciones integrales y personalizadas.
+      {/* 3 PILLARS SECTION */}
+      <section className="py-24 px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
+              Módulos principales
+            </span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Los 3 pilares de la confiabilidad en una plataforma
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Registro de activos para organizar, RCM para prevenir, RCA para investigar. Cada módulo funciona independiente o en flujo completo.
             </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8">
-              <div className="flex flex-col gap-4 min-h-[160px]">
-                <div className="flex items-center gap-3 justify-start h-12">
-                  <Checkmark
-                    size={32}
-                    className="text-blue60 relative bottom-[1px] shrink-0"
-                  />
-                  <h3 className="m-0">Experiencia comprobada</h3>
-                </div>
-                <p className="text-gray60 text-left grow">
-                  Más de 15 años en proyectos de confiabilidad para industrias
-                  de alta exigencia.
-                </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Taxonomía Card */}
+            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden group flex flex-col">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-teal-500" />
+              
+              <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
+                <Catalog size={28} className="text-teal-600" />
               </div>
-              <div className="flex flex-col gap-4 min-h-[160px]">
-                <div className="flex items-center gap-3 justify-start h-12">
-                  <Checkmark
-                    size={32}
-                    className="text-blue60 relative bottom-[1px] shrink-0"
-                  />
-                  <h3 className="m-0">Metodologías optimizadas</h3>
-                </div>
-                <p className="text-gray60 text-left grow">
-                  Procesos eficientes adaptados a tus necesidades específicas.
-                </p>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
+                Registro de activos y criticidad
+              </h3>
+              
+              <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
+                Clasifica activos con jerarquía estándar ISO 14224. Evalúa criticidad con matriz parametrizable y visualiza con mapas de calor.
+              </p>
+              
+              <ul className="space-y-2 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Jerarquía de 7 niveles (Planta → Componente)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Criticidad automática (Consecuencia × Frecuencia)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Importación masiva desde Excel</span>
+                </li>
+              </ul>
+              
+              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+                Ver módulo
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* RCM Card */}
+            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
+              
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                <DataStructured size={28} className="text-blue-600" />
               </div>
-              <div className="flex flex-col gap-4 min-h-[160px]">
-                <div className="flex items-center gap-3 justify-start h-12">
-                  <Checkmark
-                    size={32}
-                    className="text-blue60 relative bottom-[1px] shrink-0"
-                  />
-                  <h3 className="m-0">Software especializado</h3>
-                </div>
-                <p className="text-gray60 text-left grow">
-                  Herramientas tecnológicas que potencian los resultados de
-                  nuestros servicios.
-                </p>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
+                RCM (Mantenimiento Centrado en Confiabilidad)
+              </h3>
+              
+              <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
+                Análisis completo con árbol de decisión SAE JA1011. Genera planes de mantenimiento optimizados automáticamente.
+              </p>
+              
+              <ul className="space-y-2 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>AMEF integrado con modos de falla ISO 14224</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Árbol de decisiones RCM estándar</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Plan de mantenimiento exportable a CMMS</span>
+                </li>
+              </ul>
+              
+              <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+                Ver módulo
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* RCA Card */}
+            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600" />
+              
+              <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
+                <Network_3 size={28} className="text-purple-600" />
               </div>
-              <div className="flex flex-col gap-4 min-h-[160px]">
-                <div className="flex items-center gap-3 justify-start h-12">
-                  <Checkmark
-                    size={32}
-                    className="text-blue60 relative bottom-[1px] shrink-0"
-                  />
-                  <h3 className="m-0">Enfoque integral</h3>
-                </div>
-                <p className="text-gray60 text-left grow">
-                  Abarcamos todos los aspectos de la confiabilidad para
-                  resultados sostenibles.
-                </p>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
+                RCA (Análisis de Causa Raíz)
+              </h3>
+              
+              <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
+                Investiga fallas con múltiples metodologías: 5 Por qués, Ishikawa, árbol causal. IA sugiere hipótesis desde el historial.
+              </p>
+              
+              <ul className="space-y-2 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Metodologías: 5 Por qués, Ishikawa, FTA</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Gestión de evidencias (fotos, análisis, datos)</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Seguimiento de acciones correctivas</span>
+                </li>
+              </ul>
+              
+              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+                Ver módulo
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI SECTION */}
+      <section id="ia" className="py-24 px-8 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
+        
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
+          <h2 className="text-4xl font-bold mb-4">
+            Inteligencia Artificial{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              inteligente
+            </span>
+          </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto mb-16">
+            IA integrada en cada módulo para acelerar análisis y reducir errores humanos
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-left hover:bg-white/8 transition-all">
+              <Lightning size={32} className="mb-4" />
+              <div className="inline-block px-3 py-1 bg-purple-500/20 rounded text-xs font-bold uppercase tracking-wider text-purple-300 mb-3">
+                RCA
               </div>
+              <h4 className="text-lg font-semibold mb-2">Hipótesis automáticas</h4>
+              <p className="text-sm text-white/50 leading-relaxed">
+                Genera causas raíz probables según historial de fallas similares en equipos del mismo tipo
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-left hover:bg-white/8 transition-all">
+              <CloudApp size={32} className="mb-4" />
+              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+                RCM
+              </div>
+              <h4 className="text-lg font-semibold mb-2">Modos de falla sugeridos</h4>
+              <p className="text-sm text-white/50 leading-relaxed">
+                Predice modos de falla basados en ISO 14224 y datos históricos de equipos equivalentes
+              </p>
+            </div>
+
+            <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-left hover:bg-white/8 transition-all">
+              <DataStructured size={32} className="mb-4" />
+              <div className="inline-block px-3 py-1 bg-teal-500/20 rounded text-xs font-bold uppercase tracking-wider text-teal-300 mb-3">
+                Registro de activos
+              </div>
+              <h4 className="text-lg font-semibold mb-2">Clasificación inteligente</h4>
+              <p className="text-sm text-white/50 leading-relaxed">
+                Sugiere categorías y niveles jerárquicos automáticamente al importar activos desde Excel
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="border-t border-b border-gray-200 bg-white py-16 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <h3 className="text-5xl font-bold text-blue-600 mb-2">2000+</h3>
+              <p className="text-sm text-gray-600 font-medium">Activos gestionados</p>
+            </div>
+            <div>
+              <h3 className="text-5xl font-bold text-blue-600 mb-2">15+</h3>
+              <p className="text-sm text-gray-600 font-medium">Industrias atendidas</p>
+            </div>
+            <div>
+              <h3 className="text-5xl font-bold text-blue-600 mb-2">50+</h3>
+              <p className="text-sm text-gray-600 font-medium">Proyectos RCM completados</p>
+            </div>
+            <div>
+              <h3 className="text-5xl font-bold text-blue-600 mb-2">24/7</h3>
+              <p className="text-sm text-gray-600 font-medium">Soporte dedicado</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section id="precios" className="py-24 px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Precios transparentes</h2>
+            <p className="text-xl text-gray-600">Licencias de acuerdo al tamaño de tu organización</p>
+          </div>
+
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex rounded border border-gray-300">
+              <button 
+                onClick={() => setPricingPeriod('monthly')}
+                className={`px-6 py-2.5 text-sm font-medium transition-all ${pricingPeriod === 'monthly' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'} rounded-l`}
+              >
+                Mensual
+              </button>
+              <button 
+                onClick={() => setPricingPeriod('annual')}
+                className={`px-6 py-2.5 text-sm font-medium transition-all ${pricingPeriod === 'annual' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'} rounded-r border-l-0`}
+              >
+                Anual
+              </button>
             </div>
           </div>
 
-          <div className="hidden lg:block bg-[url('/assets/consultor1.jpg')] bg-cover bg-center rounded">
-            {/* Imagen de consultor o equipo trabajando */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Starter Plan */}
+            <div className="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+              <p className="text-sm text-gray-600 mb-6">Para organizaciones con operaciones pequeñas</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-gray-900">
+                  ${pricingPeriod === 'monthly' ? '299' : '249'}
+                </span>
+                <span className="text-gray-600">/mes</span>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  0-100 activos
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Hasta 5 usuarios
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Registro de activos completo
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Matriz de criticidad
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Exportación a CMMS
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Soporte por email
+                </li>
+              </ul>
+              <Link href="#contacto" className="block text-center border border-gray-300 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded font-medium transition-all">
+                Comenzar prueba
+              </Link>
+            </div>
+
+            {/* Professional Plan (Featured) */}
+            <div className="bg-white border-2 border-blue-600 rounded-xl p-8 flex flex-col relative shadow-lg">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                Más popular
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Professional</h3>
+              <p className="text-sm text-gray-600 mb-6">Para organizaciones con múltiples plantas</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-gray-900">
+                  ${pricingPeriod === 'monthly' ? '899' : '749'}
+                </span>
+                <span className="text-gray-600">/mes</span>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  100-1000 activos
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Hasta 15 usuarios
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Todos los módulos (RCA, RCM, Registro)
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  IA para análisis y sugerencias
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Exportación a Excel/PDF
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Soporte prioritario
+                </li>
+              </ul>
+              <Link href="#contacto" className="block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-semibold transition-all">
+                Comenzar prueba
+              </Link>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
+              <p className="text-sm text-gray-600 mb-6">Para grandes operaciones industriales</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-gray-900">Contactar</span>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  +1000 activos
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Usuarios ilimitados
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Todos los módulos sin límites
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Integraciones CMMS/ERP (SAP, Maximo)
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  SSO y administración avanzada
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Soporte dedicado 24/7
+                </li>
+              </ul>
+              <Link href="#contacto" className="block text-center border border-gray-300 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded font-medium transition-all">
+                Contactar ventas
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="contentSection bg-gray90">
-        <div>
-          <h2 className="text-blue60">Sectores industriales que atendemos</h2>
-          <p className="text-gray30 max-w-4xl text-left">
-            Nuestras soluciones están diseñadas para adaptarse a las necesidades
-            específicas de diferentes industrias
+      {/* CTA SECTION */}
+      <section id="contacto" className="py-24 px-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">
+            Registro de activos. Criticidad. RCM. RCA. Todo en un solo lugar.
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Prueba Reliaplant gratis por 14 días. Sin tarjeta de crédito. Registra tus activos, evalúa su criticidad y lanza tu primer proyecto hoy.
           </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="#" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold inline-flex items-center gap-2 transition-all">
+              Comenzar prueba gratis
+              <ArrowRight size={20} />
+            </Link>
+            <Link href="#" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium inline-flex items-center gap-2 transition-all">
+              Agendar demo personalizada
+            </Link>
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ServiceCard
-            Icon={Industry}
-            title="Oil & Gas"
-            description="Mejora la disponibilidad de equipos críticos y cumple con los estándares de seguridad más exigentes."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Activity}
-            title="Minería"
-            description="Optimiza operaciones continuas y reduce tiempos de inactividad en equipos de alto valor."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={SettingsAdjust}
-            title="Manufactura"
-            description="Incrementa la productividad manteniendo altos estándares de calidad en procesos continuos."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Chemistry}
-            title="Petroquímica"
-            description="Garantiza la confiabilidad de procesos químicos complejos y mantén altos estándares de seguridad."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Restaurant}
-            title="Alimentos y bebidas"
-            description="Asegura la continuidad operativa mientras cumples con estrictas normas de inocuidad y calidad."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Document}
-            title="Pulpa y papel"
-            description="Maximiza la eficiencia en procesos continuos y reduce pérdidas por paradas no programadas."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Building}
-            title="Cemento y materiales"
-            description="Optimiza el rendimiento de equipos críticos en entornos de alta exigencia y desgaste."
-            variant="dark"
-          />
-          <ServiceCard
-            Icon={Power}
-            title="Energía eléctrica"
-            description="Mantén la confiabilidad en la generación y distribución de energía con estrategias especializadas."
-            variant="dark"
-          />
-        </div>
-      </div>
+      </section>
     </>
   );
 }
