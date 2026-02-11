@@ -128,58 +128,59 @@ export default function FormularioContacto({
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Nombre */}
-          <div className="mb-3">
+          <div>
             <input
               type="text"
               name="nombre"
               placeholder="Nombre completo"
               value={formData.nombre}
               onChange={handleInputChange}
-              className="w-full px-2 py-1 text-sm border border-gray-300"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>
 
           {/* Email */}
-          <div className="mb-3">
+          <div>
             <input
               type="email"
               name="email"
               placeholder="E-mail profesional"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-2 py-1 text-sm  border border-gray-300"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>
 
           {/* Teléfono */}
-          <div className="mb-3">
+          <div>
             <PhoneInput
               country={"mx"}
               value={formData.telefono}
               onChange={handlePhoneChange}
               inputStyle={{
                 width: "100%",
-                height: "30px",
-                padding: "0.75rem",
+                height: "42px",
+                padding: "0.625rem 0.75rem",
                 paddingLeft: "45px",
-                borderRadius: "0.125rem",
+                borderRadius: "0.5rem",
                 border: "1px solid #d1d5db",
+                fontSize: "0.875rem",
               }}
               specialLabel=""
             />
           </div>
 
           {/* Interés */}
-          <div className="mb-3">
+          <div>
             <select
               name="interes"
               value={formData.interes}
               onChange={handleInputChange}
-              className="w-full px-1 py-1 text-sm border border-gray-300"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
               required
             >
               <option value="" disabled>
@@ -191,14 +192,12 @@ export default function FormularioContacto({
           </div>
 
           {/* Cargo y Empresa */}
-          <div
-            className={`mb-[5px] md:mb-3 grid grid-cols-1 md:grid-cols-2 gap-2 `}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <select
               name="cargo"
               value={formData.cargo}
               onChange={handleInputChange}
-              className="w-full px-1 py-1 text-sm  border border-gray-300"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
               required
             >
               <option value="" disabled>
@@ -236,7 +235,7 @@ export default function FormularioContacto({
               placeholder="Empresa"
               value={formData.empresa}
               onChange={handleInputChange}
-              className="w-full px-2 py-1 text-sm  border border-gray-300"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -244,7 +243,7 @@ export default function FormularioContacto({
           {/* Botón de enviar */}
           <button
             type="submit"
-            className={`w-full ${btnTextColorClass} font-semibold p-3 mt-4 ${colorClass}`}
+            className={`w-full ${btnTextColorClass} font-semibold p-3 mt-2 rounded-lg ${colorClass} transition-all hover:shadow-md`}
           >
             {btnText}
           </button>

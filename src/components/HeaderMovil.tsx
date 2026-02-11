@@ -298,6 +298,39 @@ export default function HeaderMovil() {
                 </div>
               ))}
 
+              {/* Cómo funciona Link */}
+              <div className="border-b border-gray-200">
+                <Link
+                  href="/como-funciona"
+                  className="flex justify-between items-center w-full py-4 px-2"
+                  onClick={handleLinkClick}
+                >
+                  <span className="font-medium text-black">Cómo funciona</span>
+                </Link>
+              </div>
+
+              {/* Industrias Link */}
+              <div className="border-b border-gray-200">
+                <Link
+                  href="/industrias"
+                  className="flex justify-between items-center w-full py-4 px-2"
+                  onClick={handleLinkClick}
+                >
+                  <span className="font-medium text-black">Industrias</span>
+                </Link>
+              </div>
+
+              {/* ROI Link */}
+              <div className="border-b border-gray-200">
+                <Link
+                  href="/roi"
+                  className="flex justify-between items-center w-full py-4 px-2"
+                  onClick={handleLinkClick}
+                >
+                  <span className="font-medium text-black">ROI</span>
+                </Link>
+              </div>
+
               {/* Blog Link */}
               <div className="border-b border-gray-200">
                 <Link

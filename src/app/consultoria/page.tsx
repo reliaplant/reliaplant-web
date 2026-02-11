@@ -65,7 +65,7 @@ const gestion: ConsultingCard[] = [
   },
   {
     title:
-      "Digitalización de la infomración de mantenimiento mantenimiento proactivo",
+      "Digitalización de la información de mantenimiento mantenimiento proactivo",
     image: bgDigitalizacion,
     alt: "Planes",
   },
@@ -112,7 +112,7 @@ const ResolucionProblemas: ConsultingCard[] = [
 const MejoraDiseño: ConsultingCard[] = [
   { title: "Análisis RAM", image: bgRAM, alt: "Planes" },
   {
-    title: "Análisis de Manteninbilidad",
+    title: "Análisis de Mantenibilidad",
     image: bgMantenibilidad,
     alt: "Planes",
   },
@@ -168,7 +168,7 @@ export default function ConsultoriaPage() {
 
       <div className="contentSection">
         <div className="border-b border-black mb-8">
-          <h2 className="border-b-2 border-blue60 w-fit">CONSULTORIA</h2>
+          <h2 className="border-b-2 border-blue60 w-fit">CONSULTORÍA</h2>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
@@ -196,7 +196,7 @@ export default function ConsultoriaPage() {
               <div className="bg-gray10 text-black mt-8">
                 Se han construido muchos{" "}
                 <strong>"Modelos de Confiabilidad"</strong> similares al
-                mostrado abajo. La clave no esta en cuál modelo tomar, sino{" "}
+                mostrado abajo. La clave no está en cuál modelo tomar, sino{" "}
                 <strong>adaptar a uno al contexto propio</strong>. Nuestro
                 equipo de consultores puede ayudar a su organización a
                 establecer una cultura de confiabilidad.

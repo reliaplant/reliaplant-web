@@ -63,12 +63,15 @@ export default async function BlogPage({ params }: any) {
     };
 
     return (
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Blog</h1>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Blog</h1>
+          <p className="text-gray-500 text-lg">Artículos sobre confiabilidad, mantenimiento y gestión de activos</p>
+        </div>
 
         {posts.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-400 text-lg">
               No hay publicaciones disponibles.
             </p>
           </div>
@@ -82,7 +85,7 @@ export default async function BlogPage({ params }: any) {
                 <Link
                   href={`/blog/${postSlug}`}
                   key={post.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="relative h-48 w-full">
                     {post.coverImage ? (
@@ -101,8 +104,8 @@ export default async function BlogPage({ params }: any) {
                     )}
                   </div>
 
-                  <div className="p-5">
-                    <h2 className="text-xl font-semibold mb-2 line-clamp-2">
+                  <div className="p-6">
+                    <h2 className="text-lg font-semibold mb-3 line-clamp-2 text-gray-900 group-hover:text-blue-600 transition-colors">
                       {post.title}
                     </h2>
 

@@ -64,7 +64,7 @@ const AbrirFormContacto: React.FC<
           onClick={() => setShowModal(true)}
         >
           <button
-            className={`w-full ${desktopClass} py-3 px-6 font-light text-base flex flex-row items-center justify-center gap-2 ${buttonColor} hover:opacity-80`}
+            className={`w-full ${desktopClass} py-2.5 px-6 font-medium text-sm flex flex-row items-center justify-center gap-2 ${buttonColor} hover:opacity-90 transition-all rounded-lg`}
           >
             <span className={`font-bold whitespace-nowrap ${textColor}`}>
               {buttonText}
@@ -75,10 +75,10 @@ const AbrirFormContacto: React.FC<
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-gray90/40">
+        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={modalTitle}>
           <div
             ref={modalRef}
-            className="bg-white p-8 shadow-lg md:w-1/2 w-full md:h-fit h-screen"
+            className="bg-white p-8 shadow-2xl rounded-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto"
           >
             <div className="mb-6 flex flex-row justify-between items-center">
               <span className="font-ZenDots text-gray100 text-xl">

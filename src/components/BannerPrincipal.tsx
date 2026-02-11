@@ -16,32 +16,32 @@ export default function BannerPrincipal({
   image,
 }: BannerPrincipalProps) {
   return (
-    <div className="">
-      <div className="bg-gray-100 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
+    <div>
+      <div className="bg-gray-50 relative min-h-[400px] flex flex-col md:flex-row items-center justify-start">
         {/* Texto */}
-        <div className="relative z-10 text-whites w-full md:w-[50vw] p-4 sm:p-6 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
+        <div className="relative z-10 w-full md:w-[50vw] p-6 sm:p-8 md:p-[3vw] lg:p-[5vw] flex flex-col justify-between">
           <div>
-            <div className="flex flex-row flex-wrap">
-              <span className="text-blue60 font-light mb-4">
+            <nav className="flex flex-row flex-wrap mb-6" aria-label="Breadcrumb">
+              <span className="text-blue-600 font-light text-sm">
                 <a href="/" className="hover:underline">
                   Inicio
                 </a>{" "}
-                <span className="mx-2 text-gray60">{"/"}</span>
+                <span className="mx-2 text-gray-400">/</span>
                 <a href="/consultoria" className="hover:underline">
                   Consultoría
                 </a>{" "}
-                <span className="mx-2 text-gray60">{"/"}</span>
-                {currentPath}
+                <span className="mx-2 text-gray-400">/</span>
+                <span className="text-gray-500">{currentPath}</span>
               </span>
-            </div>
-            <h1>{title}</h1>
-            <h4>{description}</h4>
+            </nav>
+            <h1 className="text-gray-900">{title}</h1>
+            <p className="text-lg text-gray-600 mt-2 leading-relaxed">{description}</p>
           </div>
-          <div className="mt-8 md:mt-6">
+          <div className="mt-8">
             <AbrirFormContacto
               buttonText="Habla con un especialista"
               icon={<Headset size={20} className="text-white" />}
-              buttonColor="bg-gray90"
+              buttonColor="bg-gray-900"
             />
           </div>
         </div>

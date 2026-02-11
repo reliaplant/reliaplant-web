@@ -5,7 +5,7 @@ categories: "articulo"
 tags: "Análisis causa raíz"
 ---
 
-## Metodo de los 5 porqués
+## Método de los 5 porqués
 
 El método de los 5 porqués es una herramienta fundamental en el análisis de causa raíz (RCA) para identificar fallas recurrentes en equipos industriales. Aunque su nombre sugiere un número fijo de preguntas, su aplicación es flexible y se adapta a la complejidad del problema, como lo establece la norma **BS EN 62740:2015**. 
 

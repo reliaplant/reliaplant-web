@@ -16,7 +16,7 @@ export default function RCMPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}
@@ -46,7 +46,7 @@ export default function RCMPage() {
       </section>
 
       {/* El problema hoy */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -105,7 +105,7 @@ export default function RCMPage() {
       <RCMFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
             Beneficios operativos
@@ -167,7 +167,7 @@ export default function RCMPage() {
       </section>
 
       {/* Dónde aporta más valor */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
             Casos de uso ideales
@@ -220,7 +220,7 @@ export default function RCMPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Implementa RCM real sin la complejidad de Excel

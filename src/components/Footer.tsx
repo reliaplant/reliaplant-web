@@ -10,15 +10,15 @@ export default function Footer() {
 
   const styles = {
     sectionTitle:
-      "text-white100 font-bold mb-4 text-left pb-2 border-b border-gray60",
-    link: "font-light text-gray-300 text-sm hover:text-white hover:underline transition-all",
+      "text-white font-semibold mb-4 text-left pb-2 border-b border-gray-700 text-sm uppercase tracking-wider",
+    link: "font-light text-gray-300 text-sm hover:text-white transition-colors duration-200",
     section: "w-full md:w-1/4 mb-6 md:mb-0",
-    list: "pl-0 text-white80 space-y-2 text-left",
+    list: "pl-0 text-white80 space-y-2.5 text-left",
   };
 
   return (
     <>
-      <footer className="px-4 sm:px-[6vw] lg:px-[5vw] py-8 sm:py-12 lg:py-16 text-sm text-white80 bg-gray100">
+      <footer className="px-4 sm:px-[4vw] lg:px-[3vw] py-10 sm:py-14 lg:py-16 text-sm text-gray-300 bg-gray-950">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           {/* Logo section */}
           <div className={styles.section}>
@@ -144,12 +144,12 @@ export default function Footer() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3">
               <a
                 href="http://app.reliaplant.com/"
-                className="inline-block w-full px-4 py-3 border-2 border-gray60 bg-gray90 hover:bg-blue60 transition-colors text-white80 hover:text-white text-center"
+                className="inline-block w-full px-4 py-3 border border-gray-700 bg-gray-900 hover:bg-blue-600 hover:border-blue-600 transition-all text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm"
               >
-                Ir a software <span className="pl-2"></span> &rarr;
+                Ir a software &rarr;
               </a>
               <a
                 href="#"
@@ -157,18 +157,18 @@ export default function Footer() {
                   e.preventDefault();
                   setShowModal(true);
                 }}
-                className="inline-block w-full px-4 py-3 border-2 border-gray60 bg-gray90 hover:bg-blue60 transition-colors text-white80 hover:text-white text-center"
+                className="inline-block w-full px-4 py-3 border border-gray-700 bg-gray-900 hover:bg-blue-600 hover:border-blue-600 transition-all text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm"
               >
                 Solicita una demo{" "}
-                <RequestQuote size={20} className="inline ml-2" />
+                <RequestQuote size={18} className="inline ml-1" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Add copyright section for mobile view */}
-        <div className="mt-8 pt-6 border-t border-gray-700 text-center md:text-left">
-          <p className="!text-sm text-white60">
+        <div className="mt-10 pt-6 border-t border-gray-800 text-center md:text-left">
+          <p className="!text-sm text-gray-500">
             © {new Date().getFullYear()} Reliaplant. Todos los derechos
             reservados.
           </p>
@@ -176,8 +176,8 @@ export default function Footer() {
       </footer>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-gray90/40">
-          <div className="bg-white p-8 shadow-lg md:w-1/2 w-full md:h-fit h-screen">
+        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true">
+          <div className="bg-white p-8 shadow-2xl rounded-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto">
             <div className="mb-6 flex flex-row justify-between items-center">
               <span className="font-ZenDots text-gray100 text-xl">
                 RELIAPLANT

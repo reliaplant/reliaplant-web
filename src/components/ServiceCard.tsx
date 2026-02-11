@@ -20,36 +20,40 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const Card = () => (
     <div
-      className={`border p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between ${
+      className={`border p-6 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between ${
         variant === "dark"
-          ? "border-gray60 hover:border-blue60"
-          : "bg-white hover:border-blue60"
+          ? "border-gray-700 hover:border-blue-500 bg-gray-900/50"
+          : "bg-white border-gray-200 hover:border-blue-500"
       } ${className}`}
     >
       <div>
-        <Icon size={32} className={`text-blue60 mb-4`} />
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+          variant === "dark" ? "bg-blue-500/10" : "bg-blue-50"
+        }`}>
+          <Icon size={24} className="text-blue-600" />
+        </div>
         <h3
-          className={`text-xl font-bold mb-3 ${
-            variant === "dark" ? "text-blue60" : ""
+          className={`text-lg font-bold mb-3 ${
+            variant === "dark" ? "text-white" : "text-gray-900"
           }`}
         >
           {title}
         </h3>
-        <p className={variant === "dark" ? "text-gray30" : "text-gray60"}>
+        <p className={`text-sm leading-relaxed ${variant === "dark" ? "text-gray-300" : "text-gray-600"}`}>
           {description}
         </p>
       </div>
       {href && (
-        <div className="mt-8 flex justify-between items-center">
-          <span className="text-blue60 font-light">Conocer más</span>
-          <ArrowUpRight size={20} className="text-blue60" />
+        <div className="mt-6 flex justify-between items-center group-hover:gap-2 transition-all">
+          <span className="text-blue-600 font-medium text-sm">Conocer más</span>
+          <ArrowUpRight size={18} className="text-blue-600" />
         </div>
       )}
     </div>
   );
 
   return href ? (
-    <Link href={href} className="no-underline min-w-[300px]">
+    <Link href={href} className="no-underline group">
       <Card />
     </Link>
   ) : (

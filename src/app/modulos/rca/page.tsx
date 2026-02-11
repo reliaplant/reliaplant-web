@@ -17,7 +17,7 @@ export default function RCAPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-32 pb-20 px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-32 pb-20 px-4">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}
@@ -47,7 +47,7 @@ export default function RCAPage() {
       </section>
 
       {/* El problema hoy */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -115,7 +115,7 @@ export default function RCAPage() {
       <RCAFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
             Beneficios operativos
@@ -177,7 +177,7 @@ export default function RCAPage() {
       </section>
 
       {/* Cuándo tiene más impacto */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-4 block">
             Casos de uso ideales
@@ -230,7 +230,7 @@ export default function RCAPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Convierte tus RCA en eliminadores reales de fallas recurrentes

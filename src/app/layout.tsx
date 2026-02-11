@@ -12,8 +12,20 @@ const IbmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "ReliaplantWeb",
-  description: "Reliaplant Web Application",
+  title: {
+    default: "Reliaplant | Confiabilidad Industrial y Gestión de Activos",
+    template: "%s | Reliaplant",
+  },
+  description:
+    "Plataforma de confiabilidad industrial: RCA, RCM, registro de activos. Menos Excel, más confiabilidad.",
+  keywords: [
+    "confiabilidad industrial",
+    "gestión de activos",
+    "RCA",
+    "RCM",
+    "mantenimiento",
+    "análisis causa raíz",
+  ],
 };
 
 export default async function RootLayout({
@@ -22,9 +34,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head></head>
-      <body className={IbmPlexSans.className}>
+      <body className={`${IbmPlexSans.className} antialiased text-gray-700`}>
         <InitialUrlTracker />
         <Header />
         <main>{children}</main>
