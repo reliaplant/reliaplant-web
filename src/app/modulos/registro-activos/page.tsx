@@ -140,7 +140,7 @@ export default function RegistroActivosPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Cientos de horas de trabajo</h3>
               <p className="text-gray-700 flex-grow">
-                Proyectos de 3-6 meses con equipos completos dedicados solo a documentar jerarquías en Excel.
+                Proyectos de 3-6 meses con equipos completos dedicados solo a documentar jerarquías manualmente.
               </p>
             </div>
 
@@ -148,9 +148,9 @@ export default function RegistroActivosPage() {
               <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
                 <DocumentMultiple_01 size={32} className="text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Excel complicadísimos</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Archivos complicadísimos</h3>
               <p className="text-gray-700 flex-grow">
-                Hojas con macros frágiles, fórmulas complejas y validaciones que nadie entendía después de 6 meses.
+                Hojas con macros frágiles, fórmulas complejas y validaciones que nadie entiende después de 6 meses.
               </p>
             </div>
           </div>

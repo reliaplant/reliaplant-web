@@ -38,7 +38,7 @@ export default function Home() {
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-4 max-w-2xl mx-auto leading-relaxed">
-            Menos Excel, menos PowerPoint, menos burocracia técnica.
+            Menos burocracia técnica, más tiempo para ingeniería real.
           </p>
           <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
             Más confiabilidad, mejores decisiones y menos fallas recurrentes.
@@ -80,8 +80,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-10 items-start">
             <div className="space-y-3">
               {[
-                'RCA hechos manualmente en PowerPoint.',
-                'RCM desordenados en Excel difíciles de mantener.',
+                'RCA hechos manualmente, difíciles de mantener.',
+                'RCM desordenados y difíciles de actualizar.',
                 'Bases de activos inconsistentes o incompletas.',
                 'Indicadores poco confiables.',
                 'Decisiones tomadas con data dudosa.',
@@ -206,7 +206,7 @@ export default function Home() {
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
-                Reliability Centered Maintenance sin Excel caótico
+                Reliability Centered Maintenance estructurado
               </h3>
               
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
@@ -340,7 +340,7 @@ export default function Home() {
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Clasificación inteligente</h4>
               <p className="text-sm text-white/70 leading-relaxed mb-0">
-                Sugiere categorías y niveles jerárquicos automáticamente al importar activos desde Excel
+                Sugiere categorías y niveles jerárquicos automáticamente al importar tus activos
               </p>
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Exportación a Excel/PDF
+                  Exportación a múltiples formatos
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />

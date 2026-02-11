@@ -17,7 +17,7 @@ interface CalculatorInputs {
   rcaTimeReduction: number;
   // RCM
   rcmEquipmentsPerYear: number;
-  hoursPerRCMExcel: number;
+  hoursPerRCMManual: number;
   rcmAdminReduction: number;
   // Taxonomía
   criticalAssets: number;
@@ -32,7 +32,7 @@ export default function ROICalculator() {
     engineerHourlyCost: 50,
     rcaTimeReduction: 60,
     rcmEquipmentsPerYear: 10,
-    hoursPerRCMExcel: 40,
+    hoursPerRCMManual: 40,
     rcmAdminReduction: 60,
     criticalAssets: 500,
     hoursSearchingData: 200,
@@ -45,7 +45,7 @@ export default function ROICalculator() {
     const rcaHoursSaved = annualRCAHours * 0.6;
     const rcaSavings = rcaHoursSaved * inputs.engineerHourlyCost;
 
-    const annualRCMHours = inputs.rcmEquipmentsPerYear * inputs.hoursPerRCMExcel;
+    const annualRCMHours = inputs.rcmEquipmentsPerYear * inputs.hoursPerRCMManual;
     const rcmHoursSaved = annualRCMHours * 0.6;
     const rcmSavings = rcmHoursSaved * inputs.engineerHourlyCost;
 
@@ -144,8 +144,8 @@ export default function ROICalculator() {
                     <input type="number" min="0" value={inputs.rcmEquipmentsPerYear} onChange={e => handleInputChange("rcmEquipmentsPerYear", Number(e.target.value))} className="w-full px-3 py-2 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Horas por RCM en Excel</label>
-                    <input type="number" min="0" value={inputs.hoursPerRCMExcel} onChange={e => handleInputChange("hoursPerRCMExcel", Number(e.target.value))} className="w-full px-3 py-2 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white" />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Horas por RCM manual</label>
+                    <input type="number" min="0" value={inputs.hoursPerRCMManual} onChange={e => handleInputChange("hoursPerRCMManual", Number(e.target.value))} className="w-full px-3 py-2 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white" />
                   </div>
                 </div>
               </div>

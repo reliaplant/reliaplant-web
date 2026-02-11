@@ -81,7 +81,7 @@ const features: Feature[] = [
       "Genera plantillas parametrizables para exportar la taxonomía de activos hacia tu CMMS actual, facilitando la integración y migración de datos.",
     details: [
       "Mapeo de campos personalizable",
-      "Exportación a Excel/CSV",
+      "Exportación a múltiples formatos",
       "Integración API con principales CMMS",
       "Validación previa a exportación",
     ],

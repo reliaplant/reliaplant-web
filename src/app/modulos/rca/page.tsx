@@ -64,7 +64,7 @@ export default function RCAPage() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-800">
                   <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Presentaciones en PowerPoint difíciles de mantener</span>
+                  <span>Presentaciones estáticas difíciles de mantener</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-800">
                   <span className="text-red-500 text-xl mt-1">✗</span>

@@ -229,7 +229,7 @@ export default function ComoFuncionaPage() {
               </div>
               
               <p className="text-lg text-gray-600 mb-6">
-                El módulo RCM elimina los problemas típicos de Excel:
+                El módulo RCM elimina los problemas típicos de las hojas de cálculo:
               </p>
               
               <ul className="space-y-2 mb-6">

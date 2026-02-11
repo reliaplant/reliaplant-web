@@ -52,7 +52,7 @@ A continuación, se muestra una matriz genérica para clasificar soluciones. Los
 - Solución: "Implementar checklist digital" (Impacto: 5, Esfuerzo: 2). Puntaje: 10 (Amarillo). Acción: Implementar si hay presupuesto.  
 - Solución: "Capacitar a todo el personal" (Impacto: 3, Esfuerzo: 5). Puntaje: 15 (Rojo). Acción: Posponer a menos que sea crítico.
 
-**Nota:** En entornos digitales, aplica colores usando CSS (ej: `background-color: green` para puntajes bajos) o herramientas como Excel para visualización en reuniones.
+**Nota:** En entornos digitales, aplica colores usando CSS (ej: `background-color: green` para puntajes bajos) o herramientas de hoja de cálculo para visualización en reuniones.
 
 ## **Ejemplo aplicado a un motor**  
 

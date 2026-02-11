@@ -9,7 +9,7 @@ import RCMFeatures from "@/components/RCMFeatures";
 
 export const metadata = {
   title: "Módulo RCM - Reliability Centered Maintenance | Reliaplant",
-  description: "Mantenimiento centrado en confiabilidad sin Excel caótico. Centraliza el proceso RCM en un entorno estructurado.",
+  description: "Mantenimiento centrado en confiabilidad estructurado y centralizado. Gestiona el proceso RCM en un entorno diseñado para ello.",
 };
 
 export default function RCMPage() {
@@ -36,7 +36,7 @@ export default function RCMPage() {
           </div>
           
           <h1 className="text-5xl font-bold leading-tight mb-6">
-            Reliability Centered Maintenance sin Excel caótico
+            Reliability Centered Maintenance estructurado
           </h1>
           
           <p className="text-xl text-white/70 max-w-3xl">
@@ -54,10 +54,10 @@ export default function RCMPage() {
                 El problema hoy
               </span>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Excel no está diseñado para RCM
+                Las hojas de cálculo no están diseñadas para RCM
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                RCM suele hacerse en Excel por tradición, pero eso genera:
+                RCM suele hacerse en hojas de cálculo por tradición, pero eso genera:
               </p>
               
               <ul className="space-y-4">
@@ -223,7 +223,7 @@ export default function RCMPage() {
       <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Implementa RCM real sin la complejidad de Excel
+            Implementa RCM real sin herramientas improvisadas
           </h2>
           <p className="text-xl text-white/90 mb-8">
             Prueba el módulo RCM gratis por 14 días y descubre cómo estructurar planes de mantenimiento coherentes y accionables.

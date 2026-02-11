@@ -391,7 +391,7 @@ export default function Contacto() {
                   la implementación de las estrategias recomendadas.
                 </li>
                 <li>
-                  Matriz de evaluación: En formato Excel, con criterios claros
+                  Matriz de evaluación: En formato de hoja de cálculo, con criterios claros
                   para actualizar el estado de los activos en el futuro.
                 </li>
               </ul>

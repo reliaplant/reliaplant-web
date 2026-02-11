@@ -485,8 +485,8 @@ export default function OptimizacionMRO() {
                   </li>
                 </ul>
                 <p className="mt-4">
-                  Mediante fórmulas o simulaciones (por ejemplo, en Excel con
-                  macros de Visual Basic, o con software especializado), se
+                  Mediante fórmulas o simulaciones (por ejemplo, con hojas de cálculo
+                  y macros, o con software especializado), se
                   calcula el NOR para cada ítem crítico, comparando escenarios
                   de costos y disponibilidad. El resultado indica:
                 </p>

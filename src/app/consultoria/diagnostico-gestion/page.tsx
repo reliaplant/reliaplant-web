@@ -174,8 +174,8 @@ export default function DiagnosticoGestion() {
             aprovecharlas.
           </p>
           <p>
-            Dicho reporte se efectuará en forma de reporte PDF y presentación en
-            PowerPoint, en la cual se mostrarán los resultados obtenidos en cada
+            Dicho reporte se efectuará en forma de reporte PDF y presentación
+            ejecutiva, en la cual se mostrarán los resultados obtenidos en cada
             uno de los procesos evaluados. Igualmente se incluirá una estrategia
             general de implementación y un roadmap, mostrando los pasos a seguir
             para implementar las recomendaciones.

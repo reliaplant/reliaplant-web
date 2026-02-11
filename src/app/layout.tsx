@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Reliaplant",
   },
   description:
-    "Plataforma de confiabilidad industrial: RCA, RCM, registro de activos. Menos Excel, más confiabilidad.",
+    "Plataforma de confiabilidad industrial: RCA, RCM, registro de activos. Más confiabilidad, mejores decisiones.",
   keywords: [
     "confiabilidad industrial",
     "gestión de activos",

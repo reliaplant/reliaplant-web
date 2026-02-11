@@ -126,7 +126,7 @@ export default function ROIPage() {
               </div>
               
               <p className="text-sm text-gray-600 mb-3">
-                Equipos invierten horas en RCA manuales, RCM en Excel y búsqueda de información dispersa.
+                Equipos invierten horas en RCA manuales, RCM en hojas de cálculo y búsqueda de información dispersa.
               </p>
               
               <div className="bg-white rounded-lg p-3">
