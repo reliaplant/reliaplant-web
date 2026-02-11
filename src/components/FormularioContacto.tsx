@@ -166,7 +166,7 @@ export default function FormularioContacto({
                 height: "42px",
                 padding: "0.625rem 0.75rem",
                 paddingLeft: "45px",
-                borderRadius: "0.5rem",
+                borderRadius: "4px",
                 border: "1px solid #d1d5db",
                 fontSize: "0.875rem",
               }}

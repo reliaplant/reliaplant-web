@@ -286,6 +286,17 @@ const config: Config = {
         gray1: "#F8F8F8",
         yellow5: "rgb(213, 155, 39)",
       },
+      borderRadius: {
+        none: '0px',
+        sm: '2px',
+        DEFAULT: '2px',
+        md: '2px',
+        lg: '4px',
+        xl: '4px',
+        '2xl': '4px',
+        '3xl': '4px',
+        full: '9999px',
+      },
       fontFamily: {
         title: ["Work Sans", "sans-serif"],
         // Add all your fonts from layout.tsx here for consistent access
