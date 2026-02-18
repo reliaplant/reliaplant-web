@@ -158,23 +158,23 @@ export default function Header() {
               <div className="mt-[42px] absolute left-0 top-2 hidden p-3 bg-white shadow-xl border border-gray-200 rounded-lg text-black group-hover:block z-50">
                 <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
                   <Link
-                    href="/consultoria/rca"
+                    href="/modulos/registro-activos"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
-                    <div className="bg-purple-50 p-3 rounded-lg">
-                      <Category size={28} className="text-purple-600" />
+                    <div className="bg-teal-50 p-3 rounded-lg">
+                      <Category size={28} className="text-teal-600" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-gray-900 font-semibold text-sm">RCA</span>
+                      <span className="text-gray-900 font-semibold text-sm">Registro de Activos (Taxonomía)</span>
                       <span className="text-gray-500 text-[.85rem]">
-                        Eliminación de defectos mediante Análisis Causa Raíz
+                        Base de datos estructurada con jerarquía ISO 14224
                       </span>
                     </div>
                   </Link>
                 </div>
                 <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
                   <Link
-                    href="/consultoria/rcm"
+                    href="/modulos/rcm"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
                     <div className="bg-blue-50 p-3 rounded-lg">
@@ -183,8 +183,23 @@ export default function Header() {
                     <div className="flex flex-col">
                       <span className="text-gray-900 font-semibold text-sm">RCM</span>
                       <span className="text-gray-500 text-[.85rem]">
-                        Planes de mantenimiento para equipos críticos y no
-                        críticos
+                        Planes de mantenimiento para equipos críticos y no críticos
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
+                  <Link
+                    href="/modulos/rca"
+                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                  >
+                    <div className="bg-purple-50 p-3 rounded-lg">
+                      <DecisionNode size={28} className="text-purple-600" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-900 font-semibold text-sm">RCA</span>
+                      <span className="text-gray-500 text-[.85rem]">
+                        Eliminación de defectos mediante Análisis Causa Raíz
                       </span>
                     </div>
                   </Link>

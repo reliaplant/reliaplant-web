@@ -152,16 +152,22 @@ export default function HeaderMovil() {
       title: "Software",
       data: [
         {
-          title: "RCA",
-          description: "Eliminación de defectos mediante Análisis Causa Raíz",
-          link: "/consultoria/rca",
+          title: "Registro de Activos (Taxonomía)",
+          description: "Base de datos estructurada con jerarquía ISO 14224",
+          link: "/modulos/registro-activos",
           icon: <Category size={24} />,
         },
         {
           title: "RCM",
           description:
             "Planes de mantenimiento para equipos críticos y no críticos",
-          link: "/consultoria/rcm",
+          link: "/modulos/rcm",
+          icon: <DecisionNode size={24} />,
+        },
+        {
+          title: "RCA",
+          description: "Eliminación de defectos mediante Análisis Causa Raíz",
+          link: "/modulos/rca",
           icon: <DecisionNode size={24} />,
         },
       ] as SoftwareItem[],

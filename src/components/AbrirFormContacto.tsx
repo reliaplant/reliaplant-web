@@ -58,7 +58,7 @@ const AbrirFormContacto: React.FC<
 
   return (
     <>
-      <div className="flex flex-row w-full z-[30]">
+      <div className={`flex flex-row z-[30] ${fullDesktop ? "w-full" : "w-full md:w-auto"}`}>
         <div
           className={`${desktopClass} w-full ${className || ""}`} // Add className here
           onClick={() => setShowModal(true)}

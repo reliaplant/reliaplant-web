@@ -1,3 +1,11 @@
+/**
+ * NOTA: Este archivo no se está usando actualmente.
+ * Posiblemente sea una versión anterior o backup del contenido de la homepage.
+ * La homepage actual está en src/app/page.tsx
+ * 
+ * Revisar antes de eliminar.
+ */
+
 'use client';
 
 import React from "react";
@@ -13,7 +21,7 @@ import {
 } from "@carbon/icons-react";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePageContent() {
   const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
 
   return (
@@ -128,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* 3 PILLARS SECTION */}
-      <section id="modulos" className="py-20 md:py-28 px-4 sm:px-6 bg-white">
+      <section className="py-20 md:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -141,15 +149,15 @@ export default function Home() {
               Tres pilares clave de la confiabilidad industrial, integrados en una sola plataforma:
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-4 py-2 rounded-lg text-sm font-medium border border-teal-100">
+              <span className="inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-medium border border-teal-100">
                 <CheckmarkFilled size={16} />
                 Datos de activos organizados
               </span>
-              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium border border-blue-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Estrategias de mantenimiento
               </span>
-              <span className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-lg text-sm font-medium border border-purple-100">
+              <span className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-100">
                 <CheckmarkFilled size={16} />
                 Análisis de causa raíz
               </span>

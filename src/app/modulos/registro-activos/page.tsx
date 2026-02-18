@@ -6,9 +6,15 @@ import {
   FolderDetails,
   Time,
   DocumentMultiple_01,
+  Migrate,
+  Growth,
+  DataRefinery,
+  Certificate,
+  ArrowRight,
 } from "@carbon/icons-react";
 import Link from "next/link";
 import RegistroActivosFeatures from "@/components/RegistroActivosFeatures";
+import ModuleStickyBanner from "@/components/ModuleStickyBanner";
 
 export const metadata = {
   title: "Módulo Registro de Activos - Taxonomía | Reliaplant",
@@ -18,6 +24,8 @@ export const metadata = {
 export default function RegistroActivosPage() {
   return (
     <>
+      <ModuleStickyBanner moduleName="Módulo Registro de Activos" moduleType="registro" />
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white pt-32 pb-20 px-8">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-400/10 rounded-full blur-3xl" />
@@ -25,9 +33,8 @@ export default function RegistroActivosPage() {
         {/* Botón Volver en esquina superior derecha */}
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="absolute -top-16 right-0">
-            <Link href="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-              <ArrowLeft size={20} />
-              Volver al inicio
+            <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+              <ArrowLeft size={24} className="text-white" />
             </Link>
           </div>
         </div>
@@ -232,55 +239,134 @@ export default function RegistroActivosPage() {
         </div>
       </section>
 
-      {/* Dónde tiene mayor impacto */}
+      {/* Casos de Uso Ideales */}
       <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-4 block">
-            Casos de uso ideales
-          </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Dónde tiene mayor impacto
-          </h2>
-          <p className="text-lg text-gray-700 mb-12">
-            Este módulo genera mayor valor en:
-          </p>
+          <div className="mb-12">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-100 px-3 py-1 rounded mb-4">
+              ¿Es para ti?
+            </span>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Casos de Uso Ideales
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl">
+              Este módulo genera mayor valor cuando tu organización enfrenta alguno de estos escenarios.
+            </p>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Implementaciones o migraciones de CMMS
-              </h3>
-              <p className="text-gray-700">
-                Cuando tienes la oportunidad de estructurar correctamente antes de cargar datos al nuevo sistema.
+            {/* Card 1: Implementaciones de CMMS */}
+            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
+                  <Migrate size={24} className="text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Implementaciones de CMMS
+                  </h3>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                Cuando tienes la oportunidad de estructurar tu taxonomía correctamente antes de cargar datos al nuevo sistema.
               </p>
+              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
+                <span className="text-teal-800 font-bold text-3xl block">6-12 meses</span>
+                <span className="text-teal-700 text-sm">ahorrados en limpieza de datos</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Migración</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">SAP PM</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Maximo</span>
+              </div>
             </div>
             
-            <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Plantas en crecimiento
-              </h3>
-              <p className="text-gray-700">
-                Cuando nuevos equipos se incorporan constantemente y necesitas mantener consistencia.
+            {/* Card 2: Plantas en Crecimiento */}
+            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
+                  <Growth size={24} className="text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Plantas en Crecimiento
+                  </h3>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                Cuando nuevos equipos se incorporan constantemente y necesitas mantener consistencia en la nomenclatura.
               </p>
+              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
+                <span className="text-teal-800 font-bold text-3xl block">100%</span>
+                <span className="text-teal-700 text-sm">consistencia en taxonomía</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Expansión</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Multi-sitio</span>
+              </div>
             </div>
             
-            <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Organizaciones con data histórica desordenada
-              </h3>
-              <p className="text-gray-700">
-                Cuando años de registros inconsistentes invalidan análisis de confiabilidad serios.
+            {/* Card 3: Data Histórica Desordenada */}
+            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
+                  <DataRefinery size={24} className="text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Data Histórica Desordenada
+                  </h3>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                Cuando años de registros inconsistentes impiden estructurar una jerarquía de activos confiable.
               </p>
+              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
+                <span className="text-teal-800 font-bold text-3xl block">85%</span>
+                <span className="text-teal-700 text-sm">reducción en duplicados</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Limpieza</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Normalización</span>
+              </div>
             </div>
             
-            <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
-                Empresas que quieren profesionalizar confiabilidad
-              </h3>
-              <p className="text-gray-700">
-                Cuando buscas pasar de mantenimiento intuitivo a gestión de activos basada en estándares.
+            {/* Card 4: Profesionalizar Confiabilidad */}
+            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
+                  <Certificate size={24} className="text-teal-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Profesionalizar Confiabilidad
+                  </h3>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                Cuando buscas pasar de mantenimiento intuitivo a gestión de activos basada en estándares ISO.
               </p>
+              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
+                <span className="text-teal-800 font-bold text-3xl block">3x ROI</span>
+                <span className="text-teal-700 text-sm">en iniciativas de confiabilidad</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">ISO 14224</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Estandarización</span>
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Auditable</span>
+              </div>
             </div>
+          </div>
+          
+          {/* CTA */}
+          <div className="mt-12 text-center">
+            <Link 
+              href="#contacto" 
+              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-3.5 font-semibold transition-colors"
+            >
+              Agenda una Demo
+              <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>
