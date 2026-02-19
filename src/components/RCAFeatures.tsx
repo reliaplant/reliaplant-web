@@ -59,19 +59,19 @@ const features: Feature[] = [
   },
   {
     id: "5porques",
-    title: "Metodología 5 Porqués guiada",
+    title: "Generación automática de reportes con IA",
     icon: <Time size={24} />,
     color: "text-purple-600",
     bgColor: "bg-purple-600",
     description:
-      "Aplica la metodología de los 5 Porqués de forma guiada, evitando saltos lógicos y asegurando que se llegue a causas verificables.",
+      "Genera reportes RCA completos y profesionales con IA: resumen ejecutivo, árbol de causas, análisis detallado y recomendaciones, listos para exportar a PDF.",
     details: [
-      "Flujo guiado paso a paso",
-      "Detección de saltos lógicos",
-      "Evidencias requeridas por nivel",
-      "Validación de causa raíz final",
+      "Resumen ejecutivo y conclusiones generadas por IA",
+      "Renderizado automático del árbol de causas",
+      "Compilación de recomendaciones correctivas y preventivas",
+      "Exportación a PDF profesional con formato estándar",
     ],
-    mockupTitle: "Análisis 5 Porqués",
+    mockupTitle: "Generación de reporte RCA",
   },
   {
     id: "recomendaciones",
