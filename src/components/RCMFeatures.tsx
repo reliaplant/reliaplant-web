@@ -8,6 +8,7 @@ import {
   Task,
   CheckmarkFilled,
 } from "@carbon/icons-react";
+import RCMAnimationFunctions from "./RCMAnimationFunctions";
 
 type FeatureKey = "funciones" | "modos-falla" | "analisis" | "plan";
 
@@ -168,21 +169,26 @@ export default function RCMFeatures() {
 
             {/* Mockup area */}
             <div className="p-6">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[280px] border-2 border-dashed border-gray-300">
-                <div className="text-center">
-                  <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
-                    <span className={currentFeature.color}>
-                      {currentFeature.id === "funciones" && <DataStructured size={48} />}
-                      {currentFeature.id === "modos-falla" && <Diagram size={48} />}
-                      {currentFeature.id === "analisis" && <DocumentTasks size={48} />}
-                      {currentFeature.id === "plan" && <Task size={48} />}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 font-medium">
-                    Mockup: {currentFeature.mockupTitle}
-                  </p>
+              {currentFeature.id === "funciones" ? (
+                <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
+                  <RCMAnimationFunctions />
                 </div>
-              </div>
+              ) : (
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[280px] border-2 border-dashed border-gray-300">
+                  <div className="text-center">
+                    <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
+                      <span className={currentFeature.color}>
+                        {currentFeature.id === "modos-falla" && <Diagram size={48} />}
+                        {currentFeature.id === "analisis" && <DocumentTasks size={48} />}
+                        {currentFeature.id === "plan" && <Task size={48} />}
+                      </span>
+                    </div>
+                    <p className="text-gray-500 font-medium">
+                      Mockup: {currentFeature.mockupTitle}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import {
   ChartLineData,
   CheckmarkFilled,
 } from "@carbon/icons-react";
+import RegistroAnimationJerarquia from "./RegistroAnimationJerarquia";
 
 type FeatureKey = "jerarquia" | "consistencia" | "trazabilidad" | "exportacion";
 
@@ -168,21 +169,26 @@ export default function RegistroActivosFeatures() {
 
             {/* Mockup area */}
             <div className="p-6 flex-grow flex flex-col">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center flex-grow border-2 border-dashed border-gray-300">
-                <div className="text-center">
-                  <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
-                    <span className={currentFeature.color}>
-                      {currentFeature.id === "jerarquia" && <TreeView size={48} />}
-                      {currentFeature.id === "consistencia" && <DocumentTasks size={48} />}
-                      {currentFeature.id === "trazabilidad" && <DataBase size={48} />}
-                      {currentFeature.id === "exportacion" && <ChartLineData size={48} />}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 font-medium">
-                    Mockup: {currentFeature.mockupTitle}
-                  </p>
+              {currentFeature.id === "jerarquia" ? (
+                <div className="bg-white rounded-xl overflow-hidden border border-gray-200 flex-grow">
+                  <RegistroAnimationJerarquia />
                 </div>
-              </div>
+              ) : (
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center flex-grow border-2 border-dashed border-gray-300">
+                  <div className="text-center">
+                    <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
+                      <span className={currentFeature.color}>
+                        {currentFeature.id === "consistencia" && <DocumentTasks size={48} />}
+                        {currentFeature.id === "trazabilidad" && <DataBase size={48} />}
+                        {currentFeature.id === "exportacion" && <ChartLineData size={48} />}
+                      </span>
+                    </div>
+                    <p className="text-gray-500 font-medium">
+                      Mockup: {currentFeature.mockupTitle}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

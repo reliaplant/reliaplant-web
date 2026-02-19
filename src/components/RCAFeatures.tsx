@@ -8,6 +8,8 @@ import {
   DocumentTasks,
   CheckmarkFilled,
 } from "@carbon/icons-react";
+import RCAAnimationReport from "./RCAAnimationReport";
+import RCAAnimationRecommendations from "./RCAAnimationRecommendations";
 
 type FeatureKey = "registro" | "analisis" | "5porques" | "recomendaciones";
 
@@ -168,21 +170,28 @@ export default function RCAFeatures() {
 
             {/* Mockup area */}
             <div className="p-6">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[280px] border-2 border-dashed border-gray-300">
-                <div className="text-center">
-                  <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
-                    <span className={currentFeature.color}>
-                      {currentFeature.id === "registro" && <Network_3 size={48} />}
-                      {currentFeature.id === "analisis" && <Network_3 size={48} />}
-                      {currentFeature.id === "5porques" && <Time size={48} />}
-                      {currentFeature.id === "recomendaciones" && <DocumentTasks size={48} />}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 font-medium">
-                    Mockup: {currentFeature.mockupTitle}
-                  </p>
+              {currentFeature.id === "recomendaciones" ? (
+                <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
+                  <RCAAnimationRecommendations />
                 </div>
-              </div>
+              ) : currentFeature.id === "registro" || currentFeature.id === "analisis" ? (
+                <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
+                  <RCAAnimationReport />
+                </div>
+              ) : (
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[280px] border-2 border-dashed border-gray-300">
+                  <div className="text-center">
+                    <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
+                      <span className={currentFeature.color}>
+                        {currentFeature.id === "5porques" && <Time size={48} />}
+                      </span>
+                    </div>
+                    <p className="text-gray-500 font-medium">
+                      Mockup: {currentFeature.mockupTitle}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
