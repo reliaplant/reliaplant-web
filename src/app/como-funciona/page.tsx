@@ -10,6 +10,7 @@ import {
   Partnership,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Cómo funciona la plataforma | Reliaplant",
@@ -70,10 +71,14 @@ export default function ComoFuncionaPage() {
             </p>
           </div>
           
-          {/* TODO: Roadmap visual aquí */}
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl p-12 text-center">
-            <p className="text-gray-500 text-lg font-medium mb-2">📍 Roadmap Visual</p>
-            <p className="text-gray-400 text-sm">Placeholder para diagrama de proceso / timeline</p>
+          <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+            <Image
+              src="/assets/procesoConfiabilidad.png"
+              alt="Proceso de implementación de confiabilidad industrial"
+              width={1200}
+              height={500}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
       </section>
@@ -128,12 +133,18 @@ export default function ComoFuncionaPage() {
               </div>
             </div>
             
-            {/* Mockup placeholder */}
-            <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-              <div className="text-center">
-                <DataBase size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup Taxonomía</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+              <Image
+                src="/assets/bgAssetRegister.png"
+                alt="Taxonomía de activos industriales"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo de Registro de Activos</span>
               </div>
             </div>
           </div>
@@ -144,12 +155,18 @@ export default function ComoFuncionaPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Mockup placeholder */}
-            <div className="bg-gray-200 border-2 border-dashed border-gray-400 rounded-xl p-8 min-h-[400px] flex items-center justify-center md:order-1">
-              <div className="text-center">
-                <Network_3 size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup RCA</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+              <Image
+                src="/assets/bgACR.jpg"
+                alt="Análisis de causa raíz en planta industrial"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCA</span>
               </div>
             </div>
 
@@ -272,12 +289,18 @@ export default function ComoFuncionaPage() {
               </div>
             </div>
             
-            {/* Mockup placeholder */}
-            <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-              <div className="text-center">
-                <DataStructured size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup RCM</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+              <Image
+                src="/assets/fondo-landing-rcm.png"
+                alt="Proceso RCM estructurado"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCM</span>
               </div>
             </div>
           </div>
@@ -288,12 +311,18 @@ export default function ComoFuncionaPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Mockup placeholder */}
-            <div className="bg-gray-200 border-2 border-dashed border-gray-400 rounded-xl p-8 min-h-[400px] flex items-center justify-center md:order-1">
-              <div className="text-center">
-                <Integration size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup Integración</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+              <Image
+                src="/assets/bgSoftware.jpg"
+                alt="Integración de sistemas industriales"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Integración progresiva</span>
               </div>
             </div>
 
@@ -390,12 +419,18 @@ export default function ComoFuncionaPage() {
               </div>
             </div>
             
-            {/* Mockup placeholder */}
-            <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-              <div className="text-center">
-                <ChartLineData size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup Impacto</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+              <Image
+                src="/assets/bgPerformance.jpg"
+                alt="KPIs e indicadores de confiabilidad"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Impacto operativo</span>
               </div>
             </div>
           </div>
@@ -406,12 +441,18 @@ export default function ComoFuncionaPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Mockup placeholder */}
-            <div className="bg-gray-200 border-2 border-dashed border-gray-400 rounded-xl p-8 min-h-[400px] flex items-center justify-center md:order-1">
-              <div className="text-center">
-                <Partnership size={48} className="text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 font-medium">Mockup Implementación</p>
-                <p className="text-gray-400 text-sm">Placeholder para screenshot</p>
+            {/* Image */}
+            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+              <Image
+                src="/assets/bgCapacitacion.jpg"
+                alt="Capacitación e implementación"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Implementación acompañada</span>
               </div>
             </div>
 

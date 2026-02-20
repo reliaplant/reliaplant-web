@@ -12,6 +12,8 @@ import {
   DataStructured,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import Image from "next/image";
+import IndustrialGrid from "@/components/IndustrialGrid";
 
 export default function Home() {
   const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
@@ -20,15 +22,15 @@ export default function Home() {
     <>
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 md:pt-40 pb-20 md:pb-28 px-4 sm:px-6">
+        <IndustrialGrid />
         {/* Decorative background circles */}
         <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm text-white/80 font-medium">Plataforma de confiabilidad industrial</span>
-          </div>
+        <div className="max-w-4xl mx-auto relative z-[2] text-center">
+          <p className="text-lg md:text-xl font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6">
+            Plataforma de confiabilidad industrial
+          </p>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
             Convierte la ingeniería de confiabilidad en{" "}
@@ -63,22 +65,43 @@ export default function Home() {
       </section>
 
       {/* PROBLEMA GENERAL */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 block">
-              El problema
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              La realidad en muchas plantas industriales
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en:
-            </p>
+      <section className="bg-[#f4f5f7]" style={{ padding: 0 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 520 }}>
+          {/* Left: Image */}
+          <div className="relative h-[260px] md:h-auto">
+            <Image
+              src="/assets/escritorioMantenimiento.png"
+              alt="Escritorio de mantenimiento con hojas de cálculo y documentos"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 items-stretch">
-            <div className="space-y-2 flex flex-col">
+          {/* Right: Content */}
+          <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12" style={{ background: '#f4f5f7' }}>
+            <span
+              className="block font-bold uppercase text-red-500 mb-4"
+              style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+            >
+              El problema
+            </span>
+
+            <h2
+              className="font-bold mb-3"
+              style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+            >
+              La realidad en muchas plantas industriales
+            </h2>
+
+            <p
+              className="mb-5"
+              style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+            >
+              La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en:
+            </p>
+
+            <div className="flex flex-col gap-2 mb-5">
               {[
                 'RCA hechos manualmente, difíciles de mantener.',
                 'RCM desordenados y difíciles de actualizar.',
@@ -86,16 +109,34 @@ export default function Home() {
                 'Indicadores poco confiables.',
                 'Decisiones tomadas con data dudosa.',
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-gray-800 bg-white py-3 px-4 rounded-lg border border-gray-100 shadow-sm flex-1">
-                  <span className="text-red-500 text-lg flex-shrink-0">✗</span>
-                  <span className="text-base md:text-lg">{item}</span>
+                <div
+                  key={i}
+                  className="flex items-center gap-3 bg-white"
+                  style={{
+                    borderLeft: '3px solid #fca5a5',
+                    padding: '10px 14px',
+                    borderRadius: 6,
+                  }}
+                >
+                  <span className="text-red-400 text-base flex-shrink-0 font-bold">✕</span>
+                  <span style={{ fontSize: '0.9rem', color: '#374151' }}>{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-red-50 border-l-4 border-red-400 p-8 rounded-xl flex flex-col justify-center">
-              <p className="text-gray-900 font-semibold text-lg mb-6">El resultado:</p>
-              <ul className="space-y-4 text-gray-800">
+            <div
+              className="mb-6"
+              style={{
+                background: '#fff5f5',
+                border: '1px solid #fecaca',
+                borderRadius: 8,
+                padding: 24,
+              }}
+            >
+              <p className="font-semibold mb-4" style={{ color: '#991b1b', fontSize: '0.95rem' }}>
+                El resultado:
+              </p>
+              <ul className="space-y-3">
                 {[
                   'Fallas recurrentes.',
                   'Pérdida de producción.',
@@ -103,26 +144,40 @@ export default function Home() {
                   'Tiempo técnico desperdiciado en tareas administrativas.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-red-500 text-xs font-bold">{i + 1}</span>
+                    <span
+                      className="flex items-center justify-center flex-shrink-0 rounded-full font-bold"
+                      style={{
+                        width: 22,
+                        height: 22,
+                        background: '#fca5a5',
+                        color: '#7f1d1d',
+                        fontSize: '0.7rem',
+                        marginTop: 2,
+                      }}
+                    >
+                      {i + 1}
                     </span>
-                    <span className="text-base md:text-lg">{item}</span>
+                    <span style={{ fontSize: '0.9rem', color: '#374151' }}>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* CTA después del problema */}
-          <div className="mt-16 text-center">
-            <p className="text-gray-600 mb-6 text-lg">¿Te identificas con alguno de estos problemas?</p>
-            <Link 
-              href="#contacto" 
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
-            >
-              Agenda un diagnóstico gratuito
-              <ArrowRight size={20} />
-            </Link>
+            <div>
+              <Link
+                href="#contacto"
+                className="inline-flex items-center gap-2 rounded-lg text-white transition-all hover:-translate-y-0.5"
+                style={{
+                  background: '#2563eb',
+                  padding: '14px 28px',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                }}
+              >
+                Agenda un diagnóstico gratuito
+                <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -164,8 +219,14 @@ export default function Home() {
             <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
               
-              <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
-                <Catalog size={28} className="text-teal-600" />
+              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+                <Image
+                  src="/assets/bgAssetRegister.png"
+                  alt="Registro de activos"
+                  width={400}
+                  height={200}
+                  className="w-full h-36 object-cover"
+                />
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
@@ -201,8 +262,14 @@ export default function Home() {
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
               
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                <DataStructured size={28} className="text-blue-600" />
+              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+                <Image
+                  src="/assets/fondo-landing-rcm.png"
+                  alt="Módulo RCM"
+                  width={400}
+                  height={200}
+                  className="w-full h-36 object-cover"
+                />
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
@@ -238,8 +305,14 @@ export default function Home() {
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600" />
               
-              <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
-                <Network_3 size={28} className="text-purple-600" />
+              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+                <Image
+                  src="/assets/bgACR.jpg"
+                  alt="Análisis de causa raíz"
+                  width={400}
+                  height={200}
+                  className="w-full h-36 object-cover"
+                />
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">

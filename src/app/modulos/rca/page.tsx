@@ -13,6 +13,7 @@ import {
   Time,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import Image from "next/image";
 import RCAFeatures from "@/components/RCAFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
 
@@ -28,6 +29,15 @@ export default function RCAPage() {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-32 pb-20 px-4">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/bgACR.jpg"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover opacity-15"
+            priority
+          />
+        </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}

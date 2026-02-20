@@ -14,6 +14,7 @@ import {
   Growth,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import Image from "next/image";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import ROICalculator from "@/components/ROICalculator";
 
@@ -28,6 +29,15 @@ export default function ROIPage() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/bgKPIs.jpg"
+            alt="KPIs de confiabilidad industrial"
+            fill
+            className="object-cover opacity-15"
+            priority
+          />
+        </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -316,11 +326,18 @@ export default function ROIPage() {
                   <Download size={20} />
                 </a>
               </div>
-              <div className="w-48 h-60 bg-white rounded-lg shadow-lg border flex items-center justify-center">
-                <div className="text-center p-4">
-                  <Download size={40} className="text-green-500 mx-auto mb-2" />
-                  <p className="text-xs text-gray-500 font-medium">PDF</p>
-                  <p className="text-sm text-gray-700 font-semibold mt-2">ROI Confiabilidad</p>
+              <div className="w-48 h-60 rounded-lg shadow-lg border overflow-hidden relative">
+                <Image
+                  src="/assets/bgPerformance3.jpg"
+                  alt="Impacto operativo de la confiabilidad"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent flex items-end justify-center pb-4">
+                  <div className="text-center">
+                    <Download size={28} className="text-white mx-auto mb-1" />
+                    <p className="text-xs text-white/90 font-semibold">ROI Confiabilidad</p>
+                  </div>
                 </div>
               </div>
             </div>

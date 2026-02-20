@@ -14,6 +14,7 @@ import {
 } from "@carbon/icons-react";
 import { Droplets, Zap, Factory, Wheat } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata = {
@@ -27,6 +28,15 @@ export default function IndustriasPage() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/planta.jpg"
+            alt="Planta industrial"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -68,6 +78,16 @@ export default function IndustriasPage() {
                   <Droplets size={32} className="text-amber-600" />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">Oil & Gas</h2>
+              </div>
+
+              <div className="rounded-xl overflow-hidden mb-6 shadow-md">
+                <Image
+                  src="/assets/flare.jpg"
+                  alt="Operación Oil & Gas"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                />
               </div>
 
               <p className="text-xl text-gray-700 mb-6 font-medium">
@@ -145,6 +165,16 @@ export default function IndustriasPage() {
                 </h2>
               </div>
 
+              <div className="rounded-xl overflow-hidden mb-6 shadow-md">
+                <Image
+                  src="/assets/bgPerformance.jpg"
+                  alt="Infraestructura energética"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
+
               <p className="text-xl text-gray-700 mb-6 font-medium">
                 La continuidad del servicio es clave.
               </p>
@@ -218,6 +248,16 @@ export default function IndustriasPage() {
                 <h2 className="text-3xl font-bold text-gray-900">
                   Manufactura continua
                 </h2>
+              </div>
+
+              <div className="rounded-xl overflow-hidden mb-6 shadow-md">
+                <Image
+                  src="/assets/bgGestionActivos.jpg"
+                  alt="Planta de manufactura"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                />
               </div>
 
               <p className="text-xl text-gray-700 mb-6 font-medium">

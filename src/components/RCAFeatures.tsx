@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   Network_3,
   Time,
@@ -10,8 +10,10 @@ import {
 } from "@carbon/icons-react";
 import RCAAnimationReport from "./RCAAnimationReport";
 import RCAAnimationRecommendations from "./RCAAnimationRecommendations";
+import RCAAnimationDashboard from "./RCAAnimationDashboard";
+import RCAAnimationTree from "./RCAAnimationTree";
 
-type FeatureKey = "registro" | "analisis" | "5porques" | "recomendaciones";
+type FeatureKey = "dashboard" | "analisis" | "5porques" | "recomendaciones";
 
 interface Feature {
   id: FeatureKey;
@@ -26,20 +28,20 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    id: "registro",
-    title: "Registro estructurado de eventos",
-    icon: <Network_3 size={24} />,
+    id: "dashboard",
+    title: "Dashboard de KPIs de RCA",
+    icon: <ChartLineData size={24} />,
     color: "text-purple-600",
     bgColor: "bg-purple-600",
     description:
-      "Inicia cada análisis con información estructurada del evento: qué falló, cuándo, impacto operacional y costos asociados.",
+      "Visualiza el rendimiento de tus análisis de causa raíz en un dashboard centralizado con KPIs clave, tendencias y métricas de proceso.",
     details: [
-      "Plantilla estandarizada de eventos",
-      "Vinculación automática con activos",
-      "Clasificación de severidad",
-      "Cálculo automático de impactos",
+      "KPIs de análisis completados y tiempos de cierre",
+      "Efectividad de recomendaciones implementadas",
+      "Distribución por tipo de causa raíz",
+      "Métricas de proceso y seguimiento de metas",
     ],
-    mockupTitle: "Registro de eventos de falla",
+    mockupTitle: "Dashboard KPIs RCA",
   },
   {
     id: "analisis",
@@ -92,11 +94,45 @@ const features: Feature[] = [
 ];
 
 export default function RCAFeatures() {
-  const [activeFeature, setActiveFeature] = useState<FeatureKey>("registro");
+  const [activeFeature, setActiveFeature] = useState<FeatureKey>("dashboard");
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalContentRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  const calcScale = useCallback(() => {
+    if (!modalOpen || !modalContentRef.current) return;
+    const container = modalContentRef.current;
+    const cW = container.clientWidth - 48;
+    const cH = container.clientHeight - 48;
+    // Reference size: animations are designed for ~600px wide, ~400-420px tall
+    const refW = 600;
+    const refH = 420;
+    const s = Math.min(cW / refW, cH / refH);
+    setScale(s);
+  }, [modalOpen]);
+
+  useEffect(() => {
+    if (!modalOpen) return;
+    // Small delay to let the DOM render
+    const t = setTimeout(calcScale, 50);
+    window.addEventListener("resize", calcScale);
+    return () => { clearTimeout(t); window.removeEventListener("resize", calcScale); };
+  }, [modalOpen, calcScale]);
 
   const currentFeature = features.find((f) => f.id === activeFeature) || features[0];
 
+  const renderAnimation = () => {
+    switch (currentFeature.id) {
+      case "recomendaciones": return <RCAAnimationRecommendations />;
+      case "5porques": return <RCAAnimationReport />;
+      case "dashboard": return <RCAAnimationDashboard />;
+      case "analisis": return <RCAAnimationTree />;
+      default: return null;
+    }
+  };
+
   return (
+    <>
     <section className="py-12 px-8 bg-purple-50">
       <div className="max-w-6xl mx-auto">
         <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-4 block text-center">
@@ -170,28 +206,17 @@ export default function RCAFeatures() {
 
             {/* Mockup area */}
             <div className="p-6">
-              {currentFeature.id === "recomendaciones" ? (
-                <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
-                  <RCAAnimationRecommendations />
-                </div>
-              ) : currentFeature.id === "registro" || currentFeature.id === "analisis" ? (
-                <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
-                  <RCAAnimationReport />
-                </div>
-              ) : (
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[280px] border-2 border-dashed border-gray-300">
-                  <div className="text-center">
-                    <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
-                      <span className={currentFeature.color}>
-                        {currentFeature.id === "5porques" && <Time size={48} />}
-                      </span>
-                    </div>
-                    <p className="text-gray-500 font-medium">
-                      Mockup: {currentFeature.mockupTitle}
-                    </p>
+              <div
+                className="bg-white rounded-xl overflow-hidden border border-gray-200 cursor-pointer group relative"
+                onClick={() => setModalOpen(true)}
+              >
+                {renderAnimation()}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                  <div className="bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm">
+                    Click para ampliar
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
@@ -205,5 +230,34 @@ export default function RCAFeatures() {
         </div>
       </div>
     </section>
+
+      {/* Modal */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl w-[95vw] h-[92vh] max-w-none overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalOpen(false)}
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div ref={modalContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
+              <div style={{ width: 600, minHeight: 400, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+                {renderAnimation()}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
