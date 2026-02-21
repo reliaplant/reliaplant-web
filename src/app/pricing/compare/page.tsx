@@ -5,7 +5,7 @@ export default function PricingCompare() {
     <div className="min-h-screen bg-white pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8">
         <div className="mb-8 flex items-center">
-          <Link href="/pricing" className="text-blue-600 hover:underline text-sm font-medium flex items-center gap-1">
+          <Link href="/#precios" className="text-blue-600 hover:underline text-sm font-medium flex items-center gap-1">
             <span className="text-2xl">←</span> Volver a precios
           </Link>
         </div>
