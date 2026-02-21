@@ -22,44 +22,58 @@ export default function ComoFuncionaPage() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/engineeringRoom.jpg"
+            alt="Sala de ingeniería industrial"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+        {/* Scrim: fondo oscuro uniforme para garantizar CR ≥ 7:1 (WCAG AAA) */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#0f172a]/80 via-[#1a1a2e]/75 to-[#1e3a8a]/70" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
         
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto relative z-[2]">
+          <div className="flex items-center gap-3 mb-6">
+            <Integration size={32} className="text-blue-400" />
+            <span className="text-blue-400 font-medium tracking-wide text-sm">
+              Ingeniería de Confiabilidad sin burocracia técnica
+            </span>
+          </div>
+
           <h1 className="text-5xl font-bold leading-tight mb-6">
             Cómo funciona la plataforma
           </h1>
-          
+
           <p className="text-2xl text-white/90 mb-8 max-w-3xl">
-            Ingeniería de confiabilidad sin burocracia técnica
+            Nuestra plataforma <strong className="text-white">no reemplaza tu CMMS</strong> ni tus sistemas actuales.
+            Los complementa, facilitando la aplicación correcta de metodologías de confiabilidad,
+            mejorando la calidad de datos y reduciendo el tiempo administrativo técnico.
           </p>
 
           <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-3xl">
-            <p className="text-lg text-white/80 mb-6">
-              Nuestra plataforma <strong className="text-white">no reemplaza tu CMMS</strong> ni tus sistemas actuales.
-              Los complementa, facilitando la aplicación correcta de metodologías de confiabilidad, 
-              mejorando la calidad de datos y reduciendo el tiempo administrativo técnico.
-            </p>
-            
             <p className="text-lg text-white/90 font-semibold mb-4">El objetivo es simple:</p>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <span>👉</span>
-                <span className="text-white/80">Mejores decisiones de mantenimiento</span>
+                <CheckmarkFilled size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
+                <span className="text-white/80 text-lg">Mejores decisiones de mantenimiento</span>
               </li>
               <li className="flex items-start gap-3">
-                <span>👉</span>
-                <span className="text-white/80">Menos fallas recurrentes</span>
+                <CheckmarkFilled size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
+                <span className="text-white/80 text-lg">Menos fallas recurrentes</span>
               </li>
               <li className="flex items-start gap-3">
-                <span>👉</span>
-                <span className="text-white/80">Ingeniería enfocada en resultados</span>
+                <CheckmarkFilled size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
+                <span className="text-white/80 text-lg">Ingeniería enfocada en resultados</span>
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Roadmap Visual - Placeholder */}
+      {/* Resumen 6 pasos */}
       <section className="py-16 px-4 bg-white border-b">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -70,15 +84,56 @@ export default function ComoFuncionaPage() {
               Un camino claro hacia la confiabilidad operativa
             </p>
           </div>
-          
-          <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-            <Image
-              src="/assets/procesoConfiabilidad.png"
-              alt="Proceso de implementación de confiabilidad industrial"
-              width={1200}
-              height={500}
-              className="w-full h-auto object-contain"
-            />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* 1 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-teal-600">1</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Base técnica correcta</h3>
+              <p className="text-gray-600 text-sm">Estructura activos según ISO 14224, define jerarquías y asegura consistencia en los datos desde el inicio.</p>
+            </div>
+            {/* 2 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-purple-600">2</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Análisis de fallas (RCA)</h3>
+              <p className="text-gray-600 text-sm">El módulo RCA guía la estructuración, documentación y seguimiento del análisis evitando informes superficiales.</p>
+            </div>
+            {/* 3 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-blue-600">3</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">RCM como herramienta práctica</h3>
+              <p className="text-gray-600 text-sm">Elimina duplicidades y pérdida de trazabilidad. Mantiene relaciones claras entre activos, fallas y tareas de mantenimiento.</p>
+            </div>
+            {/* 4 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-orange-600">4</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Integración progresiva</h3>
+              <p className="text-gray-600 text-sm">Implementa un módulo primero, escala gradualmente y adáptalo a tu ecosistema actual sin cambiar todo de golpe.</p>
+            </div>
+            {/* 5 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-green-600">5</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Impacto operativo real</h3>
+              <p className="text-gray-600 text-sm">Menos fallas recurrentes, mejores decisiones técnicas, indicadores confiables e ingeniería enfocada en resultados.</p>
+            </div>
+            {/* 6 */}
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-lg font-bold text-blue-600">6</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementación acompañada</h3>
+              <p className="text-gray-600 text-sm">Diagnóstico inicial, configuración, capacitación técnica y soporte continuo. El objetivo es adopción real, no solo instalación.</p>
+            </div>
           </div>
         </div>
       </section>

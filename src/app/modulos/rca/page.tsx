@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RCAFeatures from "@/components/RCAFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
+import DemoRequestSection from "@/components/DemoRequestSection";
 
 export const metadata = {
   title: "Módulo RCA - Análisis de Causa Raíz | Reliaplant",
@@ -402,25 +403,8 @@ export default function RCAPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Convierte tus RCA en eliminadores reales de fallas recurrentes
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Prueba el módulo RCA gratis por 14 días y descubre cómo estructurar análisis que generan acciones efectivas.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/#contacto" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all">
-              Comenzar prueba gratis
-            </Link>
-            <Link href="/" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all">
-              Ver todos los módulos
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Demo Request */}
+      <DemoRequestSection bgColor="#31135e" />
     </>
   );
 }

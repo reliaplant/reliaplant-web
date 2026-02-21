@@ -52,38 +52,32 @@ export default function ROIPage() {
             El retorno de invertir en confiabilidad bien aplicada
           </h1>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-3xl mb-8">
-            <p className="text-lg text-white/90 mb-4">
-              En mantenimiento industrial, el retorno rara vez viene de un solo factor.
-              <span className="font-semibold text-white"> No es solo ahorro directo.</span>
-            </p>
-            
-            <p className="text-lg text-white/80 mb-4">Es:</p>
-            
-            <ul className="space-y-2 text-lg">
+          <p className="text-2xl text-white/90 mb-8 max-w-3xl">
+            Nuestra plataforma fortalece los pilares de la confiabilidad para que la ingeniería genere{" "}
+            <strong className="text-white">impacto operativo real</strong>.{" "}
+            En mantenimiento industrial, el retorno rara vez viene de un solo factor. No es solo ahorro directo.
+          </p>
+
+          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-3xl">
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <CheckmarkFilled size={20} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-white/90">Menos fallas recurrentes</span>
+                <span className="text-white/90 text-lg">Menos fallas recurrentes</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckmarkFilled size={20} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-white/90">Mejores decisiones técnicas</span>
+                <span className="text-white/90 text-lg">Mejores decisiones técnicas</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckmarkFilled size={20} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-white/90">Mayor disponibilidad operacional</span>
+                <span className="text-white/90 text-lg">Mayor disponibilidad operacional</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckmarkFilled size={20} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-white/90">Menos tiempo desperdiciado en tareas administrativas</span>
+                <span className="text-white/90 text-lg">Menos tiempo desperdiciado en tareas administrativas</span>
               </li>
             </ul>
           </div>
-
-          <p className="text-xl text-white/80 max-w-3xl">
-            Nuestra plataforma está diseñada para fortalecer esos pilares y ayudar a que la 
-            ingeniería de confiabilidad genere <span className="text-white font-semibold">impacto operativo real</span>.
-          </p>
         </div>
       </section>
 

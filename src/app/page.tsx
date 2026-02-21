@@ -10,13 +10,19 @@ import {
   ChevronRight,
   Lightning,
   DataStructured,
+  Close,
+  UserMultiple,
+  Asset,
+  Industry,
 } from "@carbon/icons-react";
 import Link from "next/link";
 import Image from "next/image";
 import IndustrialGrid from "@/components/IndustrialGrid";
+import DemoRequestSection from "@/components/DemoRequestSection";
 
 export default function Home() {
   const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
+  const [showContactModal, setShowContactModal] = React.useState(false);
 
   return (
     <>
@@ -48,18 +54,20 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link 
-              href="#contacto" 
+              href="https://app.reliaplant.com" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
             >
-              Solicita una demo guiada
+              Empezar ahora
               <ArrowRight size={20} />
             </Link>
-            <Link 
-              href="#contacto" 
-              className="border border-white/30 hover:border-white/60 hover:bg-white/5 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all"
+            <button 
+              onClick={() => setShowContactModal(true)}
+              className="border border-white/30 hover:border-white/60 hover:bg-white/5 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
-              Agenda un diagnóstico sin costo
-            </Link>
+              Contactar Asesor
+            </button>
           </div>
         </div>
       </section>
@@ -162,22 +170,6 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-
-            <div>
-              <Link
-                href="#contacto"
-                className="inline-flex items-center gap-2 rounded-lg text-white transition-all hover:-translate-y-0.5"
-                style={{
-                  background: '#2563eb',
-                  padding: '14px 28px',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                }}
-              >
-                Agenda un diagnóstico gratuito
-                <ArrowRight size={18} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -192,25 +184,8 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Una plataforma diseñada para ingeniería real
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Tres pilares clave de la confiabilidad industrial, integrados en una sola plataforma:
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-4 py-2 rounded-lg text-sm font-medium border border-teal-100">
-                <CheckmarkFilled size={16} />
-                Datos de activos organizados
-              </span>
-              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium border border-blue-100">
-                <CheckmarkFilled size={16} />
-                Estrategias de mantenimiento
-              </span>
-              <span className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-lg text-sm font-medium border border-purple-100">
-                <CheckmarkFilled size={16} />
-                Análisis de causa raíz
-              </span>
-            </div>
-            <p className="text-gray-500 text-sm">
-              Usa cada módulo de forma independiente o conéctalos para una gestión completa.
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Usa cada módulo de forma independiente o conéctalos para una gestión completa de la confiabilidad.
             </p>
           </div>
 
@@ -218,7 +193,12 @@ export default function Home() {
             {/* Taxonomía Card */}
             <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
-              
+
+              <div className="flex items-center gap-2 mb-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-teal-600">Módulo</p>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Registro de Activos</h3>
+
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/bgAssetRegister.png"
@@ -239,15 +219,15 @@ export default function Home() {
               
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
                   <span>Relaciones correctas padre-hijo</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
                   <span>Consistencia en el registro con plantillas</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
                   <span>Exportación a tu CMMS</span>
                 </li>
               </ul>
@@ -261,7 +241,12 @@ export default function Home() {
             {/* RCM Card */}
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
-              
+
+              <div className="flex items-center gap-2 mb-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-600">Módulo</p>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">RCM</h3>
+
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/fondo-landing-rcm.png"
@@ -282,15 +267,15 @@ export default function Home() {
               
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Gestión de funciones y modos de falla</span>
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Análisis estructurado con las 7 preguntas del RCM</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Análisis de consecuencias con árbol de decisión</span>
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span>Estrategias de mantenimiento definidas con árbol de decisión</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Plan de mantenimiento exportable a CMMS</span>
                 </li>
               </ul>
@@ -304,7 +289,12 @@ export default function Home() {
             {/* RCA Card */}
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600" />
-              
+
+              <div className="flex items-center gap-2 mb-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-purple-600">Módulo</p>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Análisis de Causa Raíz</h3>
+
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/bgACR.jpg"
@@ -325,15 +315,15 @@ export default function Home() {
               
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
                   <span>Registro estructurado de eventos</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Árbol de causas y metodología 5 Porqués guiada</span>
+                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <span>Árbol de causas automatizado con IA y trazabilidad metodológica</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <ChevronRight size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
                   <span>Recomendaciones y seguimiento de acciones</span>
                 </li>
               </ul>
@@ -351,13 +341,23 @@ export default function Home() {
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Te ayudamos a identificar el módulo que más impacto tendrá en tu operación. Sin compromiso.
             </p>
-            <Link 
-              href="#contacto" 
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
-            >
-              Solicita una demo personalizada
-              <ArrowRight size={20} />
-            </Link>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link 
+                href="https://app.reliaplant.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+              >
+                Prueba ahora
+                <ArrowRight size={20} />
+              </Link>
+              <button
+                onClick={() => setShowContactModal(true)}
+                className="border border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 px-8 py-3.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all cursor-pointer"
+              >
+                Contacta un Asesor
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -425,7 +425,7 @@ export default function Home() {
               href="#contacto" 
               className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
             >
-              Solicita una demo con IA
+              Empieza Ahora
               <ArrowRight size={20} />
             </Link>
           </div>
@@ -463,188 +463,304 @@ export default function Home() {
       </section>
 
       {/* PRICING SECTION */}
-      <section id="precios" className="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
+      <section id="precios" className="py-10 md:py-14 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Precios transparentes</h2>
-            <p className="text-lg md:text-xl text-gray-600">Licencias de acuerdo al tamaño de tu organización</p>
+          <div className="mb-2 flex justify-center items-center min-h-[4.5rem]">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full">Licencias a la medida de tu planta</h2>
           </div>
 
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex rounded-lg bg-gray-100 p-1">
-              <button 
-                onClick={() => setPricingPeriod('monthly')}
-                className={`px-6 py-2.5 text-sm font-medium transition-all rounded-md ${pricingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Mensual
-              </button>
-              <button 
-                onClick={() => setPricingPeriod('annual')}
-                className={`px-6 py-2.5 text-sm font-medium transition-all rounded-md flex items-center gap-2 ${pricingPeriod === 'annual' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Anual
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold">-17%</span>
-              </button>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Starter Plan */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Starter</h3>
-              <p className="text-sm text-gray-500 mb-6">Para organizaciones con operaciones pequeñas</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-gray-900">
-                  ${pricingPeriod === 'monthly' ? '299' : '249'}
-                </span>
-                <span className="text-gray-500">/mes</span>
-                {pricingPeriod === 'annual' && (
-                  <span className="block text-sm text-green-600 mt-1 font-medium">Ahorras $600/año</span>
-                )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Gratuito */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Gratuito</h3>
+              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Evaluar la plataforma</p>
+              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3 opacity-40 pointer-events-none">
+                <button className="flex-1 py-1.5 text-xs rounded-[4px] bg-white font-semibold text-gray-900" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>Mensual</button>
+                <button className="flex-1 py-1.5 text-xs rounded-[4px] text-[#6f6f6f] flex items-center justify-center gap-1">Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
               </div>
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+              <div className="mb-2">
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">$0</span>
+                  <span className="text-gray-500"> / para siempre</span>
+                </div>
+                <span className="invisible block text-sm font-medium mt-1">placeholder</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                <div className="flex flex-col items-center gap-1">
+                  <UserMultiple size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">1</span>
+                  <span>usuario</span>
+                </div>
+                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                  <Asset size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">10</span>
+                  <span>activos</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Industry size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">1</span>
+                  <span>planta</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-4 pl-0 list-none">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  0-100 activos
+                  Taxonomía básica
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Hasta 5 usuarios
+                  5 proyectos RCA · 5 planes RCM
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Registro de activos completo
+                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  Asistente IA incluido
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Matriz de criticidad
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Exportación a CMMS
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
                   Soporte por email
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
+              <div className="flex-grow" />
+              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
+                Comenzar gratis
+              </Link>
+            </div>
+
+            {/* Profesional */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Profesional</h3>
+              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Consultor o ingeniero independiente</p>
+              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
+                <button
+                  onClick={() => setPricingPeriod('monthly')}
+                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Mensual</button>
+                <button
+                  onClick={() => setPricingPeriod('annual')}
+                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
+              </div>
+              <div className="mb-2">
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">
+                    ${pricingPeriod === 'monthly' ? '29' : '25'}
+                  </span>
+                  <span className="text-gray-500">/mes</span>
+                </div>
+                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$296/año · Ahorras $52</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                <div className="flex flex-col items-center gap-1">
+                  <UserMultiple size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">1</span>
+                  <span>usuario</span>
+                </div>
+                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                  <Asset size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">30</span>
+                  <span>activos</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Industry size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">1</span>
+                  <span>planta</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-4 pl-0 list-none">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Todos los módulos — proyectos ilimitados
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Reportes PDF y Excel
+                </li>
+                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  IA: hipótesis y modos de falla
+                </li>
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                  Soporte por email prioritario
+                </li>
+              </ul>
+              <div className="flex-grow" />
+              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
                 Comenzar prueba
               </Link>
             </div>
 
-            {/* Professional Plan (Featured) */}
-            <div className="bg-white border-2 border-blue-600 rounded-2xl p-8 flex flex-col relative shadow-xl shadow-blue-600/10">
-              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                Más popular
+            {/* Equipo — RECOMENDADO */}
+            <div className="bg-white border-2 border-blue-600 rounded-2xl p-6 flex flex-col relative shadow-xl shadow-blue-600/10">
+              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                Recomendado
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Professional</h3>
-              <p className="text-sm text-gray-500 mb-6">Para organizaciones con múltiples plantas</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-gray-900">
-                  ${pricingPeriod === 'monthly' ? '899' : '749'}
-                </span>
-                <span className="text-gray-500">/mes</span>
-                {pricingPeriod === 'annual' && (
-                  <span className="block text-sm text-green-600 mt-1 font-medium">Ahorras $1,800/año</span>
-                )}
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Equipo</h3>
+              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Equipo de mantenimiento o confiabilidad</p>
+              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
+                <button
+                  onClick={() => setPricingPeriod('monthly')}
+                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Mensual</button>
+                <button
+                  onClick={() => setPricingPeriod('annual')}
+                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
               </div>
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+              <div className="mb-2">
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">
+                    ${pricingPeriod === 'monthly' ? '99' : '84'}
+                  </span>
+                  <span className="text-gray-500">/mes</span>
+                </div>
+                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$1,009/año · Ahorras $179</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                <div className="flex flex-col items-center gap-1">
+                  <UserMultiple size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">5</span>
+                  <span>usuarios</span>
+                </div>
+                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                  <Asset size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">+100</span>
+                  <span>activos</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Industry size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">1</span>
+                  <span>planta</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-4 pl-0 list-none">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  100-1000 activos
+                  Permisos y roles de equipo
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Hasta 15 usuarios
+                  Dashboard compartido
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Todos los módulos (RCA, RCM, Registro)
+                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  IA ilimitada para todo el equipo
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  IA para análisis y sugerencias
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Exportación a múltiples formatos
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Soporte prioritario
+                  Activos adicionales disponibles
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
+              <div className="flex-grow" />
+              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
                 Comenzar prueba
               </Link>
             </div>
 
-            {/* Enterprise Plan */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
-              <p className="text-sm text-gray-500 mb-6">Para grandes operaciones industriales</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-gray-900">Contactar</span>
+            {/* Planta */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Planta</h3>
+              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Planta mediana o grande</p>
+              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
+                <button
+                  onClick={() => setPricingPeriod('monthly')}
+                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Mensual</button>
+                <button
+                  onClick={() => setPricingPeriod('annual')}
+                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
+                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
+                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
               </div>
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+              <div className="mb-2">
+                <div>
+                  <span className="text-4xl font-bold text-gray-900">
+                    ${pricingPeriod === 'monthly' ? '245' : '208'}
+                  </span>
+                  <span className="text-gray-500">/mes</span>
+                </div>
+                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$2,499/año · Ahorras $441</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                <div className="flex flex-col items-center gap-1">
+                  <UserMultiple size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">15</span>
+                  <span>usuarios</span>
+                </div>
+                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                  <Asset size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">+5000</span>
+                  <span>activos</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Industry size={20} className="text-gray-400" />
+                  <span className="font-semibold text-gray-900">3</span>
+                  <span>plantas</span>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-4 pl-0 list-none">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  +1000 activos
+                  Soporte prioritario 24h
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Usuarios ilimitados
+                  Facturación por orden de compra
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Todos los módulos sin límites
+                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                  IA ilimitada multi-planta
                 </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
                   <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Integraciones CMMS/ERP (SAP, Maximo)
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  SSO y administración avanzada
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Soporte dedicado 24/7
+                  Activos adicionales disponibles
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
-                Contactar ventas
+              <div className="flex-grow" />
+              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
+                Comenzar prueba
               </Link>
             </div>
           </div>
+
+          <div className="flex flex-col items-center mt-8">
+            <a href="/pricing/compare" className="text-blue-600 font-medium hover:underline text-base mb-2">Ver comparación completa de planes <span className='inline-block align-middle'>↓</span></a>
+            <p className="text-center text-sm text-gray-500 mt-2">
+              Para organizaciones con más de 15 usuarios o necesidades especiales:{" "}
+              <a href="mailto:comercial@reliaplant.com" className="text-blue-600 font-medium hover:underline">
+                Plan Empresa — contactar a comercial@reliaplant.com
+              </a>
+            </p>
+          </div>
         </div>
       </section>
-
       {/* CTA SECTION */}
-      <section id="contacto" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Deja de improvisar. Empieza a gestionar confiabilidad de verdad.
-          </h2>
-          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Prueba Reliaplant gratis por 14 días. Sin tarjeta de crédito. Registra tus activos, evalúa su criticidad y lanza tu primer proyecto hoy.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <Link href="#" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all shadow-lg">
-              Solicita una demo guiada
-              <ArrowRight size={20} />
-            </Link>
-            <Link href="#" className="border border-white/40 hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all">
-              Agenda un diagnóstico de confiabilidad
-            </Link>
+      <div id="contacto">
+        <DemoRequestSection />
+      </div>
+      {/* Modal Contactar Asesor */}
+      {showContactModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowContactModal(false); }}
+        >
+          <div className="relative w-full max-w-6xl mx-auto my-8">
+            <button
+              onClick={() => setShowContactModal(false)}
+              className="absolute top-4 right-4 z-[101] bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+              aria-label="Cerrar"
+            >
+              <Close size={24} />
+            </button>
+            <DemoRequestSection />
           </div>
-          <p className="text-white/70 text-sm">
-            O escríbenos directamente a <a href="mailto:contacto@reliaplant.com" className="underline text-white/90 hover:text-white transition-colors">contacto@reliaplant.com</a>
-          </p>
         </div>
-      </section>
+      )}
     </>
   );
 }

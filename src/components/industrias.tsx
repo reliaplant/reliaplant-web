@@ -117,40 +117,178 @@ export default function Industrias() {
       {/* Content Section */}
 
       {/* Image Grid */}
-      <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
-        <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
-          <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
-            <Image
-              src={pegandotag}
-              alt="Imagen 1"
-              layout="fill"
-              objectFit="cover"
-              className="border"
-            />
-          </div>
-          <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
-            <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
-            <h3 className="text-gray-90 mt-4 text-[1.7vw]">
-              Levantamiento de +7000 activos físicos
-            </h3>
-            <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
-              INDUSTRIA OIL & GAS - HOUSTON, USA.
+        {activeTab === 0 && (
+          <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
+            <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
+              <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+                <Image
+                  src={pegandotag}
+                  alt="Imagen 1"
+                  layout="fill"
+                  objectFit="cover"
+                  className="border"
+                />
+              </div>
+              <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+                <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
+                <h3 className="text-gray-90 mt-4 text-[1.7vw]">
+                  Levantamiento de +7000 activos físicos
+                </h3>
+                <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
+                  INDUSTRIA OIL & GAS - HOUSTON, USA.
+                </div>
+                <div>
+                  <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+                    En este proyecto, se realizó un levantamiento detallado de más
+                    de 7000 activos físicos en la industria de Oil & Gas en Houston,
+                    USA. El objetivo fue identificar y catalogar cada activo para
+                    mejorar la gestión y mantenimiento de los mismos, asegurando una
+                    operación más eficiente y segura.
+                  </p>
+                  <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+                    Leer completo
+                  </button>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
-                En este proyecto, se realizó un levantamiento detallado de más
-                de 7000 activos físicos en la industria de Oil & Gas en Houston,
-                USA. El objetivo fue identificar y catalogar cada activo para
-                mejorar la gestión y mantenimiento de los mismos, asegurando una
-                operación más eficiente y segura.
-              </p>
-              <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
-                Leer completo
-              </button>
+          </div>
+        )}
+        {activeTab === 1 && (
+          <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
+            <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
+              <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+                <Image
+                  src={turbocompresor}
+                  alt="Imagen 2"
+                  layout="fill"
+                  objectFit="cover"
+                  className="border"
+                />
+              </div>
+              <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+                <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
+                <h3 className="text-gray-90 mt-4 text-[1.7vw]">
+                  Aplicación de RCM a hipercompresor
+                </h3>
+                <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
+                  INDUSTRIA PETROQUÍMICA - MÉXICO.
+                </div>
+                <div>
+                  <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+                    Proyecto de análisis de confiabilidad y mantenimiento centrado en la
+                    operación de un hipercompresor crítico para la producción petroquímica.
+                    Se identificaron modos de falla, relaciones padre-hijo, y se implementaron
+                    estrategias de mantenimiento preventivo y predictivo.
+                  </p>
+                  <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+                    Leer completo
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+        {activeTab === 2 && (
+          <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
+            <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
+              <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+                <Image
+                  src={fondoPlataforma}
+                  alt="Imagen 3"
+                  layout="fill"
+                  objectFit="cover"
+                  className="border"
+                />
+              </div>
+              <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+                <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
+                <h3 className="text-gray-90 mt-4 text-[1.7vw]">
+                  Estudios RAM para diseño de plataformas offshore
+                </h3>
+                <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
+                  INDUSTRIA OFFSHORE - GOLFO DE MÉXICO.
+                </div>
+                <div>
+                  <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+                    Se realizaron estudios de confiabilidad, disponibilidad y mantenibilidad (RAM)
+                    para el diseño de plataformas offshore, asegurando consistencia en el registro
+                    de activos y optimización de la arquitectura de sistemas.
+                  </p>
+                  <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+                    Leer completo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {activeTab === 4 && (
+          <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
+            <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
+              <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+                <Image
+                  src={planta}
+                  alt="Imagen 4"
+                  layout="fill"
+                  objectFit="cover"
+                  className="border"
+                />
+              </div>
+              <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+                <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
+                <h3 className="text-gray-90 mt-4 text-[1.7vw]">
+                  Desarrollo de batería de estudios de confiabilidad para Plataforma
+                </h3>
+                <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
+                  INDUSTRIA ENERGÉTICA - LATAM.
+                </div>
+                <div>
+                  <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+                    Implementación de soluciones integrales para la gestión de activos,
+                    incluyendo relaciones padre-hijo, consistencia en el registro y análisis
+                    de datos para la mejora continua de la confiabilidad operacional.
+                  </p>
+                  <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+                    Leer completo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {activeTab === 5 && (
+          <div className="flex flex-row justify-between items-center gap-4 bg-white border-t-8 border-blue60">
+            <div className="flex flex-col md:flex-row gap-8 px-4 md:px-[8vw] py-8 md:py-16 w-full">
+              <div className="w-full md:w-[36vw] h-[50vh] md:h-[30vw] relative">
+                <Image
+                  src={flare}
+                  alt="Imagen 5"
+                  layout="fill"
+                  objectFit="cover"
+                  className="border"
+                />
+              </div>
+              <div className="w-full md:w-[46vw] relative border border-blue30 p-4 md:p-8">
+                <div className="tracking-[0.1em] text-gray60">CASO DE ESTUDIO</div>
+                <h3 className="text-gray-90 mt-4 text-[1.7vw]">
+                  Análisis causa raíz de turbomáquina con falla catastrófica
+                </h3>
+                <div className="bg-blue10 text-blue60 w-fit px-2 py-1 mt-2">
+                  INDUSTRIA ENERGÉTICA - EUROPA.
+                </div>
+                <div>
+                  <p className="text-gray-70 mt-8 text-base md:text-[1.2vw]">
+                    Investigación y solución de una falla catastrófica en turbomáquina,
+                    aplicando técnicas avanzadas de análisis causa raíz y gestión de activos.
+                  </p>
+                  <button className="bg-blue60 hover:bg-gray90 text-white px-4 py-2">
+                    Leer completo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   );
 }
