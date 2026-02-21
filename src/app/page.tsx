@@ -73,103 +73,108 @@ export default function Home() {
       </section>
 
       {/* PROBLEMA GENERAL */}
-      <section className="bg-[#f4f5f7]" style={{ padding: 0 }}>
-        <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 520 }}>
-          {/* Left: Image */}
-          <div className="relative h-[260px] md:h-auto">
-            <Image
-              src="/assets/escritorioMantenimiento.png"
-              alt="Escritorio de mantenimiento con hojas de cálculo y documentos"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section
+        className="relative overflow-hidden bg-[#f4f5f7]"
+        style={{ minHeight: 520 }}
+      >
+        {/* Image — right 55%, diagonal left edge */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/escritorioMantenimiento.png"
+            alt="Escritorio de mantenimiento con hojas de cálculo y documentos"
+            fill
+            className="object-cover object-center"
+            sizes="55vw"
+          />
+          {/* Gradient overlay blending image into section bg */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, #f4f5f7 0%, transparent 40%)',
+            }}
+          />
+        </div>
+
+        {/* Mobile image */}
+        <div className="relative h-52 w-full md:hidden">
+          <Image
+            src="/assets/escritorioMantenimiento.png"
+            alt="Escritorio de mantenimiento"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Content — left side */}
+        <div
+          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
+          style={{ maxWidth: '52%' }}
+        >
+          <span
+            className="block font-bold uppercase text-red-500 mb-4"
+            style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+          >
+            El problema
+          </span>
+
+          <h2
+            className="font-bold mb-3"
+            style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+          >
+            La realidad en muchas plantas industriales
+          </h2>
+
+          <p
+            className="mb-6"
+            style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+          >
+            La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en procesos manuales, datos inconsistentes y metodologías sin soporte.
+          </p>
+
+          {/* Pain point pills */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[
+              'RCA sin metodología',
+              'RCM desactualizado',
+              'Activos inconsistentes',
+              'Data dudosa',
+              'Conocimiento no documentado',
+              'Indicadores poco confiables',
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 font-medium"
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#991b1b',
+                  background: '#fff1f2',
+                  border: '1px solid #fecaca',
+                  borderRadius: 999,
+                  padding: '4px 12px',
+                }}
+              >
+                <span className="text-red-400 font-bold text-xs">✕</span>
+                {tag}
+              </span>
+            ))}
           </div>
 
-          {/* Right: Content */}
-          <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12" style={{ background: '#f4f5f7' }}>
-            <span
-              className="block font-bold uppercase text-red-500 mb-4"
-              style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
-            >
-              El problema
-            </span>
-
-            <h2
-              className="font-bold mb-3"
-              style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
-            >
-              La realidad en muchas plantas industriales
-            </h2>
-
-            <p
-              className="mb-5"
-              style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
-            >
-              La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en:
+          {/* Result highlight box */}
+          <div
+            style={{
+              borderLeft: '4px solid #f87171',
+              background: '#fff5f5',
+              borderRadius: '0 8px 8px 0',
+              padding: '16px 20px',
+            }}
+          >
+            <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
+              <strong>El resultado:</strong> fallas recurrentes, producción perdida y el ciclo que no para.
             </p>
-
-            <div className="flex flex-col gap-2 mb-5">
-              {[
-                'RCA hechos manualmente, difíciles de mantener.',
-                'RCM desordenados y difíciles de actualizar.',
-                'Bases de activos inconsistentes o incompletas.',
-                'Indicadores poco confiables.',
-                'Decisiones tomadas con data dudosa.',
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 bg-white"
-                  style={{
-                    borderLeft: '3px solid #fca5a5',
-                    padding: '10px 14px',
-                    borderRadius: 6,
-                  }}
-                >
-                  <span className="text-red-400 text-base flex-shrink-0 font-bold">✕</span>
-                  <span style={{ fontSize: '0.9rem', color: '#374151' }}>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="mb-6"
-              style={{
-                background: '#fff5f5',
-                border: '1px solid #fecaca',
-                borderRadius: 8,
-                padding: 24,
-              }}
-            >
-              <p className="font-semibold mb-4" style={{ color: '#991b1b', fontSize: '0.95rem' }}>
-                El resultado:
-              </p>
-              <ul className="space-y-3">
-                {[
-                  'Fallas recurrentes.',
-                  'Pérdida de producción.',
-                  'Estrés operativo constante.',
-                  'Tiempo técnico desperdiciado en tareas administrativas.',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className="flex items-center justify-center flex-shrink-0 rounded-full font-bold"
-                      style={{
-                        width: 22,
-                        height: 22,
-                        background: '#fca5a5',
-                        color: '#7f1d1d',
-                        fontSize: '0.7rem',
-                        marginTop: 2,
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span style={{ fontSize: '0.9rem', color: '#374151' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -435,12 +440,11 @@ export default function Home() {
       {/* STATS BAR */}
       <section className="border-y border-gray-100 bg-white py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
-              { value: '2000+', label: 'Activos gestionados' },
-              { value: '15+', label: 'Industrias atendidas' },
-              { value: '50+', label: 'Proyectos RCM completados' },
-              { value: '24/7', label: 'Soporte dedicado' },
+              { value: '+5000', label: 'Activos gestionados' },
+              { value: '+150', label: 'Proyectos RCM' },
+              { value: '+250', label: 'Proyectos RCA' },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-bold text-blue-600 mb-2 tabular-nums">{stat.value}</span>
