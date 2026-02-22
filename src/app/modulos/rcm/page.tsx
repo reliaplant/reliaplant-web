@@ -13,6 +13,7 @@ import {
   Time,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import RCMCtaButtons from "./RCMCtaButtons";
 import Image from "next/image";
 import RCMFeatures from "@/components/RCMFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
@@ -28,20 +29,22 @@ export default function RCMPage() {
       <ModuleStickyBanner moduleName="Módulo RCM" moduleType="rcm" />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/bgRCM.jpg"
             alt="Mantenimiento centrado en confiabilidad"
             fill
-            className="object-cover opacity-15"
+            className="object-cover opacity-20"
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        {/* Scrim científico: lleva fondo efectivo a L≈0.034 para garantizar CR≥7:1 en texto normal */}
+        <div className="absolute inset-0 z-[1] bg-blue-950/55" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
         
         {/* Botón Volver en esquina superior derecha */}
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto relative z-[2]">
           <div className="absolute -top-16 right-0">
             <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
               <ArrowLeft size={24} className="text-white" />
@@ -49,16 +52,16 @@ export default function RCMPage() {
           </div>
         </div>
         
-        <div className="max-w-5xl mx-auto relative z-10">
-          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+        <div className="max-w-5xl mx-auto relative z-[2]">
+          <h1 className="text-5xl font-bold leading-tight mb-4">
             Mantenimiento Centrado en Confiabilidad
           </h1>
 
-          <p className="text-2xl font-semibold text-white/80 mb-6">
+          <p className="text-2xl font-semibold text-white/90 mb-6">
             Reliability Centered Maintenance estructurado
           </p>
 
-          <p className="text-lg text-white/60 max-w-3xl">
+          <p className="text-lg text-white/75 max-w-3xl">
             Centraliza el proceso RCM en un entorno estructurado que permite relacionar activos, funciones y modos de falla sin duplicaciones.
           </p>
         </div>
@@ -265,7 +268,7 @@ export default function RCMPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Plantas con Mantenimiento Reactivo Dominante */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Restart size={24} className="text-blue-600" />
@@ -291,7 +294,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 2: Empresas que Intentaron RCM pero No Lograron Continuidad */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Renew size={24} className="text-blue-600" />
@@ -317,7 +320,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 3: Organizaciones con Múltiples Activos Similares */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Copy size={24} className="text-blue-600" />
@@ -343,7 +346,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 4: Equipos con Poco Tiempo para Análisis Profundo */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Time size={24} className="text-blue-600" />
@@ -373,7 +376,7 @@ export default function RCMPage() {
           <div className="mt-12 text-center">
             <Link 
               href="#contacto" 
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
             >
               Agenda una Demo
               <ArrowRight size={20} />
@@ -464,14 +467,7 @@ export default function RCMPage() {
           <p className="text-xl text-white/90 mb-8">
             Prueba el módulo RCM gratis por 14 días y descubre cómo estructurar planes de mantenimiento coherentes y accionables.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/#contacto" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all">
-              Comenzar prueba gratis
-            </Link>
-            <Link href="/" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all">
-              Ver todos los módulos
-            </Link>
-          </div>
+          <RCMCtaButtons />
         </div>
       </section>
     </>

@@ -16,7 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RCAFeatures from "@/components/RCAFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
-import DemoRequestSection from "@/components/DemoRequestSection";
+import RCACtaButtons from "./RCACtaButtons";
 
 export const metadata = {
   title: "Módulo RCA - Análisis de Causa Raíz | Reliaplant",
@@ -51,7 +51,7 @@ export default function RCAPage() {
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10">
-          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+          <h1 className="text-5xl font-bold leading-tight mb-4">
             Análisis de Causa Raíz
           </h1>
 
@@ -266,7 +266,7 @@ export default function RCAPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Equipos Críticos con Fallas Repetitivas */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
                   <Renew size={24} className="text-purple-600" />
@@ -292,7 +292,7 @@ export default function RCAPage() {
             </div>
             
             {/* Card 2: Auditorías o Investigaciones Técnicas */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
                   <Certificate size={24} className="text-purple-600" />
@@ -318,7 +318,7 @@ export default function RCAPage() {
             </div>
             
             {/* Card 3: Equipos con Alta Carga Administrativa */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
                   <Time size={24} className="text-purple-600" />
@@ -344,7 +344,7 @@ export default function RCAPage() {
             </div>
             
             {/* Card 4: RCA Existe pero No Genera Cambios */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
                   <TaskComplete size={24} className="text-purple-600" />
@@ -374,7 +374,7 @@ export default function RCAPage() {
           <div className="mt-12 text-center">
             <Link 
               href="#contacto" 
-              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3.5 font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
             >
               Agenda una Demo
               <ArrowRight size={20} />
@@ -456,8 +456,18 @@ export default function RCAPage() {
         </div>
       </section>
 
-      {/* Demo Request */}
-      <DemoRequestSection bgColor="#31135e" />
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Elimina fallas recurrentes con análisis estructurados
+          </h2>
+          <p className="text-xl text-white/90 mb-8">
+            Prueba el módulo RCA y descubre cómo documentar, trazabilizar y resolver fallas de raíz de forma metodológicamente sólida.
+          </p>
+          <RCACtaButtons />
+        </div>
+      </section>
     </>
   );
 }

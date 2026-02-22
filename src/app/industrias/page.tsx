@@ -16,6 +16,7 @@ import { Droplets, Zap, Factory, Wheat } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
+import IndustriaNav from "./IndustriaNav";
 
 export const metadata = {
   title: "Industrias donde la confiabilidad marca la diferencia | Reliaplant",
@@ -68,8 +69,10 @@ export default function IndustriasPage() {
         </div>
       </section>
 
+      <IndustriaNav />
+
       {/* Oil & Gas */}
-      <section className="py-20 px-4 bg-white">
+      <section id="industria-oilygas" className="py-20 px-4 bg-white scroll-mt-[110px]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -152,7 +155,7 @@ export default function IndustriasPage() {
       </section>
 
       {/* Energía y Utilities */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section id="industria-energia" className="py-20 px-4 bg-gray-50 scroll-mt-[110px]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="md:order-2">
@@ -237,7 +240,7 @@ export default function IndustriasPage() {
       </section>
 
       {/* Manufactura continua */}
-      <section className="py-20 px-4 bg-white">
+      <section id="industria-manufactura" className="py-20 px-4 bg-white scroll-mt-[110px]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -314,7 +317,7 @@ export default function IndustriasPage() {
       </section>
 
       {/* Otras industrias */}
-      <section className="py-20 px-4 bg-gray-900 text-white">
+      <section id="industria-otras" className="py-20 px-4 bg-gray-900 text-white scroll-mt-[110px]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -404,7 +407,7 @@ export default function IndustriasPage() {
               </p>
               <AbrirFormContacto
                 buttonText="Conversemos"
-                buttonColor="bg-blue60"
+                buttonColor="bg-blue-600"
                 textColor="text-white"
                 modalTitle="Agenda una conversación técnica"
                 especial="Industrias - Conversación técnica"

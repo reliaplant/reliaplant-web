@@ -101,7 +101,7 @@ export default function ROIPage() {
             <a 
               href="/docs/roi-confiabilidad-reliaplant.pdf" 
               download
-              className="bg-white text-green-700 hover:bg-gray-100 px-6 py-3 rounded font-semibold inline-flex items-center gap-2 transition-all"
+              className="bg-white text-green-700 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-all"
             >
               Descargar PDF
               <Download size={20} />
@@ -111,7 +111,7 @@ export default function ROIPage() {
       </section>
 
       {/* Dónde se genera el retorno */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
             Dónde normalmente se genera el retorno
@@ -284,9 +284,9 @@ export default function ROIPage() {
       </section>
 
       {/* Segundo CTA descargable */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -314,7 +314,7 @@ export default function ROIPage() {
                 <a 
                   href="/docs/roi-confiabilidad-reliaplant.pdf" 
                   download
-                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold inline-flex items-center gap-2 transition-all"
+                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-all"
                 >
                   Descargar resumen ejecutivo
                   <Download size={20} />

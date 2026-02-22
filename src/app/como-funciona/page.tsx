@@ -502,11 +502,11 @@ export default function ComoFuncionaPage() {
             Agenda una demo para ver cómo la plataforma puede adaptarse a tu operación.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/#contacto" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold inline-flex items-center gap-2 transition-all">
+            <Link href="/#contacto" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all">
               Solicita una demo guiada
               <ArrowRight size={20} />
             </Link>
-            <Link href="/#contacto" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium inline-flex items-center gap-2 transition-all">
+            <Link href="/#contacto" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all">
               Agenda un diagnóstico sin costo
             </Link>
           </div>

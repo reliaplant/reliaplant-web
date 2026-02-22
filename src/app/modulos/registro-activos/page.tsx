@@ -28,7 +28,7 @@ export default function RegistroActivosPage() {
       <ModuleStickyBanner moduleName="Módulo Registro de Activos" moduleType="registro" />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white pt-32 pb-20 px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/bgGestionActivos2.jpg"
@@ -50,7 +50,7 @@ export default function RegistroActivosPage() {
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10">
-          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+          <h1 className="text-5xl font-bold leading-tight mb-4">
             Registro de Activos
           </h1>
 
@@ -169,7 +169,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Por qué era tan difícil hacerlo bien */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-4 block">
@@ -231,7 +231,7 @@ export default function RegistroActivosPage() {
       <RegistroActivosFeatures />
 
       {/* Beneficios operativos */}
-      <section className="relative overflow-hidden bg-white py-20 px-8">
+      <section className="relative overflow-hidden bg-white py-20 px-4">
         {/* Industrial background image — right side */}
         <div
           className="absolute top-0 right-0 h-full hidden md:block"
@@ -311,7 +311,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Casos de Uso Ideales */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -324,7 +324,7 @@ export default function RegistroActivosPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Implementaciones de CMMS */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
                   <Migrate size={24} className="text-teal-600" />
@@ -350,7 +350,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 2: Plantas en Crecimiento */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
                   <Growth size={24} className="text-teal-600" />
@@ -375,7 +375,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 3: Data Histórica Desordenada */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
                   <DataRefinery size={24} className="text-teal-600" />
@@ -400,7 +400,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 4: Profesionalizar Confiabilidad */}
-            <div className="bg-white border border-gray-200 p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
                   <Certificate size={24} className="text-teal-600" />
@@ -430,7 +430,7 @@ export default function RegistroActivosPage() {
           <div className="mt-12 text-center">
             <Link 
               href="#contacto" 
-              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-3.5 font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
             >
               Agenda una Demo
               <ArrowRight size={20} />
@@ -440,7 +440,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Consultoría Section */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-12 border-2 border-teal-200">
             <div className="text-center mb-8">
@@ -503,7 +503,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 bg-gradient-to-r from-teal-600 to-teal-700 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-teal-600 to-teal-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Construye la base de datos de activos que tu planta necesita
@@ -513,14 +513,16 @@ export default function RegistroActivosPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/#precios"
-              className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all"
+              href="https://app.reliaplant.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold transition-all"
             >
-              Comenzar Prueba Gratis
+              Prueba Ahora
             </Link>
             <Link
               href="/#contacto"
-              className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all"
+              className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium transition-all"
             >
               Contactar
             </Link>

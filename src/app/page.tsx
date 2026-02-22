@@ -181,7 +181,7 @@ export default function Home() {
 
       {/* 3 PILLARS SECTION */}
       <section id="modulos" className="py-20 md:py-28 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               Módulos principales
@@ -196,7 +196,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Taxonomía Card */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
 
               <div className="flex items-center gap-2 mb-2">
@@ -438,8 +438,8 @@ export default function Home() {
       </section>
 
       {/* STATS BAR */}
-      <section className="border-y border-gray-100 bg-white py-16 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="border-y border-gray-100 bg-white py-20 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
               { value: '+5000', label: 'Activos gestionados' },
