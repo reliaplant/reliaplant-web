@@ -34,8 +34,6 @@ const features: Feature[] = [
       "Relaciones padre-hijo estructuradas de manera interactiva e intuitiva, facilitando la navegación y comprensión de la jerarquía de activos.",
     details: [
       "Vista de árbol jerárquico navegable",
-      "Arrastrar y soltar para reorganizar",
-      "Validación automática de relaciones",
       "Expansión y colapso de niveles",
     ],
     mockupTitle: "Vista jerárquica de activos",
@@ -49,10 +47,8 @@ const features: Feature[] = [
     description:
       "Plantillas parametrizables que aseguran que todos los activos se registren con los mismos campos técnicos.",
     details: [
-      "Plantillas por tipo de activo",
-      "Campos obligatorios personalizables",
-      "Validación de datos en tiempo real",
-      "Campos calculados automáticamente",
+      "Personalización de Campos",
+      "Plantillas Parametrizadas",
     ],
     mockupTitle: "Plantillas de registro",
   },
@@ -67,8 +63,6 @@ const features: Feature[] = [
     details: [
       "Vinculación gráfica de DTIs y P&IDs",
       "Galería de imágenes por activo",
-      "Historial de modificaciones auditado",
-      "Trazabilidad de cambios con usuario y fecha",
     ],
     mockupTitle: "Trazabilidad y documentos",
   },
@@ -83,8 +77,6 @@ const features: Feature[] = [
     details: [
       "Mapeo de campos personalizable",
       "Exportación a múltiples formatos",
-      "Integración API con principales CMMS",
-      "Validación previa a exportación",
     ],
     mockupTitle: "Exportación y mapeo",
   },

@@ -1,4 +1,5 @@
 import React from "react";
+import StepNav from "./StepNav";
 import {
   CheckmarkFilled,
   ArrowRight,
@@ -73,73 +74,10 @@ export default function ComoFuncionaPage() {
         </div>
       </section>
 
-      {/* Resumen 6 pasos */}
-      <section className="py-16 px-4 bg-white border-b">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              El proceso de implementación
-            </h2>
-            <p className="text-lg text-gray-600">
-              Un camino claro hacia la confiabilidad operativa
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* 1 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-teal-600">1</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Base técnica correcta</h3>
-              <p className="text-gray-600 text-sm">Estructura activos según ISO 14224, define jerarquías y asegura consistencia en los datos desde el inicio.</p>
-            </div>
-            {/* 2 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-purple-600">2</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Análisis de fallas (RCA)</h3>
-              <p className="text-gray-600 text-sm">El módulo RCA guía la estructuración, documentación y seguimiento del análisis evitando informes superficiales.</p>
-            </div>
-            {/* 3 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-blue-600">3</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">RCM como herramienta práctica</h3>
-              <p className="text-gray-600 text-sm">Elimina duplicidades y pérdida de trazabilidad. Mantiene relaciones claras entre activos, fallas y tareas de mantenimiento.</p>
-            </div>
-            {/* 4 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-orange-600">4</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Integración progresiva</h3>
-              <p className="text-gray-600 text-sm">Implementa un módulo primero, escala gradualmente y adáptalo a tu ecosistema actual sin cambiar todo de golpe.</p>
-            </div>
-            {/* 5 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-green-600">5</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Impacto operativo real</h3>
-              <p className="text-gray-600 text-sm">Menos fallas recurrentes, mejores decisiones técnicas, indicadores confiables e ingeniería enfocada en resultados.</p>
-            </div>
-            {/* 6 */}
-            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-lg font-bold text-blue-600">6</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementación acompañada</h3>
-              <p className="text-gray-600 text-sm">Diagnóstico inicial, configuración, capacitación técnica y soporte continuo. El objetivo es adopción real, no solo instalación.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StepNav />
 
       {/* Paso 1: Taxonomía */}
-      <section className="py-20 px-4 bg-white">
+      <section id="paso-1" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -207,7 +145,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 2: RCA */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section id="paso-2" className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -287,7 +225,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 3: RCM */}
-      <section className="py-20 px-4 bg-white">
+      <section id="paso-3" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -363,7 +301,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 4: Integración */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section id="paso-4" className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -425,7 +363,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 5: Impacto */}
-      <section className="py-20 px-4 bg-white">
+      <section id="paso-5" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -493,7 +431,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 6: Implementación */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section id="paso-6" className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}

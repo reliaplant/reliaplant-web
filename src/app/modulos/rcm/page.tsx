@@ -50,73 +50,120 @@ export default function RCMPage() {
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/40 px-4 py-2 rounded-full text-sm font-medium text-blue-300 mb-6">
-            <DataStructured size={16} />
-            <span>Módulo RCM</span>
-          </div>
-          
-          <h1 className="text-5xl font-bold leading-tight mb-6">
-            Reliability Centered Maintenance estructurado
+          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+            Mantenimiento Centrado en Confiabilidad
           </h1>
-          
-          <p className="text-xl text-white/70 max-w-3xl">
+
+          <p className="text-2xl font-semibold text-white/80 mb-6">
+            Reliability Centered Maintenance estructurado
+          </p>
+
+          <p className="text-lg text-white/60 max-w-3xl">
             Centraliza el proceso RCM en un entorno estructurado que permite relacionar activos, funciones y modos de falla sin duplicaciones.
           </p>
         </div>
       </section>
 
       {/* El problema hoy */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-red-600 mb-4 block">
-                El problema hoy
+      <section
+        className="relative overflow-hidden bg-white"
+        style={{ minHeight: 520 }}
+      >
+        {/* Image — right 55%, diagonal left edge */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgRCM.jpg"
+            alt="RCM en hojas de cálculo"
+            fill
+            className="object-cover object-center"
+            sizes="55vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
+          />
+        </div>
+
+        {/* Mobile image */}
+        <div className="relative h-52 w-full md:hidden">
+          <Image
+            src="/assets/bgRCM.jpg"
+            alt="RCM en hojas de cálculo"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Content — left side */}
+        <div
+          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
+          style={{ maxWidth: '52%' }}
+        >
+          <span
+            className="block font-bold uppercase text-red-500 mb-4"
+            style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+          >
+            El problema hoy
+          </span>
+
+          <h2
+            className="font-bold mb-3"
+            style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+          >
+            Las hojas de cálculo no están diseñadas para RCM
+          </h2>
+
+          <p
+            className="mb-6"
+            style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+          >
+            RCM suele hacerse en hojas de cálculo por tradición. Pero esa herramienta no fue diseñada para gestionar la complejidad de un análisis de confiabilidad serio.
+          </p>
+
+          {/* Pain point pills */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[
+              'Plantillas inconsistentes',
+              'Relaciones difíciles de visualizar',
+              'Actividades duplicadas',
+              'Sin trazabilidad',
+              'Mantenimiento innecesario',
+              'Baja disponibilidad',
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 font-medium"
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#991b1b',
+                  background: '#fff1f2',
+                  border: '1px solid #fecaca',
+                  borderRadius: 999,
+                  padding: '4px 12px',
+                }}
+              >
+                <span className="text-red-400 font-bold text-xs">✕</span>
+                {tag}
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Las hojas de cálculo no están diseñadas para RCM
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                RCM suele hacerse en hojas de cálculo por tradición, pero eso genera:
-              </p>
-              
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Plantillas inconsistentes entre equipos</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Dificultad para visualizar relaciones</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Actividades duplicadas sin detectar</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Pérdida de trazabilidad total</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-lg">
-              <p className="text-gray-900 font-semibold text-lg mb-4">Esto termina provocando:</p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Mantenimiento innecesario</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Falta de tareas críticas</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Baja disponibilidad de planta</span>
-                </li>
-              </ul>
-            </div>
+            ))}
+          </div>
+
+          {/* Result highlight box */}
+          <div
+            style={{
+              borderLeft: '4px solid #f87171',
+              background: '#fff5f5',
+              borderRadius: '0 8px 8px 0',
+              padding: '16px 20px',
+            }}
+          >
+            <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
+              <strong>El resultado:</strong> mantenimiento innecesario, tareas críticas faltantes y baja disponibilidad de planta — todo por falta de una herramienta adecuada.
+            </p>
           </div>
         </div>
       </section>
@@ -125,8 +172,26 @@ export default function RCMPage() {
       <RCMFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative overflow-hidden bg-white py-20 px-4">
+        {/* Background image — right side */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgRCM.jpg"
+            alt="Mantenimiento Centrado en Confiabilidad"
+            fill
+            className="object-cover object-center"
+            sizes="45vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
             Beneficios operativos
           </span>
@@ -134,7 +199,7 @@ export default function RCMPage() {
             Impacto en tu operación
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -152,7 +217,7 @@ export default function RCMPage() {
                 <CheckmarkFilled size={24} className="text-green-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Eliminación de tareas redundantes</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Eliminación de tareas redundantes o innecesarias</h3>
                 <p className="text-gray-700">
                   Identificación automática de duplicaciones que libera recursos sin comprometer confiabilidad.
                 </p>
@@ -190,14 +255,11 @@ export default function RCMPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-100 px-3 py-1 rounded mb-4">
-              ¿Es para ti?
-            </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Casos de Uso Ideales
+              Para organizaciones que quieren
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Este módulo genera mayor valor cuando tu organización enfrenta alguno de estos escenarios.
+              Estructurar una estrategia de mantenimiento proactiva, basada en consecuencias reales y sostenible en el tiempo — sin depender de hojas de cálculo ni iniciativas que no llegan a ningún lado.
             </p>
           </div>
           
@@ -210,12 +272,12 @@ export default function RCMPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Plantas con Mantenimiento Reactivo Dominante
+                    Pasar de reactivo a mantenimiento estratégico
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando necesitas estructurar una estrategia proactiva clara basada en consecuencias reales.
+                Estructura estrategias de mantenimiento basadas en consecuencias reales, no en intuición ni inercia.
               </p>
               <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
                 <span className="text-blue-800 font-bold text-3xl block">-50%</span>
@@ -236,12 +298,12 @@ export default function RCMPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Empresas que Intentaron RCM sin Continuidad
+                    Sostener el RCM más allá del arranque
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando iniciativas anteriores murieron por falta de herramientas que facilitaran la ejecución.
+                Dale continuidad a iniciativas RCM con herramientas que facilitan la ejecución y el seguimiento a largo plazo.
               </p>
               <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
                 <span className="text-blue-800 font-bold text-3xl block">100%</span>
@@ -262,12 +324,12 @@ export default function RCMPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Organizaciones con Múltiples Activos Similares
+                    Escalar análisis en flotas de equipos similares
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando puedes reutilizar análisis entre equipos iguales y escalar rápidamente el RCM.
+                Reutiliza análisis entre equipos equivalentes y reduce el tiempo de análisis por activo hasta 10x.
               </p>
               <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
                 <span className="text-blue-800 font-bold text-3xl block">10x</span>
@@ -288,12 +350,12 @@ export default function RCMPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Equipos con Poco Tiempo para Análisis Profundo
+                    Acelerar el análisis sin perder rigor metodológico
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando necesitas acelerar sin sacrificar el rigor metodológico del RCM estándar.
+                Reduce el tiempo de cada análisis con IA y flujos guiados que mantienen el estándar SAE JA1011.
               </p>
               <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
                 <span className="text-blue-800 font-bold text-3xl block">-60%</span>

@@ -51,82 +51,120 @@ export default function RCAPage() {
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/40 px-4 py-2 rounded-full text-sm font-medium text-purple-300 mb-6">
-            <Network_3 size={16} />
-            <span>Módulo RCA</span>
-          </div>
-          
-          <h1 className="text-5xl font-bold leading-tight mb-6">
-            Análisis de causa raíz sin burocracia ni errores metodológicos
+          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+            Análisis de Causa Raíz
           </h1>
-          
-          <p className="text-xl text-white/70 max-w-3xl">
+
+          <p className="text-2xl font-semibold text-white/80 mb-6">
+            Análisis de causa raíz sin burocracia ni errores metodológicos
+          </p>
+
+          <p className="text-lg text-white/60 max-w-3xl">
             Estructura el proceso completo para que el análisis siga la metodología correctamente, sea trazable y genere documentación clara.
           </p>
         </div>
       </section>
 
       {/* El problema hoy */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-red-600 mb-4 block">
-                El problema hoy
+      <section
+        className="relative overflow-hidden bg-white"
+        style={{ minHeight: 520 }}
+      >
+        {/* Image — right 55%, diagonal left edge */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgACR.jpg"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover object-center"
+            sizes="55vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
+          />
+        </div>
+
+        {/* Mobile image */}
+        <div className="relative h-52 w-full md:hidden">
+          <Image
+            src="/assets/bgACR.jpg"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Content — left side */}
+        <div
+          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
+          style={{ maxWidth: '52%' }}
+        >
+          <span
+            className="block font-bold uppercase text-red-500 mb-4"
+            style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+          >
+            El problema hoy
+          </span>
+
+          <h2
+            className="font-bold mb-3"
+            style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+          >
+            Los RCA actuales no generan valor
+          </h2>
+
+          <p
+            className="mb-6"
+            style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+          >
+            Muchos análisis de causa raíz en industria terminan siendo ineficaces: documentados en presentaciones estáticas, redactados a mano, sin metodología estructurada.
+          </p>
+
+          {/* Pain point pills */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[
+              'Presentaciones estáticas',
+              'Informes manuales',
+              'Árboles de falla inconsistentes',
+              'Conclusiones poco accionables',
+              'Sin trazabilidad',
+              'Fallas que se repiten',
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 font-medium"
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#991b1b',
+                  background: '#fff1f2',
+                  border: '1px solid #fecaca',
+                  borderRadius: 999,
+                  padding: '4px 12px',
+                }}
+              >
+                <span className="text-red-400 font-bold text-xs">✕</span>
+                {tag}
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Los RCA actuales no generan valor
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Muchos análisis de causa raíz en industria terminan siendo:
-              </p>
-              
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Presentaciones estáticas difíciles de mantener</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Informes redactados manualmente</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Árboles de fallas inconsistentes</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Conclusiones poco accionables</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-lg">
-              <p className="text-gray-900 font-semibold text-lg mb-4">El resultado es crítico:</p>
-              <p className="text-gray-700 mb-6">
-                La causa raíz real no se identifica y la falla vuelve a ocurrir.
-              </p>
-              
-              <p className="text-gray-900 font-semibold mb-3">Esto impacta directamente:</p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Producción</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Seguridad</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Costos operativos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Credibilidad del equipo técnico</span>
-                </li>
-              </ul>
-            </div>
+            ))}
+          </div>
+
+          {/* Result highlight box */}
+          <div
+            style={{
+              borderLeft: '4px solid #f87171',
+              background: '#fff5f5',
+              borderRadius: '0 8px 8px 0',
+              padding: '16px 20px',
+            }}
+          >
+            <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
+              <strong>El resultado:</strong> la causa raíz real no se identifica y la falla vuelve a ocurrir — impactando producción, seguridad y costos operativos.
+            </p>
           </div>
         </div>
       </section>
@@ -135,8 +173,26 @@ export default function RCAPage() {
       <RCAFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative overflow-hidden bg-white py-20 px-4">
+        {/* Background image — right side */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgACR.jpg"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover object-center"
+            sizes="45vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
             Beneficios operativos
           </span>
@@ -144,7 +200,7 @@ export default function RCAPage() {
             Impacto en tu operación
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -200,14 +256,11 @@ export default function RCAPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-purple-700 bg-purple-100 px-3 py-1 rounded mb-4">
-              ¿Es para ti?
-            </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Casos de Uso Ideales
+              Para equipos que quieren
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Este módulo genera mayor valor cuando tu organización enfrenta alguno de estos escenarios.
+              Eliminar fallas recurrentes, documentar investigaciones con rigor metodológico y convertir cada incidente en aprendizaje organizacional real.
             </p>
           </div>
           
@@ -220,12 +273,12 @@ export default function RCAPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Equipos Críticos con Fallas Repetitivas
+                    Reducir fallas recurrentes en equipos críticos
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando necesitas eliminar definitivamente fallas que vuelven a ocurrir y afectan producción.
+                Identifica y ataca la causa raíz real de fallas que afectan producción — no solo los síntomas.
               </p>
               <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
                 <span className="text-purple-800 font-bold text-3xl block">-60%</span>
@@ -246,12 +299,12 @@ export default function RCAPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Auditorías o Investigaciones Técnicas
+                    Documentar investigaciones con rigor formal
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando debes presentar documentación formal con rigor metodológico comprobable.
+                Genera documentación técnica trazable y defendible ante auditorías o revisiones internas.
               </p>
               <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
                 <span className="text-purple-800 font-bold text-3xl block">100%</span>
@@ -272,12 +325,12 @@ export default function RCAPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Equipos con Alta Carga Administrativa
+                    Liberar tiempo técnico del papeleo
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando el tiempo de preparar informes resta tiempo al análisis técnico real.
+                Automatiza la documentación para que tu equipo se enfoque en el análisis, no en los informes.
               </p>
               <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
                 <span className="text-purple-800 font-bold text-3xl block">-70%</span>
@@ -298,12 +351,12 @@ export default function RCAPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    RCA Existe pero No Genera Cambios
+                    Cerrar el ciclo de acciones correctivas
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando los análisis se hacen pero las acciones correctivas no se implementan o no son efectivas.
+                Asegura que cada análisis genere acciones con responsable, fecha y seguimiento real.
               </p>
               <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
                 <span className="text-purple-800 font-bold text-3xl block">95%</span>

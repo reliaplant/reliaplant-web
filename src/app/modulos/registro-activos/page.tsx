@@ -50,77 +50,120 @@ export default function RegistroActivosPage() {
         </div>
         
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-500/40 px-4 py-2 rounded-full text-sm font-medium text-teal-300 mb-6">
-            <Catalog size={16} />
-            <span>Módulo Registro de Activos</span>
-          </div>
-          
-          <h1 className="text-5xl font-bold leading-tight mb-6">
-            Base de datos confiable para decisiones de mantenimiento
+          <h1 className="text-6xl font-extrabold leading-tight mb-4">
+            Registro de Activos
           </h1>
+
+          <p className="text-2xl font-semibold text-white/80 mb-6">
+            Base de datos confiable para decisiones de mantenimiento
+          </p>
           
-          <p className="text-xl text-white/70 max-w-3xl">
+          <p className="text-lg text-white/60 max-w-3xl">
             Estructura tus activos siguiendo principios como ISO 14224, asegurando relaciones correctas y base sólida para indicadores.
           </p>
         </div>
       </section>
 
       {/* El problema hoy */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-red-600 mb-4 block">
-                El problema hoy
+      <section
+        className="relative overflow-hidden bg-white"
+        style={{ minHeight: 520 }}
+      >
+        {/* Image — right 55%, diagonal left edge */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgGestionActivos2.jpg"
+            alt="Gestión de activos industriales"
+            fill
+            className="object-cover object-center"
+            sizes="55vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
+          />
+        </div>
+
+        {/* Mobile image */}
+        <div className="relative h-52 w-full md:hidden">
+          <Image
+            src="/assets/bgGestionActivos2.jpg"
+            alt="Gestión de activos industriales"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Content — left side */}
+        <div
+          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
+          style={{ maxWidth: '52%' }}
+        >
+          <span
+            className="block font-bold uppercase text-red-500 mb-4"
+            style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+          >
+            El problema hoy
+          </span>
+
+          <h2
+            className="font-bold mb-3"
+            style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+          >
+            Activos mal estructurados invalidan toda la gestión
+          </h2>
+
+          <p
+            className="mb-6"
+            style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+          >
+            Muchas plantas tienen activos registrados sin estándar, con jerarquías rotas y datos incompletos — lo que hace imposible gestionar la confiabilidad con seriedad.
+          </p>
+
+          {/* Pain point pills */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {[
+              'Jerarquías sin estándar',
+              'Equipos mal asociados',
+              'Información técnica incompleta',
+              'Indicadores poco confiables',
+              'Inventario desconocido',
+              'Decisiones intuitivas',
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 font-medium"
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#991b1b',
+                  background: '#fff1f2',
+                  border: '1px solid #fecaca',
+                  borderRadius: 999,
+                  padding: '4px 12px',
+                }}
+              >
+                <span className="text-red-400 font-bold text-xs">✕</span>
+                {tag}
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Activos mal estructurados invalidan toda la gestión
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Muchas plantas tienen activos mal estructurados en su CMMS:
-              </p>
-              
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Jerarquías inconsistentes sin estándar</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Equipos mal asociados entre sí</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Información técnica incompleta</span>
-                </li>
-                <li className="flex items-start gap-3 text-gray-800">
-                  <span className="text-red-500 text-xl mt-1">✗</span>
-                  <span>Indicadores poco confiables</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-lg">
-              <p className="text-gray-900 font-semibold text-lg mb-4">Sin una taxonomía clara:</p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>La confiabilidad no se puede gestionar seriamente</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Los indicadores pierden valor</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Las decisiones se vuelven intuitivas</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>Desconocimiento del inventario real de activos críticos</span>
-                </li>
-              </ul>
-            </div>
+            ))}
+          </div>
+
+          {/* Result highlight box */}
+          <div
+            style={{
+              borderLeft: '4px solid #f87171',
+              background: '#fff5f5',
+              borderRadius: '0 8px 8px 0',
+              padding: '16px 20px',
+            }}
+          >
+            <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
+              <strong>El resultado:</strong> sin una taxonomía clara, la confiabilidad no se puede gestionar — los indicadores pierden valor y las decisiones se vuelven puramente intuitivas.
+            </p>
           </div>
         </div>
       </section>
@@ -188,16 +231,34 @@ export default function RegistroActivosPage() {
       <RegistroActivosFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative overflow-hidden bg-white py-20 px-8">
+        {/* Industrial background image — right side */}
+        <div
+          className="absolute top-0 right-0 h-full hidden md:block"
+          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <Image
+            src="/assets/bgGestionActivos.jpg"
+            alt="Planta industrial"
+            fill
+            className="object-cover object-center"
+            sizes="45vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
             Beneficios operativos
           </span>
           <h2 className="text-3xl font-bold text-gray-900 mb-12">
             Impacto en tu operación
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+
+          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -209,7 +270,7 @@ export default function RegistroActivosPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -221,7 +282,7 @@ export default function RegistroActivosPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -233,7 +294,7 @@ export default function RegistroActivosPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <CheckmarkFilled size={24} className="text-green-600" />
@@ -253,14 +314,11 @@ export default function RegistroActivosPage() {
       <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-100 px-3 py-1 rounded mb-4">
-              ¿Es para ti?
-            </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Casos de Uso Ideales
+              Para plantas que quieren
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Este módulo genera mayor valor cuando tu organización enfrenta alguno de estos escenarios.
+              Construir una base técnica sólida con datos consistentes — que respalde buenos análisis, facilite la gestión de activos y no tenga que rehacerse cada vez que alguien cambia una hoja de cálculo.
             </p>
           </div>
           
@@ -273,12 +331,12 @@ export default function RegistroActivosPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Implementaciones de CMMS
+                    Arrancar el CMMS con datos bien estructurados
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando tienes la oportunidad de estructurar tu taxonomía correctamente antes de cargar datos al nuevo sistema.
+                Estructura la taxonomía antes de cargar datos al CMMS y evita meses de limpieza después del arranque.
               </p>
               <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
                 <span className="text-teal-800 font-bold text-3xl block">6-12 meses</span>
@@ -299,12 +357,12 @@ export default function RegistroActivosPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Plantas en Crecimiento
+                    Mantener consistencia al incorporar nuevos activos
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando nuevos equipos se incorporan constantemente y necesitas mantener consistencia en la nomenclatura.
+                Incorpora nuevos equipos con nomenclatura estandarizada sin romper la jerarquía existente.
               </p>
               <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
                 <span className="text-teal-800 font-bold text-3xl block">100%</span>
@@ -324,12 +382,12 @@ export default function RegistroActivosPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Data Histórica Desordenada
+                    Ordenar y normalizar registros históricos
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando años de registros inconsistentes impiden estructurar una jerarquía de activos confiable.
+                Consolida años de registros dispersos en una jerarquía limpia, sin duplicados ni inconsistencias.
               </p>
               <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
                 <span className="text-teal-800 font-bold text-3xl block">85%</span>
@@ -349,12 +407,12 @@ export default function RegistroActivosPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                    Profesionalizar Confiabilidad
+                    Estandarizar la gestión de activos bajo normas ISO
                   </h3>
                 </div>
               </div>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                Cuando buscas pasar de mantenimiento intuitivo a gestión de activos basada en estándares ISO.
+                Alinea tu base de activos con ISO 14224 y construye la base para indicadores de confiabilidad reales.
               </p>
               <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
                 <span className="text-teal-800 font-bold text-3xl block">3x ROI</span>
@@ -451,14 +509,20 @@ export default function RegistroActivosPage() {
             Construye la base de datos de activos que tu planta necesita
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Prueba el módulo de Registro de Activos gratis por 14 días y estructura tus equipos siguiendo estándares internacionales.
+            Estructura tus equipos siguiendo estándares internacionales y habilita el uso real de metodologías como RCM y RCA.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/#contacto" className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all">
-              Comenzar prueba gratis
+            <Link
+              href="/#precios"
+              className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all"
+            >
+              Comenzar Prueba Gratis
             </Link>
-            <Link href="/" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all">
-              Ver todos los módulos
+            <Link
+              href="/#contacto"
+              className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all"
+            >
+              Contactar
             </Link>
           </div>
         </div>

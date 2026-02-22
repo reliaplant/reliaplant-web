@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import {
-  DataStructured,
+  Template,
   Diagram,
   DocumentTasks,
   Task,
@@ -10,7 +10,7 @@ import {
 } from "@carbon/icons-react";
 import RCMAnimationFunctions from "./RCMAnimationFunctions";
 
-type FeatureKey = "funciones" | "modos-falla" | "analisis" | "plan";
+type FeatureKey = "plantillas" | "modos-falla" | "analisis" | "plan";
 
 interface Feature {
   id: FeatureKey;
@@ -25,20 +25,20 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    id: "funciones",
-    title: "Gestión de funciones",
-    icon: <DataStructured size={24} />,
+    id: "plantillas",
+    title: "Plantillas de RCM Dinámicas",
+    icon: <Template size={24} />,
     color: "text-blue-600",
     bgColor: "bg-blue-600",
     description:
-      "Define y relaciona funciones de activos de manera estructurada, asegurando que cada equipo tenga sus funciones claramente documentadas.",
+      "Reutiliza análisis RCM previos como plantillas para equipos del mismo tipo, acelerando nuevos proyectos y asegurando consistencia metodológica entre plantas.",
     details: [
-      "Funciones primarias y secundarias",
-      "Estándares de desempeño definidos",
-      "Relación jerárquica con activos",
-      "Contexto operacional documentado",
+      "Biblioteca de plantillas por tipo de activo",
+      "Clonación y adaptación en un solo paso",
+      "Versionado y control de cambios de plantillas",
+      "Compatibles con taxonomías ISO 14224",
     ],
-    mockupTitle: "Definición de funciones",
+    mockupTitle: "Biblioteca de plantillas RCM",
   },
   {
     id: "modos-falla",
@@ -91,7 +91,7 @@ const features: Feature[] = [
 ];
 
 export default function RCMFeatures() {
-  const [activeFeature, setActiveFeature] = useState<FeatureKey>("funciones");
+  const [activeFeature, setActiveFeature] = useState<FeatureKey>("plantillas");
 
   const currentFeature = features.find((f) => f.id === activeFeature) || features[0];
 
