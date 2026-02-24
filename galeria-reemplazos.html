@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Reemplazos de Imágenes — Reliaplant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+
+    .img-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #e5e7eb;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .badge-urgent { background:#fee2e2; color:#b91c1c; }
+    .badge-confirmed { background:#dcfce7; color:#15803d; }
+    .badge-pending { background:#fef9c3; color:#854d0e; }
+
+    .option-card {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .option-card:hover { border-color: #2563eb; }
+    .option-card.selected { border-color: #2563eb; background: #eff6ff; }
+
+    .section-row {
+      border-bottom: 1px solid #f3f4f6;
+      padding: 32px 0;
+    }
+    .section-row:last-child { border-bottom: none; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Header -->
+  <div class="bg-blue-600 text-white px-8 py-5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold">Galería de Reemplazos — Reliaplant</h1>
+        <p class="text-blue-200 text-sm mt-1">6 imágenes urgentes · Selecciona tu favorita en cada fila → comunícame tu elección</p>
+      </div>
+      <div class="text-right text-sm text-blue-200">
+        <div>🔴 6 urgentes</div>
+        <div class="mt-1">Todas las opciones son <strong class="text-white">libres de uso comercial</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leyenda -->
+  <div class="bg-white border-b border-gray-200 px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center gap-6 text-sm text-gray-500">
+      <span>📌 <strong>Imagen actual</strong>: la que está en uso hoy</span>
+      <span>✅ <strong>Opción con CDN</strong>: se previsualiza directamente</span>
+      <span>🔗 <strong>Opción con link</strong>: ábrela en nueva pestaña para ver</span>
+      <span>📋 Indícame el número de opción que prefieras en cada sección</span>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10 space-y-10">
+
+    <!-- ============================= -->
+    <!-- 1. bgKPIs.jpg — ROI hero -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4 flex items-center justify-between">
+        <div>
+          <span class="status-badge badge-urgent">✕ Reemplazar urgente</span>
+          <h2 class="text-xl font-bold text-gray-900 mt-2">1. bgKPIs.jpg <span class="text-base font-normal text-gray-500">— Héroe de la página ROI</span></h2>
+          <p class="text-gray-500 text-sm mt-1">Problema: imagen de dashboard de marketing genérico, sin tono industrial.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <div class="relative">
+            <img src="public/assets/bgKPIs.jpg" class="img-thumb" alt="bgKPIs actual" onerror="this.style.background='#f3f4f6';this.alt='Error al cargar'"/>
+          </div>
+          <p class="text-xs text-red-500 mt-2 font-medium">Dashboard genérico — tono incorrecto</p>
+        </div>
+
+        <!-- Option A -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Control room industrial"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Imagen desde Pexels<br>Carga en browser</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Pexels #1108101</p>
+            <p class="text-xs text-gray-600">Sala de control industrial con monitores y operadores. Tono oscuro y profesional.</p>
+            <a href="https://www.pexels.com/photo/1108101/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Data analytics"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Imagen desde Pexels<br>Carga en browser</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Pexels #3861969</p>
+            <p class="text-xs text-gray-600">Equipo revisando analytics y KPIs en pantalla. Ambiente de trabajo analítico.</p>
+            <a href="https://www.pexels.com/photo/3861969/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="option-card">
+          <div class="bg-gray-100 h-44 flex items-center justify-center">
+            <div class="text-center p-4">
+              <div class="text-3xl mb-2">🔗</div>
+              <p class="text-xs text-gray-500">Abre en nueva pestaña para ver</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Pexels Búsqueda</p>
+            <p class="text-xs text-gray-600">Explora más opciones de sala de control industrial con operadores en pantallas.</p>
+            <a href="https://www.pexels.com/search/oil%20and%20gas%20control%20room/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Explorar Control Rooms →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 2. bgGestionActivos2.jpg — Registro de Activos hero -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4 flex items-center justify-between">
+        <div>
+          <span class="status-badge badge-urgent">✕ Reemplazar urgente</span>
+          <h2 class="text-xl font-bold text-gray-900 mt-2">2. bgGestionActivos2.jpg <span class="text-base font-normal text-gray-500">— Héroe de Registro de Activos</span></h2>
+          <p class="text-gray-500 text-sm mt-1">Problema: foto genérica de hombre con laptop en escritorio, sin contexto industrial.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <img src="public/assets/bgGestionActivos2.jpg" class="img-thumb" alt="actual" onerror="this.style.background='#f3f4f6'"/>
+          <p class="text-xs text-red-500 mt-2 font-medium">Hombre con laptop — sin contexto industrial</p>
+        </div>
+
+        <!-- Option A — Unsplash GWy4HmlGraI -->
+        <div class="option-card">
+          <div class="bg-blue-50 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-4xl mb-2">👷</div>
+              <p class="text-sm font-semibold text-blue-700">Ingeniero con hardhat + tablet</p>
+              <p class="text-xs text-blue-500 mt-1">Chief engineer en fábrica industrial</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Unsplash GWy4HmlGraI</p>
+            <p class="text-xs text-gray-600">Ingeniero jefe con casco de seguridad caminando por fábrica con tablet. Fondo industrial real.</p>
+            <a href="https://unsplash.com/photos/a-chief-engineer-in-the-hard-hat-walks-through-industrial-factory-while-holding-tablet-GWy4HmlGraI" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Unsplash →</a>
+          </div>
+        </div>
+
+        <!-- Option B — Unsplash ddjbv1dUcpo -->
+        <div class="option-card">
+          <div class="bg-blue-50 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-4xl mb-2">🦺</div>
+              <p class="text-sm font-semibold text-blue-700">Técnico con datos en tablet</p>
+              <p class="text-xs text-blue-500 mt-1">Junto a maquinaria industrial</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Unsplash ddjbv1dUcpo</p>
+            <p class="text-xs text-gray-600">Ingeniero serio con overol y casco revisando datos técnicos en tablet junto a máquina industrial.</p>
+            <a href="https://unsplash.com/photos/young-serious-engineer-in-workwear-and-hardhat-scrolling-through-technical-data-in-digital-tablet-by-one-of-industrial-machines-ddjbv1dUcpo" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Unsplash →</a>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="option-card">
+          <div class="bg-gray-100 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-3xl mb-2">🔗</div>
+              <p class="text-xs text-gray-500">Explorar más opciones</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Explorar más</p>
+            <p class="text-xs text-gray-600">Ver colección completa de técnicos e inspectores de campo industriales en Pexels.</p>
+            <a href="https://www.pexels.com/search/industrial%20inspection/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver Industrial Inspection →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 3. bgPerformance.jpg / bgPerformance3.jpg — Energía + ROI -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4">
+        <span class="status-badge badge-urgent">✕ Reemplazar urgente — usada en 2 páginas</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-2">3. bgPerformance.jpg + bgPerformance3.jpg <span class="text-base font-normal text-gray-500">— Energía &amp; ROI background</span></h2>
+        <p class="text-gray-500 text-sm mt-1">Problema: diagrama de turbina/esquema técnico. Muy académico, no transmite operación real.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <img src="public/assets/bgPerformance.jpg" class="img-thumb" alt="actual" onerror="this.style.background='#f3f4f6'"/>
+          <p class="text-xs text-red-500 mt-2 font-medium">Diagrama de turbina — demasiado técnico</p>
+        </div>
+
+        <!-- Option A — Pexels 18535002 -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/18535002/pexels-photo-18535002.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Torres de transmisión"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Torres eléctricas de alta tensión<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Pexels #18535002</p>
+            <p class="text-xs text-gray-600">Torres de transmisión de alta tensión en paisaje. Evoca infraestructura de energía a escala.</p>
+            <a href="https://www.pexels.com/photo/high-voltage-transmission-towers-and-power-lines-over-the-forest-18535002/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option B — Pexels 7867329 -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/7867329/pexels-photo-7867329.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Subestación eléctrica"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Bobinas subestación eléctrica<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Pexels #7867329</p>
+            <p class="text-xs text-gray-600">Bobinas de alta tensión en subestación eléctrica. Primer plano industrial, look técnico y real.</p>
+            <a href="https://www.pexels.com/photo/blue-and-red-metal-coils-with-electrical-wires-7867329/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option C — Unsplash ui5pc2x4LA0 -->
+        <div class="option-card">
+          <div class="bg-yellow-50 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-4xl mb-2">⚡</div>
+              <p class="text-sm font-semibold text-yellow-700">Subestación eléctrica</p>
+              <p class="text-xs text-yellow-600 mt-1">Vista exterior, infraestructura real</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Unsplash ui5pc2x4LA0</p>
+            <p class="text-xs text-gray-600">Subestación eléctrica exterior. Tono gris industrial, evoca transmisión y distribución de energía.</p>
+            <a href="https://unsplash.com/photos/ui5pc2x4LA0" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Unsplash →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 4. bgRCM.jpg — RCM hero -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4">
+        <span class="status-badge badge-urgent">✕ Reemplazar urgente</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-2">4. bgRCM.jpg <span class="text-base font-normal text-gray-500">— Héroe del módulo RCM</span></h2>
+        <p class="text-gray-500 text-sm mt-1">Problema: árbol de decisión / diagrama de flujo genérico. Parece presentación académica, no software real.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <img src="public/assets/bgRCM.jpg" class="img-thumb" alt="actual" onerror="this.style.background='#f3f4f6'"/>
+          <p class="text-xs text-red-500 mt-2 font-medium">Árbol de decisión — aspecto académico</p>
+        </div>
+
+        <!-- Option A -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Engineer reviewing strategy"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Equipo de ingeniería en planta<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Pexels #3862130</p>
+            <p class="text-xs text-gray-600">Ingenieros en sala de reuniones revisando documentos de planta. Tono de planificación estratégica.</p>
+            <a href="https://www.pexels.com/photo/3862130/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/4489794/pexels-photo-4489794.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Maintenance planning"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Ingeniero en planta de proceso<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Pexels #4489794</p>
+            <p class="text-xs text-gray-600">Técnico con hardhat inspeccionando equipo en planta de proceso. Transmite planificación de mantenimiento.</p>
+            <a href="https://www.pexels.com/photo/4489794/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="option-card">
+          <div class="bg-gray-100 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-3xl mb-2">🔧</div>
+              <p class="text-xs text-gray-500">Ver más opciones de ingeniería de mantenimiento</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Pexels Búsqueda</p>
+            <p class="text-xs text-gray-600">Explorar colección de ingeniería de mantenimiento industrial en Pexels.</p>
+            <a href="https://www.pexels.com/search/engineering%20maintenance/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver Engineering Maintenance →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 5. bgSoftware.jpg — Como Funciona step Integración -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4">
+        <span class="status-badge badge-urgent">✕ Reemplazar urgente</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-2">5. bgSoftware.jpg <span class="text-base font-normal text-gray-500">— Paso "Integración" en Cómo Funciona</span></h2>
+        <p class="text-gray-500 text-sm mt-1">Problema: muestra un screenshot del módulo RCA de la misma plataforma. Semánticamente incorrecto para el paso de integración de sistemas.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <img src="public/assets/bgSoftware.jpg" class="img-thumb" alt="actual" onerror="this.style.background='#f3f4f6'"/>
+          <p class="text-xs text-red-500 mt-2 font-medium">Screenshot del módulo RCA — contexto incorrecto</p>
+        </div>
+
+        <!-- Option A -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Team with software screens"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Equipo técnico con pantallas<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Pexels #1181354</p>
+            <p class="text-xs text-gray-600">Equipo técnico trabajando con múltiples pantallas de software. Transmite integración de sistemas.</p>
+            <a href="https://www.pexels.com/photo/1181354/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Digital integration"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Trabajo colaborativo digital<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Pexels #3184465</p>
+            <p class="text-xs text-gray-600">Equipo revisando datos en pantallas digitales. Tono de trabajo con software empresarial.</p>
+            <a href="https://www.pexels.com/photo/3184465/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="option-card">
+          <div class="bg-gray-100 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-3xl mb-2">💻</div>
+              <p class="text-xs text-gray-500">Ver más opciones de integración de sistemas</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Pexels Búsqueda</p>
+            <p class="text-xs text-gray-600">Explorar imágenes de integración de sistemas y trabajo con software industrial.</p>
+            <a href="https://www.pexels.com/search/system%20integration/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver System Integration →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 6. bgGestionActivos.jpg — Manufactura section -->
+    <!-- ============================= -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="bg-red-50 border-b border-red-100 px-8 py-4">
+        <span class="status-badge badge-urgent">✕ Reemplazar urgente</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-2">6. bgGestionActivos.jpg <span class="text-base font-normal text-gray-500">— Panel imagen en sección Manufactura (Industrias)</span></h2>
+        <p class="text-gray-500 text-sm mt-1">Problema: muestra planta petroquímica — se usa en la sección de <em>Manufactura continua</em>, que es un sector diferente.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
+
+        <!-- Current -->
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">📌 Actual</p>
+          <img src="public/assets/bgGestionActivos.jpg" class="img-thumb" alt="actual" onerror="this.style.background='#f3f4f6'"/>
+          <p class="text-xs text-red-500 mt-2 font-medium">Planta petroquímica — industria incorrecta</p>
+        </div>
+
+        <!-- Option A — Pexels 5532658 -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/5532658/pexels-photo-5532658.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Assembly line"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Línea de ensamblaje<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN A — Pexels #5532658</p>
+            <p class="text-xs text-gray-600">Latas en línea de producción automatizada. Manufactura de proceso continuo, muy representativo.</p>
+            <a href="https://www.pexels.com/photo/aluminum-cans-in-the-assembly-line-5532658/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="option-card">
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1"
+              class="w-full h-full object-cover"
+              alt="Factory floor"
+              onerror="this.parentElement.innerHTML='<div class=\'bg-gray-100 w-full h-full flex items-center justify-center text-gray-400 text-xs p-4 text-center\'>Piso de fábrica industrial<br>(carga en browser)</div>'"
+            />
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN B — Pexels #1267338</p>
+            <p class="text-xs text-gray-600">Fábrica industrial con equipos de proceso continuo. Gran escala, buena perspectiva.</p>
+            <a href="https://www.pexels.com/photo/1267338/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver en Pexels →</a>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="option-card">
+          <div class="bg-gray-100 h-44 flex items-center justify-center p-4">
+            <div class="text-center">
+              <div class="text-3xl mb-2">🏭</div>
+              <p class="text-xs text-gray-500">Ver más opciones de manufactura</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-bold text-blue-600 mb-1">OPCIÓN C — Pexels Búsqueda</p>
+            <p class="text-xs text-gray-600">Explorar colección completa de líneas de ensamblaje y manufactura continua en Pexels.</p>
+            <a href="https://www.pexels.com/search/factory%20assembly%20line/" target="_blank" class="inline-block mt-2 text-xs text-blue-500 underline">Ver Assembly Lines →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Instructions footer -->
+    <!-- ============================= -->
+    <div class="bg-blue-600 rounded-2xl p-8 text-white">
+      <h3 class="text-xl font-bold mb-4">📋 Cómo proceder</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/10 border border-white/20 rounded-xl p-5">
+          <p class="text-blue-200 text-xs font-bold uppercase tracking-wide mb-2">Paso 1</p>
+          <p class="font-semibold mb-1">Revisa las opciones</p>
+          <p class="text-blue-200 text-sm">Haz clic en "Ver en Pexels/Unsplash" para ver la imagen completa en nueva pestaña. Las miniaturas Pexels cargan directamente en el browser.</p>
+        </div>
+        <div class="bg-white/10 border border-white/20 rounded-xl p-5">
+          <p class="text-blue-200 text-xs font-bold uppercase tracking-wide mb-2">Paso 2</p>
+          <p class="font-semibold mb-1">Dime tus elecciones</p>
+          <p class="text-blue-200 text-sm">Indícame: "Para la imagen 1 quiero Opción A, para la 2 quiero Opción B..." etc. También puedes proponer otras si encuentras mejores.</p>
+        </div>
+        <div class="bg-white/10 border border-white/20 rounded-xl p-5">
+          <p class="text-blue-200 text-xs font-bold uppercase tracking-wide mb-2">Paso 3</p>
+          <p class="font-semibold mb-1">Yo descargo e implemento</p>
+          <p class="text-blue-200 text-sm">Con tus aprobaciones descargo las imágenes a <code class="bg-white/20 px-1 rounded">/public/assets/</code> con los nombres correctos y actualizo las páginas.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center py-8 text-gray-400 text-xs">
+    Todas las imágenes son de Pexels o Unsplash — libres de uso comercial, sin atribución requerida
+  </div>
+
+</body>
+</html>

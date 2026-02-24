@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta B – Editorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+
+    .section-number {
+      font-size: clamp(80px, 14vw, 160px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px currentColor;
+      opacity: 0.15;
+    }
+
+    .divider-h {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, currentColor 20%, currentColor 80%, transparent);
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .problem-item:last-child { border-bottom: none; }
+
+    .solution-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .outcome-bar {
+      height: 4px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- LABEL -->
+  <div class="bg-blue-600 text-white text-xs font-bold px-4 py-2 text-center tracking-widest uppercase">
+    Propuesta B — Editorial / Tipográfica
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- INTRO STRIP -->
+  <!-- ============================================================ -->
+  <div class="bg-white border-b border-gray-100 py-6 px-8">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <p class="text-gray-400 text-sm font-medium tracking-wide uppercase">Industrias donde aplica</p>
+      <div class="flex gap-6 text-sm text-gray-400">
+        <a href="#" class="hover:text-gray-900 transition-colors font-medium">01 Oil & Gas</a>
+        <a href="#" class="hover:text-gray-900 transition-colors font-medium">02 Energía</a>
+        <a href="#" class="hover:text-gray-900 transition-colors font-medium">03 Manufactura</a>
+        <a href="#" class="hover:text-gray-900 transition-colors font-medium">+ Otras</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- Oil & Gas -->
+  <!-- ============================================================ -->
+  <section class="bg-white py-20 px-8 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Header row -->
+      <div class="flex items-start justify-between mb-16 gap-8">
+        <div class="flex items-baseline gap-6">
+          <span class="section-number text-amber-500">01</span>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-amber-500 text-2xl">◆</span>
+              <h2 class="text-4xl font-black text-gray-900 tracking-tight">Oil & Gas</h2>
+            </div>
+            <p class="text-gray-400 text-lg font-light max-w-lg">
+              Donde la confiabilidad tiene consecuencias de seguridad, productivas y regulatorias.
+            </p>
+          </div>
+        </div>
+        <div class="hidden md:block text-right">
+          <p class="text-xs text-gray-300 uppercase tracking-widest mb-1">Resultado esperado</p>
+          <p class="text-xl font-bold text-gray-900 max-w-xs">Menos incertidumbre.<br/>Mayor control operativo.</p>
+        </div>
+      </div>
+
+      <!-- Two column: Problems | Solutions -->
+      <div class="grid md:grid-cols-2 gap-0 border border-gray-100 rounded-2xl overflow-hidden">
+
+        <!-- Problems column -->
+        <div class="bg-gray-900 p-10">
+          <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-8">El problema</p>
+
+          <div class="space-y-0">
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-amber-500 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Fallas con consecuencias múltiples</p>
+                <p class="text-gray-500 text-sm mt-0.5">Producción, seguridad e impacto ambiental a la vez</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-amber-500 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">RCA incompletos o superficiales</p>
+                <p class="text-gray-500 text-sm mt-0.5">Las causas raíz mal identificadas vuelven a fallar</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-amber-500 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Taxonomía inconsistente</p>
+                <p class="text-gray-500 text-sm mt-0.5">Sin estructura de activos clara, los datos no sirven</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-amber-500 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Presión regulatoria creciente</p>
+                <p class="text-gray-500 text-sm mt-0.5">Documentación y trazabilidad como requisito</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions column -->
+        <div class="bg-amber-50 p-10">
+          <p class="text-xs text-amber-700 uppercase tracking-widest font-bold mb-8">Cómo aporta la plataforma</p>
+
+          <div class="space-y-6">
+            <div>
+              <span class="solution-tag bg-amber-200 text-amber-800 mb-2">RCA</span>
+              <p class="text-gray-800 font-medium">Análisis de causa raíz estructurados, documentados y trazables para eventos críticos.</p>
+            </div>
+            <div class="h-px bg-amber-200"></div>
+            <div>
+              <span class="solution-tag bg-amber-200 text-amber-800 mb-2">RCM</span>
+              <p class="text-gray-800 font-medium">Estrategias de mantenimiento claras y actualizables, sin depender de hojas de cálculo.</p>
+            </div>
+            <div class="h-px bg-amber-200"></div>
+            <div>
+              <span class="solution-tag bg-amber-200 text-amber-800 mb-2">Registro de Activos</span>
+              <p class="text-gray-800 font-medium">Taxonomía consistente según ISO 14224 para activos complejos.</p>
+            </div>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-amber-200">
+            <div class="outcome-bar bg-amber-400 w-full mb-3"></div>
+            <p class="text-amber-900 font-semibold text-sm">Resultado: Menos incertidumbre técnica. Mayor control operativo.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Energía y Utilities -->
+  <!-- ============================================================ -->
+  <section class="bg-gray-50 py-20 px-8 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex items-start justify-between mb-16 gap-8">
+        <div class="flex items-baseline gap-6">
+          <span class="section-number text-yellow-500">02</span>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-yellow-500 text-2xl">⚡</span>
+              <h2 class="text-4xl font-black text-gray-900 tracking-tight">Energía y Utilities</h2>
+            </div>
+            <p class="text-gray-400 text-lg font-light max-w-lg">
+              La continuidad del servicio como requisito no negociable.
+            </p>
+          </div>
+        </div>
+        <div class="hidden md:block text-right">
+          <p class="text-xs text-gray-300 uppercase tracking-widest mb-1">Resultado esperado</p>
+          <p class="text-xl font-bold text-gray-900 max-w-xs">Mejor control de la<br/>confiabilidad del sistema.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
+
+        <div class="bg-gray-900 p-10">
+          <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-8">El problema</p>
+          <div class="space-y-0">
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-yellow-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Fallas que comprometen el suministro</p>
+                <p class="text-gray-500 text-sm mt-0.5">Impacto directo en usuarios e indicadores</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-yellow-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Indicadores regulatorios en riesgo</p>
+                <p class="text-gray-500 text-sm mt-0.5">SAIDI, SAIFI y otros dependen de la gestión de fallas</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-yellow-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Costos operativos elevados</p>
+                <p class="text-gray-500 text-sm mt-0.5">Mantenimiento no estructurado encarece la operación</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-50 p-10">
+          <p class="text-xs text-yellow-700 uppercase tracking-widest font-bold mb-8">Cómo aporta la plataforma</p>
+          <div class="space-y-6">
+            <div>
+              <span class="solution-tag bg-yellow-200 text-yellow-800 mb-2">Análisis de fallas</span>
+              <p class="text-gray-800 font-medium">RCA metodológicamente sólidos para equipos críticos del sistema.</p>
+            </div>
+            <div class="h-px bg-yellow-200"></div>
+            <div>
+              <span class="solution-tag bg-yellow-200 text-yellow-800 mb-2">Planes de mantenimiento</span>
+              <p class="text-gray-800 font-medium">Estrategias estructuradas y actualizables para mejorar disponibilidad.</p>
+            </div>
+            <div class="h-px bg-yellow-200"></div>
+            <div>
+              <span class="solution-tag bg-yellow-200 text-yellow-800 mb-2">KPIs técnicos</span>
+              <p class="text-gray-800 font-medium">Base de activos organizada para indicadores más confiables.</p>
+            </div>
+          </div>
+          <div class="mt-10 pt-6 border-t border-yellow-200">
+            <div class="outcome-bar bg-yellow-400 w-full mb-3"></div>
+            <p class="text-yellow-900 font-semibold text-sm">Resultado: Mejor control de la confiabilidad del sistema.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Manufactura -->
+  <!-- ============================================================ -->
+  <section class="bg-white py-20 px-8 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex items-start justify-between mb-16 gap-8">
+        <div class="flex items-baseline gap-6">
+          <span class="section-number text-teal-500">03</span>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-teal-500 text-2xl">⚙️</span>
+              <h2 class="text-4xl font-black text-gray-900 tracking-tight">Manufactura continua</h2>
+            </div>
+            <p class="text-gray-400 text-lg font-light max-w-lg">
+              Disponibilidad constante como base de la competitividad.
+            </p>
+          </div>
+        </div>
+        <div class="hidden md:block text-right">
+          <p class="text-xs text-gray-300 uppercase tracking-widest mb-1">Resultado esperado</p>
+          <p class="text-xl font-bold text-gray-900 max-w-xs">Mayor estabilidad<br/>operativa.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-0 border border-gray-100 rounded-2xl overflow-hidden">
+        <div class="bg-gray-900 p-10">
+          <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-8">El problema</p>
+          <div class="space-y-0">
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-teal-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Fallas recurrentes que se repiten</p>
+                <p class="text-gray-500 text-sm mt-0.5">Señal de causa raíz no resuelta correctamente</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-teal-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Mantenimiento reactivo caro</p>
+                <p class="text-gray-500 text-sm mt-0.5">Sin estrategia estructurada, se interviene después del daño</p>
+              </div>
+            </div>
+            <div class="problem-item" style="border-color: rgba(255,255,255,0.06)">
+              <span class="text-teal-400 mt-0.5 flex-shrink-0 font-black text-lg">→</span>
+              <div>
+                <p class="text-white font-semibold">Datos dispersos, decisiones lentas</p>
+                <p class="text-gray-500 text-sm mt-0.5">Sin trazabilidad, el análisis tarda demasiado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-teal-50 p-10">
+          <p class="text-xs text-teal-700 uppercase tracking-widest font-bold mb-8">Cómo aporta la plataforma</p>
+          <div class="space-y-6">
+            <div>
+              <span class="solution-tag bg-teal-200 text-teal-800 mb-2">RCA ágiles</span>
+              <p class="text-gray-800 font-medium">Análisis más rápidos y precisos que eliminan la causa raíz real.</p>
+            </div>
+            <div class="h-px bg-teal-200"></div>
+            <div>
+              <span class="solution-tag bg-teal-200 text-teal-800 mb-2">Estrategia RCM</span>
+              <p class="text-gray-800 font-medium">Planes coherentes y actualizables que reducen intervenciones.</p>
+            </div>
+            <div class="h-px bg-teal-200"></div>
+            <div>
+              <span class="solution-tag bg-teal-200 text-teal-800 mb-2">Calidad de datos</span>
+              <p class="text-gray-800 font-medium">Información confiable para decisiones basadas en hechos.</p>
+            </div>
+          </div>
+          <div class="mt-10 pt-6 border-t border-teal-200">
+            <div class="outcome-bar bg-teal-400 w-full mb-3"></div>
+            <p class="text-teal-900 font-semibold text-sm">Resultado: Mayor estabilidad operativa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Otras industrias -->
+  <!-- ============================================================ -->
+  <section class="bg-gray-50 py-20 px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12 items-start">
+
+        <div class="md:col-span-1">
+          <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">También aplica en</p>
+          <h2 class="text-3xl font-black text-gray-900 mb-6">Otras industrias</h2>
+          <p class="text-gray-500 leading-relaxed mb-8">
+            La confiabilidad no depende solo del sector,
+            sino de la criticidad de activos y el impacto de las fallas.
+          </p>
+          <button class="bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+            Conversemos →
+          </button>
+        </div>
+
+        <div class="md:col-span-2 grid grid-cols-2 gap-4">
+          <div class="bg-white border border-gray-100 rounded-xl p-5 hover:border-gray-300 transition-colors">
+            <p class="font-semibold text-gray-900 mb-1">Petroquímica</p>
+            <p class="text-gray-400 text-sm">Activos críticos + regulación</p>
+          </div>
+          <div class="bg-white border border-gray-100 rounded-xl p-5 hover:border-gray-300 transition-colors">
+            <p class="font-semibold text-gray-900 mb-1">Minería</p>
+            <p class="text-gray-400 text-sm">Alto impacto de paradas</p>
+          </div>
+          <div class="bg-white border border-gray-100 rounded-xl p-5 hover:border-gray-300 transition-colors">
+            <p class="font-semibold text-gray-900 mb-1">Alimentos y bebidas</p>
+            <p class="text-gray-400 text-sm">Inocuidad + disponibilidad</p>
+          </div>
+          <div class="bg-white border border-gray-100 rounded-xl p-5 hover:border-gray-300 transition-colors">
+            <p class="font-semibold text-gray-900 mb-1">Papel y celulosa</p>
+            <p class="text-gray-400 text-sm">Procesos continuos</p>
+          </div>
+          <div class="bg-white border border-gray-100 rounded-xl p-5 hover:border-gray-300 transition-colors">
+            <p class="font-semibold text-gray-900 mb-1">Química industrial</p>
+            <p class="text-gray-400 text-sm">Seguridad + trazabilidad</p>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5">
+            <p class="font-semibold text-white mb-1">¿Tu industria?</p>
+            <p class="text-gray-400 text-sm">Si las fallas afectan tu negocio, aplica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

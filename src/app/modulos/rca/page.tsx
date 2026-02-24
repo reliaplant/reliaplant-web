@@ -32,7 +32,7 @@ export default function RCAPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bgACR.jpg"
+            src="/assets/landing-rca-ing-tristes.png"
             alt="Análisis de causa raíz"
             fill
             className="object-cover opacity-15"
@@ -76,7 +76,7 @@ export default function RCAPage() {
           style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
         >
           <Image
-            src="/assets/bgACR.jpg"
+            src="/assets/el-problema-hoy-rca.png"
             alt="Análisis de causa raíz"
             fill
             className="object-cover object-center"
@@ -91,7 +91,7 @@ export default function RCAPage() {
         {/* Mobile image */}
         <div className="relative h-52 w-full md:hidden">
           <Image
-            src="/assets/bgACR.jpg"
+            src="/assets/el-problema-hoy-rca.png"
             alt="Análisis de causa raíz"
             fill
             className="object-cover object-center"
@@ -180,7 +180,7 @@ export default function RCAPage() {
           style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
         >
           <Image
-            src="/assets/bgACR.jpg"
+            src="/assets/Beneficios RCA.png"
             alt="Análisis de causa raíz"
             fill
             className="object-cover object-center"

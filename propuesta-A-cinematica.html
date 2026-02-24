@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta A – Cinematic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+
+    .industry-section {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Gradient bg simulating each industry image */
+    .bg-oilygas {
+      background: linear-gradient(135deg, #0f172a 0%, #1c1917 40%, #292524 100%);
+    }
+    .bg-energia {
+      background: linear-gradient(135deg, #0c1445 0%, #1e3a5f 50%, #0f2d3c 100%);
+    }
+    .bg-manufactura {
+      background: linear-gradient(135deg, #0f1f1a 0%, #0d2420 50%, #0a3028 100%);
+    }
+
+    .noise-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .outcome-card {
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .big-number {
+      font-size: clamp(100px, 18vw, 220px);
+      font-weight: 900;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      opacity: 0.05;
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      color: white;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-black">
+
+  <!-- LABEL -->
+  <div class="bg-amber-500 text-black text-xs font-bold px-4 py-2 text-center tracking-widest uppercase">
+    Propuesta A — Cinematic / Inmersiva
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- Oil & Gas -->
+  <!-- ============================================================ -->
+  <section class="industry-section bg-oilygas">
+    <div class="noise-overlay"></div>
+
+    <!-- Accent line -->
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-amber-500"></div>
+
+    <!-- Big number bg -->
+    <span class="big-number">01</span>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-8 md:px-16 w-full py-24">
+      <div class="grid md:grid-cols-5 gap-16 items-center">
+
+        <!-- LEFT: Content (3 cols) -->
+        <div class="md:col-span-3">
+          <span class="tag bg-amber-500/20 text-amber-400 mb-6 block">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            Oil & Gas
+          </span>
+
+          <h2 class="text-5xl md:text-6xl font-black text-white leading-none mb-8 tracking-tight">
+            Cuando una falla<br/>
+            <span class="text-amber-400">no es solo técnica</span>
+          </h2>
+
+          <p class="text-xl text-white/60 leading-relaxed mb-10 max-w-xl font-light">
+            En petróleo y gas, cada parada no planificada arrastra consigo pérdidas de producción,
+            presión regulatoria y riesgo de seguridad. La ingeniería de confiabilidad no es opcional —
+            es la diferencia entre control e incertidumbre.
+          </p>
+
+          <!-- How we help — flowing, not checklist -->
+          <div class="space-y-4">
+            <p class="text-white/90 font-medium text-lg">La plataforma ayuda a:</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">RCA para eventos críticos</span>
+              <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Estrategias RCM trazables</span>
+              <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Taxonomía ISO 14224</span>
+              <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Control operativo real</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Outcome card (2 cols) -->
+        <div class="md:col-span-2 flex flex-col gap-6">
+          <div class="outcome-card rounded-2xl p-8">
+            <p class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-3">Resultado esperado</p>
+            <p class="text-white text-2xl font-bold leading-snug mb-4">
+              Menos incertidumbre técnica. Mayor control operativo.
+            </p>
+            <div class="w-12 h-1 bg-amber-500 rounded-full"></div>
+          </div>
+
+          <!-- Stats feel -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-3xl font-black text-amber-400 mb-1">RCA</p>
+              <p class="text-white/50 text-xs">más estructurados</p>
+            </div>
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-3xl font-black text-amber-400 mb-1">RCM</p>
+              <p class="text-white/50 text-xs">trazable y actualizable</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Energía y Utilities -->
+  <!-- ============================================================ -->
+  <section class="industry-section bg-energia">
+    <div class="noise-overlay"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-1 bg-yellow-400"></div>
+    <span class="big-number" style="left:-20px; right:auto;">02</span>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-8 md:px-16 w-full py-24">
+      <div class="grid md:grid-cols-5 gap-16 items-center">
+
+        <!-- LEFT: Outcome card (2 cols) — mirrored -->
+        <div class="md:col-span-2 flex flex-col gap-6 order-2 md:order-1">
+          <div class="outcome-card rounded-2xl p-8">
+            <p class="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-3">Resultado esperado</p>
+            <p class="text-white text-2xl font-bold leading-snug mb-4">
+              Mejor control de la confiabilidad del sistema eléctrico.
+            </p>
+            <div class="w-12 h-1 bg-yellow-500 rounded-full"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-2xl font-black text-yellow-400 mb-1">Indicadores</p>
+              <p class="text-white/50 text-xs">regulatorios mejorados</p>
+            </div>
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-2xl font-black text-yellow-400 mb-1">Planes</p>
+              <p class="text-white/50 text-xs">estructurados y vivos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Content (3 cols) -->
+        <div class="md:col-span-3 order-1 md:order-2">
+          <span class="tag bg-yellow-500/20 text-yellow-300 mb-6 block">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Energía y Utilities
+          </span>
+
+          <h2 class="text-5xl md:text-6xl font-black text-white leading-none mb-8 tracking-tight">
+            Continuidad del servicio<br/>
+            <span class="text-yellow-400">sin margen de error</span>
+          </h2>
+
+          <p class="text-xl text-white/60 leading-relaxed mb-10 max-w-xl font-light">
+            En generación y distribución de energía, una falla no solo para un equipo —
+            puede comprometer indicadores regulatorios y la percepción de toda una empresa.
+            La confiabilidad del sistema depende de la calidad del análisis.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Análisis de fallas críticas</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Planes de mantenimiento</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Base de activos organizada</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">KPIs más confiables</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Manufactura -->
+  <!-- ============================================================ -->
+  <section class="industry-section bg-manufactura">
+    <div class="noise-overlay"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-teal-400"></div>
+    <span class="big-number">03</span>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-8 md:px-16 w-full py-24">
+      <div class="grid md:grid-cols-5 gap-16 items-center">
+
+        <div class="md:col-span-3">
+          <span class="tag bg-teal-500/20 text-teal-300 mb-6 block">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg>
+            Manufactura continua
+          </span>
+
+          <h2 class="text-5xl md:text-6xl font-black text-white leading-none mb-8 tracking-tight">
+            Disponibilidad constante<br/>
+            <span class="text-teal-400">no es negociable</span>
+          </h2>
+
+          <p class="text-xl text-white/60 leading-relaxed mb-10 max-w-xl font-light">
+            En manufactura continua, el mantenimiento reactivo se paga caro.
+            Las fallas recurrentes no son mala suerte — son el síntoma de un análisis
+            incompleto o una estrategia mal estructurada.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">RCA más ágiles y precisos</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">RCM coherente</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Datos de calidad</span>
+            <span class="bg-white/10 text-white/80 px-4 py-2 rounded-full text-sm font-medium border border-white/10">Decisiones basadas en hechos</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col gap-6">
+          <div class="outcome-card rounded-2xl p-8">
+            <p class="text-teal-400 text-xs font-bold tracking-widest uppercase mb-3">Resultado esperado</p>
+            <p class="text-white text-2xl font-bold leading-snug mb-4">
+              Mayor estabilidad operativa. Menos intervenciones no planificadas.
+            </p>
+            <div class="w-12 h-1 bg-teal-500 rounded-full"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-2xl font-black text-teal-400 mb-1">Menos</p>
+              <p class="text-white/50 text-xs">fallas recurrentes</p>
+            </div>
+            <div class="outcome-card rounded-xl p-5 text-center">
+              <p class="text-2xl font-black text-teal-400 mb-1">Mejor</p>
+              <p class="text-white/50 text-xs">calidad de datos</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Otras industrias -->
+  <!-- ============================================================ -->
+  <section class="py-24 px-8 bg-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16">
+        <p class="text-white/30 text-xs font-bold tracking-widest uppercase mb-4">También aplica en</p>
+        <h2 class="text-4xl font-black text-white">Otras industrias</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/10">
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <p class="text-3xl mb-3">⚗️</p>
+          <p class="text-white font-semibold text-lg">Petroquímica</p>
+          <p class="text-white/30 text-sm mt-1">Activos críticos + regulación estricta</p>
+        </div>
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <p class="text-3xl mb-3">⛏️</p>
+          <p class="text-white font-semibold text-lg">Minería</p>
+          <p class="text-white/30 text-sm mt-1">Alto impacto de paradas</p>
+        </div>
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <p class="text-3xl mb-3">🌾</p>
+          <p class="text-white font-semibold text-lg">Alimentos y bebidas</p>
+          <p class="text-white/30 text-sm mt-1">Inocuidad + disponibilidad</p>
+        </div>
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <p class="text-3xl mb-3">🌲</p>
+          <p class="text-white font-semibold text-lg">Papel y celulosa</p>
+          <p class="text-white/30 text-sm mt-1">Procesos continuos</p>
+        </div>
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <p class="text-3xl mb-3">🧪</p>
+          <p class="text-white font-semibold text-lg">Química industrial</p>
+          <p class="text-white/30 text-sm mt-1">Seguridad + trazabilidad</p>
+        </div>
+        <div class="bg-black p-8 group hover:bg-white/5 transition-colors cursor-default">
+          <div class="w-10 h-10 border border-white/20 rounded flex items-center justify-center mb-3">
+            <span class="text-white/40 text-xl">+</span>
+          </div>
+          <p class="text-white/60 font-semibold text-lg">Tu industria</p>
+          <p class="text-white/30 text-sm mt-1">Si las fallas afectan tu negocio, aplica</p>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-12 border-t border-white/10 flex items-center justify-between flex-wrap gap-6">
+        <p class="text-white/60 text-lg">Si la confiabilidad impacta tu negocio, podemos aportar.</p>
+        <button class="bg-white text-black font-semibold px-8 py-3.5 rounded-lg hover:bg-white/90 transition-colors">
+          Conversemos →
+        </button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

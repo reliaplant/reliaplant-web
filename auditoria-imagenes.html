@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditoría de Imágenes — Reliaplant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      font-size: 14px;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: #0f172a;
+      color: white;
+      padding: 40px 48px 36px;
+      border-bottom: 3px solid #0f62fe;
+    }
+    .header-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      gap: 24px;
+      padding: 20px 48px;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #475569;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-ok    { background: #dcfce7; color: #166534; }
+    .badge-warn  { background: #fef9c3; color: #854d0e; }
+    .badge-bad   { background: #fee2e2; color: #991b1b; }
+
+    /* ── Summary bar ── */
+    .summary {
+      display: flex;
+      gap: 20px;
+      padding: 16px 48px;
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+    }
+    .summary-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+    .summary-num {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* ── Table wrapper ── */
+    .table-wrapper {
+      padding: 32px 48px 48px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    thead tr {
+      background: #0f172a;
+      color: white;
+    }
+    thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.12s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #f8fafc; }
+
+    /* Row accent for status */
+    tbody tr.row-ok   { border-left: 3px solid #22c55e; }
+    tbody tr.row-warn { border-left: 3px solid #f59e0b; }
+    tbody tr.row-bad  { border-left: 3px solid #ef4444; }
+
+    td {
+      padding: 16px;
+      vertical-align: top;
+    }
+
+    /* ── Col: Sección ── */
+    .col-section { width: 160px; }
+    .section-page {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0f62fe;
+      margin-bottom: 4px;
+    }
+    .section-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.4;
+    }
+    .section-file {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 4px;
+      font-family: monospace;
+    }
+
+    /* ── Col: Imagen ── */
+    .col-img { width: 160px; }
+    .img-thumb-wrap {
+      width: 140px;
+      height: 90px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #f1f5f9;
+      position: relative;
+    }
+    .img-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-filename {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 6px;
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    /* ── Col: Mensaje ── */
+    .col-message { width: 200px; }
+    .message-text {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    /* ── Col: Estado ── */
+    .col-status { width: 100px; text-align: center; }
+
+    /* ── Col: Sugerencia ── */
+    .col-suggestion { }
+    .suggestion-text {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .suggestion-text strong {
+      display: block;
+      color: #0f172a;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* ── Section group header ── */
+    tr.group-header td {
+      background: #f1f5f9;
+      padding: 10px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    @media print {
+      body { background: white; }
+      .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <p class="header-label">Reliaplant · Auditoría visual</p>
+    <h1>Revisión de imágenes del sitio web</h1>
+    <p>15 imágenes únicas · 7 páginas principales analizadas · Evaluación de coherencia imagen ↔ mensaje</p>
+  </div>
+
+  <!-- ── LEGEND ── -->
+  <div class="legend">
+    <span class="legend-item">Estado de cada imagen:</span>
+    <span class="legend-item"><span class="badge badge-ok">✓ Queda bien</span> La imagen refuerza el mensaje correctamente</span>
+    <span class="legend-item"><span class="badge badge-warn">▲ Mejorable</span> Funciona pero podría ser más precisa</span>
+    <span class="legend-item"><span class="badge badge-bad">✕ Reemplazar</span> Desconectada del mensaje o comunica algo incorrecto</span>
+  </div>
+
+  <!-- ── SUMMARY ── -->
+  <div class="summary">
+    <div class="summary-chip">
+      <span class="summary-num" style="color:#22c55e;">5</span>
+      <span style="color:#64748b; font-size:12px;">Quedan bien</span>
+    </div>
+    <div class="summary-chip">
+      <span class="summary-num" style="color:#f59e0b;">4</span>
+      <span style="color:#64748b; font-size:12px;">Mejorables</span>
+    </div>
+    <div class="summary-chip">
+      <span class="summary-num" style="color:#ef4444;">6</span>
+      <span style="color:#64748b; font-size:12px;">Reemplazar</span>
+    </div>
+    <div class="summary-chip">
+      <span class="summary-num" style="color:#1e293b;">15</span>
+      <span style="color:#64748b; font-size:12px;">Total imágenes</span>
+    </div>
+  </div>
+
+  <!-- ── TABLE ── -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-section">Sección</th>
+          <th class="col-img">Imagen actual</th>
+          <th class="col-message">Mensaje / Objetivo de la sección</th>
+          <th class="col-status">Estado</th>
+          <th class="col-suggestion">Descripción de imagen sugerida</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">LANDING PAGE  ·  page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Landing</p>
+            <p class="section-name">Hero — fondo</p>
+            <p class="section-file">page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/escritorioMantenimiento.png" alt="" /></div>
+            <p class="img-filename">escritorioMantenimiento.png</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Reliaplant resuelve la burocracia técnica del mantenimiento industrial. "Sin burocracia técnica."</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>— Sin cambios necesarios</strong>El escritorio caótico con Excel, post-its y planos es exactamente el problema que Reliaplant resuelve. Es auténtico y comunica el dolor del usuario perfectamente.</p>
+          </td>
+        </tr>
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Landing</p>
+            <p class="section-name">Módulo Registro de Activos</p>
+            <p class="section-file">page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgAssetRegister.png" alt="" /></div>
+            <p class="img-filename">bgAssetRegister.png</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Organiza la base técnica de tus equipos según estándares internacionales.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>— Sin cambios necesarios</strong>Muestra la plataforma real con lista de activos, foto de equipo industrial y diagrama de taxonomía. Ideal.</p>
+          </td>
+        </tr>
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Landing</p>
+            <p class="section-name">Módulo RCA</p>
+            <p class="section-file">page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgACR.jpg" alt="" /></div>
+            <p class="img-filename">bgACR.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Analiza fallas con metodología estructurada para eliminar causas raíz. Módulo RCA.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Ingenieros analizando en sala técnica</strong>Equipo de 2–3 técnicos frente a un árbol de fallas en pizarrón o pantalla, o screenshot del módulo RCA con un diagrama de causas desplegado. Mostrar la <em>solución</em>, no solo el daño físico.</p>
+          </td>
+        </tr>
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Landing</p>
+            <p class="section-name">Módulo RCM</p>
+            <p class="section-file">page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/fondo-landing-rcm.png" alt="" /></div>
+            <p class="img-filename">fondo-landing-rcm.png</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Define estrategias de mantenimiento basadas en consecuencia de falla. Módulo RCM.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Ingeniero revisando plan de mantenimiento</strong>Foto de un técnico con tablet o laptop revisando un plan de mantenimiento frente a equipos industriales. La vista aérea de refinería es genérica y no comunica "estrategia de mantenimiento".</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">CÓMO FUNCIONA  ·  como-funciona/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Hero — fondo</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/engineeringRoom.jpg" alt="" /></div>
+            <p class="img-filename">engineeringRoom.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Ingeniería de confiabilidad sin burocracia técnica. La plataforma complementa tu CMMS.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Sala de control de planta industrial</strong>Operadores en sala de control de refinería o planta de energía, con pantallas mostrando datos de producción. La sala actual parece aeronáutica / defensa. Debe verse más como operaciones industriales.</p>
+          </td>
+        </tr>
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 1 — Taxonomía</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgAssetRegister.png" alt="" /></div>
+            <p class="img-filename">bgAssetRegister.png</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Organizamos la base técnica correctamente. Módulo de taxonomía, estructura activos según ISO 14224.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>— Sin cambios necesarios</strong>Muestra la plataforma real con la lista jerárquica de activos. Directamente relevante.</p>
+          </td>
+        </tr>
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 2 — RCA</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgACR.jpg" alt="" /></div>
+            <p class="img-filename">bgACR.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Facilitamos análisis de fallas bien hechos (RCA). El módulo RCA guía el proceso completo.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Ingenieros en sesión de análisis</strong>Igual que en la landing: mostrar el proceso de análisis, no el equipo dañado. Un árbol de fallas en pantalla grande con técnicos reunidos alrededor comunica mejor el valor del módulo.</p>
+          </td>
+        </tr>
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 3 — RCM</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/fondo-landing-rcm.png" alt="" /></div>
+            <p class="img-filename">fondo-landing-rcm.png</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Transformamos el RCM en una herramienta práctica. Elimina duplicidad, pérdida de trazabilidad, dificultad para actualizar estrategias.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Técnico con plan de mantenimiento estructurado</strong>Foto de ingeniero con laptop o tablet revisando listas de tareas de mantenimiento, o screenshot del módulo RCM con la tabla de modos de falla y tareas. Vista aérea de planta no comunica "estrategia".</p>
+          </td>
+        </tr>
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 4 — Integración</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgSoftware.jpg" alt="" /></div>
+            <p class="img-filename">bgSoftware.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Integración progresiva sin fricción. Conéctalo con tu CMMS y sistemas existentes. Puedes implementar un módulo a la vez.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Diagrama de conexión de sistemas / flujo de datos</strong>La imagen muestra el módulo RCA de Reliaplant solamente — nada relacionado con integración. Necesita: ilustración de Reliaplant conectado a un CMMS (SAP PM, Maximo), o un diagrama de API con flechas de datos entre sistemas, o pantalla partida mostrando dos plataformas comunicándose.</p>
+          </td>
+        </tr>
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 5 — Impacto</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgPerformance.jpg" alt="" /></div>
+            <p class="img-filename">bgPerformance.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Impacto operativo real: menos tiempo administrativo, mejores decisiones, indicadores más confiables, menor recurrencia de fallas.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Dashboard de KPIs industriales o planta operando</strong>El diagrama de turbina con anotaciones "Condición mecánica / Patrón de uso" parece folleto de consultoría de los 2000s. Sustituir por: gráfica moderna de tendencia mostrando reducción de fallas, dashboard industrial con métricas de disponibilidad, o foto de planta operando a plena capacidad.</p>
+          </td>
+        </tr>
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Cómo funciona</p>
+            <p class="section-name">Paso 6 — Implementación</p>
+            <p class="section-file">como-funciona/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgCapacitacion.jpg" alt="" /></div>
+            <p class="img-filename">bgCapacitacion.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Implementación simple y acompañada: diagnóstico inicial, configuración, capacitación técnica, soporte continuo.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>— Sin cambios necesarios</strong>Foto real de operadores con EPP en sesión de capacitación frente a computadoras con instructor. Auténtica, directa y muy bien alineada con el mensaje.</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">INDUSTRIAS  ·  industrias/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Industrias</p>
+            <p class="section-name">Hero — fondo</p>
+            <p class="section-file">industrias/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/planta.jpg" alt="" /></div>
+            <p class="img-filename">planta.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Industrias donde la confiabilidad marca la diferencia. Operaciones donde la disponibilidad impacta producción, seguridad y rentabilidad.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>— Sin cambios necesarios</strong>Estación de campo oil &amp; gas con tuberías y separadores. Usado al 20% de opacidad como fondo. Funciona bien para comunicar "industria pesada".</p>
+          </td>
+        </tr>
+
+        <tr class="row-ok">
+          <td class="col-section">
+            <p class="section-page">Industrias</p>
+            <p class="section-name">Oil &amp; Gas</p>
+            <p class="section-file">industrias/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/flare.jpg" alt="" /></div>
+            <p class="img-filename">flare.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">En Oil &amp; Gas, una falla rara vez es solo técnica. Arrastra producción, seguridad, ambiental y regulatorio.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-ok">✓ Queda bien</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Aceptable — mejora opcional</strong>Stacks de venteo en campo. Funciona para oil &amp; gas pero las flares apagadas le restan drama. Mejoría opcional: refinería activa, plataforma offshore, o compresor de gas en estación.</p>
+          </td>
+        </tr>
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Industrias</p>
+            <p class="section-name">Energía y Utilities</p>
+            <p class="section-file">industrias/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgPerformance.jpg" alt="" /></div>
+            <p class="img-filename">bgPerformance.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Energía y Utilities: la continuidad del servicio no admite margen de error. Fallas que afectan indicadores regulatorios y costos.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Infraestructura eléctrica real</strong>Diagrama técnico de turbina con anotaciones de consultora no representa "energía y utilities". Reemplazar por: subestación eléctrica, líneas de transmisión de alta tensión, planta de ciclo combinado, o sala de turbinas de una central hidroeléctrica.</p>
+          </td>
+        </tr>
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Industrias</p>
+            <p class="section-name">Manufactura continua</p>
+            <p class="section-file">industrias/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgGestionActivos.jpg" alt="" /></div>
+            <p class="img-filename">bgGestionActivos.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Manufactura continua: la productividad depende de disponibilidad constante. Fallas recurrentes y mantenimiento reactivo.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Línea de producción / planta de manufactura</strong>Vista aérea de refinería petroquímica no comunica "manufactura continua". Reemplazar por: línea de ensamblaje, planta embotelladora, proceso de laminación de acero, línea de alimentos y bebidas. Algo que visualmente lea como "producción en serie".</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">MÓDULO RCA  ·  modulos/rca/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Módulo RCA</p>
+            <p class="section-name">Hero + 3 secciones</p>
+            <p class="section-file">modulos/rca/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgACR.jpg" alt="" /></div>
+            <p class="img-filename">bgACR.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Módulo RCA: analiza fallas con metodología estructurada. El módulo guía el proceso completo de documentación y trazabilidad.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Screenshot del módulo RCA + ambiente de trabajo técnico</strong>4 fotos de equipo dañado (motor oxidado, rodamientos sucios) comunican el <em>problema</em>, no la <em>solución</em>. Para el hero del módulo, mostrar la plataforma RCA con el árbol de fallas construido sería mucho más efectivo. Para secciones internas, ingenieros revisando un análisis estructurado.</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">MÓDULO RCM  ·  modulos/rcm/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Módulo RCM</p>
+            <p class="section-name">Hero + 3 secciones</p>
+            <p class="section-file">modulos/rcm/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgRCM.jpg" alt="" /></div>
+            <p class="img-filename">bgRCM.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Módulo RCM: define estrategias de mantenimiento basadas en consecuencia de falla. Reemplaza hojas de cálculo con trazabilidad real.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Foto industrial de equipos + ingeniero planificando</strong>El flujograma de proceso RCM se ve académico / consultoría. Usado 4 veces en la misma página se vuelve repetitivo. El hero necesita profundidad visual: técnico con laptop frente a equipos industriales, o screenshot real del módulo RCM con la matriz de modos de falla. El diagrama podría usarse como elemento inline, no como fondo.</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">MÓDULO REGISTRO DE ACTIVOS  ·  modulos/registro-activos/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">Registro de Activos</p>
+            <p class="section-name">Hero + 2 secciones</p>
+            <p class="section-file">modulos/registro-activos/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgGestionActivos2.jpg" alt="" /></div>
+            <p class="img-filename">bgGestionActivos2.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Módulo Registro de Activos: organiza la base técnica de tus equipos según estándares internacionales (ISO 14224).</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Técnico en campo con tablet registrando activos</strong>Foto stock de hombre sonriente con laptop y fondo azul liso no tiene ninguna conexión con "registro técnico industrial". Reemplazar por: inspector en campo escaneando placa de equipo con tablet, técnico en sala de motores ingresando datos, o foto de panel de instrumentos con etiquetas de activos.</p>
+          </td>
+        </tr>
+
+        <tr class="row-warn">
+          <td class="col-section">
+            <p class="section-page">Registro de Activos</p>
+            <p class="section-name">Sección beneficios</p>
+            <p class="section-file">modulos/registro-activos/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgGestionActivos.jpg" alt="" /></div>
+            <p class="img-filename">bgGestionActivos.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">Gestión de activos: organización técnica de todos los equipos de la planta con taxonomía estructurada.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Aceptable en este contexto</strong>Vista aérea de complejo industrial es razonablemente válida aquí — implica "todos estos activos necesitan ser registrados". Podría mejorarse con una foto de sala de control o campo con activos etiquetados, pero no es urgente.</p>
+          </td>
+        </tr>
+
+        <!-- ══════════════════════════════════════════ -->
+        <tr class="group-header"><td colspan="5">ROI  ·  roi/page.tsx</td></tr>
+        <!-- ══════════════════════════════════════════ -->
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">ROI</p>
+            <p class="section-name">Hero — fondo</p>
+            <p class="section-file">roi/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgKPIs.jpg" alt="" /></div>
+            <p class="img-filename">bgKPIs.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">El retorno de invertir en confiabilidad bien aplicada: menos fallas, mejores decisiones, mayor disponibilidad operacional.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Dashboard de métricas industriales reales</strong>El laptop muestra un dashboard de marketing con "Top Marketing Expenditures," "Awareness/Consideration/Funnel" — completamente ajeno a confiabilidad industrial. Reemplazar por: pantalla con métricas OEE, gráfica de disponibilidad vs. tiempo, o dashboard con MTBF / costos de mantenimiento correctivo vs. preventivo.</p>
+          </td>
+        </tr>
+
+        <tr class="row-bad">
+          <td class="col-section">
+            <p class="section-page">ROI</p>
+            <p class="section-name">Descarga resumen ejecutivo</p>
+            <p class="section-file">roi/page.tsx</p>
+          </td>
+          <td class="col-img">
+            <div class="img-thumb-wrap"><img src="public/assets/bgPerformance3.jpg" alt="" /></div>
+            <p class="img-filename">bgPerformance3.jpg</p>
+          </td>
+          <td class="col-message">
+            <p class="message-text">¿Necesitas presentar esto a tu directivo? Descarga el resumen ejecutivo del ROI de confiabilidad.</p>
+          </td>
+          <td class="col-status"><span class="badge badge-bad">✕ Reemplazar</span></td>
+          <td>
+            <p class="suggestion-text"><strong>Ejecutivo revisando un documento impreso / reunión directiva</strong>Mismo diagrama de turbina que bgPerformance.jpg — no representa un resumen ejecutivo ni una reunión directiva. Reemplazar por: ejecutivo con documento en mano en sala de reuniones, persona revisando reporte impreso en escritorio limpio, o gráfica de reducción de costos operativos.</p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── FOOTER NOTES ── -->
+  <div style="max-width: 960px; margin: 0 auto 48px; padding: 0 48px;">
+    <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; margin-bottom: 12px;">Prioridad de reemplazo</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+        <div>
+          <p style="font-size: 12px; font-weight: 700; color: #ef4444; margin-bottom: 6px;">🔴 Urgente — reemplazar pronto</p>
+          <ul style="font-size: 12px; color: #475569; line-height: 1.8; padding-left: 14px;">
+            <li>bgKPIs.jpg — ROI hero (dashboard de marketing)</li>
+            <li>bgGestionActivos2.jpg — Registro de Activos hero</li>
+            <li>bgPerformance.jpg/.3.jpg — diagrama de turbina</li>
+            <li>bgRCM.jpg — flujograma como hero de módulo</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size: 12px; font-weight: 700; color: #f59e0b; margin-bottom: 6px;">🟡 Mejorar cuando sea posible</p>
+          <ul style="font-size: 12px; color: #475569; line-height: 1.8; padding-left: 14px;">
+            <li>bgACR.jpg — mostrar solución, no daño</li>
+            <li>fondo-landing-rcm.png — más específica a RCM</li>
+            <li>engineeringRoom.jpg — más industrial</li>
+            <li>bgSoftware.jpg — integración de sistemas</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size: 12px; font-weight: 700; color: #22c55e; margin-bottom: 6px;">🟢 No tocar</p>
+          <ul style="font-size: 12px; color: #475569; line-height: 1.8; padding-left: 14px;">
+            <li>escritorioMantenimiento.png</li>
+            <li>bgAssetRegister.png</li>
+            <li>bgCapacitacion.jpg</li>
+            <li>planta.jpg · flare.jpg</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

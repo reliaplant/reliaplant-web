@@ -307,7 +307,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
-                src="/assets/bgSoftware.jpg"
+                src="/assets/Interaccion Progresiva.png"
                 alt="Integración de sistemas industriales"
                 width={600}
                 height={400}

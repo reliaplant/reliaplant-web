@@ -32,7 +32,7 @@ export default function RCMPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bgRCM.jpg"
+            src="/assets/landing-modulo-rcm.png"
             alt="Mantenimiento centrado en confiabilidad"
             fill
             className="object-cover opacity-20"
@@ -78,7 +78,7 @@ export default function RCMPage() {
           style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
         >
           <Image
-            src="/assets/bgRCM.jpg"
+            src="/assets/Reunion RCM .png"
             alt="RCM en hojas de cálculo"
             fill
             className="object-cover object-center"
@@ -93,7 +93,7 @@ export default function RCMPage() {
         {/* Mobile image */}
         <div className="relative h-52 w-full md:hidden">
           <Image
-            src="/assets/bgRCM.jpg"
+            src="/assets/Reunion RCM .png"
             alt="RCM en hojas de cálculo"
             fill
             className="object-cover object-center"
@@ -182,7 +182,7 @@ export default function RCMPage() {
           style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
         >
           <Image
-            src="/assets/bgRCM.jpg"
+            src="/assets/Beneficios RCM.png"
             alt="Mantenimiento Centrado en Confiabilidad"
             fill
             className="object-cover object-center"

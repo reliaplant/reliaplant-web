@@ -322,7 +322,7 @@ export default function ROIPage() {
               </div>
               <div className="w-48 h-60 rounded-lg shadow-lg border overflow-hidden relative">
                 <Image
-                  src="/assets/bgPerformance3.jpg"
+                  src="/assets/ROI confiabilidad.png"
                   alt="Impacto operativo de la confiabilidad"
                   fill
                   className="object-cover"

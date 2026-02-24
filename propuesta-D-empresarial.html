@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta D — Empresarial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    h1, h2, h3, h4 { font-family: 'Work Sans', sans-serif; }
+    body, p, span, li, a { font-family: 'Inter', sans-serif; }
+
+    /* Blue brand */
+    :root {
+      --blue: #0f62fe;
+      --blue-dark: #0043ce;
+      --gray-100: #161616;
+      --gray-90:  #262626;
+      --gray-70:  #525252;
+      --gray-20:  #e0e0e0;
+      --gray-10:  #f4f4f4;
+      --teal:     #007d79;
+      --amber:    #b45309;
+      --yellow:   #92400e;
+    }
+
+    /* Split layout container */
+    .split-section {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 580px;
+    }
+    .split-section.reverse {
+      grid-template-columns: 45% 55%;
+    }
+
+    /* Photo panel */
+    .photo-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Gradient fade toward content */
+    .photo-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(22,22,22,0.2) 0%, rgba(22,22,22,0.55) 70%, rgba(22,22,22,0.75) 100%);
+    }
+    .split-section.reverse .photo-panel::after {
+      background: linear-gradient(to left, rgba(22,22,22,0.2) 0%, rgba(22,22,22,0.55) 70%, rgba(22,22,22,0.75) 100%);
+    }
+
+    /* Content panel */
+    .content-panel {
+      background: #ffffff;
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-top: 1px solid var(--gray-20);
+      border-bottom: 1px solid var(--gray-20);
+    }
+
+    /* Industry label */
+    .industry-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .industry-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* H2 */
+    .industry-title {
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--gray-100);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    /* Context text */
+    .context-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray-70);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    /* Divider */
+    .content-divider {
+      height: 1px;
+      background: var(--gray-20);
+      margin-bottom: 28px;
+    }
+
+    /* Module tags */
+    .module-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      background: #edf5ff;
+      border: 1px solid #d0e2ff;
+      padding: 5px 12px;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Outcome box */
+    .outcome-box {
+      margin-top: 32px;
+      border-left: 3px solid var(--blue);
+      padding: 16px 20px;
+      background: #f4f4f4;
+    }
+    .outcome-box .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .outcome-box .text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-100);
+      line-height: 1.5;
+    }
+
+    /* Photo label (badge on image) */
+    .photo-badge {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      z-index: 2;
+      background: rgba(15,98,254,0.9);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Otras industrias */
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .other-item {
+      padding: 28px 32px;
+      border-right: 1px solid var(--gray-20);
+      border-bottom: 1px solid var(--gray-20);
+      transition: background 0.15s;
+    }
+    .other-item:hover { background: #f4f4f4; }
+    .other-item:nth-child(3n) { border-right: none; }
+
+    @media (max-width: 768px) {
+      .split-section, .split-section.reverse {
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px auto;
+      }
+      .content-panel { padding: 40px 28px; }
+      .other-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body style="background:#f4f4f4;">
+
+  <!-- ============================================================ -->
+  <!-- SECTION INTRO -->
+  <!-- ============================================================ -->
+  <div style="background:#ffffff; border-bottom:1px solid #e0e0e0;">
+    <div style="max-width:1200px; margin:0 auto; padding:56px 48px 52px;">
+      <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#0f62fe; margin-bottom:16px;">
+        Industrias
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end;">
+        <h2 style="font-family:'Work Sans',sans-serif; font-size:clamp(28px,3.5vw,42px); font-weight:800; color:#161616; line-height:1.15; letter-spacing:-0.02em; margin:0;">
+          Entornos donde la<br/>confiabilidad marca<br/>la diferencia
+        </h2>
+        <p style="font-family:'Inter',sans-serif; font-size:16px; color:#525252; line-height:1.7; margin:0;">
+          La plataforma está diseñada para operaciones industriales donde la disponibilidad
+          de equipos tiene consecuencias directas en producción, seguridad y rentabilidad.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- OIL & GAS — Image left, content right -->
+  <!-- ============================================================ -->
+  <div class="split-section" style="margin-top:2px;">
+
+    <!-- Photo -->
+    <div class="photo-panel">
+      <img src="public/assets/flare.jpg" alt="Operación Oil & Gas" />
+      <span class="photo-badge">Industria Oil &amp; Gas</span>
+    </div>
+
+    <!-- Content -->
+    <div class="content-panel">
+      <span class="industry-label">
+        <span class="dot" style="background:#b45309;"></span>
+        Oil &amp; Gas · Petróleo · Refinería
+      </span>
+
+      <h2 class="industry-title">
+        Cuando una falla rara vez<br/>es solo técnica
+      </h2>
+
+      <p class="context-text">
+        En petróleo y gas, cada parada no planificada arrastra pérdidas de producción,
+        riesgo de seguridad e impacto ambiental al mismo tiempo. La ingeniería
+        de confiabilidad no es una ventaja competitiva — es un requisito operativo.
+      </p>
+
+      <div class="content-divider"></div>
+
+      <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#525252; margin-bottom:14px;">
+        Módulos aplicables
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:0;">
+        <span class="module-tag">Registro de Activos (ISO 14224)</span>
+        <span class="module-tag">RCA estructurado</span>
+        <span class="module-tag">Estrategia RCM</span>
+      </div>
+
+      <div class="outcome-box">
+        <p class="label">Resultado esperado</p>
+        <p class="text">Menos incertidumbre técnica. Mayor control operativo en activos críticos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ENERGÍA — Content left, image right -->
+  <!-- ============================================================ -->
+  <div class="split-section reverse" style="margin-top:2px;">
+
+    <!-- Content -->
+    <div class="content-panel">
+      <span class="industry-label">
+        <span class="dot" style="background:#92400e;"></span>
+        Energía · Utilities · Generación · Distribución
+      </span>
+
+      <h2 class="industry-title">
+        La continuidad del servicio<br/>no admite margen de error
+      </h2>
+
+      <p class="context-text">
+        En generación y distribución, una falla no solo para un equipo — puede
+        comprometer indicadores regulatorios y la percepción de todo el sistema.
+        La calidad del análisis de fallas determina la calidad del servicio.
+      </p>
+
+      <div class="content-divider"></div>
+
+      <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#525252; margin-bottom:14px;">
+        Módulos aplicables
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="module-tag">RCA en equipos críticos</span>
+        <span class="module-tag">Planes RCM estructurados</span>
+        <span class="module-tag">Base de activos organizada</span>
+      </div>
+
+      <div class="outcome-box">
+        <p class="label">Resultado esperado</p>
+        <p class="text">Mejor control de la confiabilidad del sistema. KPIs técnicos más confiables.</p>
+      </div>
+    </div>
+
+    <!-- Photo -->
+    <div class="photo-panel">
+      <img src="public/assets/bgPerformance.jpg" alt="Infraestructura energética" />
+      <span class="photo-badge" style="left:auto; right:32px;">Energía y Utilities</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MANUFACTURA — Image left, content right -->
+  <!-- ============================================================ -->
+  <div class="split-section" style="margin-top:2px;">
+
+    <!-- Photo -->
+    <div class="photo-panel">
+      <img src="public/assets/bgGestionActivos.jpg" alt="Planta de manufactura" />
+      <span class="photo-badge">Manufactura Continua</span>
+    </div>
+
+    <!-- Content -->
+    <div class="content-panel">
+      <span class="industry-label">
+        <span class="dot" style="background:#007d79;"></span>
+        Manufactura · Proceso Continuo · Producción
+      </span>
+
+      <h2 class="industry-title">
+        Cuando la productividad depende<br/>de disponibilidad constante
+      </h2>
+
+      <p class="context-text">
+        En manufactura continua, el mantenimiento reactivo se paga caro.
+        Las fallas recurrentes no son mala suerte — son el síntoma de un análisis
+        incompleto o una estrategia de mantenimiento mal estructurada.
+      </p>
+
+      <div class="content-divider"></div>
+
+      <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#525252; margin-bottom:14px;">
+        Módulos aplicables
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="module-tag">RCA ágiles y precisos</span>
+        <span class="module-tag">Estrategia RCM coherente</span>
+        <span class="module-tag">Calidad de datos de mantenimiento</span>
+      </div>
+
+      <div class="outcome-box">
+        <p class="label">Resultado esperado</p>
+        <p class="text">Mayor estabilidad operativa. Menos intervenciones correctivas no planificadas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- OTRAS INDUSTRIAS -->
+  <!-- ============================================================ -->
+  <div style="background:#ffffff; margin-top:2px; border-top:1px solid #e0e0e0; border-bottom:1px solid #e0e0e0;">
+    <div style="max-width:1200px; margin:0 auto; padding:56px 48px;">
+
+      <div style="display:grid; grid-template-columns:280px 1fr; gap:64px; align-items:start;">
+
+        <!-- Left label -->
+        <div>
+          <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#0f62fe; margin-bottom:16px;">También aplica en</p>
+          <h3 style="font-family:'Work Sans',sans-serif; font-size:28px; font-weight:800; color:#161616; line-height:1.2; margin:0 0 16px;">Otras industrias</h3>
+          <p style="font-family:'Inter',sans-serif; font-size:14px; color:#525252; line-height:1.6; margin:0 0 32px;">
+            La confiabilidad no depende del sector —
+            depende de la criticidad de los activos y el impacto de las fallas.
+          </p>
+          <a href="#" style="display:inline-flex; align-items:center; gap:8px; background:#0f62fe; color:white; font-family:'Inter',sans-serif; font-size:14px; font-weight:600; padding:12px 24px; text-decoration:none; transition:background 0.15s;">
+            Conversemos
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: Industry grid -->
+        <div style="border:1px solid #e0e0e0;" class="other-grid">
+          <div class="other-item">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#161616; margin:0 0 4px;">Petroquímica</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#8d8d8d; margin:0;">Activos críticos + regulación estricta</p>
+          </div>
+          <div class="other-item">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#161616; margin:0 0 4px;">Minería y procesamiento</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#8d8d8d; margin:0;">Alto impacto económico de paradas</p>
+          </div>
+          <div class="other-item">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#161616; margin:0 0 4px;">Alimentos y bebidas</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#8d8d8d; margin:0;">Inocuidad + disponibilidad continua</p>
+          </div>
+          <div class="other-item" style="border-bottom:none;">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#161616; margin:0 0 4px;">Papel y celulosa</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#8d8d8d; margin:0;">Procesos continuos de alta exigencia</p>
+          </div>
+          <div class="other-item" style="border-bottom:none;">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#161616; margin:0 0 4px;">Química industrial</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#8d8d8d; margin:0;">Seguridad + trazabilidad normativa</p>
+          </div>
+          <div class="other-item" style="border-bottom:none; background:#edf5ff; border-color:#d0e2ff;">
+            <p style="font-family:'Work Sans',sans-serif; font-size:15px; font-weight:700; color:#0f62fe; margin:0 0 4px;">¿Tu industria?</p>
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:#0043ce; margin:0;">Si las fallas afectan tu negocio, aplica.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- CTA FINAL -->
+  <!-- ============================================================ -->
+  <div style="background:#0f62fe; padding:72px 48px; text-align:center; margin-top:2px;">
+    <div style="max-width:640px; margin:0 auto;">
+      <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:20px;">Siguiente paso</p>
+      <h2 style="font-family:'Work Sans',sans-serif; font-size:clamp(28px,4vw,44px); font-weight:800; color:#ffffff; line-height:1.15; margin:0 0 20px; letter-spacing:-0.02em;">
+        Hablemos de tu operación
+      </h2>
+      <p style="font-family:'Inter',sans-serif; font-size:17px; color:rgba(255,255,255,0.75); line-height:1.6; margin:0 0 40px;">
+        Podemos mostrarte cómo aplica en tu industria, qué impacto esperar<br/>
+        y cómo integrarlo a tu operación actual.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; background:#ffffff; color:#0f62fe; font-family:'Inter',sans-serif; font-size:14px; font-weight:700; padding:14px 28px; text-decoration:none;">
+          Solicita una demo
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,0.4); color:#ffffff; font-family:'Inter',sans-serif; font-size:14px; font-weight:600; padding:14px 28px; text-decoration:none;">
+          Diagnóstico inicial
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

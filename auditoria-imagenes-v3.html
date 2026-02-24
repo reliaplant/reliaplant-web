@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditoría de Imágenes v3 — Reliaplant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family:'Inter',sans-serif; }
+    .thumb { width:100%; height:130px; object-fit:cover; border-radius:8px; background:#e5e7eb; display:block; }
+    .badge { display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px; white-space:nowrap; }
+    .b-ok   { background:#dcfce7;color:#15803d; }
+    .b-ok2  { background:#d1fae5;color:#065f46; }
+    .b-warn { background:#fef9c3;color:#854d0e; }
+    .b-bad  { background:#fee2e2;color:#b91c1c; }
+    .b-new  { background:#dbeafe;color:#1d4ed8; }
+    .url-pill { display:inline-block;font-size:11px;font-weight:600;letter-spacing:.03em;background:#1e293b;color:#94a3b8;padding:3px 10px;border-radius:6px;font-family:monospace; }
+    .pos-pill { display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#f1f5f9;color:#475569;padding:2px 8px;border-radius:4px; }
+    .card { background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;margin-bottom:12px; }
+    .card-inner { display:grid;grid-template-columns:1fr 180px;gap:0; }
+    .card-body { padding:16px 18px; }
+    .card-img  { border-left:1px solid #e2e8f0;padding:14px;background:#f8fafc;display:flex;flex-direction:column;gap:8px;align-items:center; }
+    .page-header { background:#0f172a;color:#f8fafc;padding:10px 18px;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:12px;margin-top:32px; }
+    .page-header:first-of-type { margin-top:0; }
+    .section-label { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em; }
+    .headline { font-size:15px;font-weight:700;color:#0f172a;line-height:1.3;margin:4px 0 6px; }
+    .desc-text { font-size:12px;color:#64748b;line-height:1.5; }
+    .suggest { font-size:12px;color:#1d4ed8;font-weight:600;margin-top:6px;padding:8px 10px;background:#eff6ff;border-radius:6px;border-left:3px solid #2563eb; }
+    .problem { font-size:12px;color:#b91c1c;font-weight:600;margin-top:6px;padding:8px 10px;background:#fff1f2;border-radius:6px;border-left:3px solid #dc2626; }
+    .nota { font-size:12px;color:#854d0e;font-weight:600;margin-top:6px;padding:8px 10px;background:#fffbeb;border-radius:6px;border-left:3px solid #d97706; }
+    .ok-msg { font-size:12px;color:#15803d;font-weight:500;margin-top:6px; }
+    .repeated { font-size:10px;background:#fef3c7;color:#92400e;padding:2px 7px;border-radius:4px;font-weight:700;letter-spacing:.04em;text-transform:uppercase; }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+  <!-- HEADER -->
+  <div class="bg-blue-600 text-white px-8 py-5 sticky top-0 z-10 shadow">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold">Auditoría de Imágenes v3 — Reliaplant</h1>
+        <p class="text-blue-200 text-xs mt-0.5">Organizada por página · Sección real · Feb 2026</p>
+      </div>
+      <div class="flex gap-3 text-xs">
+        <span class="badge b-bad">✕ 3 reemplazar</span>
+        <span class="badge b-warn">▲ 5 mejorable</span>
+        <span class="badge b-ok2">✓ 6 bien</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /roi -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/roi</span>
+      <span class="text-slate-400 text-sm">Página de Retorno de Inversión</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- bgKPIs -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Hero · fondo completo (opacity 15%)</span>
+              <span class="badge b-bad">✕ Urgente</span>
+            </div>
+            <p class="headline">"El retorno de invertir en confiabilidad bien aplicada"</p>
+            <p class="desc-text">El background de todo el hero de la página ROI — visible como textura oscura detrás del texto principal.</p>
+            <div class="problem">⚠ Muestra un dashboard con "Top Marketing Expenditures", "Funnel: Awareness → Consideration → Purchase → Loyalty". Aunque está al 15% de opacidad, el contenido es de ventas/marketing. Si alguien lo nota, destruye credibilidad ante un cliente industrial.</div>
+            <div class="suggest">→ Sala de control industrial con monitores de SCADA, o planta operando de noche con luces de proceso. Algo que transmita "operaciones críticas bajo monitoreo".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgKPIs.jpg" class="thumb" alt="bgKPIs" />
+            <code class="text-xs text-slate-500">bgKPIs.jpg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgPerformance3 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección "Descargable" · portada PDF</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+              <span class="badge b-new">Nueva</span>
+            </div>
+            <p class="headline">"ROI Confiabilidad" — portada del documento descargable</p>
+            <p class="desc-text">Aparece como imagen de portada en un widget de descarga de un reporte de ROI.</p>
+            <div class="nota">▲ Las torres eléctricas funcionan como imagen dramática, pero no relacionan directamente con "ROI" o "retorno económico". Además es la misma imagen que en la sección Energía de Industrias y Cómo Funciona — se repite en 3 páginas distintas.</div>
+            <div class="suggest">→ Gráfica de barras o trending chart de MTBF/disponibilidad con un ingeniero señalando la mejora. O una imagen de reunión ejecutiva revisando resultados de planta.</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgPerformance3.jpg" class="thumb" alt="bgPerformance3" />
+            <code class="text-xs text-slate-500">bgPerformance3.jpg</code>
+            <span class="repeated">Repetida 3 págs</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /roi -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /como-funciona -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/como-funciona</span>
+      <span class="text-slate-400 text-sm">Página "Cómo Funciona la Plataforma"</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- engineeringRoom -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Hero · fondo completo (opacity 30%)</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+            </div>
+            <p class="headline">"Cómo funciona la plataforma"</p>
+            <p class="desc-text">Subtítulo: "No reemplaza tu CMMS ni tus sistemas actuales. Los complementa."</p>
+            <div class="nota">▲ La imagen muestra a una persona desde atrás frente a monitores con pantallas grandes de color verde neón. Al 30% de opacidad se percibe, pero la escena parece un simulador de vuelo o sala de videojuegos — no una sala de control industrial real.</div>
+            <div class="suggest">→ Sala de control SCADA real con operadores, o vista de sala de reunión técnica con pantallas de sistemas industriales. Algo que transmita "software para operaciones industriales serias".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/engineeringRoom.jpg" class="thumb" alt="engineeringRoom" />
+            <code class="text-xs text-slate-500">engineeringRoom.jpg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgSoftware paso 4 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Paso 4 · imagen lateral (600×400)</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+              <span class="badge b-new">Nueva</span>
+            </div>
+            <p class="headline">"Integración progresiva, sin fricción"</p>
+            <p class="desc-text">Este paso explica que puedes implementar un módulo primero, conectar con tu CMMS existente, y no necesitas cambiar tu ecosistema tecnológico.</p>
+            <div class="nota">▲ La imagen muestra un data center / sala de servidores con logos de HP, Intel, Emerson, Schneider visibles. Transmite "infraestructura IT" en lugar de "integración de plataformas operativas industriales". Los logos de terceros en la imagen pueden generar preguntas.</div>
+            <div class="suggest">→ Imagen de laptop o tablet mostrando una interfaz de conexión entre sistemas, o un técnico IT en sala de control conectando módulos. Sin logos de marcas externas.</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgSoftware.jpg" class="thumb" alt="bgSoftware" />
+            <code class="text-xs text-slate-500">bgSoftware.jpg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgPerformance paso 5 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Paso 5 · imagen lateral (600×400)</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+              <span class="badge b-new">Nueva</span>
+            </div>
+            <p class="headline">"Impacto operativo real"</p>
+            <p class="desc-text">Resultado: "Ingeniería de confiabilidad enfocada en resultados, no en papeleo." Beneficios: menos tiempo administrativo, mejor comunicación mantenimiento-operaciones.</p>
+            <div class="nota">▲ Las torres eléctricas transmiten infraestructura de energía, pero el paso habla de impacto general de confiabilidad en cualquier industria. Además esta misma imagen aparece en Energía (Industrias) y en ROI — 3 páginas distintas.</div>
+            <div class="suggest">→ Ingeniero revisando gráficas de disponibilidad de equipos, o equipo de mantenimiento en reunión con tablero de KPIs visible. Algo que transmita "resultados medibles de confiabilidad".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgPerformance.jpg" class="thumb" alt="bgPerformance" />
+            <code class="text-xs text-slate-500">bgPerformance.jpg</code>
+            <span class="repeated">Repetida 3 págs</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /como-funciona -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /modulos/rcm -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/modulos/rcm</span>
+      <span class="text-slate-400 text-sm">Módulo RCM — la misma imagen aparece 3 veces</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- bgRCM uso 1: El problema hoy -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección "El problema hoy" · panel lateral 55%</span>
+              <span class="badge b-bad">✕ Urgente</span>
+              <span class="repeated">Repetida ×3 en esta página</span>
+            </div>
+            <p class="headline">"El problema hoy: RCM en hojas de cálculo"</p>
+            <p class="desc-text">Esta sección describe por qué hacer RCM en Excel es un problema (sin estructura, duplicaciones, errores). La imagen aparece 3 veces en la misma página: aquí, en "Impacto en tu operación", y en una sección más.</p>
+            <div class="problem">✕ Un diagrama de flujo académico ("Función → Falla Funcional → ¿Evidente? → RTF / PM Nuevo") refuerza exactamente el mensaje equivocado: que RCM es complicado y burocrático. El cliente potencial ve un diagrama y siente que es difícil — cuando el producto promete lo contrario.</div>
+            <div class="suggest">→ Técnico con tablet en campo junto a equipo industrial revisando un plan de mantenimiento estructurado. O sala de reunión técnica con plano de planta visible. La imagen debe decir "RCM aplicado en campo", no "academia".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgRCM.jpg" class="thumb" alt="bgRCM" />
+            <code class="text-xs text-slate-500">bgRCM.jpg</code>
+            <span class="repeated">3× esta página</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modulos/rcm -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /modulos/registro-activos -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/modulos/registro-activos</span>
+      <span class="text-slate-400 text-sm">Módulo Registro de Activos — la misma imagen aparece 3 veces</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- bgGestionActivos2 uso 1: Hero -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Hero · fondo completo (opacity 15%)</span>
+              <span class="badge b-bad">✕ Urgente</span>
+              <span class="repeated">Repetida ×3 en esta página</span>
+            </div>
+            <p class="headline">"Registro de Activos"</p>
+            <p class="desc-text">Subtítulo: "Base de datos confiable para decisiones de mantenimiento." Texto: "Estructura tus activos siguiendo principios como ISO 14224."</p>
+            <div class="problem">✕ Foto de estudio con fondo azul sólido artificial — el técnico está sobre un fondo de photoshoot, no en un entorno industrial real. Se repite 3 veces en la misma página. Inauthéntico y genérico.</div>
+            <div class="suggest">→ Técnico escaneando el tag de un equipo en campo con tablet o smartphone, con maquinaria visible al fondo (compresor, bomba, motor). Transmite "digitalización del inventario real en planta".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgGestionActivos2.jpg" class="thumb" alt="bgGestionActivos2" />
+            <code class="text-xs text-slate-500">bgGestionActivos2.jpg</code>
+            <span class="repeated">3× esta página</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgGestionActivos uso: panel lateral sección beneficios -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección beneficios · panel lateral 45%</span>
+              <span class="badge b-ok">✓ Bien</span>
+            </div>
+            <p class="headline">Sección de beneficios del módulo · "Planta industrial"</p>
+            <p class="desc-text">Panel lateral con fondo industrial. El módulo de registro de activos aplica a plantas industriales grandes — refinería es un contexto válido y transmite escala.</p>
+            <p class="ok-msg">✓ La refinería aérea comunica correctamente el tipo de cliente y escala de activos. No cambiar.</p>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgGestionActivos.jpg" class="thumb" alt="bgGestionActivos" />
+            <code class="text-xs text-slate-500">bgGestionActivos.jpg</code>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modulos/registro-activos -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /industrias -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/industrias</span>
+      <span class="text-slate-400 text-sm">Página de Industrias</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- flare - Oil&Gas -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección Oil &amp; Gas · split-screen izquierda</span>
+              <span class="badge b-ok2">✓ Excelente</span>
+            </div>
+            <p class="headline">"Cuando una falla rara vez es solo técnica"</p>
+            <p class="desc-text">Industria Oil &amp; Gas · Petróleo · Refinería — activos críticos de producción, consecuencias operativas y de seguridad.</p>
+            <p class="ok-msg">✓ Antorchas de gas en campo petrolífero árido. Foto real, técnica, evocadora de activos O&amp;G críticos. Perfecta.</p>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/flare.jpg" class="thumb" alt="flare" />
+            <code class="text-xs text-slate-500">flare.jpg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgPerformance - Energía -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección Energía · split-screen derecha</span>
+              <span class="badge b-ok">✓ Bien</span>
+              <span class="badge b-new">Nueva</span>
+            </div>
+            <p class="headline">"Donde la disponibilidad define el negocio"</p>
+            <p class="desc-text">Energía · Transmisión · Generación — activos de alta consecuencia, continuidad operativa crítica.</p>
+            <p class="ok-msg">✓ Torres de transmisión de alta tensión — contexto de energía correcto y apropiado. Bien en este uso específico.</p>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgPerformance.jpg" class="thumb" alt="bgPerformance" />
+            <code class="text-xs text-slate-500">bgPerformance.jpg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- bgManufactura -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección Manufactura · split-screen izquierda</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+              <span class="badge b-new">Nueva</span>
+            </div>
+            <p class="headline">"Producción continua que no puede permitirse paros"</p>
+            <p class="desc-text">Manufactura continua y discreta — reducción de downtime, gestión de activos en fábrica de producción.</p>
+            <div class="nota">▲ Latas de aluminio (bebidas) en una cinta transportadora — demasiado específico a industria de alimentos/bebidas, y la composición es diagonal y apretada. No muestra la escala de una planta manufacturera.</div>
+            <div class="suggest">→ Vista de piso de fábrica con operadores visibles y maquinaria diversa, o línea de producción de autopartes/metalmecánica. Algo que diga "manufactura en general", no "envasado de cervezas".</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgManufactura.jpg" class="thumb" alt="bgManufactura" />
+            <code class="text-xs text-slate-500">bgManufactura.jpg</code>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /industrias -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PAGE: /about -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header">
+      <span class="url-pill">reliaplant.com/about</span>
+      <span class="text-slate-400 text-sm">Página Sobre Nosotros</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4 space-y-3">
+
+      <!-- bgDiagnostico -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-body">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="pos-pill">Sección interior · imagen de contexto</span>
+              <span class="badge b-warn">▲ Mejorable</span>
+            </div>
+            <p class="headline">Sección de empresa / valores / equipo</p>
+            <p class="desc-text">También usada en la página de Consultoría Diagnóstico de Gestión.</p>
+            <div class="nota">▲ Silueta de ingeniero al atardecer frente a aerogeneradores de viento. Bonita fotografía cinematográfica, pero los aerogeneradores son energía eólica renovable — un nicho muy específico que no representa al cliente típico de Reliaplant (O&amp;G, refinería, manufactura).</div>
+            <div class="suggest">→ Equipo de consultores con cascos de seguridad en recorrido por planta industrial, o reunión en sala con ingenieros revisando documentación técnica. Contexto industrial general, no eólico específico.</div>
+          </div>
+          <div class="card-img">
+            <img src="public/assets/bgDiagnostico.jpg" class="thumb" alt="bgDiagnostico" />
+            <code class="text-xs text-slate-500">bgDiagnostico.jpg</code>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /about -->
+
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SIN CAMBIOS -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="page-header" style="background:#14532d;">
+      <span style="background:#166534;color:#bbf7d0;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:6px;font-family:monospace;">✓ Sin cambios necesarios</span>
+      <span class="text-green-300 text-sm">Imágenes que funcionan correctamente</span>
+    </div>
+    <div class="bg-white rounded-b-xl border border-t-0 border-slate-200 p-4">
+      <div class="grid grid-cols-3 gap-3">
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/bgCapacitacion.jpg" class="w-full h-24 object-cover" alt="bgCapacitacion" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">bgCapacitacion.jpg</p>
+            <p class="text-xs text-slate-500 mt-1">Paso Capacitación · Consultoría Capacitación</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Foto real de sesión Reliaplant — máxima autenticidad. No tocar.</p>
+          </div>
+        </div>
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/bgACR.jpg" class="w-full h-24 object-cover" alt="bgACR" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">bgACR.jpg</p>
+            <p class="text-xs text-slate-500 mt-1">Módulo RCA · Paso Análisis Causas</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Equipo fallado real — perfecta para análisis de causa raíz.</p>
+          </div>
+        </div>
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/bgAssetRegister.png" class="w-full h-24 object-cover" alt="bgAssetRegister" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">bgAssetRegister.png</p>
+            <p class="text-xs text-slate-500 mt-1">Landing · Cómo Funciona · Consultoría Registro</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Screenshot real del producto — lo mejor posible.</p>
+          </div>
+        </div>
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/planta.jpg" class="w-full h-24 object-cover" alt="planta" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">planta.jpg</p>
+            <p class="text-xs text-slate-500 mt-1">Hero Industrias · About</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Campo O&amp;G real. Auténtico y técnico.</p>
+          </div>
+        </div>
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/bgGestionActivos.jpg" class="w-full h-24 object-cover" alt="bgGestionActivos" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">bgGestionActivos.jpg</p>
+            <p class="text-xs text-slate-500 mt-1">Hero Consultoría ISO 55000 · panel Registro Activos</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Refinería aérea — escala y contexto correctos.</p>
+          </div>
+        </div>
+
+        <div class="border border-green-100 rounded-xl overflow-hidden">
+          <img src="public/assets/fondo-landing-rcm.png" class="w-full h-24 object-cover" alt="fondo-landing-rcm" />
+          <div class="p-3">
+            <p class="text-xs font-bold text-green-700">fondo-landing-rcm.png</p>
+            <p class="text-xs text-slate-500 mt-1">Landing card RCM · Hero consultoría RCM · Paso RCM</p>
+            <p class="text-xs text-green-600 mt-1 font-medium">Vista aérea de planta industrial. Apropiada.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESUMEN EJECUTIVO -->
+    <div class="mt-8 bg-slate-900 rounded-2xl p-6 text-white">
+      <h3 class="text-lg font-bold mb-4">Resumen ejecutivo — Plan de acción</h3>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-red-900/50 border border-red-700 rounded-xl p-4">
+          <p class="text-red-400 text-xs font-bold uppercase tracking-wide mb-2">🔴 Reemplazar ahora (3)</p>
+          <p class="text-sm text-red-100 mb-1"><strong>bgKPIs.jpg</strong> — dashboard de marketing en hero ROI</p>
+          <p class="text-sm text-red-100 mb-1"><strong>bgRCM.jpg</strong> — diagrama académico, 3× en módulo RCM</p>
+          <p class="text-sm text-red-100"><strong>bgGestionActivos2.jpg</strong> — estudio artificial, 3× en módulo Registro</p>
+        </div>
+        <div class="bg-yellow-900/40 border border-yellow-700 rounded-xl p-4">
+          <p class="text-yellow-400 text-xs font-bold uppercase tracking-wide mb-2">🟡 Segunda iteración (5)</p>
+          <p class="text-sm text-yellow-100 mb-1"><strong>bgManufactura.jpg</strong> — latas de bebidas, muy específico</p>
+          <p class="text-sm text-yellow-100 mb-1"><strong>bgSoftware.jpg</strong> — data center con logos externos</p>
+          <p class="text-sm text-yellow-100 mb-1"><strong>bgPerformance.jpg/.3</strong> — misma foto en 3 páginas</p>
+          <p class="text-sm text-yellow-100 mb-1"><strong>bgDiagnostico.jpg</strong> — aerogeneradores ≠ cliente típico</p>
+          <p class="text-sm text-yellow-100"><strong>engineeringRoom.jpg</strong> — parece sala de videojuegos</p>
+        </div>
+        <div class="bg-green-900/40 border border-green-700 rounded-xl p-4">
+          <p class="text-green-400 text-xs font-bold uppercase tracking-wide mb-2">✅ No tocar (6)</p>
+          <p class="text-sm text-green-100 mb-1"><strong>bgCapacitacion.jpg</strong> — foto real Reliaplant</p>
+          <p class="text-sm text-green-100 mb-1"><strong>bgACR.jpg</strong> — equipo fallado real</p>
+          <p class="text-sm text-green-100 mb-1"><strong>bgAssetRegister.png</strong> — screenshot del producto</p>
+          <p class="text-sm text-green-100 mb-1"><strong>planta.jpg</strong> — campo O&amp;G auténtico</p>
+          <p class="text-sm text-green-100 mb-1"><strong>bgGestionActivos.jpg</strong> — refinería, escala correcta</p>
+          <p class="text-sm text-green-100"><strong>fondo-landing-rcm.png</strong> — planta industrial aérea</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- max-w -->
+
+  <div class="text-center py-6 text-slate-400 text-xs">Reliaplant · Auditoría de imágenes v3 · Feb 2026</div>
+</body>
+</html>

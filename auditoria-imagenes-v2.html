@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditoría de Imágenes v2 — Reliaplant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    .thumb { width:100%; height:110px; object-fit:cover; border-radius:6px; background:#e5e7eb; }
+    .badge-ok   { background:#dcfce7; color:#15803d; }
+    .badge-ok2  { background:#d1fae5; color:#065f46; }
+    .badge-warn { background:#fef9c3; color:#854d0e; }
+    .badge-bad  { background:#fee2e2; color:#b91c1c; }
+    .badge { display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:100px; white-space:nowrap;}
+    td { vertical-align:top; padding: 12px 10px; }
+    tr { border-bottom: 1px solid #f3f4f6; }
+    tr:last-child { border-bottom:none; }
+    .section-header td { background:#f8fafc; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#64748b; padding:8px 10px; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <div class="bg-blue-600 text-white px-8 py-5">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-2xl font-bold">Auditoría de Imágenes v2 — Reliaplant</h1>
+      <p class="text-blue-200 text-sm mt-1">Revisión completa post-reemplazos · <span class="text-white font-semibold">Feb 2026</span></p>
+      <div class="flex gap-6 mt-3 text-sm">
+        <span class="badge badge-ok">✓ Queda bien</span>
+        <span class="badge badge-warn">▲ Mejorable</span>
+        <span class="badge badge-bad">✕ Reemplazar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <table class="w-full bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden text-sm">
+      <thead>
+        <tr class="bg-gray-900 text-white">
+          <th class="text-left p-3 w-[160px]">Página / Sección</th>
+          <th class="text-left p-3 w-[120px]">Imagen actual</th>
+          <th class="text-left p-3 w-[90px]">Archivo</th>
+          <th class="text-left p-3 w-[200px]">Mensaje / Objetivo</th>
+          <th class="text-left p-3 w-[90px]">Estado</th>
+          <th class="text-left p-3">Evaluación y sugerencia</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ======================== URGENTES ======================== -->
+        <tr class="section-header"><td colspan="6">🔴 Reemplazar — Prioridad urgente</td></tr>
+
+        <!-- bgKPIs -->
+        <tr>
+          <td><strong>ROI</strong><br><span class="text-gray-400 text-xs">Hero de página</span></td>
+          <td><img src="public/assets/bgKPIs.jpg" class="thumb" alt="bgKPIs" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgKPIs.jpg</code></td>
+          <td>Página de ROI / retorno de inversión de la plataforma de confiabilidad industrial.</td>
+          <td><span class="badge badge-bad">✕ Urgente</span></td>
+          <td>
+            <strong class="text-red-700">Problema crítico:</strong> muestra un dashboard de marketing con métricas "Top Marketing Expenditures", "Funnel: Awareness → Purchase → Loyalty". Es un KPI de ventas/marketing. Un cliente industrial que ve eso no lo asocia con confiabilidad de activos. Aunque está a 15% de opacidad, el texto es legible y el mensaje es incorrecto.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: sala de control industrial con múltiples pantallas mostrando métricas operativas (MTBF, disponibilidad, OEE) o un engineer revisando gráficas de tendencia de fallas en planta.</span>
+          </td>
+        </tr>
+
+        <!-- bgRCM -->
+        <tr>
+          <td><strong>Módulo RCM</strong><br><span class="text-gray-400 text-xs">Hero + 2 secciones más (3×)</span></td>
+          <td><img src="public/assets/bgRCM.jpg" class="thumb" alt="bgRCM" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgRCM.jpg</code></td>
+          <td>Módulo de software RCM — análisis de modos de falla, generación de planes de mantenimiento.</td>
+          <td><span class="badge badge-bad">✕ Urgente</span></td>
+          <td>
+            <strong class="text-red-700">Problema:</strong> diagrama de flujo RCM académico con cajas y flechas ("Función de Equipos → Fallas Funcionales → RTF → PM Nuevo"). Se ve como una diapositiva de academia, no como un producto de software industrial.<br>
+            <strong class="text-red-700">Agravante:</strong> se repite 3 veces en la misma página.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: ingeniero en campo revisando una tableta con plan de mantenimiento, o equipo en sala de reunión con plano de planta al fondo. Imagen de <em>acción de mantenimiento planificado</em>, no diagrama.</span>
+          </td>
+        </tr>
+
+        <!-- bgGestionActivos2 (registro activos) -->
+        <tr>
+          <td><strong>Módulo Registro de Activos</strong><br><span class="text-gray-400 text-xs">Hero + 2 secciones (3×)</span></td>
+          <td><img src="public/assets/bgGestionActivos2.jpg" class="thumb" alt="bgGestionActivos2" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgGestionActivos2.jpg</code></td>
+          <td>Registro y jerarquía de activos físicos. Digitalización del inventario industrial.</td>
+          <td><span class="badge badge-bad">✕ Urgente</span></td>
+          <td>
+            <strong class="text-red-700">Problema doble:</strong> (1) Foto de estudio con fondo azul sólido artificial — inauthéntico, parece stock barato. (2) El técnico lleva laptop pero está en un fondo de cielo azul sin ningún contexto industrial.<br>
+            <strong class="text-red-700">Agravante:</strong> se repite 3 veces en la misma página.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: técnico con tablet escaneando una placa/tag de equipo industrial en campo, o ingeniero en planta revisando lista de activos en pantalla con equipo visible al fondo (compresor, bomba, etc.).</span>
+          </td>
+        </tr>
+
+        <!-- ======================== MEJORABLE ======================== -->
+        <tr class="section-header"><td colspan="6">🟡 Mejorable — Funciona pero no es el mejor match</td></tr>
+
+        <!-- bgManufactura -->
+        <tr>
+          <td><strong>Industrias</strong><br><span class="text-gray-400 text-xs">Sección Manufactura (split-screen)</span></td>
+          <td><img src="public/assets/bgManufactura.jpg" class="thumb" alt="bgManufactura" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgManufactura.jpg</code><br><span class="text-green-600 text-xs font-semibold">Nueva</span></td>
+          <td>Manufactura continua y discreta — reducción de paros, gestión de activos en fábrica.</td>
+          <td><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <strong class="text-yellow-700">Observación:</strong> las latas de aluminio (cerveza/bebidas) son muy específicas de industria de alimentos/bebidas. La composición diagonal y el encuadre apretado no muestran la escala de una planta manufacturera.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: línea de producción con operarios visibles, o vista de piso de fábrica con maquinaria diversa — algo que comunique "planta de manufactura en operación" de forma más general (no exclusivamente bebidas).</span>
+          </td>
+        </tr>
+
+        <!-- bgSoftware -->
+        <tr>
+          <td><strong>Cómo Funciona</strong><br><span class="text-gray-400 text-xs">Paso Integración</span></td>
+          <td><img src="public/assets/bgSoftware.jpg" class="thumb" alt="bgSoftware" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgSoftware.jpg</code><br><span class="text-green-600 text-xs font-semibold">Nueva</span></td>
+          <td>La plataforma se conecta con el CMMS/ERP existente del cliente.</td>
+          <td><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <strong class="text-yellow-700">Observación:</strong> muestra un data center / sala de servidores con logos de HP, Intel, Emerson, Schneider visibles. El contexto IT es correcto (integración de sistemas) pero da sensación de infraestructura de TI, no de operaciones industriales. Los logos de marcas en la imagen pueden generar preguntas.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: ingeniero frente a pantalla con múltiples sistemas conectados, o interfaz de software con datos fluyendo entre módulos — algo que transmita "conexión entre plataformas" en contexto industrial, sin logos de terceros visibles.</span>
+          </td>
+        </tr>
+
+        <!-- bgPerformance / bgPerformance3 -->
+        <tr>
+          <td><strong>Industrias + Cómo Funciona + ROI</strong><br><span class="text-gray-400 text-xs">Sección Energía · Paso Impacto · Background ROI</span></td>
+          <td><img src="public/assets/bgPerformance.jpg" class="thumb" alt="bgPerformance" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgPerformance.jpg</code><br><code class="text-xs bg-gray-100 px-1 rounded mt-1 block">bgPerformance3.jpg</code><br><span class="text-green-600 text-xs font-semibold">Nuevas</span></td>
+          <td>Torres eléctricas de transmisión. Usada en: (1) panel Energía en Industrias, (2) paso "Impacto operativo" en Cómo Funciona, (3) fondo del ROI.</td>
+          <td><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <strong class="text-yellow-700">Observación:</strong> la imagen es correcta para el <em>panel de Energía</em> en Industrias. Sin embargo, usarla también en Cómo Funciona y ROI hace que la misma foto aparezca en 3 páginas distintas, lo que puede generar percepción de falta de contenido visual. Además, la composición es vertical (portrait) — en uso horizontal puede quedar algo estrecha.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Para ROI: considerar una imagen de operaciones industriales con pantallas de métricas visibles. Para Cómo Funciona: cualquier imagen industrial de contexto operativo.</span>
+          </td>
+        </tr>
+
+        <!-- bgDiagnostico -->
+        <tr>
+          <td><strong>About + Consultoría Diagnóstico</strong><br><span class="text-gray-400 text-xs">About page · hero diagnóstico</span></td>
+          <td><img src="public/assets/bgDiagnostico.jpg" class="thumb" alt="bgDiagnostico" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgDiagnostico.jpg</code></td>
+          <td>About: quiénes somos. Diagnóstico: evaluación del sistema de gestión de activos de la empresa.</td>
+          <td><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <strong class="text-yellow-700">Observación:</strong> silueta de ingeniero con laptop al atardecer frente a aerogeneradores. La imagen es bonita y cinematográfica, pero los aerogeneradores (energía eólica renovable) son un subsector muy específico y no representan al cliente típico de Reliaplant (Oil&Gas, manufactura, refinería). Podría confundir sobre el target de la empresa.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: ingeniero revisando documentación en planta industrial (refinería, fábrica), o reunión de consultoría en sala con equipo visible al fondo. Algo más neutral industrialmente.</span>
+          </td>
+        </tr>
+
+        <!-- engineeringRoom -->
+        <tr>
+          <td><strong>Cómo Funciona</strong><br><span class="text-gray-400 text-xs">Hero principal (opacidad 30%)</span></td>
+          <td><img src="public/assets/engineeringRoom.jpg" class="thumb" alt="engineeringRoom" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">engineeringRoom.jpg</code></td>
+          <td>Hero que introduce la plataforma: "cómo funciona, no reemplaza tu CMMS, lo complementa".</td>
+          <td><span class="badge badge-warn">▲ Mejorable</span></td>
+          <td>
+            <strong class="text-yellow-700">Observación:</strong> muestra una persona desde atrás frente a monitores con lo que parece una simulación/videojuego (tonos verdes neón en pantallas grandes). A 30% de opacidad apenas se distingue, pero si se aprecia de cerca no evoca "ingeniería de confiabilidad". La sala parece más un simulador de vuelo o un centro de videojuegos.<br>
+            <span class="text-blue-700 font-semibold mt-1 block">Sugerencia: sala de control industrial real (operadores con consolas, pantallas de SCADA, casco de seguridad visible) o cualquier imagen de operaciones industriales seria.</span>
+          </td>
+        </tr>
+
+        <!-- ======================== BIEN ======================== -->
+        <tr class="section-header"><td colspan="6">✅ Queda bien — Sin cambios necesarios</td></tr>
+
+        <!-- flare -->
+        <tr>
+          <td><strong>Industrias</strong><br><span class="text-gray-400 text-xs">Sección Oil &amp; Gas (split-screen)</span></td>
+          <td><img src="public/assets/flare.jpg" class="thumb" alt="flare" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">flare.jpg</code></td>
+          <td>Oil &amp; Gas — activos críticos de producción, fallas con consecuencias operativas.</td>
+          <td><span class="badge badge-ok2">✓ Excelente</span></td>
+          <td>Foto real de antorchas de gas (flares) en campo petrolífero árido. Auténtica, transmite activos críticos reales de O&amp;G. Composición clara y limpia. <strong>No cambiar.</strong></td>
+        </tr>
+
+        <!-- planta -->
+        <tr>
+          <td><strong>Industrias hero + About</strong><br><span class="text-gray-400 text-xs">Hero industrias · sección about</span></td>
+          <td><img src="public/assets/planta.jpg" class="thumb" alt="planta" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">planta.jpg</code></td>
+          <td>Hero de Industrias — presenta que la plataforma sirve para múltiples sectores. About — quiénes somos, contexto industrial.</td>
+          <td><span class="badge badge-ok">✓ Bien</span></td>
+          <td>Foto de campo de producción O&amp;G con manifolds, separadores, tuberías. Real y técnica. Transmite activos físicos industriales con claridad. <strong>No cambiar.</strong></td>
+        </tr>
+
+        <!-- bgGestionActivos (consultoria hero) -->
+        <tr>
+          <td><strong>Consultoría ISO 55000</strong><br><span class="text-gray-400 text-xs">Hero página estrategia-gestión-activos</span></td>
+          <td><img src="public/assets/bgGestionActivos.jpg" class="thumb" alt="bgGestionActivos" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgGestionActivos.jpg</code></td>
+          <td>Consultoría en Estrategia de Gestión de Activos ISO 55000 — implementación para grandes plantas industriales.</td>
+          <td><span class="badge badge-ok">✓ Bien</span></td>
+          <td>Vista aérea de complejo petroquímico/refinería. Gran escala industrial. Transmite el contexto de grandes activos físicos correctamente. <strong>No cambiar.</strong></td>
+        </tr>
+
+        <!-- bgCapacitacion -->
+        <tr>
+          <td><strong>Cómo Funciona + Capacitación</strong><br><span class="text-gray-400 text-xs">Paso capacitación · página consultoría capacitación</span></td>
+          <td><img src="public/assets/bgCapacitacion.jpg" class="thumb" alt="bgCapacitacion" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgCapacitacion.jpg</code></td>
+          <td>Sesión de capacitación en la plataforma — ingenieros industriales aprendiendo el sistema.</td>
+          <td><span class="badge badge-ok2">✓ Excelente</span></td>
+          <td>Foto real de sesión de capacitación con trabajadores en chalecos naranjas de seguridad frente a computadoras. Parece ser una foto auténtica de Reliaplant. Alta credibilidad y autenticidad. <strong>No cambiar bajo ningún concepto.</strong></td>
+        </tr>
+
+        <!-- bgACR -->
+        <tr>
+          <td><strong>Módulo RCA + Cómo Funciona</strong><br><span class="text-gray-400 text-xs">Hero RCA · paso análisis de causas</span></td>
+          <td><img src="public/assets/bgACR.jpg" class="thumb" alt="bgACR" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgACR.jpg</code></td>
+          <td>Análisis de causa raíz — equipo fallado bajo investigación, componentes dañados.</td>
+          <td><span class="badge badge-ok">✓ Bien</span></td>
+          <td>4 fotos de equipo dañado real (motor quemado, rodamientos, componentes sucios). Perfectamente específica para RCA — transmite "esto es lo que investigamos". Técnica, realista. <strong>No cambiar.</strong></td>
+        </tr>
+
+        <!-- bgAssetRegister -->
+        <tr>
+          <td><strong>Landing + Cómo Funciona + Consultoría</strong><br><span class="text-gray-400 text-xs">Card módulo · paso registro · consultoría registro</span></td>
+          <td><img src="public/assets/bgAssetRegister.png" class="thumb" alt="bgAssetRegister" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">bgAssetRegister.png</code></td>
+          <td>Módulo de registro de activos — muestra la interfaz real del software.</td>
+          <td><span class="badge badge-ok2">✓ Excelente</span></td>
+          <td>Screenshot real de la plataforma Reliaplant mostrando lista de activos, panel de detalles con foto de equipo de campo. La mejor imagen posible para este módulo — muestra el producto real. <strong>No cambiar.</strong></td>
+        </tr>
+
+        <!-- fondo-landing-rcm -->
+        <tr>
+          <td><strong>Landing + RCM + Cómo Funciona</strong><br><span class="text-gray-400 text-xs">Card RCM · hero RCM consultoría · paso RCM</span></td>
+          <td><img src="public/assets/fondo-landing-rcm.png" class="thumb" alt="fondo-landing-rcm" /></td>
+          <td><code class="text-xs bg-gray-100 px-1 rounded">fondo-landing-rcm.png</code></td>
+          <td>Módulo RCM — plataforma de mantenimiento centrado en confiabilidad.</td>
+          <td><span class="badge badge-ok">✓ Bien</span></td>
+          <td>Vista aérea de planta industrial con estructura azul y tuberías. Imagen técnica y de escala industrial. Apropiada como fondo de módulo. <strong>No cambiar.</strong></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- Resumen ejecutivo -->
+    <div class="mt-8 grid grid-cols-3 gap-6">
+      <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+        <h3 class="font-bold text-red-700 text-lg mb-3">🔴 Reemplazar (3)</h3>
+        <ul class="space-y-2 text-sm text-red-800">
+          <li><strong>bgKPIs.jpg</strong> — Dashboard de marketing en página de ROI industrial</li>
+          <li><strong>bgRCM.jpg</strong> — Diagrama académico, repetido 3× en una sola página</li>
+          <li><strong>bgGestionActivos2.jpg</strong> — Foto de estudio, fondo azul artificial, repetida 3×</li>
+        </ul>
+      </div>
+      <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5">
+        <h3 class="font-bold text-yellow-700 text-lg mb-3">🟡 Mejorable (5)</h3>
+        <ul class="space-y-2 text-sm text-yellow-800">
+          <li><strong>bgManufactura.jpg</strong> — Demasiado específica a bebidas/latas</li>
+          <li><strong>bgSoftware.jpg</strong> — Data center IT con logos de terceros</li>
+          <li><strong>bgPerformance.jpg/3</strong> — Misma imagen en 3 páginas distintas</li>
+          <li><strong>bgDiagnostico.jpg</strong> — Aerogeneradores no representan cliente típico</li>
+          <li><strong>engineeringRoom.jpg</strong> — Parece simulador/gaming, no sala industrial</li>
+        </ul>
+      </div>
+      <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+        <h3 class="font-bold text-green-700 text-lg mb-3">✅ Sin cambios (6)</h3>
+        <ul class="space-y-2 text-sm text-green-800">
+          <li><strong>flare.jpg</strong> — Foto real de campo O&amp;G, excelente</li>
+          <li><strong>planta.jpg</strong> — Campo de producción auténtico</li>
+          <li><strong>bgGestionActivos.jpg</strong> — Refinería aérea, correcta para ISO 55000</li>
+          <li><strong>bgCapacitacion.jpg</strong> — Foto real de capacitación Reliaplant</li>
+          <li><strong>bgACR.jpg</strong> — Equipo dañado real, perfecta para RCA</li>
+          <li><strong>bgAssetRegister.png</strong> — Screenshot real del software</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-6 bg-blue-600 rounded-xl p-6 text-white">
+      <h3 class="font-bold text-lg mb-2">Prioridad de acción recomendada</h3>
+      <p class="text-blue-200 text-sm">
+        <strong class="text-white">Primero:</strong> bgKPIs.jpg (ROI hero — el mensaje es directamente incorrecto para el cliente objetivo). <br>
+        <strong class="text-white">Segundo:</strong> bgRCM.jpg (repetida 3× en el módulo más importante del producto). <br>
+        <strong class="text-white">Tercero:</strong> bgGestionActivos2.jpg (foto de estudio inauthéntica, repetida 3×). <br>
+        Las mejorables pueden dejarse para una segunda iteración.
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center py-6 text-gray-400 text-xs">Reliaplant · Auditoría de imágenes v2 · Feb 2026</div>
+</body>
+</html>
