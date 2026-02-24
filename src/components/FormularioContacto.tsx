@@ -29,7 +29,7 @@ export default function FormularioContacto({
   interes = "",
   origen = "",
   lugar = "footer",
-  colorClass = "bg-blue60 hover:bg-gray80",
+  colorClass = "bg-blue60 hover:bg-blue80",
   btnTextColorClass = "text-white ",
   btnText = "Solicitar información",
   especial = "",

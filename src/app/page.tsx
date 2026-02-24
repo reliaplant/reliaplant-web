@@ -197,10 +197,10 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Taxonomía Card */}
             <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600" />
 
               <div className="flex items-center gap-2 mb-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-teal-600">Módulo</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-600">Módulo</p>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Registro de Activos</h3>
 
@@ -224,20 +224,20 @@ export default function Home() {
               
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Relaciones correctas padre-hijo</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Consistencia en el registro con plantillas</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Exportación a tu CMMS</span>
                 </li>
               </ul>
               
-              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -293,10 +293,10 @@ export default function Home() {
 
             {/* RCA Card */}
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
 
               <div className="flex items-center gap-2 mb-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-purple-600">Módulo</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-600">Módulo</p>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Análisis de Causa Raíz</h3>
 
@@ -320,20 +320,20 @@ export default function Home() {
               
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Registro estructurado de eventos</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Árbol de causas automatizado con IA y trazabilidad metodológica</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Recomendaciones y seguimiento de acciones</span>
                 </li>
               </ul>
               
-              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -369,12 +369,12 @@ export default function Home() {
 
       {/* AI SECTION */}
       <section id="ia" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-6xl mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Inteligencia Artificial{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               integrada
             </span>
           </h2>
@@ -384,10 +384,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-5">
-                <Lightning size={24} className="text-purple-400" />
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                <Lightning size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-purple-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 RCA
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Hipótesis automáticas</h4>
@@ -410,10 +410,10 @@ export default function Home() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center mb-5">
-                <DataStructured size={24} className="text-teal-400" />
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                <DataStructured size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-teal-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-teal-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 Registro de activos
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Clasificación inteligente</h4>

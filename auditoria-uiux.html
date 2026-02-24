@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditoría UI/UX — Reliaplant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+    .swatch { width: 28px; height: 28px; border-radius: 4px; display: inline-block; border: 1px solid rgba(0,0,0,.1); flex-shrink: 0; }
+    .badge { display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;white-space:nowrap; }
+    .b-crit { background:#fee2e2;color:#b91c1c; }
+    .b-med  { background:#fef9c3;color:#854d0e; }
+    .b-low  { background:#dbeafe;color:#1d4ed8; }
+    .b-ok   { background:#dcfce7;color:#15803d; }
+    .page-tag { display:inline-block;font-size:10px;font-weight:600;background:#1e293b;color:#94a3b8;padding:2px 8px;border-radius:4px;font-family:monospace;white-space:nowrap; }
+    .vs-box { display:flex;gap:12px;align-items:flex-start; }
+    .vs-col { flex:1;border-radius:8px;padding:12px;font-size:12px; }
+    .vs-a { background:#fef2f2;border:1px solid #fecaca; }
+    .vs-b { background:#f0fdf4;border:1px solid #bbf7d0; }
+    .cat-header { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#64748b;padding:8px 0 4px;border-bottom:2px solid #e2e8f0;margin-bottom:12px; }
+    .finding-card { background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:12px; }
+    .finding-card.crit { border-left:4px solid #dc2626; }
+    .finding-card.med  { border-left:4px solid #d97706; }
+    .finding-card.low  { border-left:4px solid #2563eb; }
+    .finding-card.ok   { border-left:4px solid #16a34a; }
+    .btn-demo { display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;cursor:default; }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+  <!-- HEADER -->
+  <div class="bg-slate-900 text-white px-8 py-6">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-2xl font-bold">Auditoría UI/UX · Consistencia Visual</h1>
+      <p class="text-slate-400 text-sm mt-1">Reliaplant · Análisis completo de homogeneidad · Feb 2026</p>
+      <div class="flex gap-3 mt-4">
+        <span class="badge b-crit">🔴 3 críticos</span>
+        <span class="badge b-med">🟡 4 medios</span>
+        <span class="badge b-low">🔵 2 menores</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-8 space-y-10">
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- CRÍTICO 1: DOS SISTEMAS DE COLOR -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🔴 Crítico — Sistema de colores</div>
+
+      <div class="finding-card crit">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <span class="badge b-crit mb-2">C1 · Crítico</span>
+            <h2 class="text-lg font-bold text-gray-900">Dos sistemas de color conviviendo en el mismo sitio</h2>
+            <p class="text-gray-500 text-sm mt-1">El principal problema de homogeneidad que nota el socio.</p>
+          </div>
+        </div>
+
+        <div class="vs-box mb-4">
+          <div class="vs-col vs-a">
+            <p class="font-bold text-red-700 text-xs mb-2">❌ Sistema Carbon (viejo) — Páginas de consultoría</p>
+            <code>bg-blue60</code> → <span class="swatch" style="background:#0f62fe"></span> <span class="text-xs text-gray-500">#0f62fe (IBM blue)</span><br><br>
+            <code>bg-gray90</code> → <span class="swatch" style="background:#262626"></span> <span class="text-xs text-gray-500">#262626</span><br><br>
+            <code>bg-blue10</code> → <span class="swatch" style="background:#edf5ff"></span> <span class="text-xs text-gray-500">#edf5ff</span><br><br>
+            <code>text-blue60</code>, <code>text-gray70</code>, <code>border-gray20</code>...
+            <p class="text-red-600 text-xs mt-3 font-semibold">Páginas: consultoria/rcm, consultoria/estrategia-gestion-activos, consultoria/mantenibilidad, consultoria/analisis-lcc, consultoria/analisis-ram...</p>
+          </div>
+          <div class="vs-col vs-b">
+            <p class="font-bold text-green-700 text-xs mb-2">✓ Sistema Tailwind estándar (nuevo) — Páginas principales</p>
+            <code>bg-blue-600</code> → <span class="swatch" style="background:#2563eb"></span> <span class="text-xs text-gray-500">#2563eb (Tailwind)</span><br><br>
+            <code>bg-gray-900</code> → <span class="swatch" style="background:#111827"></span> <span class="text-xs text-gray-500">#111827</span><br><br>
+            <code>bg-blue-50</code> → <span class="swatch" style="background:#eff6ff"></span> <span class="text-xs text-gray-500">#eff6ff</span><br><br>
+            <code>text-blue-600</code>, <code>text-gray-700</code>, <code>border-gray-200</code>...
+            <p class="text-green-700 text-xs mt-3 font-semibold">Páginas: page.tsx, roi, como-funciona, industrias, modulos/rcm, modulos/rca, modulos/registro-activos</p>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm">
+          <strong class="text-amber-800">⚠ El problema concreto:</strong>
+          <span class="text-amber-700"> <code>bg-blue60</code> = <strong>#0f62fe</strong> (IBM) vs <code>bg-blue-600</code> = <strong>#2563eb</strong> (Tailwind) — son dos azules distintos, ambos aparecen en el mismo sitio según en qué página estés.</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-2">Archivos afectados: todos los de <code>src/app/consultoria/</code></p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- CRÍTICO 2: BOTONES -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🔴 Crítico — Botones CTA</div>
+
+      <div class="finding-card crit">
+        <span class="badge b-crit mb-2">C2 · Crítico</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">6 estilos de botón distintos sin patrón claro</h2>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón principal — páginas modernas</p>
+              <div class="btn-demo bg-blue-600 text-white px-5 py-2.5 rounded-lg">Solicitar demo</div>
+              <code class="text-xs block mt-1 text-gray-500">bg-blue-600 px-8 py-3.5 rounded-lg</code>
+              <span class="page-tag">page.tsx · roi · como-funciona</span>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón principal — consultoría (viejo)</p>
+              <div class="btn-demo text-white px-5 py-2.5" style="background:#0f62fe;border-radius:2px">Solicitar consulta</div>
+              <code class="text-xs block mt-1 text-gray-500">bg-blue60 px-8 py-3 (sin rounded-lg)</code>
+              <span class="page-tag">consultoria/rcm · estrategia-gestion-activos</span>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón oscuro — header + banners</p>
+              <div class="btn-demo bg-gray-900 text-white px-5 py-2.5 rounded-md">Ir a Software ↗</div>
+              <code class="text-xs block mt-1 text-gray-500">bg-gray-900 px-5 py-2 rounded-md</code>
+              <span class="page-tag">Header · BannerFinal</span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón RCA (morado)</p>
+              <div class="btn-demo bg-purple-600 text-white px-5 py-2.5 rounded-lg">Ver módulo RCA</div>
+              <code class="text-xs block mt-1 text-gray-500">bg-purple-600 px-8 py-3.5 rounded-lg</code>
+              <span class="page-tag">consultoria/rca</span>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón RCM (teal)</p>
+              <div class="btn-demo bg-teal-600 text-white px-5 py-2.5 rounded-lg">Ver módulo</div>
+              <code class="text-xs block mt-1 text-gray-500">bg-teal-600 (varía por página)</code>
+              <span class="page-tag">modulos/registro-activos</span>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-1">Botón secundario outline</p>
+              <div class="btn-demo border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg">Ver más</div>
+              <code class="text-xs block mt-1 text-gray-500">border border-gray-200 hover:border-blue-600</code>
+              <span class="page-tag">page.tsx pricing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-700">
+          <strong>Problema visual:</strong> Un usuario que pase de la landing → consultoría ve botones de forma y color diferentes. El de consultoría tiene bordes cuadrados (border-radius: 2px por el config de Tailwind), el de la landing tiene <code>rounded-lg</code>.
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- CRÍTICO 3: HERO GRADIENTS -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🔴 Crítico — Hero sections</div>
+
+      <div class="finding-card crit">
+        <span class="badge b-crit mb-2">C3 · Crítico</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">Cada módulo tiene su propio color de hero sin sistema</h2>
+
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-2">Páginas principales — consistentes ✓</p>
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="w-full h-8 rounded flex items-end px-2 pb-1" style="background:linear-gradient(to bottom right,#111827,#1a1a2e,#1e3a8a)"><span class="text-white text-[9px] font-bold">gray-900 → blue-900</span></div>
+              </div>
+              <div class="text-gray-500 space-y-1">
+                <p><span class="page-tag">page.tsx</span> <span class="page-tag">roi</span> <span class="page-tag">como-funciona</span> <span class="page-tag">industrias</span> <span class="page-tag">about</span></p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-red-500 mb-2">Módulos — cada uno con color diferente ✕</p>
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="w-1/3 h-6 rounded" style="background:linear-gradient(135deg,#1e3a5f,#1d4ed8,#1e3a5f)"></div>
+                <span class="text-gray-500">RCM: blue-950 → blue-900</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1/3 h-6 rounded" style="background:linear-gradient(135deg,#581c87,#6b21a8,#581c87)"></div>
+                <span class="text-gray-500">RCA: purple-900 → purple-800</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1/3 h-6 rounded" style="background:linear-gradient(135deg,#134e4a,#115e59,#134e4a)"></div>
+                <span class="text-gray-500">Registro: teal-900 → teal-800</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1/3 h-6 rounded" style="background:#262626"></div>
+                <span class="text-gray-500">Consultoría RCM: bg-gray90 (plano)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1/3 h-6 rounded" style="background:#edf5ff"></div>
+                <span class="text-gray-500">Consultoría main: bg-blue20 (¡claro!)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-700">
+          <strong>Resultado:</strong> El sitio no tiene un lenguaje visual de "sección" coherente. Cada página inventa su propio color de fondo. Las páginas de consultoría son particularmente problemáticas: usan fondos <em>claros</em> (bg-blue20 = #d0e2ff) en lugar del oscuro consistente de las otras páginas.
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- MEDIO 1: PADDING SECCIONES -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🟡 Medio — Espaciado y padding</div>
+
+      <div class="finding-card med">
+        <span class="badge b-med mb-2">M1 · Medio</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">Padding de secciones inconsistente</h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs border-collapse">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="text-left p-2 border border-gray-200 font-semibold">Página / Sección</th>
+                <th class="text-left p-2 border border-gray-200 font-semibold">Padding vertical</th>
+                <th class="text-left p-2 border border-gray-200 font-semibold">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-2 border border-gray-100"><span class="page-tag">page.tsx</span> secciones principales</td><td class="p-2 border border-gray-100"><code>py-20 md:py-28</code></td><td class="p-2 border border-gray-100 text-green-600 font-semibold">✓ Referencia</td></tr>
+              <tr class="bg-red-50"><td class="p-2 border border-gray-100"><span class="page-tag">page.tsx</span> sección Pricing</td><td class="p-2 border border-gray-100"><code>py-10 md:py-14</code></td><td class="p-2 border border-gray-100 text-red-600 font-semibold">✕ Diferente</td></tr>
+              <tr><td class="p-2 border border-gray-100"><span class="page-tag">roi</span> · <span class="page-tag">como-funciona</span> pasos</td><td class="p-2 border border-gray-100"><code>py-20</code></td><td class="p-2 border border-gray-100 text-green-600 font-semibold">✓ OK</td></tr>
+              <tr class="bg-yellow-50"><td class="p-2 border border-gray-100"><span class="page-tag">roi</span> sección descargable</td><td class="p-2 border border-gray-100"><code>py-12</code></td><td class="p-2 border border-gray-100 text-amber-600 font-semibold">▲ Menor</td></tr>
+              <tr class="bg-red-50"><td class="p-2 border border-gray-100"><span class="page-tag">consultoria/*</span> secciones</td><td class="p-2 border border-gray-100"><code>contentSection</code> (clase custom = py-8–py-12)</td><td class="p-2 border border-gray-100 text-red-600 font-semibold">✕ Sistema diferente</td></tr>
+              <tr class="bg-red-50"><td class="p-2 border border-gray-100"><span class="page-tag">consultoria/rcm</span></td><td class="p-2 border border-gray-100"><code>py-16</code> mezclado con <code>py-8</code></td><td class="p-2 border border-gray-100 text-red-600 font-semibold">✕ Inconsistente</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MEDIO 2: MAX-WIDTH -->
+      <div class="finding-card med mt-3">
+        <span class="badge b-med mb-2">M2 · Medio</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">Max-width de contenedores varía por página</h2>
+        <div class="grid grid-cols-3 gap-3 text-xs">
+          <div class="bg-green-50 border border-green-200 rounded-lg p-3">
+            <p class="font-bold text-green-700 mb-2">Páginas modernas</p>
+            <p><code>max-w-5xl</code> — hero text</p>
+            <p><code>max-w-6xl</code> — secciones generales</p>
+            <p class="text-green-600 text-xs mt-1">roi, como-funciona, industrias, módulos</p>
+          </div>
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+            <p class="font-bold text-yellow-700 mb-2">Landing page</p>
+            <p><code>max-w-4xl</code> — hero</p>
+            <p><code>max-w-6xl</code> — secciones</p>
+            <p><code>max-w-2xl / max-w-3xl</code> — texto</p>
+          </div>
+          <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+            <p class="font-bold text-red-700 mb-2">Consultoría (viejo)</p>
+            <p><code>max-w-7xl</code> — algunos</p>
+            <p>Muchos sin <code>max-w</code> explícito</p>
+            <p>Usa <code>px-[3vw]</code> como control</p>
+            <p class="text-red-600 text-xs mt-1">Resultado: texto más ancho y difícil de leer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- MEDIO 3: BORDER RADIUS CONFIG -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🟡 Medio — Border radius</div>
+
+      <div class="finding-card med">
+        <span class="badge b-med mb-2">M3 · Medio</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">El config de Tailwind sobreescribe <code>rounded-xl</code> a 4px, pero se usa mezclado</h2>
+
+        <div class="vs-box mb-3">
+          <div class="vs-col vs-a">
+            <p class="font-bold text-red-700 text-xs mb-2">Lo que define el config</p>
+            <code>rounded-lg</code> = 4px<br>
+            <code>rounded-xl</code> = 4px<br>
+            <code>rounded-2xl</code> = 4px<br>
+            <code>rounded-3xl</code> = 4px<br>
+            <p class="text-xs text-red-600 mt-2">Todos los <code>rounded-*</code> se aplanan a 4px (estilo IBM). Las cards se ven como rectángulos casi sin curva.</p>
+          </div>
+          <div class="vs-col vs-b">
+            <p class="font-bold text-green-700 text-xs mb-2">Lo que el código intenta comunicar</p>
+            Páginas nuevas usan <code>rounded-xl</code>, <code>rounded-2xl</code> esperando 12-16px de curva. <br>
+            Pero el config los colapsa a 4px.<br>
+            <p class="text-xs text-green-600 mt-2">Solución: o se usa <code>rounded-[12px]</code> (valor arbitrario) o se cambia el config.</p>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs">
+          <strong>Impacto visual:</strong> Las cards y paneles de las páginas modernas (industrias, módulos) se ven más angulares de lo que se diseñaron. Las páginas de consultoría antiguas que usan <code>rounded</code> sin sufijo sí parecen ligeramente redondeadas porque usan el valor DEFAULT = 2px.
+        </div>
+      </div>
+
+      <!-- MEDIO 4: ACCENTOS DE MÓDULO -->
+      <div class="finding-card med mt-3">
+        <span class="badge b-med mb-2">M4 · Medio</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-2">Barras de acento en cards de módulos: gradiente vs sólido</h2>
+        <div class="grid grid-cols-3 gap-3 text-xs mt-2">
+          <div class="border rounded-lg overflow-hidden">
+            <div class="h-2" style="background:linear-gradient(to right,#2dd4bf,#0d9488)"></div>
+            <div class="p-3 bg-white">
+              <p class="font-semibold">Registro de Activos</p>
+              <code class="text-gray-400">from-teal-400 to-teal-600</code>
+            </div>
+          </div>
+          <div class="border rounded-lg overflow-hidden">
+            <div class="h-2 bg-blue-600"></div>
+            <div class="p-3 bg-white">
+              <p class="font-semibold">RCM</p>
+              <code class="text-gray-400">bg-blue-600 (sólido)</code>
+            </div>
+          </div>
+          <div class="border rounded-lg overflow-hidden">
+            <div class="h-2 bg-purple-600"></div>
+            <div class="p-3 bg-white">
+              <p class="font-semibold">RCA</p>
+              <code class="text-gray-400">bg-purple-600 (sólido)</code>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-amber-700 mt-2">Registro usa gradiente, RCM y RCA usan color sólido. Pequeño pero perceptible.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- MENOR: TIPOGRAFÍA -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">🔵 Menor — Tipografía</div>
+
+      <div class="finding-card low">
+        <span class="badge b-low mb-2">L1 · Menor</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-3">Múltiples fuentes definidas, sólo 2 en uso activo</h2>
+
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-2">FUENTES DEFINIDAS EN CONFIG (7)</p>
+            <ul class="space-y-1 text-xs text-gray-600">
+              <li><strong>IBM Plex Sans</strong> — body font (layout.tsx) ✓ en uso</li>
+              <li><strong>Zen Dots</strong> — logo "RELIAPLANT" en header ✓ en uso</li>
+              <li class="text-amber-600">Work Sans — definida en config, ¿usada?</li>
+              <li class="text-amber-600">Source Serif 4 — definida, aparece en blog</li>
+              <li class="text-amber-600">Literata — definida, aparece en blog</li>
+              <li class="text-amber-600">Big Shoulders Display — definida, no encontrada</li>
+              <li class="text-amber-600">Sofia Sans — definida, no encontrada</li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 mb-2">GLOBALS.CSS DEFINE HEADING SIZES GLOBALES</p>
+            <p class="text-xs text-gray-600 mb-2">Pero las páginas sobreescriben con clases inline:</p>
+            <ul class="space-y-1 text-xs text-gray-600">
+              <li>Landing hero: <code>text-5xl md:text-6xl font-bold</code></li>
+              <li>ROI hero: <code>text-5xl font-bold</code></li>
+              <li>Consultoría antigua: <code>text-5xl mb-4</code> (sin font-bold!)</li>
+              <li>Módulos: <code>text-5xl font-bold</code></li>
+            </ul>
+            <p class="text-xs text-amber-600 mt-2">Las páginas antiguas de consultoría tienen h1 más ligero visualmente porque no tienen <code>font-bold</code> explícito.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="finding-card low mt-3">
+        <span class="badge b-low mb-2">L2 · Menor</span>
+        <h2 class="text-lg font-bold text-gray-900 mb-2">Eyebrows (etiquetas sobre títulos) sin sistema</h2>
+        <div class="space-y-2 text-xs mt-3">
+          <div class="flex items-center gap-3 p-2 bg-gray-50 rounded">
+            <code>text-green-400 font-medium uppercase tracking-wide text-sm</code>
+            <span class="page-tag">roi</span>
+          </div>
+          <div class="flex items-center gap-3 p-2 bg-gray-50 rounded">
+            <code>text-blue-400 font-medium tracking-wide text-sm</code>
+            <span class="page-tag">como-funciona</span>
+          </div>
+          <div class="flex items-center gap-3 p-2 bg-gray-50 rounded">
+            <code>text-xs font-bold uppercase tracking-widest text-green-600</code>
+            <span class="page-tag">modulos/rcm</span>
+          </div>
+          <div class="flex items-center gap-3 p-2 bg-gray-50 rounded">
+            <code>text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600</code>
+            <span class="page-tag">industrias</span>
+          </div>
+          <p class="text-gray-400">4 estilos distintos para el mismo patrón visual (etiqueta sobre título). Tamaños: text-xs, text-sm, text-[11px]. Pesos: font-medium, font-bold. Tracking: tracking-wide, tracking-widest, tracking-[0.1em].</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PLAN DE ACCIÓN -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section>
+      <div class="cat-header">📋 Plan de acción recomendado</div>
+
+      <div class="bg-slate-900 rounded-2xl p-6 text-white">
+        <h3 class="text-lg font-bold mb-5">Qué arreglar y en qué orden</h3>
+
+        <div class="space-y-4">
+
+          <div class="bg-red-900/40 border border-red-700/50 rounded-xl p-4">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-wide mb-2">🔴 Prioridad 1 — Sistema de colores (impacto máximo)</p>
+            <p class="text-sm text-white mb-2">Migrar las páginas de consultoría del sistema Carbon (<code>bg-blue60</code>, <code>bg-gray90</code>...) al sistema Tailwind estándar (<code>bg-blue-600</code>, <code>bg-gray-900</code>...). Esto unifica el azul y los grises en todo el sitio.</p>
+            <p class="text-red-300 text-xs">Archivos: todos los de <code>src/app/consultoria/</code> — buscar y reemplazar clase a clase.</p>
+          </div>
+
+          <div class="bg-red-900/40 border border-red-700/50 rounded-xl p-4">
+            <p class="text-red-400 text-xs font-bold uppercase tracking-wide mb-2">🔴 Prioridad 2 — Botón primario único</p>
+            <p class="text-sm text-white mb-2">Definir UN estilo de botón primario: <code>bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold</code> y aplicarlo en todas las páginas, incluyendo las de consultoría.</p>
+            <p class="text-red-300 text-xs">Candidato a componentizar: <code>AbrirFormContacto</code> ya existe — asegurar que todas las páginas lo usen.</p>
+          </div>
+
+          <div class="bg-yellow-900/30 border border-yellow-700/50 rounded-xl p-4">
+            <p class="text-yellow-400 text-xs font-bold uppercase tracking-wide mb-2">🟡 Prioridad 3 — Hero gradient de módulos</p>
+            <p class="text-sm text-white mb-2">Decidir si los módulos de software (RCM, RCA, Registro) deben tener cada uno su color de acento (teal, purple, blue) o todos usar el mismo gris-azul oscuro de las páginas principales. Actualmente ambas opciones coexisten.</p>
+          </div>
+
+          <div class="bg-yellow-900/30 border border-yellow-700/50 rounded-xl p-4">
+            <p class="text-yellow-400 text-xs font-bold uppercase tracking-wide mb-2">🟡 Prioridad 4 — Border radius</p>
+            <p class="text-sm text-white mb-2">Decidir: ¿quieres bordes redondeados en cards? Si sí, cambiar el config de Tailwind (<code>xl: '12px'</code>, <code>2xl: '16px'</code>) o usar valores arbitrarios <code>rounded-[12px]</code>. Actualmente todo colapsa a 4px por el override del config.</p>
+          </div>
+
+          <div class="bg-blue-900/30 border border-blue-700/50 rounded-xl p-4">
+            <p class="text-blue-400 text-xs font-bold uppercase tracking-wide mb-2">🔵 Prioridad 5 — Eyebrows y tipografía</p>
+            <p class="text-sm text-white mb-2">Definir una clase de eyebrow estándar: <code>text-xs font-bold uppercase tracking-widest</code> con el color de acento de cada página. Aplicar consistentemente.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="text-center py-8 text-slate-400 text-xs">Reliaplant · Auditoría UI/UX · Feb 2026</div>
+</body>
+</html>

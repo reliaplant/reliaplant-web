@@ -175,10 +175,10 @@ export default function ROIPage() {
             </div>
 
             {/* Mejores decisiones */}
-            <div className="bg-purple-50 rounded-xl p-6 border border-purple-100">
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Analytics size={24} className="text-purple-600" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Analytics size={24} className="text-blue-600" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">
                   Mejores decisiones de mantenimiento
@@ -191,25 +191,25 @@ export default function ROIPage() {
               
               <ul className="space-y-1.5">
                 <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
                   <span>Indicadores confiables</span>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
                   <span>Planificación más realista</span>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-purple-500 flex-shrink-0" />
+                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
                   <span>Menor incertidumbre técnica</span>
                 </li>
               </ul>
             </div>
 
             {/* Base sólida */}
-            <div className="bg-teal-50 rounded-xl p-6 border border-teal-100">
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                  <DataStructured size={24} className="text-teal-600" />
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <DataStructured size={24} className="text-blue-600" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">
                   Base sólida para crecer
@@ -220,7 +220,7 @@ export default function ROIPage() {
                 Sin taxonomía clara, los sistemas pierden utilidad y los datos se degradan.
               </p>
               
-              <div className="bg-white rounded-lg p-3 border-l-4 border-teal-500">
+              <div className="bg-white rounded-lg p-3 border-l-4 border-blue-500">
                 <p className="text-sm text-gray-700 font-medium">
                   Una base técnica bien estructurada permite escalar operaciones sin perder control.
                 </p>
@@ -261,14 +261,14 @@ export default function ROIPage() {
               </p>
             </div>
             <div className="bg-white/10 border border-white/20 rounded-xl p-6">
-              <TaskComplete size={32} className="text-purple-400 mb-3" />
+              <TaskComplete size={32} className="text-blue-400 mb-3" />
               <h4 className="font-semibold text-lg mb-2">Cumplimiento regulatorio</h4>
               <p className="text-white/70 text-sm">
                 Satisfacer requisitos normativos y auditorías
               </p>
             </div>
             <div className="bg-white/10 border border-white/20 rounded-xl p-6">
-              <Growth size={32} className="text-teal-400 mb-3" />
+              <Growth size={32} className="text-blue-400 mb-3" />
               <h4 className="font-semibold text-lg mb-2">Estabilidad productiva</h4>
               <p className="text-white/70 text-sm">
                 Producción predecible y consistente
@@ -286,7 +286,7 @@ export default function ROIPage() {
       {/* Segundo CTA descargable */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">

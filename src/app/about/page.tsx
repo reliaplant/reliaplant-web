@@ -123,22 +123,22 @@ export default function AboutPage() {
                 color: "bg-blue-50",
               },
               {
-                icon: <Idea size={28} className="text-purple-600" />,
+                icon: <Idea size={28} className="text-blue-600" />,
                 title: "Simplicidad",
                 desc: "Interfaces limpias que eliminan complejidad innecesaria sin sacrificar profundidad.",
-                color: "bg-purple-50",
+                color: "bg-blue-50",
               },
               {
-                icon: <Partnership size={28} className="text-teal-600" />,
+                icon: <Partnership size={28} className="text-blue-600" />,
                 title: "Cercanía",
                 desc: "Trabajamos con cada cliente para entender su realidad operativa antes de proponer soluciones.",
-                color: "bg-teal-50",
+                color: "bg-blue-50",
               },
               {
-                icon: <Security size={28} className="text-orange-600" />,
+                icon: <Security size={28} className="text-blue-600" />,
                 title: "Confianza",
                 desc: "Datos protegidos, resultados trazables y procesos auditables.",
-                color: "bg-orange-50",
+                color: "bg-blue-50",
               },
             ].map((v, i) => (
               <div

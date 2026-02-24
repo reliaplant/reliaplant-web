@@ -147,7 +147,7 @@ export default function IndustriasPage() {
           <div className="bg-gray-50 px-10 md:px-14 py-12 md:py-16 flex flex-col justify-center border-t border-gray-200 order-2 md:order-1">
 
             <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-5">
-              <span className="w-2 h-2 rounded-full bg-yellow-600 inline-block flex-shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-gray-600 inline-block flex-shrink-0" />
               Energía · Utilities · Generación · Distribución
             </span>
 
@@ -230,7 +230,7 @@ export default function IndustriasPage() {
           <div className="bg-white px-10 md:px-14 py-12 md:py-16 flex flex-col justify-center border-t border-gray-200 order-2">
 
             <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-5">
-              <span className="w-2 h-2 rounded-full bg-teal-600 inline-block flex-shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-blue-600 inline-block flex-shrink-0" />
               Manufactura · Proceso Continuo · Producción
             </span>
 

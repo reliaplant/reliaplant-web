@@ -68,44 +68,11 @@ export default function RCMPage() {
       </section>
 
       {/* El problema hoy */}
-      <section
-        className="relative overflow-hidden bg-white"
-        style={{ minHeight: 520 }}
-      >
-        {/* Image — right 55%, diagonal left edge */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/Reunion RCM .png"
-            alt="RCM en hojas de cálculo"
-            fill
-            className="object-cover object-center"
-            sizes="55vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
-          />
-        </div>
-
-        {/* Mobile image */}
-        <div className="relative h-52 w-full md:hidden">
-          <Image
-            src="/assets/Reunion RCM .png"
-            alt="RCM en hojas de cálculo"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Content — left side */}
-        <div
-          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
-          style={{ maxWidth: '52%' }}
-        >
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text content */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
             className="block font-bold uppercase text-red-500 mb-4"
             style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -160,7 +127,6 @@ export default function RCMPage() {
             style={{
               borderLeft: '4px solid #f87171',
               background: '#fff5f5',
-              borderRadius: '0 8px 8px 0',
               padding: '16px 20px',
             }}
           >
@@ -169,43 +135,41 @@ export default function RCMPage() {
             </p>
           </div>
         </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[480px]">
+          <Image
+            src="/assets/Reunion RCM .png"
+            alt="RCM en hojas de cálculo"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+      </div>
+        </div>
       </section>
 
       {/* Qué hace este módulo - Interactive Features */}
       <RCMFeatures />
 
       {/* Beneficios operativos */}
-      <section className="relative overflow-hidden bg-white py-20 px-4">
-        {/* Background image — right side */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/Beneficios RCM.png"
-            alt="Mantenimiento Centrado en Confiabilidad"
-            fill
-            className="object-cover object-center"
-            sizes="45vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
-          />
-        </div>
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text + benefit items */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
             Beneficios operativos
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10">
             Impacto en tu operación
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
+
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Estrategias de mantenimiento más coherentes</h3>
@@ -214,10 +178,10 @@ export default function RCMPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Eliminación de tareas redundantes o innecesarias</h3>
@@ -226,10 +190,10 @@ export default function RCMPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Mejor priorización técnica</h3>
@@ -238,10 +202,10 @@ export default function RCMPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Implementación más ágil del RCM</h3>
@@ -251,6 +215,19 @@ export default function RCMPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[420px]">
+          <Image
+            src="/assets/Beneficios RCM.png"
+            alt="Mantenimiento Centrado en Confiabilidad"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+      </div>
         </div>
       </section>
 

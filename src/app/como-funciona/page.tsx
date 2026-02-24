@@ -82,8 +82,8 @@ export default function ComoFuncionaPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold text-teal-600">1</span>
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
                   Organizamos la base técnica correctamente
@@ -100,25 +100,25 @@ export default function ComoFuncionaPage() {
               
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Estructuras activos según estándares como ISO 14224</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Defines relaciones padre-hijo correctas</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Aseguras consistencia en la información</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-teal-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Habilitas indicadores realmente útiles</span>
                 </li>
               </ul>
 
               {/* Resultado */}
-              <div className="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Datos confiables para análisis y decisiones.
@@ -135,9 +135,9 @@ export default function ComoFuncionaPage() {
                 height={400}
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo de Registro de Activos</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo de Registro de Activos</span>
               </div>
             </div>
           </div>
@@ -157,16 +157,16 @@ export default function ComoFuncionaPage() {
                 height={400}
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCA</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCA</span>
               </div>
             </div>
 
             <div className="md:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold text-purple-600">2</span>
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl font-bold text-blue-600">2</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
                   Facilitamos análisis de fallas bien hechos (RCA)
@@ -179,19 +179,19 @@ export default function ComoFuncionaPage() {
               
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Estructuración del análisis</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Asistencia en redacción técnica</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Documentación clara y trazable</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-purple-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Seguimiento del análisis como proyecto</span>
                 </li>
               </ul>
@@ -213,7 +213,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Menos fallas recurrentes y mejor aprendizaje organizacional.
@@ -313,16 +313,16 @@ export default function ComoFuncionaPage() {
                 height={400}
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Integración progresiva</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Integración progresiva</span>
               </div>
             </div>
 
             <div className="md:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl font-bold text-orange-600">4</span>
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl font-bold text-blue-600">4</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
                   Integración progresiva, sin fricción
@@ -333,25 +333,25 @@ export default function ComoFuncionaPage() {
               
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Implementar un módulo primero</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Escalar gradualmente</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Integrarlo con sistemas existentes</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <CheckmarkFilled size={20} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                  <CheckmarkFilled size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
                   <span>Adaptarlo a tu flujo actual</span>
                 </li>
               </ul>
 
               {/* Resultado */}
-              <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Lo importante:</p>
                 <p className="text-gray-700">
                   No necesitas cambiar todo tu ecosistema tecnológico.

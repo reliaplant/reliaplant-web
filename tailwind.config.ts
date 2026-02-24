@@ -123,26 +123,27 @@ const config: Config = {
         purpleHover90: "#40197b",
         purpleHover100: "#341c59",
 
-        blue10: "#edf5ff",
-        blue20: "#d0e2ff",
-        blue30: "#a6c8ff",
-        blue40: "#78a9ff",
-        blue50: "#4589ff",
-        blue60: "#0f62fe",
-        blue70: "#0043ce",
-        blue80: "#002d9c",
-        blue90: "#001d6c",
-        blue100: "#001141",
-        blueHover10: "#dbebff",
-        blueHover20: "#b8d3ff",
-        blueHover30: "#8ab6ff",
-        blueHover40: "#5c97ff",
-        blueHover50: "#1f70ff",
-        blueHover60: "#0050e6",
-        blueHover70: "#0053ff",
-        blueHover80: "#0039c7",
-        blueHover90: "#00258a",
-        blueHover100: "#001f75",
+        // Blue scale aligned with Tailwind standard (blue-50 → blue-950)
+        blue10: "#eff6ff",  // Tailwind blue-50
+        blue20: "#dbeafe",  // Tailwind blue-100
+        blue30: "#bfdbfe",  // Tailwind blue-200
+        blue40: "#93c5fd",  // Tailwind blue-300
+        blue50: "#60a5fa",  // Tailwind blue-400
+        blue60: "#2563eb",  // Tailwind blue-600 (primary action)
+        blue70: "#1d4ed8",  // Tailwind blue-700
+        blue80: "#1e40af",  // Tailwind blue-800
+        blue90: "#1e3a8a",  // Tailwind blue-900
+        blue100: "#172554", // Tailwind blue-950
+        blueHover10: "#dbeafe",
+        blueHover20: "#bfdbfe",
+        blueHover30: "#93c5fd",
+        blueHover40: "#60a5fa",
+        blueHover50: "#3b82f6",
+        blueHover60: "#1d4ed8",
+        blueHover70: "#1e40af",
+        blueHover80: "#1e3a8a",
+        blueHover90: "#1e3a8a",
+        blueHover100: "#172554",
 
         cyan10: "#e5f6ff",
         cyan20: "#bae6ff",
@@ -288,13 +289,13 @@ const config: Config = {
       },
       borderRadius: {
         none: '0px',
-        sm: '2px',
-        DEFAULT: '2px',
-        md: '2px',
-        lg: '4px',
-        xl: '4px',
-        '2xl': '4px',
-        '3xl': '4px',
+        sm: '0px',
+        DEFAULT: '0px',
+        md: '0px',
+        lg: '0px',
+        xl: '0px',
+        '2xl': '0px',
+        '3xl': '0px',
         full: '9999px',
       },
       fontFamily: {

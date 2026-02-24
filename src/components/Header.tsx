@@ -161,8 +161,8 @@ export default function Header() {
                     href="/modulos/registro-activos"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
-                    <div className="bg-teal-50 p-3 rounded-lg">
-                      <Category size={28} className="text-teal-600" />
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                      <Category size={28} className="text-blue-600" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-gray-900 font-semibold text-sm">Registro de Activos (Taxonomía)</span>
@@ -193,8 +193,8 @@ export default function Header() {
                     href="/modulos/rca"
                     className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
                   >
-                    <div className="bg-purple-50 p-3 rounded-lg">
-                      <DecisionNode size={28} className="text-purple-600" />
+                    <div className="bg-blue-50 p-3 rounded-lg">
+                      <DecisionNode size={28} className="text-blue-600" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-gray-900 font-semibold text-sm">RCA</span>

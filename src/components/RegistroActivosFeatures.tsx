@@ -16,8 +16,6 @@ interface Feature {
   id: FeatureKey;
   title: string;
   icon: React.ReactNode;
-  color: string;
-  bgColor: string;
   description: string;
   details: string[];
   mockupTitle: string;
@@ -26,10 +24,8 @@ interface Feature {
 const features: Feature[] = [
   {
     id: "jerarquia",
-    title: "Relaciones correctas padre-hijo",
-    icon: <TreeView size={24} />,
-    color: "text-teal-600",
-    bgColor: "bg-teal-600",
+    title: "Jerarquía padre-hijo",
+    icon: <TreeView size={20} />,
     description:
       "Relaciones padre-hijo estructuradas de manera interactiva e intuitiva, facilitando la navegación y comprensión de la jerarquía de activos.",
     details: [
@@ -41,9 +37,7 @@ const features: Feature[] = [
   {
     id: "consistencia",
     title: "Consistencia en el registro",
-    icon: <DocumentTasks size={24} />,
-    color: "text-teal-600",
-    bgColor: "bg-teal-600",
+    icon: <DocumentTasks size={20} />,
     description:
       "Plantillas parametrizables que aseguran que todos los activos se registren con los mismos campos técnicos.",
     details: [
@@ -55,9 +49,7 @@ const features: Feature[] = [
   {
     id: "trazabilidad",
     title: "Trazabilidad técnica",
-    icon: <DataBase size={24} />,
-    color: "text-teal-600",
-    bgColor: "bg-teal-600",
+    icon: <DataBase size={20} />,
     description:
       "Historial completo de cambios en la estructura. Relaciona activos con DTIs de manera gráfica e interactiva, y añade imágenes de los activos para mejor identificación.",
     details: [
@@ -68,10 +60,8 @@ const features: Feature[] = [
   },
   {
     id: "exportacion",
-    title: "Exportación a tu CMMS",
-    icon: <ChartLineData size={24} />,
-    color: "text-teal-600",
-    bgColor: "bg-teal-600",
+    title: "Exportación a CMMS",
+    icon: <ChartLineData size={20} />,
     description:
       "Genera plantillas parametrizables para exportar la taxonomía de activos hacia tu CMMS actual, facilitando la integración y migración de datos.",
     details: [
@@ -84,59 +74,65 @@ const features: Feature[] = [
 
 export default function RegistroActivosFeatures() {
   const [activeFeature, setActiveFeature] = useState<FeatureKey>("jerarquia");
-
-  const currentFeature = features.find((f) => f.id === activeFeature) || features[0];
+  const current = features.find((f) => f.id === activeFeature) || features[0];
 
   return (
-    <section className="py-12 px-8 bg-teal-50">
-      <div className="max-w-6xl mx-auto">
-        <span className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-4 block text-center">
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+
+        {/* Section header */}
+        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block text-center">
           La solución
         </span>
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
           Qué hace este módulo
         </h2>
-        <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center">
-          Permite estructurar los activos siguiendo principios como ISO 14224, asegurando:
-        </p>
 
-        <div className="grid lg:grid-cols-[400px_1fr] gap-6 items-stretch">
-          {/* Left sidebar - Features list */}
-          <div className="flex flex-col">
-            <div className="space-y-3 mb-6">
-              {features.map((feature) => (
-                <button
-                  key={feature.id}
-                  onClick={() => setActiveFeature(feature.id)}
-                  className={`w-full flex items-center gap-4 px-5 py-3 rounded-xl transition-all text-left ${
-                    activeFeature === feature.id
-                      ? "bg-gray-800 text-white shadow-lg"
-                      : "bg-white/50 text-gray-700 hover:bg-white hover:shadow-md"
-                  }`}
-                >
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                      activeFeature === feature.id ? "bg-white/20" : feature.bgColor
-                    }`}
-                  >
-                    <span className={activeFeature === feature.id ? "text-white" : "text-white"}>
-                      {feature.icon}
-                    </span>
-                  </div>
-                  <span className="font-semibold text-sm">{feature.title}</span>
-                </button>
-              ))}
+        {/* Horizontal tab bar - centered */}
+        <div className="flex justify-center overflow-x-auto border-b-2 border-gray-200 mb-8">
+          {features.map((feature) => (
+            <button
+              key={feature.id}
+              onClick={() => setActiveFeature(feature.id)}
+              className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold whitespace-nowrap border-b-2 -mb-[2px] transition-colors ${
+                activeFeature === feature.id
+                  ? "border-blue-600 text-blue-600 bg-white"
+                  : "border-transparent text-gray-500 hover:text-gray-800 hover:bg-white/60"
+              }`}
+            >
+              <span className={activeFeature === feature.id ? "text-blue-600" : "text-gray-400"}>
+                {feature.icon}
+              </span>
+              {feature.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Two-column layout */}
+        <div className="grid lg:grid-cols-2 gap-0 border border-gray-200 bg-white">
+
+          {/* Left: title + description + características */}
+          <div className="flex flex-col border-r border-gray-200">
+            <div className="bg-blue-600 p-8 text-white">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-white/20 flex items-center justify-center flex-shrink-0">
+                  {current.icon}
+                </div>
+                <h3 className="text-xl font-bold leading-snug">{current.title}</h3>
+              </div>
+              <p className="text-white/85 text-base leading-relaxed">
+                {current.description}
+              </p>
             </div>
 
-            {/* Feature details below */}
-            <div className="bg-white rounded-lg p-5 border border-gray-200 flex-grow">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">
+            <div className="p-8 flex-1">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5">
                 Características principales
-              </h4>
-              <ul className="space-y-2">
-                {currentFeature.details.map((detail, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckmarkFilled size={16} className={`${currentFeature.color} mt-0.5 flex-shrink-0`} />
+              </p>
+              <ul className="space-y-4">
+                {current.details.map((detail, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
+                    <CheckmarkFilled size={18} className="text-blue-600 mt-0.5 flex-shrink-0" />
                     <span>{detail}</span>
                   </li>
                 ))}
@@ -144,54 +140,41 @@ export default function RegistroActivosFeatures() {
             </div>
           </div>
 
-          {/* Right content area - Feature details and mockup */}
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col">
-            {/* Header with gradient */}
-            <div className={`${currentFeature.bgColor} bg-gradient-to-br from-opacity-90 to-opacity-100 p-5 text-white`}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                  {currentFeature.icon}
-                </div>
-                <h3 className="text-xl font-bold">{currentFeature.title}</h3>
+          {/* Right: animation / mockup */}
+          <div className="flex items-center justify-center min-h-[420px] bg-gray-50">
+            {current.id === "jerarquia" ? (
+              <div className="w-full h-full overflow-hidden">
+                <RegistroAnimationJerarquia />
               </div>
-              <p className="text-white/90 text-base leading-relaxed">
-                {currentFeature.description}
-              </p>
-            </div>
-
-            {/* Mockup area */}
-            <div className="p-6 flex-grow flex flex-col">
-              {currentFeature.id === "jerarquia" ? (
-                <div className="bg-white rounded-xl overflow-hidden border border-gray-200 flex-grow">
-                  <RegistroAnimationJerarquia />
+            ) : (
+              <div className="flex flex-col items-center justify-center gap-4 p-12 text-center">
+                <div className="p-5 bg-blue-50 border border-blue-100">
+                  <span className="text-blue-600">
+                    {current.id === "consistencia"  && <DocumentTasks size={56} />}
+                    {current.id === "trazabilidad"  && <DataBase size={56} />}
+                    {current.id === "exportacion"   && <ChartLineData size={56} />}
+                  </span>
                 </div>
-              ) : (
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center flex-grow border-2 border-dashed border-gray-300">
-                  <div className="text-center">
-                    <div className={`inline-block p-3 ${currentFeature.bgColor} bg-opacity-10 rounded-lg mb-3`}>
-                      <span className={currentFeature.color}>
-                        {currentFeature.id === "consistencia" && <DocumentTasks size={48} />}
-                        {currentFeature.id === "trazabilidad" && <DataBase size={48} />}
-                        {currentFeature.id === "exportacion" && <ChartLineData size={48} />}
-                      </span>
-                    </div>
-                    <p className="text-gray-500 font-medium">
-                      Mockup: {currentFeature.mockupTitle}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+                <p className="text-gray-400 text-sm font-medium">{current.mockupTitle}</p>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-6 bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl p-6 text-white">
-          <h3 className="text-xl font-bold mb-2">Esto habilita:</h3>
-          <p className="text-lg text-white/90">
-            El uso real de metodologías de confiabilidad como RCM y RCA, que sin una taxonomía
-            sólida pierden efectividad.
-          </p>
+      </div>
+
+      {/* Bottom bar - full width */}
+      <div className="bg-gray-900 px-6 md:px-12 py-7 text-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-400 mb-1">
+              Resultado
+            </p>
+            <p className="text-base text-white/85 leading-relaxed max-w-2xl">
+              El uso real de metodologías de confiabilidad como RCM y RCA, que sin una taxonomía
+              sólida pierden efectividad.
+            </p>
+          </div>
         </div>
       </div>
     </section>

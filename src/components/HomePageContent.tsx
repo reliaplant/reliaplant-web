@@ -149,7 +149,7 @@ export default function HomePageContent() {
               Tres pilares clave de la confiabilidad industrial, integrados en una sola plataforma:
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-medium border border-teal-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Datos de activos organizados
               </span>
@@ -157,7 +157,7 @@ export default function HomePageContent() {
                 <CheckmarkFilled size={16} />
                 Estrategias de mantenimiento
               </span>
-              <span className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Análisis de causa raíz
               </span>
@@ -170,10 +170,10 @@ export default function HomePageContent() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Taxonomía Card */}
             <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600" />
               
-              <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
-                <Catalog size={28} className="text-teal-600" />
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                <Catalog size={28} className="text-blue-600" />
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
@@ -199,7 +199,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -244,10 +244,10 @@ export default function HomePageContent() {
 
             {/* RCA Card */}
             <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
               
-              <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
-                <Network_3 size={28} className="text-purple-600" />
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                <Network_3 size={28} className="text-blue-600" />
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
@@ -273,7 +273,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -299,12 +299,12 @@ export default function HomePageContent() {
 
       {/* AI SECTION */}
       <section id="ia" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-6xl mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Inteligencia Artificial{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               integrada
             </span>
           </h2>
@@ -314,10 +314,10 @@ export default function HomePageContent() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-5">
-                <Lightning size={24} className="text-purple-400" />
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                <Lightning size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-purple-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 RCA
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Hipótesis automáticas</h4>
@@ -340,10 +340,10 @@ export default function HomePageContent() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center mb-5">
-                <DataStructured size={24} className="text-teal-400" />
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                <DataStructured size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-teal-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-teal-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 Registro de activos
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Clasificación inteligente</h4>

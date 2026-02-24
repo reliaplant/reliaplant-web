@@ -75,7 +75,7 @@ export default function Contacto() {
                 <AbrirFormContacto
                   buttonText="Habla con un especialista"
                   icon={<Headset size={20} className="text-white" />}
-                  buttonColor="bg-gray90"
+                  buttonColor="bg-blue60"
                   especial="LCC main banner"
                 />
               </div>

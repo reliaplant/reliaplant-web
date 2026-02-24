@@ -19,7 +19,7 @@ export default function BotonAsesorRCM({}) {
           });
         }
       }}
-      className="md:w-auto w-full mt-6 px-3 py-2 md:bg-slate-700 bg-yellow-500 hover:bg-yellow-400 md:text-white text-gray-800 font-semibold rounded-md"
+      className="md:w-auto w-full mt-6 px-3 py-2 md:bg-slate-700 bg-gray-500 hover:bg-gray-400 md:text-white text-gray-800 font-semibold rounded-md"
     >
       Hablar con un asesor
     </button>

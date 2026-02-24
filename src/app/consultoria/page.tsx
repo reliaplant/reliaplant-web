@@ -161,7 +161,7 @@ export default function ConsultoriaPage() {
           <strong>deje que nuestro equipo le indique los próximos pasos</strong>
           .{" "}
         </div>
-        <button className='border-2 border-blue60 text-blue60 px-4 py-2 transition-all duration-300 hover:after:content-["→"] hover:after:ml-2 hover:bg-blue60 hover:text-white whitespace-nowrap'>
+        <button className='border-2 border-blue60 text-blue60 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-blue60 hover:text-white whitespace-nowrap'>
           Tomar autodiagnóstico
         </button>
       </div>
@@ -202,10 +202,10 @@ export default function ConsultoriaPage() {
                 establecer una cultura de confiabilidad.
               </div>
               <div className="flex flex-col md:flex-row gap-4 mt-8">
-                <button className="bg-blue60 hover:bg-gray90 px-4 py-2 text-white">
+                <button className="bg-blue60 hover:bg-blue80 px-6 py-3 text-white rounded-lg font-semibold transition-colors">
                   Quiero implementar un modelo de confiabilidad
                 </button>
-                <button className="border-2 border-blue60 hover:bg-blue20 text-blue60 px-4 py-2">
+                <button className="border-2 border-blue60 hover:bg-blue20 text-blue60 px-6 py-3 rounded-lg font-semibold transition-colors">
                   Descargar guía de implementación
                 </button>
               </div>

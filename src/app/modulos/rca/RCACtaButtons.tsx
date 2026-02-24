@@ -26,7 +26,7 @@ export default function RCACtaButtons() {
           href="https://app.reliaplant.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all"
+          className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all"
         >
           Prueba Ahora
         </Link>

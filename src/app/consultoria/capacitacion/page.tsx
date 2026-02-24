@@ -147,7 +147,7 @@ export default function Capacitacion() {
                 <AbrirFormContacto
                   buttonText="Solicita capacitación online"
                   icon={<ArrowRight size={20} className="text-white" />}
-                  buttonColor="bg-gray90"
+                  buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita capacitación online"
                   especial="Capacitaciones Online"
@@ -215,7 +215,7 @@ export default function Capacitacion() {
                 <AbrirFormContacto
                   buttonText="Solicita programa personalizado"
                   icon={<ArrowRight size={20} className="text-white" />}
-                  buttonColor="bg-gray90"
+                  buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita programa personalizado"
                   especial="Solicitud de programa personalizado"

@@ -388,9 +388,9 @@ export default function SistemaIndicadoresPage() {
                       <span className="text-green-800">Óptimo</span>
                       <p className="text-green-800 mb-0">≤ 3h</p>
                     </div>
-                    <div className="bg-yellow-100 p-2 text-center rounded">
-                      <span className="text-yellow-800">Aceptable</span>
-                      <p className="text-yellow-800 mb-0">4-5h</p>
+                    <div className="bg-gray-100 p-2 text-center rounded">
+                      <span className="text-gray-800">Aceptable</span>
+                      <p className="text-gray-800 mb-0">4-5h</p>
                     </div>
                     <div className="bg-red-100 p-2 text-center rounded">
                       <span className="text-red-800">Crítico</span>

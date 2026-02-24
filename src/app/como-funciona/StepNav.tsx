@@ -12,18 +12,18 @@ const steps = [
 ];
 
 const activeTextColor: Record<string, string> = {
-  teal:   "text-teal-600 border-b-2 border-teal-600",
-  purple: "text-purple-600 border-b-2 border-purple-600",
+  teal:   "text-blue-600 border-b-2 border-blue-600",
+  purple: "text-blue-600 border-b-2 border-blue-600",
   blue:   "text-blue-600 border-b-2 border-blue-600",
-  orange: "text-orange-600 border-b-2 border-orange-600",
+  orange: "text-blue-600 border-b-2 border-blue-600",
   green:  "text-green-600 border-b-2 border-green-600",
 };
 
 const numberColor: Record<string, string> = {
-  teal:   "text-teal-600",
-  purple: "text-purple-600",
+  teal:   "text-blue-600",
+  purple: "text-blue-600",
   blue:   "text-blue-600",
-  orange: "text-orange-600",
+  orange: "text-blue-600",
   green:  "text-green-600",
 };
 

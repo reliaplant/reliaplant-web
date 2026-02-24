@@ -265,7 +265,7 @@ export default function AsesoriaConstante() {
                 <AbrirFormContacto
                   buttonText="Solicita asesoría part-time"
                   icon={<ArrowRight size={20} className="text-white" />}
-                  buttonColor="bg-gray90"
+                  buttonColor="bg-blue60"
                   fullDesktop={true}
                   modalTitle="Solicita asesoría part-time"
                   especial="Asesor Part-time"

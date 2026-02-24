@@ -112,23 +112,23 @@ export default function ROICalculator() {
             </h3>
             <div className="space-y-4">
               {/* RCA */}
-              <div className="rounded-xl border border-purple-200 bg-purple-50/60 p-4">
-                <div className="flex items-center gap-2 text-purple-700 mb-3">
+              <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
+                <div className="flex items-center gap-2 text-blue-700 mb-3">
                   <ChartLineData size={18} />
                   <h4 className="text-base font-semibold">RCA</h4>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">RCA por mes</label>
-                    <input type="number" min="0" value={inputs.rcaPerMonth} onChange={e => handleInputChange("rcaPerMonth", Number(e.target.value))} className="w-full px-3 py-2 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white" />
+                    <input type="number" min="0" value={inputs.rcaPerMonth} onChange={e => handleInputChange("rcaPerMonth", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Horas por RCA</label>
-                    <input type="number" min="0" value={inputs.hoursPerRCA} onChange={e => handleInputChange("hoursPerRCA", Number(e.target.value))} className="w-full px-3 py-2 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white" />
+                    <input type="number" min="0" value={inputs.hoursPerRCA} onChange={e => handleInputChange("hoursPerRCA", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Costo hora (USD)</label>
-                    <input type="number" min="0" value={inputs.engineerHourlyCost} onChange={e => handleInputChange("engineerHourlyCost", Number(e.target.value))} className="w-full px-3 py-2 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white" />
+                    <input type="number" min="0" value={inputs.engineerHourlyCost} onChange={e => handleInputChange("engineerHourlyCost", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
                   </div>
                 </div>
               </div>
@@ -150,19 +150,19 @@ export default function ROICalculator() {
                 </div>
               </div>
               {/* Taxonomía */}
-              <div className="rounded-xl border border-teal-200 bg-teal-50/60 p-4">
-                <div className="flex items-center gap-2 text-teal-700 mb-3">
+              <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
+                <div className="flex items-center gap-2 text-blue-700 mb-3">
                   <DataStructured size={18} />
                   <h4 className="text-base font-semibold">Taxonomía</h4>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Activos críticos</label>
-                    <input type="number" min="0" value={inputs.criticalAssets} onChange={e => handleInputChange("criticalAssets", Number(e.target.value))} className="w-full px-3 py-2 border border-teal-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white" />
+                    <input type="number" min="0" value={inputs.criticalAssets} onChange={e => handleInputChange("criticalAssets", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Horas/año buscando datos</label>
-                    <input type="number" min="0" value={inputs.hoursSearchingData} onChange={e => handleInputChange("hoursSearchingData", Number(e.target.value))} className="w-full px-3 py-2 border border-teal-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white" />
+                    <input type="number" min="0" value={inputs.hoursSearchingData} onChange={e => handleInputChange("hoursSearchingData", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
                   </div>
                 </div>
               </div>
@@ -195,8 +195,8 @@ export default function ROICalculator() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
-                <div className="rounded-lg border border-purple-200 bg-purple-50/70 p-4">
-                  <p className="text-xs uppercase tracking-widest text-purple-700">RCA</p>
+                <div className="rounded-lg border border-blue-200 bg-blue-50/70 p-4">
+                  <p className="text-xs uppercase tracking-widest text-blue-700">RCA</p>
                   <p className="text-sm text-slate-600 mt-1">{results.rcaHoursSaved} horas</p>
                   <p className="text-base font-semibold text-slate-900">{formatCurrency(results.rcaSavings)}</p>
                 </div>
@@ -205,8 +205,8 @@ export default function ROICalculator() {
                   <p className="text-sm text-slate-600 mt-1">{results.rcmHoursSaved} horas</p>
                   <p className="text-base font-semibold text-slate-900">{formatCurrency(results.rcmSavings)}</p>
                 </div>
-                <div className="rounded-lg border border-teal-200 bg-teal-50/70 p-4">
-                  <p className="text-xs uppercase tracking-widest text-teal-700">Taxonomía</p>
+                <div className="rounded-lg border border-blue-200 bg-blue-50/70 p-4">
+                  <p className="text-xs uppercase tracking-widest text-blue-700">Taxonomía</p>
                   <p className="text-sm text-slate-600 mt-1">{results.taxonomyHoursSaved} horas</p>
                   <p className="text-base font-semibold text-slate-900">{formatCurrency(results.taxonomySavings)}</p>
                 </div>

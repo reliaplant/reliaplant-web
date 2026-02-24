@@ -29,7 +29,7 @@ export default function RCAPage() {
       <ModuleStickyBanner moduleName="Módulo RCA" moduleType="rca" />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-32 pb-20 px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/landing-rca-ing-tristes.png"
@@ -39,7 +39,7 @@ export default function RCAPage() {
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}
         <div className="max-w-5xl mx-auto relative z-10">
@@ -66,44 +66,11 @@ export default function RCAPage() {
       </section>
 
       {/* El problema hoy */}
-      <section
-        className="relative overflow-hidden bg-white"
-        style={{ minHeight: 520 }}
-      >
-        {/* Image — right 55%, diagonal left edge */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/el-problema-hoy-rca.png"
-            alt="Análisis de causa raíz"
-            fill
-            className="object-cover object-center"
-            sizes="55vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
-          />
-        </div>
-
-        {/* Mobile image */}
-        <div className="relative h-52 w-full md:hidden">
-          <Image
-            src="/assets/el-problema-hoy-rca.png"
-            alt="Análisis de causa raíz"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Content — left side */}
-        <div
-          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
-          style={{ maxWidth: '52%' }}
-        >
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text content */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
             className="block font-bold uppercase text-red-500 mb-4"
             style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -158,7 +125,6 @@ export default function RCAPage() {
             style={{
               borderLeft: '4px solid #f87171',
               background: '#fff5f5',
-              borderRadius: '0 8px 8px 0',
               padding: '16px 20px',
             }}
           >
@@ -167,43 +133,41 @@ export default function RCAPage() {
             </p>
           </div>
         </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[480px]">
+          <Image
+            src="/assets/el-problema-hoy-rca.png"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+        </div>
+        </div>
       </section>
 
       {/* Qué hace este módulo - Interactive Features */}
       <RCAFeatures />
 
       {/* Beneficios operativos */}
-      <section className="relative overflow-hidden bg-white py-20 px-4">
-        {/* Background image — right side */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/Beneficios RCA.png"
-            alt="Análisis de causa raíz"
-            fill
-            className="object-cover object-center"
-            sizes="45vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
-          />
-        </div>
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text + benefit items */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
             Beneficios operativos
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10">
             Impacto en tu operación
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
+
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Menos tiempo preparando informes</h3>
@@ -212,10 +176,10 @@ export default function RCAPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Mejor calidad de análisis</h3>
@@ -224,10 +188,10 @@ export default function RCAPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Reducción de fallas recurrentes</h3>
@@ -236,10 +200,10 @@ export default function RCAPage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Decisiones técnicas mejor fundamentadas</h3>
@@ -249,6 +213,19 @@ export default function RCAPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[420px]">
+          <Image
+            src="/assets/Beneficios RCA.png"
+            alt="Análisis de causa raíz"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+        </div>
         </div>
       </section>
 
@@ -266,10 +243,10 @@ export default function RCAPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Equipos Críticos con Fallas Repetitivas */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <Renew size={24} className="text-purple-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Renew size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -280,9 +257,9 @@ export default function RCAPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Identifica y ataca la causa raíz real de fallas que afectan producción — no solo los síntomas.
               </p>
-              <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
-                <span className="text-purple-800 font-bold text-3xl block">-60%</span>
-                <span className="text-purple-700 text-sm">fallas recurrentes</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">-60%</span>
+                <span className="text-blue-700 text-sm">fallas recurrentes</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Fallas crónicas</span>
@@ -292,10 +269,10 @@ export default function RCAPage() {
             </div>
             
             {/* Card 2: Auditorías o Investigaciones Técnicas */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <Certificate size={24} className="text-purple-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Certificate size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -306,9 +283,9 @@ export default function RCAPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Genera documentación técnica trazable y defendible ante auditorías o revisiones internas.
               </p>
-              <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
-                <span className="text-purple-800 font-bold text-3xl block">100%</span>
-                <span className="text-purple-700 text-sm">trazabilidad</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">100%</span>
+                <span className="text-blue-700 text-sm">trazabilidad</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Auditorías</span>
@@ -318,10 +295,10 @@ export default function RCAPage() {
             </div>
             
             {/* Card 3: Equipos con Alta Carga Administrativa */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <Time size={24} className="text-purple-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Time size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -332,9 +309,9 @@ export default function RCAPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Automatiza la documentación para que tu equipo se enfoque en el análisis, no en los informes.
               </p>
-              <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
-                <span className="text-purple-800 font-bold text-3xl block">-70%</span>
-                <span className="text-purple-700 text-sm">tiempo en documentación</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">-70%</span>
+                <span className="text-blue-700 text-sm">tiempo en documentación</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Eficiencia</span>
@@ -344,10 +321,10 @@ export default function RCAPage() {
             </div>
             
             {/* Card 4: RCA Existe pero No Genera Cambios */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <TaskComplete size={24} className="text-purple-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <TaskComplete size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -358,9 +335,9 @@ export default function RCAPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Asegura que cada análisis genere acciones con responsable, fecha y seguimiento real.
               </p>
-              <div className="bg-purple-50 border-l-2 border-purple-600 px-4 py-3 mb-4">
-                <span className="text-purple-800 font-bold text-3xl block">95%</span>
-                <span className="text-purple-700 text-sm">acciones cerradas</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">95%</span>
+                <span className="text-blue-700 text-sm">acciones cerradas</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Acciones correctivas</span>
@@ -374,7 +351,7 @@ export default function RCAPage() {
           <div className="mt-12 text-center">
             <Link 
               href="#contacto" 
-              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
             >
               Agenda una Demo
               <ArrowRight size={20} />
@@ -386,9 +363,9 @@ export default function RCAPage() {
       {/* Consultoría Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-12 border-2 border-purple-200">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-purple-700 mb-4 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-4 block">
                 Servicio de consultoría
               </span>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -401,7 +378,7 @@ export default function RCAPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Network_3 size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Análisis RCA completo</h3>
@@ -411,7 +388,7 @@ export default function RCAPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Education size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Capacitación incluida</h3>
@@ -421,7 +398,7 @@ export default function RCAPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TaskComplete size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Revisión de análisis</h3>
@@ -431,7 +408,7 @@ export default function RCAPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Report size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Informe ejecutivo</h3>
@@ -444,7 +421,7 @@ export default function RCAPage() {
             <div className="text-center">
               <Link 
                 href="/#contacto" 
-                className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
               >
                 Solicitar cotización de consultoría
               </Link>
@@ -457,7 +434,7 @@ export default function RCAPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Elimina fallas recurrentes con análisis estructurados

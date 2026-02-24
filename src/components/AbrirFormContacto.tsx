@@ -64,7 +64,7 @@ const AbrirFormContacto: React.FC<
           onClick={() => setShowModal(true)}
         >
           <button
-            className={`w-full ${desktopClass} py-2.5 px-6 font-medium text-sm flex flex-row items-center justify-center gap-2 ${buttonColor} hover:opacity-90 transition-all rounded-lg`}
+            className={`w-full ${desktopClass} py-2.5 px-6 font-semibold text-sm flex flex-row items-center justify-center gap-2 ${buttonColor} hover:brightness-90 transition-all rounded-lg`}
           >
             <span className={`font-bold whitespace-nowrap ${textColor}`}>
               {buttonText}

@@ -11,13 +11,13 @@ interface ModuleStickyBannerProps {
 const moduleConfig = {
   registro: {
     icon: Catalog,
-    bgColor: "bg-teal-600",
-    borderColor: "border-teal-500",
+    bgColor: "bg-blue-600",
+    borderColor: "border-blue-500",
   },
   rca: {
     icon: Network_3,
-    bgColor: "bg-purple-600",
-    borderColor: "border-purple-500",
+    bgColor: "bg-blue-600",
+    borderColor: "border-blue-500",
   },
   rcm: {
     icon: DataStructured,

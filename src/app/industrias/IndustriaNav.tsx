@@ -6,8 +6,8 @@ import { Industry } from "@carbon/icons-react";
 
 const industries = [
   { id: "industria-oilygas",    label: "Oil & Gas",    icon: <Droplets size={16} />, activeColor: "text-amber-600 border-b-2 border-amber-500"  },
-  { id: "industria-energia",    label: "Energía",      icon: <Zap size={16} />,      activeColor: "text-yellow-600 border-b-2 border-yellow-500" },
-  { id: "industria-manufactura",label: "Manufactura",  icon: <Factory size={16} />,  activeColor: "text-teal-600 border-b-2 border-teal-500"    },
+  { id: "industria-energia",    label: "Energía",      icon: <Zap size={16} />,      activeColor: "text-gray-600 border-b-2 border-gray-500" },
+  { id: "industria-manufactura",label: "Manufactura",  icon: <Factory size={16} />,  activeColor: "text-blue-600 border-b-2 border-blue-500"    },
   { id: "industria-otras",      label: "Otras",        icon: <Industry size={16} />, activeColor: "text-gray-700 border-b-2 border-gray-400"     },
 ];
 

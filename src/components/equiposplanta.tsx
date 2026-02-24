@@ -50,7 +50,7 @@ export default function EquiposPlanta() {
         </div>
         <div className="absolute bottom-20 left-40">
           <IconWithTooltip
-            icon={<MdPending className="text-4xl text-yellow-500" />}
+            icon={<MdPending className="text-4xl text-gray-500" />}
             tooltipText="PENDIENTE REVISIÓN"
           />
         </div>

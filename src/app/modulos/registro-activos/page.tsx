@@ -28,17 +28,17 @@ export default function RegistroActivosPage() {
       <ModuleStickyBanner moduleName="Módulo Registro de Activos" moduleType="registro" />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white pt-32 pb-20 px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bgGestionActivos2.jpg"
+            src="/assets/Hero Taxonomia.png"
             alt="Gestión de activos industriales"
             fill
             className="object-cover opacity-15"
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}
         <div className="max-w-5xl mx-auto relative z-10">
@@ -65,44 +65,11 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* El problema hoy */}
-      <section
-        className="relative overflow-hidden bg-white"
-        style={{ minHeight: 520 }}
-      >
-        {/* Image — right 55%, diagonal left edge */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/bgGestionActivos2.jpg"
-            alt="Gestión de activos industriales"
-            fill
-            className="object-cover object-center"
-            sizes="55vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 40%)' }}
-          />
-        </div>
-
-        {/* Mobile image */}
-        <div className="relative h-52 w-full md:hidden">
-          <Image
-            src="/assets/bgGestionActivos2.jpg"
-            alt="Gestión de activos industriales"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Content — left side */}
-        <div
-          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
-          style={{ maxWidth: '52%' }}
-        >
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text content */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
             className="block font-bold uppercase text-red-500 mb-4"
             style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -157,7 +124,6 @@ export default function RegistroActivosPage() {
             style={{
               borderLeft: '4px solid #f87171',
               background: '#fff5f5',
-              borderRadius: '0 8px 8px 0',
               padding: '16px 20px',
             }}
           >
@@ -166,13 +132,26 @@ export default function RegistroActivosPage() {
             </p>
           </div>
         </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[480px]">
+          <Image
+            src="/assets/Problema taxonomia.png"
+            alt="Gestión de activos industriales"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+        </div>
+        </div>
       </section>
 
       {/* Por qué era tan difícil hacerlo bien */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-4 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               La realidad histórica
             </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -185,8 +164,8 @@ export default function RegistroActivosPage() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
-                <FolderDetails size={32} className="text-orange-600" />
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <FolderDetails size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Documentación fragmentada</h3>
               <p className="text-gray-700 flex-grow">
@@ -195,8 +174,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
-                <Time size={32} className="text-orange-600" />
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <Time size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Cientos de horas de trabajo</h3>
               <p className="text-gray-700 flex-grow">
@@ -205,8 +184,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
-                <DocumentMultiple_01 size={32} className="text-orange-600" />
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <DocumentMultiple_01 size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Archivos complicadísimos</h3>
               <p className="text-gray-700 flex-grow">
@@ -215,7 +194,7 @@ export default function RegistroActivosPage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500 rounded-r-xl p-8">
+          <div className="bg-gradient-to-r from-blue-50 to-red-50 border-l-4 border-blue-500 rounded-r-xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">El resultado actual:</h3>
             <p className="text-lg text-gray-800 mb-4">
               La mayoría de empresas tienen <strong>taxonomías deficientes</strong> que nunca cumplieron con estándares como ISO 14224 ni con políticas serias de gestión de activos.
@@ -231,37 +210,22 @@ export default function RegistroActivosPage() {
       <RegistroActivosFeatures />
 
       {/* Beneficios operativos */}
-      <section className="relative overflow-hidden bg-white py-20 px-4">
-        {/* Industrial background image — right side */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '45%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/bgGestionActivos.jpg"
-            alt="Planta industrial"
-            fill
-            className="object-cover object-center"
-            sizes="45vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 50%)' }}
-          />
-        </div>
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-green-600 mb-4 block">
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
+        {/* Left: text + benefit items */}
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
             Beneficios operativos
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10">
             Impacto en tu operación
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8" style={{ maxWidth: '58%' }}>
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Indicadores más confiables</h3>
@@ -272,8 +236,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Mejor control de activos</h3>
@@ -284,8 +248,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Menos carga administrativa futura</h3>
@@ -296,8 +260,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-green-600" />
+              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={24} className="text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Mayor calidad en decisiones de mantenimiento</h3>
@@ -307,6 +271,19 @@ export default function RegistroActivosPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right: image */}
+        <div className="relative min-h-[420px]">
+          <Image
+            src="/assets/bgGestionActivos.jpg"
+            alt="Planta industrial"
+            fill
+            className="object-cover object-center"
+            sizes="50vw"
+          />
+        </div>
+        </div>
         </div>
       </section>
 
@@ -324,10 +301,10 @@ export default function RegistroActivosPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Implementaciones de CMMS */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <Migrate size={24} className="text-teal-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Migrate size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -338,9 +315,9 @@ export default function RegistroActivosPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Estructura la taxonomía antes de cargar datos al CMMS y evita meses de limpieza después del arranque.
               </p>
-              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
-                <span className="text-teal-800 font-bold text-3xl block">6-12 meses</span>
-                <span className="text-teal-700 text-sm">ahorrados en limpieza de datos</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">6-12 meses</span>
+                <span className="text-blue-700 text-sm">ahorrados en limpieza de datos</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Migración</span>
@@ -350,10 +327,10 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 2: Plantas en Crecimiento */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <Growth size={24} className="text-teal-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Growth size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -364,9 +341,9 @@ export default function RegistroActivosPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Incorpora nuevos equipos con nomenclatura estandarizada sin romper la jerarquía existente.
               </p>
-              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
-                <span className="text-teal-800 font-bold text-3xl block">100%</span>
-                <span className="text-teal-700 text-sm">consistencia en taxonomía</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">100%</span>
+                <span className="text-blue-700 text-sm">consistencia en taxonomía</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Expansión</span>
@@ -375,10 +352,10 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 3: Data Histórica Desordenada */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <DataRefinery size={24} className="text-teal-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <DataRefinery size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -389,9 +366,9 @@ export default function RegistroActivosPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Consolida años de registros dispersos en una jerarquía limpia, sin duplicados ni inconsistencias.
               </p>
-              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
-                <span className="text-teal-800 font-bold text-3xl block">85%</span>
-                <span className="text-teal-700 text-sm">reducción en duplicados</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">85%</span>
+                <span className="text-blue-700 text-sm">reducción en duplicados</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">Limpieza</span>
@@ -400,10 +377,10 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 4: Profesionalizar Confiabilidad */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-400 transition-colors group">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <Certificate size={24} className="text-teal-600" />
+                <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Certificate size={24} className="text-blue-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-1">
@@ -414,9 +391,9 @@ export default function RegistroActivosPage() {
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Alinea tu base de activos con ISO 14224 y construye la base para indicadores de confiabilidad reales.
               </p>
-              <div className="bg-teal-50 border-l-2 border-teal-600 px-4 py-3 mb-4">
-                <span className="text-teal-800 font-bold text-3xl block">3x ROI</span>
-                <span className="text-teal-700 text-sm">en iniciativas de confiabilidad</span>
+              <div className="bg-blue-50 border-l-2 border-blue-600 px-4 py-3 mb-4">
+                <span className="text-blue-800 font-bold text-3xl block">3x ROI</span>
+                <span className="text-blue-700 text-sm">en iniciativas de confiabilidad</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1">ISO 14224</span>
@@ -430,7 +407,7 @@ export default function RegistroActivosPage() {
           <div className="mt-12 text-center">
             <Link 
               href="#contacto" 
-              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
             >
               Agenda una Demo
               <ArrowRight size={20} />
@@ -442,9 +419,9 @@ export default function RegistroActivosPage() {
       {/* Consultoría Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-12 border-2 border-teal-200">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-teal-700 mb-4 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-4 block">
                 Servicio de consultoría
               </span>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -457,7 +434,7 @@ export default function RegistroActivosPage() {
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Catalog size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Levantamiento completo</h3>
@@ -467,7 +444,7 @@ export default function RegistroActivosPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckmarkFilled size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Implementación garantizada</h3>
@@ -477,7 +454,7 @@ export default function RegistroActivosPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckmarkFilled size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Capacitación incluida</h3>
@@ -490,7 +467,7 @@ export default function RegistroActivosPage() {
             <div className="text-center">
               <Link 
                 href="/#contacto" 
-                className="inline-block bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
               >
                 Solicitar cotización de consultoría
               </Link>
@@ -503,7 +480,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-teal-600 to-teal-700 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Construye la base de datos de activos que tu planta necesita
@@ -516,7 +493,7 @@ export default function RegistroActivosPage() {
               href="https://app.reliaplant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold transition-all"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold transition-all"
             >
               Prueba Ahora
             </Link>
