@@ -91,7 +91,114 @@ export default function TerminosDeUsoPage() {
               </ul>
             </div>
 
-            {/* SECTIONS — added in subsequent tasks */}
+            {/* ── BLOCK A: GENERAL LEGAL FRAMEWORK ─────────────────── */}
+
+            <section id="introduccion" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                1. Introducción
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Reliaplant LLC ("Reliaplant", "nosotros") es una compañía constituida bajo las leyes
+                  del Estado de Wyoming, Estados Unidos. Estos Términos de Uso ("Términos") rigen el
+                  acceso y uso de la plataforma web Reliaplant, disponible en{" "}
+                  <span className="font-medium">app.reliaplant.com</span>, y todos sus módulos y
+                  servicios asociados (la "Plataforma").
+                </p>
+                <p>
+                  Al acceder o utilizar la Plataforma, usted ("Usuario") acepta quedar vinculado por
+                  estos Términos. Si actúa en representación de una empresa u organización, acepta
+                  estos Términos en nombre de dicha entidad ("Organización") y declara tener
+                  autorización para hacerlo.
+                </p>
+              </div>
+            </section>
+
+            <section id="aceptacion" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                2. Aceptación de los términos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  El uso de la Plataforma constituye la aceptación plena e irrestricta de estos
+                  Términos. Si no está de acuerdo con alguno de ellos, debe abstenerse de usar la
+                  Plataforma.
+                </p>
+                <p>
+                  Los menores de 18 años no pueden registrarse ni utilizar la Plataforma sin el
+                  consentimiento expreso de un representante legal autorizado. El uso por parte de
+                  personas menores de 13 años está estrictamente prohibido.
+                </p>
+              </div>
+            </section>
+
+            <section id="registro" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                3. Registro y cuenta de usuario
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Para acceder a las funcionalidades de la Plataforma, deberá crear una cuenta. Al
+                  registrarse, se compromete a:
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Proporcionar información veraz, precisa y completa.</li>
+                  <li>Mantener actualizada su información de cuenta en todo momento.</li>
+                  <li>Mantener la confidencialidad de sus credenciales de acceso.</li>
+                  <li>
+                    Notificar de inmediato a{" "}
+                    <a href="mailto:contacto@reliaplant.com" className="text-blue-600 hover:underline">
+                      contacto@reliaplant.com
+                    </a>{" "}
+                    ante cualquier acceso no autorizado a su cuenta.
+                  </li>
+                </ul>
+                <p>
+                  Cada cuenta es personal e intransferible. Usted es el único responsable de todas
+                  las actividades realizadas desde su cuenta, con o sin su conocimiento.
+                </p>
+              </div>
+            </section>
+
+            <section id="prohibiciones" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                4. Conductas prohibidas
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>Al usar la Plataforma, usted se compromete a no:</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Compartir sus credenciales de acceso con otras personas.</li>
+                  <li>Utilizar la Plataforma para fines ilegales o no autorizados.</li>
+                  <li>
+                    Intentar acceder a áreas restringidas del sistema, datos de otras Organizaciones
+                    o infraestructura de Reliaplant.
+                  </li>
+                  <li>
+                    Realizar ingeniería inversa, descompilar o intentar extraer el código fuente de
+                    la Plataforma.
+                  </li>
+                  <li>
+                    Cargar contenido malicioso, virus o código diseñado para interrumpir el
+                    funcionamiento del servicio.
+                  </li>
+                  <li>
+                    Realizar scraping, extracción masiva de datos o uso de bots automatizados sin
+                    autorización expresa por escrito de Reliaplant.
+                  </li>
+                  <li>
+                    Revender, sublicenciar o comercializar el acceso a la Plataforma sin
+                    autorización escrita de Reliaplant.
+                  </li>
+                </ul>
+                <p>
+                  El incumplimiento de estas prohibiciones podrá resultar en la suspensión o
+                  cancelación inmediata de la cuenta, sin perjuicio de las acciones legales que
+                  correspondan.
+                </p>
+              </div>
+            </section>
+
+            {/* SECTIONS 5-19 — added in subsequent tasks */}
 
           </article>
         </div>
