@@ -245,7 +245,11 @@ export default function TerminosDeUsoPage() {
                   Asistente IA sin costo adicional. Reliaplant se reserva el derecho de modificar
                   los precios con al menos 30 días de anticipación.
                 </p>
-                <div className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 p-3">
+                <div
+                  role="note"
+                  aria-label="Nota sobre descuento anual"
+                  className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 p-3"
+                >
                   <p>
                     <strong>Descuento anual:</strong> Al elegir facturación anual, obtiene un 15% de
                     descuento sobre el precio mensual. El descuento aplica también a los bloques de
@@ -372,7 +376,11 @@ export default function TerminosDeUsoPage() {
                     se eliminan de forma permanente e irrecuperable.
                   </li>
                 </ol>
-                <div className="bg-amber-50 border border-amber-200 border-l-4 border-l-amber-500 p-3">
+                <div
+                  role="note"
+                  aria-label="Nota sobre reactivación"
+                  className="bg-amber-50 border border-amber-200 border-l-4 border-l-amber-500 p-3"
+                >
                   <p>
                     <strong>Reactivación:</strong> Dentro de los 90 días posteriores a la
                     suspensión, puede reactivar su suscripción paga y recuperar el acceso a todos
