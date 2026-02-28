@@ -70,7 +70,7 @@ export default function RCMPage() {
       {/* El problema hoy */}
       <section className="py-10 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-        <div className="grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text content */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
@@ -156,7 +156,7 @@ export default function RCMPage() {
       {/* Beneficios operativos */}
       <section className="py-10 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-        <div className="grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text + benefit items */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">

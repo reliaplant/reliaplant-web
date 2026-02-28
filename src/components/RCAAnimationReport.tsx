@@ -2,12 +2,12 @@
 
 export default function RCAAnimationReport() {
   return (
-    <div style={{ width: "100%", minHeight: "400px", position: "relative" }}>
+    <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
         .rca-report-frame {
           width: 100%;
-          height: 400px;
+          height: 100%;
           border-radius: 8px;
           overflow: hidden;
           position: relative;

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Page — Propuestas de cambio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f3f4f6; margin: 0; }
+  .section-label {
+    position: sticky; top: 0; z-index: 50;
+    background: #1e293b; color: #fff;
+    padding: 10px 24px; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .badge-before { background: #ef4444; color: white; padding: 2px 10px; border-radius: 999px; font-size: 11px; }
+  .badge-after  { background: #22c55e; color: white; padding: 2px 10px; border-radius: 999px; font-size: 11px; }
+  .compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .col-before { border-right: 3px solid #ef4444; }
+  .col-after  { border-left: 3px solid #22c55e; }
+  .col-header { padding: 8px 16px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .col-header.before { background: #fee2e2; color: #b91c1c; }
+  .col-header.after  { background: #dcfce7; color: #15803d; }
+  .divider { height: 32px; background: #f3f4f6; border-top: 2px solid #e5e7eb; border-bottom: 2px solid #e5e7eb; display: flex; align-items: center; padding: 0 24px; font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ---- Shared styles ---- */
+  .checkmark { display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; }
+  svg { vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 1: EYEBROW DEL HERO -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 1 — Hero: eyebrow e ícono
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div class="col-header before">Antes — verde</div>
+    <div style="background: linear-gradient(135deg, #111827 0%, #1a1a2e 50%, #1e3a5f 100%); padding: 40px 32px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+        <!-- icon green -->
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><polyline points="4,24 12,14 20,18 28,8" stroke="#4ade80" stroke-width="2.5" fill="none"/><circle cx="28" cy="8" r="2" fill="#4ade80"/></svg>
+        <span style="color:#4ade80; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:.08em;">Retorno de Inversión</span>
+      </div>
+      <h1 style="color:white; font-size:36px; font-weight:700; margin:0 0 12px; line-height:1.2;">El retorno de invertir en confiabilidad bien aplicada</h1>
+      <p style="color:rgba(255,255,255,.8); font-size:16px; margin:0;">Nuestra plataforma fortalece los pilares de la confiabilidad...</p>
+    </div>
+  </div>
+  <div class="col-after">
+    <div class="col-header after">Después — azul</div>
+    <div style="background: linear-gradient(135deg, #111827 0%, #1a1a2e 50%, #1e3a5f 100%); padding: 40px 32px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+        <!-- icon blue -->
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><polyline points="4,24 12,14 20,18 28,8" stroke="#60a5fa" stroke-width="2.5" fill="none"/><circle cx="28" cy="8" r="2" fill="#60a5fa"/></svg>
+        <span style="color:#60a5fa; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:.08em;">Retorno de Inversión</span>
+      </div>
+      <h1 style="color:white; font-size:36px; font-weight:700; margin:0 0 12px; line-height:1.2;">El retorno de invertir en confiabilidad bien aplicada</h1>
+      <p style="color:rgba(255,255,255,.8); font-size:16px; margin:0;">Nuestra plataforma fortalece los pilares de la confiabilidad...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Hero bullet box -->
+<div class="divider">Hero — caja de bullets (rounded-xl → sin bordes redondeados + checkmarks azul)</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div style="background: linear-gradient(135deg, #111827 0%, #1a1a2e 50%, #1e3a5f 100%); padding: 24px 32px;">
+      <div style="background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:12px; padding:24px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#4ade80"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Menos fallas recurrentes</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#4ade80"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Mejores decisiones técnicas</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#4ade80"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Mayor disponibilidad operacional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-after">
+    <div style="background: linear-gradient(135deg, #111827 0%, #1a1a2e 50%, #1e3a5f 100%); padding: 24px 32px;">
+      <div style="background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); padding:24px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#60a5fa"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Menos fallas recurrentes</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#60a5fa"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Mejores decisiones técnicas</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#60a5fa"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="color:rgba(255,255,255,.9); font-size:15px;">Mayor disponibilidad operacional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 2: BARRA DESCARGABLE -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 2 — Barra "Descarga el resumen ejecutivo"
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div class="col-header before">Antes — bg-green-600</div>
+    <div style="background:#16a34a; padding:32px 32px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div style="width:56px;height:56px;background:rgba(255,255,255,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <div>
+            <p style="color:white;font-weight:700;font-size:17px;margin:0 0 4px;">Descarga el resumen ejecutivo</p>
+            <p style="color:rgba(255,255,255,.85);font-size:14px;margin:0;">Documento PDF para compartir con tu equipo directivo</p>
+          </div>
+        </div>
+        <a style="background:white;color:#15803d;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+          Descargar PDF
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-after">
+    <div class="col-header after">Después — bg-gray-900</div>
+    <div style="background:#111827; padding:32px 32px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div style="width:56px;height:56px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <div>
+            <p style="color:white;font-weight:700;font-size:17px;margin:0 0 4px;">Descarga el resumen ejecutivo</p>
+            <p style="color:rgba(255,255,255,.7);font-size:14px;margin:0;">Documento PDF para compartir con tu equipo directivo</p>
+          </div>
+        </div>
+        <a style="background:white;color:#2563eb;padding:10px 20px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+          Descargar PDF
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 3: TARJETAS "DÓNDE SE GENERA EL RETORNO" -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 3 — Tarjetas "Dónde se genera el retorno" (rounded + verde → cuadrado + azul)
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <!-- ANTES -->
+  <div class="col-before">
+    <div class="col-header before">Antes — mixto verde/azul, rounded-xl</div>
+    <div style="background:white; padding:32px 24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <!-- card blue -->
+      <div style="background:#eff6ff; border-radius:12px; padding:20px; border:1px solid #bfdbfe;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:44px;height:44px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span style="font-weight:700;font-size:15px;color:#111827;">Tiempo técnico recuperado</span>
+        </div>
+        <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">Equipos invierten horas en RCA manuales...</p>
+        <div style="background:white;border-radius:8px;padding:10px;">
+          <span style="font-size:11px;background:#dbeafe;color:#1d4ed8;padding:3px 8px;border-radius:4px;margin-right:4px;">Prevención</span>
+          <span style="font-size:11px;background:#dbeafe;color:#1d4ed8;padding:3px 8px;border-radius:4px;">Supervisión</span>
+        </div>
+      </div>
+      <!-- card green -->
+      <div style="background:#f0fdf4; border-radius:12px; padding:20px; border:1px solid #bbf7d0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:44px;height:44px;background:#dcfce7;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.6"/></svg>
+          </div>
+          <span style="font-weight:700;font-size:15px;color:#111827;">Menos fallas recurrentes</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#22c55e"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="font-size:13px;color:#374151;">Se reducen intervenciones repetitivas</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#22c55e"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="font-size:13px;color:#374151;">Mejora la disponibilidad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- DESPUÉS -->
+  <div class="col-after">
+    <div class="col-header after">Después — todo azul, sin rounded</div>
+    <div style="background:white; padding:32px 24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <!-- card blue -->
+      <div style="background:#eff6ff; padding:20px; border:1px solid #bfdbfe;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:44px;height:44px;background:#dbeafe;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span style="font-weight:700;font-size:15px;color:#111827;">Tiempo técnico recuperado</span>
+        </div>
+        <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">Equipos invierten horas en RCA manuales...</p>
+        <div style="background:white;padding:10px;border:1px solid #e5e7eb;">
+          <span style="font-size:11px;background:#dbeafe;color:#1d4ed8;padding:3px 8px;margin-right:4px;">Prevención</span>
+          <span style="font-size:11px;background:#dbeafe;color:#1d4ed8;padding:3px 8px;">Supervisión</span>
+        </div>
+      </div>
+      <!-- card formerly green, now blue -->
+      <div style="background:#eff6ff; padding:20px; border:1px solid #bfdbfe;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:44px;height:44px;background:#dbeafe;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.6"/></svg>
+          </div>
+          <span style="font-weight:700;font-size:15px;color:#111827;">Menos fallas recurrentes</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#2563eb"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="font-size:13px;color:#374151;">Se reducen intervenciones repetitivas</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#2563eb"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+          <span style="font-size:13px;color:#374151;">Mejora la disponibilidad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 4: SECCIÓN OSCURA "REDUCCIÓN DE RIESGO" -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 4 — Tarjetas oscuras "Reducción de riesgo" (rounded-xl → sin bordes redondeados + verde → azul)
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div class="col-header before">Antes — rounded-xl, una tarjeta con ícono verde</div>
+    <div style="background:#111827; padding:32px 24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" style="margin-bottom:10px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p style="font-weight:600;font-size:15px;color:white;margin:0 0 6px;">Continuidad operacional</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin:0;">Mantener la operación funcionando sin interrupciones</p>
+      </div>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:20px;">
+        <!-- green icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" style="margin-bottom:10px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p style="font-weight:600;font-size:15px;color:white;margin:0 0 6px;">Seguridad industrial</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin:0;">Prevenir incidentes que afecten personas</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-after">
+    <div class="col-header after">Después — sin rounded, íconos todos azul</div>
+    <div style="background:#111827; padding:32px 24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" style="margin-bottom:10px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p style="font-weight:600;font-size:15px;color:white;margin:0 0 6px;">Continuidad operacional</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin:0;">Mantener la operación funcionando sin interrupciones</p>
+      </div>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:20px;">
+        <!-- blue icon now -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" style="margin-bottom:10px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p style="font-weight:600;font-size:15px;color:white;margin:0 0 6px;">Seguridad industrial</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin:0;">Prevenir incidentes que afecten personas</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 5: SEGUNDO CTA DESCARGABLE -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 5 — Segundo CTA descargable (gradiente verde/azul → white + border)
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div class="col-header before">Antes — gradiente green-50→blue-50, rounded-xl, botón verde</div>
+    <div style="background:white; padding:32px 24px;">
+      <div style="background:linear-gradient(to right, #f0fdf4, #eff6ff); border:1px solid #bbf7d0; border-radius:12px; padding:32px; display:flex; gap:24px; align-items:center;">
+        <div style="flex:1;">
+          <h3 style="font-size:20px;font-weight:700;color:#111827;margin:0 0 8px;">¿Necesitas presentar esto a tu equipo directivo?</h3>
+          <p style="font-size:14px;color:#4b5563;margin:0 0 12px;">Descarga nuestro resumen ejecutivo con los puntos clave...</p>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="#22c55e"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+            <span style="font-size:13px;color:#374151;">Formato ejecutivo (2 páginas)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="#22c55e"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+            <span style="font-size:13px;color:#374151;">Enfocado en impacto operativo</span>
+          </div>
+          <a style="background:#16a34a;color:white;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+            Descargar resumen ejecutivo
+          </a>
+        </div>
+        <div style="width:120px;height:150px;background:#e5e7eb;border-radius:8px;flex-shrink:0;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(21,128,61,.6), transparent);display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+            <span style="color:white;font-size:11px;font-weight:600;">ROI Confiabilidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-after">
+    <div class="col-header after">Después — bg-white border-gray-200, sin rounded, botón azul</div>
+    <div style="background:white; padding:32px 24px;">
+      <div style="background:white; border:1px solid #e5e7eb; padding:32px; display:flex; gap:24px; align-items:center;">
+        <div style="flex:1;">
+          <h3 style="font-size:20px;font-weight:700;color:#111827;margin:0 0 8px;">¿Necesitas presentar esto a tu equipo directivo?</h3>
+          <p style="font-size:14px;color:#4b5563;margin:0 0 12px;">Descarga nuestro resumen ejecutivo con los puntos clave...</p>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="#2563eb"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+            <span style="font-size:13px;color:#374151;">Formato ejecutivo (2 páginas)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="#2563eb"><circle cx="10" cy="10" r="9"/><polyline points="6,10 9,13 14,7" stroke="white" stroke-width="2" fill="none"/></svg>
+            <span style="font-size:13px;color:#374151;">Enfocado en impacto operativo</span>
+          </div>
+          <a style="background:#2563eb;color:white;padding:10px 20px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+            Descargar resumen ejecutivo
+          </a>
+        </div>
+        <div style="width:120px;height:150px;background:#e5e7eb;flex-shrink:0;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(17,24,39,.6), transparent);display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+            <span style="color:white;font-size:11px;font-weight:600;">ROI Confiabilidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CAMBIO 6: CTA FINAL -->
+<!-- ============================================================ -->
+<div class="section-label">
+  Cambio 6 — CTA Final (gradiente azul → bg-gray-900)
+  <span class="badge-before">ANTES</span><span class="badge-after">DESPUÉS</span>
+</div>
+<div class="compare-wrap">
+  <div class="col-before">
+    <div class="col-header before">Antes — gradient from-blue-600 to-blue-700</div>
+    <div style="background:linear-gradient(to right, #2563eb, #1d4ed8); padding:48px 32px; text-align:center;">
+      <h2 style="color:white;font-size:32px;font-weight:700;margin:0 0 12px;">¿Quieres evaluar el impacto en tu operación?</h2>
+      <p style="color:rgba(255,255,255,.85);font-size:16px;margin:0 0 24px;">Podemos hacer un diagnóstico inicial para identificar oportunidades de mejora.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a style="background:white;color:#2563eb;padding:12px 24px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">Solicita un diagnóstico</a>
+        <a style="background:transparent;color:white;padding:12px 24px;border:1px solid white;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">Agenda una demo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-after">
+    <div class="col-header after">Después — bg-gray-900 (igual que el hero y otros dark bars)</div>
+    <div style="background:#111827; padding:48px 32px; text-align:center;">
+      <h2 style="color:white;font-size:32px;font-weight:700;margin:0 0 12px;">¿Quieres evaluar el impacto en tu operación?</h2>
+      <p style="color:rgba(255,255,255,.85);font-size:16px;margin:0 0 24px;">Podemos hacer un diagnóstico inicial para identificar oportunidades de mejora.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a style="background:white;color:#2563eb;padding:12px 24px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">Solicita un diagnóstico</a>
+        <a style="background:transparent;color:white;padding:12px 24px;border:1px solid rgba(255,255,255,.5);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">Agenda una demo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Summary footer -->
+<div style="background:#1e293b; color:rgba(255,255,255,.7); padding:24px 32px; font-size:13px; line-height:1.8; margin-top:4px;">
+  <strong style="color:white;">Resumen de cambios:</strong><br>
+  1 · Eyebrow + ícono hero: <code style="color:#fbbf24;">text-green-400</code> → <code style="color:#86efac;">text-blue-400</code> &nbsp;|&nbsp;
+  2 · Barra descargable: <code style="color:#fbbf24;">bg-green-600</code> → <code style="color:#86efac;">bg-gray-900</code><br>
+  3 · Tarjetas retorno: verde → azul + quitar <code style="color:#fbbf24;">rounded-xl/lg</code> &nbsp;|&nbsp;
+  4 · Tarjetas oscuras: verde → azul + quitar <code style="color:#fbbf24;">rounded-xl</code><br>
+  5 · Segundo CTA: gradiente verde → blanco + <code style="color:#fbbf24;">border-gray-200</code> + botón azul &nbsp;|&nbsp;
+  6 · CTA final: gradiente azul → <code style="color:#86efac;">bg-gray-900</code>
+</div>
+
+</body>
+</html>

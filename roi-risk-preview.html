@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sección "Reducción de Riesgo" — Opciones de imagen</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'Inter', sans-serif; background: #f3f4f6; }
+
+  .page-header {
+    background: #1e293b; color: white; padding: 20px 32px;
+    font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .block-header {
+    background: #334155; color: #94a3b8;
+    padding: 12px 32px; font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .block-num {
+    width: 22px; height: 22px; background: #3b82f6; color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; flex-shrink: 0;
+  }
+
+  /* ---- Layout preview ---- */
+  .layout-preview {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid #e5e7eb; background: white; margin: 0;
+    height: 340px;
+  }
+  .layout-preview.reverse { direction: rtl; }
+  .layout-preview.reverse > * { direction: ltr; }
+
+  .text-panel {
+    padding: 36px 40px; display: flex; flex-direction: column;
+    justify-content: center; border-right: 1px solid #e5e7eb;
+  }
+  .layout-preview.reverse .text-panel { border-right: none; border-left: 1px solid #e5e7eb; }
+
+  .eyebrow {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .12em; color: #2563eb; margin-bottom: 10px;
+  }
+  .block-title {
+    font-size: 22px; font-weight: 800; color: #111827; line-height: 1.25; margin-bottom: 12px;
+  }
+  .block-desc { font-size: 14px; color: #6b7280; line-height: 1.65; margin-bottom: 16px; }
+  .block-details { list-style: none; }
+  .block-details li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: #374151; margin-bottom: 7px;
+  }
+  .check {
+    width: 15px; height: 15px; background: #2563eb;
+    flex-shrink: 0; clip-path: polygon(20% 50%, 40% 70%, 80% 25%, 90% 35%, 40% 85%, 10% 60%);
+  }
+
+  .img-panel { position: relative; overflow: hidden; background: #e5e7eb; }
+  .img-panel img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+  /* ---- Options grid ---- */
+  .options-section {
+    background: #f8fafc; padding: 16px 32px 24px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .options-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .1em; color: #94a3b8; margin-bottom: 12px;
+  }
+  .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .option-item { cursor: pointer; }
+  .option-thumb {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center;
+    border: 2px solid transparent; display: block;
+    transition: border-color .15s;
+  }
+  .option-item:hover .option-thumb { border-color: #3b82f6; }
+  .option-name {
+    font-size: 11px; color: #64748b; margin-top: 4px;
+    font-weight: 500; text-align: center;
+  }
+
+  .spacer { height: 32px; background: #f3f4f6; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  Sección "Más que ahorro inmediato: reducción de riesgo" — selecciona imagen por bloque
+</div>
+
+<!-- ==================== BLOQUE 1: CONTINUIDAD OPERACIONAL ==================== -->
+<div class="block-header">
+  <div class="block-num">1</div>
+  Continuidad operacional — texto izquierda / imagen derecha
+</div>
+
+<div class="layout-preview">
+  <div class="text-panel">
+    <p class="eyebrow">Reducción de riesgo</p>
+    <h2 class="block-title">Continuidad operacional</h2>
+    <p class="block-desc">Mantener la operación funcionando sin interrupciones inesperadas gracias a estrategias de mantenimiento bien fundamentadas.</p>
+    <ul class="block-details">
+      <li><span class="check"></span> Menos paradas no planificadas</li>
+      <li><span class="check"></span> Mayor disponibilidad de equipos críticos</li>
+      <li><span class="check"></span> Planes de mantenimiento basados en criticidad</li>
+    </ul>
+  </div>
+  <div class="img-panel" id="preview1">
+    <img src="/assets/planta.jpg" alt="preview" id="img-preview1" />
+  </div>
+</div>
+
+<div class="options-section">
+  <p class="options-label">Selecciona la imagen para este bloque:</p>
+  <div class="options-grid">
+    <div class="option-item" onclick="setImg('img-preview1','planta.jpg')">
+      <img class="option-thumb" src="/assets/planta.jpg" alt="planta.jpg" />
+      <p class="option-name">planta.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview1','bgKPIs.jpg')">
+      <img class="option-thumb" src="/assets/bgKPIs.jpg" alt="bgKPIs.jpg" />
+      <p class="option-name">bgKPIs.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview1','bgRCM.jpg')">
+      <img class="option-thumb" src="/assets/bgRCM.jpg" alt="bgRCM.jpg" />
+      <p class="option-name">bgRCM.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview1','flare.jpg')">
+      <img class="option-thumb" src="/assets/flare.jpg" alt="flare.jpg" />
+      <p class="option-name">flare.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview1','bgPerformance.jpg')">
+      <img class="option-thumb" src="/assets/bgPerformance.jpg" alt="bgPerformance.jpg" />
+      <p class="option-name">bgPerformance.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview1','engineeringRoom.jpg')">
+      <img class="option-thumb" src="/assets/engineeringRoom.jpg" alt="engineeringRoom.jpg" />
+      <p class="option-name">engineeringRoom.jpg</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ==================== BLOQUE 2: SEGURIDAD INDUSTRIAL ==================== -->
+<div class="block-header">
+  <div class="block-num">2</div>
+  Seguridad industrial — imagen izquierda / texto derecha
+</div>
+
+<div class="layout-preview reverse">
+  <div class="text-panel">
+    <p class="eyebrow">Reducción de riesgo</p>
+    <h2 class="block-title">Seguridad industrial</h2>
+    <p class="block-desc">Prevenir incidentes que afecten personas o instalaciones mediante estrategias que consideren el riesgo desde su origen.</p>
+    <ul class="block-details">
+      <li><span class="check"></span> RCM orientado a seguridad funcional</li>
+      <li><span class="check"></span> Identificación de modos de falla críticos</li>
+      <li><span class="check"></span> Trazabilidad de decisiones de mantenimiento</li>
+    </ul>
+  </div>
+  <div class="img-panel">
+    <img src="/assets/Ingeniero Inspeccion.png" alt="preview" id="img-preview2" />
+  </div>
+</div>
+
+<div class="options-section">
+  <p class="options-label">Selecciona la imagen para este bloque:</p>
+  <div class="options-grid">
+    <div class="option-item" onclick="setImg('img-preview2','Ingeniero Inspeccion.png')">
+      <img class="option-thumb" src="/assets/Ingeniero Inspeccion.png" alt="" />
+      <p class="option-name">Ingeniero Inspeccion.png</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview2','Ingeniero Inspeccion copy.png')">
+      <img class="option-thumb" src="/assets/Ingeniero Inspeccion copy.png" alt="" />
+      <p class="option-name">Ingeniero Inspeccion copy.png</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview2','bgPersonal.jpg')">
+      <img class="option-thumb" src="/assets/bgPersonal.jpg" alt="" />
+      <p class="option-name">bgPersonal.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview2','consultor1.jpg')">
+      <img class="option-thumb" src="/assets/consultor1.jpg" alt="" />
+      <p class="option-name">consultor1.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview2','pegandotag.jpeg')">
+      <img class="option-thumb" src="/assets/pegandotag.jpeg" alt="" />
+      <p class="option-name">pegandotag.jpeg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview2','bgACR.jpg')">
+      <img class="option-thumb" src="/assets/bgACR.jpg" alt="" />
+      <p class="option-name">bgACR.jpg</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ==================== BLOQUE 3: CUMPLIMIENTO REGULATORIO ==================== -->
+<div class="block-header">
+  <div class="block-num">3</div>
+  Cumplimiento regulatorio — texto izquierda / imagen derecha
+</div>
+
+<div class="layout-preview">
+  <div class="text-panel">
+    <p class="eyebrow">Reducción de riesgo</p>
+    <h2 class="block-title">Cumplimiento regulatorio</h2>
+    <p class="block-desc">Satisfacer requisitos normativos y auditorías con documentación trazable y procesos estandarizados.</p>
+    <ul class="block-details">
+      <li><span class="check"></span> Registro completo de decisiones técnicas</li>
+      <li><span class="check"></span> Evidencia auditable de los análisis</li>
+      <li><span class="check"></span> Estandarización de procesos de confiabilidad</li>
+    </ul>
+  </div>
+  <div class="img-panel">
+    <img src="/assets/bgProcedimientos.jpg" alt="preview" id="img-preview3" />
+  </div>
+</div>
+
+<div class="options-section">
+  <p class="options-label">Selecciona la imagen para este bloque:</p>
+  <div class="options-grid">
+    <div class="option-item" onclick="setImg('img-preview3','bgProcedimientos.jpg')">
+      <img class="option-thumb" src="/assets/bgProcedimientos.jpg" alt="" />
+      <p class="option-name">bgProcedimientos.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview3','bgResponsabilidades.jpg')">
+      <img class="option-thumb" src="/assets/bgResponsabilidades.jpg" alt="" />
+      <p class="option-name">bgResponsabilidades.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview3','bgEstrategias.jpg')">
+      <img class="option-thumb" src="/assets/bgEstrategias.jpg" alt="" />
+      <p class="option-name">bgEstrategias.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview3','consultor2.jpg')">
+      <img class="option-thumb" src="/assets/consultor2.jpg" alt="" />
+      <p class="option-name">consultor2.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview3','bgDiagnostico.jpg')">
+      <img class="option-thumb" src="/assets/bgDiagnostico.jpg" alt="" />
+      <p class="option-name">bgDiagnostico.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview3','bgSoftware.jpg')">
+      <img class="option-thumb" src="/assets/bgSoftware.jpg" alt="" />
+      <p class="option-name">bgSoftware.jpg</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ==================== BLOQUE 4: ESTABILIDAD PRODUCTIVA ==================== -->
+<div class="block-header">
+  <div class="block-num">4</div>
+  Estabilidad productiva — imagen izquierda / texto derecha
+</div>
+
+<div class="layout-preview reverse">
+  <div class="text-panel">
+    <p class="eyebrow">Reducción de riesgo</p>
+    <h2 class="block-title">Estabilidad productiva</h2>
+    <p class="block-desc">Producción predecible y consistente gracias a activos gestionados con criterio técnico y datos confiables.</p>
+    <ul class="block-details">
+      <li><span class="check"></span> Indicadores de desempeño trazables</li>
+      <li><span class="check"></span> Reducción de variabilidad en producción</li>
+      <li><span class="check"></span> Decisiones respaldadas en datos históricos</li>
+    </ul>
+  </div>
+  <div class="img-panel">
+    <img src="/assets/bgManufactura.jpg" alt="preview" id="img-preview4" />
+  </div>
+</div>
+
+<div class="options-section">
+  <p class="options-label">Selecciona la imagen para este bloque:</p>
+  <div class="options-grid">
+    <div class="option-item" onclick="setImg('img-preview4','bgManufactura.jpg')">
+      <img class="option-thumb" src="/assets/bgManufactura.jpg" alt="" />
+      <p class="option-name">bgManufactura.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview4','bgManufactura.jpeg')">
+      <img class="option-thumb" src="/assets/bgManufactura.jpeg" alt="" />
+      <p class="option-name">bgManufactura.jpeg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview4','bgPerformance3.jpg')">
+      <img class="option-thumb" src="/assets/bgPerformance3.jpg" alt="" />
+      <p class="option-name">bgPerformance3.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview4','tubocompresor.webp')">
+      <img class="option-thumb" src="/assets/tubocompresor.webp" alt="" />
+      <p class="option-name">tubocompresor.webp</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview4','bgDigitalizacion.jpg')">
+      <img class="option-thumb" src="/assets/bgDigitalizacion.jpg" alt="" />
+      <p class="option-name">bgDigitalizacion.jpg</p>
+    </div>
+    <div class="option-item" onclick="setImg('img-preview4','bgGestionActivos.jpg')">
+      <img class="option-thumb" src="/assets/bgGestionActivos.jpg" alt="" />
+      <p class="option-name">bgGestionActivos.jpg</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:#1e293b; color:rgba(255,255,255,.5); padding:16px 32px; font-size:12px; margin-top:2px;">
+  Haz click en cualquier miniatura para ver cómo queda en el bloque. Dile a Claude cuál imagen elegiste para cada bloque (ej: "bloque 1: bgKPIs, bloque 2: Ingeniero Inspeccion...").
+</div>
+
+<script>
+function setImg(imgId, src) {
+  document.getElementById(imgId).src = '/assets/' + src;
+}
+</script>
+</body>
+</html>

@@ -8,7 +8,7 @@ export default function RCAAnimationDashboard() {
 
         .rca-dash-frame {
           width: 100%;
-          height: 400px;
+          height: 100%;
           position: relative;
           background: #f9fafb;
           font-family: 'IBM Plex Sans', sans-serif;

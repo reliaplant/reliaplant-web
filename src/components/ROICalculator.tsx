@@ -9,48 +9,39 @@ import {
   Information,
 } from "@carbon/icons-react";
 
+// Costo promedio de un ingeniero de mantenimiento en Latinoamérica (USD/hora)
+const ENGINEER_HOURLY_COST = 25;
+
 interface CalculatorInputs {
-  // RCA
   rcaPerMonth: number;
   hoursPerRCA: number;
-  engineerHourlyCost: number;
-  rcaTimeReduction: number;
-  // RCM
   rcmEquipmentsPerYear: number;
   hoursPerRCMManual: number;
-  rcmAdminReduction: number;
-  // Taxonomía
   criticalAssets: number;
   hoursSearchingData: number;
-  taxonomyReduction: number;
 }
 
 export default function ROICalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>({
     rcaPerMonth: 4,
     hoursPerRCA: 16,
-    engineerHourlyCost: 50,
-    rcaTimeReduction: 60,
     rcmEquipmentsPerYear: 10,
     hoursPerRCMManual: 40,
-    rcmAdminReduction: 60,
     criticalAssets: 500,
     hoursSearchingData: 200,
-    taxonomyReduction: 60,
   });
 
   const results = useMemo(() => {
-    // RCA savings
     const annualRCAHours = inputs.rcaPerMonth * 12 * inputs.hoursPerRCA;
     const rcaHoursSaved = annualRCAHours * 0.6;
-    const rcaSavings = rcaHoursSaved * inputs.engineerHourlyCost;
+    const rcaSavings = rcaHoursSaved * ENGINEER_HOURLY_COST;
 
     const annualRCMHours = inputs.rcmEquipmentsPerYear * inputs.hoursPerRCMManual;
     const rcmHoursSaved = annualRCMHours * 0.6;
-    const rcmSavings = rcmHoursSaved * inputs.engineerHourlyCost;
+    const rcmSavings = rcmHoursSaved * ENGINEER_HOURLY_COST;
 
     const taxonomyHoursSaved = inputs.hoursSearchingData * 0.6;
-    const taxonomySavings = taxonomyHoursSaved * inputs.engineerHourlyCost;
+    const taxonomySavings = taxonomyHoursSaved * ENGINEER_HOURLY_COST;
 
     const totalHoursSaved = rcaHoursSaved + rcmHoursSaved + taxonomyHoursSaved;
     const totalSavings = rcaSavings + rcmSavings + taxonomySavings;
@@ -80,155 +71,199 @@ export default function ROICalculator() {
   };
 
   return (
-    <section className="py-20 px-4 bg-[radial-gradient(circle_at_top_left,#fff7ed,transparent_45%),radial-gradient(circle_at_bottom_right,#e0f2fe,transparent_45%)]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <Calculator size={32} className="text-blue-600" />
-            <h2 className="text-3xl font-bold text-gray-900 font-serif">
-              Calculadora de Impacto
-            </h2>
-          </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Estima el ahorro potencial en horas técnicas al implementar la
-            plataforma en tu operación
+    <section className="py-20 px-4 bg-white border-t border-gray-200">
+      <div className="max-w-5xl mx-auto">
+
+        {/* Header */}
+        <div className="max-w-5xl mx-auto px-4 mb-10">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-blue-600 mb-2">
+            Calculadora
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-            <span className="text-xs uppercase tracking-widest text-slate-600 bg-white/70 border border-slate-200 rounded-full px-3 py-1">
-              Supuesto base: 60% reducción
-            </span>
-            <span className="text-xs uppercase tracking-widest text-slate-600 bg-white/70 border border-slate-200 rounded-full px-3 py-1">
-              Resultados anuales
-            </span>
-          </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            Estima el impacto en tu operación
+          </h2>
+          <p className="text-gray-500 text-base">
+            Ajusta los parámetros de tu equipo para ver el ahorro estimado anual en horas técnicas.{" "}
+            <span className="text-gray-400">Supuesto base: 60% reducción.</span>
+          </p>
+          <p className="text-xs text-gray-400 mt-2">
+            Estos valores reflejan únicamente las <strong className="text-gray-500">contribuciones directas</strong> — tiempo técnico recuperado en RCA, RCM y gestión de activos. Los beneficios indirectos (disponibilidad de planta, reducción de fallas recurrentes, decisiones de mayor calidad) no están incluidos en este cálculo.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8">
-          {/* Inputs */}
-          <div className="bg-white/90 rounded-2xl p-8 shadow-lg border border-slate-200">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Calculator size={24} className="text-blue-600" />
-              Parámetros de tu operación
-            </h3>
-            <div className="space-y-4">
-              {/* RCA */}
-              <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
-                <div className="flex items-center gap-2 text-blue-700 mb-3">
-                  <ChartLineData size={18} />
-                  <h4 className="text-base font-semibold">RCA</h4>
+        {/* Main grid */}
+        <div className="grid lg:grid-cols-[1fr_480px] border border-gray-200">
+
+          {/* LEFT — Inputs */}
+          <div className="border-b lg:border-b-0 lg:border-r border-gray-200">
+
+            {/* RCA block */}
+            <div className="border-b border-gray-200 px-8 py-7">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <ChartLineData size={16} />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">RCA por mes</label>
-                    <input type="number" min="0" value={inputs.rcaPerMonth} onChange={e => handleInputChange("rcaPerMonth", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Horas por RCA</label>
-                    <input type="number" min="0" value={inputs.hoursPerRCA} onChange={e => handleInputChange("hoursPerRCA", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Costo hora (USD)</label>
-                    <input type="number" min="0" value={inputs.engineerHourlyCost} onChange={e => handleInputChange("engineerHourlyCost", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
-                  </div>
-                </div>
-              </div>
-              {/* RCM */}
-              <div className="rounded-xl border border-sky-200 bg-sky-50/60 p-4">
-                <div className="flex items-center gap-2 text-sky-700 mb-3">
-                  <Time size={18} />
-                  <h4 className="text-base font-semibold">RCM</h4>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Equipos analizados al año</label>
-                    <input type="number" min="0" value={inputs.rcmEquipmentsPerYear} onChange={e => handleInputChange("rcmEquipmentsPerYear", Number(e.target.value))} className="w-full px-3 py-2 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Horas por RCM manual</label>
-                    <input type="number" min="0" value={inputs.hoursPerRCMManual} onChange={e => handleInputChange("hoursPerRCMManual", Number(e.target.value))} className="w-full px-3 py-2 border border-sky-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-white" />
-                  </div>
-                </div>
-              </div>
-              {/* Taxonomía */}
-              <div className="rounded-xl border border-blue-200 bg-blue-50/60 p-4">
-                <div className="flex items-center gap-2 text-blue-700 mb-3">
-                  <DataStructured size={18} />
-                  <h4 className="text-base font-semibold">Taxonomía</h4>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Activos críticos</label>
-                    <input type="number" min="0" value={inputs.criticalAssets} onChange={e => handleInputChange("criticalAssets", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Horas/año buscando datos</label>
-                    <input type="number" min="0" value={inputs.hoursSearchingData} onChange={e => handleInputChange("hoursSearchingData", Number(e.target.value))} className="w-full px-3 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Resultados */}
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
-              <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-slate-500">Impacto estimado anual</p>
-                  <h3 className="text-2xl font-bold text-slate-900 font-serif">Resultado consolidado</h3>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-slate-500">Inventario de activos</p>
-                  <p className="text-sm font-semibold text-slate-800">{inputs.criticalAssets} críticos</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Módulo</p>
+                  <h4 className="font-bold text-gray-900 text-sm leading-tight">Análisis de Causa Raíz (RCA)</h4>
                 </div>
               </div>
-
-              <div className="mt-5 rounded-xl bg-slate-900 text-white p-5">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-white/70">Ahorro total estimado</span>
-                  <span className="text-2xl font-bold">{formatCurrency(results.totalSavings)}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">RCA por mes</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.rcaPerMonth}
+                    onChange={e => handleInputChange("rcaPerMonth", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
                 </div>
-                <div className="flex items-center justify-between mt-2">
-                  <span className="text-sm text-white/70">Horas recuperadas</span>
-                  <span className="text-xl font-semibold text-emerald-300">{results.totalHoursSaved} horas</span>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Horas por RCA</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.hoursPerRCA}
+                    onChange={e => handleInputChange("hoursPerRCA", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
                 </div>
-                <p className="text-xs text-white/50 mt-2">Equivale a ~{Math.round(results.totalHoursSaved / 160)} meses de trabajo técnico</p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
-                <div className="rounded-lg border border-blue-200 bg-blue-50/70 p-4">
-                  <p className="text-xs uppercase tracking-widest text-blue-700">RCA</p>
-                  <p className="text-sm text-slate-600 mt-1">{results.rcaHoursSaved} horas</p>
-                  <p className="text-base font-semibold text-slate-900">{formatCurrency(results.rcaSavings)}</p>
-                </div>
-                <div className="rounded-lg border border-sky-200 bg-sky-50/70 p-4">
-                  <p className="text-xs uppercase tracking-widest text-sky-700">RCM</p>
-                  <p className="text-sm text-slate-600 mt-1">{results.rcmHoursSaved} horas</p>
-                  <p className="text-base font-semibold text-slate-900">{formatCurrency(results.rcmSavings)}</p>
-                </div>
-                <div className="rounded-lg border border-blue-200 bg-blue-50/70 p-4">
-                  <p className="text-xs uppercase tracking-widest text-blue-700">Taxonomía</p>
-                  <p className="text-sm text-slate-600 mt-1">{results.taxonomyHoursSaved} horas</p>
-                  <p className="text-base font-semibold text-slate-900">{formatCurrency(results.taxonomySavings)}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg mt-5">
-                <Information size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-800">Estimación referencial basada en experiencia industrial. El impacto real depende de cada operación, madurez del equipo y complejidad de los activos.</p>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h4 className="text-sm uppercase tracking-widest text-slate-500">Beneficios indirectos</h4>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                <li className="flex items-start gap-2"><span className="text-emerald-500">+</span><span>Reducción de fallas recurrentes</span></li>
-                <li className="flex items-start gap-2"><span className="text-emerald-500">+</span><span>Mayor disponibilidad de equipos</span></li>
-                <li className="flex items-start gap-2"><span className="text-emerald-500">+</span><span>Mejores decisiones de mantenimiento</span></li>
-                <li className="flex items-start gap-2"><span className="text-emerald-500">+</span><span>Reducción de riesgo operacional</span></li>
-              </ul>
+            {/* RCM block */}
+            <div className="border-b border-gray-200 px-8 py-7">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <Time size={16} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Módulo</p>
+                  <h4 className="font-bold text-gray-900 text-sm leading-tight">Mantenimiento Centrado en Confiabilidad (RCM)</h4>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Equipos analizados al año</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.rcmEquipmentsPerYear}
+                    onChange={e => handleInputChange("rcmEquipmentsPerYear", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Horas por RCM manual</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.hoursPerRCMManual}
+                    onChange={e => handleInputChange("hoursPerRCMManual", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
+                </div>
+              </div>
             </div>
+
+            {/* Taxonomía block */}
+            <div className="px-8 py-7">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <DataStructured size={16} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Módulo</p>
+                  <h4 className="font-bold text-gray-900 text-sm leading-tight">Registro de Activos</h4>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Activos críticos</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.criticalAssets}
+                    onChange={e => handleInputChange("criticalAssets", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Horas/año buscando datos</label>
+                  <input
+                    type="number" min="0"
+                    value={inputs.hoursSearchingData}
+                    onChange={e => handleInputChange("hoursSearchingData", Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* RIGHT — Results */}
+          <div className="flex flex-col bg-gray-50">
+
+            {/* Total */}
+            <div className="bg-gray-900 text-white px-8 py-8 flex-shrink-0">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-white/50 mb-3">
+                Ahorro estimado anual
+              </p>
+              <p className="text-4xl font-extrabold text-white leading-none mb-2">
+                {formatCurrency(results.totalSavings)}
+              </p>
+              <p className="text-sm text-white/60">
+                {results.totalHoursSaved} horas técnicas recuperadas
+              </p>
+              <p className="text-xs text-white/40 mt-1">
+                ≈ {Math.round(results.totalHoursSaved / 160)} meses de trabajo técnico
+              </p>
+            </div>
+
+            {/* Breakdown */}
+            <div className="flex-1 divide-y divide-gray-200">
+              <div className="px-8 py-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <ChartLineData size={14} className="text-blue-600" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">RCA</span>
+                </div>
+                <div className="flex items-end justify-between">
+                  <span className="text-sm text-gray-500">{results.rcaHoursSaved} horas</span>
+                  <span className="text-lg font-bold text-gray-900">{formatCurrency(results.rcaSavings)}</span>
+                </div>
+              </div>
+
+              <div className="px-8 py-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Time size={14} className="text-blue-600" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">RCM</span>
+                </div>
+                <div className="flex items-end justify-between">
+                  <span className="text-sm text-gray-500">{results.rcmHoursSaved} horas</span>
+                  <span className="text-lg font-bold text-gray-900">{formatCurrency(results.rcmSavings)}</span>
+                </div>
+              </div>
+
+              <div className="px-8 py-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <DataStructured size={14} className="text-blue-600" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Registro de Activos</span>
+                </div>
+                <div className="flex items-end justify-between">
+                  <span className="text-sm text-gray-500">{results.taxonomyHoursSaved} horas</span>
+                  <span className="text-lg font-bold text-gray-900">{formatCurrency(results.taxonomySavings)}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <div className="px-8 py-5 border-t border-gray-200 flex items-start gap-2">
+              <Information size={14} className="text-gray-400 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Estimación referencial basada en un costo promedio de <strong>USD 25/hora</strong> para un ingeniero de mantenimiento en Latinoamérica. El impacto real depende de la operación, madurez del equipo y complejidad de los activos.
+              </p>
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

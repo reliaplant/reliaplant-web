@@ -78,39 +78,36 @@ const features: Feature[] = [
   },
 ];
 
+function getAnimation(id: FeatureKey) {
+  switch (id) {
+    case "recomendaciones": return <RCAAnimationRecommendations />;
+    case "5porques":        return <RCAAnimationReport />;
+    case "dashboard":       return <RCAAnimationDashboard />;
+    case "analisis":        return <RCAAnimationTree />;
+    default:                return null;
+  }
+}
+
 export default function RCAFeatures() {
-  const [activeFeature, setActiveFeature] = useState<FeatureKey>("dashboard");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalFeature, setModalFeature] = useState<FeatureKey | null>(null);
   const modalContentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
   const calcScale = useCallback(() => {
-    if (!modalOpen || !modalContentRef.current) return;
+    if (!modalFeature || !modalContentRef.current) return;
     const container = modalContentRef.current;
     const cW = container.clientWidth - 48;
     const cH = container.clientHeight - 48;
     const s = Math.min(cW / 600, cH / 420);
     setScale(s);
-  }, [modalOpen]);
+  }, [modalFeature]);
 
   useEffect(() => {
-    if (!modalOpen) return;
+    if (!modalFeature) return;
     const t = setTimeout(calcScale, 50);
     window.addEventListener("resize", calcScale);
     return () => { clearTimeout(t); window.removeEventListener("resize", calcScale); };
-  }, [modalOpen, calcScale]);
-
-  const current = features.find((f) => f.id === activeFeature) || features[0];
-
-  const renderAnimation = () => {
-    switch (activeFeature) {
-      case "recomendaciones": return <RCAAnimationRecommendations />;
-      case "5porques":        return <RCAAnimationReport />;
-      case "dashboard":       return <RCAAnimationDashboard />;
-      case "analisis":        return <RCAAnimationTree />;
-      default:                return null;
-    }
-  };
+  }, [modalFeature, calcScale]);
 
   return (
     <>
@@ -125,78 +122,92 @@ export default function RCAFeatures() {
             Qué hace este módulo
           </h2>
 
-          {/* Horizontal tab bar - centered */}
-          <div className="flex justify-center overflow-x-auto border-b-2 border-gray-200 mb-8">
-            {features.map((feature) => (
-              <button
-                key={feature.id}
-                onClick={() => setActiveFeature(feature.id)}
-                className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold whitespace-nowrap border-b-2 -mb-[2px] transition-colors ${
-                  activeFeature === feature.id
-                    ? "border-blue-600 text-blue-600 bg-white"
-                    : "border-transparent text-gray-500 hover:text-gray-800 hover:bg-white/60"
-                }`}
-              >
-                <span className={activeFeature === feature.id ? "text-blue-600" : "text-gray-400"}>
-                  {feature.icon}
-                </span>
-                {feature.title}
-              </button>
-            ))}
-          </div>
+          {/* Stacked feature blocks — alternating layout */}
+          <div className="space-y-6">
+            {features.map((feature, index) => {
+              const isEven = index % 2 === 0;
+              const textPanel = (
+                <div className={`flex flex-col h-full ${isEven ? "border-r" : "border-l"} border-gray-200 bg-white`}>
 
-          {/* Two-column layout */}
-          <div className="grid lg:grid-cols-2 gap-0 border border-gray-200 bg-white">
+                  {/* Top: number watermark + title + description */}
+                  <div className="relative px-8 pt-8 pb-7 border-b border-gray-200 overflow-hidden flex-shrink-0">
+                    {/* Number watermark */}
+                    <span
+                      className="absolute top-0 right-4 font-black leading-none select-none pointer-events-none"
+                      style={{ fontSize: '6.5rem', color: '#eff6ff' }}
+                      aria-hidden="true"
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
 
-            {/* Left: title + description + características */}
-            <div className="flex flex-col border-r border-gray-200">
-              <div className="bg-blue-600 p-8 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-white/20 flex items-center justify-center flex-shrink-0">
-                    {current.icon}
+                    {/* Icon + title row */}
+                    <div className="flex items-center gap-3 mb-3 relative z-10">
+                      <div className="w-9 h-9 bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600">
+                        {feature.icon}
+                      </div>
+                      <h3
+                        className="font-extrabold text-gray-900 leading-snug"
+                        style={{ fontSize: '1.45rem' }}
+                      >
+                        {feature.title}
+                      </h3>
+                    </div>
+
+                    {/* Prominent description */}
+                    <p className="text-sm text-gray-600 leading-relaxed relative z-10">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold leading-snug">{current.title}</h3>
+
+                  {/* Bottom: characteristics — no flex-1 so it stays tight */}
+                  <div className="px-8 pt-5 pb-5">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">
+                      Características principales
+                    </p>
+                    <ul className="space-y-3">
+                      {feature.details.map((detail, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
+                          <CheckmarkFilled size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                 </div>
-                <p className="text-white/85 text-base leading-relaxed">
-                  {current.description}
-                </p>
-              </div>
+              );
 
-              <div className="p-8 flex-1">
-                <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5">
-                  Características principales
-                </p>
-                <ul className="space-y-4">
-                  {current.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
-                      <CheckmarkFilled size={18} className="text-blue-600 mt-0.5 flex-shrink-0" />
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              const animationPanel = (
+                <div
+                  className="flex items-center justify-center h-full bg-gray-50 cursor-pointer group relative overflow-hidden"
+                  onClick={() => setModalFeature(feature.id)}
+                >
+                  <div className="w-full h-full">
+                    {getAnimation(feature.id)}
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                    <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">
+                      Click para ampliar
+                    </span>
+                  </div>
+                </div>
+              );
 
-            {/* Right: animation */}
-            <div
-              className="flex items-center justify-center min-h-[420px] bg-gray-50 cursor-pointer group relative overflow-hidden"
-              onClick={() => setModalOpen(true)}
-            >
-              <div className="w-full h-full">
-                {renderAnimation()}
-              </div>
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
-                <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">
-                  Click para ampliar
-                </span>
-              </div>
-            </div>
+              return (
+                <div
+                  key={feature.id}
+                  className="grid lg:grid-cols-2 gap-0 bg-white border border-gray-200 h-[460px]"
+                >
+                  {isEven ? <>{textPanel}{animationPanel}</> : <>{animationPanel}{textPanel}</>}
+                </div>
+              );
+            })}
           </div>
 
         </div>
 
         {/* Bottom bar - full width */}
-        <div className="bg-gray-900 px-6 md:px-12 py-7 text-white">
+        <div className="bg-gray-900 px-6 md:px-12 py-7 text-white mt-16">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-400 mb-1">
@@ -212,17 +223,17 @@ export default function RCAFeatures() {
       </section>
 
       {/* Modal expandido */}
-      {modalOpen && (
+      {modalFeature && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-          onClick={() => setModalOpen(false)}
+          onClick={() => setModalFeature(null)}
         >
           <div
             className="relative bg-white shadow-2xl w-[95vw] h-[92vh] max-w-none overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setModalOpen(false)}
+              onClick={() => setModalFeature(null)}
               className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -232,7 +243,7 @@ export default function RCAFeatures() {
             </button>
             <div ref={modalContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
               <div style={{ width: 600, minHeight: 400, transform: `scale(${scale})`, transformOrigin: "center center" }}>
-                {renderAnimation()}
+                {getAnimation(modalFeature)}
               </div>
             </div>
           </div>
