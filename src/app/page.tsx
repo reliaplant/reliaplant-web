@@ -190,9 +190,15 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               Módulos principales
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
               Una plataforma diseñada para ingeniería real
-            </h2>
+            </motion.h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Usa cada módulo de forma independiente o conéctalos para una gestión completa de la confiabilidad.
             </p>
@@ -376,12 +382,18 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-6xl mx-auto relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             Inteligencia Artificial{" "}
             <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               integrada
             </span>
-          </h2>
+          </motion.h2>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-16">
             IA en cada módulo para acelerar análisis y reducir errores humanos
           </p>
@@ -474,7 +486,15 @@ export default function Home() {
       <section id="precios" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="mb-2 flex justify-center items-center min-h-[4.5rem]">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full">Licencias a la medida de tu planta</h2>
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              Licencias a la medida de tu planta
+            </motion.h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
