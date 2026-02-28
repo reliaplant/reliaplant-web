@@ -57,6 +57,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Error fetching blog posts for sitemap:", error);
   }
 
+  // Rutas legales
+  const legalRoutes = ["/terminos-de-uso"].map(
+    (route): MetadataRoute.Sitemap[0] => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    })
+  );
+
   // Combinamos todas las rutas
-  return [...mainRoutes, ...consultoriaRoutes, ...blogRoutes];
+  return [...mainRoutes, ...consultoriaRoutes, ...blogRoutes, ...legalRoutes];
 }

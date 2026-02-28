@@ -130,7 +130,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link className={styles.link} href="/legal/terminos">
+                    <Link className={styles.link} href="/terminos-de-uso">
                       Términos de uso
                     </Link>
                   </li>
