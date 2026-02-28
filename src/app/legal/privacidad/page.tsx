@@ -123,14 +123,44 @@ export default function PoliticaPrivacidadPage() {
                   <li><strong>Datos de uso:</strong> páginas visitadas, funciones utilizadas, frecuencia y duración de sesiones.</li>
                   <li><strong>Datos del dispositivo:</strong> tipo de navegador, sistema operativo, resolución de pantalla, idioma del navegador.</li>
                   <li><strong>Datos de red:</strong> dirección IP, país de origen (geolocalización aproximada).</li>
-                  <li><strong>Cookies y tecnologías similares:</strong> ver sección 11.</li>
+                  <li><strong>Cookies y tecnologías similares:</strong> ver sección 15.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="como-recopilamos" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                4. Cómo recopilamos sus datos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>Obtenemos información personal a través de las siguientes vías:</p>
+
+                <h3 className="font-semibold text-gray-900 mt-4">4.1 Directamente del Usuario</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Al crear una cuenta o registrarse en la Plataforma.</li>
+                  <li>Al completar formularios de contacto, soporte o solicitud de demo.</li>
+                  <li>Al ingresar datos operativos en los módulos de la Plataforma (RCA, RCM, Registro de Activos).</li>
+                  <li>Al comunicarse con nuestro equipo por correo electrónico.</li>
+                </ul>
+
+                <h3 className="font-semibold text-gray-900 mt-4">4.2 De forma automática</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Cookies y tecnologías de seguimiento (ver sección 15).</li>
+                  <li>Registros del servidor (logs) y datos de navegación.</li>
+                  <li>Información del dispositivo y del navegador.</li>
+                </ul>
+
+                <h3 className="font-semibold text-gray-900 mt-4">4.3 De terceros</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Procesadores de pago, quienes confirman el estado de las transacciones (no recibimos datos completos de tarjeta).</li>
+                  <li>Herramientas de análisis web que proporcionan datos agregados y anonimizados sobre el uso del sitio.</li>
                 </ul>
               </div>
             </section>
 
             <section id="finalidades" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                4. Finalidades del tratamiento
+                5. Finalidades del tratamiento
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>Utilizamos los datos personales para las siguientes finalidades:</p>
@@ -148,7 +178,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="base-legal" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                5. Base legal
+                6. Base legal
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>El tratamiento de datos se fundamenta en las siguientes bases legales:</p>
@@ -163,7 +193,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="ia" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                6. Datos y el Asistente IA
+                7. Datos y el Asistente IA
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -187,9 +217,29 @@ export default function PoliticaPrivacidadPage() {
               </div>
             </section>
 
+            <section id="marketing" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                8. Marketing y comunicaciones
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Reliaplant podrá enviar comunicaciones comerciales (novedades de producto,
+                  contenido educativo, ofertas) <strong>únicamente</strong> cuando el Usuario
+                  haya otorgado su consentimiento expreso, ya sea al registrarse o mediante
+                  una opción dedicada dentro de la Plataforma.
+                </p>
+                <h3 className="font-semibold text-gray-900 mt-4">Sus opciones</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong>Cancelar suscripción:</strong> cada correo de marketing incluye un enlace para darse de baja de manera inmediata.</li>
+                  <li><strong>Configuración de notificaciones:</strong> puede ajustar sus preferencias de comunicación desde la configuración de su cuenta en la Plataforma.</li>
+                  <li><strong>Comunicaciones de servicio:</strong> los avisos transaccionales y de seguridad (cambios de plan, mantenimiento, alertas de seguridad) no se consideran marketing y se envían siempre que sean necesarios para la prestación del servicio.</li>
+                </ul>
+              </div>
+            </section>
+
             <section id="compartir" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                7. Con quién compartimos datos
+                9. Con quién compartimos datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -207,9 +257,29 @@ export default function PoliticaPrivacidadPage() {
               </div>
             </section>
 
-            <section id="retención" className="mb-12 scroll-mt-24">
+            <section id="almacenamiento" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                8. Retención de datos
+                10. Almacenamiento de datos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Los datos personales y operativos se almacenan en servidores de{" "}
+                  <strong>Google Cloud Platform (Firebase)</strong>, ubicados principalmente
+                  en Estados Unidos, con redundancia geográfica para garantizar
+                  disponibilidad y recuperación ante desastres.
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong>Cifrado en reposo:</strong> todos los datos se almacenan cifrados utilizando estándares AES-256.</li>
+                  <li><strong>Cifrado en tránsito:</strong> todas las comunicaciones utilizan TLS 1.2 o superior.</li>
+                  <li><strong>Aislamiento:</strong> los datos de cada Organización están lógicamente aislados y no son accesibles por otras Organizaciones.</li>
+                  <li><strong>Respaldos:</strong> se realizan copias de seguridad automáticas con redundancia geográfica.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="retencion" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                11. Retención de datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <ol className="list-decimal pl-5 space-y-2">
@@ -234,7 +304,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="seguridad" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                9. Seguridad
+                12. Seguridad
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -262,7 +332,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="derechos" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                10. Tus derechos
+                13. Derechos de protección de datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -288,9 +358,42 @@ export default function PoliticaPrivacidadPage() {
               </div>
             </section>
 
+            <section id="eliminacion" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                14. Solicitud de eliminación
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Usted puede solicitar la eliminación de su cuenta y datos personales en
+                  cualquier momento enviando un correo a{" "}
+                  <a href="mailto:contacto@reliaplant.com" className="text-blue-600 hover:underline">
+                    contacto@reliaplant.com
+                  </a>{" "}
+                  con el asunto &quot;Solicitud de eliminación&quot;.
+                </p>
+                <h3 className="font-semibold text-gray-900 mt-4">Proceso de eliminación</h3>
+                <ol className="list-decimal pl-5 space-y-1">
+                  <li>Verificaremos su identidad como titular de la cuenta.</li>
+                  <li>Confirmaremos la solicitud y le informaremos sobre las implicaciones.</li>
+                  <li>Los datos operativos de la Organización se eliminarán en un plazo máximo de <strong>30 días</strong>.</li>
+                  <li>Los datos de facturación se conservarán por el período legal requerido (ver sección 11).</li>
+                </ol>
+                <div
+                  role="note"
+                  aria-label="Nota importante sobre eliminación"
+                  className="bg-amber-50 border border-amber-200 border-l-4 border-l-amber-500 p-3 mt-3"
+                >
+                  <p>
+                    <strong>Importante:</strong> La eliminación de datos es permanente e irreversible.
+                    Antes de solicitarla, recomendamos exportar toda la información que desee conservar.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             <section id="cookies" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                11. Cookies
+                15. Cookies
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>La Plataforma utiliza cookies y tecnologías similares para:</p>
@@ -312,9 +415,31 @@ export default function PoliticaPrivacidadPage() {
               </div>
             </section>
 
+            <section id="sitios-terceros" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                16. Sitios de terceros
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  La Plataforma puede contener enlaces a sitios web, servicios o recursos
+                  de terceros que no son operados ni controlados por Reliaplant.
+                </p>
+                <p>
+                  No somos responsables de las prácticas de privacidad, el contenido ni la
+                  seguridad de dichos sitios. Le recomendamos revisar las políticas de
+                  privacidad de cualquier sitio externo antes de proporcionar información
+                  personal.
+                </p>
+                <p>
+                  La inclusión de enlaces a terceros no implica respaldo, asociación ni
+                  garantía alguna por parte de Reliaplant.
+                </p>
+              </div>
+            </section>
+
             <section id="menores" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                12. Menores de edad
+                17. Menores de edad
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -335,7 +460,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="transferencias" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                13. Transferencias internacionales
+                18. Transferencias internacionales
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -350,9 +475,28 @@ export default function PoliticaPrivacidadPage() {
               </div>
             </section>
 
+            <section id="autoridades" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                19. Solicitudes de autoridades
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Reliaplant podrá divulgar datos personales cuando sea requerido por ley,
+                  regulación, proceso judicial u orden gubernamental vinculante. En tales
+                  casos:
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Evaluaremos la legalidad y proporcionalidad de cada solicitud antes de responder.</li>
+                  <li>Limitaremos la divulgación al mínimo de datos estrictamente necesario para cumplir con el requerimiento.</li>
+                  <li>Notificaremos al Usuario afectado antes de la divulgación, excepto cuando esto esté legalmente prohibido.</li>
+                  <li>Mantendremos un registro interno de todas las solicitudes recibidas y su resolución.</li>
+                </ul>
+              </div>
+            </section>
+
             <section id="cambios" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                14. Cambios a esta política
+                20. Cambios a esta política
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
@@ -371,7 +515,7 @@ export default function PoliticaPrivacidadPage() {
 
             <section id="contacto" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                15. Contacto
+                21. Contacto
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>

@@ -8,7 +8,8 @@ import {
   ChartLineData,
   CheckmarkFilled,
 } from "@carbon/icons-react";
-import RegistroAnimationJerarquia from "./RegistroAnimationJerarquia";
+import HierarchyAnimationActivos from "./HierarchyAnimationActivos";
+import RegistroAnimationPlantillas from "./RegistroAnimationPlantillas";
 
 type FeatureKey = "jerarquia" | "consistencia" | "trazabilidad" | "exportacion";
 
@@ -74,8 +75,11 @@ const features: Feature[] = [
 
 export default function RegistroActivosFeatures() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalPlantillasOpen, setModalPlantillasOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement>(null);
+  const modalPlantillasContentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [scalePlantillas, setScalePlantillas] = useState(1);
 
   const calcScale = useCallback(() => {
     if (!modalOpen || !modalContentRef.current) return;
@@ -86,12 +90,28 @@ export default function RegistroActivosFeatures() {
     setScale(s);
   }, [modalOpen]);
 
+  const calcScalePlantillas = useCallback(() => {
+    if (!modalPlantillasOpen || !modalPlantillasContentRef.current) return;
+    const container = modalPlantillasContentRef.current;
+    const cW = container.clientWidth - 48;
+    const cH = container.clientHeight - 48;
+    const s = Math.min(cW / 600, cH / 420);
+    setScalePlantillas(s);
+  }, [modalPlantillasOpen]);
+
   useEffect(() => {
     if (!modalOpen) return;
     const t = setTimeout(calcScale, 50);
     window.addEventListener("resize", calcScale);
     return () => { clearTimeout(t); window.removeEventListener("resize", calcScale); };
   }, [modalOpen, calcScale]);
+
+  useEffect(() => {
+    if (!modalPlantillasOpen) return;
+    const t = setTimeout(calcScalePlantillas, 50);
+    window.addEventListener("resize", calcScalePlantillas);
+    return () => { clearTimeout(t); window.removeEventListener("resize", calcScalePlantillas); };
+  }, [modalPlantillasOpen, calcScalePlantillas]);
 
   return (
     <>
@@ -161,13 +181,28 @@ export default function RegistroActivosFeatures() {
 
               const animationPanel = (
                 <div
-                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${feature.id === "jerarquia" ? "cursor-pointer group" : ""}`}
-                  onClick={feature.id === "jerarquia" ? () => setModalOpen(true) : undefined}
+                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${(feature.id === "jerarquia" || feature.id === "consistencia") ? "cursor-pointer group" : ""}`}
+                  onClick={feature.id === "jerarquia" ? () => setModalOpen(true) : feature.id === "consistencia" ? () => setModalPlantillasOpen(true) : undefined}
                 >
                   {feature.id === "jerarquia" ? (
                     <>
-                      <div className="w-full h-full">
-                        <RegistroAnimationJerarquia />
+                      <div className="w-full h-full flex items-center justify-center p-3">
+                        <div style={{ width: 720, height: 560, transform: "scale(0.78)", transformOrigin: "center center" }}>
+                          <HierarchyAnimationActivos />
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                        <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">
+                          Click para ampliar
+                        </span>
+                      </div>
+                    </>
+                  ) : feature.id === "consistencia" ? (
+                    <>
+                      <div className="w-full h-full flex items-center justify-center p-3">
+                        <div style={{ width: 680, height: 520, transform: "scale(0.82)", transformOrigin: "center center" }}>
+                          <RegistroAnimationPlantillas />
+                        </div>
                       </div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
                         <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">
@@ -178,7 +213,6 @@ export default function RegistroActivosFeatures() {
                   ) : (
                     <div className="flex flex-col items-center justify-center gap-4 p-12 text-center">
                       <div className="p-5 bg-blue-50 border border-blue-100 text-blue-600">
-                        {feature.id === "consistencia"  && <DocumentTasks size={56} />}
                         {feature.id === "trazabilidad"  && <DataBase size={56} />}
                         {feature.id === "exportacion"   && <ChartLineData size={56} />}
                       </div>
@@ -217,6 +251,34 @@ export default function RegistroActivosFeatures() {
         </div>
       </section>
 
+      {/* Modal expandido - Plantillas */}
+      {modalPlantillasOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setModalPlantillasOpen(false)}
+        >
+          <div
+            className="relative bg-white shadow-2xl w-[95vw] h-[92vh] max-w-none overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalPlantillasOpen(false)}
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div ref={modalPlantillasContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
+              <div style={{ width: 600, minHeight: 400, transform: `scale(${scalePlantillas})`, transformOrigin: "center center" }}>
+                <RegistroAnimationPlantillas />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Modal expandido */}
       {modalOpen && (
         <div
@@ -238,7 +300,7 @@ export default function RegistroActivosFeatures() {
             </button>
             <div ref={modalContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
               <div style={{ width: 600, minHeight: 400, transform: `scale(${scale})`, transformOrigin: "center center" }}>
-                <RegistroAnimationJerarquia />
+                <HierarchyAnimationActivos />
               </div>
             </div>
           </div>

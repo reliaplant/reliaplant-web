@@ -7,12 +7,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.HOST_URL || "https://reliaplant.com";
 
   // Rutas principales
-  const mainRoutes = ["/", "/nosotros", "/contacto", "/blog"].map(
+  const mainRoutes = ["/", "/about", "/blog", "/como-funciona", "/roi"].map(
     (route): MetadataRoute.Sitemap[0] => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
+    })
+  );
+
+  // Rutas de módulos / producto
+  const moduloRoutes = [
+    "/modulos/rca",
+    "/modulos/rcm",
+    "/modulos/registro-activos",
+    "/pricing/compare",
+  ].map(
+    (route): MetadataRoute.Sitemap[0] => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
     })
   );
 
@@ -58,7 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Rutas legales
-  const legalRoutes = ["/terminos-de-uso"].map(
+  const legalRoutes = ["/terminos-de-uso", "/legal/privacidad"].map(
     (route): MetadataRoute.Sitemap[0] => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date(),
@@ -68,5 +83,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Combinamos todas las rutas
-  return [...mainRoutes, ...consultoriaRoutes, ...blogRoutes, ...legalRoutes];
+  return [...mainRoutes, ...moduloRoutes, ...consultoriaRoutes, ...blogRoutes, ...legalRoutes];
 }

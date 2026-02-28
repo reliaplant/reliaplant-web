@@ -52,27 +52,18 @@ export const metadata: Metadata = {
     siteName: "Reliaplant",
     title: "Reliaplant | Confiabilidad Industrial y Gestión de Activos",
     description: "Plataforma de confiabilidad industrial: RCA, RCM, registro de activos. Más confiabilidad, mejores decisiones.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Reliaplant - Confiabilidad Industrial",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Reliaplant | Confiabilidad Industrial y Gestión de Activos",
     description: "Plataforma de confiabilidad industrial: RCA, RCM, registro de activos.",
-    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://reliaplant.com",
   },
-  verification: {
-    google: "google-site-verification-code", // Reemplazar con código real
-  },
+  // verification: {
+  //   google: "REEMPLAZAR-CON-CODIGO-REAL",
+  // },
 };
 
 // JSON-LD Structured Data
@@ -86,7 +77,7 @@ const jsonLd = {
       url: "https://reliaplant.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://reliaplant.com/logo.png",
+        url: "https://reliaplant.com/assets/logo.png",
       },
       sameAs: [
         "https://www.linkedin.com/company/reliaplant",

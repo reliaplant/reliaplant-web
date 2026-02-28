@@ -19,80 +19,99 @@ export default function Footer() {
   return (
     <>
       <footer className="px-4 sm:px-[4vw] lg:px-[3vw] py-10 sm:py-14 lg:py-16 text-sm text-gray-300 bg-gray-950">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Logo section */}
-          <div className={styles.section}>
-            <span className="font-ZenDots text-white text-xl">RELIAPLANT</span>
+        {/* Top: Logo + tagline */}
+        <div className="mb-10 pb-8 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <span className="font-ZenDots text-white text-xl block">RELIAPLANT</span>
+            <p className="text-gray-500 text-xs mt-1">Confiabilidad industrial y gestión de activos</p>
           </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://app.reliaplant.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-center rounded-lg font-medium text-sm transition-all shadow-lg shadow-blue-600/20"
+            >
+              Ir al software &rarr;
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowModal(true);
+              }}
+              className="inline-block px-5 py-2.5 border border-gray-700 hover:border-gray-500 hover:bg-gray-900 text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm transition-all"
+            >
+              Solicita una demo{" "}
+              <RequestQuote size={16} className="inline ml-1" />
+            </a>
+          </div>
+        </div>
 
-          {/* Services section */}
-          <div className={styles.section}>
-            <h6 className={styles.sectionTitle}>Servicios y consultoría</h6>
+        {/* Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {/* Plataforma */}
+          <div>
+            <h6 className={styles.sectionTitle}>Plataforma</h6>
             <ul className={styles.list}>
               <li>
-                <Link
-                  className={styles.link}
-                  href="/consultoria/registro-activos"
-                >
-                  Construcción del Registro de Activos en CMMS (Taxonomía)
+                <Link className={styles.link} href="/modulos/registro-activos">
+                  Registro de Activos
                 </Link>
               </li>
               <li>
-                <Link
-                  className={styles.link}
-                  href="/consultoria/sistema-indicadores"
-                >
-                  Desarrollo del sistema de indicadores
+                <Link className={styles.link} href="/modulos/rcm">
+                  Módulo RCM
                 </Link>
               </li>
               <li>
-                <Link
-                  className={styles.link}
-                  href="/consultoria/diagnostico-gestion"
-                >
-                  Diagnóstico de la Gestión de Mantenimiento
+                <Link className={styles.link} href="/modulos/rca">
+                  Análisis de Causa Raíz
                 </Link>
               </li>
               <li>
-                <Link
-                  className={styles.link}
-                  href="/consultoria/optimizacion-mro"
-                >
-                  Optimización de Inventario / Número Óptimo de partes
+                <Link className={styles.link} href="/pricing/compare">
+                  Planes y precios
                 </Link>
               </li>
-              <li className="hidden sm:block">
-                <Link className={styles.link} href="/consultoria/analisis-lcc">
-                  Análisis de Costo de Ciclo de Vida y vida útil remanente
+              <li>
+                <Link className={styles.link} href="/como-funciona">
+                  Cómo funciona
                 </Link>
               </li>
-              <li className="hidden sm:block">
+            </ul>
+          </div>
+
+          {/* Consultoría */}
+          <div>
+            <h6 className={styles.sectionTitle}>Consultoría</h6>
+            <ul className={styles.list}>
+              <li>
+                <Link className={styles.link} href="/consultoria/registro-activos">
+                  Registro de Activos en CMMS
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/consultoria/rcm">
+                  Mantenimiento Centrado en Confiabilidad
+                </Link>
+              </li>
+              <li>
                 <Link className={styles.link} href="/consultoria/rca">
-                  Análisis Causa Raíz (Investigación de fallas)
+                  Análisis Causa Raíz
                 </Link>
               </li>
-              <li className="hidden sm:block">
+              <li>
                 <Link className={styles.link} href="/consultoria/analisis-ram">
                   Análisis RAM
                 </Link>
               </li>
-              <li className="hidden sm:block">
-                <Link
-                  className={styles.link}
-                  href="/consultoria/mantenibilidad"
-                >
-                  Análisis de Mantenibilidad
+              <li>
+                <Link className={styles.link} href="/consultoria/analisis-lcc">
+                  Costo de Ciclo de Vida
                 </Link>
               </li>
-              <li className="hidden sm:block">
-                <Link
-                  className={styles.link}
-                  href="/consultoria/asesoria-continua"
-                >
-                  Asignación de personal técnico especialista
-                </Link>
-              </li>
-              <li className="sm:hidden">
+              <li>
                 <Link className={styles.link} href="/consultoria">
                   Ver todos los servicios →
                 </Link>
@@ -100,73 +119,47 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Software and Legal section */}
-          <div className="w-full md:w-1/2">
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
-              {/* Software section */}
-              <div className="w-full sm:w-1/2">
-                <h6 className={styles.sectionTitle}>Software</h6>
-                <ul className={styles.list}>
-                  <li>
-                    <Link className={styles.link} href="/soporte">
-                      Soporte Técnico
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.link} href="/software/desarrollo">
-                      Software a la medida
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+          {/* Recursos */}
+          <div>
+            <h6 className={styles.sectionTitle}>Recursos</h6>
+            <ul className={styles.list}>
+              <li>
+                <Link className={styles.link} href="/blog">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/roi">
+                  Calculadora ROI
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/about">
+                  Sobre Reliaplant
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-              {/* Legal section */}
-              <div className="w-full sm:w-1/2 mt-6 sm:mt-0">
-                <h6 className={styles.sectionTitle}>Legal</h6>
-                <ul className={styles.list}>
-                  <li>
-                    <Link className={styles.link} href="/contacto">
-                      Contacto
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.link} href="/terminos-de-uso">
-                      Términos de uso
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={styles.link} href="/legal/privacidad">
-                      Política de privacidad
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3">
-              <a
-                href="http://app.reliaplant.com/"
-                className="inline-block w-full px-4 py-3 border border-gray-700 bg-gray-900 hover:bg-blue-600 hover:border-blue-600 transition-all text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm"
-              >
-                Ir a software &rarr;
-              </a>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowModal(true);
-                }}
-                className="inline-block w-full px-4 py-3 border border-gray-700 bg-gray-900 hover:bg-blue-600 hover:border-blue-600 transition-all text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm"
-              >
-                Solicita una demo{" "}
-                <RequestQuote size={18} className="inline ml-1" />
-              </a>
-            </div>
+          {/* Legal */}
+          <div>
+            <h6 className={styles.sectionTitle}>Legal</h6>
+            <ul className={styles.list}>
+              <li>
+                <Link className={styles.link} href="/terminos-de-uso">
+                  Términos de uso
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/legal/privacidad">
+                  Política de privacidad
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Add copyright section for mobile view */}
+        {/* Copyright */}
         <div className="mt-10 pt-6 border-t border-gray-800 text-center md:text-left">
           <p className="!text-sm text-gray-500">
             © {new Date().getFullYear()} Reliaplant. Todos los derechos
