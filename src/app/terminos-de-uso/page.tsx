@@ -50,7 +50,7 @@ export default function TerminosDeUsoPage() {
 
           {/* Sticky TOC — hidden on mobile */}
           <aside className="hidden lg:block w-60 flex-shrink-0">
-            <nav className="sticky top-24">
+            <nav className="sticky top-24" aria-label="Tabla de contenidos">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">
                 Contenido
               </p>
@@ -70,10 +70,10 @@ export default function TerminosDeUsoPage() {
           </aside>
 
           {/* Content */}
-          <main className="flex-1 min-w-0 max-w-3xl">
+          <article className="flex-1 min-w-0 max-w-3xl">
 
             {/* Mobile TOC */}
-            <div className="lg:hidden mb-10 p-4 bg-gray-50 rounded-xl border border-gray-200">
+            <div className="lg:hidden mb-10 p-4 bg-gray-50 border border-gray-200">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">
                 Contenido
               </p>
@@ -93,7 +93,7 @@ export default function TerminosDeUsoPage() {
 
             {/* SECTIONS — added in subsequent tasks */}
 
-          </main>
+          </article>
         </div>
       </div>
     </>
