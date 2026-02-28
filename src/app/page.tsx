@@ -50,6 +50,16 @@ export default function Home() {
     requestAnimationFrame(tick);
   }, [statsInView]);
 
+  const pillVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.07 } },
+  };
+
+  const pillItemVariants = {
+    hidden: { opacity: 0, y: 8 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  };
+
   return (
     <>
       {/* HERO SECTION */}
@@ -127,7 +137,13 @@ export default function Home() {
               </p>
 
               {/* Pain point pills */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <motion.div
+                className="flex flex-wrap gap-2 mb-6"
+                variants={pillVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 {[
                   'RCA sin metodología',
                   'RCM desactualizado',
@@ -136,7 +152,7 @@ export default function Home() {
                   'Conocimiento no documentado',
                   'Indicadores poco confiables',
                 ].map((tag) => (
-                  <span
+                  <motion.span
                     key={tag}
                     className="inline-flex items-center gap-1.5 font-medium"
                     style={{
@@ -147,12 +163,13 @@ export default function Home() {
                       borderRadius: 999,
                       padding: '4px 12px',
                     }}
+                    variants={pillItemVariants}
                   >
                     <span className="text-red-400 font-bold text-xs">✕</span>
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Result highlight box */}
               <div
