@@ -73,7 +73,7 @@ export default function TerminosDeUsoPage() {
           <article className="flex-1 min-w-0 max-w-3xl">
 
             {/* Mobile TOC */}
-            <div className="lg:hidden mb-10 p-4 bg-gray-50 border border-gray-200">
+            <nav className="lg:hidden mb-10 p-4 bg-gray-50 border border-gray-200" aria-label="Tabla de contenidos">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">
                 Contenido
               </p>
@@ -89,7 +89,7 @@ export default function TerminosDeUsoPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
             {/* ── BLOCK A: GENERAL LEGAL FRAMEWORK ─────────────────── */}
 
@@ -102,7 +102,14 @@ export default function TerminosDeUsoPage() {
                   Reliaplant LLC ("Reliaplant", "nosotros") es una compañía constituida bajo las leyes
                   del Estado de Wyoming, Estados Unidos. Estos Términos de Uso ("Términos") rigen el
                   acceso y uso de la plataforma web Reliaplant, disponible en{" "}
-                  <span className="font-medium">app.reliaplant.com</span>, y todos sus módulos y
+                  <a
+                    href="https://app.reliaplant.com"
+                    className="font-medium text-blue-600 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    app.reliaplant.com
+                  </a>, y todos sus módulos y
                   servicios asociados (la "Plataforma").
                 </p>
                 <p>
