@@ -205,7 +205,134 @@ export default function TerminosDeUsoPage() {
               </div>
             </section>
 
-            {/* SECTIONS 5-19 — added in subsequent tasks */}
+            {/* ── BLOCK B: SERVICE CONDITIONS ───────────────────────── */}
+
+            <section id="definiciones" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                5. Definiciones
+              </h2>
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded text-sm text-gray-700 space-y-1.5">
+                <p><strong>"Plataforma"</strong> — la aplicación web Reliaplant y todos sus módulos.</p>
+                <p><strong>"Organización"</strong> — la entidad (empresa, planta o persona) titular de la cuenta.</p>
+                <p><strong>"Usuario"</strong> — cada persona con credenciales únicas de acceso a la Plataforma.</p>
+                <p><strong>"Activo"</strong> — cada equipo, componente o elemento registrado en el módulo de Taxonomía.</p>
+                <p><strong>"Planta"</strong> — cada unidad operativa, localidad o división configurada en la Organización.</p>
+                <p><strong>"Bloque adicional"</strong> — paquete de 50 activos contratado como extensión del plan base.</p>
+                <p><strong>"Asistente IA"</strong> — las funcionalidades de inteligencia artificial integradas en la Plataforma.</p>
+              </div>
+            </section>
+
+            <section id="planes" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                6. Planes y suscripciones
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>La Plataforma está disponible en los siguientes planes:</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong>Gratuito</strong> — 1 usuario, 10 activos, 1 planta. Sin costo.</li>
+                  <li><strong>Profesional</strong> — 1 usuario, 30 activos, 1 planta. $29/mes o $25/mes (anual).</li>
+                  <li><strong>Equipo</strong> — hasta 5 usuarios, 100 activos, 1 planta. $99/mes o $84/mes (anual).</li>
+                  <li><strong>Planta</strong> — hasta 15 usuarios, 500 activos, hasta 3 plantas. $245/mes o $208/mes (anual).</li>
+                  <li><strong>Empresa</strong> — condiciones personalizadas. Contactar a comercial@reliaplant.com.</li>
+                </ul>
+                <p>
+                  Todos los precios están expresados en dólares estadounidenses (USD) e incluyen el
+                  Asistente IA sin costo adicional. Reliaplant se reserva el derecho de modificar
+                  los precios con al menos 30 días de anticipación.
+                </p>
+                <div className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 rounded p-3">
+                  <p>
+                    <strong>Descuento anual:</strong> Al elegir facturación anual, obtiene un 15% de
+                    descuento sobre el precio mensual. El descuento aplica también a los bloques de
+                    activos adicionales.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="limites" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                7. Límites y uso aceptable
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Usuarios:</strong> Cada usuario debe corresponder a una persona física
+                    identificable. No se permite compartir credenciales entre varias personas.
+                  </li>
+                  <li>
+                    <strong>Activos:</strong> Al alcanzar el límite del plan, no se podrán registrar
+                    nuevos activos hasta contratar un bloque adicional o cambiar a un plan superior.
+                    Los activos existentes no se eliminan.
+                  </li>
+                  <li>
+                    <strong>Proyectos RCA y planes RCM:</strong> Ilimitados en todos los planes
+                    pagos. El plan Gratuito permite un máximo de 5 proyectos RCA y 5 planes RCM
+                    activos simultáneamente.
+                  </li>
+                  <li>
+                    <strong>Almacenamiento:</strong> Los límites aplican a archivos adjuntos cargados
+                    a la Plataforma (500 MB Gratuito · 2 GB Profesional · 10 GB Equipo · 50 GB
+                    Planta). No incluyen los datos estructurados de la aplicación.
+                  </li>
+                  <li>
+                    <strong>Asistente IA:</strong> Incluido en todos los planes sin costo adicional.
+                    Reliaplant se reserva el derecho de implementar límites razonables en caso de uso
+                    excesivo que afecte a otros usuarios.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="bloques" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                8. Bloques de activos adicionales
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Los planes <strong>Equipo</strong> y <strong>Planta</strong> permiten ampliar la
+                  capacidad de activos mediante bloques adicionales de 50 activos a un precio de{" "}
+                  <strong>$25 USD/mes</strong> por bloque (con descuento del 15% en facturación
+                  anual).
+                </p>
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Contratación:</strong> Se pueden agregar bloques en cualquier momento.
+                    La facturación se prorratea al ciclo de facturación vigente.
+                  </li>
+                  <li>
+                    <strong>Remoción:</strong> La remoción de bloques se efectúa al inicio del
+                    siguiente ciclo de facturación. Los activos existentes no se eliminan, pero no se
+                    podrán registrar nuevos hasta estar dentro del nuevo límite.
+                  </li>
+                  <li>
+                    <strong>Disponibilidad:</strong> Exclusivamente para los planes Equipo y Planta.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="facturacion" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                9. Facturación y métodos de pago
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>Los métodos de pago aceptados varían según el plan:</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong>Profesional:</strong> Tarjeta de crédito/débito.</li>
+                  <li><strong>Equipo:</strong> Tarjeta de crédito/débito · Transferencia bancaria.</li>
+                  <li><strong>Planta:</strong> Tarjeta de crédito/débito · Transferencia bancaria · Orden de compra.</li>
+                  <li><strong>Empresa:</strong> Facturación corporativa personalizada.</li>
+                </ul>
+                <p>
+                  Los cargos se realizan al inicio de cada período de facturación. En caso de pago
+                  con tarjeta, la suscripción se renueva automáticamente salvo cancelación previa.
+                  Las comisiones por transacciones internacionales son responsabilidad del Usuario.
+                </p>
+              </div>
+            </section>
+
+            {/* SECTIONS 10-19 — added in subsequent tasks */}
 
           </article>
         </div>
