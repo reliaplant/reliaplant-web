@@ -337,7 +337,258 @@ export default function TerminosDeUsoPage() {
               </div>
             </section>
 
-            {/* SECTIONS 10-19 — added in subsequent tasks */}
+            <section id="suspension" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                10. Suspensión, cancelación y reembolsos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Falta de pago:</strong> Ante un fallo en el cobro, la Organización
+                    tendrá un período de gracia de 7 días naturales para regularizar el pago. Si no
+                    se regulariza, el acceso se suspende de forma inmediata. La cuenta{" "}
+                    <strong>no</strong> se convierte al plan Gratuito.
+                  </li>
+                  <li>
+                    <strong>No renovación:</strong> El acceso se suspende al finalizar el período
+                    pagado. La cuenta no se degrada al plan Gratuito.
+                  </li>
+                  <li>
+                    <strong>Cancelación voluntaria:</strong> El acceso se mantiene hasta el final del
+                    período de facturación pagado.
+                  </li>
+                  <li>
+                    <strong>Reembolsos (mensual):</strong> No se realizan reembolsos por períodos
+                    parciales en facturación mensual.
+                  </li>
+                  <li>
+                    <strong>Reembolsos (anual):</strong> Cancelación dentro de los primeros 30
+                    días: reembolso proporcional a los meses no utilizados. Después de 30 días, no
+                    se realizan reembolsos.
+                  </li>
+                  <li>
+                    <strong>Conservación de datos:</strong> Los datos se conservarán durante{" "}
+                    <strong>90 días naturales</strong> tras la suspensión. Transcurrido ese plazo,
+                    se eliminan de forma permanente e irrecuperable.
+                  </li>
+                </ol>
+                <div className="bg-amber-50 border border-amber-200 border-l-4 border-l-amber-500 p-3">
+                  <p>
+                    <strong>Reactivación:</strong> Dentro de los 90 días posteriores a la
+                    suspensión, puede reactivar su suscripción paga y recuperar el acceso a todos
+                    sus datos tal como los dejó.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="datos" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                11. Propiedad de los datos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Propiedad:</strong> Todos los datos ingresados son propiedad exclusiva de
+                    la Organización. Reliaplant actúa únicamente como procesador de datos.
+                  </li>
+                  <li>
+                    <strong>Uso de datos:</strong> Reliaplant no compartirá, venderá ni utilizará los
+                    datos para fines distintos a la prestación del servicio contratado.
+                  </li>
+                  <li>
+                    <strong>Datos anonimizados:</strong> Reliaplant podrá utilizar datos agregados y
+                    anonimizados con fines estadísticos y de mejora del servicio, sin que sea posible
+                    identificar a ninguna Organización o Usuario.
+                  </li>
+                  <li>
+                    <strong>Asistente IA:</strong> Los datos enviados al Asistente IA se procesan
+                    exclusivamente para generar las respuestas solicitadas. No se utilizan para
+                    entrenar modelos ni se comparten con terceros.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="disponibilidad" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                12. Disponibilidad del servicio
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>SLA:</strong> 99.5% de disponibilidad mensual para todos los planes
+                    pagos. El plan Gratuito no tiene SLA garantizado.
+                  </li>
+                  <li>
+                    <strong>Mantenimiento:</strong> Los períodos de mantenimiento programado se
+                    notificarán con al menos 48 horas de anticipación.
+                  </li>
+                  <li>
+                    <strong>Soporte:</strong> En español e inglés, lunes a viernes de 9:00 a 18:00
+                    (GMT-6). Tiempo de respuesta: 72 h (Gratuito) · 48 h (Profesional / Equipo) ·
+                    24 h (Planta).
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="modificaciones-planes" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                13. Modificaciones a los planes
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Cambios de precios:</strong> Se notificarán con al menos 30 días de
+                    anticipación. Las suscripciones anuales vigentes mantienen su precio hasta la
+                    siguiente renovación.
+                  </li>
+                  <li>
+                    <strong>Cambios de funcionalidades:</strong> Se notificará a los usuarios
+                    afectados con al menos 15 días de anticipación.
+                  </li>
+                  <li>
+                    <strong>Nuevos módulos:</strong> Su inclusión en los planes existentes no está
+                    garantizada. Las condiciones se comunicarán al momento de su lanzamiento.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="plan-gratuito" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                14. Plan Gratuito — condiciones especiales
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    Reliaplant se reserva el derecho de limitar funcionalidades o descontinuar el
+                    plan Gratuito con al menos 60 días de anticipación.
+                  </li>
+                  <li>
+                    Las cuentas gratuitas inactivas por más de 180 días podrán ser desactivadas
+                    previo aviso de 30 días.
+                  </li>
+                  <li>
+                    El plan Gratuito no incluye SLA garantizado, soporte prioritario ni facturación
+                    por orden de compra.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            {/* ── BLOCK C: GENERAL LEGAL CLAUSES ────────────────────── */}
+
+            <section id="propiedad-intelectual" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                15. Propiedad intelectual
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Todo el software, diseño, interfaz, marca, nombre comercial, logotipos, textos y
+                  demás contenido de la Plataforma son propiedad exclusiva de Reliaplant LLC y están
+                  protegidos por las leyes de propiedad intelectual aplicables.
+                </p>
+                <p>
+                  Se le otorga una licencia limitada, no exclusiva, no transferible y revocable para
+                  usar la Plataforma únicamente para los fines comerciales internos de su
+                  Organización. Esta licencia no le otorga ningún derecho de propiedad sobre la
+                  Plataforma ni su contenido.
+                </p>
+                <p>
+                  Los datos ingresados por la Organización son y permanecen propiedad exclusiva de
+                  la Organización, conforme a lo establecido en la sección 11.
+                </p>
+              </div>
+            </section>
+
+            <section id="responsabilidad" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                16. Limitación de responsabilidad
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  La Plataforma se proporciona "tal como está" y "según disponibilidad". Reliaplant
+                  no ofrece garantías de ningún tipo, ya sean expresas o implícitas, respecto a la
+                  exactitud, confiabilidad, disponibilidad o idoneidad para un propósito particular.
+                </p>
+                <p>
+                  En la máxima medida permitida por la ley aplicable, Reliaplant no será responsable
+                  por daños indirectos, incidentales, especiales, consecuentes o punitivos derivados
+                  del uso o la imposibilidad de uso de la Plataforma.
+                </p>
+                <p>
+                  La responsabilidad máxima total de Reliaplant ante la Organización, por cualquier
+                  causa y bajo cualquier teoría legal, se limitará a los importes efectivamente
+                  pagados por la Organización durante los tres (3) meses anteriores al evento que
+                  originó la reclamación.
+                </p>
+              </div>
+            </section>
+
+            <section id="ley-aplicable" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                17. Ley aplicable y jurisdicción
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Estos Términos se rigen e interpretan de conformidad con las leyes del Estado de
+                  Wyoming, Estados Unidos, sin perjuicio de sus disposiciones sobre conflicto de
+                  leyes.
+                </p>
+                <p>
+                  Cualquier disputa, controversia o reclamación derivada de o relacionada con estos
+                  Términos o el uso de la Plataforma se someterá a la jurisdicción exclusiva de los
+                  tribunales competentes del Estado de Wyoming, Estados Unidos.
+                </p>
+              </div>
+            </section>
+
+            <section id="cambios-terminos" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                18. Cambios a estos términos
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Reliaplant se reserva el derecho de modificar estos Términos en cualquier momento.
+                  Cuando realicemos cambios materiales, le notificaremos con al menos{" "}
+                  <strong>30 días de anticipación</strong> mediante correo electrónico al email
+                  registrado en su cuenta o mediante un aviso destacado dentro de la Plataforma.
+                </p>
+                <p>
+                  El uso continuado de la Plataforma después de la fecha de vigencia de los nuevos
+                  Términos constituye la aceptación de los cambios. Si no está de acuerdo con los
+                  cambios, debe cancelar su suscripción antes de la fecha de vigencia.
+                </p>
+              </div>
+            </section>
+
+            <section id="contacto" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                19. Contacto
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Para consultas, reclamos o notificaciones relacionadas con estos Términos, puede
+                  contactarnos en:
+                </p>
+                <div className="bg-gray-50 border border-gray-200 p-5">
+                  <p className="font-semibold text-gray-900 mb-1">Reliaplant LLC</p>
+                  <p>
+                    <a
+                      href="mailto:contacto@reliaplant.com"
+                      className="text-blue-600 hover:underline"
+                    >
+                      contacto@reliaplant.com
+                    </a>
+                  </p>
+                  <p className="text-gray-400 text-xs mt-3">
+                    Fecha de última actualización: 28 de febrero de 2026
+                  </p>
+                </div>
+              </div>
+            </section>
 
           </article>
         </div>
