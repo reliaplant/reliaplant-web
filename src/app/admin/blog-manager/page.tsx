@@ -8,8 +8,26 @@ import {
 } from "@/lib/firebase/blog/contributor";
 import { getAllBlogPosts, deleteBlogPost } from "@/lib/firebase/blog/blog";
 import { BlogPost, BlogContributor } from "../../../types/blog";
-import { Add, Edit, TrashCan, View } from "@carbon/icons-react";
 import { toast } from "react-hot-toast";
+
+function SeoIndicator({ post }: { post: BlogPost }) {
+  const checks = [
+    { key: "seoTitle", label: "Título SEO", value: post.seoTitle },
+    { key: "metaDescription", label: "Meta descripción", value: post.metaDescription },
+    { key: "slug", label: "Slug", value: post.slug },
+  ];
+  return (
+    <span className="seo-dots" title={checks.map(c => `${c.label}: ${c.value ? "✓" : "✗"}`).join(" | ")}>
+      {checks.map((c) => (
+        <span
+          key={c.key}
+          className={`seo-dot ${c.value ? "ok" : "missing"}`}
+          title={`${c.label}: ${c.value ? "OK" : "Falta"}`}
+        />
+      ))}
+    </span>
+  );
+}
 
 export default function BlogManager() {
   const [activeTab, setActiveTab] = useState<"posts" | "contributors">("posts");
@@ -19,20 +37,15 @@ export default function BlogManager() {
   const [deleting, setDeleting] = useState<string | null>(null);
 
   useEffect(() => {
-    if (activeTab === "posts") {
-      fetchBlogPosts();
-    } else {
-      fetchContributors();
-    }
+    if (activeTab === "posts") fetchBlogPosts();
+    else fetchContributors();
   }, [activeTab]);
 
   const fetchBlogPosts = async () => {
     try {
       setLoading(true);
-      const posts = await getAllBlogPosts();
-      setBlogPosts(posts);
-    } catch (error) {
-      console.error("Error fetching blog posts:", error);
+      setBlogPosts(await getAllBlogPosts());
+    } catch {
       toast.error("Error al cargar las entradas del blog");
     } finally {
       setLoading(false);
@@ -42,10 +55,8 @@ export default function BlogManager() {
   const fetchContributors = async () => {
     try {
       setLoading(true);
-      const allContributors = await getAllContributors();
-      setContributors(allContributors);
-    } catch (error) {
-      console.error("Error fetching contributors:", error);
+      setContributors(await getAllContributors());
+    } catch {
       toast.error("Error al cargar los articulistas");
     } finally {
       setLoading(false);
@@ -53,17 +64,13 @@ export default function BlogManager() {
   };
 
   const handleDeletePost = async (id: string) => {
-    if (!confirm("¿Estás seguro de eliminar esta entrada del blog?")) {
-      return;
-    }
-
+    if (!confirm("¿Estás seguro de eliminar esta entrada del blog?")) return;
     try {
       setDeleting(id);
       await deleteBlogPost(id);
       toast.success("Entrada eliminada correctamente");
-      setBlogPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-    } catch (error) {
-      console.error("Error deleting blog post:", error);
+      setBlogPosts((p) => p.filter((x) => x.id !== id));
+    } catch {
       toast.error("Error al eliminar la entrada");
     } finally {
       setDeleting(null);
@@ -71,200 +78,143 @@ export default function BlogManager() {
   };
 
   const handleDeleteContributor = async (id: string) => {
-    if (!confirm("¿Estás seguro de eliminar este articulista?")) {
-      return;
-    }
-
+    if (!confirm("¿Estás seguro de eliminar este articulista?")) return;
     try {
       setDeleting(id);
       await deleteContributor(id);
       toast.success("Articulista eliminado correctamente");
-      setContributors((prevContributors) =>
-        prevContributors.filter((contributor) => contributor.id !== id)
-      );
-    } catch (error) {
-      console.error("Error deleting contributor:", error);
+      setContributors((c) => c.filter((x) => x.id !== id));
+    } catch {
       toast.error("Error al eliminar el articulista");
     } finally {
       setDeleting(null);
     }
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat("es-MX", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(date);
-  };
-
-  if (loading) {
-    return (
-      <div className="p-8 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
-      </div>
-    );
-  }
+  const fmt = (d: string) =>
+    new Intl.DateTimeFormat("es-MX", { year: "numeric", month: "short", day: "numeric" }).format(new Date(d));
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Administrar Blog</h1>
+    <div>
+      {/* Tab bar + action */}
+      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", borderBottom: "1px solid var(--a-ui-03)", marginBottom: 0 }}>
+        <div style={{ display: "flex" }}>
+          {(["posts", "contributors"] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              style={{
+                padding: "12px 24px",
+                fontSize: 14,
+                fontFamily: "inherit",
+                cursor: "pointer",
+                background: "none",
+                border: "none",
+                borderBottom: activeTab === tab ? "2px solid var(--a-blue)" : "2px solid transparent",
+                color: activeTab === tab ? "var(--a-blue)" : "var(--a-text-02)",
+                fontWeight: activeTab === tab ? 600 : 400,
+                transition: "color 0.15s",
+              }}
+            >
+              {tab === "posts" ? "Entradas" : "Articulistas"}
+            </button>
+          ))}
+        </div>
 
-        {activeTab === "posts" ? (
-          <Link
-            href="/admin/blog-editor?return=blog"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-md flex items-center gap-2 hover:bg-indigo-700"
-          >
-            <Add className="h-5 w-5" />
-            <span>Nueva Entrada</span>
-          </Link>
-        ) : (
-          <Link
-            href="/admin/blog-editor/contributor?return=blog"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-md flex items-center gap-2 hover:bg-indigo-700"
-          >
-            <Add className="h-5 w-5" />
-            <span>Nuevo Articulista</span>
-          </Link>
-        )}
+        <div style={{ paddingBottom: 8 }}>
+          {activeTab === "posts" ? (
+            <Link href="/admin/blog-editor" className="abtn abtn-primary abtn-sm">
+              + Nueva entrada
+            </Link>
+          ) : (
+            <Link href="/admin/contributor" className="abtn abtn-primary abtn-sm">
+              + Nuevo articulista
+            </Link>
+          )}
+        </div>
       </div>
 
-      {/* Tabs */}
-      <div className="border-b border-gray-200 mb-6">
-        <nav className="-mb-px flex space-x-8">
-          <button
-            onClick={() => setActiveTab("posts")}
-            className={`${
-              activeTab === "posts"
-                ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-          >
-            Entradas de Blog
-          </button>
-          <button
-            onClick={() => setActiveTab("contributors")}
-            className={`${
-              activeTab === "contributors"
-                ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-          >
-            Articulistas
-          </button>
-        </nav>
-      </div>
+      {/* Loading */}
+      {loading && (
+        <div style={{ padding: "48px 0", textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>
+          Cargando…
+        </div>
+      )}
 
-      {/* Blog Posts Table */}
-      {activeTab === "posts" && (
+      {/* Posts table */}
+      {!loading && activeTab === "posts" && (
         <>
           {blogPosts.length === 0 ? (
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <p className="text-gray-600 mb-4">
-                No hay entradas de blog disponibles
-              </p>
-              <Link
-                href="/admin/blog-editor?return=blog"
-                className="text-indigo-600 font-medium hover:underline"
-              >
-                Crear tu primera entrada
+            <div style={{ padding: "48px 0", textAlign: "center", color: "var(--a-text-02)", fontSize: 14 }}>
+              No hay entradas de blog.{" "}
+              <Link href="/admin/blog-editor" style={{ color: "var(--a-blue)" }}>
+                Crear la primera
               </Link>
             </div>
           ) : (
-            <div className="overflow-x-auto bg-white rounded-lg shadow">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead>
                   <tr>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Título
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Autor
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Fecha
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Estado
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Acciones
-                    </th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th title="SEO: Título · Meta · Slug">SEO</th>
+                    <th style={{ textAlign: "right" }}>Acciones</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody>
                   {blogPosts.map((post) => (
-                    <tr key={post.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900 truncate max-w-xs">
+                    <tr key={post.id}>
+                      <td style={{ maxWidth: 300 }}>
+                        <span style={{ fontWeight: 500, display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                           {post.title}
-                        </div>
+                        </span>
+                        {post.slug && (
+                          <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: "var(--a-text-02)" }}>
+                            /{post.slug}
+                          </span>
+                        )}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {post.author}
-                        </div>
+                      <td>{post.author}</td>
+                      <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, whiteSpace: "nowrap" }}>
+                        {fmt(post.publishDate)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {formatDate(post.publishDate)}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span
-                          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            post.published
-                              ? "bg-green-100 text-green-800"
-                              : "bg-yellow-100 text-yellow-800"
-                          }`}
-                        >
+                      <td>
+                        <span className={`atag ${post.published ? "atag-green" : "atag-gray"}`}>
                           {post.published ? "Publicado" : "Borrador"}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div className="flex justify-end space-x-2">
+                      <td>
+                        <SeoIndicator post={post} />
+                      </td>
+                      <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
+                        <div style={{ display: "inline-flex", gap: 4 }}>
+                          {post.published && post.slug && (
+                            <Link
+                              href={`/blog/${post.slug}`}
+                              target="_blank"
+                              className="abtn abtn-ghost abtn-sm"
+                              title="Ver en blog"
+                            >
+                              Ver
+                            </Link>
+                          )}
                           <Link
-                            href={`/blog/${post.id}`}
-                            className="text-indigo-600 hover:text-indigo-900"
-                            title="Ver"
-                          >
-                            <View className="h-5 w-5" />
-                          </Link>
-                          <Link
-                            href={`/admin/blog-editor?id=${post.id}&return=blog`}
-                            className="text-blue-600 hover:text-blue-900"
+                            href={`/admin/blog-editor?id=${post.id}`}
+                            className="abtn abtn-ghost abtn-sm"
                             title="Editar"
                           >
-                            <Edit className="h-5 w-5" />
+                            Editar
                           </Link>
                           <button
                             onClick={() => post.id && handleDeletePost(post.id)}
                             disabled={deleting === post.id}
-                            className={`text-red-600 hover:text-red-900 ${
-                              deleting === post.id
-                                ? "opacity-50 cursor-not-allowed"
-                                : ""
-                            }`}
+                            className="abtn abtn-danger abtn-sm"
                             title="Eliminar"
                           >
-                            <TrashCan className="h-5 w-5" />
+                            {deleting === post.id ? "…" : "Eliminar"}
                           </button>
                         </div>
                       </td>
@@ -277,114 +227,66 @@ export default function BlogManager() {
         </>
       )}
 
-      {/* Contributors Table */}
-      {activeTab === "contributors" && (
+      {/* Contributors table */}
+      {!loading && activeTab === "contributors" && (
         <>
           {contributors.length === 0 ? (
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <p className="text-gray-600 mb-4">
-                No hay articulistas disponibles
-              </p>
-              <Link
-                href="/admin/blog-editor/contributor?return=blog"
-                className="text-indigo-600 font-medium hover:underline"
-              >
-                Crear tu primer articulista
+            <div style={{ padding: "48px 0", textAlign: "center", color: "var(--a-text-02)", fontSize: 14 }}>
+              No hay articulistas.{" "}
+              <Link href="/admin/contributor" style={{ color: "var(--a-blue)" }}>
+                Crear el primero
               </Link>
             </div>
           ) : (
-            <div className="overflow-x-auto bg-white rounded-lg shadow">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead>
                   <tr>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Nombre
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Email
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Estado
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Acciones
-                    </th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th style={{ textAlign: "right" }}>Acciones</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {contributors.map((contributor) => (
-                    <tr key={contributor.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          {contributor.photo ? (
+                <tbody>
+                  {contributors.map((c) => (
+                    <tr key={c.id}>
+                      <td>
+                        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                          {c.photo ? (
                             <img
-                              src={contributor.photo}
-                              alt={contributor.name}
-                              className="h-10 w-10 rounded-full mr-3 object-cover"
+                              src={c.photo}
+                              alt={c.name}
+                              style={{ width: 28, height: 28, objectFit: "cover", flexShrink: 0, border: "1px solid var(--a-ui-03)" }}
                             />
                           ) : (
-                            <div className="h-10 w-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center">
-                              <span className="text-gray-500 font-medium">
-                                {contributor.name.charAt(0)}
-                              </span>
+                            <div style={{ width: 28, height: 28, background: "var(--a-ui-03)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600, color: "var(--a-text-02)", flexShrink: 0 }}>
+                              {c.name.charAt(0).toUpperCase()}
                             </div>
                           )}
-                          <div className="text-sm font-medium text-gray-900">
-                            {contributor.name}
-                          </div>
+                          {c.name}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">
-                          {contributor.email}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span
-                          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            contributor.active
-                              ? "bg-green-100 text-green-800"
-                              : "bg-red-100 text-red-800"
-                          }`}
-                        >
-                          {contributor.active ? "Activo" : "Inactivo"}
+                      <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>{c.email}</td>
+                      <td>
+                        <span className={`atag ${c.active ? "atag-green" : "atag-red"}`}>
+                          {c.active ? "Activo" : "Inactivo"}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div className="flex justify-end space-x-2">
+                      <td style={{ textAlign: "right" }}>
+                        <div style={{ display: "inline-flex", gap: 4 }}>
                           <Link
-                            href={`/admin/blog-editor/contributor?id=${contributor.id}&return=blog`}
-                            className="text-blue-600 hover:text-blue-900"
-                            title="Editar"
+                            href={`/admin/contributor?id=${c.id}`}
+                            className="abtn abtn-ghost abtn-sm"
                           >
-                            <Edit className="h-5 w-5" />
+                            Editar
                           </Link>
                           <button
-                            onClick={() =>
-                              contributor.id &&
-                              handleDeleteContributor(contributor.id)
-                            }
-                            disabled={deleting === contributor.id}
-                            className={`text-red-600 hover:text-red-900 ${
-                              deleting === contributor.id
-                                ? "opacity-50 cursor-not-allowed"
-                                : ""
-                            }`}
-                            title="Eliminar"
+                            onClick={() => c.id && handleDeleteContributor(c.id)}
+                            disabled={deleting === c.id}
+                            className="abtn abtn-danger abtn-sm"
                           >
-                            <TrashCan className="h-5 w-5" />
+                            {deleting === c.id ? "…" : "Eliminar"}
                           </button>
                         </div>
                       </td>

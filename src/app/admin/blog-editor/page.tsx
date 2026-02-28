@@ -12,23 +12,16 @@ import {
 } from "@/lib/firebase/blog/blog";
 import { toast, Toaster } from "react-hot-toast";
 
-// Simple loading component
-const SimpleLoading = () => (
-  <div className="container mx-auto p-4 flex justify-center items-center h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
-  </div>
-);
-
 export default function BlogEditorPage() {
-  // Wrap the useSearchParams in a Suspense boundary
   return (
-    <Suspense fallback={<SimpleLoading />}>
+    <Suspense fallback={
+      <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>Cargando…</div>
+    }>
       <BlogEditorContent />
     </Suspense>
   );
 }
 
-// Actual content component that uses search params
 function BlogEditorContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -36,6 +29,7 @@ function BlogEditorContent() {
   const isEditing = !!postId;
   const [loading, setLoading] = useState(isEditing);
   const [activeTab, setActiveTab] = useState<"basic" | "seo">("basic");
+  const [previewExpanded, setPreviewExpanded] = useState(false);
 
   const [blogPost, setBlogPost] = useState<BlogPost>({
     title: "",
@@ -45,7 +39,6 @@ function BlogEditorContent() {
     tags: [],
     publishDate: new Date().toISOString().split("T")[0],
     published: false,
-    // Initialize SEO fields
     seoTitle: "",
     slug: "",
     summary: "",
@@ -54,9 +47,7 @@ function BlogEditorContent() {
   });
 
   useEffect(() => {
-    if (postId) {
-      fetchBlogPost(postId);
-    }
+    if (postId) fetchBlogPost(postId);
   }, [postId]);
 
   const fetchBlogPost = async (id: string) => {
@@ -67,41 +58,24 @@ function BlogEditorContent() {
         setBlogPost(post);
       } else {
         toast.error("No se encontró la entrada del blog");
-        router.push("/admin?tab=blog");
+        router.push("/admin/blog-manager");
       }
-    } catch (error) {
-      console.error("Error fetching blog post:", error);
+    } catch {
       toast.error("Error al cargar la entrada del blog");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSave = async (saveAsDraft: boolean = false) => {
-    // Make sure we have a post
-    if (!blogPost.title.trim()) {
-      toast.error("El título es obligatorio");
-      return;
-    }
+  const handleSave = async (saveAsDraft = false) => {
+    if (!blogPost.title.trim()) { toast.error("El título es obligatorio"); return; }
+    if (!blogPost.author) { toast.error("Debes seleccionar un autor"); return; }
 
-    if (!blogPost.author) {
-      toast.error("Debes seleccionar un autor");
-      return;
-    }
-
-    // Set published status based on param if not explicitly set
     const postToSave = {
       ...blogPost,
       published: saveAsDraft ? false : blogPost.published,
+      slug: blogPost.slug || blogPost.title.toLowerCase().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-"),
     };
-
-    // Create slug from title if not provided
-    if (!postToSave.slug) {
-      postToSave.slug = postToSave.title
-        .toLowerCase()
-        .replace(/[^\w\s]/gi, "")
-        .replace(/\s+/g, "-");
-    }
 
     if (isEditing && postId) {
       await updateBlogPost(postId, postToSave);
@@ -111,23 +85,34 @@ function BlogEditorContent() {
       toast.success("Entrada creada correctamente");
     }
 
-    router.push("/admin?tab=blog");
+    router.push("/admin/blog-manager");
   };
 
   if (loading) {
-    return <SimpleLoading />;
+    return <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>Cargando…</div>;
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div style={{ padding: 0 }}>
       <Toaster position="top-right" />
 
-      <h1 className="text-2xl font-bold mb-6">
-        {isEditing ? "Editar Entrada de Blog" : "Nueva Entrada de Blog"}
-      </h1>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow">
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: previewExpanded ? "0fr 1fr" : "1fr 1fr",
+        gap: 0,
+        alignItems: "start",
+        minHeight: "calc(100vh - 48px)",
+        transition: "grid-template-columns 0.25s ease",
+      }}>
+        {/* Form panel */}
+        <div style={{
+          padding: previewExpanded ? 0 : 24,
+          borderRight: "1px solid var(--a-ui-03)",
+          overflow: "hidden",
+          opacity: previewExpanded ? 0 : 1,
+          transition: "opacity 0.2s ease, padding 0.25s ease",
+          minWidth: 0,
+        }}>
           <BlogForm
             blogPost={blogPost}
             setBlogPost={setBlogPost}
@@ -138,8 +123,43 @@ function BlogEditorContent() {
           />
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
-          <BlogPreview blogPost={blogPost} activeTab={activeTab} />
+        {/* Preview panel */}
+        <div style={{ position: "sticky", top: 48, maxHeight: "calc(100vh - 48px)", overflowY: "auto", display: "flex", flexDirection: "column" }}>
+          {/* Preview header */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "10px 20px",
+            borderBottom: "1px solid var(--a-ui-03)",
+            background: "var(--a-ui-01)",
+            position: "sticky", top: 0, zIndex: 2,
+            flexShrink: 0,
+          }}>
+            <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--a-text-02)" }}>
+              Vista previa
+            </span>
+            <button
+              onClick={() => setPreviewExpanded((v) => !v)}
+              style={{
+                display: "flex", alignItems: "center", gap: 6,
+                background: "none", border: "1px solid var(--a-ui-03)",
+                cursor: "pointer", padding: "4px 10px",
+                fontSize: 11, color: "var(--a-text-02)",
+                borderRadius: 2, fontFamily: "IBM Plex Sans, sans-serif",
+                transition: "background 0.1s",
+              }}
+              title={previewExpanded ? "Ver editor" : "Expandir vista previa"}
+            >
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                {previewExpanded
+                  ? <path strokeLinecap="round" d="M9 9L4 4m0 0l5 0M4 4l0 5M15 9l5-5m0 0l-5 0m5 0l0 5M9 15l-5 5m0 0l5 0m-5 0l0-5M15 15l5 5m0 0l-5 0m5 0l0-5"/>
+                  : <path strokeLinecap="round" d="M4 8V4m0 0h4M4 4l5 5M20 8V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5M20 16v4m0 0h-4m4 0l-5-5"/>}
+              </svg>
+              {previewExpanded ? "Ver editor" : "Expandir"}
+            </button>
+          </div>
+          <div style={{ padding: 24, flex: 1 }}>
+            <BlogPreview blogPost={blogPost} activeTab={activeTab} />
+          </div>
         </div>
       </div>
     </div>

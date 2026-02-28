@@ -25,6 +25,8 @@ export default function RichTextEditor({
   const [isLinkMenuOpen, setIsLinkMenuOpen] = useState(false);
   const [linkUrl, setLinkUrl] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const [isHtmlMode, setIsHtmlMode] = useState(false);
+  const [rawHtml, setRawHtml] = useState("");
 
   const editor = useEditor({
     extensions: [
@@ -341,6 +343,27 @@ export default function RichTextEditor({
             disabled={isUploading || !postId}
           />
         </label>
+
+        <div className="w-px h-6 bg-gray-300 mx-1 self-center"></div>
+
+        {/* Botón HTML */}
+        <button
+          type="button"
+          title="Editar HTML"
+          onClick={() => {
+            if (!isHtmlMode) {
+              setRawHtml(editor.getHTML());
+            } else {
+              editor.commands.setContent(rawHtml, true);
+            }
+            setIsHtmlMode((prev) => !prev);
+          }}
+          className={`px-2 py-1 rounded text-xs font-mono font-bold hover:bg-gray-200 ${
+            isHtmlMode ? "bg-indigo-100 text-indigo-700" : "text-gray-600"
+          }`}
+        >
+          &lt;/&gt; HTML
+        </button>
       </div>
 
       {/* BubbleMenu - appears when text is selected */}
@@ -416,7 +439,28 @@ export default function RichTextEditor({
       )}
 
       <div className="px-4 py-3 bg-white min-h-[300px] prose max-w-none">
-        <EditorContent editor={editor} />
+        {isHtmlMode ? (
+          <div className="flex flex-col gap-2">
+            <textarea
+              value={rawHtml}
+              onChange={(e) => setRawHtml(e.target.value)}
+              className="w-full min-h-[400px] font-mono text-sm border rounded p-3 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-y"
+              placeholder="Pega tu HTML aquí..."
+            />
+            <button
+              type="button"
+              onClick={() => {
+                editor.commands.setContent(rawHtml, true);
+                setIsHtmlMode(false);
+              }}
+              className="self-end bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 text-sm font-medium"
+            >
+              Aplicar HTML al editor
+            </button>
+          </div>
+        ) : (
+          <EditorContent editor={editor} />
+        )}
       </div>
     </div>
   );

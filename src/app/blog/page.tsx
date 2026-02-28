@@ -1,12 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
 import { getAllContributors } from "@/lib/firebase/blog/contributor";
 import { BlogPost, BlogContributor } from "@/types/blog";
 
-// Cambiamos la configuración de la página para revalidar los datos frecuentemente
-export const revalidate = 0; // Revalidate at every request
-export const dynamic = "force-dynamic"; // Disable static optimization
+export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: "Blog de Confiabilidad Industrial | Reliaplant",
+  description:
+    "Artículos especializados sobre confiabilidad, RCM, RCA, gestión de activos y mantenimiento industrial en Latinoamérica.",
+  alternates: {
+    canonical: "https://reliaplant.com/blog",
+  },
+  openGraph: {
+    title: "Blog de Confiabilidad Industrial | Reliaplant",
+    description:
+      "Artículos especializados sobre confiabilidad, RCM, RCA, gestión de activos y mantenimiento industrial.",
+    type: "website",
+  },
+};
 
 async function getBlogData() {
   try {

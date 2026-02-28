@@ -236,6 +236,15 @@ export default function Header() {
 
             <div className="mb-0 text-sm relative group h-full">
               <Link
+                href="/pricing/compare"
+                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors rounded-md mx-0.5"
+              >
+                PRICING
+              </Link>
+            </div>
+
+            <div className="mb-0 text-sm relative group h-full">
+              <Link
                 href="/blog"
                 className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors rounded-md mx-0.5"
               >

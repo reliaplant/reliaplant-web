@@ -1,233 +1,146 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FiTrash2, FiEdit2, FiEye, FiPlus } from "react-icons/fi";
 import {
   getAllFormContacts,
   type FormContactWithId,
 } from "@/lib/firebase/form_contact";
 
-interface ActionButtonProps {
-  icon: React.ReactNode;
-  label: string;
-  onClick: () => void;
-  variant?: "primary" | "danger" | "success";
-  disabled?: boolean;
-}
-
-const ActionButton = ({
-  icon,
-  label,
-  onClick,
-  variant = "primary",
-  disabled = false,
-}: ActionButtonProps) => {
-  const baseClasses =
-    "flex items-center gap-2 p-3 rounded-lg w-full mb-3 transition-colors";
-  const variantClasses = {
-    primary: "bg-blue-100 text-blue-700 hover:bg-blue-200",
-    danger: "bg-red-100 text-red-700 hover:bg-red-200",
-    success: "bg-green-100 text-green-700 hover:bg-green-200",
-  };
-
-  return (
-    <button
-      className={`${baseClasses} ${variantClasses[variant]}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {icon}
-      <span>{label}</span>
-    </button>
-  );
-};
-
 export default function FormManagerPage() {
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [forms, setForms] = useState<FormContactWithId[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState<FormContactWithId | null>(null);
 
   useEffect(() => {
-    const loadForms = async () => {
-      try {
-        const data = await getAllFormContacts();
-        setForms(data);
-      } catch (error) {
-        console.error("Error loading forms:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadForms();
+    getAllFormContacts()
+      .then(setForms)
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
 
-  const selectedForm = forms.find((form) => form.id === selectedItem);
+  const fmt = (d: Date) =>
+    new Intl.DateTimeFormat("es-MX", {
+      year: "numeric", month: "short", day: "numeric",
+      hour: "2-digit", minute: "2-digit",
+    }).format(d);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1>Gestor de Formularios</h1>
-        </div>
-      </header>
+    <div style={{ display: "flex", gap: 0, height: "calc(100vh - 112px)", overflow: "hidden" }}>
+      {/* Table panel */}
+      <div style={{ flex: 1, overflow: "auto", borderRight: selected ? "1px solid var(--a-ui-03)" : "none" }}>
+        {loading ? (
+          <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>Cargando…</div>
+        ) : forms.length === 0 ? (
+          <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>
+            No hay formularios recibidos.
+          </div>
+        ) : (
+          <div className="admin-table-wrap" style={{ marginTop: 0 }}>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Empresa</th>
+                  <th>Email</th>
+                  <th>Interés</th>
+                  <th>Fecha</th>
+                  <th>Disp.</th>
+                </tr>
+              </thead>
+              <tbody>
+                {forms.map((f) => (
+                  <tr
+                    key={f.id}
+                    onClick={() => setSelected(selected?.id === f.id ? null : f)}
+                    style={{
+                      cursor: "pointer",
+                      background: selected?.id === f.id ? "var(--a-selected)" : undefined,
+                      borderLeft: selected?.id === f.id ? "3px solid var(--a-blue)" : "3px solid transparent",
+                    }}
+                  >
+                    <td style={{ fontWeight: 500 }}>
+                      {f.nombre}
+                      {f.cargo && (
+                        <span style={{ display: "block", fontSize: 11, color: "var(--a-text-02)", fontWeight: 400 }}>{f.cargo}</span>
+                      )}
+                    </td>
+                    <td>{f.empresa}</td>
+                    <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>{f.email}</td>
+                    <td>
+                      <span className="atag atag-blue">{f.interes}</span>
+                    </td>
+                    <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, whiteSpace: "nowrap" }}>
+                      {fmt(f.date)}
+                    </td>
+                    <td>
+                      <span className={`atag ${f.isMobile ? "atag-gray" : "atag-blue"}`}>
+                        {f.isMobile ? "Móvil" : "Desktop"}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
 
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="flex gap-6">
-          {/* Panel de acciones (izquierda) */}
-          <div className="w-1/3">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-semibold mb-4">Acciones</h2>
-              <ActionButton
-                icon={<FiPlus />}
-                label="Nuevo Formulario"
-                onClick={() => console.log("Nuevo")}
-                variant="success"
-              />
-              <ActionButton
-                icon={<FiEdit2 />}
-                label="Editar Seleccionado"
-                onClick={() => console.log("Editar")}
-                disabled={!selectedItem}
-              />
-              <ActionButton
-                icon={<FiEye />}
-                label="Ver Respuestas"
-                onClick={() => console.log("Ver")}
-                disabled={!selectedItem}
-              />
-              <ActionButton
-                icon={<FiTrash2 />}
-                label="Eliminar Seleccionado"
-                onClick={() => console.log("Eliminar")}
-                variant="danger"
-                disabled={!selectedItem}
-              />
-            </div>
+      {/* Detail panel */}
+      {selected && (
+        <div style={{ width: 340, flexShrink: 0, overflow: "auto", padding: 24, background: "var(--a-ui-01)" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+            <span style={{ fontSize: 13, fontWeight: 600 }}>Detalle</span>
+            <button
+              onClick={() => setSelected(null)}
+              style={{ background: "none", border: "none", cursor: "pointer", color: "var(--a-text-02)", fontSize: 18, lineHeight: 1, padding: 4 }}
+              title="Cerrar"
+            >
+              ×
+            </button>
           </div>
 
-          {/* Panel de contenido (derecha) */}
-          <div className="w-2/3">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-semibold mb-4">Formularios</h2>
-              <div className="max-h-[70vh] overflow-y-auto">
-                {loading ? (
-                  <div className="text-center pt-20">
-                    Cargando formularios...
-                  </div>
-                ) : forms.length === 0 ? (
-                  <div className="text-gray-500 text-center pt-20">
-                    No hay formularios disponibles
-                  </div>
-                ) : (
-                  <div className="space-y-4 divide-y">
-                    {forms.map((form) => (
-                      <div key={form.id} className="pt-4 first:pt-0">
-                        <div
-                          className={`p-4 rounded-lg transition-all duration-200 ${
-                            selectedItem === form.id
-                              ? "bg-blue-50 border border-blue-200"
-                              : "hover:bg-gray-50 cursor-pointer"
-                          }`}
-                          onClick={() =>
-                            setSelectedItem(
-                              selectedItem === form.id ? null : form.id
-                            )
-                          }
-                        >
-                          {/* Vista resumida - siempre visible */}
-                          <div className="flex justify-between">
-                            <div>
-                              <p className="font-semibold">{form.nombre}</p>
-                              <p className="text-sm text-gray-600">
-                                {form.email}
-                              </p>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-sm">{form.empresa}</p>
-                              <p className="text-sm text-gray-600">
-                                {form.telefono}
-                              </p>
-                            </div>
-                          </div>
-                          <p className="text-sm text-gray-500 mt-1">
-                            {form.interes}
-                          </p>
+          <DetailRow label="Nombre" value={selected.nombre} />
+          <DetailRow label="Cargo" value={selected.cargo} />
+          <DetailRow label="Empresa" value={selected.empresa} />
+          <DetailRow label="Email" value={selected.email} mono />
+          <DetailRow label="Teléfono" value={selected.telefono} mono />
+          <DetailRow label="País" value={selected.pais} />
+          {selected.direccion && <DetailRow label="Dirección" value={selected.direccion} />}
+          <DetailRow label="Interés" value={selected.interes} />
+          {selected.cantidadPersonas && <DetailRow label="Personas" value={String(selected.cantidadPersonas)} />}
+          {selected.especial && <DetailRow label="Notas" value={selected.especial} />}
+          {selected.origen && <DetailRow label="Origen" value={selected.origen} />}
+          {selected.type && <DetailRow label="Tipo" value={selected.type} />}
+          {selected.campana && <DetailRow label="Campaña" value={selected.campana} />}
+          {selected.anuncio && <DetailRow label="Anuncio" value={selected.anuncio} />}
+          <DetailRow label="Dispositivo" value={selected.isMobile ? "Móvil" : "Desktop"} />
+          <DetailRow label="Fecha" value={fmt(selected.date)} mono />
 
-                          {/* Vista detallada - expandible */}
-                          {selectedItem === form.id && (
-                            <div className="mt-4 pt-4 border-t border-blue-200">
-                              <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                  <p className="text-sm">
-                                    <strong>Cargo:</strong> {form.cargo}
-                                  </p>
-                                  <p className="text-sm">
-                                    <strong>País:</strong> {form.pais}
-                                  </p>
-                                  {form.cantidadPersonas && (
-                                    <p className="text-sm">
-                                      <strong>Cantidad de Personas:</strong>{" "}
-                                      {form.cantidadPersonas}
-                                    </p>
-                                  )}
-                                  <p className="text-sm">
-                                    <strong>Dispositivo:</strong>{" "}
-                                    {form.isMobile ? "Móvil" : "Desktop"}
-                                  </p>
-                                  {form.origen && (
-                                    <p className="text-sm">
-                                      <strong>Origen:</strong> {form.origen}
-                                    </p>
-                                  )}
-                                </div>
-                                <div className="space-y-2">
-                                  {form.direccion && (
-                                    <p className="text-sm">
-                                      <strong>Dirección:</strong>{" "}
-                                      {form.direccion}
-                                    </p>
-                                  )}
-                                  {form.especial && (
-                                    <p className="text-sm">
-                                      <strong>Especial:</strong> {form.especial}
-                                    </p>
-                                  )}
-                                  {form.type && (
-                                    <p className="text-sm">
-                                      <strong>Tipo:</strong> {form.type}
-                                    </p>
-                                  )}
-                                  {form.campana && (
-                                    <p className="text-sm">
-                                      <strong>Campaña:</strong> {form.campana}
-                                    </p>
-                                  )}
-                                  {form.anuncio && (
-                                    <p className="text-sm">
-                                      <strong>Anuncio:</strong> {form.anuncio}
-                                    </p>
-                                  )}
-                                </div>
-                              </div>
-                              <div className="mt-2">
-                                <p className="text-sm">
-                                  <strong>Fecha:</strong>{" "}
-                                  {form.date.toLocaleDateString()}
-                                </p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+          <div style={{ marginTop: 20 }}>
+            <a
+              href={`mailto:${selected.email}`}
+              className="abtn abtn-primary"
+              style={{ display: "block", textAlign: "center", textDecoration: "none" }}
+            >
+              Responder por email
+            </a>
           </div>
         </div>
-      </main>
+      )}
+    </div>
+  );
+}
+
+function DetailRow({ label, value, mono }: { label: string; value?: string | null; mono?: boolean }) {
+  if (!value) return null;
+  return (
+    <div style={{ marginBottom: 14 }}>
+      <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--a-text-02)", marginBottom: 2 }}>
+        {label}
+      </div>
+      <div style={{ fontSize: 13, fontFamily: mono ? "'IBM Plex Mono', monospace" : undefined, wordBreak: "break-word" }}>
+        {value}
+      </div>
     </div>
   );
 }

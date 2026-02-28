@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta UI Admin — Reliaplant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── IBM CARBON — Gray 10 Light Theme ─────────────── */
+:root {
+  --ui-background: #ffffff;
+  --ui-01:         #f4f4f4;
+  --ui-02:         #ffffff;
+  --ui-03:         #e0e0e0;
+  --ui-04:         #8d8d8d;
+  --ui-05:         #161616;
+
+  --text-01:       #161616;
+  --text-02:       #393939;
+  --text-03:       #6f6f6f;
+  --text-04:       #ffffff;
+  --text-placeholder: #a8a8a8;
+
+  --interactive-01: #0f62fe;
+  --hover-primary:  #0353e9;
+  --hover-ui:       #e5e5e5;
+  --active-ui:      #c6c6c6;
+  --selected-ui:    #e0e0e0;
+
+  --border-subtle:  #e0e0e0;
+  --border-strong:  #8d8d8d;
+
+  --support-success:    #24a148;
+  --support-success-bg: #defbe6;
+  --support-warning:    #f1c21b;
+  --support-warning-bg: #fdf4bd;
+  --support-error:      #da1e28;
+  --support-error-bg:   #fff1f1;
+  --support-info:       #0043ce;
+  --support-info-bg:    #edf5ff;
+
+  --sidebar-w: 256px;
+  --topbar-h:  48px;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  background: var(--ui-01);
+  color: var(--text-01);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════ */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--ui-05);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+.logo-sep { color: rgba(255,255,255,0.3); margin: 0 6px; }
+.logo-sub { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.nav-section { padding: 20px 0 0; }
+
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  padding: 0 16px;
+  margin-bottom: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background 0.1s, color 0.1s;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-item:hover { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.9); }
+.nav-item.active { background: rgba(255,255,255,0.1); color: #ffffff; border-left-color: #0f62fe; }
+
+.nav-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.6; }
+.nav-item.active .nav-icon { opacity: 1; }
+
+.nav-badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--support-error);
+  color: white;
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+.nav-badge-n {
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.user-row:hover { background: rgba(255,255,255,0.07); }
+
+.avatar {
+  width: 24px; height: 24px;
+  background: var(--interactive-01);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600; color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  flex-shrink: 0;
+}
+
+.user-name { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+.logout-btn {
+  margin-left: auto; background: none; border: none;
+  color: rgba(255,255,255,0.3); cursor: pointer; padding: 4px;
+  display: flex; align-items: center; transition: color 0.1s;
+}
+.logout-btn:hover { color: rgba(255,255,255,0.8); }
+
+/* ══════════════════════════════════════════════
+   MAIN SHELL
+══════════════════════════════════════════════ */
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.topbar {
+  height: var(--topbar-h);
+  background: var(--ui-background);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex; align-items: center;
+  padding: 0 16px; gap: 8px; flex-shrink: 0;
+}
+
+.breadcrumb { font-size: 12px; color: var(--text-03); display: flex; align-items: center; gap: 6px; }
+.breadcrumb .current { color: var(--text-01); font-weight: 500; }
+.bc-sep { color: var(--border-strong); }
+
+.topbar-spacer { flex: 1; }
+.topbar-actions { display: flex; align-items: center; gap: 1px; }
+
+/* ── BUTTONS — Carbon, zero radius ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 32px; padding: 0 15px;
+  font-size: 13px; font-weight: 400;
+  font-family: 'IBM Plex Sans', sans-serif;
+  cursor: pointer; border: none; border-radius: 0;
+  transition: background 0.1s; white-space: nowrap;
+}
+.btn-primary { background: var(--interactive-01); color: white; }
+.btn-primary:hover { background: var(--hover-primary); }
+
+.btn-secondary {
+  background: var(--ui-background);
+  color: var(--text-01);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--hover-ui); }
+
+.btn-ghost { background: transparent; color: var(--text-02); border: 1px solid transparent; }
+.btn-ghost:hover { background: var(--hover-ui); color: var(--text-01); }
+
+.btn-danger {
+  background: var(--support-error-bg);
+  color: var(--support-error);
+  border: 1px solid #ffd7d9;
+}
+.btn-danger:hover { background: #ffd7d9; }
+
+.btn-sm { height: 28px; padding: 0 12px; font-size: 12px; }
+
+/* ── SEARCH ── */
+.search-wrap { position: relative; display: flex; align-items: center; }
+.search-icon { position: absolute; left: 10px; color: var(--text-03); pointer-events: none; }
+.search-input {
+  height: 32px; padding: 0 12px 0 32px;
+  background: var(--ui-01); border: 1px solid var(--border-subtle); border-radius: 0;
+  font-size: 13px; font-family: 'IBM Plex Sans', sans-serif; color: var(--text-01);
+  outline: none; width: 220px; transition: border-color 0.1s;
+}
+.search-input::placeholder { color: var(--text-placeholder); }
+.search-input:focus { border-color: var(--interactive-01); outline: 2px solid var(--interactive-01); outline-offset: -2px; }
+
+/* ══════════════════════════════════════════════
+   CONTENT
+══════════════════════════════════════════════ */
+.content { flex: 1; overflow-y: auto; background: var(--ui-01); }
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ══════════════════════════════════════════════
+   TABLE — Carbon Data Table
+══════════════════════════════════════════════ */
+.table-wrap { background: var(--ui-background); border: 1px solid var(--border-subtle); }
+
+.table-toolbar {
+  display: flex; align-items: center;
+  padding: 0 16px; height: 48px;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 8px; background: var(--ui-01);
+}
+
+.filter-tab {
+  height: 32px; padding: 0 14px;
+  font-size: 12px; color: var(--text-03);
+  background: var(--ui-background);
+  border: 1px solid var(--border-subtle); border-right: none;
+  cursor: pointer; font-family: inherit; border-radius: 0;
+  transition: all 0.1s;
+}
+.filter-tab:last-child { border-right: 1px solid var(--border-subtle); }
+.filter-tab:hover { background: var(--hover-ui); color: var(--text-01); }
+.filter-tab.active { background: var(--interactive-01); color: white; border-color: var(--interactive-01); }
+
+table { width: 100%; border-collapse: collapse; }
+
+thead th {
+  padding: 11px 16px; text-align: left;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-03); background: var(--ui-01);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 11px 16px; font-size: 13px;
+  color: var(--text-02);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--ui-01); }
+
+.cell-title { font-weight: 400; color: var(--text-01); }
+.cell-mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-03); margin-top: 2px; }
+
+/* ── TAGS — Carbon Tag ── */
+.tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 500; padding: 2px 8px;
+  border-radius: 0; white-space: nowrap;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.tag-green  { background: var(--support-success-bg); color: #198038; border: 1px solid #a7f0ba; }
+.tag-yellow { background: var(--support-warning-bg); color: #8e5f00; border: 1px solid #f5e478; }
+.tag-blue   { background: var(--support-info-bg);    color: #0043ce; border: 1px solid #97c1ff; }
+.tag-red    { background: var(--support-error-bg);   color: #a2191f; border: 1px solid #ffb3b8; }
+
+.tag-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.dot-green  { background: #24a148; }
+.dot-yellow { background: #f1c21b; }
+.dot-blue   { background: #0043ce; }
+.dot-red    { background: #da1e28; }
+
+/* ── ACTION BUTTONS ── */
+.action-btns { display: flex; align-items: center; }
+.icon-btn {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none;
+  color: var(--text-03); cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+.icon-btn:hover { background: var(--hover-ui); color: var(--text-01); }
+.icon-btn.danger:hover { background: var(--support-error-bg); color: var(--support-error); }
+
+/* SEO indicators */
+.seo-indicators { display: flex; gap: 3px; align-items: center; }
+.seo-dot { width: 8px; height: 8px; border-radius: 0; display: inline-block; }
+.seo-ok   { background: #24a148; }
+.seo-warn { background: #f1c21b; }
+.seo-err  { background: #da1e28; }
+
+/* ══════════════════════════════════════════════
+   DASHBOARD
+══════════════════════════════════════════════ */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--ui-background);
+}
+.stat-tile {
+  padding: 24px;
+  border-right: 1px solid var(--border-subtle);
+}
+.stat-tile:last-child { border-right: none; }
+.stat-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-03); margin-bottom: 10px; }
+.stat-value { font-size: 32px; font-weight: 300; color: var(--text-01); line-height: 1; margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+.stat-delta { font-size: 11px; font-family: 'IBM Plex Mono', monospace; color: var(--support-success); }
+.stat-delta.neutral { color: var(--text-03); }
+.stat-delta.err { color: var(--support-error); }
+
+.dash-panels { display: grid; grid-template-columns: 1fr 1fr; background: var(--ui-background); }
+.dash-panel { border-right: 1px solid var(--border-subtle); }
+.dash-panel:last-child { border-right: none; }
+.panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+  background: var(--ui-01);
+}
+.panel-title { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-03); }
+
+/* ══════════════════════════════════════════════
+   FORM ELEMENTS
+══════════════════════════════════════════════ */
+.form-card { background: var(--ui-background); border: 1px solid var(--border-subtle); }
+
+.form-tabs { display: flex; border-bottom: 1px solid var(--border-subtle); background: var(--ui-01); }
+.ftab {
+  height: 40px; padding: 0 16px;
+  font-size: 13px; color: var(--text-03);
+  cursor: pointer; border-bottom: 2px solid transparent;
+  border-right: 1px solid var(--border-subtle);
+  background: transparent; font-family: inherit;
+  display: flex; align-items: center; border-radius: 0;
+  border-top: none; border-left: none; transition: all 0.1s;
+}
+.ftab:hover { background: var(--hover-ui); color: var(--text-01); }
+.ftab.active { color: var(--text-01); border-bottom-color: var(--interactive-01); background: var(--ui-background); }
+
+.form-body { padding: 20px; }
+.form-row { margin-bottom: 16px; }
+
+.form-label {
+  display: block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--text-03); margin-bottom: 5px;
+}
+.form-label .req { color: var(--support-error); }
+
+.form-input {
+  width: 100%; height: 36px; padding: 0 12px;
+  background: var(--ui-01);
+  border: none; border-bottom: 1px solid var(--border-strong);
+  color: var(--text-01); font-size: 13px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  outline: none; border-radius: 0; transition: border-color 0.1s;
+}
+.form-input::placeholder { color: var(--text-placeholder); }
+.form-input:focus { border-bottom-color: var(--interactive-01); outline: 2px solid var(--interactive-01); outline-offset: -2px; }
+
+.form-textarea { height: auto; padding: 10px 12px; resize: vertical; min-height: 80px; }
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%236f6f6f' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 30px;
+}
+
+.char-counter { font-size: 11px; font-family: 'IBM Plex Mono', monospace; color: var(--text-03); text-align: right; margin-top: 3px; }
+.char-counter.over { color: var(--support-error); }
+
+.slug-field {
+  display: flex;
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--ui-01);
+}
+.slug-field:focus-within { border-bottom-color: var(--interactive-01); outline: 2px solid var(--interactive-01); outline-offset: -2px; }
+.slug-prefix {
+  padding: 0 10px; font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace; color: var(--text-03);
+  background: var(--ui-03); display: flex; align-items: center;
+  white-space: nowrap; border-right: 1px solid var(--border-strong); flex-shrink: 0;
+}
+.slug-input {
+  flex: 1; background: transparent; border: none;
+  height: 36px; padding: 0 12px;
+  font-size: 13px; font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-01); outline: none;
+}
+
+.label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+
+.ai-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 24px; padding: 0 10px; font-size: 11px; font-weight: 500;
+  font-family: 'IBM Plex Sans', sans-serif; border-radius: 0;
+  background: var(--support-info-bg); color: var(--support-info);
+  border: 1px solid #97c1ff; cursor: pointer; transition: all 0.1s;
+}
+.ai-btn:hover { background: #d0e2ff; }
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.kw-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-family: 'IBM Plex Mono', monospace; padding: 3px 8px;
+  background: var(--ui-03); color: var(--text-02);
+  border: 1px solid var(--border-subtle);
+}
+.kw-tag-blue { background: var(--support-info-bg); border-color: #97c1ff; color: var(--support-info); }
+.kw-remove { cursor: pointer; color: var(--text-03); background: none; border: none; font-size: 12px; padding: 0; transition: color 0.1s; }
+.kw-remove:hover { color: var(--support-error); }
+
+.publish-bar {
+  display: flex; align-items: center;
+  padding: 0 20px; height: 48px;
+  background: var(--ui-01);
+  border-top: 1px solid var(--border-subtle); gap: 12px;
+}
+.toggle-label { font-size: 12px; color: var(--text-02); display: flex; align-items: center; gap: 8px; }
+.carbon-toggle {
+  width: 40px; height: 20px; border-radius: 10px;
+  background: var(--ui-04); cursor: pointer; position: relative;
+  transition: background 0.2s; flex-shrink: 0;
+}
+.carbon-toggle.on { background: var(--interactive-01); }
+.carbon-toggle::after {
+  content: ''; position: absolute;
+  width: 14px; height: 14px; background: white; border-radius: 50%;
+  top: 3px; left: 3px; transition: left 0.2s;
+}
+.carbon-toggle.on::after { left: 23px; }
+
+/* ══════════════════════════════════════════════
+   EDITOR LAYOUT
+══════════════════════════════════════════════ */
+.editor-layout { display: grid; grid-template-columns: 1fr 360px; height: 100%; }
+.editor-left { border-right: 1px solid var(--border-subtle); overflow-y: auto; background: var(--ui-background); }
+.editor-right { overflow-y: auto; background: var(--ui-01); }
+
+.rte-toolbar {
+  display: flex; align-items: center; padding: 6px 12px; gap: 2px;
+  background: var(--ui-01); border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap;
+}
+.rte-btn {
+  height: 26px; padding: 0 8px;
+  background: transparent; border: none; color: var(--text-03);
+  cursor: pointer; font-size: 12px; font-family: inherit;
+  transition: all 0.1s; border-radius: 0; display: flex; align-items: center;
+}
+.rte-btn:hover { background: var(--hover-ui); color: var(--text-01); }
+.rte-divider { width: 1px; height: 18px; background: var(--border-subtle); margin: 0 4px; }
+.rte-area {
+  min-height: 200px; padding: 14px; font-size: 13px;
+  color: var(--text-placeholder); background: var(--ui-background);
+  border-bottom: 1px solid var(--border-subtle); line-height: 1.6;
+}
+
+/* ── PREVIEW ── */
+.preview-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; height: 40px;
+  border-bottom: 1px solid var(--border-subtle); background: var(--ui-background);
+}
+.preview-title-text { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-03); }
+.preview-body { padding: 16px; }
+
+.serp-wrap { background: #f8f9fa; border: 1px solid var(--border-subtle); padding: 14px 16px; margin-bottom: 16px; }
+.serp-label { font-size: 10px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-03); margin-bottom: 8px; }
+.serp-title { font-size: 15px; color: #1a0dab; margin-bottom: 2px; cursor: pointer; line-height: 1.3; }
+.serp-title:hover { text-decoration: underline; }
+.serp-url { font-size: 11px; color: #006621; margin-bottom: 5px; font-family: 'IBM Plex Mono', monospace; }
+.serp-desc { font-size: 12px; color: #4d5156; line-height: 1.5; }
+
+.seo-list { margin-top: 4px; }
+.seo-check-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-03); margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+.seo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; padding: 5px 0; color: var(--text-02); border-bottom: 1px solid var(--border-subtle); }
+.seo-item:last-child { border-bottom: none; }
+.seo-icon { font-size: 11px; font-family: 'IBM Plex Mono', monospace; flex-shrink: 0; width: 16px; text-align: center; margin-top: 1px; }
+.seo-icon.ok { color: #24a148; }
+.seo-icon.warn { color: #8e5f00; }
+.seo-icon.err { color: var(--support-error); }
+
+/* ══════════════════════════════════════════════
+   CONTRIBUTORS
+══════════════════════════════════════════════ */
+.contrib-layout { display: grid; grid-template-columns: 280px 1fr; height: 100%; }
+.contrib-list-panel { background: var(--ui-background); border-right: 1px solid var(--border-subtle); overflow-y: auto; display: flex; flex-direction: column; }
+.contrib-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; height: 48px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--ui-01); flex-shrink: 0;
+}
+.contrib-panel-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-03); }
+
+.contrib-item {
+  display: flex; align-items: center; height: 56px; padding: 0 16px; gap: 12px;
+  cursor: pointer; border-bottom: 1px solid var(--border-subtle); transition: background 0.1s;
+}
+.contrib-item:hover { background: var(--ui-01); }
+.contrib-item.selected { background: var(--support-info-bg); border-left: 3px solid var(--interactive-01); }
+
+.contrib-avatar {
+  width: 32px; height: 32px; background: var(--interactive-01);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: white; flex-shrink: 0;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.contrib-name { font-size: 13px; color: var(--text-01); }
+.contrib-email { font-size: 11px; color: var(--text-03); font-family: 'IBM Plex Mono', monospace; }
+
+.contrib-form-panel { background: var(--ui-01); overflow-y: auto; }
+.contrib-form-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 48px;
+  border-bottom: 1px solid var(--border-subtle); background: var(--ui-background);
+}
+.contrib-form-title { font-size: 13px; font-weight: 500; color: var(--text-01); }
+.contrib-form-body { padding: 20px; }
+
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+
+.photo-zone {
+  display: flex; align-items: center; gap: 14px; padding: 12px;
+  border: 1px dashed var(--border-strong); background: var(--ui-background);
+  cursor: pointer; transition: border-color 0.1s; margin-bottom: 16px;
+}
+.photo-zone:hover { border-color: var(--interactive-01); }
+.photo-preview-sq {
+  width: 48px; height: 48px; background: var(--interactive-01);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace; flex-shrink: 0;
+}
+.photo-hint .main { font-size: 12px; color: var(--text-02); }
+.photo-hint .sub { font-size: 11px; color: var(--text-03); margin-top: 2px; font-family: 'IBM Plex Mono', monospace; }
+
+.section-divider { height: 1px; background: var(--border-subtle); margin: 20px 0; }
+.section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-03); margin-bottom: 12px; }
+
+.carbon-checkbox { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-02); cursor: pointer; }
+.carbon-checkbox input[type="checkbox"] { accent-color: var(--interactive-01); width: 14px; height: 14px; cursor: pointer; }
+
+/* ══════════════════════════════════════════════
+   NOTIFICATIONS
+══════════════════════════════════════════════ */
+.inline-notification {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 16px;
+  background: var(--support-info-bg);
+  border-left: 3px solid var(--interactive-01);
+  margin-bottom: 16px;
+  font-size: 12px; color: var(--text-02); line-height: 1.5;
+}
+.inline-notification .icon { color: var(--interactive-01); flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+.inline-notification strong { color: var(--text-01); }
+
+/* Toast */
+.toast-container { position: fixed; bottom: 0; right: 0; width: 320px; z-index: 999; }
+.toast {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; background: var(--ui-background);
+  border-top: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--support-success);
+  font-size: 13px; color: var(--text-01);
+  box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+}
+.toast-icon { color: var(--support-success); }
+.toast-close { margin-left: auto; cursor: pointer; background: none; border: none; color: var(--text-03); font-size: 16px; }
+.toast-close:hover { color: var(--text-01); }
+
+/* ── DRAWER ── */
+.form-detail-drawer {
+  position: fixed; top: 0; right: 0;
+  width: 400px; height: 100vh;
+  background: var(--ui-background); border-left: 1px solid var(--border-subtle);
+  z-index: 50; display: flex; flex-direction: column;
+  transform: translateX(100%); transition: transform 0.2s;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.08);
+}
+.form-detail-drawer.open { transform: translateX(0); }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 0 16px; height: 48px; border-bottom: 1px solid var(--border-subtle); flex-shrink: 0; background: var(--ui-01); }
+.drawer-title { font-size: 13px; font-weight: 500; color: var(--text-01); }
+.drawer-body { padding: 20px; flex: 1; overflow-y: auto; }
+.detail-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-03); margin-bottom: 4px; font-weight: 600; }
+.detail-value { font-size: 13px; color: var(--text-01); margin-bottom: 16px; }
+.detail-message { font-size: 13px; color: var(--text-02); background: var(--ui-01); padding: 12px; line-height: 1.6; border-left: 2px solid var(--border-strong); margin-bottom: 16px; }
+
+/* ── TOOLTIP ── */
+[data-tip] { position: relative; cursor: help; }
+[data-tip]::after {
+  content: attr(data-tip); position: absolute;
+  bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%);
+  background: var(--ui-05); color: white; font-size: 11px; padding: 4px 8px;
+  white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.12s; z-index: 100;
+}
+[data-tip]:hover::after { opacity: 1; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); }
+</style>
+</head>
+<body>
+
+<!-- ════════════ SIDEBAR (dark, como el sitio) ════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <span class="logo-mark">Reliaplant</span>
+    <span class="logo-sep">/</span>
+    <span class="logo-sub">admin</span>
+  </div>
+
+  <nav>
+    <div class="nav-section">
+      <div class="nav-section-label">General</div>
+      <a class="nav-item" onclick="show('dashboard')" id="nav-dashboard">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Blog</div>
+      <a class="nav-item active" onclick="show('posts')" id="nav-posts">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="square" d="M4 6h16M4 10h16M4 14h10M4 18h7"/></svg>
+        Entradas
+        <span class="nav-badge nav-badge-n">12</span>
+      </a>
+      <a class="nav-item" onclick="show('editor')" id="nav-editor">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        Nueva entrada
+      </a>
+      <a class="nav-item" onclick="show('contributors')" id="nav-contributors">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197"/></svg>
+        Articulistas
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Sistema</div>
+      <a class="nav-item" onclick="show('forms')" id="nav-forms">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Formularios
+        <span class="nav-badge">5</span>
+      </a>
+      <a class="nav-item" onclick="show('account')" id="nav-account">
+        <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+        Cuentas admin
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-row">
+      <div class="avatar">TA</div>
+      <span class="user-name">Tomas Alfaro</span>
+      <button class="logout-btn" title="Cerrar sesión">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<!-- ════════════ MAIN ════════════ -->
+<div class="main">
+  <header class="topbar">
+    <div class="breadcrumb" id="breadcrumb">
+      <span>Blog</span><span class="bc-sep">›</span><span class="current">Entradas</span>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-actions" id="topbar-actions">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input class="search-input" placeholder="Buscar entradas…">
+      </div>
+      <button class="btn btn-primary" onclick="show('editor')">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"/></svg>
+        Nueva entrada
+      </button>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- ─── DASHBOARD ─── -->
+    <div class="screen" id="screen-dashboard">
+      <div class="stats-grid">
+        <div class="stat-tile">
+          <div class="stat-label">Posts publicados</div>
+          <div class="stat-value">12</div>
+          <div class="stat-delta">↑ 2 este mes</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Borradores</div>
+          <div class="stat-value">3</div>
+          <div class="stat-delta neutral">— sin cambios</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Formularios nuevos</div>
+          <div class="stat-value" style="color:var(--support-error)">5</div>
+          <div class="stat-delta err">sin revisar</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Articulistas activos</div>
+          <div class="stat-value">4</div>
+          <div class="stat-delta neutral">—</div>
+        </div>
+      </div>
+      <div class="dash-panels">
+        <div class="dash-panel">
+          <div class="panel-header">
+            <span class="panel-title">Últimas entradas</span>
+            <button class="btn btn-ghost btn-sm" onclick="show('posts')">Ver todas →</button>
+          </div>
+          <table><tbody>
+            <tr>
+              <td><div class="cell-title">Pasos para hacer un análisis causa raíz</div><div class="cell-mono">/blog/pasos-analisis-causa-raiz</div></td>
+              <td style="width:110px"><span class="tag tag-green"><span class="tag-dot dot-green"></span>Publicado</span></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">Fundamentos del RCA</div><div class="cell-mono">/blog/fundamentos-rca</div></td>
+              <td><span class="tag tag-green"><span class="tag-dot dot-green"></span>Publicado</span></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">FTA según IEC 61025</div><div class="cell-mono">/blog/fta-iec-61025-rca</div></td>
+              <td><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Borrador</span></td>
+            </tr>
+          </tbody></table>
+        </div>
+        <div class="dash-panel">
+          <div class="panel-header">
+            <span class="panel-title">Formularios sin atender</span>
+            <button class="btn btn-ghost btn-sm" onclick="show('forms')">Ver todos →</button>
+          </div>
+          <table><tbody>
+            <tr>
+              <td><div class="cell-title">Juan Pérez — PEMEX</div><div class="cell-mono">hace 2 h · Demo</div></td>
+              <td style="width:110px"><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Pendiente</span></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">María García — PDVSA</div><div class="cell-mono">hace 5 h · Consulta</div></td>
+              <td><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Pendiente</span></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">Carlos López</div><div class="cell-mono">ayer · Demo</div></td>
+              <td><span class="tag tag-green"><span class="tag-dot dot-green"></span>Revisado</span></td>
+            </tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── POSTS ─── -->
+    <div class="screen active" id="screen-posts">
+      <div class="table-wrap">
+        <div class="table-toolbar">
+          <div style="display:flex">
+            <button class="filter-tab active">Todos (12)</button>
+            <button class="filter-tab">Publicados (9)</button>
+            <button class="filter-tab">Borradores (3)</button>
+          </div>
+          <div style="margin-left:auto">
+            <select class="search-input form-select" style="width:160px">
+              <option>Más reciente</option>
+              <option>Más antiguo</option>
+              <option>Título A–Z</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead><tr>
+            <th>Título</th><th>Autor</th><th>Fecha</th><th>Estado</th>
+            <th data-tip="Título SEO · Meta desc · Slug">SEO</th>
+            <th style="text-align:right;padding-right:12px">Acciones</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="cell-title">Pasos para hacer un análisis causa raíz</div><div class="cell-mono">/blog/pasos-analisis-causa-raiz</div></td>
+              <td style="font-size:12px;color:var(--text-03)">Carlos Mora</td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace;white-space:nowrap">15 feb 2026</td>
+              <td><span class="tag tag-green"><span class="tag-dot dot-green"></span>Publicado</span></td>
+              <td><div class="seo-indicators"><span class="seo-dot seo-ok" data-tip="Título SEO ✓"></span><span class="seo-dot seo-ok" data-tip="Meta desc ✓"></span><span class="seo-dot seo-ok" data-tip="Slug ✓"></span></div></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn" title="Ver"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn" title="Editar" onclick="show('editor')"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
+                <button class="icon-btn danger" title="Eliminar"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">Fundamentos del Análisis de Causa Raíz</div><div class="cell-mono">/blog/fundamentos-rca</div></td>
+              <td style="font-size:12px;color:var(--text-03)">Ana Torres</td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace;white-space:nowrap">8 feb 2026</td>
+              <td><span class="tag tag-green"><span class="tag-dot dot-green"></span>Publicado</span></td>
+              <td><div class="seo-indicators"><span class="seo-dot seo-ok"></span><span class="seo-dot seo-warn"></span><span class="seo-dot seo-ok"></span></div></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn" onclick="show('editor')"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
+                <button class="icon-btn danger"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">FTA según IEC 61025 para RCA</div><div class="cell-mono">/blog/fta-iec-61025-rca</div></td>
+              <td style="font-size:12px;color:var(--text-03)">Carlos Mora</td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace;white-space:nowrap">1 feb 2026</td>
+              <td><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Borrador</span></td>
+              <td><div class="seo-indicators"><span class="seo-dot seo-err"></span><span class="seo-dot seo-err"></span><span class="seo-dot seo-ok"></span></div></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn" onclick="show('editor')"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
+                <button class="icon-btn danger"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ─── EDITOR ─── -->
+    <div class="screen" id="screen-editor" style="height:calc(100vh - 48px)">
+      <div class="editor-layout" style="height:100%">
+        <div class="editor-left">
+          <div class="form-tabs">
+            <button class="ftab active" onclick="editorTab('basic',this)">Contenido</button>
+            <button class="ftab" onclick="editorTab('seo',this)">SEO</button>
+          </div>
+
+          <div id="et-basic" class="form-body">
+            <div class="form-row">
+              <label class="form-label">Título <span class="req">*</span></label>
+              <input class="form-input" placeholder="Ej: Cómo hacer un análisis de causa raíz paso a paso">
+            </div>
+            <div class="form-row">
+              <label class="form-label">Autor <span class="req">*</span></label>
+              <div style="display:flex">
+                <select class="form-input form-select" style="flex:1">
+                  <option>Carlos Mora</option><option>Ana Torres</option>
+                </select>
+                <button class="btn btn-secondary" onclick="show('contributors')" style="height:36px;border-left:none">Gestionar</button>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Imagen de portada</label>
+              <div class="photo-zone">
+                <div style="width:44px;height:44px;background:var(--ui-03);display:flex;align-items:center;justify-content:center;color:var(--text-03);font-size:16px;flex-shrink:0">⬜</div>
+                <div class="photo-hint">
+                  <div class="main">Arrastra una imagen o haz clic para subir</div>
+                  <div class="sub">PNG / JPG · max 5MB · se comprime automáticamente</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Contenido</label>
+              <div style="border:1px solid var(--border-subtle)">
+                <div class="rte-toolbar">
+                  <button class="rte-btn" style="font-weight:700">B</button>
+                  <button class="rte-btn" style="font-style:italic">I</button>
+                  <button class="rte-btn">H2</button>
+                  <button class="rte-btn">H3</button>
+                  <div class="rte-divider"></div>
+                  <button class="rte-btn">≡</button>
+                  <button class="rte-btn">1.</button>
+                  <button class="rte-btn"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+                  <button class="rte-btn">⬜</button>
+                </div>
+                <div class="rte-area">Escribe el contenido del artículo aquí…</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div>
+                <label class="form-label">Etiquetas</label>
+                <div style="display:flex">
+                  <input class="form-input" placeholder="Añadir etiqueta…" style="flex:1">
+                  <button class="btn btn-secondary" style="height:36px;border-left:none">+</button>
+                </div>
+                <div class="tag-list"><span class="kw-tag">RCA <button class="kw-remove">×</button></span><span class="kw-tag">Mantenimiento <button class="kw-remove">×</button></span></div>
+              </div>
+              <div>
+                <label class="form-label">Fecha de publicación</label>
+                <input class="form-input" type="date" value="2026-02-28">
+              </div>
+            </div>
+          </div>
+
+          <div id="et-seo" class="form-body" style="display:none">
+            <div class="inline-notification">
+              <span class="icon">ℹ</span>
+              <span>Completa título y contenido primero, luego usa <strong>Sugerir con IA</strong> para generar los campos SEO automáticamente.</span>
+            </div>
+            <div class="form-row">
+              <div class="label-row">
+                <label class="form-label" style="margin-bottom:0">Título SEO</label>
+                <button class="ai-btn">✦ Sugerir con IA</button>
+              </div>
+              <input class="form-input" id="inp-seo-title" value="Análisis de Causa Raíz: Guía completa paso a paso" oninput="updatePreview()">
+              <div class="char-counter">50 / 65 caracteres</div>
+            </div>
+            <div class="form-row">
+              <div class="label-row">
+                <label class="form-label" style="margin-bottom:0">URL amigable (Slug)</label>
+                <button class="ai-btn">✦ Sugerir con IA</button>
+              </div>
+              <div class="slug-field">
+                <span class="slug-prefix">reliaplant.com/blog/</span>
+                <input class="slug-input" id="inp-slug" value="analisis-causa-raiz-guia" oninput="updatePreview()">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label-row">
+                <label class="form-label" style="margin-bottom:0">Meta descripción</label>
+                <button class="ai-btn">✦ Sugerir con IA</button>
+              </div>
+              <textarea class="form-input form-textarea" id="inp-meta" oninput="updatePreview()">Aprende a hacer un análisis de causa raíz paso a paso siguiendo la norma BS EN 62740. Guía práctica con ejemplos reales de la industria.</textarea>
+              <div class="char-counter">148 / 160 caracteres</div>
+            </div>
+            <div class="form-row" style="margin-bottom:0">
+              <div class="label-row">
+                <label class="form-label" style="margin-bottom:0">Frases clave objetivo</label>
+                <button class="ai-btn">✦ Sugerir 5 con IA</button>
+              </div>
+              <div style="display:flex">
+                <input class="form-input" placeholder="Añadir frase clave…" style="flex:1">
+                <button class="btn btn-secondary" style="height:36px;border-left:none">+</button>
+              </div>
+              <div class="tag-list"><span class="kw-tag kw-tag-blue">análisis causa raíz <button class="kw-remove">×</button></span><span class="kw-tag kw-tag-blue">RCA mantenimiento <button class="kw-remove">×</button></span></div>
+            </div>
+          </div>
+
+          <div class="publish-bar">
+            <label class="toggle-label">
+              <div class="carbon-toggle on" onclick="this.classList.toggle('on')"></div>
+              Publicar al guardar
+            </label>
+            <div style="display:flex;margin-left:auto">
+              <button class="btn btn-secondary" style="border-right:none">Guardar borrador</button>
+              <button class="btn btn-primary">Publicar entrada</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-right">
+          <div class="preview-header">
+            <span class="preview-title-text">Vista previa Google</span>
+            <div style="display:flex">
+              <button class="btn btn-ghost btn-sm" style="height:28px;font-size:11px;border:1px solid var(--border-subtle)">🖥 Escritorio</button>
+              <button class="btn btn-ghost btn-sm" style="height:28px;font-size:11px;border:1px solid var(--border-subtle);border-left:none">📱 Móvil</button>
+            </div>
+          </div>
+          <div class="preview-body">
+            <div class="serp-wrap">
+              <div class="serp-label">Resultado en Google (simulado)</div>
+              <div class="serp-title" id="prev-title">Análisis de Causa Raíz: Guía completa paso a paso</div>
+              <div class="serp-url">reliaplant.com › blog › <span id="prev-slug">analisis-causa-raiz-guia</span></div>
+              <div class="serp-desc" id="prev-meta">Aprende a hacer un análisis de causa raíz paso a paso siguiendo la norma BS EN 62740. Guía práctica con ejemplos reales de la industria.</div>
+            </div>
+            <div class="seo-list">
+              <div class="seo-check-label">Verificación SEO</div>
+              <div class="seo-item"><span class="seo-icon ok">✓</span> Título SEO configurado (50 car.)</div>
+              <div class="seo-item"><span class="seo-icon ok">✓</span> Meta descripción dentro del límite</div>
+              <div class="seo-item"><span class="seo-icon ok">✓</span> Slug sin caracteres especiales</div>
+              <div class="seo-item"><span class="seo-icon ok">✓</span> 2 frases clave definidas</div>
+              <div class="seo-item"><span class="seo-icon warn">!</span> Imagen de portada no configurada</div>
+              <div class="seo-item"><span class="seo-icon err">✗</span> Contenido del artículo vacío</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CONTRIBUTORS ─── -->
+    <div class="screen" id="screen-contributors" style="height:calc(100vh - 48px)">
+      <div class="contrib-layout" style="height:100%">
+        <div class="contrib-list-panel">
+          <div class="contrib-panel-header">
+            <span class="contrib-panel-title">Articulistas</span>
+            <button class="btn btn-primary btn-sm">+ Nuevo</button>
+          </div>
+          <div class="contrib-item selected">
+            <div class="contrib-avatar">CM</div>
+            <div><div class="contrib-name">Carlos Mora</div><div class="contrib-email">carlos@reliaplant.com</div></div>
+            <div style="margin-left:auto"><span class="tag tag-green">Activo</span></div>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar" style="background:#6929c4">AT</div>
+            <div><div class="contrib-name">Ana Torres</div><div class="contrib-email">ana@reliaplant.com</div></div>
+            <div style="margin-left:auto"><span class="tag tag-green">Activo</span></div>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar" style="background:var(--ui-04)">JR</div>
+            <div><div class="contrib-name">Jorge Ruiz</div><div class="contrib-email">jorge@reliaplant.com</div></div>
+            <div style="margin-left:auto"><span class="tag tag-yellow">Inactivo</span></div>
+          </div>
+        </div>
+        <div class="contrib-form-panel">
+          <div class="contrib-form-header">
+            <span class="contrib-form-title">Editar — Carlos Mora</span>
+            <div style="display:flex">
+              <button class="btn btn-danger" style="height:36px">Eliminar</button>
+              <button class="btn btn-primary" style="height:36px">Guardar cambios</button>
+            </div>
+          </div>
+          <div class="contrib-form-body">
+            <div class="photo-zone">
+              <div class="photo-preview-sq">CM</div>
+              <div class="photo-hint"><div class="main">Cambiar foto de perfil</div><div class="sub">JPG o PNG · max 2MB</div></div>
+            </div>
+            <div class="form-grid-2">
+              <div><label class="form-label">Nombre <span class="req">*</span></label><input class="form-input" value="Carlos Mora"></div>
+              <div><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email" value="carlos@reliaplant.com"></div>
+            </div>
+            <div class="form-row">
+              <label class="form-label">Biografía</label>
+              <textarea class="form-input form-textarea">Ingeniero de confiabilidad con más de 10 años de experiencia en la industria petrolera. Especialista en análisis de causa raíz y mantenimiento centrado en confiabilidad.</textarea>
+            </div>
+            <div class="section-divider"></div>
+            <div class="section-eyebrow">Redes sociales</div>
+            <div class="form-grid-3">
+              <div><label class="form-label">LinkedIn</label><input class="form-input" placeholder="URL completa"></div>
+              <div><label class="form-label">Twitter / X</label><input class="form-input" placeholder="@usuario"></div>
+              <div><label class="form-label">Instagram</label><input class="form-input" placeholder="@usuario"></div>
+            </div>
+            <label class="carbon-checkbox"><input type="checkbox" checked> Articulista activo (visible al crear posts)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FORMS ─── -->
+    <div class="screen" id="screen-forms">
+      <div class="table-wrap">
+        <div class="table-toolbar">
+          <div style="display:flex">
+            <button class="filter-tab active">Todos (8)</button>
+            <button class="filter-tab">Sin revisar (5)</button>
+            <button class="filter-tab">Revisados (3)</button>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>Contacto</th><th>Empresa</th><th>Tipo</th><th>Recibido</th><th>Estado</th><th style="text-align:right;padding-right:12px">Acciones</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="cell-title">Juan Pérez</div><div class="cell-mono">juanperez@pemex.com</div></td>
+              <td style="font-size:12px;color:var(--text-03)">PEMEX</td>
+              <td><span class="tag tag-blue">Demo</span></td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace">Hoy, 10:32</td>
+              <td><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Sin revisar</span></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn" onclick="openDrawer()"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="square" d="M5 13l4 4L19 7"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">María García</div><div class="cell-mono">mgarcia@pdvsa.com</div></td>
+              <td style="font-size:12px;color:var(--text-03)">PDVSA</td>
+              <td><span class="tag tag-blue">Consulta</span></td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace">Hoy, 08:15</td>
+              <td><span class="tag tag-yellow"><span class="tag-dot dot-yellow"></span>Sin revisar</span></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="square" d="M5 13l4 4L19 7"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cell-title">Carlos López</div><div class="cell-mono">clopez@ecopetrol.com</div></td>
+              <td style="font-size:12px;color:var(--text-03)">Ecopetrol</td>
+              <td><span class="tag tag-blue">Demo</span></td>
+              <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace">Ayer, 16:40</td>
+              <td><span class="tag tag-green"><span class="tag-dot dot-green"></span>Revisado</span></td>
+              <td><div class="action-btns" style="justify-content:flex-end">
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></button>
+                <button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="square" d="M5 13l4 4L19 7"/></svg></button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ─── ACCOUNT ─── -->
+    <div class="screen" id="screen-account">
+      <div style="max-width:640px;padding:24px">
+        <div class="table-wrap" style="margin-bottom:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:48px;border-bottom:1px solid var(--border-subtle);background:var(--ui-01)">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-03)">Administradores</span>
+            <button class="btn btn-primary btn-sm">+ Nuevo admin</button>
+          </div>
+          <table>
+            <thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th style="text-align:right">Acciones</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <div class="avatar">TA</div>
+                    <span style="font-size:13px">Tomas Alfaro <span style="font-size:11px;color:var(--interactive-01)">(tú)</span></span>
+                  </div>
+                </td>
+                <td style="font-size:11px;color:var(--text-03);font-family:'IBM Plex Mono',monospace">talfarod@gmail.com</td>
+                <td><span class="tag tag-blue">Admin</span></td>
+                <td><div class="action-btns" style="justify-content:flex-end"><button class="icon-btn"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="inline-notification">
+          <span class="icon">🔒</span>
+          <span>Los administradores usan <strong>Firebase Authentication</strong>. Para restablecer contraseñas ve a la consola de Firebase → Authentication → Users.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Drawer -->
+<div class="form-detail-drawer" id="detail-drawer">
+  <div class="drawer-header">
+    <span class="drawer-title">Formulario — Juan Pérez</span>
+    <button class="btn btn-ghost btn-sm" onclick="closeDrawer()">✕ Cerrar</button>
+  </div>
+  <div class="drawer-body">
+    <div class="detail-label">Nombre</div><div class="detail-value">Juan Pérez</div>
+    <div class="detail-label">Email</div><div class="detail-value" style="font-family:'IBM Plex Mono',monospace;font-size:12px">juanperez@pemex.com</div>
+    <div class="detail-label">Empresa</div><div class="detail-value">PEMEX</div>
+    <div class="detail-label">Tipo de solicitud</div><div class="detail-value"><span class="tag tag-blue">Demo</span></div>
+    <div class="detail-label" style="margin-top:16px">Mensaje</div>
+    <div class="detail-message">Estamos interesados en implementar la plataforma Reliaplant en nuestras instalaciones. Nos gustaría agendar una demo para evaluar si se adapta a nuestros procesos de mantenimiento.</div>
+    <button class="btn btn-primary" style="width:100%">Marcar como revisado</button>
+  </div>
+</div>
+
+<div class="toast-container">
+  <div class="toast" id="toast-ok">
+    <span class="toast-icon">✓</span>
+    Entrada guardada correctamente
+    <button class="toast-close" onclick="this.parentElement.style.display='none'">×</button>
+  </div>
+</div>
+
+<script>
+function show(s) {
+  document.querySelectorAll('.screen').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(e => e.classList.remove('active'));
+  document.getElementById('screen-' + s).classList.add('active');
+  const nav = document.getElementById('nav-' + s);
+  if (nav) nav.classList.add('active');
+  const bc = { dashboard:['General','Dashboard'], posts:['Blog','Entradas'], editor:['Blog','Nueva entrada'], contributors:['Blog','Articulistas'], forms:['Sistema','Formularios'], account:['Sistema','Cuentas admin'] };
+  if (bc[s]) document.getElementById('breadcrumb').innerHTML = `<span>${bc[s][0]}</span><span class="bc-sep">›</span><span class="current">${bc[s][1]}</span>`;
+  document.getElementById('topbar-actions').style.display = s === 'posts' ? 'flex' : 'none';
+}
+function editorTab(tab, el) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('et-basic').style.display = tab === 'basic' ? 'block' : 'none';
+  document.getElementById('et-seo').style.display   = tab === 'seo'   ? 'block' : 'none';
+}
+function updatePreview() {
+  const t = document.getElementById('inp-seo-title')?.value;
+  const s = document.getElementById('inp-slug')?.value;
+  const m = document.getElementById('inp-meta')?.value;
+  if (t) document.getElementById('prev-title').textContent = t;
+  if (s) document.getElementById('prev-slug').textContent = s;
+  if (m) document.getElementById('prev-meta').textContent = m;
+}
+function openDrawer()  { document.getElementById('detail-drawer').classList.add('open'); }
+function closeDrawer() { document.getElementById('detail-drawer').classList.remove('open'); }
+setTimeout(() => { const t = document.getElementById('toast-ok'); if(t) t.style.opacity='0'; }, 4000);
+</script>
+</body>
+</html>

@@ -1,337 +1,242 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FiTrash2, FiEdit2, FiPlus } from "react-icons/fi";
 import {
   getAllAdmins,
   createAdminAccount,
   setUserAsAdmin,
   deleteAdmin,
-  updateAdmin,
   type AdminUser,
   getCurrentUser,
 } from "@/lib/firebase/auth";
 
-interface ActionButtonProps {
-  icon: React.ReactNode;
-  label: string;
-  onClick: () => void;
-  variant?: "primary" | "danger" | "success";
-  disabled?: boolean;
-}
-
-const ActionButton = ({
-  icon,
-  label,
-  onClick,
-  variant = "primary",
-  disabled = false,
-}: ActionButtonProps) => {
-  const baseClasses =
-    "flex items-center gap-2 p-3 rounded-lg w-full mb-3 transition-colors";
-  const variantClasses = {
-    primary: "bg-blue-100 text-blue-700 hover:bg-blue-200",
-    danger: "bg-red-100 text-red-700 hover:bg-red-200",
-    success: "bg-green-100 text-green-700 hover:bg-green-200",
-  };
-
-  return (
-    <button
-      className={`${baseClasses} ${variantClasses[variant]}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {icon}
-      <span>{label}</span>
-    </button>
-  );
-};
+type Modal = "none" | "new" | "existing";
 
 export default function AdminAccountPage() {
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [admins, setAdmins] = useState<AdminUser[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [showExistingForm, setShowExistingForm] = useState(false);
   const [currentUser, setCurrentUser] = useState<any>(null);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    displayName: "",
-  });
+  const [modal, setModal] = useState<Modal>("none");
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "", displayName: "" });
   const [existingEmail, setExistingEmail] = useState("");
 
   useEffect(() => {
     loadAdmins();
-    loadCurrentUser();
+    getCurrentUser().then(setCurrentUser).catch(console.error);
   }, []);
 
   const loadAdmins = async () => {
     try {
-      const data = await getAllAdmins();
-      setAdmins(data);
-    } catch (error) {
-      console.error("Error loading admins:", error);
+      setAdmins(await getAllAdmins());
+    } catch (e) {
+      console.error(e);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const loadCurrentUser = async () => {
-    try {
-      const user = await getCurrentUser();
-      setCurrentUser(user);
-    } catch (error) {
-      console.error("Error loading current user:", error);
     }
   };
 
   const handleAddAdmin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createAdminAccount(
-        formData.email,
-        formData.password,
-        formData.displayName
-      );
+      setSubmitting(true);
+      await createAdminAccount(formData.email, formData.password, formData.displayName);
       await setUserAsAdmin(formData.email);
-      setShowAddForm(false);
+      setModal("none");
       setFormData({ email: "", password: "", displayName: "" });
-      loadAdmins();
-    } catch (error) {
-      console.error("Error creating admin:", error);
+      await loadAdmins();
+    } catch (err) {
+      console.error(err);
+      alert("Error al crear administrador.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const handleMakeExistingAdmin = async (e: React.FormEvent) => {
+  const handleMakeExisting = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      setSubmitting(true);
       await setUserAsAdmin(existingEmail);
-      setShowExistingForm(false);
+      setModal("none");
       setExistingEmail("");
-      loadAdmins();
-    } catch (error) {
-      console.error("Error making existing user admin:", error);
-      alert(
-        "No se pudo hacer administrador al usuario. Por favor, intenta de nuevo."
-      );
+      await loadAdmins();
+    } catch {
+      alert("No se pudo asignar el rol de administrador.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const handleDeleteAdmin = async (email: string) => {
-    if (confirm("¿Estás seguro de que deseas eliminar este administrador?")) {
-      try {
-        await deleteAdmin(email);
-        await loadAdmins();
-        setSelectedItem(null);
-      } catch (error) {
-        console.error("Error al eliminar administrador:", error);
-        alert(
-          "No se pudo eliminar el administrador. Por favor, intenta de nuevo."
-        );
-      }
+  const handleDelete = async (email: string) => {
+    if (!confirm(`¿Eliminar administrador ${email}?`)) return;
+    try {
+      await deleteAdmin(email);
+      await loadAdmins();
+    } catch {
+      alert("Error al eliminar administrador.");
     }
   };
 
-  const selectedAdmin = admins.find((admin) => admin.email === selectedItem);
+  const fmt = (d: Date) =>
+    new Intl.DateTimeFormat("es-MX", { year: "numeric", month: "short", day: "numeric" }).format(d);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1>Gestión de Administradores</h1>
-          {currentUser && (
-            <div className="mt-2 text-sm text-gray-600">
-              Sesión iniciada como: {currentUser.displayName} (
-              {currentUser.email})
-            </div>
-          )}
+    <div>
+      {/* Current session info */}
+      {currentUser && (
+        <div style={{ padding: "10px 16px", background: "var(--a-ui-02)", borderLeft: "3px solid var(--a-blue)", fontSize: 13, color: "var(--a-text-02)", marginBottom: 24 }}>
+          Sesión activa: <strong style={{ color: "var(--a-text-01)" }}>{currentUser.displayName || currentUser.email}</strong>
+          {currentUser.displayName && <span style={{ fontFamily: "'IBM Plex Mono', monospace", marginLeft: 8 }}>({currentUser.email})</span>}
         </div>
-      </header>
+      )}
 
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="flex gap-6">
-          <div className="w-1/3">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-semibold mb-4">Acciones</h2>
-              <ActionButton
-                icon={<FiPlus />}
-                label="Nuevo Administrador"
-                onClick={() => setShowAddForm(true)}
-                variant="success"
-              />
-              <ActionButton
-                icon={<FiPlus />}
-                label="Hacer Admin Cuenta Existente"
-                onClick={() => setShowExistingForm(true)}
-                variant="primary"
-              />
-              <ActionButton
-                icon={<FiTrash2 />}
-                label="Eliminar Seleccionado"
-                onClick={() => selectedItem && handleDeleteAdmin(selectedItem)}
-                variant="danger"
-                disabled={!selectedItem}
-              />
+      {/* Actions */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 24 }}>
+        <button className="abtn abtn-primary" onClick={() => setModal("new")}>
+          + Nuevo administrador
+        </button>
+        <button className="abtn abtn-secondary" onClick={() => setModal("existing")}>
+          Asignar rol a cuenta existente
+        </button>
+      </div>
+
+      {/* Table */}
+      {loading ? (
+        <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>Cargando…</div>
+      ) : admins.length === 0 ? (
+        <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>
+          No hay administradores registrados.
+        </div>
+      ) : (
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Creado</th>
+                <th style={{ textAlign: "right" }}>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {admins.map((admin) => (
+                <tr key={admin.email}>
+                  <td style={{ fontWeight: 500 }}>{admin.displayName}</td>
+                  <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>{admin.email}</td>
+                  <td style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>
+                    {fmt(admin.createdAt)}
+                  </td>
+                  <td style={{ textAlign: "right" }}>
+                    {admin.email !== currentUser?.email && (
+                      <button
+                        className="abtn abtn-danger abtn-sm"
+                        onClick={() => handleDelete(admin.email)}
+                      >
+                        Eliminar
+                      </button>
+                    )}
+                    {admin.email === currentUser?.email && (
+                      <span style={{ fontSize: 12, color: "var(--a-text-02)", fontStyle: "italic" }}>Cuenta actual</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Modal overlay */}
+      {modal !== "none" && (
+        <div
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)",
+            display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setModal("none"); }}
+        >
+          <div style={{ background: "var(--a-ui-01)", width: 480, maxWidth: "90vw", padding: 32, boxShadow: "0 8px 32px rgba(0,0,0,0.24)" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+              <span style={{ fontSize: 16, fontWeight: 600 }}>
+                {modal === "new" ? "Nuevo administrador" : "Asignar rol a cuenta existente"}
+              </span>
+              <button
+                onClick={() => setModal("none")}
+                style={{ background: "none", border: "none", cursor: "pointer", fontSize: 20, color: "var(--a-text-02)", lineHeight: 1 }}
+              >×</button>
             </div>
 
-            {showAddForm && (
-              <div className="mt-4 bg-white p-4 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">
-                  Nuevo Administrador
-                </h3>
-                <form onSubmit={handleAddAdmin}>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Nombre
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.displayName}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            displayName: e.target.value,
-                          })
-                        }
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium">Email</label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Contraseña
-                      </label>
-                      <input
-                        type="password"
-                        value={formData.password}
-                        onChange={(e) =>
-                          setFormData({ ...formData, password: e.target.value })
-                        }
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                        required
-                      />
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded"
-                      >
-                        Guardar
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setShowAddForm(false)}
-                        className="bg-gray-300 px-4 py-2 rounded"
-                      >
-                        Cancelar
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            {modal === "new" && (
+              <form onSubmit={handleAddAdmin}>
+                <div className="admin-field">
+                  <label className="admin-field-label">Nombre</label>
+                  <input
+                    className="admin-input"
+                    type="text"
+                    value={formData.displayName}
+                    onChange={(e) => setFormData({ ...formData, displayName: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="admin-field">
+                  <label className="admin-field-label">Email</label>
+                  <input
+                    className="admin-input"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="admin-field">
+                  <label className="admin-field-label">Contraseña</label>
+                  <input
+                    className="admin-input"
+                    type="password"
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    required
+                    minLength={8}
+                  />
+                </div>
+                <div style={{ display: "flex", gap: 8, marginTop: 24 }}>
+                  <button type="submit" className="abtn abtn-primary" disabled={submitting}>
+                    {submitting ? "Creando…" : "Crear administrador"}
+                  </button>
+                  <button type="button" className="abtn abtn-ghost" onClick={() => setModal("none")}>
+                    Cancelar
+                  </button>
+                </div>
+              </form>
             )}
 
-            {showExistingForm && (
-              <div className="mt-4 bg-white p-4 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-4">
-                  Hacer Admin Cuenta Existente
-                </h3>
-                <form onSubmit={handleMakeExistingAdmin}>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium">Email</label>
-                      <input
-                        type="email"
-                        value={existingEmail}
-                        onChange={(e) => setExistingEmail(e.target.value)}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                        required
-                      />
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        type="submit"
-                        className="bg-blue-500 text-white px-4 py-2 rounded"
-                      >
-                        Hacer Admin
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setShowExistingForm(false)}
-                        className="bg-gray-300 px-4 py-2 rounded"
-                      >
-                        Cancelar
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            {modal === "existing" && (
+              <form onSubmit={handleMakeExisting}>
+                <div className="admin-field">
+                  <label className="admin-field-label">Email de la cuenta existente</label>
+                  <input
+                    className="admin-input"
+                    type="email"
+                    value={existingEmail}
+                    onChange={(e) => setExistingEmail(e.target.value)}
+                    required
+                    placeholder="usuario@ejemplo.com"
+                  />
+                </div>
+                <div style={{ display: "flex", gap: 8, marginTop: 24 }}>
+                  <button type="submit" className="abtn abtn-primary" disabled={submitting}>
+                    {submitting ? "Asignando…" : "Asignar rol admin"}
+                  </button>
+                  <button type="button" className="abtn abtn-ghost" onClick={() => setModal("none")}>
+                    Cancelar
+                  </button>
+                </div>
+              </form>
             )}
           </div>
-
-          <div className="w-2/3">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-lg font-semibold mb-4">Administradores</h2>
-              <div className="max-h-[70vh] overflow-y-auto">
-                {loading ? (
-                  <div className="text-center pt-20">Cargando...</div>
-                ) : admins.length === 0 ? (
-                  <div className="text-gray-500 text-center pt-20">
-                    No hay administradores registrados
-                  </div>
-                ) : (
-                  <div className="space-y-4 divide-y">
-                    {admins.map((admin) => (
-                      <div key={admin.email} className="pt-4 first:pt-0">
-                        <div
-                          className={`p-4 rounded-lg transition-all duration-200 ${
-                            selectedItem === admin.email
-                              ? "bg-blue-50 border border-blue-200"
-                              : "hover:bg-gray-50 cursor-pointer"
-                          }`}
-                          onClick={() =>
-                            setSelectedItem(
-                              selectedItem === admin.email ? null : admin.email
-                            )
-                          }
-                        >
-                          <div className="flex justify-between items-center">
-                            <div>
-                              <p className="font-semibold">
-                                {admin.displayName}
-                              </p>
-                              <p className="text-sm text-gray-600">
-                                {admin.email}
-                              </p>
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              {admin.createdAt.toLocaleDateString()}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
         </div>
-      </main>
+      )}
     </div>
   );
 }
