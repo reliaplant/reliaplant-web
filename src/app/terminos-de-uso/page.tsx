@@ -211,15 +211,15 @@ export default function TerminosDeUsoPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                 5. Definiciones
               </h2>
-              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded text-sm text-gray-700 space-y-1.5">
-                <p><strong>"Plataforma"</strong> — la aplicación web Reliaplant y todos sus módulos.</p>
-                <p><strong>"Organización"</strong> — la entidad (empresa, planta o persona) titular de la cuenta.</p>
-                <p><strong>"Usuario"</strong> — cada persona con credenciales únicas de acceso a la Plataforma.</p>
-                <p><strong>"Activo"</strong> — cada equipo, componente o elemento registrado en el módulo de Taxonomía.</p>
-                <p><strong>"Planta"</strong> — cada unidad operativa, localidad o división configurada en la Organización.</p>
-                <p><strong>"Bloque adicional"</strong> — paquete de 50 activos contratado como extensión del plan base.</p>
-                <p><strong>"Asistente IA"</strong> — las funcionalidades de inteligencia artificial integradas en la Plataforma.</p>
-              </div>
+              <dl className="bg-gray-50 border-l-4 border-gray-300 p-4 text-sm text-gray-700 space-y-1.5">
+                <div className="flex gap-1"><dt><strong>"Plataforma"</strong></dt><dd>— la aplicación web Reliaplant y todos sus módulos.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Organización"</strong></dt><dd>— la entidad (empresa, planta o persona) titular de la cuenta.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Usuario"</strong></dt><dd>— cada persona con credenciales únicas de acceso a la Plataforma.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Activo"</strong></dt><dd>— cada equipo, componente o elemento registrado en el módulo de Taxonomía.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Planta"</strong></dt><dd>— cada unidad operativa, localidad o división configurada en la Organización.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Bloque adicional"</strong></dt><dd>— paquete de 50 activos contratado como extensión del plan base.</dd></div>
+                <div className="flex gap-1"><dt><strong>"Asistente IA"</strong></dt><dd>— las funcionalidades de inteligencia artificial integradas en la Plataforma.</dd></div>
+              </dl>
             </section>
 
             <section id="planes" className="mb-12 scroll-mt-24">
@@ -233,14 +233,19 @@ export default function TerminosDeUsoPage() {
                   <li><strong>Profesional</strong> — 1 usuario, 30 activos, 1 planta. $29/mes o $25/mes (anual).</li>
                   <li><strong>Equipo</strong> — hasta 5 usuarios, 100 activos, 1 planta. $99/mes o $84/mes (anual).</li>
                   <li><strong>Planta</strong> — hasta 15 usuarios, 500 activos, hasta 3 plantas. $245/mes o $208/mes (anual).</li>
-                  <li><strong>Empresa</strong> — condiciones personalizadas. Contactar a comercial@reliaplant.com.</li>
+                  <li>
+                    <strong>Empresa</strong> — condiciones personalizadas. Contactar a{" "}
+                    <a href="mailto:comercial@reliaplant.com" className="text-blue-600 hover:underline">
+                      comercial@reliaplant.com
+                    </a>.
+                  </li>
                 </ul>
                 <p>
                   Todos los precios están expresados en dólares estadounidenses (USD) e incluyen el
                   Asistente IA sin costo adicional. Reliaplant se reserva el derecho de modificar
                   los precios con al menos 30 días de anticipación.
                 </p>
-                <div className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 rounded p-3">
+                <div className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 p-3">
                   <p>
                     <strong>Descuento anual:</strong> Al elegir facturación anual, obtiene un 15% de
                     descuento sobre el precio mensual. El descuento aplica también a los bloques de
