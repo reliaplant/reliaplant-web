@@ -60,6 +60,16 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
   };
 
+  const cardVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } },
+  };
+
+  const cardItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  };
+
   return (
     <>
       {/* HERO SECTION */}
@@ -415,8 +425,14 @@ export default function Home() {
             IA en cada módulo para acelerar análisis y reducir errores humanos
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
                 <Lightning size={24} className="text-blue-400" />
               </div>
@@ -427,9 +443,9 @@ export default function Home() {
               <p className="text-sm text-white/70 leading-relaxed mb-0">
                 Genera causas raíz probables según historial de fallas similares en equipos del mismo tipo
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
                 <CloudApp size={24} className="text-blue-400" />
               </div>
@@ -440,9 +456,9 @@ export default function Home() {
               <p className="text-sm text-white/70 leading-relaxed mb-0">
                 Predice modos de falla basados en ISO 14224 y datos históricos de equipos equivalentes
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
                 <DataStructured size={24} className="text-blue-400" />
               </div>
@@ -453,8 +469,8 @@ export default function Home() {
               <p className="text-sm text-white/70 leading-relaxed mb-0">
                 Sugiere categorías y niveles jerárquicos automáticamente al importar tus activos
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* CTA después de IA */}
           <div className="mt-16 text-center">
