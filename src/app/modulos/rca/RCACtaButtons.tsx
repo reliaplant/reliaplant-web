@@ -26,13 +26,13 @@ export default function RCACtaButtons() {
           href="https://app.reliaplant.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-all"
+          className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 rounded-lg font-semibold text-sm transition-all"
         >
           Prueba Ahora
         </Link>
         <button
           onClick={() => setOpen(true)}
-          className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded font-medium transition-all"
+          className="border border-white hover:bg-white/10 text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all"
         >
           Contactar
         </button>

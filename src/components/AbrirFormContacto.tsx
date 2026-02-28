@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { FiX } from "react-icons/fi";
-import FormularioContacto from "./FormularioContacto";
+import DemoRequestForm from "./DemoRequestForm";
 import { RequestQuote } from "@carbon/icons-react";
 
 interface AbrirFormContactoProps {
@@ -12,6 +12,7 @@ interface AbrirFormContactoProps {
   modalTitle?: string;
   especial?: string; // Make it optional since we'll get it automatically
   className?: string; // Add this line
+  size?: "sm" | "md" | "lg";
 }
 
 const AbrirFormContacto: React.FC<
@@ -25,6 +26,7 @@ const AbrirFormContacto: React.FC<
   modalTitle = "Hablar con un especialista",
   especial,
   className, // Add this line
+  size = "md",
 }) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -64,7 +66,11 @@ const AbrirFormContacto: React.FC<
           onClick={() => setShowModal(true)}
         >
           <button
-            className={`w-full ${desktopClass} py-2.5 px-6 font-semibold text-sm flex flex-row items-center justify-center gap-2 ${buttonColor} hover:brightness-90 transition-all rounded-lg`}
+            className={`w-full ${desktopClass} ${
+              size === "lg"
+                ? "py-3.5 px-8 font-semibold text-base"
+                : "py-2.5 px-6 font-semibold text-sm"
+            } flex flex-row items-center justify-center gap-2 ${buttonColor} hover:brightness-90 transition-all rounded-lg`}
           >
             <span className={`font-bold whitespace-nowrap ${textColor}`}>
               {buttonText}
@@ -78,35 +84,16 @@ const AbrirFormContacto: React.FC<
         <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={modalTitle}>
           <div
             ref={modalRef}
-            className="bg-white p-8 shadow-2xl rounded-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto"
+            className="relative shadow-2xl rounded-2xl md:w-[520px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto overflow-x-hidden"
           >
-            <div className="mb-6 flex flex-row justify-between items-center">
-              <span className="font-ZenDots text-gray100 text-xl">
-                RELIAPLANT
-              </span>
-              <FiX
-                size={32}
-                className="cursor-pointer"
-                onClick={() => setShowModal(false)}
-              />
-            </div>
-            <div className="mb-4">
-              <h2 className="text-2xl">{modalTitle}</h2>
-            </div>
-            <FormularioContacto
-              type="info"
-              campana=""
-              anuncio={null}
-              interes=""
-              mailchimpTagIn="curso"
-              subject="Nuevo llenado formulario"
-              recipients={["reliaplant@gmail.com"]}
-              responsable=""
-              lugar="diplomado"
-              btnText="Solicitar información"
-              especial={especial || "header"}
-              direccion={currentPath}
-            />
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors"
+              aria-label="Cerrar"
+            >
+              <FiX size={24} />
+            </button>
+            <DemoRequestForm especial={especial || "header"} />
           </div>
         </div>
       )}

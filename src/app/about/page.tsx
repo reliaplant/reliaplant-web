@@ -9,6 +9,7 @@ import {
   Security,
 } from "@carbon/icons-react";
 import Link from "next/link";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata: Metadata = {
   title: {
@@ -53,7 +54,7 @@ export default function AboutPage() {
       </section>
 
       {/* Misión */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -103,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* Valores */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -163,7 +164,7 @@ export default function AboutPage() {
       </section>
 
       {/* Equipo */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -223,7 +224,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             ¿Quieres conocer más?
@@ -231,13 +232,14 @@ export default function AboutPage() {
           <p className="text-xl text-white/90 mb-8">
             Conversemos sobre cómo podemos ayudar a tu operación.
           </p>
-          <Link
-            href="/#contacto"
-            className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all shadow-lg"
-          >
-            Agenda una conversación
-            <ArrowRight size={20} />
-          </Link>
+          <AbrirFormContacto
+            buttonText="Agenda una conversación"
+            buttonColor="bg-white hover:bg-blue-50"
+            textColor="text-blue-700"
+            modalTitle="Agenda una conversación"
+            especial="About - Conversación"
+            icon={<ArrowRight size={20} className="text-blue-700" />}
+          />
         </div>
       </section>
     </>

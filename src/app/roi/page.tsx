@@ -3,12 +3,8 @@ import {
   CheckmarkFilled,
   ArrowRight,
   Download,
-  Time,
-  Analytics,
   ChartLineData,
   Security,
-  DataStructured,
-  Renew,
   TaskComplete,
   Warning,
   Growth,
@@ -81,157 +77,11 @@ export default function ROIPage() {
         </div>
       </section>
 
-      {/* Descargable CTA */}
-      <section className="py-12 px-4 bg-gray-900 text-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-white/10 flex items-center justify-center">
-                <Download size={32} className="text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-1">
-                  Descarga el resumen ejecutivo
-                </h3>
-                <p className="text-white/90">
-                  Documento PDF para compartir con tu equipo directivo
-                </p>
-              </div>
-            </div>
-            <a 
-              href="/docs/roi-confiabilidad-reliaplant.pdf" 
-              download
-              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 font-semibold inline-flex items-center gap-2 transition-all"
-            >
-              Descargar PDF
-              <Download size={20} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Dónde se genera el retorno */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-            Dónde normalmente se genera el retorno
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Tiempo técnico recuperado */}
-            <div className="bg-blue-50 p-6 border border-blue-100">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-100 flex items-center justify-center">
-                  <Time size={24} className="text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  Tiempo técnico recuperado
-                </h3>
-              </div>
-              
-              <p className="text-sm text-gray-600 mb-3">
-                Equipos invierten horas en RCA manuales, RCM en hojas de cálculo y búsqueda de información dispersa.
-              </p>
-              
-              <div className="bg-white p-3 border border-gray-100">
-                <p className="text-sm text-gray-700 font-medium mb-2">Permite enfocarse en:</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1">Prevención de fallas</span>
-                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1">Supervisión técnica</span>
-                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1">Mejora continua</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Menos fallas recurrentes */}
-            <div className="bg-blue-50 p-6 border border-blue-100">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-100 flex items-center justify-center">
-                  <Renew size={24} className="text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  Menos fallas recurrentes
-                </h3>
-              </div>
-              
-              <p className="text-sm text-gray-600 mb-3">
-                Cuando la causa raíz se identifica correctamente y la estrategia está bien estructurada:
-              </p>
-              
-              <ul className="space-y-1.5">
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-600 flex-shrink-0" />
-                  <span>Se reducen intervenciones repetitivas</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-600 flex-shrink-0" />
-                  <span>Mejora la disponibilidad</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-600 flex-shrink-0" />
-                  <span>Disminuyen costos indirectos</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Mejores decisiones */}
-            <div className="bg-blue-50 p-6 border border-blue-100">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-100 flex items-center justify-center">
-                  <Analytics size={24} className="text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  Mejores decisiones de mantenimiento
-                </h3>
-              </div>
-              
-              <p className="text-sm text-gray-600 mb-3">
-                Datos organizados y trazables permiten:
-              </p>
-              
-              <ul className="space-y-1.5">
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
-                  <span>Indicadores confiables</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
-                  <span>Planificación más realista</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckmarkFilled size={16} className="text-blue-500 flex-shrink-0" />
-                  <span>Menor incertidumbre técnica</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Base sólida */}
-            <div className="bg-blue-50 p-6 border border-blue-100">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-100 flex items-center justify-center">
-                  <DataStructured size={24} className="text-blue-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  Base sólida para crecer
-                </h3>
-              </div>
-              
-              <p className="text-sm text-gray-600 mb-3">
-                Sin taxonomía clara, los sistemas pierden utilidad y los datos se degradan.
-              </p>
-              
-              <div className="bg-white p-3 border-l-4 border-blue-500">
-                <p className="text-sm text-gray-700 font-medium">
-                  Una base técnica bien estructurada permite escalar operaciones sin perder control.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Calculadora de ROI */}
+      <ROICalculator />
 
       {/* Beneficios operativos + reducción de riesgo — sección unificada */}
-      <section className="py-20 px-4 bg-white border-t border-gray-200">
+      <section className="pt-20 px-4 bg-white border-t border-gray-200">
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}
@@ -438,34 +288,31 @@ export default function ROIPage() {
         </div>
       </section>
 
-      {/* Calculadora de ROI */}
-      <ROICalculator />
-
       {/* Segundo CTA descargable */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white border border-gray-200 p-8 md:p-12">
+          <div className="bg-gray-900 p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-2xl font-bold text-white mb-3">
                   ¿Necesitas presentar esto a tu equipo directivo?
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-white/70 mb-4">
                   Descarga nuestro resumen ejecutivo con los puntos clave del retorno 
                   de inversión en confiabilidad. Diseñado para compartir con gerentes 
                   y tomadores de decisión.
                 </p>
-                <ul className="space-y-2 text-gray-700 text-sm mb-6">
+                <ul className="space-y-2 text-white/80 text-sm mb-6">
                   <li className="flex items-center gap-2">
-                    <CheckmarkFilled size={16} className="text-blue-600" />
+                    <CheckmarkFilled size={16} className="text-blue-400" />
                     <span>Formato ejecutivo (2 páginas)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckmarkFilled size={16} className="text-blue-600" />
+                    <CheckmarkFilled size={16} className="text-blue-400" />
                     <span>Enfocado en impacto operativo</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckmarkFilled size={16} className="text-blue-600" />
+                    <CheckmarkFilled size={16} className="text-blue-400" />
                     <span>Sin tecnicismos innecesarios</span>
                   </li>
                 </ul>
@@ -478,7 +325,7 @@ export default function ROIPage() {
                   <Download size={20} />
                 </a>
               </div>
-              <div className="w-48 h-60 shadow-lg border overflow-hidden relative">
+              <div className="w-48 h-60 border border-white/20 overflow-hidden relative">
                 <Image
                   src="/assets/ROI confiabilidad.png"
                   alt="Impacto operativo de la confiabilidad"
@@ -498,7 +345,7 @@ export default function ROIPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 px-4 bg-gray-900 text-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-900 text-white">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             ¿Quieres evaluar el impacto en tu operación?
@@ -511,11 +358,11 @@ export default function ROIPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <AbrirFormContacto
               buttonText="Solicita un diagnóstico"
-              buttonColor="bg-white"
-              textColor="text-blue-600"
+              buttonColor="bg-blue-600 hover:bg-blue-700"
+              textColor="text-white"
               modalTitle="Solicita un diagnóstico"
               especial="ROI - Diagnóstico"
-              icon={<ArrowRight size={20} className="text-blue-600" />}
+              icon={<ArrowRight size={20} className="text-white" />}
             />
             <AbrirFormContacto
               buttonText="Agenda una demo"

@@ -73,114 +73,92 @@ export default function Home() {
       </section>
 
       {/* PROBLEMA GENERAL */}
-      <section
-        className="relative overflow-hidden bg-[#f4f5f7]"
-        style={{ minHeight: 520 }}
-      >
-        {/* Image — right 55%, diagonal left edge */}
-        <div
-          className="absolute top-0 right-0 h-full hidden md:block"
-          style={{ width: '55%', clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-        >
-          <Image
-            src="/assets/escritorioMantenimiento.png"
-            alt="Escritorio de mantenimiento con hojas de cálculo y documentos"
-            fill
-            className="object-cover object-center"
-            sizes="55vw"
-          />
-          {/* Gradient overlay blending image into section bg */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to right, #f4f5f7 0%, transparent 40%)',
-            }}
-          />
-        </div>
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 border border-gray-200">
 
-        {/* Mobile image */}
-        <div className="relative h-52 w-full md:hidden">
-          <Image
-            src="/assets/escritorioMantenimiento.png"
-            alt="Escritorio de mantenimiento"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Content — left side */}
-        <div
-          className="relative z-10 flex flex-col justify-center px-6 py-12 md:py-16"
-          style={{ maxWidth: '52%' }}
-        >
-          <span
-            className="block font-bold uppercase text-red-500 mb-4"
-            style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
-          >
-            El problema
-          </span>
-
-          <h2
-            className="font-bold mb-3"
-            style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
-          >
-            La realidad en muchas plantas industriales
-          </h2>
-
-          <p
-            className="mb-6"
-            style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
-          >
-            La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en procesos manuales, datos inconsistentes y metodologías sin soporte.
-          </p>
-
-          {/* Pain point pills */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {[
-              'RCA sin metodología',
-              'RCM desactualizado',
-              'Activos inconsistentes',
-              'Data dudosa',
-              'Conocimiento no documentado',
-              'Indicadores poco confiables',
-            ].map((tag) => (
+            {/* Left: text content */}
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
               <span
-                key={tag}
-                className="inline-flex items-center gap-1.5 font-medium"
+                className="block font-bold uppercase text-red-500 mb-4"
+                style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
+              >
+                El problema
+              </span>
+
+              <h2
+                className="font-bold mb-3"
+                style={{ fontSize: '1.6rem', color: '#0f172a', lineHeight: 1.25 }}
+              >
+                La realidad en muchas plantas industriales
+              </h2>
+
+              <p
+                className="mb-6"
+                style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}
+              >
+                La ingeniería de mantenimiento debería enfocarse en evitar fallas… pero termina atrapada en procesos manuales, datos inconsistentes y metodologías sin soporte.
+              </p>
+
+              {/* Pain point pills */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {[
+                  'RCA sin metodología',
+                  'RCM desactualizado',
+                  'Activos inconsistentes',
+                  'Data dudosa',
+                  'Conocimiento no documentado',
+                  'Indicadores poco confiables',
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center gap-1.5 font-medium"
+                    style={{
+                      fontSize: '0.78rem',
+                      color: '#991b1b',
+                      background: '#fff1f2',
+                      border: '1px solid #fecaca',
+                      borderRadius: 999,
+                      padding: '4px 12px',
+                    }}
+                  >
+                    <span className="text-red-400 font-bold text-xs">✕</span>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Result highlight box */}
+              <div
                 style={{
-                  fontSize: '0.78rem',
-                  color: '#991b1b',
-                  background: '#fff1f2',
-                  border: '1px solid #fecaca',
-                  borderRadius: 999,
-                  padding: '4px 12px',
+                  borderLeft: '4px solid #f87171',
+                  background: '#fff5f5',
+                  padding: '16px 20px',
                 }}
               >
-                <span className="text-red-400 font-bold text-xs">✕</span>
-                {tag}
-              </span>
-            ))}
-          </div>
+                <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
+                  <strong>El resultado:</strong> fallas recurrentes, producción perdida y el ciclo que no para.
+                </p>
+              </div>
+            </div>
 
-          {/* Result highlight box */}
-          <div
-            style={{
-              borderLeft: '4px solid #f87171',
-              background: '#fff5f5',
-              borderRadius: '0 8px 8px 0',
-              padding: '16px 20px',
-            }}
-          >
-            <p style={{ fontSize: '0.9rem', color: '#7f1d1d', lineHeight: 1.6 }}>
-              <strong>El resultado:</strong> fallas recurrentes, producción perdida y el ciclo que no para.
-            </p>
+            {/* Right: image */}
+            <div className="relative min-h-[420px]">
+              <Image
+                src="/assets/el-problema.png"
+                alt="Ingeniero de mantenimiento frustrado frente a hojas de cálculo y documentos impresos"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* 3 PILLARS SECTION */}
-      <section id="modulos" className="py-20 md:py-28 px-4 sm:px-6 bg-white">
+      <section id="modulos" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -213,15 +191,15 @@ export default function Home() {
                   className="w-full h-36 object-cover"
                 />
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
                 Base de datos confiable para decisiones de mantenimiento
               </h3>
-              
+
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
                 Estructura tus activos siguiendo principios como ISO 14224, asegurando relaciones correctas y base sólida para indicadores.
               </p>
-              
+
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
@@ -236,7 +214,7 @@ export default function Home() {
                   <span>Exportación a tu CMMS</span>
                 </li>
               </ul>
-              
+
               <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
@@ -261,15 +239,15 @@ export default function Home() {
                   className="w-full h-36 object-cover"
                 />
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
                 Reliability Centered Maintenance estructurado
               </h3>
-              
+
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
                 Centraliza el proceso RCM en un entorno estructurado que permite relacionar activos, funciones y modos de falla sin duplicaciones.
               </p>
-              
+
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
@@ -284,7 +262,7 @@ export default function Home() {
                   <span>Plan de mantenimiento exportable a CMMS</span>
                 </li>
               </ul>
-              
+
               <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
@@ -309,15 +287,15 @@ export default function Home() {
                   className="w-full h-36 object-cover"
                 />
               </div>
-              
+
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
                 Análisis de causa raíz sin burocracia ni errores metodológicos
               </h3>
-              
+
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
                 Estructura el proceso completo para que el análisis siga la metodología correctamente, sea trazable y genere documentación clara.
               </p>
-              
+
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
@@ -332,7 +310,7 @@ export default function Home() {
                   <span>Recomendaciones y seguimiento de acciones</span>
                 </li>
               </ul>
-              
+
               <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
@@ -368,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* AI SECTION */}
-      <section id="ia" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
+      <section id="ia" className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-6xl mx-auto relative z-10 text-center">
@@ -438,7 +416,7 @@ export default function Home() {
       </section>
 
       {/* STATS BAR */}
-      <section className="border-y border-gray-100 bg-white py-20 px-4 sm:px-6">
+      <section className="border-y border-gray-100 bg-white py-8 md:py-12 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
@@ -467,7 +445,7 @@ export default function Home() {
       </section>
 
       {/* PRICING SECTION */}
-      <section id="precios" className="py-10 md:py-14 px-4 sm:px-6 bg-gray-50">
+      <section id="precios" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="mb-2 flex justify-center items-center min-h-[4.5rem]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full">Licencias a la medida de tu planta</h2>

@@ -69,68 +69,47 @@ export default function IndustriasPage() {
       <IndustriaNav />
 
       {/* ============================================================ */}
-      {/* Oil & Gas — imagen izquierda, contenido derecha              */}
+      {/* Oil & Gas                                                    */}
       {/* ============================================================ */}
-      <section id="industria-oilygas" className="scroll-mt-[110px] border-b border-gray-200">
-        <div className="grid grid-cols-1 md:grid-cols-[55%_45%] min-h-[560px]">
+      <section id="industria-oilygas" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 border border-gray-200">
 
-          {/* Foto */}
-          <div className="relative h-64 md:h-auto overflow-hidden order-1">
-            <Image
-              src="/assets/flare.jpg"
-              alt="Operación Oil & Gas"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/35 to-black/60" />
-            <span className="absolute bottom-6 left-6 z-10 bg-blue-600 text-white text-[11px] font-bold tracking-[0.1em] uppercase px-4 py-2">
-              Industria Oil &amp; Gas
-            </span>
-          </div>
-
-          {/* Contenido */}
-          <div className="bg-white px-10 md:px-14 py-12 md:py-16 flex flex-col justify-center border-t border-gray-200 order-2">
-
-            <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-5">
-              <span className="w-2 h-2 rounded-full bg-amber-600 inline-block flex-shrink-0" />
-              Oil &amp; Gas · Petróleo · Refinería
-            </span>
-
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5 tracking-tight">
-              Cuando una falla rara vez<br className="hidden md:block" /> es solo técnica
-            </h2>
-
-            <p className="text-gray-500 leading-relaxed mb-8 text-base">
-              En petróleo y gas, cada parada no planificada arrastra pérdidas de
-              producción, riesgo de seguridad e impacto ambiental al mismo tiempo.
-              La ingeniería de confiabilidad no es una ventaja competitiva —
-              es un requisito operativo.
-            </p>
-
-            <div className="border-t border-gray-100 pt-6 mb-6">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
-                Módulos aplicables
+            {/* Contenido */}
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+              <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
+                Oil &amp; Gas · Petróleo · Refinería
+              </span>
+              <h2 className="font-bold text-gray-900 leading-tight mb-3" style={{ fontSize: '1.6rem' }}>
+                Cuando una falla rara vez es solo técnica
+              </h2>
+              <p className="mb-6" style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}>
+                En petróleo y gas, cada parada no planificada arrastra pérdidas de
+                producción, riesgo de seguridad e impacto ambiental al mismo tiempo.
+                La ingeniería de confiabilidad no es una ventaja competitiva —
+                es un requisito operativo.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Registro de Activos (ISO 14224)
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  RCA estructurado
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Estrategia RCM
-                </span>
+              <div className="mb-6">
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
+                  Módulos aplicables
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Registro de Activos (ISO 14224)</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">RCA estructurado</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Estrategia RCM</span>
+                </div>
+              </div>
+              <div style={{ borderLeft: '4px solid #2563eb', background: '#f8faff', padding: '14px 18px' }}>
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">Resultado esperado</p>
+                <p className="font-semibold text-gray-900 leading-snug" style={{ fontSize: '0.9rem' }}>
+                  Menos incertidumbre técnica. Mayor control operativo en activos críticos.
+                </p>
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-5 bg-gray-50 py-4 pr-4">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">
-                Resultado esperado
-              </p>
-              <p className="text-gray-900 font-semibold text-base leading-snug">
-                Menos incertidumbre técnica. Mayor control operativo en activos críticos.
-              </p>
+            {/* Foto */}
+            <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden">
+              <Image src="/assets/flare.jpg" alt="Operación Oil & Gas" fill className="object-cover object-center" sizes="50vw" />
             </div>
 
           </div>
@@ -138,136 +117,93 @@ export default function IndustriasPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* Energía — contenido izquierda, imagen derecha                */}
+      {/* Energía                                                      */}
       {/* ============================================================ */}
-      <section id="industria-energia" className="scroll-mt-[110px] border-b border-gray-200">
-        <div className="grid grid-cols-1 md:grid-cols-[45%_55%] min-h-[560px]">
+      <section id="industria-energia" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 border border-gray-200">
 
-          {/* Contenido */}
-          <div className="bg-gray-50 px-10 md:px-14 py-12 md:py-16 flex flex-col justify-center border-t border-gray-200 order-2 md:order-1">
+            {/* Foto */}
+            <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden order-2 lg:order-1">
+              <Image src="/assets/bgPerformance.jpg" alt="Infraestructura energética" fill className="object-cover object-center" sizes="50vw" />
+            </div>
 
-            <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-5">
-              <span className="w-2 h-2 rounded-full bg-gray-600 inline-block flex-shrink-0" />
-              Energía · Utilities · Generación · Distribución
-            </span>
-
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5 tracking-tight">
-              La continuidad del servicio<br className="hidden md:block" /> no admite margen de error
-            </h2>
-
-            <p className="text-gray-500 leading-relaxed mb-8 text-base">
-              En generación y distribución, una falla puede comprometer indicadores
-              regulatorios y la percepción de todo el sistema. La calidad del análisis
-              de fallas determina directamente la calidad del servicio.
-            </p>
-
-            <div className="border-t border-gray-200 pt-6 mb-6">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
-                Módulos aplicables
+            {/* Contenido */}
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-t lg:border-t-0 lg:border-l border-gray-200 order-1 lg:order-2">
+              <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
+                Energía · Utilities · Generación · Distribución
+              </span>
+              <h2 className="font-bold text-gray-900 leading-tight mb-3" style={{ fontSize: '1.6rem' }}>
+                La continuidad del servicio no admite margen de error
+              </h2>
+              <p className="mb-6" style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}>
+                En generación y distribución, una falla puede comprometer indicadores
+                regulatorios y la percepción de todo el sistema. La calidad del análisis
+                de fallas determina directamente la calidad del servicio.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  RCA en equipos críticos
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Planes RCM estructurados
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Base de activos organizada
-                </span>
+              <div className="mb-6">
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
+                  Módulos aplicables
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">RCA en equipos críticos</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Planes RCM estructurados</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Base de activos organizada</span>
+                </div>
+              </div>
+              <div style={{ borderLeft: '4px solid #2563eb', background: '#f8faff', padding: '14px 18px' }}>
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">Resultado esperado</p>
+                <p className="font-semibold text-gray-900 leading-snug" style={{ fontSize: '0.9rem' }}>
+                  Mejor control de la confiabilidad del sistema. KPIs técnicos más confiables.
+                </p>
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-5 bg-white py-4 pr-4">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">
-                Resultado esperado
-              </p>
-              <p className="text-gray-900 font-semibold text-base leading-snug">
-                Mejor control de la confiabilidad del sistema. KPIs técnicos más confiables.
-              </p>
-            </div>
-
           </div>
-
-          {/* Foto */}
-          <div className="relative h-64 md:h-auto overflow-hidden order-1 md:order-2">
-            <Image
-              src="/assets/bgPerformance.jpg"
-              alt="Infraestructura energética"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-black/15 via-black/35 to-black/60" />
-            <span className="absolute bottom-6 right-6 z-10 bg-blue-600 text-white text-[11px] font-bold tracking-[0.1em] uppercase px-4 py-2">
-              Energía y Utilities
-            </span>
-          </div>
-
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* Manufactura — imagen izquierda, contenido derecha            */}
+      {/* Manufactura                                                  */}
       {/* ============================================================ */}
-      <section id="industria-manufactura" className="scroll-mt-[110px] border-b border-gray-200">
-        <div className="grid grid-cols-1 md:grid-cols-[55%_45%] min-h-[560px]">
+      <section id="industria-manufactura" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 border border-gray-200">
 
-          {/* Foto */}
-          <div className="relative h-64 md:h-auto overflow-hidden order-1">
-            <Image
-              src="/assets/bgManufactura.jpg"
-              alt="Planta de manufactura"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-black/35 to-black/60" />
-            <span className="absolute bottom-6 left-6 z-10 bg-blue-600 text-white text-[11px] font-bold tracking-[0.1em] uppercase px-4 py-2">
-              Manufactura Continua
-            </span>
-          </div>
-
-          {/* Contenido */}
-          <div className="bg-white px-10 md:px-14 py-12 md:py-16 flex flex-col justify-center border-t border-gray-200 order-2">
-
-            <span className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-5">
-              <span className="w-2 h-2 rounded-full bg-blue-600 inline-block flex-shrink-0" />
-              Manufactura · Proceso Continuo · Producción
-            </span>
-
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-5 tracking-tight">
-              Cuando la productividad depende<br className="hidden md:block" /> de disponibilidad constante
-            </h2>
-
-            <p className="text-gray-500 leading-relaxed mb-8 text-base">
-              En manufactura continua, el mantenimiento reactivo se paga caro.
-              Las fallas recurrentes no son mala suerte — son el síntoma de un análisis
-              incompleto o una estrategia de mantenimiento mal estructurada.
-            </p>
-
-            <div className="border-t border-gray-100 pt-6 mb-6">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
-                Módulos aplicables
+            {/* Contenido */}
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+              <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
+                Manufactura · Proceso Continuo · Producción
+              </span>
+              <h2 className="font-bold text-gray-900 leading-tight mb-3" style={{ fontSize: '1.6rem' }}>
+                Cuando la productividad depende de disponibilidad constante
+              </h2>
+              <p className="mb-6" style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6 }}>
+                En manufactura continua, el mantenimiento reactivo se paga caro.
+                Las fallas recurrentes no son mala suerte — son el síntoma de un análisis
+                incompleto o una estrategia de mantenimiento mal estructurada.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  RCA ágiles y precisos
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Estrategia RCM coherente
-                </span>
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">
-                  Calidad de datos de mantenimiento
-                </span>
+              <div className="mb-6">
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-gray-400 mb-3">
+                  Módulos aplicables
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">RCA ágiles y precisos</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Estrategia RCM coherente</span>
+                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1.5">Calidad de datos de mantenimiento</span>
+                </div>
+              </div>
+              <div style={{ borderLeft: '4px solid #2563eb', background: '#f8faff', padding: '14px 18px' }}>
+                <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">Resultado esperado</p>
+                <p className="font-semibold text-gray-900 leading-snug" style={{ fontSize: '0.9rem' }}>
+                  Mayor estabilidad operativa. Menos intervenciones correctivas no planificadas.
+                </p>
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-5 bg-gray-50 py-4 pr-4">
-              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-1">
-                Resultado esperado
-              </p>
-              <p className="text-gray-900 font-semibold text-base leading-snug">
-                Mayor estabilidad operativa. Menos intervenciones correctivas no planificadas.
-              </p>
+            {/* Foto */}
+            <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden">
+              <Image src="/assets/bgManufactura.jpg" alt="Planta de manufactura" fill className="object-cover object-center" sizes="50vw" />
             </div>
 
           </div>

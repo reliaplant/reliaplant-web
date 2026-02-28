@@ -17,6 +17,7 @@ import RCMCtaButtons from "./RCMCtaButtons";
 import Image from "next/image";
 import RCMFeatures from "@/components/RCMFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata = {
   title: "Módulo RCM - Reliability Centered Maintenance | Reliaplant",
@@ -68,7 +69,7 @@ export default function RCMPage() {
       </section>
 
       {/* El problema hoy */}
-      <section className="py-10 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
         <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text content */}
@@ -154,62 +155,62 @@ export default function RCMPage() {
       <RCMFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-10 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
         <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text + benefit items */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
             Beneficios operativos
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Impacto en tu operación
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Estrategias de mantenimiento más coherentes</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Estrategias de mantenimiento más coherentes</h3>
+                <p className="text-sm text-gray-600">
                   Planes consistentes en toda la planta, siguiendo la misma lógica y criterios técnicos.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Eliminación de tareas redundantes o innecesarias</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Eliminación de tareas redundantes o innecesarias</h3>
+                <p className="text-sm text-gray-600">
                   Identificación automática de duplicaciones que libera recursos sin comprometer confiabilidad.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Mejor priorización técnica</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Mejor priorización técnica</h3>
+                <p className="text-sm text-gray-600">
                   Enfoque en modos de falla críticos, evitando gastar tiempo en análisis de bajo impacto.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Implementación más ágil del RCM</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Implementación más ágil del RCM</h3>
+                <p className="text-sm text-gray-600">
                   Del análisis al CMMS en minutos, no en semanas de transcripción manual de datos.
                 </p>
               </div>
@@ -218,7 +219,7 @@ export default function RCMPage() {
         </div>
 
         {/* Right: image */}
-        <div className="relative min-h-[420px]">
+        <div className="relative min-h-[320px]">
           <Image
             src="/assets/Beneficios RCM.png"
             alt="Mantenimiento Centrado en Confiabilidad"
@@ -232,7 +233,7 @@ export default function RCMPage() {
       </section>
 
       {/* Casos de Uso Ideales */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -350,20 +351,21 @@ export default function RCMPage() {
           </div>
           
           {/* CTA */}
-          <div className="mt-12 text-center">
-            <Link 
-              href="#contacto" 
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
-            >
-              Agenda una Demo
-              <ArrowRight size={20} />
-            </Link>
+          <div className="mt-12 flex justify-center">
+            <AbrirFormContacto
+              buttonText="Agenda una Demo"
+              buttonColor="bg-blue-600 hover:bg-blue-700"
+              textColor="text-white"
+              modalTitle="Agenda una Demo — RCM"
+              especial="RCM - Demo"
+              icon={<ArrowRight size={20} className="text-white" />}
+            />
           </div>
         </div>
       </section>
 
       {/* Consultoría Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
@@ -420,13 +422,14 @@ export default function RCMPage() {
               </div>
             </div>
 
-            <div className="text-center">
-              <Link 
-                href="/#contacto" 
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
-              >
-                Solicitar cotización de consultoría
-              </Link>
+            <div className="flex flex-col items-center">
+              <AbrirFormContacto
+                buttonText="Solicitar cotización de consultoría"
+                buttonColor="bg-blue-600 hover:bg-blue-700"
+                textColor="text-white"
+                modalTitle="Consultoría RCM"
+                especial="RCM - Consultoría"
+              />
               <p className="text-sm text-gray-600 mt-4">
                 Respuesta en menos de 24 horas
               </p>
@@ -436,7 +439,7 @@ export default function RCMPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Implementa RCM real sin herramientas improvisadas

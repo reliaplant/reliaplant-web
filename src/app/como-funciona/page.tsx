@@ -12,6 +12,7 @@ import {
 } from "@carbon/icons-react";
 import Link from "next/link";
 import Image from "next/image";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata = {
   title: "Cómo funciona la plataforma | Reliaplant",
@@ -77,7 +78,7 @@ export default function ComoFuncionaPage() {
       <StepNav />
 
       {/* Paso 1: Taxonomía */}
-      <section id="paso-1" className="py-20 px-4 bg-white">
+      <section id="paso-1" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -145,7 +146,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 2: RCA */}
-      <section id="paso-2" className="py-20 px-4 bg-gray-50">
+      <section id="paso-2" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -225,7 +226,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 3: RCM */}
-      <section id="paso-3" className="py-20 px-4 bg-white">
+      <section id="paso-3" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -301,7 +302,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 4: Integración */}
-      <section id="paso-4" className="py-20 px-4 bg-gray-50">
+      <section id="paso-4" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -363,7 +364,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 5: Impacto */}
-      <section id="paso-5" className="py-20 px-4 bg-white">
+      <section id="paso-5" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -431,7 +432,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 6: Implementación */}
-      <section id="paso-6" className="py-20 px-4 bg-gray-50">
+      <section id="paso-6" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -493,7 +494,7 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             ¿Listo para mejorar tu ingeniería de confiabilidad?
@@ -502,13 +503,21 @@ export default function ComoFuncionaPage() {
             Agenda una demo para ver cómo la plataforma puede adaptarse a tu operación.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/#contacto" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all">
-              Solicita una demo guiada
-              <ArrowRight size={20} />
-            </Link>
-            <Link href="/#contacto" className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all">
-              Agenda un diagnóstico sin costo
-            </Link>
+            <AbrirFormContacto
+              buttonText="Solicita una demo guiada"
+              buttonColor="bg-white hover:bg-gray-100"
+              textColor="text-blue-600"
+              modalTitle="Solicita una demo guiada"
+              especial="Como Funciona - Demo"
+              icon={<ArrowRight size={20} className="text-blue-600" />}
+            />
+            <AbrirFormContacto
+              buttonText="Agenda un diagnóstico sin costo"
+              buttonColor="bg-transparent border border-white hover:bg-white/10"
+              textColor="text-white"
+              modalTitle="Diagnóstico sin costo"
+              especial="Como Funciona - Diagnóstico"
+            />
           </div>
         </div>
       </section>

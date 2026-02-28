@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RegistroActivosFeatures from "@/components/RegistroActivosFeatures";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 
 export const metadata = {
   title: "Módulo Registro de Activos - Taxonomía | Reliaplant",
@@ -65,7 +66,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* El problema hoy */}
-      <section className="py-10 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
         <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text content */}
@@ -148,7 +149,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Por qué era tan difícil hacerlo bien */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -210,62 +211,62 @@ export default function RegistroActivosPage() {
       <RegistroActivosFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-10 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
         <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text + benefit items */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
             Beneficios operativos
           </span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Impacto en tu operación
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Indicadores más confiables</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Indicadores más confiables</h3>
+                <p className="text-sm text-gray-600">
                   KPIs calculados sobre estructura sólida que refleja la realidad operativa de planta.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Mejor control de activos</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Mejor control de activos</h3>
+                <p className="text-sm text-gray-600">
                   Visibilidad total de todos los equipos, relaciones y estado técnico en tiempo real.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Menos carga administrativa futura</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Menos carga administrativa futura</h3>
+                <p className="text-sm text-gray-600">
                   Estructura correcta desde el inicio evita proyectos de limpieza de datos costosos.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <CheckmarkFilled size={24} className="text-blue-600" />
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <CheckmarkFilled size={18} className="text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Mayor calidad en decisiones de mantenimiento</h3>
-                <p className="text-gray-700">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Mayor calidad en decisiones de mantenimiento</h3>
+                <p className="text-sm text-gray-600">
                   Información estructurada que facilita priorización técnica basada en datos reales.
                 </p>
               </div>
@@ -274,7 +275,7 @@ export default function RegistroActivosPage() {
         </div>
 
         {/* Right: image */}
-        <div className="relative min-h-[420px]">
+        <div className="relative min-h-[320px]">
           <Image
             src="/assets/bgGestionActivos.jpg"
             alt="Planta industrial"
@@ -288,7 +289,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Casos de Uso Ideales */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -404,20 +405,21 @@ export default function RegistroActivosPage() {
           </div>
           
           {/* CTA */}
-          <div className="mt-12 text-center">
-            <Link 
-              href="#contacto" 
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors"
-            >
-              Agenda una Demo
-              <ArrowRight size={20} />
-            </Link>
+          <div className="mt-12 flex justify-center">
+            <AbrirFormContacto
+              buttonText="Agenda una Demo"
+              buttonColor="bg-blue-600 hover:bg-blue-700"
+              textColor="text-white"
+              modalTitle="Agenda una Demo — Registro de Activos"
+              especial="Registro - Demo"
+              icon={<ArrowRight size={20} className="text-white" />}
+            />
           </div>
         </div>
       </section>
 
       {/* Consultoría Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
@@ -464,13 +466,14 @@ export default function RegistroActivosPage() {
               </div>
             </div>
 
-            <div className="text-center">
-              <Link 
-                href="/#contacto" 
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
-              >
-                Solicitar cotización de consultoría
-              </Link>
+            <div className="flex flex-col items-center">
+              <AbrirFormContacto
+                buttonText="Solicitar cotización de consultoría"
+                buttonColor="bg-blue-600 hover:bg-blue-700"
+                textColor="text-white"
+                modalTitle="Consultoría Registro de Activos"
+                especial="Registro - Consultoría"
+              />
               <p className="text-sm text-gray-600 mt-4">
                 Respuesta en menos de 24 horas
               </p>
@@ -480,7 +483,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Construye la base de datos de activos que tu planta necesita
@@ -493,16 +496,18 @@ export default function RegistroActivosPage() {
               href="https://app.reliaplant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold transition-all"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 rounded-lg font-semibold text-sm transition-all"
             >
               Prueba Ahora
             </Link>
-            <Link
-              href="/#contacto"
-              className="border border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium transition-all"
-            >
-              Contactar
-            </Link>
+            <AbrirFormContacto
+              buttonText="Contactar"
+              buttonColor="bg-transparent border border-white hover:bg-white/10"
+              textColor="text-white"
+              modalTitle="Contactar — Registro de Activos"
+              especial="Registro - Contacto"
+              size="md"
+            />
           </div>
         </div>
       </section>

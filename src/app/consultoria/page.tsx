@@ -1,6 +1,7 @@
 export const dynamic = "force-static";
 import React from "react";
 import Image from "next/image";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
 import procesoConfiabilidad from "../../../public/assets/procesoConfiabilidad.png";
 import Industrias from "@/components/industrias";
 import pegandotag from "../../../public/assets/pegandotag.jpeg";
@@ -161,9 +162,13 @@ export default function ConsultoriaPage() {
           <strong>deje que nuestro equipo le indique los próximos pasos</strong>
           .{" "}
         </div>
-        <button className='border-2 border-blue60 text-blue60 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-blue60 hover:text-white whitespace-nowrap'>
-          Tomar autodiagnóstico
-        </button>
+        <AbrirFormContacto
+          buttonText="Tomar autodiagnóstico"
+          buttonColor="bg-transparent border-2 border-blue60 hover:bg-blue60"
+          textColor="text-blue60"
+          modalTitle="Autodiagnóstico de confiabilidad"
+          especial="Consultoría - Autodiagnóstico"
+        />
       </div>
 
       <div className="contentSection">
@@ -202,12 +207,20 @@ export default function ConsultoriaPage() {
                 establecer una cultura de confiabilidad.
               </div>
               <div className="flex flex-col md:flex-row gap-4 mt-8">
-                <button className="bg-blue60 hover:bg-blue80 px-6 py-3 text-white rounded-lg font-semibold transition-colors">
-                  Quiero implementar un modelo de confiabilidad
-                </button>
-                <button className="border-2 border-blue60 hover:bg-blue20 text-blue60 px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Descargar guía de implementación
-                </button>
+                <AbrirFormContacto
+                  buttonText="Quiero implementar un modelo de confiabilidad"
+                  buttonColor="bg-blue60 hover:bg-blue80"
+                  textColor="text-white"
+                  modalTitle="Implementar modelo de confiabilidad"
+                  especial="Consultoría - Implementación"
+                />
+                <AbrirFormContacto
+                  buttonText="Solicitar guía de implementación"
+                  buttonColor="bg-transparent border-2 border-blue60 hover:bg-blue20"
+                  textColor="text-blue60"
+                  modalTitle="Solicitar guía de implementación"
+                  especial="Consultoría - Guía"
+                />
               </div>
             </div>
           </div>
