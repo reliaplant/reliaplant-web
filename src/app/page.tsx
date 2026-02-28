@@ -1,6 +1,7 @@
 'use client';
 
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Catalog,
   CloudApp,
@@ -23,6 +24,31 @@ import DemoRequestSection from "@/components/DemoRequestSection";
 export default function Home() {
   const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
   const [showContactModal, setShowContactModal] = React.useState(false);
+
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true });
+  const [statValues, setStatValues] = useState({ assets: 0, rcm: 0, rca: 0 });
+
+  useEffect(() => {
+    if (!statsInView) return;
+    const targets = { assets: 5000, rcm: 150, rca: 250 };
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      setStatValues({
+        assets: Math.round(targets.assets * ease),
+        rcm: Math.round(targets.rcm * ease),
+        rca: Math.round(targets.rca * ease),
+      });
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  }, [statsInView]);
 
   return (
     <>
@@ -416,13 +442,13 @@ export default function Home() {
       </section>
 
       {/* STATS BAR */}
-      <section className="border-y border-gray-100 bg-white py-8 md:py-12 px-4 sm:px-6">
+      <section ref={statsRef} className="border-y border-gray-100 bg-white py-8 md:py-12 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
-              { value: '+5000', label: 'Activos gestionados' },
-              { value: '+150', label: 'Proyectos RCM' },
-              { value: '+250', label: 'Proyectos RCA' },
+              { value: `+${statValues.assets.toLocaleString()}`, label: 'Activos gestionados' },
+              { value: `+${statValues.rcm}`, label: 'Proyectos RCM' },
+              { value: `+${statValues.rca}`, label: 'Proyectos RCA' },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-bold text-blue-600 mb-2 tabular-nums">{stat.value}</span>
