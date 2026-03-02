@@ -98,7 +98,10 @@ export default function RCAFeatures() {
     const container = modalContentRef.current;
     const cW = container.clientWidth - 48;
     const cH = container.clientHeight - 48;
-    const s = Math.min(cW / 600, cH / 420);
+    // Use larger base dimensions for tree animation
+    const baseW = modalFeature === "analisis" ? 900 : 600;
+    const baseH = modalFeature === "analisis" ? 600 : 420;
+    const s = Math.min(cW / baseW, cH / baseH);
     setScale(s);
   }, [modalFeature]);
 
@@ -242,7 +245,13 @@ export default function RCAFeatures() {
               </svg>
             </button>
             <div ref={modalContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
-              <div style={{ width: 600, minHeight: 400, transform: `scale(${scale})`, transformOrigin: "center center" }}>
+              <div style={{
+                width: modalFeature === "analisis" ? 900 : 600,
+                height: modalFeature === "analisis" ? 600 : 420,
+                minHeight: modalFeature === "analisis" ? 600 : 400,
+                transform: `scale(${scale})`,
+                transformOrigin: "center center"
+              }}>
                 {getAnimation(modalFeature)}
               </div>
             </div>
