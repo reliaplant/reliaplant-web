@@ -49,13 +49,13 @@ export default function ComoFuncionaPage() {
             Cómo funciona la plataforma
           </h1>
 
-          <p className="text-2xl text-white/90 mb-8 max-w-3xl">
+          <p className="text-2xl text-white/90 mb-8 max-w-5xl">
             Nuestra plataforma <strong className="text-white">no reemplaza tu CMMS</strong> ni tus sistemas actuales.
             Los complementa, facilitando la aplicación correcta de metodologías de confiabilidad,
             mejorando la calidad de datos y reduciendo el tiempo administrativo técnico.
           </p>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-3xl">
+          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-5xl">
             <p className="text-lg text-white/90 font-semibold mb-4">El objetivo es simple:</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -78,8 +78,8 @@ export default function ComoFuncionaPage() {
       <StepNav />
 
       {/* Paso 1: Taxonomía */}
-      <section id="paso-1" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-1" className="py-8 md:py-12 bg-white">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
@@ -146,8 +146,8 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 2: RCA */}
-      <section id="paso-2" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-2" className="py-8 md:py-12 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
@@ -226,8 +226,8 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 3: RCM */}
-      <section id="paso-3" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-3" className="py-8 md:py-12 bg-white">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
@@ -302,8 +302,8 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 4: Integración */}
-      <section id="paso-4" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-4" className="py-8 md:py-12 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
@@ -364,8 +364,8 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 5: Impacto */}
-      <section id="paso-5" className="py-8 md:py-12 px-4 sm:px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-5" className="py-8 md:py-12 bg-white">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-4 mb-6">
@@ -432,8 +432,8 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 6: Implementación */}
-      <section id="paso-6" className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section id="paso-6" className="py-8 md:py-12 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
@@ -494,12 +494,12 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-8 md:py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             ¿Listo para mejorar tu ingeniería de confiabilidad?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-5xl mx-auto">
             Agenda una demo para ver cómo la plataforma puede adaptarse a tu operación.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

@@ -49,13 +49,13 @@ export default function IndustriasPage() {
             Industrias donde la confiabilidad marca la diferencia
           </h1>
 
-          <p className="text-2xl text-white/90 mb-8 max-w-3xl">
+          <p className="text-2xl text-white/90 mb-8 max-w-5xl">
             Nuestra plataforma está diseñada para entornos industriales donde la
             disponibilidad de los equipos impacta directamente la producción, la
             seguridad y la rentabilidad.
           </p>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-3xl">
+          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-5xl">
             <p className="text-lg text-white/90 font-medium">
               No importa si la operación es continua o por lotes:
             </p>
@@ -71,7 +71,7 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Oil & Gas                                                    */}
       {/* ============================================================ */}
-      <section id="industria-oilygas" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-white border-b border-gray-200">
+      <section id="industria-oilygas" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 border border-gray-200">
 
@@ -119,7 +119,7 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Energía                                                      */}
       {/* ============================================================ */}
-      <section id="industria-energia" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-gray-50 border-b border-gray-200">
+      <section id="industria-energia" className="scroll-mt-[110px] py-8 md:py-12 bg-gray-50 border-b border-gray-200">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 border border-gray-200">
 
@@ -166,7 +166,7 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Manufactura                                                  */}
       {/* ============================================================ */}
-      <section id="industria-manufactura" className="scroll-mt-[110px] py-8 md:py-12 px-4 sm:px-6 bg-white border-b border-gray-200">
+      <section id="industria-manufactura" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-200">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 border border-gray-200">
 
@@ -214,7 +214,7 @@ export default function IndustriasPage() {
       {/* Otras industrias                                             */}
       {/* ============================================================ */}
       <section id="industria-otras" className="scroll-mt-[110px] py-20 px-4 bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
 
           <div className="grid md:grid-cols-[260px_1fr] gap-16 items-start">
 
@@ -297,7 +297,7 @@ export default function IndustriasPage() {
       {/* CTA Final                                                    */}
       {/* ============================================================ */}
       <section className="py-24 px-4 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
 
           <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-white/60 mb-5">
             Siguiente paso
@@ -305,12 +305,12 @@ export default function IndustriasPage() {
           <h2 className="text-4xl font-extrabold mb-5 tracking-tight">
             Hablemos de tu operación
           </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 mb-10 max-w-5xl mx-auto">
             Podemos mostrarte cómo aplica en tu industria, qué impacto esperar
             y cómo integrarlo a tu operación actual.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-4 mb-10 text-left max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 mb-10 text-left max-w-5xl mx-auto">
             <div className="bg-white/10 border border-white/20 p-5">
               <DataStructured size={22} className="text-white/70 mb-3" />
               <p className="text-white/90 text-sm font-medium">Cómo se aplicaría en tu industria</p>

@@ -11,7 +11,7 @@ export default function TerminosDeUsoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-16 px-4 sm:px-6">
+      <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-16">
         <div className="max-w-5xl mx-auto">
           <span className="text-blue-400 font-medium uppercase tracking-wide text-sm mb-4 block">
             Legal
@@ -24,13 +24,13 @@ export default function TerminosDeUsoPage() {
       </section>
 
       {/* Body */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto py-12">
         <div className="lg:flex lg:gap-16">
 
           <TerminosTOC />
 
           {/* Content */}
-          <article className="flex-1 min-w-0 max-w-3xl">
+          <article className="flex-1 min-w-0 max-w-5xl">
 
             {/* ── BLOCK A: GENERAL LEGAL FRAMEWORK ─────────────────── */}
 

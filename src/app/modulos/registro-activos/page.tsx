@@ -59,16 +59,16 @@ export default function RegistroActivosPage() {
             Base de datos confiable para decisiones de mantenimiento
           </p>
           
-          <p className="text-lg text-white/60 max-w-3xl">
+          <p className="text-lg text-white/60 max-w-5xl">
             Estructura tus activos siguiendo principios como ISO 14224, asegurando relaciones correctas y base sólida para indicadores.
           </p>
         </div>
       </section>
 
       {/* El problema hoy */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-5xl mx-auto">
-        <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text content */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
@@ -149,7 +149,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Por qué era tan difícil hacerlo bien */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -158,7 +158,7 @@ export default function RegistroActivosPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Hacerlo correctamente según ISO era extremadamente difícil
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-5xl mx-auto">
               Implementar una taxonomía profesional siempre tuvo barreras inmensas
             </p>
           </div>
@@ -211,9 +211,9 @@ export default function RegistroActivosPage() {
       <RegistroActivosFeatures />
 
       {/* Beneficios operativos */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-5xl mx-auto">
-        <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text + benefit items */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
@@ -289,13 +289,13 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Casos de Uso Ideales */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Para plantas que quieren
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl">
+            <p className="text-lg text-gray-600 max-w-5xl">
               Construir una base técnica sólida con datos consistentes — que respalde buenos análisis, facilite la gestión de activos y no tenga que rehacerse cada vez que alguien cambia una hoja de cálculo.
             </p>
           </div>
@@ -419,7 +419,7 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* Consultoría Section */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
@@ -429,7 +429,7 @@ export default function RegistroActivosPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 ¿Prefieres que lo hagamos por ti?
               </h2>
-              <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-5xl mx-auto">
                 A pesar de que con nuestra plataforma lo puedes hacer fácilmente, <strong>podemos hacerlo por ti</strong>.
               </p>
             </div>
@@ -483,8 +483,8 @@ export default function RegistroActivosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-8 md:py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Construye la base de datos de activos que tu planta necesita
           </h2>

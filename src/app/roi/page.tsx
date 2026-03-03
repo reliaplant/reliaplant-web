@@ -48,13 +48,13 @@ export default function ROIPage() {
             El retorno de invertir en confiabilidad bien aplicada
           </h1>
 
-          <p className="text-2xl text-white/90 mb-8 max-w-3xl">
+          <p className="text-2xl text-white/90 mb-8 max-w-5xl">
             Nuestra plataforma fortalece los pilares de la confiabilidad para que la ingeniería genere{" "}
             <strong className="text-white">impacto operativo real</strong>.{" "}
             En mantenimiento industrial, el retorno rara vez viene de un solo factor. No es solo ahorro directo.
           </p>
 
-          <div className="bg-white/10 border border-white/20 p-8 max-w-3xl">
+          <div className="bg-white/10 border border-white/20 p-8 max-w-5xl">
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <CheckmarkFilled size={20} className="text-blue-400 mt-0.5 flex-shrink-0" />
@@ -92,7 +92,7 @@ export default function ROIPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
               Beneficios operativos y reducción de riesgo
             </h2>
-            <p className="text-gray-500 text-base max-w-2xl">
+            <p className="text-gray-500 text-base max-w-5xl">
               El retorno real va más allá del ahorro en horas técnicas. Reliaplant genera valor en dimensiones que no aparecen en una calculadora pero que impactan directamente la operación y la competitividad.
             </p>
           </div>
@@ -289,7 +289,7 @@ export default function ROIPage() {
       </section>
 
       {/* Segundo CTA descargable */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gray-900 p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -345,12 +345,12 @@ export default function ROIPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-8 md:py-12 px-4 sm:px-6 bg-gray-900 text-white">
+      <section className="py-8 md:py-12 bg-gray-900 text-white">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             ¿Quieres evaluar el impacto en tu operación?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-5xl mx-auto">
             Podemos hacer un diagnóstico inicial para identificar oportunidades 
             de mejora en tu gestión de confiabilidad.
           </p>
