@@ -72,7 +72,7 @@ export default function HomePageContent() {
 
       {/* PROBLEMA GENERAL */}
       <section className="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 block">
               El problema
@@ -301,7 +301,7 @@ export default function HomePageContent() {
       <section id="ia" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-6xl mx-auto relative z-10 text-center">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Inteligencia Artificial{" "}
             <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
@@ -399,7 +399,7 @@ export default function HomePageContent() {
 
       {/* PRICING SECTION */}
       <section id="precios" className="py-20 md:py-28 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Precios transparentes</h2>
             <p className="text-lg md:text-xl text-gray-600">Licencias de acuerdo al tamaño de tu organización</p>

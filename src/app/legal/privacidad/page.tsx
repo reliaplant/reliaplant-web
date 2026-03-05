@@ -13,7 +13,7 @@ export default function PoliticaPrivacidadPage() {
     <>
       {/* Hero */}
       <section className="bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-16">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <span className="text-blue-400 font-medium uppercase tracking-wide text-sm mb-4 block">
             Legal
           </span>
@@ -25,13 +25,13 @@ export default function PoliticaPrivacidadPage() {
       </section>
 
       {/* Body */}
-      <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto py-12">
+      <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto py-12">
         <div className="lg:flex lg:gap-16">
 
           <PoliticaTOC />
 
           {/* Content */}
-          <article className="flex-1 min-w-0 max-w-5xl">
+          <article className="flex-1 min-w-0 max-w-7xl">
 
             <section id="introduccion" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">

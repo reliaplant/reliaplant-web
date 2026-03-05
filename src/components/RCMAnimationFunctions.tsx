@@ -1,216 +1,143 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+const ROWS = [
+  { unidad: "UNIDAD 1 — Bomba Centrífuga P-8301A", funcion: "Transferir fluido de proceso", falla: "Flujo por debajo del mínimo", modo: "Desgaste de rodete", efecto: "Reducción de caudal a menos de 80 m³/h.", f: 3, s: 5, d: 3, consecuencia: "Operacional", actividad: "Inspección de vibración mensual" },
+  { unidad: "", funcion: "", falla: "", modo: "Cavitación por NPSH insuficiente", efecto: "Daño progresivo en rodete; posible pérdida total.", f: 4, s: 7, d: 4, consecuencia: "Operacional", actividad: "Verificar nivel de succión" },
+  { unidad: "UNIDAD 2 — Sistema de Sello Mecánico", funcion: "Contener fluido sin fugas", falla: "Fuga superior a 10 ml/h", modo: "Desgaste de caras de sello", efecto: "Contaminación del área; riesgo de ignición.", f: 3, s: 8, d: 2, consecuencia: "Seguridad", actividad: "Cambio preventivo c/8000 h" },
+];
+
+function getNPR(f: number, s: number, d: number) { return f * s * d; }
+function getNPRColor(npr: number) {
+  if (npr >= 100) return { bg: "#fee2e2", text: "#b91c1c" };
+  if (npr >= 40)  return { bg: "#fef3c7", text: "#92400e" };
+  return              { bg: "#dcfce7", text: "#166534" };
+}
+
 export default function RCMAnimationFunctions() {
+  const [visibleRows, setVisibleRows] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    let timeouts: ReturnType<typeof setTimeout>[] = [];
+    function run() {
+      setVisibleRows(0);
+      setActiveTab(0);
+      ROWS.forEach((_, i) => {
+        timeouts.push(setTimeout(() => setVisibleRows(i + 1), (i + 1) * 920));
+      });
+      timeouts.push(setTimeout(() => setActiveTab(1), ROWS.length * 920 + 700));
+      timeouts.push(setTimeout(() => setActiveTab(0), ROWS.length * 920 + 1500));
+      timeouts.push(setTimeout(() => { timeouts.forEach(clearTimeout); timeouts = []; run(); }, ROWS.length * 920 + 3400));
+    }
+    run();
+    return () => timeouts.forEach(clearTimeout);
+  }, []);
+
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "280px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ width: "100%", height: "100%", fontFamily: "IBM Plex Sans, sans-serif", display: "flex", flexDirection: "column", overflow: "hidden", background: "#f8fafc" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
-        
-        .rcm-func-frame {
-          width: 100%;
-          height: 280px;
-          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-          position: relative;
-          font-family: 'IBM Plex Sans', sans-serif;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-        }
-        
-        .func-container {
-          width: 100%;
-          max-width: 500px;
-          background: white;
-          border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-          padding: 20px;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .func-header {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-bottom: 16px;
-          padding-bottom: 12px;
-          border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .func-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, #3b82f6, #2563eb);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        
-        .func-title-group {
-          flex: 1;
-        }
-        
-        .func-tag {
-          font-size: 7px;
-          font-weight: 700;
-          color: #3b82f6;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin-bottom: 2px;
-        }
-        
-        .func-title {
-          font-size: 11px;
-          font-weight: 700;
-          color: #111827;
-        }
-        
-        .func-list {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-        
-        .func-item {
-          background: #f9fafb;
-          border: 1px solid #e5e7eb;
-          border-radius: 8px;
-          padding: 10px 12px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          opacity: 0;
-          transform: translateX(-10px);
-          animation: funcIn 16s infinite;
-        }
-        
-        .func-item:nth-child(1) { animation-delay: 0.2s; }
-        .func-item:nth-child(2) { animation-delay: 0.4s; }
-        .func-item:nth-child(3) { animation-delay: 0.6s; }
-        .func-item:nth-child(4) { animation-delay: 0.8s; }
-        
-        @keyframes funcIn {
-          0%, 5% { opacity: 0; transform: translateX(-10px); }
-          10% { opacity: 1; transform: translateX(0); }
-          95% { opacity: 1; transform: translateX(0); }
-          100% { opacity: 0; transform: translateX(10px); }
-        }
-        
-        .func-num {
-          width: 24px;
-          height: 24px;
-          border-radius: 6px;
-          background: linear-gradient(135deg, #3b82f6, #2563eb);
-          color: white;
-          font-size: 9px;
-          font-weight: 700;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        
-        .func-text {
-          flex: 1;
-        }
-        
-        .func-name {
-          font-size: 8px;
-          font-weight: 600;
-          color: #111827;
-          margin-bottom: 2px;
-        }
-        
-        .func-desc {
-          font-size: 6.5px;
-          color: #6b7280;
-          line-height: 1.4;
-        }
-        
-        .func-badge {
-          font-size: 6px;
-          font-weight: 600;
-          padding: 2px 6px;
-          border-radius: 4px;
-          background: #dbeafe;
-          color: #2563eb;
-        }
-        
-        .pulse-dot {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: #22c55e;
-          animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.2); }
-        }
+        .rcm2-in { animation: rcm2-in 0.32s cubic-bezier(0.22,1,0.36,1) both; }
+        @keyframes rcm2-in { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+        .rcm2-th { padding:5px 7px; font-size:8px; font-weight:700; color:#475569; background:#f1f5f9; border-right:1px solid #e2e8f0; border-bottom:2px solid #cbd5e1; text-align:left; white-space:nowrap; }
+        .rcm2-th:last-child { border-right:none; }
+        .rcm2-td { padding:5px 7px; font-size:8.5px; color:#1e293b; border-right:1px solid #e2e8f0; border-bottom:1px solid #f1f5f9; background:white; vertical-align:top; line-height:1.4; }
+        .rcm2-td:last-child { border-right:none; }
       `}</style>
-      
-      <div className="rcm-func-frame">
-        <div className="func-container">
-          <div className="pulse-dot"></div>
-          
-          <div className="func-header">
-            <div className="func-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path>
-              </svg>
-            </div>
-            <div className="func-title-group">
-              <div className="func-tag">Activo: Bomba Centrífuga P-101A</div>
-              <div className="func-title">Funciones Definidas</div>
-            </div>
-          </div>
-          
-          <div className="func-list">
-            <div className="func-item">
-              <div className="func-num">P1</div>
-              <div className="func-text">
-                <div className="func-name">Transferir fluido de enfriamiento</div>
-                <div className="func-desc">Mantener caudal de 150 m³/h a presión de 5 bar</div>
-              </div>
-              <div className="func-badge">Primaria</div>
-            </div>
-            
-            <div className="func-item">
-              <div className="func-num">P2</div>
-              <div className="func-text">
-                <div className="func-name">Mantener presión en el sistema</div>
-                <div className="func-desc">Presión operativa entre 4.5 - 5.5 bar</div>
-              </div>
-              <div className="func-badge">Primaria</div>
-            </div>
-            
-            <div className="func-item">
-              <div className="func-num">S1</div>
-              <div className="func-text">
-                <div className="func-name">Contener fluido sin fugas</div>
-                <div className="func-desc">Sello mecánico debe prevenir fugas &gt; 10 ml/h</div>
-              </div>
-              <div className="func-badge">Secundaria</div>
-            </div>
-            
-            <div className="func-item">
-              <div className="func-num">S2</div>
-              <div className="func-text">
-                <div className="func-name">Operar sin vibración excesiva</div>
-                <div className="func-desc">Vibración &lt; 4.5 mm/s según ISO 10816</div>
-              </div>
-              <div className="func-badge">Secundaria</div>
-            </div>
+
+      {/* Top bar */}
+      <div style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "0 12px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 36, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ fontSize: 8.5, color: "#94a3b8" }}>← Regresar a plantillas</span>
+          <span style={{ color: "#e2e8f0" }}>|</span>
+          <div>
+            <div style={{ fontSize: 7, fontWeight: 700, color: "#3b82f6", textTransform: "uppercase", letterSpacing: "0.08em" }}>PLANTILLA RCM GENÉRICA</div>
+            <div style={{ fontSize: 9.5, fontWeight: 700, color: "#0f172a" }}>BOMBA P-8301A</div>
           </div>
         </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ fontSize: 8, color: "#94a3b8", padding: "2px 7px", border: "1px solid #e2e8f0", borderRadius: 3 }}>Guardado</span>
+          <span style={{ fontSize: 8, color: "white", background: "#2563eb", padding: "2px 8px", borderRadius: 3, fontWeight: 600 }}>Acción ▾</span>
+          <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div style={{ background: "white", borderBottom: "2px solid #e2e8f0", display: "flex", paddingLeft: 8, flexShrink: 0 }}>
+        {["Hoja de Análisis RCM", "Plan de Mantenimiento"].map((label, i) => (
+          <div key={i} style={{ padding: "6px 12px", fontSize: 9, fontWeight: 600, color: activeTab === i ? "#2563eb" : "#64748b", borderBottom: activeTab === i ? "2px solid #2563eb" : "2px solid transparent", marginBottom: -2, transition: "all 0.25s", display: "flex", alignItems: "center", gap: 5 }}>
+            <span style={{ width: 15, height: 15, borderRadius: 3, fontSize: 7.5, fontWeight: 700, background: activeTab === i ? "#2563eb" : "#e2e8f0", color: activeTab === i ? "white" : "#64748b", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+            {label}
+          </div>
+        ))}
+      </div>
+
+      {/* Table */}
+      <div style={{ flex: 1, overflow: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
+          <colgroup>
+            <col style={{ width: "13%" }} /><col style={{ width: "13%" }} />
+            <col style={{ width: "13%" }} /><col style={{ width: "18%" }} />
+            <col style={{ width: "4%" }} /><col style={{ width: "4%" }} />
+            <col style={{ width: "4%" }} /><col style={{ width: "6%" }} />
+            <col style={{ width: "12%" }} /><col style={{ width: "13%" }} />
+          </colgroup>
+          <thead>
+            <tr>
+              <th className="rcm2-th">Función</th>
+              <th className="rcm2-th">Falla funcional</th>
+              <th className="rcm2-th">Modo de falla</th>
+              <th className="rcm2-th">Efecto de falla</th>
+              <th className="rcm2-th" style={{ textAlign: "center" }}>F</th>
+              <th className="rcm2-th" style={{ textAlign: "center" }}>S</th>
+              <th className="rcm2-th" style={{ textAlign: "center" }}>D</th>
+              <th className="rcm2-th" style={{ textAlign: "center" }}>NPR</th>
+              <th className="rcm2-th">Consecuencia</th>
+              <th className="rcm2-th">Actividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROWS.map((row, i) => {
+              if (i >= visibleRows) return null;
+              const npr = getNPR(row.f, row.s, row.d);
+              const nprC = getNPRColor(npr);
+              const consC = row.consecuencia === "Seguridad" ? { bg: "#fff7ed", text: "#c2410c" } : { bg: "#eff6ff", text: "#1d4ed8" };
+              return (
+                <>
+                  {row.unidad ? (
+                    <tr key={"u" + i} className="rcm2-in">
+                      <td colSpan={10} style={{ background: "#eff6ff", color: "#1d4ed8", fontSize: 8, fontWeight: 700, padding: "4px 7px", letterSpacing: "0.05em", textTransform: "uppercase", borderBottom: "1px solid #bfdbfe" }}>
+                        {row.unidad}
+                      </td>
+                    </tr>
+                  ) : null}
+                  <tr key={"d" + i} className="rcm2-in">
+                    <td className="rcm2-td" style={{ color: row.funcion ? "#1e293b" : "#94a3b8", fontStyle: row.funcion ? "normal" : "italic" }}>{row.funcion || "—"}</td>
+                    <td className="rcm2-td" style={{ color: row.falla ? "#1e293b" : "#94a3b8", fontStyle: row.falla ? "normal" : "italic" }}>{row.falla || "—"}</td>
+                    <td className="rcm2-td" style={{ fontWeight: 500 }}>{row.modo}</td>
+                    <td className="rcm2-td" style={{ color: "#475569", fontSize: 8 }}>{row.efecto}</td>
+                    <td className="rcm2-td" style={{ textAlign: "center", fontWeight: 600 }}>{row.f}</td>
+                    <td className="rcm2-td" style={{ textAlign: "center", fontWeight: 600 }}>{row.s}</td>
+                    <td className="rcm2-td" style={{ textAlign: "center", fontWeight: 600 }}>{row.d}</td>
+                    <td className="rcm2-td" style={{ textAlign: "center" }}>
+                      <span style={{ background: nprC.bg, color: nprC.text, fontWeight: 700, fontSize: 8.5, padding: "2px 5px", borderRadius: 3 }}>{npr}</span>
+                    </td>
+                    <td className="rcm2-td">
+                      <span style={{ fontSize: 7.5, fontWeight: 600, padding: "2px 6px", borderRadius: 20, background: consC.bg, color: consC.text }}>{row.consecuencia}</span>
+                    </td>
+                    <td className="rcm2-td" style={{ fontSize: 8, color: "#475569" }}>{row.actividad}</td>
+                  </tr>
+                </>
+              );
+            })}
+          </tbody>
+        </table>
+        {visibleRows > 0 && (
+          <div className="rcm2-in" style={{ padding: "7px 10px", borderTop: "1px solid #e2e8f0", background: "white" }}>
+            <span style={{ fontSize: 8.5, color: "#2563eb", fontWeight: 600 }}>+ Agregar nueva unidad</span>
+          </div>
+        )}
       </div>
     </div>
   );

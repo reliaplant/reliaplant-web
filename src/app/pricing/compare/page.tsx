@@ -98,7 +98,7 @@ export default function PricingCompare() {
 
   return (
     <div className="min-h-screen bg-white pb-16">
-      <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto pt-8">
+      <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto pt-8">
         <div className="mb-8 flex items-center">
           <Link href="/#precios" className="text-blue-600 hover:underline text-sm font-medium flex items-center gap-1">
             <span className="text-2xl">←</span> Volver a precios

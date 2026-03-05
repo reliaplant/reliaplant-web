@@ -62,7 +62,7 @@ export default function StepNav() {
 
   return (
     <nav className="sticky top-[56px] z-40 bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-5xl mx-auto flex overflow-x-auto">
+      <div className="max-w-7xl mx-auto flex overflow-x-auto">
         {steps.map((step, i) => {
           const isActive = activeId === step.id;
           return (

@@ -43,7 +43,7 @@ export default function RCAPage() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
         
         {/* Botón Volver en esquina superior derecha */}
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="absolute -top-16 right-0">
             <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
               <ArrowLeft size={24} className="text-white" />
@@ -51,7 +51,7 @@ export default function RCAPage() {
           </div>
         </div>
         
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <h1 className="text-5xl font-bold leading-tight mb-4">
             Análisis de Causa Raíz
           </h1>
@@ -60,7 +60,7 @@ export default function RCAPage() {
             Análisis de causa raíz sin burocracia ni errores metodológicos
           </p>
 
-          <p className="text-lg text-white/60 max-w-5xl">
+          <p className="text-lg text-white/60 max-w-7xl">
             Estructura el proceso completo para que el análisis siga la metodología correctamente, sea trazable y genere documentación clara.
           </p>
         </div>
@@ -68,8 +68,8 @@ export default function RCAPage() {
 
       {/* El problema hoy */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text content */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span
@@ -154,8 +154,8 @@ export default function RCAPage() {
 
       {/* Beneficios operativos */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
         {/* Left: text + benefit items */}
         <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
@@ -232,12 +232,12 @@ export default function RCAPage() {
 
       {/* Casos de Uso Ideales */}
       <section className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Para equipos que quieren
             </h2>
-            <p className="text-lg text-gray-600 max-w-5xl">
+            <p className="text-lg text-gray-600 max-w-7xl">
               Eliminar fallas recurrentes, documentar investigaciones con rigor metodológico y convertir cada incidente en aprendizaje organizacional real.
             </p>
           </div>
@@ -364,7 +364,7 @@ export default function RCAPage() {
 
       {/* Consultoría Section */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-4 block">
@@ -373,7 +373,7 @@ export default function RCAPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 ¿Prefieres que lo hagamos por ti?
               </h2>
-              <p className="text-xl text-gray-700 max-w-5xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-7xl mx-auto">
                 A pesar de que con nuestra plataforma lo puedes hacer fácilmente, <strong>podemos hacerlo por ti</strong>.
               </p>
             </div>
@@ -438,7 +438,7 @@ export default function RCAPage() {
 
       {/* CTA Section */}
       <section className="py-8 md:py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Elimina fallas recurrentes con análisis estructurados
           </h2>

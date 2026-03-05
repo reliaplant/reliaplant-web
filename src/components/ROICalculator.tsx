@@ -72,10 +72,10 @@ export default function ROICalculator() {
 
   return (
     <section className="py-20 px-4 bg-white border-t border-gray-200">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="max-w-5xl mx-auto px-4 mb-10">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto mb-10">
           <p className="text-[11px] font-bold uppercase tracking-widest text-blue-600 mb-2">
             Calculadora
           </p>
@@ -92,13 +92,14 @@ export default function ROICalculator() {
         </div>
 
         {/* Main grid */}
-        <div className="grid lg:grid-cols-[1fr_480px] border border-gray-200">
+        <div className="grid lg:grid-cols-2 border border-gray-200">
 
           {/* LEFT — Inputs */}
           <div className="border-b lg:border-b-0 lg:border-r border-gray-200">
 
             {/* RCA block */}
-            <div className="border-b border-gray-200 px-8 py-7">
+            <div className="border-b border-gray-200 px-8 py-7 flex flex-col items-center">
+              <div className="w-full max-w-sm">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <ChartLineData size={16} />
@@ -128,10 +129,12 @@ export default function ROICalculator() {
                   />
                 </div>
               </div>
+              </div>
             </div>
 
             {/* RCM block */}
-            <div className="border-b border-gray-200 px-8 py-7">
+            <div className="border-b border-gray-200 px-8 py-7 flex flex-col items-center">
+              <div className="w-full max-w-sm">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <Time size={16} />
@@ -161,10 +164,12 @@ export default function ROICalculator() {
                   />
                 </div>
               </div>
+              </div>
             </div>
 
             {/* Taxonomía block */}
-            <div className="px-8 py-7">
+            <div className="px-8 py-7 flex flex-col items-center">
+              <div className="w-full max-w-sm">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <DataStructured size={16} />
@@ -193,6 +198,7 @@ export default function ROICalculator() {
                     className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
+              </div>
               </div>
             </div>
 

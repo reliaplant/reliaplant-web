@@ -11,6 +11,7 @@ import {
 import HierarchyAnimationActivos from "./HierarchyAnimationActivos";
 import RegistroAnimationPlantillas from "./RegistroAnimationPlantillas";
 import RegistroAnimationDTI from "./RegistroAnimationDTI";
+import RegistroAnimationExportacion from "./RegistroAnimationExportacion";
 
 type FeatureKey = "jerarquia" | "consistencia" | "trazabilidad" | "exportacion";
 
@@ -78,12 +79,15 @@ export default function RegistroActivosFeatures() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPlantillasOpen, setModalPlantillasOpen] = useState(false);
   const [modalDTIOpen, setModalDTIOpen] = useState(false);
+  const [modalExportOpen, setModalExportOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement>(null);
   const modalPlantillasContentRef = useRef<HTMLDivElement>(null);
   const modalDTIContentRef = useRef<HTMLDivElement>(null);
+  const modalExportContentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [scalePlantillas, setScalePlantillas] = useState(1);
   const [scaleDTI, setScaleDTI] = useState(1);
+  const [scaleExport, setScaleExport] = useState(1);
 
   const calcScale = useCallback(() => {
     if (!modalOpen || !modalContentRef.current) return;
@@ -133,10 +137,26 @@ export default function RegistroActivosFeatures() {
     return () => { clearTimeout(t); window.removeEventListener("resize", calcScaleDTI); };
   }, [modalDTIOpen, calcScaleDTI]);
 
+  const calcScaleExport = useCallback(() => {
+    if (!modalExportOpen || !modalExportContentRef.current) return;
+    const container = modalExportContentRef.current;
+    const cW = container.clientWidth - 48;
+    const cH = container.clientHeight - 48;
+    const s = Math.min(cW / 760, cH / 520);
+    setScaleExport(s);
+  }, [modalExportOpen]);
+
+  useEffect(() => {
+    if (!modalExportOpen) return;
+    const t = setTimeout(calcScaleExport, 50);
+    window.addEventListener("resize", calcScaleExport);
+    return () => { clearTimeout(t); window.removeEventListener("resize", calcScaleExport); };
+  }, [modalExportOpen, calcScaleExport]);
+
   return (
     <>
       <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
 
           {/* Section header */}
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block text-center">
@@ -201,8 +221,13 @@ export default function RegistroActivosFeatures() {
 
               const animationPanel = (
                 <div
-                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${(feature.id === "jerarquia" || feature.id === "consistencia" || feature.id === "trazabilidad") ? "cursor-pointer group" : ""}`}
-                  onClick={feature.id === "jerarquia" ? () => setModalOpen(true) : feature.id === "consistencia" ? () => setModalPlantillasOpen(true) : feature.id === "trazabilidad" ? () => setModalDTIOpen(true) : undefined}
+                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${(feature.id === "jerarquia" || feature.id === "consistencia" || feature.id === "trazabilidad" || feature.id === "exportacion") ? "cursor-pointer group" : ""}`}
+                  onClick={
+                    feature.id === "jerarquia" ? () => setModalOpen(true) :
+                    feature.id === "consistencia" ? () => setModalPlantillasOpen(true) :
+                    feature.id === "trazabilidad" ? () => setModalDTIOpen(true) :
+                    feature.id === "exportacion" ? () => setModalExportOpen(true) : undefined
+                  }
                 >
                   {feature.id === "jerarquia" ? (
                     <>
@@ -246,14 +271,20 @@ export default function RegistroActivosFeatures() {
                         </span>
                       </div>
                     </>
-                  ) : (
-                    <div className="flex flex-col items-center justify-center gap-4 p-12 text-center">
-                      <div className="p-5 bg-blue-50 border border-blue-100 text-blue-600">
-                        {feature.id === "exportacion" && <ChartLineData size={56} />}
+                  ) : feature.id === "exportacion" ? (
+                    <>
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div style={{ width: Math.round(760 * 0.68), height: Math.round(520 * 0.68), overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <div style={{ width: 760, height: 520, transform: "scale(0.68)", transformOrigin: "center center", flexShrink: 0 }}>
+                            <RegistroAnimationExportacion />
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-sm font-medium">{feature.mockupTitle}</p>
-                    </div>
-                  )}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                        <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">Click para ampliar</span>
+                      </div>
+                    </>
+                  ) : null}
                 </div>
               );
 
@@ -271,8 +302,8 @@ export default function RegistroActivosFeatures() {
         </div>
 
         {/* Bottom bar - full width */}
-        <div className="bg-gray-900 px-6 md:px-12 py-7 text-white mt-16">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="bg-gray-900 py-7 text-white mt-16">
+          <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-400 mb-1">
                 Resultado
@@ -308,6 +339,36 @@ export default function RegistroActivosFeatures() {
             <div ref={modalPlantillasContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
               <div style={{ width: 600, minHeight: 400, transform: `scale(${scalePlantillas})`, transformOrigin: "center center" }}>
                 <RegistroAnimationPlantillas />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal expandido - Exportacion */}
+      {modalExportOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setModalExportOpen(false)}
+        >
+          <div
+            className="relative bg-white shadow-2xl w-[95vw] h-[92vh] max-w-none overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalExportOpen(false)}
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div ref={modalExportContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
+              <div style={{ width: Math.round(760 * scaleExport), height: Math.round(520 * scaleExport), overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: 760, height: 520, transform: `scale(${scaleExport})`, transformOrigin: "center center", flexShrink: 0 }}>
+                  <RegistroAnimationExportacion />
+                </div>
               </div>
             </div>
           </div>

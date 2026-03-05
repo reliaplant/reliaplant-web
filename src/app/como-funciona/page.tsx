@@ -37,7 +37,7 @@ export default function ComoFuncionaPage() {
         <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#0f172a]/80 via-[#1a1a2e]/75 to-[#1e3a8a]/70" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
         
-        <div className="max-w-5xl mx-auto relative z-[2]">
+        <div className="max-w-7xl mx-auto relative z-[2]">
           <div className="flex items-center gap-3 mb-6">
             <Integration size={32} className="text-blue-400" />
             <span className="text-blue-400 font-medium tracking-wide text-sm">
@@ -49,13 +49,13 @@ export default function ComoFuncionaPage() {
             Cómo funciona la plataforma
           </h1>
 
-          <p className="text-2xl text-white/90 mb-8 max-w-5xl">
+          <p className="text-2xl text-white/90 mb-8 max-w-7xl">
             Nuestra plataforma <strong className="text-white">no reemplaza tu CMMS</strong> ni tus sistemas actuales.
             Los complementa, facilitando la aplicación correcta de metodologías de confiabilidad,
             mejorando la calidad de datos y reduciendo el tiempo administrativo técnico.
           </p>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-5xl">
+          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-7xl">
             <p className="text-lg text-white/90 font-semibold mb-4">El objetivo es simple:</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -78,9 +78,9 @@ export default function ComoFuncionaPage() {
       <StepNav />
 
       {/* Paso 1: Taxonomía */}
-      <section id="paso-1" className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-1" className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
@@ -128,13 +128,14 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
                 src="/assets/bgAssetRegister.png"
                 alt="Taxonomía de activos industriales"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -146,17 +147,18 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 2: RCA */}
-      <section id="paso-2" className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-2" className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
                 src="/assets/bgACR.jpg"
                 alt="Análisis de causa raíz en planta industrial"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -226,9 +228,9 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 3: RCM */}
-      <section id="paso-3" className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-3" className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
@@ -284,13 +286,14 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
                 src="/assets/fondo-landing-rcm.png"
                 alt="Proceso RCM estructurado"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -302,17 +305,18 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 4: Integración */}
-      <section id="paso-4" className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-4" className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
                 src="/assets/Interaccion Progresiva.png"
                 alt="Integración de sistemas industriales"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -364,9 +368,9 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 5: Impacto */}
-      <section id="paso-5" className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-5" className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
@@ -414,13 +418,14 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
                 src="/assets/bgPerformance.jpg"
                 alt="KPIs e indicadores de confiabilidad"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -432,17 +437,18 @@ export default function ComoFuncionaPage() {
       </section>
 
       {/* Paso 6: Implementación */}
-      <section id="paso-6" className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="paso-6" className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
                 src="/assets/bgCapacitacion.jpg"
                 alt="Capacitación e implementación"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
+                
+                
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -495,11 +501,11 @@ export default function ComoFuncionaPage() {
 
       {/* CTA Final */}
       <section className="py-8 md:py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">
             ¿Listo para mejorar tu ingeniería de confiabilidad?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-5xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-7xl mx-auto">
             Agenda una demo para ver cómo la plataforma puede adaptarse a tu operación.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

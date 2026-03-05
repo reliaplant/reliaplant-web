@@ -76,7 +76,7 @@ export default function BeneficiosIndirectos() {
 
   return (
     <section className="py-20 px-4 bg-white border-t border-gray-100">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="mb-12">

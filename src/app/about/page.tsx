@@ -35,7 +35,7 @@ export default function AboutPage() {
         </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
 
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <span className="text-blue-400 font-medium uppercase tracking-wide text-sm mb-4 block">
             Sobre nosotros
           </span>
@@ -45,7 +45,7 @@ export default function AboutPage() {
               hecha plataforma
             </span>
           </h1>
-          <p className="text-xl text-white/90 max-w-5xl leading-relaxed">
+          <p className="text-xl text-white/90 max-w-7xl leading-relaxed">
             Reliaplant nace de la experiencia real en plantas industriales.
             Conocemos los problemas porque los hemos vivido: análisis
             incompletos, datos dispersos y decisiones sin respaldo técnico.
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
       {/* Misión */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
@@ -105,7 +105,7 @@ export default function AboutPage() {
 
       {/* Valores */}
       <section className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               Nuestro enfoque
@@ -165,7 +165,7 @@ export default function AboutPage() {
 
       {/* Equipo */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               Equipo
@@ -173,7 +173,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Ingenieros que entienden la operación
             </h2>
-            <p className="text-lg text-gray-600 max-w-5xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-7xl mx-auto">
               Nuestro equipo combina experiencia en plantas industriales con
               desarrollo de software para crear herramientas que realmente
               funcionan en el campo.
@@ -225,7 +225,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-8 md:py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             ¿Quieres conocer más?
           </h2>

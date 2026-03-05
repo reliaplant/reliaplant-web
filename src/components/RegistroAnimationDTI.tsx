@@ -60,19 +60,23 @@ export default function RegistroAnimationDTI() {
       <style>{`
         @keyframes dti-pin-pulse {
           0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.35); opacity: 0.7; }
+          50% { transform: scale(1.2); opacity: 0.85; }
         }
         @keyframes dti-ring {
-          0% { transform: scale(1); opacity: 0.8; }
-          100% { transform: scale(3.2); opacity: 0; }
+          0% { r: 11; opacity: 0.65; }
+          100% { r: 32; opacity: 0; }
         }
         @keyframes dti-tooltip-in {
           from { opacity: 0; transform: translateY(6px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes dti-asset-glow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
-          50% { box-shadow: 0 0 0 3px rgba(59,130,246,0.35); }
+        .dti-dot {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: dti-pin-pulse 1.4s ease-in-out infinite;
+        }
+        .dti-ring {
+          animation: dti-ring 1.4s ease-out infinite;
         }
       `}</style>
 
@@ -391,56 +395,25 @@ export default function RegistroAnimationDTI() {
                   strokeWidth="1"
                 />
               ))}
-            </svg>
 
-            {/* ── Animated pin overlay ────── */}
-            {(phase === "pin" || phase === "tooltip") && (
-              <div
-                style={{
-                  position: "absolute",
-                  left: pinX,
-                  top: pinY,
-                  transform: "translate(-50%, -50%)",
-                  pointerEvents: "none",
-                }}
-              >
-                {/* Pulse ring */}
-                <div
-                  style={{
-                    position: "absolute",
-                    width: 26,
-                    height: 26,
-                    borderRadius: "50%",
-                    background: "#ef4444",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    animation: "dti-ring 1.4s ease-out infinite",
-                    opacity: 0.5,
-                  }}
-                />
-                {/* Pin dot */}
-                <div
-                  style={{
-                    width: 18,
-                    height: 18,
-                    borderRadius: "50%",
-                    background: "#ef4444",
-                    border: "2.5px solid #fff",
-                    boxShadow: "0 2px 8px rgba(239,68,68,0.6)",
-                    animation: "dti-pin-pulse 1.4s ease-in-out infinite",
-                  }}
-                />
-              </div>
-            )}
+              {/* ── Pin directly in SVG — coords guaranteed to match the pump circle ── */}
+              {(phase === "pin" || phase === "tooltip") && (
+                <g>
+                  {/* Expanding ring */}
+                  <circle className="dti-ring" cx="430" cy="155" r="11" fill="#ef4444" opacity="0.6" />
+                  {/* Solid dot */}
+                  <circle className="dti-dot" cx="430" cy="155" r="9" fill="#ef4444" stroke="white" strokeWidth="2" />
+                </g>
+              )}
+            </svg>
 
             {/* ── Tooltip ─────────────────── */}
             {phase === "tooltip" && (
               <div
                 style={{
                   position: "absolute",
-                  left: pinX - 190,
-                  top: pinY - 72,
+                  left: pinX - 110,
+                  top: pinY - 100,
                   background: "#0f172a",
                   color: "#f1f5f9",
                   borderRadius: 4,
@@ -449,7 +422,7 @@ export default function RegistroAnimationDTI() {
                   fontWeight: 500,
                   boxShadow: "0 4px 16px rgba(0,0,0,0.35)",
                   whiteSpace: "nowrap",
-                  animation: "dti-tooltip-in 0.3s ease-out",
+                  animation: "dti-tooltip-in 0.3s ease-out forwards",
                   zIndex: 10,
                 }}
               >
@@ -462,18 +435,18 @@ export default function RegistroAnimationDTI() {
                 <div style={{ color: "#cbd5e1", fontSize: 10 }}>
                   Clase: Bomba centrífuga · ISO 14224
                 </div>
-                {/* arrow */}
+                {/* arrow pointing down */}
                 <div
                   style={{
                     position: "absolute",
-                    right: -7,
-                    top: "50%",
-                    transform: "translateY(-50%)",
+                    bottom: -7,
+                    left: "50%",
+                    transform: "translateX(-50%)",
                     width: 0,
                     height: 0,
-                    borderTop: "6px solid transparent",
-                    borderBottom: "6px solid transparent",
-                    borderLeft: "7px solid #0f172a",
+                    borderLeft: "6px solid transparent",
+                    borderRight: "6px solid transparent",
+                    borderTop: "7px solid #0f172a",
                   }}
                 />
               </div>

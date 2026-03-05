@@ -54,7 +54,7 @@ export default function ModuleStickyBanner({
       <div
         className={`${config.bgColor} border-b ${config.borderColor} py-2 px-4`}
       >
-        <div className="max-w-5xl mx-auto flex items-center gap-4">
+        <div className="max-w-7xl mx-auto flex items-center gap-4">
           <Link 
             href="/#modulos" 
             className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 transition-colors"

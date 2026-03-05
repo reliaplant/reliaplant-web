@@ -106,7 +106,7 @@ export default function RcmPage(): ReactElement {
             </div>
           </div>
           <button
-            className="bg-blue60 hover:bg-blue80 text-white px-8 py-3 flex items-center justify-center gap-2 w-full max-w-5xl transition duration-300 mt-8"
+            className="bg-blue60 hover:bg-blue80 text-white px-8 py-3 flex items-center justify-center gap-2 w-full max-w-7xl transition duration-300 mt-8"
             onClick={() => setShowModal(true)}
           >
             <span>Hablar con un especialista</span>

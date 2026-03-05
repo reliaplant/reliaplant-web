@@ -79,7 +79,7 @@ export default function Home() {
         <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto relative z-[2] text-center">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-[2] text-center">
           <p className="text-lg md:text-xl font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6">
             Plataforma de confiabilidad industrial
           </p>
@@ -91,10 +91,10 @@ export default function Home() {
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/90 mb-4 max-w-5xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 mb-4 max-w-7xl mx-auto leading-relaxed">
             Menos burocracia técnica, más tiempo para ingeniería real.
           </p>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-5xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-7xl mx-auto leading-relaxed">
             Más confiabilidad, mejores decisiones y menos fallas recurrentes.
           </p>
           
@@ -120,7 +120,7 @@ export default function Home() {
 
       {/* PROBLEMA GENERAL */}
       <section className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
 
             {/* Left: text content */}
             <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
       </section>
       <section id="modulos" className="py-8 md:py-12 bg-white">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 block">
               Módulos principales
@@ -222,7 +222,7 @@ export default function Home() {
             >
               Una plataforma diseñada para ingeniería real
             </motion.h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-5xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-7xl mx-auto">
               Usa cada módulo de forma independiente o conéctalos para una gestión completa de la confiabilidad.
             </p>
           </div>
@@ -376,7 +376,7 @@ export default function Home() {
           {/* CTA después de módulos */}
           <div className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-10 border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-3">¿No sabes por dónde empezar?</h3>
-            <p className="text-gray-600 mb-6 max-w-5xl mx-auto">
+            <p className="text-gray-600 mb-6 max-w-7xl mx-auto">
               Te ayudamos a identificar el módulo que más impacto tendrá en tu operación. Sin compromiso.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -404,7 +404,7 @@ export default function Home() {
       <section id="ia" className="py-8 md:py-12 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto relative z-10 text-center">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-10 text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-4"
             initial={{ opacity: 0, y: 16 }}
@@ -417,7 +417,7 @@ export default function Home() {
               integrada
             </span>
           </motion.h2>
-          <p className="text-lg md:text-xl text-white/80 max-w-5xl mx-auto mb-16">
+          <p className="text-lg md:text-xl text-white/80 max-w-7xl mx-auto mb-16">
             IA en cada módulo para acelerar análisis y reducir errores humanos
           </p>
 
@@ -484,7 +484,7 @@ export default function Home() {
 
       {/* STATS BAR */}
       <section ref={statsRef} className="border-y border-gray-100 bg-white py-8 md:py-12">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             {[
               { value: `+${statValues.assets.toLocaleString()}`, label: 'Activos gestionados' },
@@ -513,7 +513,7 @@ export default function Home() {
 
       {/* PRICING SECTION */}
       <section id="precios" className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-5xl mx-4 sm:mx-6 lg:mx-auto">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="mb-2 flex justify-center items-center min-h-[4.5rem]">
             <motion.h2
               className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full"
@@ -797,7 +797,7 @@ export default function Home() {
         </div>
       </section>
       {/* CTA SECTION */}
-      <div id="contacto">
+      <div id="contacto" className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
         <DemoRequestSection />
       </div>
       {/* Modal Contactar Asesor */}
@@ -806,7 +806,7 @@ export default function Home() {
           className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm"
           onClick={(e) => { if (e.target === e.currentTarget) setShowContactModal(false); }}
         >
-          <div className="relative w-full max-w-5xl mx-auto my-8">
+          <div className="relative w-full max-w-7xl mx-auto my-8">
             <button
               onClick={() => setShowContactModal(false)}
               className="absolute top-4 right-4 z-[101] bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"

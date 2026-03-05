@@ -115,7 +115,7 @@ export default function RCAFeatures() {
   return (
     <>
       <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
 
           {/* Section header */}
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block text-center">
@@ -210,8 +210,8 @@ export default function RCAFeatures() {
         </div>
 
         {/* Bottom bar - full width */}
-        <div className="bg-gray-900 px-6 md:px-12 py-7 text-white mt-16">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="bg-gray-900 py-7 text-white mt-16">
+          <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-400 mb-1">
                 Resultado
