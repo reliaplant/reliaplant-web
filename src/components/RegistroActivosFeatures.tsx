@@ -10,6 +10,7 @@ import {
 } from "@carbon/icons-react";
 import HierarchyAnimationActivos from "./HierarchyAnimationActivos";
 import RegistroAnimationPlantillas from "./RegistroAnimationPlantillas";
+import RegistroAnimationDTI from "./RegistroAnimationDTI";
 
 type FeatureKey = "jerarquia" | "consistencia" | "trazabilidad" | "exportacion";
 
@@ -76,10 +77,13 @@ const features: Feature[] = [
 export default function RegistroActivosFeatures() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPlantillasOpen, setModalPlantillasOpen] = useState(false);
+  const [modalDTIOpen, setModalDTIOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement>(null);
   const modalPlantillasContentRef = useRef<HTMLDivElement>(null);
+  const modalDTIContentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [scalePlantillas, setScalePlantillas] = useState(1);
+  const [scaleDTI, setScaleDTI] = useState(1);
 
   const calcScale = useCallback(() => {
     if (!modalOpen || !modalContentRef.current) return;
@@ -112,6 +116,22 @@ export default function RegistroActivosFeatures() {
     window.addEventListener("resize", calcScalePlantillas);
     return () => { clearTimeout(t); window.removeEventListener("resize", calcScalePlantillas); };
   }, [modalPlantillasOpen, calcScalePlantillas]);
+
+  const calcScaleDTI = useCallback(() => {
+    if (!modalDTIOpen || !modalDTIContentRef.current) return;
+    const container = modalDTIContentRef.current;
+    const cW = container.clientWidth - 48;
+    const cH = container.clientHeight - 48;
+    const s = Math.min(cW / 760, cH / 520);
+    setScaleDTI(s);
+  }, [modalDTIOpen]);
+
+  useEffect(() => {
+    if (!modalDTIOpen) return;
+    const t = setTimeout(calcScaleDTI, 50);
+    window.addEventListener("resize", calcScaleDTI);
+    return () => { clearTimeout(t); window.removeEventListener("resize", calcScaleDTI); };
+  }, [modalDTIOpen, calcScaleDTI]);
 
   return (
     <>
@@ -181,8 +201,8 @@ export default function RegistroActivosFeatures() {
 
               const animationPanel = (
                 <div
-                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${(feature.id === "jerarquia" || feature.id === "consistencia") ? "cursor-pointer group" : ""}`}
-                  onClick={feature.id === "jerarquia" ? () => setModalOpen(true) : feature.id === "consistencia" ? () => setModalPlantillasOpen(true) : undefined}
+                  className={`flex items-center justify-center h-full bg-gray-50 relative overflow-hidden ${(feature.id === "jerarquia" || feature.id === "consistencia" || feature.id === "trazabilidad") ? "cursor-pointer group" : ""}`}
+                  onClick={feature.id === "jerarquia" ? () => setModalOpen(true) : feature.id === "consistencia" ? () => setModalPlantillasOpen(true) : feature.id === "trazabilidad" ? () => setModalDTIOpen(true) : undefined}
                 >
                   {feature.id === "jerarquia" ? (
                     <>
@@ -210,11 +230,26 @@ export default function RegistroActivosFeatures() {
                         </span>
                       </div>
                     </>
+                  ) : feature.id === "trazabilidad" ? (
+                    <>
+                      <div className="w-full h-full flex items-center justify-center">
+                        {/* overflow:hidden wrapper at scaled visual size; flex centers inner 760×520 before clipping */}
+                        <div style={{ width: Math.round(760 * 0.68), height: Math.round(520 * 0.68), overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <div style={{ width: 760, height: 520, transform: "scale(0.68)", transformOrigin: "center center", flexShrink: 0 }}>
+                            <RegistroAnimationDTI />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                        <span className="bg-gray-900 text-white text-xs font-semibold px-4 py-2">
+                          Click para ampliar
+                        </span>
+                      </div>
+                    </>
                   ) : (
                     <div className="flex flex-col items-center justify-center gap-4 p-12 text-center">
                       <div className="p-5 bg-blue-50 border border-blue-100 text-blue-600">
-                        {feature.id === "trazabilidad"  && <DataBase size={56} />}
-                        {feature.id === "exportacion"   && <ChartLineData size={56} />}
+                        {feature.id === "exportacion" && <ChartLineData size={56} />}
                       </div>
                       <p className="text-gray-400 text-sm font-medium">{feature.mockupTitle}</p>
                     </div>
@@ -273,6 +308,36 @@ export default function RegistroActivosFeatures() {
             <div ref={modalPlantillasContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
               <div style={{ width: 600, minHeight: 400, transform: `scale(${scalePlantillas})`, transformOrigin: "center center" }}>
                 <RegistroAnimationPlantillas />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal expandido - DTI */}
+      {modalDTIOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setModalDTIOpen(false)}
+        >
+          <div
+            className="relative bg-white shadow-2xl w-[95vw] h-[92vh] max-w-none overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalDTIOpen(false)}
+              className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div ref={modalDTIContentRef} className="w-full h-full flex items-center justify-center overflow-hidden p-4">
+              <div style={{ width: Math.round(760 * scaleDTI), height: Math.round(520 * scaleDTI), overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: 760, height: 520, transform: `scale(${scaleDTI})`, transformOrigin: "center center", flexShrink: 0 }}>
+                  <RegistroAnimationDTI />
+                </div>
               </div>
             </div>
           </div>
