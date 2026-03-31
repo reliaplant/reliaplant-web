@@ -131,7 +131,7 @@ export default function PricingCompare() {
               </div>
               {/* Billing toggle */}
               {plan.monthly > 0 && (
-                <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1 w-fit text-xs">
+                <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1 w-fit text-xs mx-auto">
                   <button
                     onClick={() => setBilling("mensual")}
                     className={`px-3 py-1 rounded-md font-medium transition-colors ${
@@ -151,7 +151,7 @@ export default function PricingCompare() {
                 </div>
               )}
               {plan.monthly === 0 && (
-                <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1 w-fit text-xs opacity-40 pointer-events-none">
+                <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1 w-fit text-xs opacity-40 pointer-events-none mx-auto">
                   <span className="px-3 py-1 rounded-md text-gray-400">Mensual</span>
                   <span className="px-3 py-1 rounded-md text-gray-400">Anual <span className="text-green-600">-15%</span></span>
                 </div>

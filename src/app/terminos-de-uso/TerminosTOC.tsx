@@ -21,7 +21,8 @@ const toc = [
   { id: "responsabilidad", label: "16. Limitación de responsabilidad" },
   { id: "ley-aplicable", label: "17. Ley aplicable y jurisdicción" },
   { id: "cambios-terminos", label: "18. Cambios a estos términos" },
-  { id: "contacto", label: "19. Contacto" },
+  { id: "acceso-anticipado", label: "20. Acceso anticipado y versión beta" },
+  { id: "contacto", label: "21. Contacto" },
 ];
 
 export default function TerminosTOC() {

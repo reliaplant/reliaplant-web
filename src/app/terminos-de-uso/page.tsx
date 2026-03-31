@@ -267,17 +267,40 @@ export default function TerminosDeUsoPage() {
                 9. Facturación y métodos de pago
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
-                <p>Los métodos de pago aceptados varían según el plan:</p>
+                <p>
+                  Los métodos de pago aceptados se indicarán en el proceso de contratación y
+                  podrán incluir, según el plan y la disponibilidad al momento de la compra:
+                  tarjeta de crédito o débito, transferencia bancaria internacional, y orden de
+                  compra (OC) corporativa para planes Planta y Empresa.
+                </p>
                 <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Profesional:</strong> Tarjeta de crédito/débito.</li>
-                  <li><strong>Equipo:</strong> Tarjeta de crédito/débito · Transferencia bancaria.</li>
-                  <li><strong>Planta:</strong> Tarjeta de crédito/débito · Transferencia bancaria · Orden de compra.</li>
-                  <li><strong>Empresa:</strong> Facturación corporativa personalizada.</li>
+                  <li>
+                    <strong>Planes Gratuito y Profesional:</strong> Tarjeta de crédito/débito
+                    o el método habilitado en el proceso de pago vigente.
+                  </li>
+                  <li>
+                    <strong>Plan Equipo:</strong> Tarjeta de crédito/débito · Transferencia
+                    bancaria.
+                  </li>
+                  <li>
+                    <strong>Plan Planta:</strong> Tarjeta de crédito/débito · Transferencia
+                    bancaria · Orden de compra corporativa.
+                  </li>
+                  <li>
+                    <strong>Plan Empresa:</strong> Facturación corporativa personalizada.
+                    Contactar a{" "}
+                    <a href="mailto:comercial@reliaplant.com" className="text-blue-600 hover:underline">
+                      comercial@reliaplant.com
+                    </a>.
+                  </li>
                 </ul>
                 <p>
-                  Los cargos se realizan al inicio de cada período de facturación. En caso de pago
-                  con tarjeta, la suscripción se renueva automáticamente salvo cancelación previa.
-                  Las comisiones por transacciones internacionales son responsabilidad del Usuario.
+                  Los cargos se realizan al inicio de cada período de facturación. En caso de
+                  pago recurrente con tarjeta, la suscripción se renueva automáticamente salvo
+                  cancelación previa. Las comisiones por transacciones internacionales son
+                  responsabilidad del Usuario. Reliaplant podrá habilitar o deshabilitar métodos
+                  de pago en cualquier momento, notificando a los usuarios afectados con al menos
+                  15 días de anticipación.
                 </p>
               </div>
             </section>
@@ -366,17 +389,31 @@ export default function TerminosDeUsoPage() {
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <ol className="list-decimal pl-5 space-y-2">
                   <li>
-                    <strong>SLA:</strong> 99.5% de disponibilidad mensual para todos los planes
-                    pagos. El plan Gratuito no tiene SLA garantizado.
+                    <strong>SLA:</strong> Reliaplant se compromete a un objetivo de disponibilidad
+                    mensual del <strong>99%</strong> para planes pagos (Profesional, Equipo y
+                    Planta). El plan Gratuito no tiene SLA garantizado. Durante períodos de acceso
+                    anticipado o versión beta, el objetivo de disponibilidad aplica en la medida en
+                    que la infraestructura lo permita, conforme a lo establecido en la sección 20.
                   </li>
                   <li>
                     <strong>Mantenimiento:</strong> Los períodos de mantenimiento programado se
-                    notificarán con al menos 48 horas de anticipación.
+                    notificarán con al menos 48 horas de anticipación mediante correo electrónico
+                    o aviso dentro de la Plataforma.
                   </li>
                   <li>
                     <strong>Soporte:</strong> En español e inglés, lunes a viernes de 9:00 a 18:00
-                    (GMT-6). Tiempo de respuesta: 72 h (Gratuito) · 48 h (Profesional / Equipo) ·
-                    24 h (Planta).
+                    (GMT-6). Tiempo de respuesta orientativo: 72 h (Gratuito) · 48 h (Profesional
+                    / Equipo) · 24 h (Planta). Los tiempos de respuesta son orientativos y no
+                    constituyen un SLA de soporte garantizado durante el período de acceso
+                    anticipado.
+                  </li>
+                  <li>
+                    <strong>Créditos por indisponibilidad:</strong> Si la disponibilidad mensual
+                    cae por debajo del 99% en planes pagos por causas imputables a Reliaplant
+                    (excluidos mantenimientos programados, fuerza mayor e interrupciones de
+                    proveedores de infraestructura), la Organización podrá solicitar un crédito
+                    proporcional aplicable al siguiente período de facturación. Los créditos no son
+                    acumulables ni canjeables por efectivo.
                   </li>
                 </ol>
               </div>
@@ -513,9 +550,62 @@ export default function TerminosDeUsoPage() {
               </div>
             </section>
 
+            <section id="acceso-anticipado" className="mb-12 scroll-mt-24">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                20. Acceso anticipado y versión beta
+              </h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  La Plataforma, o determinados módulos de ella, puede encontrarse en fase de
+                  acceso anticipado (<em>early access</em>) o versión beta. Al acceder a estas
+                  funcionalidades, usted reconoce y acepta expresamente que:
+                </p>
+                <ol className="list-decimal pl-5 space-y-2">
+                  <li>
+                    <strong>Estabilidad:</strong> Las funcionalidades en acceso anticipado pueden
+                    contener errores, interrupciones o comportamientos inesperados. Reliaplant no
+                    garantiza la estabilidad ni la disponibilidad continua de estas
+                    funcionalidades.
+                  </li>
+                  <li>
+                    <strong>Cambios sin previo aviso:</strong> Las funcionalidades, la interfaz,
+                    los límites de uso y los precios asociados a versiones beta pueden modificarse,
+                    limitarse o eliminarse en cualquier momento, sin que ello genere derecho a
+                    compensación ni reembolso, salvo lo dispuesto en la sección 10.
+                  </li>
+                  <li>
+                    <strong>Sin garantía de continuidad:</strong> El acceso a funcionalidades en
+                    beta no garantiza su disponibilidad en versiones futuras de la Plataforma ni
+                    en ningún plan específico.
+                  </li>
+                  <li>
+                    <strong>Retroalimentación:</strong> Reliaplant podrá utilizar los comentarios,
+                    reportes de errores y sugerencias enviadas por usuarios durante el período
+                    beta para mejorar la Plataforma, sin obligación de compensación.
+                  </li>
+                  <li>
+                    <strong>Datos:</strong> A pesar del carácter experimental de las
+                    funcionalidades en beta, los compromisos sobre propiedad y protección de datos
+                    establecidos en la sección 11 se mantienen plenamente vigentes.
+                  </li>
+                </ol>
+                <div
+                  role="note"
+                  aria-label="Nota sobre acceso anticipado"
+                  className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 p-3"
+                >
+                  <p>
+                    <strong>Nota:</strong> El estado de acceso anticipado de cada módulo se indica
+                    en la Plataforma con una etiqueta visible. Una vez que un módulo salga de beta,
+                    las condiciones definitivas se comunicarán con al menos 15 días de anticipación.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             <section id="contacto" className="mb-12 scroll-mt-24">
               <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                19. Contacto
+                21. Contacto
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
