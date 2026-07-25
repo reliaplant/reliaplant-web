@@ -19,8 +19,6 @@ const nextConfig: NextConfig = {
   // Configuración para Firebase Hosting con renderizado dinámico
   output: "standalone",
 
-  distDir: process.env.NODE_ENV === "production" ? ".next" : ".next-dev",
-
   webpack: (config) => {
     config.ignoreWarnings = [{ message: /moment-locales/ }];
     return config;
