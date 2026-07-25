@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   deleteUser,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "./config";
 import {
@@ -26,6 +27,14 @@ export const loginAdmin = async (email: string, password: string) => {
       password
     );
     return userCredential.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const resetAdminPassword = async (email: string) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
   } catch (error) {
     throw error;
   }
