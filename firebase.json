@@ -10,13 +10,7 @@
     "frameworksBackend": {
       "region": "us-central1"
     },
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "nextApp"
-      }
-    ]
+    "cleanUrls": true
   },
   "firestore": {
     "rules": "firestore.rules"
