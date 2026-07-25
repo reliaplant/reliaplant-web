@@ -36,8 +36,15 @@ export default function LoginPage() {
     try {
       await resetAdminPassword(resetEmail);
       setResetSent(true);
-    } catch (err) {
-      setResetError("No se pudo enviar el correo. Verifica la dirección e intenta de nuevo.");
+    } catch (err: any) {
+      const code = err?.code ?? "";
+      if (code === "auth/user-not-found" || code === "auth/invalid-email") {
+        setResetError("No encontramos una cuenta con ese correo.");
+      } else if (code === "auth/too-many-requests") {
+        setResetError("Demasiados intentos. Espera unos minutos e intenta de nuevo.");
+      } else {
+        setResetError(`Error al enviar el correo (${code || "desconocido"}). Intenta de nuevo.`);
+      }
     } finally {
       setResetLoading(false);
     }
