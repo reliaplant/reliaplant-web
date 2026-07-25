@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import {
   Category,
@@ -79,11 +83,17 @@ const PersonalEspecialista: ConsultingCard[] = [
 ];
 
 export default function Header() {
+  const [softwareMenuOpen, setSoftwareMenuOpen] = useState(false);
+  const pathname = usePathname();
   const sections = [
     { title: "Gestión", data: gestion },
     { title: "Metodologías de Confiabilidad", data: MejorasEconomicas },
     { title: "Personal", data: PersonalEspecialista },
   ];
+
+  useEffect(() => {
+    setSoftwareMenuOpen(false);
+  }, [pathname]);
 
   return (
     <div className="left-0 w-full z-50 sticky top-0 bg-white/95 backdrop-blur-md">
@@ -144,67 +154,90 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="http://app.reliaplant.com/"
+            <div
+              className="mb-0 text-sm relative h-full"
+              onMouseLeave={() => setSoftwareMenuOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setSoftwareMenuOpen((open) => !open)}
                 className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 transition-colors rounded-md mx-0.5"
+                aria-haspopup="menu"
+                aria-expanded={softwareMenuOpen}
               >
                 <span className="font-medium text-[13px] tracking-wide">SOFTWARE</span>
                 <ChevronDown
                   size={16}
-                  className="ml-1 transform transition-transform duration-200 group-hover:rotate-180 text-gray-400"
+                  className={`ml-1 transform transition-transform duration-200 text-gray-400 ${
+                    softwareMenuOpen ? "rotate-180" : ""
+                  }`}
                 />
-              </Link>
-              <div className="mt-[42px] absolute left-0 top-2 hidden p-3 bg-white shadow-xl border border-gray-200 rounded-lg text-black group-hover:block z-50">
-                <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
-                  <Link
-                    href="/modulos/registro-activos"
-                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                  >
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <Category size={28} className="text-blue-600" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-gray-900 font-semibold text-sm">Registro de Activos (Taxonomía)</span>
-                      <span className="text-gray-500 text-[.85rem]">
-                        Base de datos estructurada con jerarquía ISO 14224
-                      </span>
-                    </div>
-                  </Link>
+              </button>
+              {softwareMenuOpen && (
+                <div className="mt-[42px] absolute left-0 top-2 p-3 bg-white shadow-xl border border-gray-200 rounded-lg text-black z-50">
+                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
+                    <Link
+                      href="/modulos/registro-activos"
+                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                      onClick={() => setSoftwareMenuOpen(false)}
+                    >
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <Category size={28} className="text-blue-600" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-gray-900 font-semibold text-sm">Registro de Activos (Taxonomía)</span>
+                        <span className="text-gray-500 text-[.85rem]">
+                          Base de datos estructurada con jerarquía ISO 14224
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
+                    <Link
+                      href="/modulos/rcm"
+                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                      onClick={() => setSoftwareMenuOpen(false)}
+                    >
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <DecisionNode size={28} className="text-blue-600" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-gray-900 font-semibold text-sm">RCM</span>
+                        <span className="text-gray-500 text-[.85rem]">
+                          Planes de mantenimiento para equipos críticos y no críticos
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
+                    <Link
+                      href="/modulos/rca"
+                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
+                      onClick={() => setSoftwareMenuOpen(false)}
+                    >
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <DecisionNode size={28} className="text-blue-600" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-gray-900 font-semibold text-sm">RCA</span>
+                        <span className="text-gray-500 text-[.85rem]">
+                          Eliminación de defectos mediante Análisis Causa Raíz
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="px-3 pt-2">
+                    <a
+                      href="http://app.reliaplant.com/"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                      onClick={() => setSoftwareMenuOpen(false)}
+                    >
+                      Ir al software
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
                 </div>
-                <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
-                  <Link
-                    href="/modulos/rcm"
-                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                  >
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <DecisionNode size={28} className="text-blue-600" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-gray-900 font-semibold text-sm">RCM</span>
-                      <span className="text-gray-500 text-[.85rem]">
-                        Planes de mantenimiento para equipos críticos y no críticos
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-                <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer rounded-lg transition-colors">
-                  <Link
-                    href="/modulos/rca"
-                    className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                  >
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <DecisionNode size={28} className="text-blue-600" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-gray-900 font-semibold text-sm">RCA</span>
-                      <span className="text-gray-500 text-[.85rem]">
-                        Eliminación de defectos mediante Análisis Causa Raíz
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-              </div>
+              )}
             </div>
 
             <div className="mb-0 text-sm relative group h-full">

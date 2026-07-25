@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import RegistroActivosFeatures from "@/components/RegistroActivosFeatures";
+import TaxonomyMTBFCase from "@/components/TaxonomyMTBFCase";
 import ModuleStickyBanner from "@/components/ModuleStickyBanner";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 
@@ -145,6 +146,8 @@ export default function RegistroActivosPage() {
         </div>
         </div>
       </section>
+
+      <TaxonomyMTBFCase />
 
       {/* Por qué era tan difícil hacerlo bien */}
       <section className="py-8 md:py-12 bg-gray-50">
