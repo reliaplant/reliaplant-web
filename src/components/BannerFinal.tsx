@@ -23,7 +23,7 @@ export function FinalBanner() {
             </Link>
           </div>
         </div>
-        <div className="h-64 md:h-auto md:w-1/2 bg-[url('/assets/consultor2.jpg')] bg-cover bg-center">
+        <div className="h-64 md:h-auto md:w-1/2 bg-[url('/assets/consultor2.webp')] bg-cover bg-center">
           <div className="bg-gradient-to-r from-white/80 via-transparent to-transparent h-full w-full hidden md:block" />
         </div>
       </div>

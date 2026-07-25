@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Programas formativos diseñados para desarrollar las competencias técnicas y transformar la gestión de activos en una ventaja competitiva.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgCapacitacion.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgCapacitacion.webp",
         width: 1200,
         height: 630,
         alt: "Capacitación en Mantenimiento Industrial",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
       "Programas formativos para desarrollar competencias técnicas en mantenimiento y confiabilidad industrial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgCapacitacion.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgCapacitacion.webp",
         alt: "Capacitación en Mantenimiento Industrial",
       },
     ],
@@ -86,7 +86,7 @@ export default function Capacitacion() {
         title="Servicios de Capacitación"
         description="Programas formativos diseñados para desarrollar las competencias técnicas de tu equipo y transformar la gestión de activos en una ventaja competitiva para tu organización."
         currentPath="Capacitación"
-        image="/assets/bgCapacitacion.jpg"
+        image="/assets/bgCapacitacion.webp"
       />
 
       <section className="contentSection">

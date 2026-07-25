@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Análisis profesional de obsolescencia de equipos industriales: evaluación de riesgos, estrategias proactivas y reactivas para mantener la continuidad operativa.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgObsolescencia.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgObsolescencia.webp",
         width: 1200,
         height: 630,
         alt: "Análisis de Obsolescencia Industrial",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       "Análisis profesional de obsolescencia para equipos industriales. Optimiza la gestión del ciclo de vida de tus activos críticos.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgObsolescencia.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgObsolescencia.webp",
         alt: "Análisis de Obsolescencia Industrial",
       },
     ],
@@ -88,7 +88,7 @@ export default function Contacto() {
         title="Análisis de Obsolescencia"
         description="Determina cuánto tiempo resta antes de que tus activos críticos entren en la fase de obsolescencia y propon un plan de acción."
         currentPath="Análisis de Obsolescencia"
-        image="/assets/bgObsolescencia.jpg"
+        image="/assets/bgObsolescencia.webp"
       />
 
       <div className="contentSection">
@@ -178,7 +178,7 @@ export default function Contacto() {
 
         <div className="bg-gray10">
           <div className="h-[40vh] md:h-[60vh] w-full mb-8">
-            <div className="h-full w-full bg-[url('/assets/bgObsolescencia.png')] bg-contain bg-no-repeat bg-center"></div>
+            <div className="h-full w-full bg-[url('/assets/bgObsolescencia.webp')] bg-contain bg-no-repeat bg-center"></div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">

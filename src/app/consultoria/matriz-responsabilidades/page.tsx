@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       "Definición estructurada de responsabilidades y competencias para organizaciones de mantenimiento de clase mundial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgResponsabilidades.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgResponsabilidades.webp",
         width: 1200,
         height: 630,
         alt: "Matriz de Responsabilidades",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       "Definición profesional de responsabilidades y competencias para equipos de mantenimiento industrial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgResponsabilidades.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgResponsabilidades.webp",
         alt: "Matriz de Responsabilidades",
       },
     ],
@@ -80,7 +80,7 @@ export default function MatrizResponsabilidades() {
         title="Definición de responsabilidades y competencias"
         description="Creamos el puente entre Recursos Humanos y el área de Mantenimiento para definir perfiles técnicos que especifiquen responsabilidades, habilidades y competencias, estableciendo una estructura organizacional de mantenimiento sostenible en el tiempo."
         currentPath="Matriz de Responsabilidades"
-        image="/assets/bgResponsabilidades.jpg"
+        image="/assets/bgResponsabilidades.webp"
       />
 
       <section className="contentSection">

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       "Implementación de sistemas de gestión de activos ISO 55000 para optimizar el desempeño y rentabilidad de sus activos industriales.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgGestionActivos.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgGestionActivos.webp",
         width: 1200,
         height: 630,
         alt: "Gestión de Activos ISO 55000",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Consultoría especializada en implementación de sistemas de gestión de activos según ISO 55000. Optimice sus activos industriales.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgGestionActivos.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgGestionActivos.webp",
         alt: "Gestión de Activos ISO 55000",
       },
     ],
@@ -77,7 +77,7 @@ export default function EstrategiaGestionActivosPage() {
     <div className="">
       {/* Hero Section */}
       <div className="relative h-[80vh] flex items-end">
-        <div className="absolute inset-0 bg-[url('/assets/bgGestionActivos.jpg')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('/assets/bgGestionActivos.webp')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         <div className="relative z-10 p-[2vw] py-8 text-left lg:w-2/5 w-full bg-white shadow-xl m-12 top-[40vh]">
@@ -137,7 +137,7 @@ export default function EstrategiaGestionActivosPage() {
       </div>
 
       {/* Description Section */}
-      <div className="relative  h-screen bg-[url('/assets/bgGestionActivos2.jpg')] bg-cover bg-center">
+      <div className="relative  h-screen bg-[url('/assets/bgGestionActivos2.webp')] bg-cover bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-blue10/20 to-blue20/10"></div>
         <div className="relative z-10 flex flex-col h-full justify-start w-2/5">
           {/* Features Grid */}
@@ -277,7 +277,7 @@ export default function EstrategiaGestionActivosPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <div className="bg-white shadow-md border overflow-hidden">
-            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
+            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.webp')] bg-cover bg-center"></div>
             <div className="p-8">
               <h3 className="mb-6">Política y estrategia</h3>
               <p className="mb-6 text-gray70">
@@ -294,7 +294,7 @@ export default function EstrategiaGestionActivosPage() {
           </div>
 
           <div className="bg-white shadow-md border overflow-hidden">
-            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
+            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.webp')] bg-cover bg-center"></div>
             <div className="p-8">
               <h3 className="mb-6">Personas y organización</h3>
               <p className="mb-6 text-gray70">
@@ -311,7 +311,7 @@ export default function EstrategiaGestionActivosPage() {
           </div>
 
           <div className="bg-white shadow-md border overflow-hidden">
-            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.jpg')] bg-cover bg-center"></div>
+            <div className="h-48 w-full bg-[url('/assets/bgProcedimientos.webp')] bg-cover bg-center"></div>
             <div className="p-8">
               <h3 className="mb-6">Evaluación del desempeño</h3>
               <p className="mb-6 text-gray70">

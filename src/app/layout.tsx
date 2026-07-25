@@ -77,7 +77,7 @@ const jsonLd = {
       url: "https://reliaplant.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://reliaplant.com/assets/logo.png",
+        url: "https://reliaplant.com/assets/logo.webp",
       },
       sameAs: [
         "https://www.linkedin.com/company/reliaplant",

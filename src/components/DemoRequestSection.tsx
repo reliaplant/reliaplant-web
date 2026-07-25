@@ -258,7 +258,7 @@ export default function DemoRequestSection({ bgColor = '#001d6c' }: { bgColor?: 
         {/* RIGHT — Image */}
         <div className="relative h-[320px] md:h-auto min-h-[520px]">
           <Image
-            src="/assets/mockupReliaplant.png"
+            src="/assets/mockupReliaplant.webp"
             alt="Plataforma Reliaplant — Dashboard RCA y análisis de causa raíz"
             fill
             className="object-cover object-center"

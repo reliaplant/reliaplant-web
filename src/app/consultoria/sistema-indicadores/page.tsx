@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Sistema de Indicadores para Gestión de Mantenimiento | ReliaPLANT",
     description:
       "Diseño e implementación de tableros de control con KPIs basados en normas internacionales para optimizar la gestión de mantenimiento industrial.",
-    images: ["/assets/bgDiagnostico.jpg"],
+    images: ["/assets/bgDiagnostico.webp"],
   },
 };
 
@@ -40,7 +40,7 @@ export default function SistemaIndicadoresPage() {
         title="Sistema de Indicadores para Gestión de Mantenimiento"
         description="Diseño y desarrollo de tableros de control con KPIs basados en normas internacionales para optimizar y monitorear la gestión de mantenimiento."
         currentPath="Sistema de Indicadores"
-        image="/assets/bgDiagnostico.jpg"
+        image="/assets/bgDiagnostico.webp"
       />
 
       {/* Description section */}

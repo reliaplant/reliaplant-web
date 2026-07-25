@@ -40,7 +40,7 @@ export default function RcmPage(): ReactElement {
 
   return (
     <div className="w-full">
-      <div className="relative min-h-screen lg:h-[84vh] flex flex-col lg:flex-row items-center justify-start bg-cover bg-center bg-[url('/assets/fondo-landing-rcm.png')]">
+      <div className="relative min-h-screen lg:h-[84vh] flex flex-col lg:flex-row items-center justify-start bg-cover bg-center bg-[url('/assets/fondo-landing-rcm.webp')]">
         {/* Capa de degradado oscuro */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray90/70 to-gray90/80"></div>
 

@@ -33,7 +33,7 @@ export default function RegistroActivosPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/Hero Taxonomia.png"
+            src="/assets/Hero Taxonomia.webp"
             alt="Gestión de activos industriales"
             fill
             className="object-cover opacity-15"
@@ -137,7 +137,7 @@ export default function RegistroActivosPage() {
         {/* Right: image */}
         <div className="relative min-h-[480px]">
           <Image
-            src="/assets/Problema taxonomia.png"
+            src="/assets/Problema taxonomia.webp"
             alt="Gestión de activos industriales"
             fill
             className="object-cover object-center"
@@ -277,7 +277,7 @@ export default function RegistroActivosPage() {
         {/* Right: image */}
         <div className="relative min-h-[320px]">
           <Image
-            src="/assets/bgGestionActivos.jpg"
+            src="/assets/bgGestionActivos.webp"
             alt="Planta industrial"
             fill
             className="object-cover object-center"

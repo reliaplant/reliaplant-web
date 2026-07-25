@@ -45,7 +45,7 @@ export default function Contacto() {
       <div>
         <div className="relative flex flex-col mt-4">
           {/* Banner de imagen */}
-          <div className="relative w-full bg-[url('/assets/bgLCC1.png')] bg-contain bg-no-repeat bg-center aspect-[16/6]">
+          <div className="relative w-full bg-[url('/assets/bgLCC1.webp')] bg-contain bg-no-repeat bg-center aspect-[16/6]">
             {/* Eliminado el div del sombreado */}
           </div>
 
@@ -192,7 +192,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM.png')] bg-cover bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM.webp')] bg-cover bg-center"></div>
         </div>
 
         <hr className="w-full border-t border-gray-200 my-4" />
@@ -230,7 +230,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC3.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC3.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
         <hr className="w-full border-t border-gray-200 my-4" />
@@ -267,7 +267,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC2.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC2.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
         <hr className="w-full border-t border-gray-200 my-4" />
@@ -305,7 +305,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC.jpg')] bg-cover bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC.webp')] bg-cover bg-center"></div>
         </div>
       </div>
     </div>

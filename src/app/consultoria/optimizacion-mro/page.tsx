@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "Optimización profesional de inventarios industriales: reducción de costos, mayor disponibilidad y gestión eficiente de repuestos críticos.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgMRO.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgMRO.webp",
         width: 1200,
         height: 630,
         alt: "Optimización de Inventario MRO",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Optimización profesional de inventarios industriales y gestión eficiente de repuestos para mantenimiento.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgMRO.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgMRO.webp",
         alt: "Optimización de Inventario MRO",
       },
     ],
@@ -68,7 +68,7 @@ export default function OptimizacionMRO() {
         title="Optimización de Inventario"
         description="La gestión del inventario de partes y repuestos es un pilar esencial para la rentabilidad de tu negocio. Nuestros expertos, respaldados por herramientas informáticas y metodologías probadas, están listos para acompañarte en el diseño de soluciones personalizadas que se ajusten a tus necesidades específicas."
         currentPath="Optimización de Inventario"
-        image="/assets/bgMRO.jpg"
+        image="/assets/bgMRO.webp"
       />
 
       <div className="contentSection px-[8vw]">
@@ -438,7 +438,7 @@ export default function OptimizacionMRO() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO1.png')] bg-cover bg-center"></div>
+              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO1.webp')] bg-cover bg-center"></div>
             </div>
           </div>
 
@@ -525,7 +525,7 @@ export default function OptimizacionMRO() {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO2.png')] bg-cover bg-center"></div>
+              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO2.webp')] bg-cover bg-center"></div>
             </div>
           </div>
 
@@ -606,7 +606,7 @@ export default function OptimizacionMRO() {
               </p>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO3.png')] bg-cover bg-center"></div>
+              <div className="h-[45vh] bg-[url('/assets/optimizacionMRO3.webp')] bg-cover bg-center"></div>
             </div>
           </div>
         </div>

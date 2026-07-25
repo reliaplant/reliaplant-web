@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "Evaluación profesional de su sistema de gestión de mantenimiento: procesos, indicadores, planes y estrategias para una mayor confiabilidad operacional.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgDiagnostico.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgDiagnostico.webp",
         width: 1200,
         height: 630,
         alt: "Diagnóstico de Gestión de Mantenimiento",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Evaluación integral de sistemas de gestión de mantenimiento. 15 áreas clave para optimizar la confiabilidad de sus activos industriales.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgDiagnostico.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgDiagnostico.webp",
         alt: "Diagnóstico de Gestión de Mantenimiento",
       },
     ],
@@ -113,7 +113,7 @@ export default function DiagnosticoGestion() {
         title="Diagnóstico de la Gestión de Mantenimiento"
         description="Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez de la organización y la fase en la que se encuentra. La base para la ejecución de los estudios inicia con el registro de activos."
         currentPath="Diagnóstico de Gestión"
-        image="/assets/bgDiagnostico.jpg"
+        image="/assets/bgDiagnostico.webp"
       />
 
       {/* Phases section */}

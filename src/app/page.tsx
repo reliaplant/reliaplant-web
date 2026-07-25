@@ -197,7 +197,7 @@ export default function Home() {
             {/* Right: image */}
             <div className="relative min-h-[420px]">
               <Image
-                src="/assets/el-problema.png"
+                src="/assets/el-problema.webp"
                 alt="Ingeniero de mantenimiento frustrado frente a hojas de cálculo y documentos impresos"
                 fill
                 className="object-cover object-center"
@@ -239,7 +239,7 @@ export default function Home() {
 
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
-                  src="/assets/bgAssetRegister.png"
+                  src="/assets/bgAssetRegister.webp"
                   alt="Registro de activos"
                   width={400}
                   height={200}
@@ -287,7 +287,7 @@ export default function Home() {
 
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
-                  src="/assets/fondo-landing-rcm.png"
+                  src="/assets/fondo-landing-rcm.webp"
                   alt="Módulo RCM"
                   width={400}
                   height={200}
@@ -335,7 +335,7 @@ export default function Home() {
 
               <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
                 <Image
-                  src="/assets/bgACR.jpg"
+                  src="/assets/bgACR.webp"
                   alt="Análisis de causa raíz"
                   width={400}
                   height={200}

@@ -47,7 +47,7 @@ export default function AnalisisRCA() {
         title="Análisis de Causa Raíz para Eliminación de Defectos"
         description="Metodología estructurada para identificar las verdaderas causas de fallas recurrentes, incidentes y no conformidades, implementando soluciones definitivas que evitan su repetición y mejoran la confiabilidad de tus activos."
         currentPath="Análisis RCA"
-        image="/assets/bgRAM.png"
+        image="/assets/bgRAM.webp"
       />
 
       <div className="contentSection">

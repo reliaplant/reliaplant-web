@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       "Servicio de acompañamiento continuo para optimización de mantenimiento y confiabilidad industrial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/consultor1.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/consultor1.webp",
         width: 1200,
         height: 630,
         alt: "Asesoría Continua en Confiabilidad",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Acompañamiento continuo para la optimización de mantenimiento y confiabilidad industrial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/consultor1.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/consultor1.webp",
         alt: "Asesoría Continua en Confiabilidad",
       },
     ],
@@ -78,7 +78,7 @@ export default function AsesoriaConstante() {
         title="Asesoría Continua"
         description="Un modelo flexible de acompañamiento permanente que evoluciona con las necesidades de tu organización. Para quienes buscan un socio estratégico, no sólo un consultor puntual."
         currentPath="Asesoría Continua"
-        image="/assets/consultor1.jpg"
+        image="/assets/consultor1.webp"
       />
 
       <div className="contentSection">

@@ -33,7 +33,7 @@ export default function RCAPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/landing-rca-ing-tristes.png"
+            src="/assets/landing-rca-ing-tristes.webp"
             alt="Análisis de causa raíz"
             fill
             className="object-cover opacity-15"
@@ -138,7 +138,7 @@ export default function RCAPage() {
         {/* Right: image */}
         <div className="relative min-h-[480px]">
           <Image
-            src="/assets/el-problema-hoy-rca.png"
+            src="/assets/el-problema-hoy-rca.webp"
             alt="Análisis de causa raíz"
             fill
             className="object-cover object-center"
@@ -219,7 +219,7 @@ export default function RCAPage() {
         {/* Right: image */}
         <div className="relative min-h-[320px]">
           <Image
-            src="/assets/Beneficios RCA.png"
+            src="/assets/Beneficios RCA.webp"
             alt="Análisis de causa raíz"
             fill
             className="object-cover object-center"

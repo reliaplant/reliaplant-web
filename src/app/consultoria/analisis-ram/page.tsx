@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Evaluación RAM para mejorar la disponibilidad y confiabilidad de sistemas industriales. Identifica oportunidades de optimización y reducción de costos OPEX.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgRAM.png",
+        url: "https://reliaplant-2c104.web.app/assets/bgRAM.webp",
         width: 1200,
         height: 630,
         alt: "Análisis RAM",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       "Evaluación profesional de Confiabilidad, Disponibilidad y Mantenibilidad para sistemas industriales. Optimiza el rendimiento y reduce costos operativos.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgRAM.png",
+        url: "https://reliaplant-2c104.web.app/assets/bgRAM.webp",
         alt: "Análisis RAM",
       },
     ],
@@ -87,7 +87,7 @@ export default function Contacto() {
         title="Análisis RAM"
         description="Los estudios orientados a la mejora Confiabilidad son realizados de acuerdo con la madurez de la organización y la fase en la que se encuentra."
         currentPath="Análisis RAM"
-        image="/assets/bgRAM.png"
+        image="/assets/bgRAM.webp"
       />
 
       {/* Main Content Section */}
@@ -203,7 +203,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM1.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM1.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
         {/* Step 2 */}
@@ -241,7 +241,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM2.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM2.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
         {/* Step 3 */}
@@ -276,7 +276,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM3.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM3.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
         {/* Step 4 */}
@@ -313,7 +313,7 @@ export default function Contacto() {
               </li>
             </ul>
           </div>
-          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM4.png')] bg-contain bg-no-repeat bg-center"></div>
+          <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM4.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
       </div>
     </div>

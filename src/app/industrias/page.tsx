@@ -28,7 +28,7 @@ export default function IndustriasPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/planta.jpg"
+            src="/assets/planta.webp"
             alt="Planta industrial"
             fill
             className="object-cover opacity-20"
@@ -109,7 +109,7 @@ export default function IndustriasPage() {
 
             {/* Foto */}
             <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden">
-              <Image src="/assets/flare.jpg" alt="Operación Oil & Gas" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/flare.webp" alt="Operación Oil & Gas" fill className="object-cover object-center" sizes="50vw" />
             </div>
 
           </div>
@@ -125,7 +125,7 @@ export default function IndustriasPage() {
 
             {/* Foto */}
             <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden order-2 lg:order-1">
-              <Image src="/assets/bgPerformance.jpg" alt="Infraestructura energética" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/bgPerformance.webp" alt="Infraestructura energética" fill className="object-cover object-center" sizes="50vw" />
             </div>
 
             {/* Contenido */}
@@ -203,7 +203,7 @@ export default function IndustriasPage() {
 
             {/* Foto */}
             <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden">
-              <Image src="/assets/bgManufactura.jpg" alt="Planta de manufactura" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/bgManufactura.webp" alt="Planta de manufactura" fill className="object-cover object-center" sizes="50vw" />
             </div>
 
           </div>

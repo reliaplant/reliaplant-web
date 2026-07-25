@@ -27,7 +27,7 @@ export default function ROIPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bgKPIs.jpg"
+            src="/assets/bgKPIs.webp"
             alt="KPIs de confiabilidad industrial"
             fill
             className="object-cover opacity-15"
@@ -130,14 +130,14 @@ export default function ROIPage() {
               </div>
             </div>
             <div className="relative min-h-[420px]">
-              <Image src="/assets/roi-continuidad-operacional.jpg" alt="Planta industrial en operación continua" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/roi-continuidad-operacional.webp" alt="Planta industrial en operación continua" fill className="object-cover object-center" sizes="50vw" />
             </div>
           </div>
 
           {/* Bloque 2 — Seguridad industrial */}
           <div className="grid lg:grid-cols-2 border border-gray-200 border-t-0">
             <div className="relative min-h-[420px] order-2 lg:order-1">
-              <Image src="/assets/roi-seguridad-industrial.jpg" alt="Inspector industrial con casco en campo" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/roi-seguridad-industrial.webp" alt="Inspector industrial con casco en campo" fill className="object-cover object-center" sizes="50vw" />
             </div>
             <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-200 order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
@@ -204,14 +204,14 @@ export default function ROIPage() {
               </div>
             </div>
             <div className="relative min-h-[420px]">
-              <Image src="/assets/roi-cumplimiento-regulatorio.jpg" alt="Equipo revisando cumplimiento normativo en planta" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/roi-cumplimiento-regulatorio.webp" alt="Equipo revisando cumplimiento normativo en planta" fill className="object-cover object-center" sizes="50vw" />
             </div>
           </div>
 
           {/* Bloque 4 — Estabilidad productiva */}
           <div className="grid lg:grid-cols-2 border border-gray-200 border-t-0">
             <div className="relative min-h-[420px] order-2 lg:order-1">
-              <Image src="/assets/roi-estabilidad-productiva.jpg" alt="Línea de producción industrial estable" fill className="object-cover object-center" sizes="50vw" />
+              <Image src="/assets/roi-estabilidad-productiva.webp" alt="Línea de producción industrial estable" fill className="object-cover object-center" sizes="50vw" />
             </div>
             <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-200 order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
@@ -327,7 +327,7 @@ export default function ROIPage() {
               </div>
               <div className="w-48 h-60 border border-white/20 overflow-hidden relative">
                 <Image
-                  src="/assets/ROI confiabilidad.png"
+                  src="/assets/ROI confiabilidad.webp"
                   alt="Impacto operativo de la confiabilidad"
                   fill
                   className="object-cover"

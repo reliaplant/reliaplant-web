@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Mejora la mantenibilidad de tus activos industriales con estudios MHA detallados. Reduce tiempos de intervención y optimiza la seguridad operativa.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgMantenibilidad.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgMantenibilidad.webp",
         width: 1200,
         height: 630,
         alt: "Análisis de Mantenibilidad Industrial",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       "Optimiza la mantenibilidad de tus activos industriales con estudios profesionales de accesibilidad y manejo mecánico.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgMantenibilidad.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgMantenibilidad.webp",
         alt: "Análisis de Mantenibilidad Industrial",
       },
     ],
@@ -69,7 +69,7 @@ export default function MantenibilidadPage() {
         title="Análisis de Mantenibilidad (MHA)"
         description="La mantenibilidad de tus activos industriales se convierte en un factor crítico para garantizar la continuidad operacional y la rentabilidad de tus instalaciones. Combinamos metodologías avanzadas de Análisis de Mantenibilidad y Manejo Mecánico (MHA) con un enfoque sistemático desde el diseño conceptual hasta la operación diaria."
         currentPath="Análisis de Mantenibilidad"
-        image="/assets/bgMantenibilidad.jpg"
+        image="/assets/bgMantenibilidad.webp"
       />
 
       <section className="contentSection">
@@ -549,7 +549,7 @@ export default function MantenibilidadPage() {
                   </p>
                 </div>
               </div>
-              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad3.jpg')] bg-contain bg-no-repeat bg-center"></div>
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad3.webp')] bg-contain bg-no-repeat bg-center"></div>
             </div>
           </div>
 
@@ -621,7 +621,7 @@ export default function MantenibilidadPage() {
                   </ul>
                 </div>
               </div>
-              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad2.png')] bg-contain bg-no-repeat bg-center"></div>
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad2.webp')] bg-contain bg-no-repeat bg-center"></div>
             </div>
           </div>
 
@@ -698,7 +698,7 @@ export default function MantenibilidadPage() {
                   forma segura y eficiente.
                 </p>
               </div>
-              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad4.png')] bg-cover bg-center"></div>
+              <div className="h-[30vh] sm:h-[45vh] z-10 w-full lg:w-1/2 bg-[url('/assets/bgMantenibilidad4.webp')] bg-cover bg-center"></div>
             </div>
           </div>
         </div>

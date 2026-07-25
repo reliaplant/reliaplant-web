@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "Construcción del registro de activos para mantenimiento de clase mundial: estructura organizada, facilidad para análisis y gestión eficiente por criticidad.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgAssetRegister.png",
+        url: "https://reliaplant-2c104.web.app/assets/bgAssetRegister.webp",
         width: 1200,
         height: 630,
         alt: "Registro de Activos en CMMS",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Construcción profesional del registro de activos para sistemas CMMS. Mejora la confiabilidad y eficiencia del mantenimiento industrial.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgAssetRegister.png",
+        url: "https://reliaplant-2c104.web.app/assets/bgAssetRegister.webp",
         alt: "Registro de Activos en CMMS",
       },
     ],
@@ -64,7 +64,7 @@ export default function Contacto() {
         title="Construcción del Registro de Activos en CMMS"
         description="Logra que toda la información en el CMMS asociada a los activos esté correcta, completa y alineada con las mejores prácticas de la industria. Desde la recolección de datos en campo, la definición de estructuras, construcción de la taxonomía y carga en CMMS."
         currentPath="Registro de Activos"
-        image="/assets/bgAssetRegister.png"
+        image="/assets/bgAssetRegister.webp"
       />
 
       {/* Section: Beneficios y Características */}
@@ -221,7 +221,7 @@ export default function Contacto() {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/redlinesDTI.png')] bg-contain bg-center bg-no-repeat"></div>
+          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/redlinesDTI.webp')] bg-contain bg-center bg-no-repeat"></div>
         </div>
       </div>
 
@@ -289,7 +289,7 @@ export default function Contacto() {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/pegandotag.jpeg')] bg-contain bg-center bg-no-repeat"></div>
+          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/pegandotag.webp')] bg-contain bg-center bg-no-repeat"></div>
         </div>
       </div>
 
@@ -348,7 +348,7 @@ export default function Contacto() {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/bgAssetRegister.png')] bg-contain bg-center bg-no-repeat"></div>
+          <div className="w-full md:w-1/2 h-64 md:h-auto bg-[url('/assets/bgAssetRegister.webp')] bg-contain bg-center bg-no-repeat"></div>
         </div>
       </div>
     </div>

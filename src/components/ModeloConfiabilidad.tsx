@@ -23,7 +23,7 @@ import lineaVertical from "@/assets/lineaVertical.svg";
 import lineaHorizontal from "@/assets/lineaHorizontal.svg";
 import lineaCurva3 from "@/assets/lineaCurva3.svg";
 import weibull from "@/assets/modelWeibull.svg";
-import fondoAnalisisCriticidad from "@/assets/fondoAnalisisCriticidad.jpg";
+import fondoAnalisisCriticidad from "@/assets/fondoAnalisisCriticidad.webp";
 import back1 from "@/assets/back1.webp";
 import back2 from "@/assets/back2.webp";
 import back3 from "@/assets/back3.webp";

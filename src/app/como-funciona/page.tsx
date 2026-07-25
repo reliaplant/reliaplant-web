@@ -26,7 +26,7 @@ export default function ComoFuncionaPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/engineeringRoom.jpg"
+            src="/assets/engineeringRoom.webp"
             alt="Sala de ingeniería industrial"
             fill
             className="object-cover opacity-30"
@@ -130,7 +130,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
-                src="/assets/bgAssetRegister.png"
+                src="/assets/bgAssetRegister.webp"
                 alt="Taxonomía de activos industriales"
                 
                 
@@ -153,7 +153,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
-                src="/assets/bgACR.jpg"
+                src="/assets/bgACR.webp"
                 alt="Análisis de causa raíz en planta industrial"
                 
                 
@@ -288,7 +288,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
-                src="/assets/fondo-landing-rcm.png"
+                src="/assets/fondo-landing-rcm.webp"
                 alt="Proceso RCM estructurado"
                 
                 
@@ -311,7 +311,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
-                src="/assets/Interaccion Progresiva.png"
+                src="/assets/Interaccion Progresiva.webp"
                 alt="Integración de sistemas industriales"
                 
                 
@@ -420,7 +420,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
               <Image
-                src="/assets/bgPerformance.jpg"
+                src="/assets/bgPerformance.webp"
                 alt="KPIs e indicadores de confiabilidad"
                 
                 
@@ -443,7 +443,7 @@ export default function ComoFuncionaPage() {
             {/* Image */}
             <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
               <Image
-                src="/assets/bgCapacitacion.jpg"
+                src="/assets/bgCapacitacion.webp"
                 alt="Capacitación e implementación"
                 
                 

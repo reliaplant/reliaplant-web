@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       "Documentación técnica estructurada que estandariza procesos y consolida las mejores prácticas para garantizar la excelencia operativa en mantenimiento.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgProcedimientos2.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgProcedimientos2.webp",
         width: 1200,
         height: 630,
         alt: "Manuales Corporativos y Procedimientos",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
       "Desarrollo de documentación técnica estandarizada para optimizar los procesos de mantenimiento y confiabilidad en tu organización.",
     images: [
       {
-        url: "https://reliaplant-2c104.web.app/assets/bgProcedimientos2.jpg",
+        url: "https://reliaplant-2c104.web.app/assets/bgProcedimientos2.webp",
         alt: "Manuales Corporativos y Procedimientos",
       },
     ],
@@ -97,7 +97,7 @@ export default function ManualesCorporativos() {
         title="Manuales Corporativos y Procedimientos de Mantenimiento"
         description="Documentación técnica estructurada que estandariza procesos, asegura la transmisión del conocimiento y consolida las mejores prácticas en tu organización para garantizar la excelencia operativa."
         currentPath="Manuales y procedimientos"
-        image="/assets/bgProcedimientos2.jpg"
+        image="/assets/bgProcedimientos2.webp"
       />
 
       <div className="contentSection">

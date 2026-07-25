@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 pb-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/planta.jpg"
+            src="/assets/planta.webp"
             alt="Planta industrial"
             fill
             className="object-cover opacity-15"
@@ -91,7 +91,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/assets/bgDiagnostico.jpg"
+                src="/assets/bgDiagnostico.webp"
                 alt="Diagnóstico de confiabilidad industrial"
                 width={600}
                 height={450}
@@ -183,17 +183,17 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                img: "/assets/consultor1.jpg",
+                img: "/assets/consultor1.webp",
                 name: "Consultor Senior",
                 role: "Ingeniería de Confiabilidad",
               },
               {
-                img: "/assets/consultor2.jpg",
+                img: "/assets/consultor2.webp",
                 name: "Especialista RCM",
                 role: "Estrategias de Mantenimiento",
               },
               {
-                img: "/assets/consultor3.jpg",
+                img: "/assets/consultor3.webp",
                 name: "Analista RCA",
                 role: "Análisis de Causa Raíz",
               },
