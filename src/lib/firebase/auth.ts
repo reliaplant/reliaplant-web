@@ -34,8 +34,8 @@ export const loginAdmin = async (email: string, password: string) => {
 
 export const resetAdminPassword = async (email: string) => {
   const actionCodeSettings = {
-    url: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://reliaplant-webpage.web.app"}/admin/login`,
-    handleCodeInApp: false,
+    url: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://reliaplant.com"}/reset-password`,
+    handleCodeInApp: true,
   };
   await sendPasswordResetEmail(auth, email, actionCodeSettings);
 };

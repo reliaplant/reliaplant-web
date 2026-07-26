@@ -34,6 +34,46 @@ export default function BlogForm({
   // Store pending image file for new posts (no id yet)
   const [pendingImageFile, setPendingImageFile] = useState<File | null>(null);
 
+  // Generación de borrador completo con IA
+  const [aiTopic, setAiTopic] = useState("");
+  const [aiKeyword, setAiKeyword] = useState("");
+  const [aiNotes, setAiNotes] = useState("");
+  const [generatingDraft, setGeneratingDraft] = useState(false);
+
+  const generateDraftWithAI = async () => {
+    if (!aiTopic.trim()) {
+      toast.error("Describe el tema del artículo primero");
+      return;
+    }
+    setGeneratingDraft(true);
+    try {
+      const res = await fetch("/api/generate-post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic: aiTopic, keyword: aiKeyword, notes: aiNotes }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Error desconocido");
+      setBlogPost((prev) => ({
+        ...prev,
+        title: data.title,
+        content: data.content,
+        summary: data.summary,
+        tags: data.tags?.length ? data.tags : prev.tags,
+        seoTitle: data.seoTitle,
+        slug: data.slug,
+        metaDescription: data.metaDescription,
+        keyPhrases: data.keyPhrases,
+        published: false,
+      }));
+      toast.success("Borrador generado — revísalo antes de publicar");
+    } catch (err: any) {
+      toast.error(err.message || "Error al generar el borrador");
+    } finally {
+      setGeneratingDraft(false);
+    }
+  };
+
   const suggestWithAI = async (field: string) => {
     if (!blogPost.title && !blogPost.content) {
       toast.error("Añade al menos un título o contenido antes de usar IA.");
@@ -189,6 +229,51 @@ export default function BlogForm({
       {/* Basic Tab */}
       {activeTab === "basic" && (
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          {!isEditing && (
+            <div style={{ padding: 16, background: "var(--a-ui-01)", border: "1px solid var(--a-ui-03)" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+                <span style={{ fontSize: 13, fontWeight: 600 }}>✦ Generar borrador completo con IA</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <input
+                  className="admin-input"
+                  type="text"
+                  value={aiTopic}
+                  onChange={(e) => setAiTopic(e.target.value)}
+                  placeholder="Tema del artículo (ej. cómo calcular MTBF con taxonomía ISO 14224)"
+                />
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  <input
+                    className="admin-input"
+                    type="text"
+                    value={aiKeyword}
+                    onChange={(e) => setAiKeyword(e.target.value)}
+                    placeholder="Palabra clave SEO (opcional)"
+                  />
+                  <input
+                    className="admin-input"
+                    type="text"
+                    value={aiNotes}
+                    onChange={(e) => setAiNotes(e.target.value)}
+                    placeholder="Notas adicionales (opcional)"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={generateDraftWithAI}
+                  disabled={generatingDraft}
+                  className="abtn abtn-primary abtn-sm"
+                  style={{ alignSelf: "flex-start" }}
+                >
+                  {generatingDraft ? "Generando…" : "Generar borrador"}
+                </button>
+                <p style={{ fontSize: 11, color: "var(--a-text-02)", margin: 0 }}>
+                  Esto rellena título, contenido, tags y campos SEO. Siempre queda como borrador — revisa y edita antes de publicar.
+                </p>
+              </div>
+            </div>
+          )}
+
           <div className="admin-field">
             <label className="admin-field-label" htmlFor="title">Título *</label>
             <input
