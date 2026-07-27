@@ -1,3 +1,19 @@
+export type LeadStatus = "nuevo" | "contactado" | "calificado" | "ganado" | "perdido";
+
+export interface LeadNota {
+  id: string;
+  texto: string;
+  fecha: string; // ISO
+}
+
+export interface LeadTarea {
+  id: string;
+  texto: string;
+  fechaLimite?: string | null; // ISO date, sin hora
+  completada: boolean;
+  creada: string; // ISO
+}
+
 export interface FormContactData {
   nombre: string;
   email: string;
@@ -15,4 +31,10 @@ export interface FormContactData {
   type?: string | null;
   campana?: string | null;
   anuncio?: string | null;
+
+  // Seguimiento (CRM) - solo lo escribe el panel admin
+  status?: LeadStatus;
+  proximoSeguimiento?: string | null; // ISO date, sin hora
+  notas?: LeadNota[];
+  tareas?: LeadTarea[];
 }

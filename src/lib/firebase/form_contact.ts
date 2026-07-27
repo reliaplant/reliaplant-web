@@ -1,8 +1,8 @@
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, updateDoc } from "firebase/firestore";
 import { db } from "./config";
-import { FormContactData } from "@/types/forms";
+import { FormContactData, LeadStatus, LeadNota, LeadTarea } from "@/types/forms";
 
-export { type FormContactData } from "@/types/forms";
+export { type FormContactData, type LeadStatus, type LeadNota, type LeadTarea } from "@/types/forms";
 
 export interface FormContactWithId extends FormContactData {
   id: string;
@@ -24,6 +24,22 @@ export const saveFormContact = async (data: FormContactData) => {
   }).catch((err) => console.error("Error al sincronizar con Brevo:", err));
 
   return docRef.id;
+};
+
+export const updateLeadStatus = async (id: string, status: LeadStatus) => {
+  await updateDoc(doc(db, "form_contact", id), { status });
+};
+
+export const updateProximoSeguimiento = async (id: string, fecha: string | null) => {
+  await updateDoc(doc(db, "form_contact", id), { proximoSeguimiento: fecha });
+};
+
+export const updateNotas = async (id: string, notas: LeadNota[]) => {
+  await updateDoc(doc(db, "form_contact", id), { notas });
+};
+
+export const updateTareas = async (id: string, tareas: LeadTarea[]) => {
+  await updateDoc(doc(db, "form_contact", id), { tareas });
 };
 
 export const getAllFormContacts = async (): Promise<FormContactWithId[]> => {
