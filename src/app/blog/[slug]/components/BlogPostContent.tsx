@@ -1,6 +1,8 @@
 import { BlogPost, BlogContributor } from "@/types/blog";
 import Link from "next/link";
 import Image from "next/image";
+import AbrirFormContacto from "@/components/AbrirFormContacto";
+import { Headset } from "@carbon/icons-react";
 
 interface BlogPostContentProps {
   post: BlogPost;
@@ -139,6 +141,24 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
               </div>
             )}
           </article>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 bg-white rounded-2xl shadow-xl shadow-gray-300/50 px-8 py-10 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            ¿Quieres llevar esto a tu planta?
+          </h3>
+          <p className="text-gray-600 text-sm mb-6 max-w-md mx-auto">
+            Habla con un especialista de Reliaplant sobre cómo aplicar esto en tu operación.
+          </p>
+          <div className="flex justify-center">
+            <AbrirFormContacto
+              buttonText="Habla con un especialista"
+              icon={<Headset size={20} className="text-white" />}
+              buttonColor="bg-blue60"
+              especial={`Blog post: ${post.title}`}
+            />
+          </div>
         </div>
 
         {/* Bottom back link */}

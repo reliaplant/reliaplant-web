@@ -228,7 +228,7 @@ export default function Header() {
                   </div>
                   <div className="px-3 pt-2">
                     <a
-                      href="http://app.reliaplant.com/"
+                      href="https://app.reliaplant.com/"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
                       onClick={() => setSoftwareMenuOpen(false)}
                     >
@@ -287,7 +287,7 @@ export default function Header() {
           </ul>
           <div className="flex flex-row items-center h-full gap-2">
             <AbrirFormContacto especial="header" />
-            <a href="http://app.reliaplant.com/" className="no-underline">
+            <a href="https://app.reliaplant.com/" className="no-underline">
               <button className="font-semibold text-sm bg-gray-900 text-white flex flex-row items-center px-5 py-2 rounded-md hover:bg-gray-800 transition-colors whitespace-nowrap">
                 Ir a Software
                 <ArrowUpRight size={18} className="ml-1.5" />

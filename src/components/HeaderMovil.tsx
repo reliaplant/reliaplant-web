@@ -369,7 +369,7 @@ export default function HeaderMovil() {
                 </div>
 
                 <a
-                  href="http://app.reliaplant.com/"
+                  href="https://app.reliaplant.com/"
                   className="block w-full no-underline"
                   onClick={handleLinkClick}
                 >

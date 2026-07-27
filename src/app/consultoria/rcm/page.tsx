@@ -11,7 +11,6 @@ import {
   MdOutlinePeopleAlt,
   MdPeople,
 } from "react-icons/md";
-import BotonAsesorRCM from "./BotonAsesorRCM";
 import FormularioContacto from "@/components/FormularioContacto";
 // Si no usas flujograma, es mejor quitar la importación o agregar un módulo .d.ts para archivos SVG
 // import flujograma from "@/assets/rcm-s.svg";
@@ -125,19 +124,8 @@ export default function RcmPage(): ReactElement {
                   />
                 </div>
                 <FormularioContacto
-                  type="info"
-                  campana=""
-                  anuncio={null}
-                  interes=""
-                  mailchimpTagIn="curso"
-                  subject="Nuevo llenado formulario diplomado Predictiva"
-                  recipients={[
-                    "liliana.giraldo@predyc.com",
-                    "andres.gonzalez@predyc.com",
-                    "desarrollo@predyc.com",
-                  ]}
-                  responsable=""
-                  lugar="diplomado"
+                  interes="RCM"
+                  origen="/consultoria/rcm"
                   btnText="Solicitar información"
                 />
               </div>

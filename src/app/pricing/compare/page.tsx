@@ -192,11 +192,25 @@ export default function PricingCompare() {
                 ))}
               </ul>
               {/* CTA */}
-              <button className={`mt-2 w-full py-2.5 rounded-xl font-semibold text-sm transition-colors ${plan.ctaStyle}`}>
+              <Link
+                href="https://app.reliaplant.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-2 w-full py-2.5 rounded-xl font-semibold text-sm text-center transition-colors ${plan.ctaStyle}`}
+              >
                 {plan.cta}
-              </button>
+              </Link>
             </div>
           ))}
+        </div>
+
+        <div className="flex flex-col items-center mt-8">
+          <p className="text-center text-sm text-gray-500">
+            Para organizaciones con más de 15 usuarios o necesidades especiales:{" "}
+            <a href="mailto:comercial@reliaplant.com" className="text-blue-600 font-medium hover:underline">
+              Plan Empresa — contactar a comercial@reliaplant.com
+            </a>
+          </p>
         </div>
 
         {/* COMPARISON TABLE */}
