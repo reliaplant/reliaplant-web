@@ -10,52 +10,15 @@ import {
   type FormContactWithId,
 } from "@/lib/firebase/form_contact";
 import type { LeadStatus, LeadNota, LeadTarea } from "@/types/forms";
-
-const STATUS_CONFIG: Record<LeadStatus, { label: string; color: string; bg: string; border: string }> = {
-  nuevo: { label: "Nuevo", color: "#1e40af", bg: "#eff6ff", border: "#bfdbfe" },
-  contactado: { label: "Contactado", color: "#92400e", bg: "#fffbeb", border: "#fde68a" },
-  calificado: { label: "Calificado", color: "#5b21b6", bg: "#f5f3ff", border: "#ddd6fe" },
-  ganado: { label: "Ganado", color: "#166534", bg: "#f0fdf4", border: "#bbf7d0" },
-  perdido: { label: "Perdido", color: "#991b1b", bg: "#fff1f2", border: "#fecaca" },
-};
-
-const fmtDate = (d: Date) =>
-  new Intl.DateTimeFormat("es-MX", {
-    year: "numeric", month: "short", day: "numeric",
-    hour: "2-digit", minute: "2-digit",
-  }).format(d);
-
-const fmtShortDate = (iso: string) =>
-  new Intl.DateTimeFormat("es-MX", { year: "numeric", month: "short", day: "numeric" }).format(new Date(iso + "T00:00:00"));
-
-const todayISO = () => new Date().toISOString().slice(0, 10);
-
-const ultimoSeguimiento = (lead: FormContactWithId): LeadNota | null => {
-  if (!lead.notas?.length) return null;
-  return [...lead.notas].sort((a, b) => b.fecha.localeCompare(a.fecha))[0];
-};
-
-const genId = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`);
-
-function StatusBadge({ status }: { status?: LeadStatus }) {
-  const cfg = STATUS_CONFIG[status || "nuevo"];
-  return (
-    <span
-      style={{
-        display: "inline-block", fontSize: 11, fontWeight: 600, padding: "2px 8px",
-        borderRadius: 999, color: cfg.color, background: cfg.bg, border: `1px solid ${cfg.border}`,
-      }}
-    >
-      {cfg.label}
-    </span>
-  );
-}
+import { STATUS_CONFIG, fmtDate, fmtShortDate, todayISO, ultimoSeguimiento, genId, StatusBadge } from "./leadHelpers";
+import KanbanBoard from "./KanbanBoard";
 
 export default function FormManagerPage() {
   const [forms, setForms] = useState<FormContactWithId[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<LeadStatus | "todos">("todos");
+  const [view, setView] = useState<"lista" | "kanban">("lista");
 
   useEffect(() => {
     getAllFormContacts()
@@ -138,9 +101,34 @@ export default function FormManagerPage() {
 
   return (
     <div style={{ display: "flex", gap: 0, height: "calc(100vh - 112px)", overflow: "hidden" }}>
-      {/* Table panel */}
-      <div style={{ flex: 1, overflow: "auto", borderRight: selected ? "1px solid var(--a-ui-03)" : "none" }}>
-        <div style={{ padding: "12px 16px 0", display: "flex", gap: 8, alignItems: "center" }}>
+      {/* Main panel */}
+      <div style={{ flex: 1, overflow: view === "kanban" ? "hidden" : "auto", display: "flex", flexDirection: "column", borderRight: selected ? "1px solid var(--a-ui-03)" : "none" }}>
+        <div style={{ padding: "12px 16px 0", display: "flex", gap: 12, alignItems: "center", flexShrink: 0 }}>
+          <div style={{ display: "flex", gap: 2, background: "var(--a-ui-02)", borderRadius: 6, padding: 2 }}>
+            <button
+              onClick={() => setView("lista")}
+              className="abtn abtn-sm"
+              style={{
+                background: view === "lista" ? "#fff" : "transparent",
+                boxShadow: view === "lista" ? "0 1px 2px rgba(0,0,0,0.08)" : undefined,
+                border: "none", fontWeight: view === "lista" ? 600 : 400,
+              }}
+            >
+              Lista
+            </button>
+            <button
+              onClick={() => setView("kanban")}
+              className="abtn abtn-sm"
+              style={{
+                background: view === "kanban" ? "#fff" : "transparent",
+                boxShadow: view === "kanban" ? "0 1px 2px rgba(0,0,0,0.08)" : undefined,
+                border: "none", fontWeight: view === "kanban" ? 600 : 400,
+              }}
+            >
+              Kanban
+            </button>
+          </div>
+
           <span style={{ fontSize: 12, color: "var(--a-text-02)" }}>Estado:</span>
           <select
             value={statusFilter}
@@ -160,6 +148,15 @@ export default function FormManagerPage() {
         ) : filtered.length === 0 ? (
           <div style={{ padding: 48, textAlign: "center", color: "var(--a-text-02)", fontSize: 13 }}>
             No hay formularios que coincidan.
+          </div>
+        ) : view === "kanban" ? (
+          <div style={{ flex: 1, overflow: "hidden" }}>
+            <KanbanBoard
+              leads={filtered}
+              selectedId={selectedId}
+              onSelect={(id) => setSelectedId(selectedId === id ? null : id)}
+              onStatusChange={handleStatusChange}
+            />
           </div>
         ) : (
           <div className="admin-table-wrap" style={{ marginTop: 8 }}>
