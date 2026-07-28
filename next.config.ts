@@ -29,6 +29,16 @@ const nextConfig: NextConfig = {
     pagesBufferLength: 2,
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/pricing/compare",
+        destination: "/pricing",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

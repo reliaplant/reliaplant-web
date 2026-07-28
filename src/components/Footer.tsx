@@ -70,7 +70,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link className={styles.link} href="/pricing/compare">
+                <Link className={styles.link} href="/pricing">
                   Planes y precios
                 </Link>
               </li>

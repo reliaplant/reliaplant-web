@@ -786,7 +786,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center mt-8">
-            <a href="/pricing/compare" className="text-blue-600 font-medium hover:underline text-base mb-2">Ver comparación completa de planes <span className='inline-block align-middle'>↓</span></a>
+            <a href="/pricing" className="text-blue-600 font-medium hover:underline text-base mb-2">Ver comparación completa de planes <span className='inline-block align-middle'>↓</span></a>
             <p className="text-center text-sm text-gray-500 mt-2">
               Para organizaciones con más de 15 usuarios o necesidades especiales:{" "}
               <a href="mailto:comercial@reliaplant.com" className="text-blue-600 font-medium hover:underline">

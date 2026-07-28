@@ -340,7 +340,7 @@ export default function HeaderMovil() {
               {/* Pricing Link */}
               <div className="border-b border-gray-200">
                 <Link
-                  href="/pricing/compare"
+                  href="/pricing"
                   className="flex justify-between items-center w-full py-4 px-2"
                   onClick={handleLinkClick}
                 >

@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/modulos/rca",
     "/modulos/rcm",
     "/modulos/registro-activos",
-    "/pricing/compare",
+    "/pricing",
   ].map(
     (route): MetadataRoute.Sitemap[0] => ({
       url: `${baseUrl}${route}`,
