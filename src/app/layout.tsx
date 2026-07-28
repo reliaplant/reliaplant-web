@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/SiteChrome";
 import InitialUrlTracker from "@/components/InitialUrlTracker";
 
 import { IBM_Plex_Sans } from "next/font/google";
@@ -131,9 +130,7 @@ export default async function RootLayout({
       </head>
       <body className={`${IbmPlexSans.className} antialiased text-gray-700`}>
         <InitialUrlTracker />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
