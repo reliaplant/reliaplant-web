@@ -168,35 +168,25 @@ export default function TerminosDeUsoPage() {
                 6. Planes y suscripciones
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
-                <p>La Plataforma está disponible en los siguientes planes:</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Gratuito</strong> — 1 usuario, 10 activos, 1 planta. Sin costo.</li>
-                  <li><strong>Profesional</strong> — 1 usuario, 30 activos, 1 planta. $29/mes o $25/mes (anual).</li>
-                  <li><strong>Equipo</strong> — hasta 5 usuarios, 100 activos, 1 planta. $99/mes o $84/mes (anual).</li>
-                  <li><strong>Planta</strong> — hasta 15 usuarios, 500 activos, hasta 3 plantas. $245/mes o $208/mes (anual).</li>
-                  <li>
-                    <strong>Empresa</strong> — condiciones personalizadas. Contactar a{" "}
-                    <a href="mailto:comercial@reliaplant.com" className="text-blue-600 hover:underline">
-                      comercial@reliaplant.com
-                    </a>.
-                  </li>
-                </ul>
+                <p>
+                  Los planes disponibles, sus límites de uso (usuarios, activos, plantas) y sus
+                  precios vigentes se publican en{" "}
+                  <a href="/pricing" className="text-blue-600 hover:underline font-medium">
+                    reliaplant.com/pricing
+                  </a>. Consulte esa página para conocer la información actualizada antes de
+                  contratar o cambiar de plan.
+                </p>
                 <p>
                   Todos los precios están expresados en dólares estadounidenses (USD) e incluyen el
                   Asistente IA sin costo adicional. Reliaplant se reserva el derecho de modificar
                   los precios con al menos 30 días de anticipación.
                 </p>
-                <div
-                  role="note"
-                  aria-label="Nota sobre descuento anual"
-                  className="bg-blue-50 border border-blue-200 border-l-4 border-l-blue-600 p-3"
-                >
-                  <p>
-                    <strong>Descuento anual:</strong> Al elegir facturación anual, obtiene un 15% de
-                    descuento sobre el precio mensual. El descuento aplica también a los bloques de
-                    activos adicionales.
-                  </p>
-                </div>
+                <p>
+                  Para organizaciones con necesidades personalizadas, contactar a{" "}
+                  <a href="mailto:comercial@reliaplant.com" className="text-blue-600 hover:underline">
+                    comercial@reliaplant.com
+                  </a>.
+                </p>
               </div>
             </section>
 
@@ -221,9 +211,11 @@ export default function TerminosDeUsoPage() {
                     activos simultáneamente.
                   </li>
                   <li>
-                    <strong>Almacenamiento:</strong> Los límites aplican a archivos adjuntos cargados
-                    a la Plataforma (500 MB Gratuito · 2 GB Profesional · 10 GB Equipo · 50 GB
-                    Planta). No incluyen los datos estructurados de la aplicación.
+                    <strong>Almacenamiento:</strong> Cada plan tiene un límite de almacenamiento para
+                    archivos adjuntos cargados a la Plataforma — ver los límites vigentes por plan en{" "}
+                    <a href="/pricing" className="text-blue-600 hover:underline font-medium">
+                      reliaplant.com/pricing
+                    </a>. Estos límites no incluyen los datos estructurados de la aplicación.
                   </li>
                   <li>
                     <strong>Asistente IA:</strong> Incluido en todos los planes sin costo adicional.
@@ -240,10 +232,11 @@ export default function TerminosDeUsoPage() {
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
-                  Los planes <strong>Equipo</strong> y <strong>Planta</strong> permiten ampliar la
-                  capacidad de activos mediante bloques adicionales de 50 activos a un precio de{" "}
-                  <strong>$25 USD/mes</strong> por bloque (con descuento del 15% en facturación
-                  anual).
+                  Ciertos planes permiten ampliar la capacidad de activos mediante bloques
+                  adicionales. La disponibilidad y el precio vigente de estos bloques se publican en{" "}
+                  <a href="/pricing" className="text-blue-600 hover:underline font-medium">
+                    reliaplant.com/pricing
+                  </a>.
                 </p>
                 <ol className="list-decimal pl-5 space-y-2">
                   <li>
@@ -256,7 +249,10 @@ export default function TerminosDeUsoPage() {
                     podrán registrar nuevos hasta estar dentro del nuevo límite.
                   </li>
                   <li>
-                    <strong>Disponibilidad:</strong> Exclusivamente para los planes Equipo y Planta.
+                    <strong>Disponibilidad:</strong> Sujeta al plan contratado — ver{" "}
+                    <a href="/pricing" className="text-blue-600 hover:underline font-medium">
+                      reliaplant.com/pricing
+                    </a>.
                   </li>
                 </ol>
               </div>
@@ -390,10 +386,10 @@ export default function TerminosDeUsoPage() {
                 <ol className="list-decimal pl-5 space-y-2">
                   <li>
                     <strong>SLA:</strong> Reliaplant se compromete a un objetivo de disponibilidad
-                    mensual del <strong>99%</strong> para planes pagos (Profesional, Equipo y
-                    Planta). El plan Gratuito no tiene SLA garantizado. Durante períodos de acceso
-                    anticipado o versión beta, el objetivo de disponibilidad aplica en la medida en
-                    que la infraestructura lo permita, conforme a lo establecido en la sección 20.
+                    mensual del <strong>99%</strong> para todos los planes pagos. El plan Gratuito
+                    no tiene SLA garantizado. Durante períodos de acceso anticipado o versión beta,
+                    el objetivo de disponibilidad aplica en la medida en que la infraestructura lo
+                    permita, conforme a lo establecido en la sección 20.
                   </li>
                   <li>
                     <strong>Mantenimiento:</strong> Los períodos de mantenimiento programado se
@@ -402,10 +398,12 @@ export default function TerminosDeUsoPage() {
                   </li>
                   <li>
                     <strong>Soporte:</strong> En español e inglés, lunes a viernes de 9:00 a 18:00
-                    (GMT-6). Tiempo de respuesta orientativo: 72 h (Gratuito) · 48 h (Profesional
-                    / Equipo) · 24 h (Planta). Los tiempos de respuesta son orientativos y no
-                    constituyen un SLA de soporte garantizado durante el período de acceso
-                    anticipado.
+                    (GMT-6). El tiempo de respuesta orientativo varía según el plan contratado — ver
+                    el detalle vigente en{" "}
+                    <a href="/pricing" className="text-blue-600 hover:underline font-medium">
+                      reliaplant.com/pricing
+                    </a>. Los tiempos de respuesta son orientativos y no constituyen un SLA de
+                    soporte garantizado durante el período de acceso anticipado.
                   </li>
                   <li>
                     <strong>Créditos por indisponibilidad:</strong> Si la disponibilidad mensual
