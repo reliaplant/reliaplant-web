@@ -3,6 +3,29 @@ import type { FormContactData } from "@/types/forms";
 
 const BREVO_API = "https://api.brevo.com/v3";
 
+// app.reliaplant.com llama a este endpoint cross-origin (solicitudes de
+// upgrade), así que necesita CORS explícito - no es solo el sitio propio.
+const ALLOWED_ORIGINS = new Set([
+  "https://app.reliaplant.com",
+  "https://reliaplant.com",
+]);
+
+function corsHeaders(origin: string | null): Record<string, string> {
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) return {};
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+export async function OPTIONS(req: NextRequest) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: corsHeaders(req.headers.get("origin")),
+  });
+}
+
 async function brevoFetch(apiKey: string, path: string, init?: RequestInit) {
   return fetch(`${BREVO_API}${path}`, {
     ...init,
@@ -86,10 +109,11 @@ async function linkContactToCompany(apiKey: string, empresa: string, contactId: 
 }
 
 export async function POST(req: NextRequest) {
+  const headers = corsHeaders(req.headers.get("origin"));
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
     console.error("BREVO_API_KEY no configurada; se omite sync con Brevo.");
-    return NextResponse.json({ skipped: true }, { status: 200 });
+    return NextResponse.json({ skipped: true }, { status: 200, headers });
   }
 
   const data = (await req.json()) as FormContactData;
@@ -101,10 +125,10 @@ export async function POST(req: NextRequest) {
       await linkContactToCompany(apiKey, data.empresa.trim(), contactId);
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true }, { headers });
   } catch (err) {
     console.error("Brevo contact sync error:", err);
     // Nunca rompemos el flujo de guardado del formulario por un fallo de Brevo
-    return NextResponse.json({ ok: false }, { status: 200 });
+    return NextResponse.json({ ok: false }, { status: 200, headers });
   }
 }
