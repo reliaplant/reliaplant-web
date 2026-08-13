@@ -49,7 +49,7 @@ export default function AdminPage() {
       color: "#198038",
     },
     {
-      label: "Formularios",
+      label: "CRM",
       value: loading ? "—" : counts.forms,
       sub: "Solicitudes recibidas",
       href: "/admin/form-manager",
@@ -61,7 +61,7 @@ export default function AdminPage() {
     { label: "Nueva entrada de blog", href: "/admin/blog-editor", icon: pencilIcon() },
     { label: "Gestionar entradas", href: "/admin/blog-manager", icon: listIcon() },
     { label: "Articulistas", href: "/admin/contributor", icon: usersIcon() },
-    { label: "Formularios de contacto", href: "/admin/form-manager", icon: formIcon() },
+    { label: "CRM", href: "/admin/form-manager", icon: formIcon() },
     { label: "Cuentas admin", href: "/admin/account", icon: settingsIcon() },
   ];
 

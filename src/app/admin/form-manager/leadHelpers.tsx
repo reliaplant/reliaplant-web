@@ -1,5 +1,5 @@
 import type { FormContactWithId } from "@/lib/firebase/form_contact";
-import type { LeadStatus, LeadNota } from "@/types/forms";
+import type { LeadStatus, LeadNota, LeadTarea, TareaTipo } from "@/types/forms";
 
 export const STATUS_ORDER: LeadStatus[] = ["nuevo", "contactado", "calificado", "ganado", "perdido"];
 
@@ -28,6 +28,42 @@ export const ultimoSeguimiento = (lead: FormContactWithId): LeadNota | null => {
 };
 
 export const genId = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`);
+
+export const digitsOnly = (tel: string) => tel.replace(/\D/g, "");
+
+export const telHref = (tel: string) => `tel:+${digitsOnly(tel)}`;
+
+export const waHref = (tel: string) => `https://wa.me/${digitsOnly(tel)}`;
+
+export const TAREA_TIPO_CONFIG: Record<TareaTipo, { label: string; icon: string }> = {
+  seguimiento: { label: "Seguimiento", icon: "📅" },
+  tarea: { label: "Tarea", icon: "☐" },
+};
+
+export interface PendingTareaEntry {
+  lead: FormContactWithId;
+  tarea: LeadTarea;
+}
+
+export const nextPendingTarea = (lead: FormContactWithId): LeadTarea | null => {
+  const pend = (lead.tareas || [])
+    .filter((t) => !t.completada && t.fechaLimite)
+    .sort((a, b) => (a.fechaLimite || "").localeCompare(b.fechaLimite || ""));
+  return pend[0] || null;
+};
+
+export const pendingTareasHoy = (leads: FormContactWithId[]): PendingTareaEntry[] => {
+  const today = todayISO();
+  const entries: PendingTareaEntry[] = [];
+  for (const lead of leads) {
+    for (const tarea of lead.tareas || []) {
+      if (!tarea.completada && tarea.fechaLimite && tarea.fechaLimite <= today) {
+        entries.push({ lead, tarea });
+      }
+    }
+  }
+  return entries.sort((a, b) => (a.tarea.fechaLimite || "").localeCompare(b.tarea.fechaLimite || ""));
+};
 
 export function StatusBadge({ status }: { status?: LeadStatus }) {
   const cfg = STATUS_CONFIG[status || "nuevo"];

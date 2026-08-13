@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { FormContactWithId } from "@/lib/firebase/form_contact";
 import type { LeadStatus } from "@/types/forms";
-import { STATUS_ORDER, STATUS_CONFIG, fmtShortDate, todayISO } from "./leadHelpers";
+import { STATUS_ORDER, STATUS_CONFIG, fmtShortDate, todayISO, nextPendingTarea, TAREA_TIPO_CONFIG } from "./leadHelpers";
 
 interface KanbanBoardProps {
   leads: FormContactWithId[];
@@ -70,7 +70,8 @@ export default function KanbanBoard({ leads, selectedId, onSelect, onStatusChang
                 </div>
               ) : (
                 cards.map((lead) => {
-                  const overdue = !!lead.proximoSeguimiento && lead.proximoSeguimiento < todayISO();
+                  const next = nextPendingTarea(lead);
+                  const overdue = !!next?.fechaLimite && next.fechaLimite < todayISO();
                   return (
                     <div
                       key={lead.id}
@@ -94,7 +95,7 @@ export default function KanbanBoard({ leads, selectedId, onSelect, onStatusChang
                       )}
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 6 }}>
                         <span className="atag atag-blue" style={{ fontSize: 10 }}>{lead.interes}</span>
-                        {lead.proximoSeguimiento && (
+                        {next?.fechaLimite && (
                           <span
                             style={{
                               fontSize: 10, fontWeight: overdue ? 600 : 400,
@@ -102,7 +103,7 @@ export default function KanbanBoard({ leads, selectedId, onSelect, onStatusChang
                               fontFamily: "'IBM Plex Mono', monospace", whiteSpace: "nowrap",
                             }}
                           >
-                            {fmtShortDate(lead.proximoSeguimiento)}
+                            {TAREA_TIPO_CONFIG[next.tipo || "tarea"].icon} {fmtShortDate(next.fechaLimite)}
                           </span>
                         )}
                       </div>

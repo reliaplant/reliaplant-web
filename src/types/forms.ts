@@ -4,11 +4,15 @@ export interface LeadNota {
   id: string;
   texto: string;
   fecha: string; // ISO
+  pendiente?: boolean; // true = intento de contacto sin confirmar todavía
 }
+
+export type TareaTipo = "tarea" | "seguimiento";
 
 export interface LeadTarea {
   id: string;
   texto: string;
+  tipo?: TareaTipo; // sin valor = "tarea", por compatibilidad con tareas creadas antes de este campo
   fechaLimite?: string | null; // ISO date, sin hora
   completada: boolean;
   creada: string; // ISO
