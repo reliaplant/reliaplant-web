@@ -20,10 +20,79 @@ import Link from "next/link";
 import Image from "next/image";
 import IndustrialGrid from "@/components/IndustrialGrid";
 import DemoRequestSection from "@/components/DemoRequestSection";
+import Boton from "@/components/Boton";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase/config";
+
+interface PlanFeatures {
+  ai: boolean;
+  export: boolean;
+  collaboration: boolean;
+  multiPlant: boolean;
+  pricedPerPlant?: boolean;
+  prioritySupport: boolean;
+  purchaseOrders: boolean;
+}
+
+interface PlanLimits {
+  maxUsers: number;
+  maxActivos: number;
+  maxPlants: number; // -1 = ilimitadas
+  maxRCA: number; // -1 = ilimitado
+  maxRCM: number; // -1 = ilimitado
+}
+
+interface PlanTemplate {
+  id: string;
+  name: string;
+  description: string;
+  annualPrice?: number;
+  limits: PlanLimits;
+  features: PlanFeatures;
+  sort: number;
+}
+
+const fmtNum = (n: number) => (n < 0 ? "Ilimitado" : n.toLocaleString("es-MX"));
+const fmtPlants = (n: number) => (n < 0 ? "Ilimitadas" : String(n));
+
+// Highlights construidos a partir de los feature flags reales de Firestore,
+// no copy inventado — evita que se desalineen con lo que el plan realmente incluye.
+function planHighlights(plan: PlanTemplate): string[] {
+  const items: string[] = [
+    `RCA y RCM ${plan.limits.maxRCA < 0 ? "ilimitados" : `(hasta ${plan.limits.maxRCA})`}`,
+  ];
+  if (plan.features.ai) items.push("Asistente IA incluido");
+  if (plan.features.collaboration) items.push("Colaboración, roles y permisos");
+  if (plan.features.prioritySupport) items.push("Soporte prioritario");
+  if (plan.features.purchaseOrders) items.push("Facturación por orden de compra");
+  if (plan.features.multiPlant) items.push("Múltiples plantas habilitadas");
+  if (plan.features.export) items.push("Reportes PDF y Excel");
+  return items.slice(0, 4);
+}
 
 export default function Home() {
-  const [pricingPeriod, setPricingPeriod] = React.useState<'monthly' | 'annual'>('monthly');
+  const [plans, setPlans] = useState<PlanTemplate[]>([]);
+  const [plansLoading, setPlansLoading] = useState(true);
   const [showContactModal, setShowContactModal] = React.useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const snap = await getDoc(doc(db, "config", "planTemplates"));
+        const data = snap.data();
+        const list = data?.plans
+          ? Object.values(data.plans as Record<string, PlanTemplate>).sort((a, b) => a.sort - b.sort)
+          : [];
+        if (!cancelled) setPlans(list);
+      } finally {
+        if (!cancelled) setPlansLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const statsRef = useRef<HTMLDivElement>(null);
   const statsInView = useInView(statsRef, { once: true });
@@ -99,21 +168,21 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link 
-              href="https://app.reliaplant.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+            <Boton
+              href="https://app.reliaplant.com"
+              variant="primary"
+              size="lg"
+              icon={<ArrowRight size={20} />}
             >
               Empezar ahora
-              <ArrowRight size={20} />
-            </Link>
-            <button 
+            </Boton>
+            <Boton
+              variant="outline-light"
+              size="lg"
               onClick={() => setShowContactModal(true)}
-              className="border border-white/30 hover:border-white/60 hover:bg-white/5 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               Contactar Asesor
-            </button>
+            </Boton>
           </div>
         </div>
       </section>
@@ -270,10 +339,9 @@ export default function Home() {
                 </li>
               </ul>
 
-              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Boton href="/modulos/registro-activos" variant="primary" size="sm" icon={<ArrowRight size={16} />} className="mt-auto">
                 Ver módulo
-                <ArrowRight size={16} />
-              </Link>
+              </Boton>
             </div>
 
             {/* RCM Card */}
@@ -318,10 +386,9 @@ export default function Home() {
                 </li>
               </ul>
 
-              <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Boton href="/modulos/rcm" variant="primary" size="sm" icon={<ArrowRight size={16} />} className="mt-auto">
                 Ver módulo
-                <ArrowRight size={16} />
-              </Link>
+              </Boton>
             </div>
 
             {/* RCA Card */}
@@ -366,10 +433,9 @@ export default function Home() {
                 </li>
               </ul>
 
-              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Boton href="/modulos/rca" variant="primary" size="sm" icon={<ArrowRight size={16} />} className="mt-auto">
                 Ver módulo
-                <ArrowRight size={16} />
-              </Link>
+              </Boton>
             </div>
           </div>
 
@@ -380,21 +446,21 @@ export default function Home() {
               Te ayudamos a identificar el módulo que más impacto tendrá en tu operación. Sin compromiso.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link 
+              <Boton
                 href="https://app.reliaplant.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+                variant="primary"
+                size="lg"
+                icon={<ArrowRight size={20} />}
               >
                 Prueba ahora
-                <ArrowRight size={20} />
-              </Link>
-              <button
+              </Boton>
+              <Boton
+                variant="outline"
+                size="lg"
                 onClick={() => setShowContactModal(true)}
-                className="border border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 px-8 py-3.5 rounded-lg font-medium inline-flex items-center gap-2 transition-all cursor-pointer"
               >
                 Contacta un Asesor
-              </button>
+              </Boton>
             </div>
           </div>
         </div>
@@ -526,271 +592,87 @@ export default function Home() {
             </motion.h2>
           </div>
 
+          {plansLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="bg-white border border-gray-200 rounded-2xl p-6 h-[420px] animate-pulse" />
+              ))}
+            </div>
+          ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Gratuito */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Gratuito</h3>
-              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Evaluar la plataforma</p>
-              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3 opacity-40 pointer-events-none">
-                <button className="flex-1 py-1.5 text-xs rounded-[4px] bg-white font-semibold text-gray-900" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>Mensual</button>
-                <button className="flex-1 py-1.5 text-xs rounded-[4px] text-[#6f6f6f] flex items-center justify-center gap-1">Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
-              </div>
-              <div className="mb-2">
-                <div>
-                  <span className="text-4xl font-bold text-gray-900">$0</span>
-                  <span className="text-gray-500"> / para siempre</span>
+            {plans.map((plan) => {
+              const isFree = plan.id === "free";
+              const isRecommended = plan.id === "team";
+              return (
+                <div
+                  key={plan.id}
+                  className={`bg-white rounded-2xl p-6 flex flex-col relative transition-shadow ${
+                    isRecommended
+                      ? "border-2 border-blue-600 shadow-xl shadow-blue-600/10"
+                      : "border border-gray-200 hover:shadow-lg"
+                  }`}
+                >
+                  {isRecommended && (
+                    <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                      Recomendado
+                    </div>
+                  )}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">{plan.description}</p>
+                  <div className="mb-2">
+                    <span className="text-4xl font-bold text-gray-900">
+                      {isFree ? "$0" : `$${plan.annualPrice?.toLocaleString("es-MX")}`}
+                    </span>
+                    <span className="text-gray-500">
+                      {isFree ? " / para siempre" : `/año${plan.features.pricedPerPlant ? " + precio por planta" : ""}`}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                    <div className="flex flex-col items-center gap-1">
+                      <UserMultiple size={20} className="text-gray-400" />
+                      <span className="font-semibold text-gray-900">{fmtNum(plan.limits.maxUsers)}</span>
+                      <span>{plan.features.pricedPerPlant ? "usuarios/planta" : "usuarios"}</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                      <Asset size={20} className="text-gray-400" />
+                      <span className="font-semibold text-gray-900">{fmtNum(plan.limits.maxActivos)}</span>
+                      <span>{plan.features.pricedPerPlant ? "activos/planta" : "activos"}</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1">
+                      <Industry size={20} className="text-gray-400" />
+                      <span className="font-semibold text-gray-900">{fmtPlants(plan.limits.maxPlants)}</span>
+                      <span>plantas</span>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-4 pl-0 list-none">
+                    {planHighlights(plan).map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
+                        <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex-grow" />
+                  <Boton
+                    href="https://app.reliaplant.com"
+                    variant={isRecommended ? "primary" : "outline"}
+                    className="w-full"
+                  >
+                    {isFree ? "Comenzar gratis" : "Comenzar prueba"}
+                  </Boton>
                 </div>
-                <span className="invisible block text-sm font-medium mt-1">placeholder</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
-                <div className="flex flex-col items-center gap-1">
-                  <UserMultiple size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">1</span>
-                  <span>usuario</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
-                  <Asset size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">10</span>
-                  <span>activos</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Industry size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">1</span>
-                  <span>planta</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-4 pl-0 list-none">
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Taxonomía básica
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  5 proyectos RCA · 5 planes RCM
-                </li>
-                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  Asistente IA incluido
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Soporte por email
-                </li>
-              </ul>
-              <div className="flex-grow" />
-              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
-                Comenzar gratis
-              </Link>
-            </div>
-
-            {/* Profesional */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Profesional</h3>
-              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Consultor o ingeniero independiente</p>
-              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
-                <button
-                  onClick={() => setPricingPeriod('monthly')}
-                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Mensual</button>
-                <button
-                  onClick={() => setPricingPeriod('annual')}
-                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
-              </div>
-              <div className="mb-2">
-                <div>
-                  <span className="text-4xl font-bold text-gray-900">
-                    ${pricingPeriod === 'monthly' ? '29' : '25'}
-                  </span>
-                  <span className="text-gray-500">/mes</span>
-                </div>
-                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$296/año · Ahorras $52</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
-                <div className="flex flex-col items-center gap-1">
-                  <UserMultiple size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">1</span>
-                  <span>usuario</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
-                  <Asset size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">30</span>
-                  <span>activos</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Industry size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">1</span>
-                  <span>planta</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-4 pl-0 list-none">
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Todos los módulos — proyectos ilimitados
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Reportes PDF y Excel
-                </li>
-                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  IA: hipótesis y modos de falla
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Soporte por email prioritario
-                </li>
-              </ul>
-              <div className="flex-grow" />
-              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
-                Comenzar prueba
-              </Link>
-            </div>
-
-            {/* Equipo — RECOMENDADO */}
-            <div className="bg-white border-2 border-blue-600 rounded-2xl p-6 flex flex-col relative shadow-xl shadow-blue-600/10">
-              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
-                Recomendado
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Equipo</h3>
-              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Equipo de mantenimiento o confiabilidad</p>
-              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
-                <button
-                  onClick={() => setPricingPeriod('monthly')}
-                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Mensual</button>
-                <button
-                  onClick={() => setPricingPeriod('annual')}
-                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
-              </div>
-              <div className="mb-2">
-                <div>
-                  <span className="text-4xl font-bold text-gray-900">
-                    ${pricingPeriod === 'monthly' ? '99' : '84'}
-                  </span>
-                  <span className="text-gray-500">/mes</span>
-                </div>
-                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$1,009/año · Ahorras $179</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
-                <div className="flex flex-col items-center gap-1">
-                  <UserMultiple size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">5</span>
-                  <span>usuarios</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
-                  <Asset size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">+100</span>
-                  <span>activos</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Industry size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">1</span>
-                  <span>planta</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-4 pl-0 list-none">
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Permisos y roles de equipo
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Dashboard compartido
-                </li>
-                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  IA ilimitada para todo el equipo
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Activos adicionales disponibles
-                </li>
-              </ul>
-              <div className="flex-grow" />
-              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
-                Comenzar prueba
-              </Link>
-            </div>
-
-            {/* Planta */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Planta</h3>
-              <p className="text-sm text-gray-500 mb-3 min-h-[2.5rem]">Planta mediana o grande</p>
-              <div style={{ background: '#f4f4f4', borderRadius: '6px', padding: '3px' }} className="flex mb-3">
-                <button
-                  onClick={() => setPricingPeriod('monthly')}
-                  style={pricingPeriod === 'monthly' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all ${pricingPeriod === 'monthly' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Mensual</button>
-                <button
-                  onClick={() => setPricingPeriod('annual')}
-                  style={pricingPeriod === 'annual' ? { boxShadow: '0 1px 3px rgba(0,0,0,0.1)' } : {}}
-                  className={`flex-1 py-1.5 text-xs rounded-[4px] transition-all flex items-center justify-center gap-1 ${pricingPeriod === 'annual' ? 'bg-white font-semibold text-gray-900' : 'text-[#6f6f6f]'}`}
-                >Anual <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full font-bold">-15%</span></button>
-              </div>
-              <div className="mb-2">
-                <div>
-                  <span className="text-4xl font-bold text-gray-900">
-                    ${pricingPeriod === 'monthly' ? '245' : '208'}
-                  </span>
-                  <span className="text-gray-500">/mes</span>
-                </div>
-                <span className={`block text-sm font-medium mt-1 ${pricingPeriod === 'annual' ? 'text-green-600' : 'invisible'}`}>$2,499/año · Ahorras $441</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
-                <div className="flex flex-col items-center gap-1">
-                  <UserMultiple size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">15</span>
-                  <span>usuarios</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 border-x border-gray-200">
-                  <Asset size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">+5000</span>
-                  <span>activos</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Industry size={20} className="text-gray-400" />
-                  <span className="font-semibold text-gray-900">3</span>
-                  <span>plantas</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-4 pl-0 list-none">
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Soporte prioritario 24h
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Facturación por orden de compra
-                </li>
-                <li className="flex items-start gap-2 text-sm text-blue-700 font-medium min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  IA ilimitada multi-planta
-                </li>
-                <li className="flex items-start gap-2 text-sm text-gray-700 min-h-[2.5rem]">
-                  <CheckmarkFilled size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                  Activos adicionales disponibles
-                </li>
-              </ul>
-              <div className="flex-grow" />
-              <Link href="https://app.reliaplant.com" target="_blank" rel="noopener noreferrer" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
-                Comenzar prueba
-              </Link>
-            </div>
+              );
+            })}
           </div>
+          )}
+
 
           <div className="flex flex-col items-center mt-8">
             <a href="/pricing" className="text-blue-600 font-medium hover:underline text-base mb-2">Ver comparación completa de planes <span className='inline-block align-middle'>↓</span></a>
             <p className="text-center text-sm text-gray-500 mt-2">
-              Para organizaciones con más de 15 usuarios o necesidades especiales:{" "}
+              ¿Necesitas algo a la medida?{" "}
               <a href="mailto:comercial@reliaplant.com" className="text-blue-600 font-medium hover:underline">
-                Plan Empresa — contactar a comercial@reliaplant.com
+                Contacta con ventas — comercial@reliaplant.com
               </a>
             </p>
           </div>
