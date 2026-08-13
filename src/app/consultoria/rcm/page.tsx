@@ -12,6 +12,7 @@ import {
   MdPeople,
 } from "react-icons/md";
 import FormularioContacto from "@/components/FormularioContacto";
+import Boton from "@/components/Boton";
 // Si no usas flujograma, es mejor quitar la importación o agregar un módulo .d.ts para archivos SVG
 // import flujograma from "@/assets/rcm-s.svg";
 
@@ -104,13 +105,15 @@ export default function RcmPage(): ReactElement {
               </p>
             </div>
           </div>
-          <button
-            className="bg-blue60 hover:bg-blue80 text-white px-8 py-3 flex items-center justify-center gap-2 w-full max-w-7xl transition duration-300 mt-8"
+          <Boton
+            variant="primary"
+            fullWidth
+            icon={<Headset size={20} />}
+            className="max-w-7xl mt-8"
             onClick={() => setShowModal(true)}
           >
-            <span>Hablar con un especialista</span>
-            <Headset size={20} />
-          </button>
+            Hablar con un especialista
+          </Boton>
 
           {showModal && (
             <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -148,7 +151,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[35%] top-[10%] w-[30%] h-[7%] flex items-center justify-center text-[0.7vw] shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
+              className={`absolute left-[35%] top-[10%] w-[30%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
                 activeSection === "1"
                   ? "bg-blue60 text-white scale-110"
                   : "bg-gray70 text-white"
@@ -165,7 +168,7 @@ export default function RcmPage(): ReactElement {
               }`}
             >
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[100%] transition-all duration-500 delay-0 ${
+                className={`flex items-center justify-center text-xs w-[100%] transition-all duration-500 delay-0 ${
                   activeSection === "2"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -175,7 +178,7 @@ export default function RcmPage(): ReactElement {
                 FUNCIÓN DE EQUIPOS{" "}
               </div>
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[100%] transition-all duration-500 delay-100 ${
+                className={`flex items-center justify-center text-xs w-[100%] transition-all duration-500 delay-100 ${
                   activeSection === "2"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -184,7 +187,7 @@ export default function RcmPage(): ReactElement {
                 FALLAS FUNCIONALES
               </div>
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[100%] transition-all duration-500 delay-200 ${
+                className={`flex items-center justify-center text-xs w-[100%] transition-all duration-500 delay-200 ${
                   activeSection === "2"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -193,7 +196,7 @@ export default function RcmPage(): ReactElement {
                 FRECUENCIA DE FALLA
               </div>
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[100%] transition-all duration-500 delay-300 ${
+                className={`flex items-center justify-center text-xs w-[100%] transition-all duration-500 delay-300 ${
                   activeSection === "2"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -204,7 +207,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[40%] top-[30%] w-[20%] h-[7%] flex items-center justify-center text-[0.7vw] shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
+              className={`absolute left-[40%] top-[30%] w-[20%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-blue60 text-white scale-110"
                   : "bg-gray70 text-white"
@@ -213,7 +216,7 @@ export default function RcmPage(): ReactElement {
               ¿EQUIPO CRÍTICO?
             </div>
             <div
-              className={`absolute left-[23%] top-[32%] w-[5%] h-[3.5%] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[23%] top-[32%] w-[5%] h-[3.5%] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "4"
                   ? "bg-red50 text-white scale-150"
                   : "bg-red90 text-white"
@@ -222,7 +225,7 @@ export default function RcmPage(): ReactElement {
               SI
             </div>
             <div
-              className={`absolute left-[77%] top-[32%] w-[5%] h-[3.5%] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[77%] top-[32%] w-[5%] h-[3.5%] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-green80 text-white"
                   : "bg-green80 text-white"
@@ -232,7 +235,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[64%] top-[45%] w-[10%] h-[7%] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[64%] top-[45%] w-[10%] h-[7%] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-gray70 text-white"
                   : "bg-gray70 text-white"
@@ -241,7 +244,7 @@ export default function RcmPage(): ReactElement {
               RTF
             </div>
             <div
-              className={`absolute left-[56%] top-[47%] w-[5%] h-[3.5%] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[56%] top-[47%] w-[5%] h-[3.5%] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-red90 text-white"
                   : "bg-red90 text-white"
@@ -250,7 +253,7 @@ export default function RcmPage(): ReactElement {
               SI
             </div>
             <div
-              className={`absolute left-[77%] top-[47%] w-[5%] h-[3.5%] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[77%] top-[47%] w-[5%] h-[3.5%] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-green90 text-white"
                   : "bg-green80 text-white"
@@ -260,14 +263,14 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[10%] top-[45%] w-[30%] h-[30%] p-[0.5vw] flex flex-col gap-[0.5vw] text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[10%] top-[45%] w-[30%] h-[30%] p-[0.5vw] flex flex-col gap-[0.5vw] text-xs transition-all duration-500 ${
                 activeSection === "4"
                   ? "bg-blue80 text-white scale-105"
                   : "bg-gray80 text-white"
               }`}
             >
               <div
-                className={` flex items-center justify-center text-[0.7vw] h-[100%] transition-all duration-500 ${
+                className={` flex items-center justify-center text-xs h-[100%] transition-all duration-500 ${
                   activeSection === "4"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -276,7 +279,7 @@ export default function RcmPage(): ReactElement {
                 ANÁLISIS DE MODOS DE FALLA
               </div>
               <div
-                className={` flex items-center justify-center text-[0.7vw] h-[100%] transition-all duration-500 ${
+                className={` flex items-center justify-center text-xs h-[100%] transition-all duration-500 ${
                   activeSection === "4"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -285,7 +288,7 @@ export default function RcmPage(): ReactElement {
                 IDENTIFIFICACIÓN DE TAREAS
               </div>
               <div
-                className={` flex items-center justify-center text-[0.7vw] h-[100%] transition-all duration-500 ${
+                className={` flex items-center justify-center text-xs h-[100%] transition-all duration-500 ${
                   activeSection === "4"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -303,7 +306,7 @@ export default function RcmPage(): ReactElement {
               }`}
             >
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[50%] transition-all duration-500 delay-0 ${
+                className={`flex items-center justify-center text-xs w-[50%] transition-all duration-500 delay-0 ${
                   activeSection === "5"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -313,7 +316,7 @@ export default function RcmPage(): ReactElement {
                 PM OPTIMIZADO{" "}
               </div>
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[25%] transition-all duration-500 delay-100 ${
+                className={`flex items-center justify-center text-xs w-[25%] transition-all duration-500 delay-100 ${
                   activeSection === "5"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -322,7 +325,7 @@ export default function RcmPage(): ReactElement {
                 PM GENÉRICO
               </div>
               <div
-                className={`flex items-center justify-center text-[0.7vw] w-[25%] transition-all duration-500 delay-200 ${
+                className={`flex items-center justify-center text-xs w-[25%] transition-all duration-500 delay-200 ${
                   activeSection === "5"
                     ? "bg-blue60 text-white"
                     : "bg-gray70 text-white"
@@ -333,7 +336,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[35%] top-[90%] w-[30%] h-[7%] p-[0.5vw] flex items-center justify-center text-[0.7vw] transition-all duration-500 ${
+              className={`absolute left-[35%] top-[90%] w-[30%] h-[7%] p-[0.5vw] flex items-center justify-center text-xs transition-all duration-500 ${
                 activeSection === "6"
                   ? "bg-blue60 text-white scale-110"
                   : "bg-gray70 text-white"
@@ -365,7 +368,7 @@ export default function RcmPage(): ReactElement {
               <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
                 ANÁLISIS DEL CONTEXTO OPERATIVO{" "}
               </h3>
-              <p className="text-white text-[0.9vw] text-left mb-10">
+              <p className="text-white text-sm text-left mb-10">
                 Establece la definición de los límites del sistem para evitar
                 superposición y asegurar precisión. Documenta el análisis del
                 contexto operativo de los equipos que se analizarán en ese
@@ -374,7 +377,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`bg-gray10 text-[0.6vw]  rounded-sm relative transition-opacity duration-500 ${
+              className={`bg-gray10 text-[11px]  rounded-sm relative transition-opacity duration-500 ${
                 activeSection === "1" ? "opacity-100" : "opacity-50"
               }`}
             >
@@ -386,106 +389,106 @@ export default function RcmPage(): ReactElement {
                 }}
               ></div>
               <div className="border-b  p-[0.5vw] bg-gray20">
-                <h3 className="text-[0.8vw] font-light uppercase">
+                <h3 className="text-[13px] font-light uppercase">
                   Definición del Límite del Sistema y Contexto Operacional
                 </h3>
               </div>
               <div className=" p-[1vw]">
-                <h4 className="text-[0.7vw] font-bold mb-[1vw] mt-[1vw] underline uppercase">
+                <h4 className="text-xs font-bold mb-[1vw] mt-[1vw] underline uppercase">
                   Información General
                 </h4>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Planta:</strong> Planta de
                   Polietileno
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Sistema:</strong>{" "}
                   Hipercompresor
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">ID del sistema:</strong>{" "}
                   04451-09816
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Subsistema:</strong> Sistema
                   de aceite de enfriamiento
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Fecha:</strong> 24 de febrero
                   de 2021
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Analistas:</strong> Carlos
                   Villegas, Lisset Chavez
                 </p>
 
-                <h4 className="text-[0.7vw] font-bold mb-[1vw] mt-[1vw] underline uppercase">
+                <h4 className="text-xs font-bold mb-[1vw] mt-[1vw] underline uppercase">
                   Equipo Principal Incluido
                 </h4>
 
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Bombas de tornillo de aceite de enfriamiento{" "}
                   <strong className="text-blue60">P-1202A, P-1202B</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Tanque de almacenamiento de aceite de enfriamiento{" "}
                   <strong className="text-blue60">TK-1202</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Enfriador de tubo y carcasa{" "}
                   <strong className="text-blue60">E-1202</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Filtros dúplex de membrana{" "}
                   <strong className="text-blue60">F-1202A, F-1202B</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Válvula reguladora de presión a la sapda{" "}
                   <strong className="text-blue60">PV-1204</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Termoválvula <strong className="text-blue60">TV-1202</strong>{" "}
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   Instrumentación asociada a los equipos principales
                   (Instrumentos de nivel, presión y temperatura)
                 </p>
 
-                <h4 className="text-[0.7vw] font-bold mb-[1vw] mt-[1vw] underline uppercase">
+                <h4 className="text-xs font-bold mb-[1vw] mt-[1vw] underline uppercase">
                   Límites Físicos Primarios
                 </h4>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   <strong className="text-blue60">Inicia en:</strong> Tanque de
                   almacenamiento (TK-1204) proveniente de la bomba P-1204 (no
                   incluida).
                 </p>
-                <p className="text-[0.6vw] text-left ">
+                <p className="text-[11px] text-left ">
                   <strong className="text-blue60">Finaliza en:</strong> Válvula
                   reguladora de presión a la salida (PV-1204).
                 </p>
 
-                <h4 className="text-[0.7vw] font-bold mb-[1vw] mt-[1vw] underline uppercase">
+                <h4 className="text-xs font-bold mb-[1vw] mt-[1vw] underline uppercase">
                   Premisas y Advertencias
                 </h4>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   El aire de instrumentos se considera una entrada al sistema.
                 </p>
-                <p className="text-[0.6vw] text-left mb-0">
+                <p className="text-[11px] text-left mb-0">
                   El suministro de aceite de enfriamiento se considera una
                   entrada al sistema.
                 </p>
 
-                <h4 className="text-[0.7vw] font-bold mb-[1vw] mt-[1vw] underline uppercase">
+                <h4 className="text-xs font-bold mb-[1vw] mt-[1vw] underline uppercase">
                   Descripción de la Operación
                 </h4>
-                <p className="text-[0.6vw] text-left mb-4">
+                <p className="text-[11px] text-left mb-4">
                   El propósito de este sistema es suministrar aceite limpio a
                   los empaques y las cámaras de los émbolos de ambas etapas de
                   compresión de un hipercompresor de gas, proporcionando el
                   medio de enfriamiento para retirar el calor generado por la
                   fricción.
                 </p>
-                <p className="text-[0.6vw] text-left mb-4">
+                <p className="text-[11px] text-left mb-4">
                   El aceite recibido por el tanque de almacenamiento{" "}
                   <strong className="text-blue60">TK-1220</strong> proviene del
                   aceite transferido por la bomba P-1204 y del retorno de aceite
@@ -495,7 +498,7 @@ export default function RcmPage(): ReactElement {
                   precalentar el aceite entre 40°C y 50°C antes de iniciar el
                   compresor al menos 2 horas antes de su arranque.
                 </p>
-                <p className="text-[0.6vw] text-left mb-4">
+                <p className="text-[11px] text-left mb-4">
                   El instrumento{" "}
                   <strong className="text-blue60">TSHL-0475</strong> controla el
                   encendido y apagado del calentador para mantener la
@@ -503,7 +506,7 @@ export default function RcmPage(): ReactElement {
                   excede los 70°C, se activa el interlock{" "}
                   <strong>I-1281</strong>, deteniendo el sistema.
                 </p>
-                {/* <p className="text-[0.6vw] text-left mb-4">
+                {/* <p className="text-[11px] text-left mb-4">
                   El monitoreo de nivel de aceite dentro del tanque se realiza por medio del transmisor de nivel <strong className="text-blue60">LT-1220</strong>.
                   Si cae por debajo del 30% de su capacidad, se activa una alarma por bajo nivel y el interlock <strong className="text-blue60">I-1271</strong>.
                   Si supera el 85% de su capacidad, se activa una alarma por alto nivel y el interlock <strong className="text-blue60">I-1272</strong>.
@@ -523,7 +526,7 @@ export default function RcmPage(): ReactElement {
             <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
               IDENTIFICACIÓN FUNCIONES Y EFECTOS DE FALLA SOBRE EL SISTEMA
             </h3>
-            <p className="text-white text-[0.9vw] text-left mb-10">
+            <p className="text-white text-sm text-left mb-10">
               Identifica las funciones y fallas funcionales de los equipos, así
               como evalua su impacto en el sistema en términos de consecuencias
               económicas, operacionales, de seguridad y ambientales. Este
@@ -535,136 +538,136 @@ export default function RcmPage(): ReactElement {
               <table>
                 <thead>
                   <tr>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Equipo / Componente
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Función
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Falla funcional
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Efecto sobre el proceso
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Frecuencia estimada de ocurrencia
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Consecuencias de la pérdida de la función
                     </th>
-                    <th className="text-black text-[0.7vw] text-center">
+                    <th className="text-black text-xs text-center">
                       Crítico
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-gray30">
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Bomba de aceite de enfriamiento{" "}
                       <strong className="text-blue60 bg-blue20 p-[0.2vw]  whitespace-nowrap">
                         P-1202
                       </strong>{" "}
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Bombear agua desde el tanque de almacenamiento hasta la
                       torre de enfriamiento a un caudal de 500 litros por minuto
                       y una presión de 5 bar.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       No bombea agua de enfriamiento o lo hace por debajo de los
                       estándares definidos.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Se produce paro por emergencia cuando la presión de salida
                       del sistema medida por el transmisor PIT-1202 detecta una
                       caída por debajo de 3.06 kg/cm².
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">2 veces al año</td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">2 veces al año</td>
+                    <td className="text-gray80 text-[11px]">
                       Paro por 4 horas del sistema
                     </td>
-                    <td className="text-[0.6vw] bg-red70 text-white text-center">
+                    <td className="text-[11px] bg-red70 text-white text-center">
                       Sí
                     </td>
                   </tr>
                   <tr className="bg-gray30">
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Tanque de almacenamiento de aceite y sistema de
                       precalentamiento{" "}
                       <strong className="text-blue60 bg-blue20 pb-[0.1vw] p-[0.2vw]  whitespace-nowrap">
                         (TK-1220 / HE-1220)
                       </strong>{" "}
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Almacenar aceite y precalentarlo entre 40°C y 50°C para
                       garantizar el correcto arranque del hipercompresor.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       No mantiene el nivel, la temperatura o excede los límites
                       establecidos.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Paro del sistema debido a nivel bajo o alto (interlocks
                       I-1271 / I-1272) o sobrecalentamiento del aceite
                       (interlock I-1281).
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">1 vez al año</td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">1 vez al año</td>
+                    <td className="text-gray80 text-[11px]">
                       Paro del sistema por 6 horas para inspección y corrección.
                     </td>
-                    <td className="text-gray80 text-[0.6vw] text-center">No</td>
+                    <td className="text-gray80 text-[11px] text-center">No</td>
                   </tr>
                   <tr className="bg-gray30">
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Filtros Dúplex{" "}
                       <strong className="text-blue60 bg-blue20 pb-[0.1vw] p-[0.2vw]  whitespace-nowrap">
                         F-1220-A/B{" "}
                       </strong>
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Asegurar la limpieza del aceite eliminando partículas
                       mayores a 25 μm.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       No filtra adecuadamente el aceite debido a saturación o
                       daño en los filtros.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Incremento en la presión diferencial, activación de alarma
                       (PDT-1220) y posible daño a componentes aguas abajo.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">2 veces al año</td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">2 veces al año</td>
+                    <td className="text-gray80 text-[11px]">
                       Ninguna. Se tiene redundancia pasiva.
                     </td>
-                    <td className="text-gray80 text-[0.6vw] text-center">No</td>
+                    <td className="text-gray80 text-[11px] text-center">No</td>
                   </tr>
                   <tr className="bg-gray30">
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Válvula de Control{" "}
                       <strong className="text-blue60 bg-blue20 pb-[0.1vw] p-[0.2vw]  whitespace-nowrap">
                         PCV-1220
                       </strong>
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Mantener la presión del sistema en 3.06 kg/cm².
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       No regula la presión dentro del rango establecido.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Activación de alarmas por baja o muy baja presión
                       (PIT-1221) y paro del sistema por activación del interlock
                       I-1220.
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       1 vez cada 2 años
                     </td>
-                    <td className="text-gray80 text-[0.6vw]">
+                    <td className="text-gray80 text-[11px]">
                       Paro del sistema por 4 horas para ajuste o reemplazo.
                     </td>
-                    <td className="text-[0.6vw] bg-red70 text-white text-center">
+                    <td className="text-[11px] bg-red70 text-white text-center">
                       Sí
                     </td>
                   </tr>
@@ -698,13 +701,13 @@ export default function RcmPage(): ReactElement {
               <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
                 ANÁLISIS DE CRITICIDAD
               </h3>
-              <p className="text-white text-[0.9vw] text-left mb-10">
+              <p className="text-white text-sm text-left mb-10">
                 Asigna la criticidad de cada equipo dentro del sistema para
                 priorizar aquellos a los que se les deberá realizar un análisis
                 de modos de falla y asignación de un PM optimizado.
               </p>
             </div>
-            <table className="text-[0.8vw]">
+            <table className="text-[13px]">
               <thead>
                 <tr>
                   <th rowSpan={2} className="text-center">
@@ -777,13 +780,13 @@ export default function RcmPage(): ReactElement {
             <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
               ANÁLISIS DE LOS MODOS E IDENTIFICACIÓN DE TAREAS
             </h3>
-            <p className="text-white text-[0.9vw] text-left mb-10">
+            <p className="text-white text-sm text-left mb-10">
               Registra los modos de falla probables que causan la pérdida
               parcial o total de la función del activo e identifica las tareas
               proactivas apropiadas manteniendo trazabilidad.
             </p>
             <table>
-              <thead className="text-[0.7vw]">
+              <thead className="text-xs">
                 <tr>
                   <th className="text-center">#</th>
                   <th className="text-center">Modo de Falla (Causa)</th>
@@ -794,7 +797,7 @@ export default function RcmPage(): ReactElement {
                   <th className="text-center">Tareas Propuestas</th>
                 </tr>
               </thead>
-              <tbody className="text-[0.6vw] text-gray90 bg-gray30">
+              <tbody className="text-[11px] text-gray90 bg-gray30">
                 <tr>
                   <td>1</td>
                   <td>
@@ -950,14 +953,14 @@ export default function RcmPage(): ReactElement {
             <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
               REVISIÓN DEL PLAN DE MANTENIMIENTO{" "}
             </h3>
-            <p className="text-white text-[0.9vw] text-left mb-10">
+            <p className="text-white text-sm text-left mb-10">
               Agrupa tareas por responsables, optimiza las frecuencias para la
               sincronización y agrega el detalle de cada actividad (paso a paso
               secuencial) junto con la lista de materiales, consumibles y
               herramientas requeridos.
             </p>
 
-            <table className="bg-gray30 text-[0.6vw]">
+            <table className="bg-gray30 text-[11px]">
               <thead>
                 <tr>
                   <th>#</th>
@@ -1147,14 +1150,14 @@ export default function RcmPage(): ReactElement {
             <h3 className="text-white text-left font-black uppercase text-[1.4vw] mb-4">
               GENERACIÓN DE ARCHIVOS DE CARGA AL CMMS{" "}
             </h3>
-            <p className="text-white text-[0.9vw] text-left mb-10">
+            <p className="text-white text-sm text-left mb-10">
               Exporta el archivo RCM a un formato adaptable para su
               compatibilidad con los archivos planos de carga al CMMS
               minimizando asi las horas de retrabajo y la entrega inmediata de
               nuevas versiones del PM.
             </p>
 
-            <table className="border border-gray-300 text-[0.5vw]">
+            <table className="border border-gray-300 text-[10px]">
               <thead className="">
                 <tr className="">
                   <th className="">OPERACIÓN</th>
@@ -1180,7 +1183,7 @@ export default function RcmPage(): ReactElement {
                   <td className="text-center p-[0.2vw] bg-gray30">VZ02</td>
                   <td className="text-center p-[0.2vw] bg-gray30">PM01</td>
                   <td className="bg-blue20 border-b-blue70">
-                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[0.5vw]">
+                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[10px]">
                       [2A] Verif. conexionado elec y en caja
                     </strong>
                     <ul className="list-disc pl-5 mt-1 text-gray-700">
@@ -1213,7 +1216,7 @@ export default function RcmPage(): ReactElement {
                   <td className="text-center p-[0.2vw] bg-gray30">VZ02</td>
                   <td className="text-center p-[0.2vw] bg-gray30">PM01</td>
                   <td className="bg-blue20 border-b-blue70">
-                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[0.5vw]">
+                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[10px]">
                       [2A] Verif. alineación, acople y venti
                     </strong>
                     <ul className="list-disc pl-5 mt-1 text-gray-700">
@@ -1246,7 +1249,7 @@ export default function RcmPage(): ReactElement {
                   <td className="text-center p-[0.2vw] bg-gray30">VZ02</td>
                   <td className="text-center p-[0.2vw] bg-gray30">PM01</td>
                   <td className="border border-gray-300 bg-blue20 ">
-                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[0.5vw] ">
+                    <strong className="bg-blue30 text-blue60 p-[0.2vw] text-[10px] ">
                       [4A] Insp de engra y meca y reacond
                     </strong>
                     <ul className="list-disc pl-5 mt-1 text-gray-700">

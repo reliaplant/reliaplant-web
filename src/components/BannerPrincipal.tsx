@@ -40,8 +40,8 @@ export default function BannerPrincipal({
           <div className="mt-8">
             <AbrirFormContacto
               buttonText="Habla con un especialista"
-              icon={<Headset size={20} className="text-white" />}
-              buttonColor="bg-gray-900"
+              icon={<Headset size={20} />}
+              variant="dark"
             />
           </div>
         </div>

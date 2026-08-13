@@ -316,19 +316,8 @@ export default function AnalisisRCA() {
         <h2 className="mb-8">El poder del Árbol Lógico de Fallas</h2>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
-          <div className="w-full lg:w-1/2">
-            <div className="border p-4 sm:p-8 bg-gray10">
-              <div className="flex justify-center">
-                <img
-                  src="/arbol-logico.png"
-                  alt="Diagrama de Árbol Lógico de Fallas"
-                  className="w-full sm:w-[80%] h-auto"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full lg:w-1/2">
+          {/* TODO: agregar diagrama de Árbol Lógico de Fallas cuando esté disponible */}
+          <div className="w-full">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-gray10 flex-shrink-0">

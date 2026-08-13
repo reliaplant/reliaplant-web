@@ -164,8 +164,7 @@ export default function ConsultoriaPage() {
         </div>
         <AbrirFormContacto
           buttonText="Tomar autodiagnóstico"
-          buttonColor="bg-transparent border-2 border-blue60 hover:bg-blue60"
-          textColor="text-blue60"
+          variant="outline"
           modalTitle="Autodiagnóstico de confiabilidad"
           especial="Consultoría - Autodiagnóstico"
         />
@@ -209,15 +208,13 @@ export default function ConsultoriaPage() {
               <div className="flex flex-col md:flex-row gap-4 mt-8">
                 <AbrirFormContacto
                   buttonText="Quiero implementar un modelo de confiabilidad"
-                  buttonColor="bg-blue60 hover:bg-blue80"
-                  textColor="text-white"
+                  variant="primary"
                   modalTitle="Implementar modelo de confiabilidad"
                   especial="Consultoría - Implementación"
                 />
                 <AbrirFormContacto
                   buttonText="Solicitar guía de implementación"
-                  buttonColor="bg-transparent border-2 border-blue60 hover:bg-blue20"
-                  textColor="text-blue60"
+                  variant="outline"
                   modalTitle="Solicitar guía de implementación"
                   especial="Consultoría - Guía"
                 />
@@ -291,6 +288,8 @@ export default function ConsultoriaPage() {
           ))}
         </div>
       </div>
+
+      <Industrias />
     </div>
   );
 }

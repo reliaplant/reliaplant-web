@@ -42,9 +42,9 @@ export default function RCAPage() {
         </div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
         
-        {/* Botón Volver en esquina superior derecha */}
+        {/* Botón Volver en esquina superior izquierda */}
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="absolute -top-16 right-0">
+          <div className="absolute -top-16 left-0">
             <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
               <ArrowLeft size={24} className="text-white" />
             </Link>
@@ -352,8 +352,7 @@ export default function RCAPage() {
           <div className="mt-12 flex justify-center">
             <AbrirFormContacto
               buttonText="Agenda una Demo"
-              buttonColor="bg-blue-600 hover:bg-blue-700"
-              textColor="text-white"
+              variant="primary"
               modalTitle="Agenda una Demo — RCA"
               especial="RCA - Demo"
               icon={<ArrowRight size={20} className="text-white" />}
@@ -423,8 +422,7 @@ export default function RCAPage() {
             <div className="flex flex-col items-center">
               <AbrirFormContacto
                 buttonText="Solicitar cotización de consultoría"
-                buttonColor="bg-blue-600 hover:bg-blue-700"
-                textColor="text-white"
+                variant="primary"
                 modalTitle="Consultoría RCA"
                 especial="RCA - Consultoría"
               />

@@ -265,7 +265,7 @@ export default function AsesoriaConstante() {
                 <AbrirFormContacto
                   buttonText="Solicita asesoría part-time"
                   icon={<ArrowRight size={20} className="text-white" />}
-                  buttonColor="bg-blue60"
+                  variant="primary"
                   fullDesktop={true}
                   modalTitle="Solicita asesoría part-time"
                   especial="Asesor Part-time"
@@ -301,7 +301,7 @@ export default function AsesoriaConstante() {
                 <AbrirFormContacto
                   buttonText="Solicita asesoría continua"
                   icon={<ArrowRight size={20} />}
-                  buttonColor="bg-blue60"
+                  variant="primary"
                   fullDesktop={true}
                   modalTitle="Solicita asesoría continua"
                   especial="Asesoría continua"

@@ -34,7 +34,7 @@ export default function ComoFuncionaPage() {
           />
         </div>
         {/* Scrim: fondo oscuro uniforme para garantizar CR ≥ 7:1 (WCAG AAA) */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#0f172a]/80 via-[#1a1a2e]/75 to-[#1e3a8a]/70" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-gray-900/80 via-[#1a1a2e]/75 to-blue-900/70" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
         
         <div className="max-w-7xl mx-auto relative z-[2]">
@@ -511,16 +511,14 @@ export default function ComoFuncionaPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <AbrirFormContacto
               buttonText="Solicita una demo guiada"
-              buttonColor="bg-white hover:bg-gray-100"
-              textColor="text-blue-600"
+              variant="white"
               modalTitle="Solicita una demo guiada"
               especial="Como Funciona - Demo"
               icon={<ArrowRight size={20} className="text-blue-600" />}
             />
             <AbrirFormContacto
               buttonText="Agenda un diagnóstico sin costo"
-              buttonColor="bg-transparent border border-white hover:bg-white/10"
-              textColor="text-white"
+              variant="outline-light"
               modalTitle="Diagnóstico sin costo"
               especial="Como Funciona - Diagnóstico"
             />

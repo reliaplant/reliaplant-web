@@ -4,16 +4,11 @@ import { useState, Fragment } from "react";
 import Image from "next/image";
 
 // Image imports
-import turbocompresor from "@/assets/tubocompresorSinFondo.webp";
-import fondoPlataforma from "@/assets/FondoPlataforma.webp";
+import turbocompresor from "../../public/assets/tubocompresorSinFondo.webp";
+import fondoPlataforma from "../../public/assets/FondoPlataforma.webp";
 import pegandotag from "../../public/assets/pegandotag.webp";
-import pozo from "@/assets/pozo.webp";
-import flare from "@/assets/flare.webp";
-import planta from "@/assets/planta.webp";
-import back3 from "@/assets/back3.webp";
-
-// Component imports
-import EquiposPlanta from "./equiposplanta";
+import planta from "../../public/assets/planta.webp";
+import flare from "../../public/assets/flare.webp";
 
 export default function Industrias() {
   const [activeTab, setActiveTab] = useState(0);

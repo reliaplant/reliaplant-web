@@ -232,8 +232,7 @@ export default function IndustriasPage() {
               </p>
               <AbrirFormContacto
                 buttonText="Conversemos"
-                buttonColor="bg-blue-600"
-                textColor="text-white"
+                variant="primary"
                 modalTitle="Agenda una conversación técnica"
                 especial="Industrias - Conversación técnica"
               />
@@ -328,16 +327,14 @@ export default function IndustriasPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <AbrirFormContacto
               buttonText="Solicita una demo"
-              buttonColor="bg-white"
-              textColor="text-blue-600"
+              variant="white"
               modalTitle="Solicita una demo"
               especial="Industrias - Demo"
               icon={<ArrowRight size={20} className="text-blue-600" />}
             />
             <AbrirFormContacto
               buttonText="Diagnóstico inicial"
-              buttonColor="bg-transparent border border-white"
-              textColor="text-white"
+              variant="outline-light"
               modalTitle="Diagnóstico inicial"
               especial="Industrias - Diagnóstico"
             />

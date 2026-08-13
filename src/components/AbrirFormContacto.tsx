@@ -3,29 +3,27 @@ import React, { useState, useRef, useEffect } from "react";
 import { FiX } from "react-icons/fi";
 import DemoRequestForm from "./DemoRequestForm";
 import { RequestQuote } from "@carbon/icons-react";
+import Boton, { BotonVariant, BotonSize } from "./Boton";
 
 interface AbrirFormContactoProps {
   buttonText?: string;
   icon?: React.ReactNode;
-  textColor?: string;
+  variant?: BotonVariant;
   fullDesktop?: boolean;
   modalTitle?: string;
   especial?: string; // Make it optional since we'll get it automatically
-  className?: string; // Add this line
-  size?: "sm" | "md" | "lg";
+  className?: string;
+  size?: BotonSize;
 }
 
-const AbrirFormContacto: React.FC<
-  AbrirFormContactoProps & { buttonColor?: string }
-> = ({
+const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
   buttonText = "Solicita una cotización",
-  icon = <RequestQuote size={20} className="text-white" />,
-  buttonColor = "bg-blue60",
-  textColor = "text-white",
+  icon = <RequestQuote size={20} />,
+  variant = "primary",
   fullDesktop = false,
   modalTitle = "Hablar con un especialista",
   especial,
-  className, // Add this line
+  className,
   size = "md",
 }) => {
   const [showModal, setShowModal] = useState(false);
@@ -55,29 +53,19 @@ const AbrirFormContacto: React.FC<
     };
   }, [showModal]);
 
-  // Si fullDesktop es true, se usará w-full en escritorio, de lo contrario md:w-fit.
-  const desktopClass = fullDesktop ? "w-full" : "md:w-fit";
-
   return (
     <>
       <div className={`flex flex-row z-[30] ${fullDesktop ? "w-full" : "w-full md:w-auto"}`}>
-        <div
-          className={`${desktopClass} w-full ${className || ""}`} // Add className here
+        <Boton
+          variant={variant}
+          size={size}
+          fullWidth
+          icon={icon}
+          className={className}
           onClick={() => setShowModal(true)}
         >
-          <button
-            className={`w-full ${desktopClass} ${
-              size === "lg"
-                ? "py-3.5 px-8 font-semibold text-base"
-                : "py-2.5 px-6 font-semibold text-sm"
-            } flex flex-row items-center justify-center gap-2 ${buttonColor} hover:brightness-90 transition-all rounded-lg`}
-          >
-            <span className={`font-bold whitespace-nowrap ${textColor}`}>
-              {buttonText}
-            </span>
-            {icon !== "none" && icon}
-          </button>
-        </div>
+          {buttonText}
+        </Boton>
       </div>
 
       {showModal && (

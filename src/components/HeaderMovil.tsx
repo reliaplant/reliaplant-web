@@ -1,9 +1,9 @@
 "use client";
 
-import logo from "@/assets/logoReliaplant.svg";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Boton from "./Boton";
 import { useRouter, usePathname } from "next/navigation";
 import {
   ChevronDown,
@@ -364,20 +364,19 @@ export default function HeaderMovil() {
                 <div onClick={handleLinkClick}>
                   <AbrirFormContacto
                     buttonText="Contactar ahora"
-                    buttonColor="bg-blue60 w-full text-white"
+                    variant="primary"
                   />
                 </div>
 
-                <a
+                <Boton
                   href="https://app.reliaplant.com/"
-                  className="block w-full no-underline"
+                  variant="outline"
+                  fullWidth
+                  icon={<ArrowUpRight size={16} />}
                   onClick={handleLinkClick}
                 >
-                  <button className="w-full py-3 px-4 border border-gray-300 bg-gray-50 text-gray-800 flex items-center justify-center gap-2">
-                    Ir a Software
-                    <ArrowUpRight size={16} />
-                  </button>
-                </a>
+                  Ir a Software
+                </Boton>
               </div>
             </div>
           </div>

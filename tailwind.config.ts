@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -229,26 +230,27 @@ const config: Config = {
         coolGrayHover90: "#2b3236",
         coolGrayHover100: "#222a2f",
 
-        gray10: "#f4f4f4",
-        gray20: "#e0e0e0",
-        gray30: "#c6c6c6",
-        gray40: "#a8a8a8",
-        gray50: "#8d8d8d",
-        gray60: "#6f6f6f",
-        gray70: "#525252",
-        gray80: "#393939",
-        gray90: "#262626",
-        gray100: "#161616",
-        grayHover10: "#e8e8e8",
-        grayHover20: "#d1d1d1",
-        grayHover30: "#b5b5b5",
-        grayHover40: "#999999",
-        grayHover50: "#7a7a7a",
-        grayHover60: "#5e5e5e",
-        grayHover70: "#636363",
-        grayHover80: "#474747",
-        grayHover90: "#333333",
-        grayHover100: "#292929",
+        // Gray scale aligned with Tailwind standard (gray-50 → gray-950)
+        gray10: "#f9fafb",   // Tailwind gray-50
+        gray20: "#f3f4f6",   // Tailwind gray-100
+        gray30: "#e5e7eb",   // Tailwind gray-200
+        gray40: "#d1d5db",   // Tailwind gray-300
+        gray50: "#9ca3af",   // Tailwind gray-400
+        gray60: "#4b5563",   // Tailwind gray-600
+        gray70: "#374151",   // Tailwind gray-700
+        gray80: "#1f2937",   // Tailwind gray-800
+        gray90: "#111827",   // Tailwind gray-900
+        gray100: "#030712",  // Tailwind gray-950
+        grayHover10: "#f3f4f6",
+        grayHover20: "#e5e7eb",
+        grayHover30: "#d1d5db",
+        grayHover40: "#9ca3af",
+        grayHover50: "#6b7280",
+        grayHover60: "#374151",
+        grayHover70: "#1f2937",
+        grayHover80: "#111827",
+        grayHover90: "#111827",
+        grayHover100: "#030712",
 
         warmGray10: "#f7f3f2",
         warmGray20: "#e5e0df",

@@ -4,6 +4,7 @@ import { RequestQuote } from "@carbon/icons-react";
 import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import FormularioContacto from "./FormularioContacto";
+import Boton from "./Boton";
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
@@ -26,25 +27,16 @@ export default function Footer() {
             <p className="text-gray-500 text-xs mt-1">Confiabilidad industrial y gestión de activos</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="https://app.reliaplant.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-center rounded-lg font-medium text-sm transition-all shadow-lg shadow-blue-600/20"
-            >
+            <Boton href="https://app.reliaplant.com/" variant="primary">
               Ir al software &rarr;
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setShowModal(true);
-              }}
-              className="inline-block px-5 py-2.5 border border-gray-700 hover:border-gray-500 hover:bg-gray-900 text-gray-300 hover:text-white text-center rounded-lg font-medium text-sm transition-all"
+            </Boton>
+            <Boton
+              variant="outline-light"
+              icon={<RequestQuote size={16} />}
+              onClick={() => setShowModal(true)}
             >
-              Solicita una demo{" "}
-              <RequestQuote size={16} className="inline ml-1" />
-            </a>
+              Solicita una demo
+            </Boton>
           </div>
         </div>
 
@@ -153,6 +145,11 @@ export default function Footer() {
               <li>
                 <Link className={styles.link} href="/legal/privacidad">
                   Política de privacidad
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/legal/cookies">
+                  Política de cookies
                 </Link>
               </li>
             </ul>

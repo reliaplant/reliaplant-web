@@ -3,6 +3,7 @@ import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { FormContactData, saveFormContact } from "@/lib/firebase/form_contact";
+import Boton from "./Boton";
 
 interface FormularioContactoProps {
   type?: string;
@@ -14,9 +15,7 @@ interface FormularioContactoProps {
   responsable?: string;
   origen?: string;
   lugar?: string;
-  colorClass?: string;
   mailchimpTagIn?: string;
-  btnTextColorClass?: string;
   btnText?: string;
   especial?: string;
   direccion?: string;
@@ -29,8 +28,6 @@ export default function FormularioContacto({
   interes = "",
   origen = "",
   lugar = "footer",
-  colorClass = "bg-blue60 hover:bg-blue80",
-  btnTextColorClass = "text-white ",
   btnText = "Solicitar información",
   especial = "",
   direccion = "",
@@ -241,12 +238,9 @@ export default function FormularioContacto({
           </div>
 
           {/* Botón de enviar */}
-          <button
-            type="submit"
-            className={`w-full ${btnTextColorClass} font-semibold p-3 mt-2 rounded-lg ${colorClass} transition-all hover:shadow-md`}
-          >
+          <Boton type="submit" variant="primary" fullWidth className="mt-2">
             {btnText}
-          </button>
+          </Boton>
 
           {/* Política de privacidad */}
           <p className="text-center text-[10px] text-gray-500 mt-4 mb-0">

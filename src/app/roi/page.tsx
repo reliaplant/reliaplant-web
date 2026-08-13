@@ -13,6 +13,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import ROICalculator from "@/components/ROICalculator";
+import Boton from "@/components/Boton";
 
 export const metadata = {
   title: "ROI de la Confiabilidad Industrial | Reliaplant",
@@ -316,14 +317,14 @@ export default function ROIPage() {
                     <span>Sin tecnicismos innecesarios</span>
                   </li>
                 </ul>
-                <a 
-                  href="/docs/roi-confiabilidad-reliaplant.pdf" 
+                <Boton
+                  href="/docs/roi-confiabilidad-reliaplant.pdf"
                   download
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold inline-flex items-center gap-2 transition-all"
+                  variant="primary"
+                  icon={<Download size={20} />}
                 >
                   Descargar resumen ejecutivo
-                  <Download size={20} />
-                </a>
+                </Boton>
               </div>
               <div className="w-48 h-60 border border-white/20 overflow-hidden relative">
                 <Image
@@ -358,16 +359,14 @@ export default function ROIPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <AbrirFormContacto
               buttonText="Solicita un diagnóstico"
-              buttonColor="bg-blue-600 hover:bg-blue-700"
-              textColor="text-white"
+              variant="primary"
               modalTitle="Solicita un diagnóstico"
               especial="ROI - Diagnóstico"
               icon={<ArrowRight size={20} className="text-white" />}
             />
             <AbrirFormContacto
               buttonText="Agenda una demo"
-              buttonColor="bg-transparent border border-white"
-              textColor="text-white"
+              variant="outline-light"
               modalTitle="Agenda una demo"
               especial="ROI - Demo"
             />

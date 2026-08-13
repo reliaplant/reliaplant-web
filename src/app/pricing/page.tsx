@@ -191,14 +191,13 @@ export default async function PricingCompare() {
               <table className="w-full border-collapse text-sm bg-white">
                 <thead>
                   <tr>
-                    <th className="uppercase tracking-wider text-[11px] font-semibold py-3 px-2 text-left rounded-tl-xl sticky top-0 z-30" style={{ background: "#f4f4f4", color: "#374151" }}>
+                    <th className="uppercase tracking-wider text-[11px] font-semibold py-3 px-2 text-left rounded-tl-xl sticky top-0 z-30 bg-gray-100 text-gray-700">
                       Funcionalidad
                     </th>
                     {plans.map((p, i) => (
                       <th
                         key={p.id}
-                        className={`uppercase tracking-wider text-[11px] font-bold py-3 px-2 text-center sticky top-0 z-30 ${i === plans.length - 1 ? "rounded-tr-xl" : ""}`}
-                        style={{ background: "#f4f4f4", color: "#374151" }}
+                        className={`uppercase tracking-wider text-[11px] font-bold py-3 px-2 text-center sticky top-0 z-30 bg-gray-100 text-gray-700 ${i === plans.length - 1 ? "rounded-tr-xl" : ""}`}
                       >
                         {p.name}
                       </th>
@@ -206,90 +205,90 @@ export default async function PricingCompare() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Límites de cuenta</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Usuarios{plans.some((p) => p.features.pricedPerPlant) ? " (por planta en Multiplanta)" : ""}</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{fmtNum(p.limits.maxUsers)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Activos registrados</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{fmtNum(p.limits.maxActivos)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Plantas</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{fmtPlants(p.limits.maxPlants)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Almacenamiento de archivos adjuntos</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{p.limits.maxStorage} GB</td>)}
                   </tr>
 
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Módulos</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Taxonomía de activos</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.tax)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">RCA — Análisis de Causa Raíz</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{p.limits.maxRCA < 0 ? <span className="text-green-600 font-bold">✓ Ilimitado</span> : `Hasta ${p.limits.maxRCA} proyectos`}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">RCM — Mantenimiento Centrado en Confiabilidad</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{p.limits.maxRCM < 0 ? <span className="text-green-600 font-bold">✓ Ilimitado</span> : `Hasta ${p.limits.maxRCM} planes`}</td>)}
                   </tr>
 
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Asistente de inteligencia artificial</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Asistente IA</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.ai)}</td>)}
                   </tr>
 
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Colaboración y gestión</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Colaboración multiusuario</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.collaboration)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Permisos y roles configurables</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.roles)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Dashboard</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{p.features.dashboard === "full" ? <span className="text-green-600 font-bold">✓ Completo</span> : "Básico"}</td>)}
                   </tr>
 
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Reportes y exportación</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Exportar reportes (PDF, Excel)</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.export)}</td>)}
                   </tr>
 
-                  <tr className="bg-[#e0f2fe]">
+                  <tr className="bg-sky-100">
                     <td colSpan={plans.length + 1} className="uppercase tracking-widest text-[11px] font-bold text-sky-700 py-2 px-2">Infraestructura y soporte</td>
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Multi-planta</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.multiPlant)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Soporte prioritario</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.prioritySupport)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Facturación por orden de compra</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.purchaseOrders)}</td>)}
                   </tr>
-                  <tr className="hover:bg-[#f9f9f9]">
+                  <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Bloques de activos adicionales</td>
                     {plans.map((p) => <td key={p.id} className="text-center">{check(p.features.assetBlocks)}</td>)}
                   </tr>

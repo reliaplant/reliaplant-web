@@ -234,8 +234,7 @@ export default function AboutPage() {
           </p>
           <AbrirFormContacto
             buttonText="Agenda una conversación"
-            buttonColor="bg-white hover:bg-blue-50"
-            textColor="text-blue-700"
+            variant="white"
             modalTitle="Agenda una conversación"
             especial="About - Conversación"
             icon={<ArrowRight size={20} className="text-blue-700" />}
