@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { Headset } from "@carbon/icons-react";
+import { processContentHeadings, styleCallouts, estimateReadingTime } from "@/lib/utils/blogContent";
+import BlogToc from "./BlogToc";
 
 interface BlogPostContentProps {
   post: BlogPost;
@@ -23,10 +25,14 @@ function formatDate(dateString: string): string {
 }
 
 export default function BlogPostContent({ post, contributor }: BlogPostContentProps) {
+  const { html: htmlWithIds, toc } = processContentHeadings(post.content);
+  const processedContent = styleCallouts(htmlWithIds);
+  const readingTime = estimateReadingTime(post.content);
 
   return (
     <div className="bg-gray-100 min-h-screen py-10 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto flex gap-10 xl:gap-14 justify-center">
+      <div className="w-full max-w-4xl">
 
         {/* Back link */}
         <Link
@@ -107,14 +113,16 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
               )}
               <div>
                 <p className="font-semibold text-gray-900 text-sm">{post.author}</p>
-                <p className="text-gray-400 text-xs">{formatDate(post.publishDate)}</p>
+                <p className="text-gray-400 text-xs">
+                  {formatDate(post.publishDate)} · {readingTime} min de lectura
+                </p>
               </div>
             </div>
 
             {/* Content */}
             <div
               className="prose prose-lg prose-gray max-w-none tiptap-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: processedContent }}
             />
 
             {/* Author bio */}
@@ -155,7 +163,7 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
             <AbrirFormContacto
               buttonText="Habla con un especialista"
               icon={<Headset size={20} className="text-white" />}
-              buttonColor="bg-blue60"
+              variant="primary"
               especial={`Blog post: ${post.title}`}
             />
           </div>
@@ -168,6 +176,9 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
           </Link>
         </div>
 
+      </div>
+
+      <BlogToc toc={toc} />
       </div>
     </div>
   );

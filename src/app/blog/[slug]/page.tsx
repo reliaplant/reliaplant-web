@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllBlogPosts } from "@/lib/firebase/blog/blog";
+import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
 import { getContributor } from "@/lib/firebase/blog/contributor";
 import BlogPostContent from "./components/BlogPostContent";
 
@@ -15,10 +15,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   try {
     const { slug } = await params;
-    const posts = await getAllBlogPosts();
-    const post = posts.find(
-      (p) => p.published && (p.slug === slug || p.id === slug)
-    );
+    const posts = await getPublishedBlogPosts();
+    const post = posts.find((p) => p.slug === slug || p.id === slug);
 
     if (!post) {
       return {
@@ -73,16 +71,24 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const posts = await getAllBlogPosts();
-  const post = posts.find(
-    (p) => p.published && (p.slug === slug || p.id === slug)
-  );
+  const posts = await getPublishedBlogPosts();
+  const post = posts.find((p) => p.slug === slug || p.id === slug);
 
   if (!post) notFound();
 
   const contributor = post.contributorId
     ? await getContributor(post.contributorId).catch(() => null)
     : null;
+
+  const relatedPosts = posts
+    .filter((p) => p.id !== post.id)
+    .sort((a, b) => {
+      const aShared = a.tags?.some((t) => post.tags?.includes(t)) ? 1 : 0;
+      const bShared = b.tags?.some((t) => post.tags?.includes(t)) ? 1 : 0;
+      if (aShared !== bShared) return bShared - aShared;
+      return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+    })
+    .slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -114,7 +120,7 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogPostContent post={post} contributor={contributor} />
+      <BlogPostContent post={post} contributor={contributor} relatedPosts={relatedPosts} />
     </>
   );
 }
