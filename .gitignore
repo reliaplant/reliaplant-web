@@ -57,3 +57,6 @@ next-env.d.ts
 
 # vscode
 /.vscode
+
+# Claude Code local tooling config
+/.claude
