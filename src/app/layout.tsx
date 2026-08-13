@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "@/styles/globals.css";
 import SiteChrome from "@/components/SiteChrome";
@@ -6,11 +6,18 @@ import InitialUrlTracker from "@/components/InitialUrlTracker";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
-import { IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Sans, Zen_Dots } from "next/font/google";
 
 const IbmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
+
+const ZenDots = Zen_Dots({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-zen-dots",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -66,6 +73,10 @@ export const metadata: Metadata = {
   // verification: {
   //   google: "REEMPLAZAR-CON-CODIGO-REAL",
   // },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
 };
 
 // JSON-LD Structured Data
@@ -140,7 +151,7 @@ export default async function RootLayout({
           </Script>
         )}
       </head>
-      <body className={`${IbmPlexSans.className} antialiased text-gray-700`}>
+      <body className={`${IbmPlexSans.className} ${ZenDots.variable} antialiased text-gray-700 bg-white`}>
         {GTM_ID && (
           <noscript>
             <iframe

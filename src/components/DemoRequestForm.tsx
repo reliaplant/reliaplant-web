@@ -33,7 +33,7 @@ interface DemoRequestFormProps {
   especial?: string;
 }
 
-export default function DemoRequestForm({ bgColor = '#001d6c', especial = 'Demo Request' }: DemoRequestFormProps) {
+export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo Request' }: DemoRequestFormProps) {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
