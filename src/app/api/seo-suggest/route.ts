@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "openai";
+import Anthropic from "@anthropic-ai/sdk";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 export async function POST(req: NextRequest) {
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return NextResponse.json(
-      { error: "OPENAI_API_KEY no está configurada en el servidor." },
+      { error: "ANTHROPIC_API_KEY no está configurada en el servidor." },
       { status: 500 }
     );
   }
@@ -91,17 +91,17 @@ Responde SOLO con las 5 frases separadas por comas, sin numeración ni explicaci
   }
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
+    const message = await anthropic.messages.create({
+      model: "claude-sonnet-5",
       max_tokens: 200,
+      messages: [{ role: "user", content: prompt }],
     });
 
-    const suggestion = completion.choices[0]?.message?.content?.trim() || "";
+    const textBlock = message.content.find((block) => block.type === "text");
+    const suggestion = textBlock && textBlock.type === "text" ? textBlock.text.trim() : "";
     return NextResponse.json({ suggestion });
   } catch (error: any) {
-    console.error("OpenAI error:", error);
+    console.error("Anthropic error (seo-suggest):", error);
     return NextResponse.json(
       { error: error?.message || "Error al generar la sugerencia." },
       { status: 500 }

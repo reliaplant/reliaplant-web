@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "openai";
+import Anthropic from "@anthropic-ai/sdk";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 function slugify(title: string): string {
@@ -18,9 +18,9 @@ function slugify(title: string): string {
 }
 
 export async function POST(req: NextRequest) {
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     return NextResponse.json(
-      { error: "OPENAI_API_KEY no está configurada en el servidor." },
+      { error: "ANTHROPIC_API_KEY no está configurada en el servidor." },
       { status: 500 }
     );
   }
@@ -34,9 +34,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const prompt = `Eres un ingeniero de confiabilidad senior que escribe artículos técnicos para el blog de Reliaplant, una plataforma B2B de confiabilidad industrial para Latinoamérica (oil & gas, energía, manufactura, minería). La audiencia son ingenieros de confiabilidad y gerentes de mantenimiento. Tono profesional y técnico, no promocional.
-
-Escribe un artículo completo en español sobre: "${topic}"
+  const prompt = `Escribe un artículo completo en español sobre: "${topic}"
 ${keyword ? `Palabra clave objetivo para SEO: "${keyword}"` : ""}
 ${notes ? `Notas adicionales del editor: "${notes}"` : ""}
 
@@ -52,15 +50,16 @@ Responde ÚNICAMENTE con un objeto JSON válido (sin markdown, sin \`\`\`), con 
 }`;
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+    const message = await anthropic.messages.create({
+      model: "claude-sonnet-5",
+      max_tokens: 4096,
+      system:
+        "Eres un ingeniero de confiabilidad senior que escribe artículos técnicos para el blog de Reliaplant, una plataforma B2B de confiabilidad industrial para Latinoamérica (oil & gas, energía, manufactura, minería). La audiencia son ingenieros de confiabilidad y gerentes de mantenimiento. Tono profesional y técnico, no promocional. Respondes ÚNICAMENTE con JSON válido, sin texto antes ni después.",
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      max_tokens: 3000,
-      response_format: { type: "json_object" },
     });
 
-    const raw = completion.choices[0]?.message?.content?.trim() || "{}";
+    const textBlock = message.content.find((block) => block.type === "text");
+    const raw = textBlock && textBlock.type === "text" ? textBlock.text.trim() : "{}";
     const parsed = JSON.parse(raw);
 
     if (!parsed.title || !parsed.contentHtml) {
@@ -78,7 +77,7 @@ Responde ÚNICAMENTE con un objeto JSON válido (sin markdown, sin \`\`\`), con 
       keyPhrases: Array.isArray(parsed.keyPhrases) ? parsed.keyPhrases : [],
     });
   } catch (error: any) {
-    console.error("OpenAI error (generate-post):", error);
+    console.error("Anthropic error (generate-post):", error);
     return NextResponse.json(
       { error: error?.message || "Error al generar el artículo." },
       { status: 500 }
