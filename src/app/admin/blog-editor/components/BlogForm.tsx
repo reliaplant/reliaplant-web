@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import imageCompression from "browser-image-compression";
 import { uploadBlogImage } from "@/lib/firebase/blog/blog";
 import { getAllContributors } from "@/lib/firebase/blog/contributor";
+import { generateSlug } from "@/lib/utils/slug";
 import ClientSideRichEditor from "./ClientSideRichEditor";
 
 interface BlogFormProps {
@@ -15,6 +16,8 @@ interface BlogFormProps {
   isEditing: boolean;
   activeTab: "basic" | "seo";
   setActiveTab: React.Dispatch<React.SetStateAction<"basic" | "seo">>;
+  pendingImageFile: File | null;
+  setPendingImageFile: React.Dispatch<React.SetStateAction<File | null>>;
 }
 
 export default function BlogForm({
@@ -24,6 +27,8 @@ export default function BlogForm({
   isEditing,
   activeTab,
   setActiveTab,
+  pendingImageFile,
+  setPendingImageFile,
 }: BlogFormProps) {
   const [newTag, setNewTag] = useState("");
   const [newKeyPhrase, setNewKeyPhrase] = useState("");
@@ -31,8 +36,6 @@ export default function BlogForm({
   const [contributors, setContributors] = useState<BlogContributor[]>([]);
   const [loadingContributors, setLoadingContributors] = useState(true);
   const [loadingAI, setLoadingAI] = useState<string | null>(null);
-  // Store pending image file for new posts (no id yet)
-  const [pendingImageFile, setPendingImageFile] = useState<File | null>(null);
 
   // Generación de borrador completo con IA
   const [aiTopic, setAiTopic] = useState("");
@@ -118,8 +121,7 @@ export default function BlogForm({
       setBlogPost((prev) => ({ ...prev, [name]: value }));
     }
     if (name === "title" && !blogPost.slug) {
-      const slug = value.toLowerCase().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-");
-      setBlogPost((prev) => ({ ...prev, slug }));
+      setBlogPost((prev) => ({ ...prev, slug: generateSlug(value) }));
     }
   };
 
@@ -168,17 +170,9 @@ export default function BlogForm({
   const handleSubmit = async (e: React.FormEvent, saveAsDraft = false) => {
     e.preventDefault();
     if (!blogPost.title.trim()) { toast.error("El título es obligatorio"); return; }
+    setSubmitting(true);
     try {
-      setSubmitting(true);
       await onSave(saveAsDraft);
-      // After save, if there's a pending image and the post now has an id, upload it
-      if (pendingImageFile && blogPost.id) {
-        const remoteUrl = await uploadBlogImage(pendingImageFile, blogPost.id);
-        setBlogPost((prev) => ({ ...prev, coverImage: remoteUrl }));
-        setPendingImageFile(null);
-      }
-    } catch (err) {
-      console.error(err);
     } finally {
       setSubmitting(false);
     }

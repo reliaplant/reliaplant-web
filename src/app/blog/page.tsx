@@ -91,9 +91,10 @@ export default async function BlogPage({ params }: any) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => {
+            {posts.map((post, index) => {
               const contributor = contributorsMap[post.author];
               const postSlug = post.slug || post.id;
+              const aboveTheFold = index < 3;
 
               return (
                 <Link
@@ -107,7 +108,8 @@ export default async function BlogPage({ params }: any) {
                         src={post.coverImage}
                         alt={post.title}
                         fill
-                        priority
+                        priority={aboveTheFold}
+                        loading={aboveTheFold ? undefined : "lazy"}
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
@@ -130,7 +132,7 @@ export default async function BlogPage({ params }: any) {
                           alt={contributor.name}
                           width={32}
                           height={32}
-                          loading="eager"
+                          loading="lazy"
                           className="rounded-full mr-2 object-cover w-8 h-8"
                         />
                       ) : (

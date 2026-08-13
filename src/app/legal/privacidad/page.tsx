@@ -404,13 +404,20 @@ export default function PoliticaPrivacidadPage() {
                     desactivar.
                   </li>
                   <li>
-                    <strong>Cookies de análisis:</strong> nos ayudan a comprender cómo se usa la
-                    Plataforma para mejorar la experiencia. Se activan solo con su consentimiento.
+                    <strong>Cookies de análisis:</strong> Google Analytics (GA4), gestionado vía
+                    Google Tag Manager, para entender el uso del sitio y mejorar la experiencia.
+                  </li>
+                  <li>
+                    <strong>Cookies de publicidad/conversión:</strong> cuando ejecutemos campañas
+                    de Google Ads, para medir su efectividad.
                   </li>
                 </ul>
                 <p>
-                  No utilizamos cookies con fines publicitarios ni de seguimiento entre sitios.
-                  Puede gestionar las preferencias de cookies desde la configuración de su navegador.
+                  Para el detalle completo de cookies utilizadas, sus proveedores y cómo
+                  gestionarlas, consulte nuestra{" "}
+                  <Link href="/legal/cookies" className="text-blue-600 hover:underline font-medium">
+                    Política de Cookies
+                  </Link>.
                 </p>
               </div>
             </section>

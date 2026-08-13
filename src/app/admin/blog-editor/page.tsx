@@ -9,7 +9,9 @@ import {
   getBlogPost,
   createBlogPost,
   updateBlogPost,
+  uploadBlogImage,
 } from "@/lib/firebase/blog/blog";
+import { generateSlug } from "@/lib/utils/slug";
 import { toast, Toaster } from "react-hot-toast";
 
 export default function BlogEditorPage() {
@@ -30,6 +32,7 @@ function BlogEditorContent() {
   const [loading, setLoading] = useState(isEditing);
   const [activeTab, setActiveTab] = useState<"basic" | "seo">("basic");
   const [previewExpanded, setPreviewExpanded] = useState(false);
+  const [pendingImageFile, setPendingImageFile] = useState<File | null>(null);
 
   const [blogPost, setBlogPost] = useState<BlogPost>({
     title: "",
@@ -74,18 +77,32 @@ function BlogEditorContent() {
     const postToSave = {
       ...blogPost,
       published: saveAsDraft ? false : blogPost.published,
-      slug: blogPost.slug || blogPost.title.toLowerCase().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-"),
+      slug: blogPost.slug || generateSlug(blogPost.title),
     };
 
-    if (isEditing && postId) {
-      await updateBlogPost(postId, postToSave);
-      toast.success("Entrada actualizada correctamente");
-    } else {
-      await createBlogPost(postToSave);
-      toast.success("Entrada creada correctamente");
-    }
+    try {
+      let savedId = postId;
 
-    router.push("/admin/blog-manager");
+      if (isEditing && postId) {
+        await updateBlogPost(postId, postToSave);
+      } else {
+        savedId = await createBlogPost(postToSave);
+      }
+
+      // If a cover image was picked before the post had an id, upload it now
+      // that we have a real Firestore id, then persist the real URL.
+      if (pendingImageFile && savedId) {
+        const remoteUrl = await uploadBlogImage(pendingImageFile, savedId);
+        await updateBlogPost(savedId, { coverImage: remoteUrl });
+        setPendingImageFile(null);
+      }
+
+      toast.success(isEditing ? "Entrada actualizada correctamente" : "Entrada creada correctamente");
+      router.push("/admin/blog-manager");
+    } catch (error) {
+      console.error("Error saving blog post:", error);
+      toast.error("Error al guardar la entrada — inténtalo de nuevo");
+    }
   };
 
   if (loading) {
@@ -120,6 +137,8 @@ function BlogEditorContent() {
             isEditing={isEditing}
             activeTab={activeTab}
             setActiveTab={setActiveTab}
+            pendingImageFile={pendingImageFile}
+            setPendingImageFile={setPendingImageFile}
           />
         </div>
 
