@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, FormEvent, ChangeEvent } from 'react';
-import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { ChevronDown, ArrowRight, CheckmarkFilled } from '@carbon/icons-react';
+import Boton from './Boton';
 import { FormContactData, saveFormContact } from '@/lib/firebase/form_contact';
-
-const ASSET_RANGES = ['Menos de 25', '25–49', '50–99', '100–249', '250+', 'N/A'] as const;
 
 const SOLUTIONS = [
   'Análisis de Causa Raíz (RCA)',
@@ -17,28 +16,14 @@ const SOLUTIONS = [
   'Otro',
 ];
 
-const SECTORS = [
-  'Oil & Gas',
-  'Energía y Utilities',
-  'Manufactura continua',
-  'Minería y procesamiento',
-  'Petroquímica',
-  'Alimentos y bebidas',
-  'Papel y celulosa',
-  'Química industrial',
-  'Otro',
-];
-
-export default function DemoRequestSection({ bgColor = '#001d6c' }: { bgColor?: string }) {
+export default function DemoRequestSection() {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
     telefono: '',
     pais: '',
-    cargo: '',
-    sector: '',
+    empresa: '',
     solucion: '',
-    activos: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,13 +45,13 @@ export default function DemoRequestSection({ bgColor = '#001d6c' }: { bgColor?: 
         email: formData.email,
         telefono: formData.telefono,
         interes: formData.solucion,
-        cargo: formData.cargo,
-        empresa: formData.sector,
+        cargo: '',
+        empresa: formData.empresa,
         pais: formData.pais,
         date: new Date(),
         isMobile: window.innerWidth <= 768,
         origen: 'website',
-        especial: `Demo Request | Activos: ${formData.activos}`,
+        especial: 'Demo Request',
         type: 'demo',
       };
       await saveFormContact(payload);
@@ -79,24 +64,25 @@ export default function DemoRequestSection({ bgColor = '#001d6c' }: { bgColor?: 
   };
 
   const inputBase =
-    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none rounded px-4 py-3 text-white text-sm placeholder:text-white/50 transition-colors';
-  const selectBase =
-    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none rounded px-4 py-3 text-white text-sm transition-colors appearance-none cursor-pointer';
+    'w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 text-sm placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none transition-colors';
+  const selectBase = `${inputBase} appearance-none cursor-pointer pr-10`;
 
   return (
-    <section className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* LEFT — Form */}
-        <div
-          className="flex flex-col justify-center px-8 py-12 md:px-12 md:py-16"
-          style={{ background: bgColor, fontFamily: "'IBM Plex Sans', sans-serif" }}
-        >
+    <section className="w-full md:w-1/2 md:mx-auto overflow-hidden border border-gray-300 bg-white">
+      <div className="px-8 py-12 md:px-12 md:py-14">
           {!isSubmitted ? (
             <>
-              <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug mb-8">
-                Para los ingenieros que <br className="hidden md:block" />
-                mantienen todo en pie.
+              <span className="block text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+                Solicita una demostración
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-3">
+                Para los ingenieros que{' '}
+                <span className="text-blue-600">mantienen todo en pie.</span>
               </h2>
+              <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-8">
+                Te mostramos cómo Reliaplant se adapta a tu operación — RCA, RCM y registro de
+                activos en un solo lugar.
+              </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 {/* Nombre */}
@@ -121,165 +107,115 @@ export default function DemoRequestSection({ bgColor = '#001d6c' }: { bgColor?: 
                   className={inputBase}
                 />
 
-                {/* Phone + Cargo row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="demo-phone-input">
-                    <PhoneInput
-                      country="mx"
-                      value={formData.telefono}
-                      onChange={handlePhoneChange}
-                      inputStyle={{
-                        width: '100%',
-                        background: 'transparent',
-                        border: '1px solid rgba(255,255,255,0.3)',
-                        borderRadius: 4,
-                        color: '#fff',
-                        fontSize: 14,
-                        height: 46,
-                        paddingLeft: 48,
-                      }}
-                      buttonStyle={{
-                        background: 'transparent',
-                        border: '1px solid rgba(255,255,255,0.3)',
-                        borderRight: 'none',
-                        borderRadius: '4px 0 0 4px',
-                      }}
-                      dropdownStyle={{
-                        background: '#1a1a2e',
-                        color: '#fff',
-                      }}
-                    />
-                  </div>
-
-                  <select
-                    name="cargo"
-                    value={formData.cargo}
-                    onChange={handleChange}
-                    className={selectBase}
-                    style={{ color: formData.cargo ? '#fff' : 'rgba(255,255,255,0.5)' }}
-                  >
-                    <option value="" disabled hidden>
-                      Cargo
-                    </option>
-                    <option value="Ingeniero de Confiabilidad">Ingeniero de Confiabilidad</option>
-                    <option value="Jefe de Mantenimiento">Jefe de Mantenimiento</option>
-                    <option value="Gerente de Operaciones">Gerente de Operaciones</option>
-                    <option value="Superintendente">Superintendente</option>
-                    <option value="Director">Director</option>
-                    <option value="Consultor">Consultor</option>
-                    <option value="Otro">Otro</option>
-                  </select>
+                {/* Teléfono */}
+                <div className="demo-phone-input">
+                  <PhoneInput
+                    country="mx"
+                    value={formData.telefono}
+                    onChange={handlePhoneChange}
+                    inputStyle={{
+                      width: '100%',
+                      background: '#fff',
+                      border: '1px solid #d1d5db',
+                      borderRadius: 0,
+                      color: '#111827',
+                      fontSize: 14,
+                      height: 46,
+                      paddingLeft: 48,
+                    }}
+                    buttonStyle={{
+                      background: '#fff',
+                      border: '1px solid #d1d5db',
+                      borderRight: 'none',
+                      borderRadius: 0,
+                    }}
+                    dropdownStyle={{
+                      background: '#fff',
+                      color: '#111827',
+                    }}
+                  />
                 </div>
 
-                {/* Sector */}
-                <select
-                  name="sector"
-                  value={formData.sector}
+                {/* Empresa */}
+                <input
+                  type="text"
+                  name="empresa"
+                  placeholder="Empresa"
+                  required
+                  value={formData.empresa}
                   onChange={handleChange}
-                  className={selectBase}
-                  style={{ color: formData.sector ? '#fff' : 'rgba(255,255,255,0.5)' }}
-                >
-                  <option value="" disabled hidden>
-                    Sector
-                  </option>
-                  {SECTORS.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
+                  className={inputBase}
+                />
 
-                {/* Solución */}
-                <select
-                  name="solucion"
-                  value={formData.solucion}
-                  onChange={handleChange}
-                  className={selectBase}
-                  style={{ color: formData.solucion ? '#fff' : 'rgba(255,255,255,0.5)' }}
-                >
-                  <option value="" disabled hidden>
-                    Seleccione la solución de mayor interés
-                  </option>
-                  {SOLUTIONS.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
+                {/* Intereses */}
+                <div className="relative">
+                  <select
+                    name="solucion"
+                    value={formData.solucion}
+                    onChange={handleChange}
+                    required
+                    className={selectBase}
+                    style={{ color: formData.solucion ? '#111827' : '#9ca3af' }}
+                  >
+                    <option value="" disabled hidden>
+                      ¿Qué te interesa?
                     </option>
-                  ))}
-                </select>
-
-                {/* Activos button group */}
-                <div>
-                  <p className="text-white/70 text-xs mb-2 font-medium tracking-wide">
-                    ¿Cuántos activos operan en tu planta?
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {ASSET_RANGES.map((range) => (
-                      <button
-                        key={range}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, activos: range })}
-                        className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${
-                          formData.activos === range
-                            ? 'bg-white text-blue70 border-white'
-                            : 'bg-transparent text-white/80 border-white/30 hover:border-white/60'
-                        }`}
-                      >
-                        {range}
-                      </button>
+                    {SOLUTIONS.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
                     ))}
-                  </div>
+                  </select>
+                  <ChevronDown
+                    size={18}
+                    className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
                 </div>
 
                 {/* Submit */}
-                <button
+                <Boton
                   type="submit"
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   disabled={isSubmitting}
-                  className="w-full bg-green40 hover:bg-green50 text-white font-semibold py-3.5 rounded transition-colors mt-2 disabled:opacity-60"
+                  icon={<ArrowRight size={20} />}
+                  className="mt-2 disabled:opacity-60"
                 >
                   {isSubmitting ? 'Enviando...' : 'Solicitar demostración'}
-                </button>
+                </Boton>
+
+                <p className="text-xs text-gray-400 text-center mt-1">
+                  Respondemos en menos de 24 h · Sin compromiso
+                </p>
               </form>
             </>
           ) : (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-green40 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M13 21.2L7.8 16l-1.4 1.4L13 24 26 11l-1.4-1.4L13 21.2z" fill="#fff" />
-                </svg>
+              <div className="w-16 h-16 bg-blue-50 flex items-center justify-center mx-auto mb-6">
+                <CheckmarkFilled size={36} className="text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">¡Solicitud enviada!</h3>
-              <p className="text-white/80 text-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">¡Solicitud enviada!</h3>
+              <p className="text-gray-500 text-lg">
                 Nos pondremos en contacto contigo pronto para agendar tu demostración.
               </p>
             </div>
           )}
-        </div>
-
-        {/* RIGHT — Image */}
-        <div className="relative h-[320px] md:h-auto min-h-[520px]">
-          <Image
-            src="/assets/mockupReliaplant.webp"
-            alt="Plataforma Reliaplant — Dashboard RCA y análisis de causa raíz"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
       </div>
 
-      {/* Select option styling for dark background */}
+      {/* Estilos del input de teléfono para el tema claro */}
       <style jsx global>{`
+        .demo-phone-input .form-control:focus {
+          border-color: #2563eb !important;
+          box-shadow: 0 0 0 2px #dbeafe !important;
+        }
         .demo-phone-input .flag-dropdown .selected-flag:hover,
         .demo-phone-input .flag-dropdown .selected-flag.open {
-          background: rgba(255,255,255,0.1) !important;
+          background: #f3f4f6 !important;
         }
         .demo-phone-input .country-list .country:hover,
         .demo-phone-input .country-list .country.highlight {
-          background: rgba(255,255,255,0.1) !important;
-        }
-        section select option {
-          background: #1a1a2e;
-          color: #fff;
+          background: #eff6ff !important;
         }
       `}</style>
     </section>

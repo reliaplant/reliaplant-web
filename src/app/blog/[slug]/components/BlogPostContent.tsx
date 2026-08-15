@@ -57,7 +57,7 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
         </Link>
 
         {/* Paper sheet */}
-        <div className="bg-white rounded-2xl shadow-2xl shadow-gray-300/70 overflow-hidden">
+        <div className="bg-white shadow-2xl shadow-gray-300/70 overflow-hidden">
 
           {/* Cover image */}
           {post.coverImage && (
@@ -81,7 +81,7 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-xs font-medium"
+                    className="bg-indigo-50 text-indigo-600 px-3 py-1 text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -102,10 +102,10 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
                   alt={post.author}
                   width={44}
                   height={44}
-                  className="rounded-full object-cover ring-2 ring-gray-100"
+                  className="object-cover ring-2 ring-gray-100"
                 />
               ) : (
-                <div className="w-11 h-11 bg-indigo-100 rounded-full flex items-center justify-center ring-2 ring-gray-100">
+                <div className="w-11 h-11 bg-indigo-100 flex items-center justify-center ring-2 ring-gray-100">
                   <span className="text-indigo-600 font-semibold">
                     {post.author.charAt(0)}
                   </span>
@@ -135,7 +135,7 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
                       alt={contributor.name}
                       width={64}
                       height={64}
-                      className="rounded-full object-cover ring-2 ring-gray-100 flex-shrink-0"
+                      className="object-cover ring-2 ring-gray-100 flex-shrink-0"
                     />
                   )}
                   <div>
@@ -152,7 +152,7 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
         </div>
 
         {/* CTA */}
-        <div className="mt-8 bg-white rounded-2xl shadow-xl shadow-gray-300/50 px-8 py-10 text-center">
+        <div className="mt-8 bg-white shadow-xl shadow-gray-300/50 px-8 py-10 text-center">
           <h3 className="text-xl font-bold text-gray-900 mb-2">
             ¿Quieres llevar esto a tu planta?
           </h3>

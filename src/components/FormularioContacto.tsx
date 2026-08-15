@@ -134,7 +134,7 @@ export default function FormularioContacto({
               placeholder="Nombre completo"
               value={formData.nombre}
               onChange={handleInputChange}
-              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -147,7 +147,7 @@ export default function FormularioContacto({
               placeholder="E-mail profesional"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>
@@ -163,7 +163,7 @@ export default function FormularioContacto({
                 height: "42px",
                 padding: "0.625rem 0.75rem",
                 paddingLeft: "45px",
-                borderRadius: "4px",
+                borderRadius: 0,
                 border: "1px solid #d1d5db",
                 fontSize: "0.875rem",
               }}
@@ -177,7 +177,7 @@ export default function FormularioContacto({
               name="interes"
               value={formData.interes}
               onChange={handleInputChange}
-              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
               required
             >
               <option value="" disabled>
@@ -194,7 +194,7 @@ export default function FormularioContacto({
               name="cargo"
               value={formData.cargo}
               onChange={handleInputChange}
-              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all bg-white"
               required
             >
               <option value="" disabled>
@@ -232,7 +232,7 @@ export default function FormularioContacto({
               placeholder="Empresa"
               value={formData.empresa}
               onChange={handleInputChange}
-              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all"
               required
             />
           </div>

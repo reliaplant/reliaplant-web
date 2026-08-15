@@ -5,9 +5,9 @@ export default function Loading() {
         RELIAPLANT
       </div>
       <div className="flex gap-1.5">
-        <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-        <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-        <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+        <div className="w-2 h-2 bg-blue-600 animate-bounce" style={{ animationDelay: '0ms' }} />
+        <div className="w-2 h-2 bg-blue-600 animate-bounce" style={{ animationDelay: '150ms' }} />
+        <div className="w-2 h-2 bg-blue-600 animate-bounce" style={{ animationDelay: '300ms' }} />
       </div>
     </div>
   );

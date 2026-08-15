@@ -117,7 +117,7 @@ export default function RcmPage(): ReactElement {
 
           {showModal && (
             <div className="fixed inset-0 flex items-center justify-center z-50">
-              <div className="bg-white p-8 rounded shadow-lg w-1/2">
+              <div className="bg-white p-8 shadow-lg w-1/2">
                 <div className="flex flex-row justify-between items-center mb-4">
                   <h2 className="text-2xl">Hablar con un especialista</h2>
                   <Close
@@ -151,7 +151,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[35%] top-[10%] w-[30%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
+              className={`absolute left-[35%] top-[10%] w-[30%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 transition-all duration-500 ${
                 activeSection === "1"
                   ? "bg-blue60 text-white scale-110"
                   : "bg-gray70 text-white"
@@ -161,7 +161,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[10%] top-[20%] w-[80%] h-[7%] flex flex-row gap-[2%] shadow-lg border border-gray100 rounded-sm p-2 transition-all duration-500 ${
+              className={`absolute left-[10%] top-[20%] w-[80%] h-[7%] flex flex-row gap-[2%] shadow-lg border border-gray100 p-2 transition-all duration-500 ${
                 activeSection === "2"
                   ? "bg-blue80 text-white scale-105"
                   : "bg-gray80"
@@ -207,7 +207,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`absolute left-[40%] top-[30%] w-[20%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 rounded-sm transition-all duration-500 ${
+              className={`absolute left-[40%] top-[30%] w-[20%] h-[7%] flex items-center justify-center text-xs shadow-lg border border-gray100 transition-all duration-500 ${
                 activeSection === "3"
                   ? "bg-blue60 text-white scale-110"
                   : "bg-gray70 text-white"
@@ -377,7 +377,7 @@ export default function RcmPage(): ReactElement {
             </div>
 
             <div
-              className={`bg-gray10 text-[11px]  rounded-sm relative transition-opacity duration-500 ${
+              className={`bg-gray10 text-[11px]  relative transition-opacity duration-500 ${
                 activeSection === "1" ? "opacity-100" : "opacity-50"
               }`}
             >
@@ -1279,7 +1279,7 @@ export default function RcmPage(): ReactElement {
       </div>
 
       <div className="bg-blue10 flex flex-col items-center justify-center p-[7vh] pb-[3vh]">
-        <div className="w-full bg-blue10 rounded-lg flex flex-col items-center justify-center p-[10vh] relative">
+        <div className="w-full bg-blue10 flex flex-col items-center justify-center p-[10vh] relative">
           <Image
             src={software}
             alt="RCAP1"

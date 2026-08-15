@@ -29,7 +29,7 @@ export default function BlogShareSidebar({ url, title }: BlogShareSidebarProps) 
               target="_blank"
               rel="noopener noreferrer"
               title={`Compartir en ${name}`}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 text-gray-500 hover:text-indigo-600 hover:border-indigo-300 transition-colors"
+              className="w-9 h-9 flex items-center justify-center border border-gray-300 text-gray-500 hover:text-indigo-600 hover:border-indigo-300 transition-colors"
             >
               <Icon size={16} />
             </a>
@@ -37,7 +37,7 @@ export default function BlogShareSidebar({ url, title }: BlogShareSidebarProps) 
         </div>
       </div>
 
-      <div className="bg-gray-900 rounded-2xl p-6 text-white">
+      <div className="bg-gray-900 p-6 text-white">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Reliaplant</p>
         <h4 className="text-lg font-bold mb-2 leading-snug">¿Quieres llevar esto a tu planta?</h4>
         <p className="text-sm text-gray-300 mb-5">

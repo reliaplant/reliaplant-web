@@ -33,7 +33,7 @@ export default function AboutPage() {
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <span className="text-blue-400 font-medium uppercase tracking-wide text-sm mb-4 block">
@@ -89,7 +89,7 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative overflow-hidden shadow-xl">
               <Image
                 src="/assets/bgDiagnostico.webp"
                 alt="Diagnóstico de confiabilidad industrial"
@@ -144,10 +144,10 @@ export default function AboutPage() {
             ].map((v, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                className="bg-white border border-gray-300 p-6 hover:shadow-lg transition-shadow"
               >
                 <div
-                  className={`w-14 h-14 ${v.color} rounded-xl flex items-center justify-center mb-5`}
+                  className={`w-14 h-14 ${v.color} flex items-center justify-center mb-5`}
                 >
                   {v.icon}
                 </div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 key={i}
                 className="text-center group"
               >
-                <div className="relative rounded-2xl overflow-hidden mb-5 aspect-[3/4] shadow-lg">
+                <div className="relative overflow-hidden mb-5 aspect-[3/4] shadow-lg">
                   <Image
                     src={member.img}
                     alt={member.name}

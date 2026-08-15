@@ -83,9 +83,9 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
   };
 
   const inputBase =
-    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none rounded px-4 py-3 text-white text-sm placeholder:text-white/50 transition-colors';
+    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none px-4 py-3 text-white text-sm placeholder:text-white/50 transition-colors';
   const selectBase =
-    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none rounded px-4 py-3 text-white text-sm transition-colors appearance-none cursor-pointer';
+    'w-full bg-transparent border border-white/30 focus:border-white focus:outline-none px-4 py-3 text-white text-sm transition-colors appearance-none cursor-pointer';
 
   return (
     <div
@@ -129,7 +129,7 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
                     width: '100%',
                     background: 'transparent',
                     border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: 4,
+                    borderRadius: 0,
                     color: '#fff',
                     fontSize: 14,
                     height: 46,
@@ -139,7 +139,7 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
                     background: 'transparent',
                     border: '1px solid rgba(255,255,255,0.3)',
                     borderRight: 'none',
-                    borderRadius: '4px 0 0 4px',
+                    borderRadius: 0,
                   }}
                   dropdownStyle={{ background: '#1a1a2e', color: '#fff' }}
                 />
@@ -194,7 +194,7 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
                     key={range}
                     type="button"
                     onClick={() => setFormData({ ...formData, activos: range })}
-                    className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${
+                    className={`px-3 py-1.5 text-xs font-medium border transition-all ${
                       formData.activos === range
                         ? 'bg-white text-blue-700 border-white'
                         : 'bg-transparent text-white/80 border-white/30 hover:border-white/60'
@@ -209,7 +209,7 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded transition-colors mt-2 disabled:opacity-60"
+              className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 transition-colors mt-2 disabled:opacity-60"
             >
               {isSubmitting ? 'Enviando...' : 'Solicitar demostración'}
             </button>
@@ -217,7 +217,7 @@ export default function DemoRequestForm({ bgColor = '#111827', especial = 'Demo 
         </>
       ) : (
         <div className="text-center py-12">
-          <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 bg-green-500 flex items-center justify-center mx-auto mb-6">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
               <path d="M13 21.2L7.8 16l-1.4 1.4L13 24 26 11l-1.4-1.4L13 21.2z" fill="#fff" />
             </svg>

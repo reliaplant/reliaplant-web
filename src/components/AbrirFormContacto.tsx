@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { FiX } from "react-icons/fi";
-import DemoRequestForm from "./DemoRequestForm";
+import FormularioContacto from "./FormularioContacto";
 import { RequestQuote } from "@carbon/icons-react";
 import Boton, { BotonVariant, BotonSize } from "./Boton";
 
@@ -14,6 +15,9 @@ interface AbrirFormContactoProps {
   especial?: string; // Make it optional since we'll get it automatically
   className?: string;
   size?: BotonSize;
+  btnText?: string; // texto del botón de envío dentro del formulario
+  type?: string;
+  interes?: string;
 }
 
 const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
@@ -21,17 +25,21 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
   icon = <RequestQuote size={20} />,
   variant = "primary",
   fullDesktop = false,
-  modalTitle = "Hablar con un especialista",
+  modalTitle = "Solicita una demo",
   especial,
   className,
   size = "md",
+  btnText = "Solicitar información",
+  type = "demo",
+  interes,
 }) => {
   const [showModal, setShowModal] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [currentPath, setCurrentPath] = useState<string>("");
 
+  // El modal se monta vía portal al body; evita SSR mismatch
   useEffect(() => {
-    setCurrentPath(window.location.pathname);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -53,6 +61,14 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
     };
   }, [showModal]);
 
+  // Bloquea el scroll del body mientras el modal está abierto
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
+
   return (
     <>
       <div className={`flex flex-row z-[30] ${fullDesktop ? "w-full" : "w-full md:w-auto"}`}>
@@ -68,22 +84,38 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
         </Boton>
       </div>
 
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={modalTitle}>
+      {mounted && showModal && createPortal(
+        <div
+          className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={modalTitle}
+        >
           <div
             ref={modalRef}
-            className="relative shadow-2xl rounded-2xl md:w-[520px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto overflow-x-hidden"
+            className="relative bg-white p-8 shadow-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto"
           >
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors"
-              aria-label="Cerrar"
-            >
-              <FiX size={24} />
-            </button>
-            <DemoRequestForm especial={especial || "header"} />
+            <div className="mb-6 flex flex-row justify-between items-center">
+              <span className="font-ZenDots text-gray100 text-xl">RELIAPLANT</span>
+              <FiX
+                size={28}
+                className="cursor-pointer text-gray-500 hover:text-gray-900 transition-colors"
+                onClick={() => setShowModal(false)}
+                aria-label="Cerrar"
+              />
+            </div>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold text-gray-900">{modalTitle}</h2>
+            </div>
+            <FormularioContacto
+              type={type}
+              interes={interes}
+              btnText={btnText}
+              especial={especial || "cotizacion"}
+            />
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

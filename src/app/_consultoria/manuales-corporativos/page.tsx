@@ -121,25 +121,25 @@ export default function ManualesCorporativos() {
 
           <div className="w-full md:w-1/2 border">
             <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
-              <div className="p-1 bg-blue60 text-white rounded-full">
+              <div className="p-1 bg-blue60 text-white">
                 <Check size={16} />
               </div>
               <p className="mb-0">Preservación del conocimiento crítico</p>
             </div>
             <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
-              <div className="p-1 bg-blue60 text-white rounded-full">
+              <div className="p-1 bg-blue60 text-white">
                 <Check size={16} />
               </div>
               <p className="mb-0">Estandarización de procesos</p>
             </div>
             <div className="gap-3 border-b h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
-              <div className="p-1 bg-blue60 text-white rounded-full">
+              <div className="p-1 bg-blue60 text-white">
                 <Check size={16} />
               </div>
               <p className="mb-0">Cumplimiento normativo y regulatorio</p>
             </div>
             <div className="gap-3 h-1/4 flex flex-row items-center px-4 md:px-6 py-3 hover:bg-blue20 transition-colors">
-              <div className="p-1 bg-blue60 text-white rounded-full">
+              <div className="p-1 bg-blue60 text-white">
                 <Check size={16} />
               </div>
               <p className="mb-0">Reducción de riesgos operacionales</p>
@@ -163,15 +163,15 @@ export default function ManualesCorporativos() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Control de versiones automatizado</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Flujos de trabajo de aprobación</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Gestión de permisos por roles</span>
                 </li>
               </ul>
@@ -197,15 +197,15 @@ export default function ManualesCorporativos() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Modelo de gestión integral</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Estrategias y procesos definidos</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Roles y responsabilidades claras</span>
                 </li>
               </ul>

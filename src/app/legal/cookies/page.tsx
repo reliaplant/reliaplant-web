@@ -34,7 +34,7 @@ export default function PoliticaCookiesPage() {
           <article className="flex-1 min-w-0 max-w-7xl">
 
             <section id="introduccion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 1. Introducción
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -72,7 +72,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="que-son" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 2. Qué son las cookies
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -86,7 +86,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="tipos" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 3. Cookies que utilizamos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -103,9 +103,9 @@ export default function PoliticaCookiesPage() {
                   <strong>Google Tag Manager</strong>, para entender cómo los visitantes usan
                   <span> </span>reliaplant.com: páginas vistas, tiempo en el sitio, origen del
                   tráfico y patrones de navegación agregados. Estas cookies (por ejemplo{" "}
-                  <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">_ga</code>,{" "}
-                  <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">_ga_*</code>,{" "}
-                  <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">_gid</code>) nos
+                  <code className="text-xs bg-gray-100 px-1 py-0.5">_ga</code>,{" "}
+                  <code className="text-xs bg-gray-100 px-1 py-0.5">_ga_*</code>,{" "}
+                  <code className="text-xs bg-gray-100 px-1 py-0.5">_gid</code>) nos
                   permiten mejorar el contenido y la experiencia del sitio.
                 </p>
                 <p>
@@ -127,7 +127,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="terceros" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 4. Cookies de terceros
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -143,7 +143,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="base-legal" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 5. Base legal según su ubicación
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -171,7 +171,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="gestionar" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 6. Cómo gestionar las cookies
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -200,7 +200,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="no-vender" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 7. Residentes de California (CCPA/CPRA)
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -222,7 +222,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="cambios" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 8. Cambios a esta política
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -235,14 +235,14 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section id="contacto" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 9. Contacto
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
                   Para consultas sobre esta Política de Cookies, puede contactarnos en:
                 </p>
-                <div className="bg-gray-50 border border-gray-200 p-5">
+                <div className="bg-gray-50 border border-gray-300 p-5">
                   <p className="font-semibold text-gray-900 mb-1">Reliaplant LLC</p>
                   <p>
                     <a

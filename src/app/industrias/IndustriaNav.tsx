@@ -41,7 +41,7 @@ export default function IndustriaNav() {
   };
 
   return (
-    <nav className="sticky top-[56px] z-40 bg-white border-b border-gray-200 shadow-sm">
+    <nav className="sticky top-[56px] z-40 bg-white border-b border-gray-300 shadow-sm">
       <div className="max-w-6xl mx-auto flex overflow-x-auto">
         {industries.map(({ id, label, icon, activeColor }) => {
           const isActive = activeId === id;

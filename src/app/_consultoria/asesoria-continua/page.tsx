@@ -105,25 +105,25 @@ export default function AsesoriaConstante() {
               <h3 className="mb-4">Un socio estratégico a tu lado</h3>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Acceso constante a nuestro equipo de especialistas
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Respuesta ágil a desafíos emergentes
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Transferencia continua de conocimiento
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Evolución constante de tus estrategias
                   </p>
@@ -142,7 +142,7 @@ export default function AsesoriaConstante() {
             <div className="p-8 px-0 pr-4">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -163,7 +163,7 @@ export default function AsesoriaConstante() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -185,7 +185,7 @@ export default function AsesoriaConstante() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -206,7 +206,7 @@ export default function AsesoriaConstante() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -248,15 +248,15 @@ export default function AsesoriaConstante() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Desde 2 días al mes</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Con previa planificación</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Extensión de horas si se requiere </span>
                   </li>
                 </ul>
@@ -284,15 +284,15 @@ export default function AsesoriaConstante() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Dedicación semanal fija</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Participación en comités directivos</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-blue60"></div>
                     <span>Desarrollo de estrategias integrales</span>
                   </li>
                 </ul>

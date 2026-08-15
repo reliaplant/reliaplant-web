@@ -35,7 +35,7 @@ export default function IndustriasPage() {
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-3 mb-6">
@@ -55,7 +55,7 @@ export default function IndustriasPage() {
             seguridad y la rentabilidad.
           </p>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-7xl">
+          <div className="bg-white/10 border border-white/20 p-8 max-w-7xl">
             <p className="text-lg text-white/90 font-medium">
               No importa si la operación es continua o por lotes:
             </p>
@@ -71,12 +71,12 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Oil & Gas                                                    */}
       {/* ============================================================ */}
-      <section id="industria-oilygas" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-200">
+      <section id="industria-oilygas" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-300">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 border border-gray-200">
+          <div className="grid lg:grid-cols-2 border border-gray-300">
 
             {/* Contenido */}
-            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
               <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
                 Oil &amp; Gas · Petróleo · Refinería
               </span>
@@ -119,9 +119,9 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Energía                                                      */}
       {/* ============================================================ */}
-      <section id="industria-energia" className="scroll-mt-[110px] py-8 md:py-12 bg-gray-50 border-b border-gray-200">
+      <section id="industria-energia" className="scroll-mt-[110px] py-8 md:py-12 bg-gray-50 border-b border-gray-300">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 border border-gray-200">
+          <div className="grid lg:grid-cols-2 border border-gray-300">
 
             {/* Foto */}
             <div className="relative min-h-[420px] h-64 lg:h-auto overflow-hidden order-2 lg:order-1">
@@ -129,7 +129,7 @@ export default function IndustriasPage() {
             </div>
 
             {/* Contenido */}
-            <div className="flex flex-col justify-center px-6 py-10 bg-white border-t lg:border-t-0 lg:border-l border-gray-200 order-1 lg:order-2">
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-t lg:border-t-0 lg:border-l border-gray-300 order-1 lg:order-2">
               <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
                 Energía · Utilities · Generación · Distribución
               </span>
@@ -166,12 +166,12 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Manufactura                                                  */}
       {/* ============================================================ */}
-      <section id="industria-manufactura" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-200">
+      <section id="industria-manufactura" className="scroll-mt-[110px] py-8 md:py-12 bg-white border-b border-gray-300">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 border border-gray-200">
+          <div className="grid lg:grid-cols-2 border border-gray-300">
 
             {/* Contenido */}
-            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
               <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue-600 mb-4">
                 Manufactura · Proceso Continuo · Producción
               </span>
@@ -213,7 +213,7 @@ export default function IndustriasPage() {
       {/* ============================================================ */}
       {/* Otras industrias                                             */}
       {/* ============================================================ */}
-      <section id="industria-otras" className="scroll-mt-[110px] py-20 px-4 bg-white border-b border-gray-200">
+      <section id="industria-otras" className="scroll-mt-[110px] py-20 px-4 bg-white border-b border-gray-300">
         <div className="max-w-7xl mx-auto">
 
           <div className="grid md:grid-cols-[260px_1fr] gap-16 items-start">
@@ -239,7 +239,7 @@ export default function IndustriasPage() {
             </div>
 
             {/* Right: grid table */}
-            <div className="border border-gray-200 divide-y divide-gray-200">
+            <div className="border border-gray-300 divide-y divide-gray-200">
               <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
                 <div className="px-6 py-5 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center gap-2 mb-1">

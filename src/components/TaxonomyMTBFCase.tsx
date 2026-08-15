@@ -181,7 +181,7 @@ export default function TaxonomyMTBFCase() {
   const translateX = -(activeIndex * (cardWidth + CARD_GAP));
 
   return (
-    <section className="py-8 md:py-12 bg-white border-t border-gray-200">
+    <section className="py-8 md:py-12 bg-white border-t border-gray-300">
       <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
         {/* Header */}
         <div className="mb-6">
@@ -321,7 +321,7 @@ export default function TaxonomyMTBFCase() {
         </div>
 
         {/* Footer */}
-        <div className="border-t border-gray-200 pt-4 mt-6 text-center">
+        <div className="border-t border-gray-300 pt-4 mt-6 text-center">
           <p className="font-bold text-gray-900 text-sm">
             La base de la confiabilidad está en la taxonomía correcta.
           </p>

@@ -20,7 +20,7 @@ function IconWithTooltip({ icon, tooltipText }: IconWithTooltipProps) {
         {icon}
       </div>
       {showTooltip && (
-        <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg">
+        <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 shadow-lg">
           {tooltipText}
         </div>
       )}

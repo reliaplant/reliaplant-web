@@ -35,7 +35,7 @@ export default function TerminosDeUsoPage() {
             {/* ── BLOCK A: GENERAL LEGAL FRAMEWORK ─────────────────── */}
 
             <section id="introduccion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 1. Introducción
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -63,7 +63,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="aceptacion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 2. Aceptación de los términos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -81,7 +81,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="registro" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 3. Registro y cuenta de usuario
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -109,7 +109,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="prohibiciones" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 4. Conductas prohibidas
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -149,7 +149,7 @@ export default function TerminosDeUsoPage() {
             {/* ── BLOCK B: SERVICE CONDITIONS ───────────────────────── */}
 
             <section id="definiciones" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 5. Definiciones
               </h2>
               <dl className="bg-gray-50 border-l-4 border-gray-300 p-4 text-sm text-gray-700 space-y-1.5">
@@ -164,7 +164,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="planes" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 6. Planes y suscripciones
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -191,7 +191,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="limites" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 7. Límites y uso aceptable
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -227,7 +227,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="bloques" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 8. Bloques de activos adicionales
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -259,7 +259,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="facturacion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 9. Facturación y métodos de pago
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -302,7 +302,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="suspension" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 10. Suspensión, cancelación y reembolsos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -351,7 +351,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="datos" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 11. Propiedad de los datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -379,7 +379,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="disponibilidad" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 12. Disponibilidad del servicio
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -418,7 +418,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="modificaciones-planes" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 13. Modificaciones a los planes
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -441,7 +441,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="plan-gratuito" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 14. Plan Gratuito — condiciones especiales
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -465,7 +465,7 @@ export default function TerminosDeUsoPage() {
             {/* ── BLOCK C: GENERAL LEGAL CLAUSES ────────────────────── */}
 
             <section id="propiedad-intelectual" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 15. Propiedad intelectual
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -488,7 +488,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="responsabilidad" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 16. Limitación de responsabilidad
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -512,7 +512,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="ley-aplicable" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 17. Ley aplicable y jurisdicción
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -530,7 +530,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="cambios-terminos" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 18. Cambios a estos términos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -549,7 +549,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="acceso-anticipado" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 20. Acceso anticipado y versión beta
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -602,7 +602,7 @@ export default function TerminosDeUsoPage() {
             </section>
 
             <section id="contacto" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 21. Contacto
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -610,7 +610,7 @@ export default function TerminosDeUsoPage() {
                   Para consultas, reclamos o notificaciones relacionadas con estos Términos, puede
                   contactarnos en:
                 </p>
-                <div className="bg-gray-50 border border-gray-200 p-5">
+                <div className="bg-gray-50 border border-gray-300 p-5">
                   <p className="font-semibold text-gray-900 mb-1">Reliaplant LLC</p>
                   <p>
                     <a

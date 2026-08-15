@@ -40,12 +40,12 @@ export default function RegistroActivosPage() {
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl" />
         
         {/* Botón Volver en esquina superior izquierda */}
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="absolute -top-16 left-0">
-            <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+            <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 bg-white/10 hover:bg-white/20 transition-colors">
               <ArrowLeft size={24} className="text-white" />
             </Link>
           </div>
@@ -68,9 +68,9 @@ export default function RegistroActivosPage() {
 
       {/* El problema hoy */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-300">
         {/* Left: text content */}
-        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
           <span
             className="block font-bold uppercase text-red-500 mb-4"
             style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -110,7 +110,7 @@ export default function RegistroActivosPage() {
                   color: '#991b1b',
                   background: '#fff1f2',
                   border: '1px solid #fecaca',
-                  borderRadius: 999,
+                  borderRadius: 0,
                   padding: '4px 12px',
                 }}
               >
@@ -165,8 +165,8 @@ export default function RegistroActivosPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 border border-gray-300 flex flex-col">
+              <div className="w-16 h-16 bg-blue-100 flex items-center justify-center mb-6">
                 <FolderDetails size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Documentación fragmentada</h3>
@@ -175,8 +175,8 @@ export default function RegistroActivosPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 border border-gray-300 flex flex-col">
+              <div className="w-16 h-16 bg-blue-100 flex items-center justify-center mb-6">
                 <Time size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Cientos de horas de trabajo</h3>
@@ -185,8 +185,8 @@ export default function RegistroActivosPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-gray-200 flex flex-col">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-8 border border-gray-300 flex flex-col">
+              <div className="w-16 h-16 bg-blue-100 flex items-center justify-center mb-6">
                 <DocumentMultiple_01 size={32} className="text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem] flex items-start">Archivos complicadísimos</h3>
@@ -196,7 +196,7 @@ export default function RegistroActivosPage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-50 to-red-50 border-l-4 border-blue-500 rounded-r-xl p-8">
+          <div className="bg-gradient-to-r from-blue-50 to-red-50 border-l-4 border-blue-500 p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">El resultado actual:</h3>
             <p className="text-lg text-gray-800 mb-4">
               La mayoría de empresas tienen <strong>taxonomías deficientes</strong> que nunca cumplieron con estándares como ISO 14224 ni con políticas serias de gestión de activos.
@@ -213,9 +213,9 @@ export default function RegistroActivosPage() {
 
       {/* Beneficios operativos */}
       <section className="py-8 md:py-12 bg-white">
-        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-300">
         {/* Left: text + benefit items */}
-        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
             Beneficios operativos
           </span>
@@ -301,7 +301,7 @@ export default function RegistroActivosPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Implementaciones de CMMS */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Migrate size={24} className="text-blue-600" />
@@ -327,7 +327,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 2: Plantas en Crecimiento */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Growth size={24} className="text-blue-600" />
@@ -352,7 +352,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 3: Data Histórica Desordenada */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <DataRefinery size={24} className="text-blue-600" />
@@ -377,7 +377,7 @@ export default function RegistroActivosPage() {
             </div>
             
             {/* Card 4: Profesionalizar Confiabilidad */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Certificate size={24} className="text-blue-600" />
@@ -419,7 +419,7 @@ export default function RegistroActivosPage() {
       {/* Consultoría Section */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-4 block">
                 Servicio de consultoría
@@ -433,8 +433,8 @@ export default function RegistroActivosPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <Catalog size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Levantamiento completo</h3>
@@ -443,8 +443,8 @@ export default function RegistroActivosPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <CheckmarkFilled size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Implementación garantizada</h3>
@@ -453,8 +453,8 @@ export default function RegistroActivosPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <CheckmarkFilled size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Capacitación incluida</h3>
@@ -493,7 +493,7 @@ export default function RegistroActivosPage() {
               href="https://app.reliaplant.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 rounded-lg font-semibold text-sm transition-all"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2.5 font-semibold text-sm transition-all"
             >
               Prueba Ahora
             </Link>

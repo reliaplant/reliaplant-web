@@ -268,12 +268,12 @@ export default function ConsultoriaPage() {
                 {section.data.map((service, serviceIndex) => (
                   <div
                     key={serviceIndex}
-                    className="border border-blue20 p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:border-blue60 hover:bg-blue10"
+                    className="border border-blue20 p-4 transition-all duration-300 hover:shadow-lg hover:border-blue60 hover:bg-blue10"
                   >
                     <div className="h-48 md:h-[12vw] relative">
                       <Image
                         src={service.image}
-                        className="rounded-lg object-cover"
+                        className="object-cover"
                         alt={service.alt}
                         fill
                       />

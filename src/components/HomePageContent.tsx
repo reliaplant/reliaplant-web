@@ -29,12 +29,12 @@ export default function HomePageContent() {
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 md:pt-40 pb-20 md:pb-28 px-4 sm:px-6">
         {/* Decorative background circles */}
-        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 blur-3xl pointer-events-none" />
         
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 mb-8">
+            <span className="w-2 h-2 bg-green-400 animate-pulse" />
             <span className="text-sm text-white/80 font-medium">Plataforma de confiabilidad industrial</span>
           </div>
           
@@ -55,14 +55,14 @@ export default function HomePageContent() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link 
               href="#contacto" 
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 font-semibold inline-flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
             >
               Solicita una demo guiada
               <ArrowRight size={20} />
             </Link>
             <Link 
               href="#contacto" 
-              className="border border-white/30 hover:border-white/60 hover:bg-white/5 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all"
+              className="border border-white/30 hover:border-white/60 hover:bg-white/5 text-white px-8 py-3.5 font-medium inline-flex items-center justify-center gap-2 transition-all"
             >
               Agenda un diagnóstico sin costo
             </Link>
@@ -94,14 +94,14 @@ export default function HomePageContent() {
                 'Indicadores poco confiables.',
                 'Decisiones tomadas con data dudosa.',
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-gray-800 bg-white py-3 px-4 rounded-lg border border-gray-100 shadow-sm flex-1">
+                <div key={i} className="flex items-center gap-3 text-gray-800 bg-white py-3 px-4 border border-gray-100 shadow-sm flex-1">
                   <span className="text-red-500 text-lg flex-shrink-0">✗</span>
                   <span className="text-base md:text-lg">{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-red-50 border-l-4 border-red-400 p-8 rounded-xl flex flex-col justify-center">
+            <div className="bg-red-50 border-l-4 border-red-400 p-8 flex flex-col justify-center">
               <p className="text-gray-900 font-semibold text-lg mb-6">El resultado:</p>
               <ul className="space-y-4 text-gray-800">
                 {[
@@ -111,7 +111,7 @@ export default function HomePageContent() {
                   'Tiempo técnico desperdiciado en tareas administrativas.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-red-500 text-xs font-bold">{i + 1}</span>
                     </span>
                     <span className="text-base md:text-lg">{item}</span>
@@ -126,7 +126,7 @@ export default function HomePageContent() {
             <p className="text-gray-600 mb-6 text-lg">¿Te identificas con alguno de estos problemas?</p>
             <Link 
               href="#contacto" 
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
             >
               Agenda un diagnóstico gratuito
               <ArrowRight size={20} />
@@ -149,15 +149,15 @@ export default function HomePageContent() {
               Tres pilares clave de la confiabilidad industrial, integrados en una sola plataforma:
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Datos de activos organizados
               </span>
-              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Estrategias de mantenimiento
               </span>
-              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-100">
+              <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 text-sm font-medium border border-blue-100">
                 <CheckmarkFilled size={16} />
                 Análisis de causa raíz
               </span>
@@ -169,10 +169,10 @@ export default function HomePageContent() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Taxonomía Card */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
+            <div className="bg-white border border-gray-300 p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600" />
               
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-blue-50 flex items-center justify-center mb-6">
                 <Catalog size={28} className="text-blue-600" />
               </div>
               
@@ -199,17 +199,17 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
             </div>
 
             {/* RCM Card */}
-            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+            <div className="border border-gray-300 p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
               
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-blue-50 flex items-center justify-center mb-6">
                 <DataStructured size={28} className="text-blue-600" />
               </div>
               
@@ -236,17 +236,17 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
             </div>
 
             {/* RCA Card */}
-            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+            <div className="border border-gray-300 p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
               
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-blue-50 flex items-center justify-center mb-6">
                 <Network_3 size={28} className="text-blue-600" />
               </div>
               
@@ -273,7 +273,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded font-medium text-sm transition-colors mt-auto">
+              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -281,14 +281,14 @@ export default function HomePageContent() {
           </div>
 
           {/* CTA después de módulos */}
-          <div className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-10 border border-gray-100">
+          <div className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 p-10 border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-3">¿No sabes por dónde empezar?</h3>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Te ayudamos a identificar el módulo que más impacto tendrá en tu operación. Sin compromiso.
             </p>
             <Link 
               href="#contacto" 
-              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-600/25"
             >
               Solicita una demo personalizada
               <ArrowRight size={20} />
@@ -299,7 +299,7 @@ export default function HomePageContent() {
 
       {/* AI SECTION */}
       <section id="ia" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -313,11 +313,11 @@ export default function HomePageContent() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+            <div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
                 <Lightning size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 RCA
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Hipótesis automáticas</h4>
@@ -326,11 +326,11 @@ export default function HomePageContent() {
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+            <div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
                 <CloudApp size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 RCM
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Modos de falla sugeridos</h4>
@@ -339,11 +339,11 @@ export default function HomePageContent() {
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+            <div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
                 <DataStructured size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
                 Registro de activos
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Clasificación inteligente</h4>
@@ -358,7 +358,7 @@ export default function HomePageContent() {
             <p className="text-white/80 mb-6">¿Quieres ver la IA en acción con tus propios datos?</p>
             <Link 
               href="#contacto" 
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
+              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3.5 font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
             >
               Solicita una demo con IA
               <ArrowRight size={20} />
@@ -406,26 +406,26 @@ export default function HomePageContent() {
           </div>
 
           <div className="flex justify-center mb-12">
-            <div className="inline-flex rounded-lg bg-gray-100 p-1">
+            <div className="inline-flex bg-gray-100 p-1">
               <button 
                 onClick={() => setPricingPeriod('monthly')}
-                className={`px-6 py-2.5 text-sm font-medium transition-all rounded-md ${pricingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                className={`px-6 py-2.5 text-sm font-medium transition-all ${pricingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 Mensual
               </button>
               <button 
                 onClick={() => setPricingPeriod('annual')}
-                className={`px-6 py-2.5 text-sm font-medium transition-all rounded-md flex items-center gap-2 ${pricingPeriod === 'annual' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                className={`px-6 py-2.5 text-sm font-medium transition-all flex items-center gap-2 ${pricingPeriod === 'annual' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 Anual
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold">-17%</span>
+                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 font-bold">-17%</span>
               </button>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Starter Plan */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-gray-300 p-8 flex flex-col hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Starter</h3>
               <p className="text-sm text-gray-500 mb-6">Para organizaciones con operaciones pequeñas</p>
               <div className="mb-8">
@@ -463,14 +463,14 @@ export default function HomePageContent() {
                   Soporte por email
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
+              <Link href="#contacto" className="block text-center border border-gray-300 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 font-medium transition-all">
                 Comenzar prueba
               </Link>
             </div>
 
             {/* Professional Plan (Featured) */}
-            <div className="bg-white border-2 border-blue-600 rounded-2xl p-8 flex flex-col relative shadow-xl shadow-blue-600/10">
-              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+            <div className="bg-white border-2 border-blue-600 p-8 flex flex-col relative shadow-xl shadow-blue-600/10">
+              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 uppercase tracking-wider">
                 Más popular
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Professional</h3>
@@ -510,13 +510,13 @@ export default function HomePageContent() {
                   Soporte prioritario
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg shadow-blue-600/25">
+              <Link href="#contacto" className="block text-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 font-semibold transition-all shadow-lg shadow-blue-600/25">
                 Comenzar prueba
               </Link>
             </div>
 
             {/* Enterprise Plan */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-gray-300 p-8 flex flex-col hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
               <p className="text-sm text-gray-500 mb-6">Para grandes operaciones industriales</p>
               <div className="mb-8">
@@ -548,7 +548,7 @@ export default function HomePageContent() {
                   Soporte dedicado 24/7
                 </li>
               </ul>
-              <Link href="#contacto" className="block text-center border border-gray-200 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all">
+              <Link href="#contacto" className="block text-center border border-gray-300 hover:border-blue-600 hover:text-blue-600 text-gray-700 px-6 py-3 font-medium transition-all">
                 Contactar ventas
               </Link>
             </div>
@@ -558,7 +558,7 @@ export default function HomePageContent() {
 
       {/* CTA SECTION */}
       <section id="contacto" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 blur-3xl pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Deja de improvisar. Empieza a gestionar confiabilidad de verdad.
@@ -567,11 +567,11 @@ export default function HomePageContent() {
             Prueba Reliaplant gratis por 14 días. Sin tarjeta de crédito. Registra tus activos, evalúa su criticidad y lanza tu primer proyecto hoy.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <Link href="#" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center justify-center gap-2 transition-all shadow-lg">
+            <Link href="#" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 font-semibold inline-flex items-center justify-center gap-2 transition-all shadow-lg">
               Solicita una demo guiada
               <ArrowRight size={20} />
             </Link>
-            <Link href="#" className="border border-white/40 hover:bg-white/10 text-white px-8 py-3.5 rounded-lg font-medium inline-flex items-center justify-center gap-2 transition-all">
+            <Link href="#" className="border border-white/40 hover:bg-white/10 text-white px-8 py-3.5 font-medium inline-flex items-center justify-center gap-2 transition-all">
               Agenda un diagnóstico de confiabilidad
             </Link>
           </div>

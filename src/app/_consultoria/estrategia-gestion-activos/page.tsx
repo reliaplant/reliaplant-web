@@ -103,7 +103,7 @@ export default function EstrategiaGestionActivosPage() {
           />
           <div className="flex flex-col gap-4 mt-6">
             <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">
-              <div className="bg-gray90 p-3 rounded-full">
+              <div className="bg-gray90 p-3">
                 <Asset size={24} className="text-white" />
               </div>
               <div>
@@ -118,7 +118,7 @@ export default function EstrategiaGestionActivosPage() {
               </div>
             </div>
             <div className="items-start gap-4 bg-white border shadow-md p-6 flex flex-row">
-              <div className="bg-gray90 p-3 rounded-full">
+              <div className="bg-gray90 p-3">
                 <SettingsAdjust size={24} className="text-white" />
               </div>
               <div>
@@ -185,7 +185,7 @@ export default function EstrategiaGestionActivosPage() {
               </p>
             </div>
             <div className="relative w-1/12 flex justify-center">
-              <div className="border bg-gray100 shadow-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="border bg-gray100 shadow-2xl p-2 w-12 h-12 flex items-center justify-center">
                 <Number_1 size={24} className="text-white" />
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function EstrategiaGestionActivosPage() {
           <div className="mb-8 flex items-center w-full">
             <div className="w-1/2"></div>
             <div className="relative w-1/12 flex justify-center">
-              <div className="border bg-gray100 shadow-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="border bg-gray100 shadow-2xl p-2 w-12 h-12 flex items-center justify-center">
                 <Number_2 size={24} className="text-white" />
               </div>
             </div>
@@ -223,7 +223,7 @@ export default function EstrategiaGestionActivosPage() {
               </p>
             </div>
             <div className="relative w-1/12 flex justify-center">
-              <div className="border bg-gray100 shadow-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="border bg-gray100 shadow-2xl p-2 w-12 h-12 flex items-center justify-center">
                 <Number_3 size={24} className="text-white" />
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function EstrategiaGestionActivosPage() {
           <div className="mb-8 flex items-center w-full">
             <div className="w-1/2"></div>
             <div className="relative w-1/12 flex justify-center">
-              <div className="border bg-gray100 shadow-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="border bg-gray100 shadow-2xl p-2 w-12 h-12 flex items-center justify-center">
                 <Number_4 size={24} className="text-white" />
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function EstrategiaGestionActivosPage() {
               </p>
             </div>
             <div className="relative w-1/12 flex justify-center">
-              <div className="border bg-gray100 shadow-2xl p-2 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="border bg-gray100 shadow-2xl p-2 w-12 h-12 flex items-center justify-center">
                 <Number_5 size={24} className="text-white" />
               </div>
             </div>

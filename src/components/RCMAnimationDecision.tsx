@@ -127,12 +127,12 @@ export default function RCMAnimationDecision() {
       style={{ fontFamily: "Inter, system-ui, sans-serif", minHeight: 380 }}
     >
       {/* ── Top bar ───────────────────────────────────── */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-200 flex-shrink-0">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-300 flex-shrink-0">
         <span className="text-[11px] font-bold text-gray-900 uppercase tracking-widest">
           Diagrama de Decisión RCM
         </span>
         <span
-          className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+          className="text-[10px] font-semibold px-2 py-0.5"
           style={{ background: "#eff6ff", color: "#1d4ed8" }}
         >
           {stepIdx + 1} / {STEPS.length}
@@ -146,7 +146,7 @@ export default function RCMAnimationDecision() {
           return (
             <div
               key={c.key}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all duration-300"
+              className="flex items-center gap-1.5 px-2.5 py-1 transition-all duration-300"
               style={{
                 background: active ? c.bg : "#e5e7eb",
                 opacity: active ? 1 : 0.45,
@@ -176,7 +176,7 @@ export default function RCMAnimationDecision() {
 
         {/* Category badge */}
         <span
-          className="self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+          className="self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-1"
           style={{ background: cat.bg + "22", color: cat.bg }}
         >
           {cat.key} — {cat.label}
@@ -184,7 +184,7 @@ export default function RCMAnimationDecision() {
 
         {/* Question */}
         <div
-          className="rounded-xl border px-5 py-4"
+          className="border px-5 py-4"
           style={{ background: "#f8fafc", borderColor: "#e2e8f0" }}
         >
           <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
@@ -203,7 +203,7 @@ export default function RCMAnimationDecision() {
             return (
               <div
                 key={opt}
-                className="rounded-lg px-6 py-2 text-sm font-bold transition-all duration-300"
+                className="px-6 py-2 text-sm font-bold transition-all duration-300"
                 style={{
                   background: chosen
                     ? opt === "SÍ" ? "#16a34a" : "#dc2626"
@@ -235,7 +235,7 @@ export default function RCMAnimationDecision() {
         {/* Task card */}
         {showTask && step.task && (
           <div
-            className="rounded-xl border-l-4 px-5 py-3.5"
+            className="border-l-4 px-5 py-3.5"
             style={{ background: "#f0fdf4", borderColor: "#16a34a" }}
           >
             <div className="flex items-center justify-between mb-1.5">
@@ -243,7 +243,7 @@ export default function RCMAnimationDecision() {
                 Tarea asignada
               </p>
               <span
-                className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                className="text-[9px] font-bold px-2 py-0.5"
                 style={{ background: "#dcfce7", color: "#15803d" }}
               >
                 {step.taskType}
@@ -265,7 +265,7 @@ export default function RCMAnimationDecision() {
             return (
               <div
                 key={i}
-                className="rounded-full transition-all duration-300"
+                className="transition-all duration-300"
                 style={{
                   width: active ? 18 : 7,
                   height: 7,

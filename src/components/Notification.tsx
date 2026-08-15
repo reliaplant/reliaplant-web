@@ -31,7 +31,7 @@ const Notification = ({
       className={`
         fixed bottom-4 right-16 
         bg-blue-100 border border-blue-200 text-blue-800
-        px-4 py-3 rounded-lg shadow-lg
+        px-4 py-3 shadow-lg
         transform transition-all duration-300 ease-in-out
         z-[9999]
         ${show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}

@@ -34,7 +34,7 @@ export default function PoliticaPrivacidadPage() {
           <article className="flex-1 min-w-0 max-w-7xl">
 
             <section id="introduccion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 1. Introducción
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -76,11 +76,11 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="responsable" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 2. Responsable del tratamiento
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
-                <div className="bg-gray-50 border border-gray-200 p-5">
+                <div className="bg-gray-50 border border-gray-300 p-5">
                   <p className="font-semibold text-gray-900 mb-1">Reliaplant LLC</p>
                   <p>Compañía constituida bajo las leyes del Estado de Wyoming, Estados Unidos.</p>
                   <p className="mt-2">
@@ -99,7 +99,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="datos-recopilados" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 3. Datos que recopilamos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -129,7 +129,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="como-recopilamos" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 4. Cómo recopilamos sus datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -159,7 +159,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="finalidades" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 5. Finalidades del tratamiento
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -177,7 +177,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="base-legal" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 6. Base legal
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -192,7 +192,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="ia" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 7. Datos y el Asistente IA
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -218,7 +218,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="marketing" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 8. Marketing y comunicaciones
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -238,7 +238,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="compartir" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 9. Con quién compartimos datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -258,7 +258,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="almacenamiento" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 10. Almacenamiento de datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -278,7 +278,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="retencion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 11. Retención de datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -303,7 +303,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="seguridad" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 12. Seguridad
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -331,7 +331,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="derechos" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 13. Derechos de protección de datos
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -359,7 +359,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="eliminacion" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 14. Solicitud de eliminación
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -392,7 +392,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="cookies" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 15. Cookies
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -423,7 +423,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="sitios-terceros" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 16. Sitios de terceros
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -445,7 +445,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="menores" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 17. Menores de edad
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -466,7 +466,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="transferencias" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 18. Transferencias internacionales
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -483,7 +483,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="autoridades" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 19. Solicitudes de autoridades
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -502,7 +502,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="cambios" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 20. Cambios a esta política
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -521,7 +521,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section id="contacto" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-300">
                 21. Contacto
               </h2>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
@@ -529,7 +529,7 @@ export default function PoliticaPrivacidadPage() {
                   Para consultas, reclamos o solicitudes relacionadas con esta Política de
                   Privacidad o el tratamiento de sus datos personales, puede contactarnos en:
                 </p>
-                <div className="bg-gray-50 border border-gray-200 p-5">
+                <div className="bg-gray-50 border border-gray-300 p-5">
                   <p className="font-semibold text-gray-900 mb-1">Reliaplant LLC</p>
                   <p>
                     <a

@@ -100,7 +100,7 @@ export default function BeneficiosIndirectos() {
             return (
               <div
                 key={index}
-                className="p-6 bg-white border border-gray-200 cursor-default transition-all duration-200"
+                className="p-6 bg-white border border-gray-300 cursor-default transition-all duration-200"
                 style={{
                   borderColor: isHovered ? "#2563eb" : undefined,
                   boxShadow: isHovered ? "0 4px 20px rgba(37,99,235,0.08)" : undefined,
@@ -133,7 +133,7 @@ export default function BeneficiosIndirectos() {
                 {/* Stat */}
                 <div className="mt-auto">
                   <div
-                    className="h-[2px] bg-blue-600 mb-3 rounded-full transition-all duration-[400ms]"
+                    className="h-[2px] bg-blue-600 mb-3 transition-all duration-[400ms]"
                     style={{ width: isHovered ? "100%" : "0%" }}
                   />
                   <span className="font-mono text-base font-medium text-blue-600">
@@ -150,7 +150,7 @@ export default function BeneficiosIndirectos() {
 
         {/* Bottom note */}
         <div className="mt-10 pt-8 border-t border-gray-100 flex items-start gap-3">
-          <div className="w-1 h-10 bg-blue-600 rounded-full flex-shrink-0 mt-0.5" />
+          <div className="w-1 h-10 bg-blue-600 flex-shrink-0 mt-0.5" />
           <p className="text-xs text-gray-400 leading-relaxed max-w-3xl">
             Datos respaldados por casos documentados del U.S. Department of Energy, NASA Marshall Flight Center,
             Baker Hughes Cordant™, TapRooT® RCA, Pinnacle Reliability, MaxGrip, Reliability Center Inc. y la base

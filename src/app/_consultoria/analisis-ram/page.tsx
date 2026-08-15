@@ -207,7 +207,7 @@ export default function Contacto() {
         </div>
 
         {/* Step 2 */}
-        <div className="p-4 sm:p-8 mb-4 border-t border-gray-200 flex flex-col md:flex-row gap-8 md:gap-24 relative">
+        <div className="p-4 sm:p-8 mb-4 border-t border-gray-300 flex flex-col md:flex-row gap-8 md:gap-24 relative">
           <div className="w-full md:w-1/2">
             <div className="flex flex-row gap-4 items-center">
               <div className="p-2 bg-gray10 w-fit h-fit">
@@ -245,7 +245,7 @@ export default function Contacto() {
         </div>
 
         {/* Step 3 */}
-        <div className="p-4 sm:p-8 mb-4 border-t border-gray-200 flex flex-col md:flex-row gap-8 md:gap-24 relative">
+        <div className="p-4 sm:p-8 mb-4 border-t border-gray-300 flex flex-col md:flex-row gap-8 md:gap-24 relative">
           <div className="w-full md:w-1/2">
             <div className="flex flex-row gap-4 items-center">
               <div className="p-2 bg-gray10 w-fit h-fit">
@@ -280,7 +280,7 @@ export default function Contacto() {
         </div>
 
         {/* Step 4 */}
-        <div className="p-4 sm:p-8 mb-4 border-t border-gray-200 flex flex-col md:flex-row gap-8 md:gap-24 relative">
+        <div className="p-4 sm:p-8 mb-4 border-t border-gray-300 flex flex-col md:flex-row gap-8 md:gap-24 relative">
           <div className="w-full md:w-1/2">
             <div className="flex flex-row gap-4 items-center">
               <div className="p-2 bg-gray10 w-fit h-fit">

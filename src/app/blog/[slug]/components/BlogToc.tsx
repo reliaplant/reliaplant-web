@@ -33,7 +33,7 @@ export default function BlogToc({ toc }: { toc: TocItem[] }) {
       <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
         En este artículo
       </p>
-      <nav className="flex flex-col gap-1 border-l border-gray-200">
+      <nav className="flex flex-col gap-1 border-l border-gray-300">
         {toc.map((item) => (
           <a
             key={item.id}

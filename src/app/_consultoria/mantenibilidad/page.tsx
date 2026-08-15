@@ -422,7 +422,7 @@ export default function MantenibilidadPage() {
         </div>
 
         <div>
-          <div className="border-gray-200 mb-8">
+          <div className="border-gray-300 mb-8">
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="w-full lg:w-1/2">
                 <h3 className="flex items-center">
@@ -482,7 +482,7 @@ export default function MantenibilidadPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 mb-8">
+          <div className="border-t border-gray-300 mb-8">
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="w-full lg:w-1/2">
                 <h3 className="flex items-center">
@@ -553,7 +553,7 @@ export default function MantenibilidadPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 mb-8">
+          <div className="border-t border-gray-300 mb-8">
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="w-full lg:w-1/2">
                 <h3 className="flex items-center">
@@ -625,7 +625,7 @@ export default function MantenibilidadPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 mb-8">
+          <div className="border-t border-gray-300 mb-8">
             <div className="flex flex-col lg:flex-row gap-8 mt-8">
               <div className="w-full lg:w-1/2">
                 <h3 className="flex items-center">

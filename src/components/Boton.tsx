@@ -55,7 +55,7 @@ export default function Boton({
 }: BotonProps) {
   const classes = [
     "inline-flex items-center justify-center gap-2",
-    "font-semibold rounded-lg transition-all whitespace-nowrap",
+    "font-semibold transition-all whitespace-nowrap",
     variantClasses[variant],
     sizeClasses[size],
     fullWidth ? "w-full" : "",

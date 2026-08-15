@@ -71,7 +71,7 @@ export default function ROICalculator() {
   };
 
   return (
-    <section className="py-20 px-4 bg-white border-t border-gray-200">
+    <section className="py-20 px-4 bg-white border-t border-gray-300">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -92,13 +92,13 @@ export default function ROICalculator() {
         </div>
 
         {/* Main grid */}
-        <div className="grid lg:grid-cols-2 border border-gray-200">
+        <div className="grid lg:grid-cols-2 border border-gray-300">
 
           {/* LEFT — Inputs */}
-          <div className="border-b lg:border-b-0 lg:border-r border-gray-200">
+          <div className="border-b lg:border-b-0 lg:border-r border-gray-300">
 
             {/* RCA block */}
-            <div className="border-b border-gray-200 px-8 py-7 flex flex-col items-center">
+            <div className="border-b border-gray-300 px-8 py-7 flex flex-col items-center">
               <div className="w-full max-w-sm">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
@@ -116,7 +116,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.rcaPerMonth}
                     onChange={e => handleInputChange("rcaPerMonth", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
                 <div>
@@ -125,7 +125,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.hoursPerRCA}
                     onChange={e => handleInputChange("hoursPerRCA", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function ROICalculator() {
             </div>
 
             {/* RCM block */}
-            <div className="border-b border-gray-200 px-8 py-7 flex flex-col items-center">
+            <div className="border-b border-gray-300 px-8 py-7 flex flex-col items-center">
               <div className="w-full max-w-sm">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
@@ -151,7 +151,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.rcmEquipmentsPerYear}
                     onChange={e => handleInputChange("rcmEquipmentsPerYear", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
                 <div>
@@ -160,7 +160,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.hoursPerRCMManual}
                     onChange={e => handleInputChange("hoursPerRCMManual", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.criticalAssets}
                     onChange={e => handleInputChange("criticalAssets", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
                 <div>
@@ -195,7 +195,7 @@ export default function ROICalculator() {
                     type="number" min="0"
                     value={inputs.hoursSearchingData}
                     onChange={e => handleInputChange("hoursSearchingData", Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 text-sm text-gray-900 focus:outline-none focus:border-blue-500 bg-white"
                   />
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function ROICalculator() {
             </div>
 
             {/* Disclaimer */}
-            <div className="px-8 py-5 border-t border-gray-200 flex items-start gap-2">
+            <div className="px-8 py-5 border-t border-gray-300 flex items-start gap-2">
               <Information size={14} className="text-gray-400 flex-shrink-0 mt-0.5" />
               <p className="text-xs text-gray-400 leading-relaxed">
                 Estimación referencial basada en un costo promedio de <strong>USD 25/hora</strong> para un ingeniero de mantenimiento en Latinoamérica. El impacto real depende de la operación, madurez del equipo y complejidad de los activos.

@@ -82,12 +82,12 @@ export default async function PricingCompare() {
             return (
               <div
                 key={plan.id}
-                className={`relative rounded-2xl border p-6 flex flex-col gap-4 ${
-                  isRecommended ? "border-blue-600 border-2 shadow-lg" : "border-gray-200"
+                className={`relative border p-6 flex flex-col gap-4 ${
+                  isRecommended ? "border-blue-600 border-2 shadow-lg" : "border-gray-300"
                 }`}
               >
                 {isRecommended && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-bold px-4 py-1 rounded-full tracking-widest uppercase">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-bold px-4 py-1 tracking-widest uppercase">
                     Recomendado
                   </div>
                 )}
@@ -109,7 +109,7 @@ export default async function PricingCompare() {
                 </div>
 
                 {/* Limits */}
-                <div className="flex justify-between text-center bg-gray-50 rounded-xl px-2 py-3">
+                <div className="flex justify-between text-center bg-gray-50 px-2 py-3">
                   {[
                     { val: fmtNum(plan.limits.maxUsers), label: plan.features.pricedPerPlant ? "usuarios/planta" : "usuarios" },
                     { val: fmtNum(plan.limits.maxActivos), label: plan.features.pricedPerPlant ? "activos/planta" : "activos" },
@@ -125,28 +125,28 @@ export default async function PricingCompare() {
                 {/* Highlights */}
                 <ul className="flex flex-col gap-2 flex-1">
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
+                    <span className="mt-0.5 w-5 h-5 flex-shrink-0 bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
                     RCA y RCM {plan.limits.maxRCA < 0 ? "ilimitados" : `(hasta ${plan.limits.maxRCA})`}
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
+                    <span className="mt-0.5 w-5 h-5 flex-shrink-0 bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
                     <span className="text-blue-600 font-medium">Asistente IA incluido</span>
                   </li>
                   {plan.features.collaboration && (
                     <li className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
+                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
                       Colaboración, roles y permisos
                     </li>
                   )}
                   {plan.features.prioritySupport && (
                     <li className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
+                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
                       Soporte prioritario
                     </li>
                   )}
                   {plan.features.multiPlant && (
                     <li className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
+                      <span className="mt-0.5 w-5 h-5 flex-shrink-0 bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">✓</span>
                       Múltiples plantas habilitadas
                     </li>
                   )}
@@ -157,7 +157,7 @@ export default async function PricingCompare() {
                   href="https://app.reliaplant.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-2 w-full py-2.5 rounded-xl font-semibold text-sm text-center transition-colors ${
+                  className={`mt-2 w-full py-2.5 font-semibold text-sm text-center transition-colors ${
                     isFree
                       ? "border border-gray-300 text-gray-800 hover:bg-gray-50"
                       : isRecommended
@@ -191,13 +191,13 @@ export default async function PricingCompare() {
               <table className="w-full border-collapse text-sm bg-white">
                 <thead>
                   <tr>
-                    <th className="uppercase tracking-wider text-[11px] font-semibold py-3 px-2 text-left rounded-tl-xl sticky top-0 z-30 bg-gray-100 text-gray-700">
+                    <th className="uppercase tracking-wider text-[11px] font-semibold py-3 px-2 text-left sticky top-0 z-30 bg-gray-100 text-gray-700">
                       Funcionalidad
                     </th>
                     {plans.map((p, i) => (
                       <th
                         key={p.id}
-                        className={`uppercase tracking-wider text-[11px] font-bold py-3 px-2 text-center sticky top-0 z-30 bg-gray-100 text-gray-700 ${i === plans.length - 1 ? "rounded-tr-xl" : ""}`}
+                        className={`uppercase tracking-wider text-[11px] font-bold py-3 px-2 text-center sticky top-0 z-30 bg-gray-100 text-gray-700 ${i === plans.length - 1 ? "" : ""}`}
                       >
                         {p.name}
                       </th>

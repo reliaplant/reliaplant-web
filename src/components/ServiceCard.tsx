@@ -20,14 +20,14 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const Card = () => (
     <div
-      className={`border p-6 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between ${
+      className={`border p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between ${
         variant === "dark"
           ? "border-gray-700 hover:border-blue-500 bg-gray-900/50"
-          : "bg-white border-gray-200 hover:border-blue-500"
+          : "bg-white border-gray-300 hover:border-blue-500"
       } ${className}`}
     >
       <div>
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+        <div className={`w-12 h-12 flex items-center justify-center mb-4 ${
           variant === "dark" ? "bg-blue-500/10" : "bg-blue-50"
         }`}>
           <Icon size={24} className="text-blue-600" />

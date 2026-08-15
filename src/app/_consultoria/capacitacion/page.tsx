@@ -131,15 +131,15 @@ export default function Capacitacion() {
               </p>
               <ul className="space-y-1 md:space-y-2 mb-auto">
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Plataforma interactiva especializada</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Sesiones síncronas con especialistas</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Evaluaciones prácticas aplicables</span>
                 </li>
               </ul>
@@ -165,15 +165,15 @@ export default function Capacitacion() {
               </p>
               <ul className="space-y-1 md:space-y-2 mb-auto">
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Instructores con experiencia industrial</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Prácticas con equipos reales</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Material didáctico especializado</span>
                 </li>
               </ul>
@@ -199,15 +199,15 @@ export default function Capacitacion() {
               </p>
               <ul className="space-y-1 md:space-y-2 mb-auto">
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Diagnóstico previo de necesidades</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Contenido adaptado a tu industria</span>
                 </li>
                 <li className="flex items-center gap-1 md:gap-2">
-                  <div className="w-2 h-2 bg-blue60 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue60"></div>
                   <span>Seguimiento post-capacitación</span>
                 </li>
               </ul>

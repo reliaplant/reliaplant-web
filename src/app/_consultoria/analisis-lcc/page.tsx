@@ -195,7 +195,7 @@ export default function Contacto() {
           <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgRAM.webp')] bg-cover bg-center"></div>
         </div>
 
-        <hr className="w-full border-t border-gray-200 my-4" />
+        <hr className="w-full border-t border-gray-300 my-4" />
 
         {/* Section 2 */}
         <div className="p-4 md:p-6 flex flex-col md:flex-row md:gap-12 lg:gap-24 relative mb-8">
@@ -233,7 +233,7 @@ export default function Contacto() {
           <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC3.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
-        <hr className="w-full border-t border-gray-200 my-4" />
+        <hr className="w-full border-t border-gray-300 my-4" />
 
         {/* Section 3 */}
         <div className="p-4 md:p-6 flex flex-col md:flex-row md:gap-12 lg:gap-24 relative mb-8">
@@ -270,7 +270,7 @@ export default function Contacto() {
           <div className="h-[30vh] md:h-[45vh] w-full md:w-1/2 bg-[url('/assets/bgLCC2.webp')] bg-contain bg-no-repeat bg-center"></div>
         </div>
 
-        <hr className="w-full border-t border-gray-200 my-4" />
+        <hr className="w-full border-t border-gray-300 my-4" />
 
         {/* Section 4 */}
         <div className="p-4 md:p-6 flex flex-col md:flex-row md:gap-12 lg:gap-24 relative">

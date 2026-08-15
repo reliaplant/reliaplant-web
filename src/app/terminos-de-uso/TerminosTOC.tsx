@@ -70,7 +70,7 @@ export default function TerminosTOC() {
                   <a
                     href={`#${item.id}`}
                     className={`
-                      flex items-center gap-2 text-xs py-1 pl-2 leading-snug rounded-r transition-all duration-200
+                      flex items-center gap-2 text-xs py-1 pl-2 leading-snug transition-all duration-200
                       border-l-2
                       ${isActive
                         ? "border-blue-600 text-blue-600 font-semibold bg-blue-50/60"
@@ -89,7 +89,7 @@ export default function TerminosTOC() {
 
       {/* Mobile TOC (static, no scroll tracking needed) */}
       <nav
-        className="lg:hidden mb-10 p-4 bg-gray-50 border border-gray-200"
+        className="lg:hidden mb-10 p-4 bg-gray-50 border border-gray-300"
         aria-label="Tabla de contenidos"
       >
         <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">

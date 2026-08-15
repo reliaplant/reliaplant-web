@@ -40,7 +40,7 @@ export default function RichTextEditor({
       }),
       Image.configure({
         HTMLAttributes: {
-          class: "rounded mx-auto my-4 max-w-full",
+          class: "mx-auto my-4 max-w-full",
         },
       }),
       Placeholder.configure({
@@ -107,12 +107,12 @@ export default function RichTextEditor({
   }
 
   return (
-    <div className="rich-text-editor border rounded-md overflow-hidden">
+    <div className="rich-text-editor border overflow-hidden">
       <div className="bg-gray-50 border-b p-2 flex flex-wrap gap-1">
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("bold") ? "bg-gray-200" : ""
           }`}
           title="Negrita"
@@ -131,7 +131,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("italic") ? "bg-gray-200" : ""
           }`}
           title="Cursiva"
@@ -150,7 +150,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("underline") ? "bg-gray-200" : ""
           }`}
           title="Subrayado"
@@ -173,7 +173,7 @@ export default function RichTextEditor({
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("heading", { level: 2 }) ? "bg-gray-200" : ""
           }`}
           title="Título"
@@ -194,7 +194,7 @@ export default function RichTextEditor({
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 3 }).run()
           }
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("heading", { level: 3 }) ? "bg-gray-200" : ""
           }`}
           title="Subtítulo"
@@ -215,7 +215,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("bulletList") ? "bg-gray-200" : ""
           }`}
           title="Lista con viñetas"
@@ -234,7 +234,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("orderedList") ? "bg-gray-200" : ""
           }`}
           title="Lista numerada"
@@ -253,7 +253,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("blockquote") ? "bg-gray-200" : ""
           }`}
           title="Cita"
@@ -274,7 +274,7 @@ export default function RichTextEditor({
         <button
           type="button"
           onClick={() => setIsLinkMenuOpen(true)}
-          className={`p-2 rounded hover:bg-gray-200 ${
+          className={`p-2 hover:bg-gray-200 ${
             editor.isActive("link") ? "bg-gray-200" : ""
           }`}
           title="Enlace"
@@ -292,18 +292,18 @@ export default function RichTextEditor({
 
         <div className="relative">
           {isLinkMenuOpen && (
-            <div className="absolute left-0 top-full mt-1 p-2 bg-white shadow-lg rounded-md z-10 flex">
+            <div className="absolute left-0 top-full mt-1 p-2 bg-white shadow-lg z-10 flex">
               <input
                 type="text"
                 value={linkUrl}
                 onChange={(e) => setLinkUrl(e.target.value)}
                 placeholder="https://example.com"
-                className="border rounded-l px-2 py-1 w-64"
+                className="border px-2 py-1 w-64"
                 onKeyDown={(e) => e.key === "Enter" && setLink()}
                 autoFocus
               />
               <button
-                className="bg-indigo-600 text-white px-2 rounded-r"
+                className="bg-indigo-600 text-white px-2"
                 onClick={setLink}
               >
                 Aplicar
@@ -320,7 +320,7 @@ export default function RichTextEditor({
 
         <label
           htmlFor="image-upload"
-          className={`p-2 rounded hover:bg-gray-200 cursor-pointer ${
+          className={`p-2 hover:bg-gray-200 cursor-pointer ${
             isUploading ? "opacity-50 pointer-events-none" : ""
           }`}
           title="Insertar imagen"
@@ -358,7 +358,7 @@ export default function RichTextEditor({
             }
             setIsHtmlMode((prev) => !prev);
           }}
-          className={`px-2 py-1 rounded text-xs font-mono font-bold hover:bg-gray-200 ${
+          className={`px-2 py-1 text-xs font-mono font-bold hover:bg-gray-200 ${
             isHtmlMode ? "bg-indigo-100 text-indigo-700" : "text-gray-600"
           }`}
         >
@@ -369,10 +369,10 @@ export default function RichTextEditor({
       {/* BubbleMenu - appears when text is selected */}
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          <div className="bg-white shadow-lg rounded-md flex p-1">
+          <div className="bg-white shadow-lg flex p-1">
             <button
               onClick={() => editor.chain().focus().toggleBold().run()}
-              className={`p-1 rounded ${
+              className={`p-1 ${
                 editor.isActive("bold") ? "bg-gray-200" : ""
               }`}
             >
@@ -388,7 +388,7 @@ export default function RichTextEditor({
             </button>
             <button
               onClick={() => editor.chain().focus().toggleItalic().run()}
-              className={`p-1 rounded ${
+              className={`p-1 ${
                 editor.isActive("italic") ? "bg-gray-200" : ""
               }`}
             >
@@ -404,7 +404,7 @@ export default function RichTextEditor({
             </button>
             <button
               onClick={() => editor.chain().focus().toggleUnderline().run()}
-              className={`p-1 rounded ${
+              className={`p-1 ${
                 editor.isActive("underline") ? "bg-gray-200" : ""
               }`}
             >
@@ -420,7 +420,7 @@ export default function RichTextEditor({
             </button>
             <button
               onClick={() => setIsLinkMenuOpen(true)}
-              className={`p-1 rounded ${
+              className={`p-1 ${
                 editor.isActive("link") ? "bg-gray-200" : ""
               }`}
             >
@@ -444,7 +444,7 @@ export default function RichTextEditor({
             <textarea
               value={rawHtml}
               onChange={(e) => setRawHtml(e.target.value)}
-              className="w-full min-h-[400px] font-mono text-sm border rounded p-3 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-y"
+              className="w-full min-h-[400px] font-mono text-sm border p-3 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-y"
               placeholder="Pega tu HTML aquí..."
             />
             <button
@@ -453,7 +453,7 @@ export default function RichTextEditor({
                 editor.commands.setContent(rawHtml, true);
                 setIsHtmlMode(false);
               }}
-              className="self-end bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 text-sm font-medium"
+              className="self-end bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700 text-sm font-medium"
             >
               Aplicar HTML al editor
             </button>

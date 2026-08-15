@@ -31,7 +31,7 @@ export default function BlogPreview({
               <img
                 src={blogPost.coverImage}
                 alt={blogPost.title}
-                className="w-full h-64 object-cover rounded"
+                className="w-full h-64 object-cover"
               />
             </div>
           )}
@@ -48,7 +48,7 @@ export default function BlogPreview({
               {blogPost.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-gray-200 px-3 py-1 rounded-full text-sm"
+                  className="bg-gray-200 px-3 py-1 text-sm"
                 >
                   {tag}
                 </span>
@@ -71,7 +71,7 @@ export default function BlogPreview({
           {activeTab === "seo" && (
             <div className="mt-8 border-t pt-4">
               <h3 className="text-lg font-semibold mb-2">Vista previa SEO</h3>
-              <div className="bg-gray-100 p-4 rounded">
+              <div className="bg-gray-100 p-4">
                 <div className="text-blue-600 text-lg font-medium">
                   {blogPost.seoTitle || blogPost.title}
                 </div>
@@ -91,11 +91,11 @@ export default function BlogPreview({
           )}
 
           {blogPost.published ? (
-            <div className="mt-4 py-2 px-3 bg-green-100 text-green-800 rounded inline-block">
+            <div className="mt-4 py-2 px-3 bg-green-100 text-green-800 inline-block">
               Publicado
             </div>
           ) : (
-            <div className="mt-4 py-2 px-3 bg-yellow-100 text-yellow-800 rounded inline-block">
+            <div className="mt-4 py-2 px-3 bg-yellow-100 text-yellow-800 inline-block">
               Borrador
             </div>
           )}

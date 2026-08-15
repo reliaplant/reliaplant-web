@@ -35,7 +35,7 @@ export default function ROIPage() {
             priority
           />
         </div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-3 mb-6">
@@ -82,7 +82,7 @@ export default function ROIPage() {
       <ROICalculator />
 
       {/* Beneficios operativos + reducción de riesgo — sección unificada */}
-      <section className="pt-20 px-4 bg-white border-t border-gray-200">
+      <section className="pt-20 px-4 bg-white border-t border-gray-300">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -99,8 +99,8 @@ export default function ROIPage() {
           </div>
 
           {/* Bloque 1 — Continuidad operacional */}
-          <div className="grid lg:grid-cols-2 border border-gray-200">
-            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+          <div className="grid lg:grid-cols-2 border border-gray-300">
+            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-9 h-9 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <Security size={18} />
@@ -136,11 +136,11 @@ export default function ROIPage() {
           </div>
 
           {/* Bloque 2 — Seguridad industrial */}
-          <div className="grid lg:grid-cols-2 border border-gray-200 border-t-0">
+          <div className="grid lg:grid-cols-2 border border-gray-300 border-t-0">
             <div className="relative min-h-[420px] order-2 lg:order-1">
               <Image src="/assets/roi-seguridad-industrial.webp" alt="Inspector industrial con casco en campo" fill className="object-cover object-center" sizes="50vw" />
             </div>
-            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-200 order-1 lg:order-2">
+            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-300 order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-9 h-9 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <Warning size={18} />
@@ -173,8 +173,8 @@ export default function ROIPage() {
           </div>
 
           {/* Bloque 3 — Cumplimiento regulatorio */}
-          <div className="grid lg:grid-cols-2 border border-gray-200 border-t-0">
-            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+          <div className="grid lg:grid-cols-2 border border-gray-300 border-t-0">
+            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-9 h-9 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <TaskComplete size={18} />
@@ -210,11 +210,11 @@ export default function ROIPage() {
           </div>
 
           {/* Bloque 4 — Estabilidad productiva */}
-          <div className="grid lg:grid-cols-2 border border-gray-200 border-t-0">
+          <div className="grid lg:grid-cols-2 border border-gray-300 border-t-0">
             <div className="relative min-h-[420px] order-2 lg:order-1">
               <Image src="/assets/roi-estabilidad-productiva.webp" alt="Línea de producción industrial estable" fill className="object-cover object-center" sizes="50vw" />
             </div>
-            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-200 order-1 lg:order-2">
+            <div className="flex flex-col justify-center px-10 py-12 bg-white border-b lg:border-b-0 lg:border-l border-gray-300 order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-9 h-9 bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                   <Growth size={18} />
@@ -247,8 +247,8 @@ export default function ROIPage() {
           </div>
 
           {/* Grid de beneficios adicionales */}
-          <div className="border border-gray-200 border-t-0">
-            <div className="px-10 py-8 border-b border-gray-200">
+          <div className="border border-gray-300 border-t-0">
+            <div className="px-10 py-8 border-b border-gray-300">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Beneficios adicionales del software</p>
             </div>
             <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
@@ -269,7 +269,7 @@ export default function ROIPage() {
                   desc: "Estimado por Pinnacle Reliability en organizaciones con RCM bien implementado.",
                 },
               ].map((b) => (
-                <div key={b.stat} className="px-8 py-7 border-b last:border-b-0 border-gray-200 md:border-b-0 lg:last:border-r-0">
+                <div key={b.stat} className="px-8 py-7 border-b last:border-b-0 border-gray-300 md:border-b-0 lg:last:border-r-0">
                   <span className="font-mono text-xl font-bold text-blue-600 block mb-2">{b.stat}</span>
                   <p className="text-sm font-semibold text-gray-900 mb-1">{b.title}</p>
                   <p className="text-xs text-gray-400 leading-relaxed">{b.desc}</p>

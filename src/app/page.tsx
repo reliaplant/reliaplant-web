@@ -19,7 +19,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import IndustrialGrid from "@/components/IndustrialGrid";
-import DemoRequestSection from "@/components/DemoRequestSection";
+import FormularioContacto from "@/components/FormularioContacto";
 import Boton from "@/components/Boton";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
@@ -145,8 +145,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-blue-900 text-white pt-32 md:pt-40 pb-20 md:pb-28">
         <IndustrialGrid />
         {/* Decorative background circles */}
-        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-blue-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-[-30%] left-[-10%] w-[600px] h-[600px] bg-blue-400/5 blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-[2] text-center">
           <p className="text-lg md:text-xl font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6">
@@ -187,12 +187,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEMA GENERAL */}
+      {/* PROBLEMA GENERAL — oculta a pedido; se conserva el código, cambiar false por true para mostrarla */}
+      {false && (
       <section className="py-8 md:py-12 bg-gray-50">
-        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-300">
 
             {/* Left: text content */}
-            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+            <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
               <span
                 className="block font-bold uppercase text-red-500 mb-4"
                 style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -238,7 +239,7 @@ export default function Home() {
                       color: '#991b1b',
                       background: '#fff1f2',
                       border: '1px solid #fecaca',
-                      borderRadius: 999,
+                      borderRadius: 0,
                       padding: '4px 12px',
                     }}
                     variants={pillItemVariants}
@@ -276,6 +277,7 @@ export default function Home() {
 
           </div>
       </section>
+      )}
       <section id="modulos" className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
           <div className="text-center mb-16">
@@ -298,7 +300,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Taxonomía Card */}
-            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
+            <div className="bg-white border border-gray-300 p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600" />
 
               <div className="flex items-center gap-2 mb-2">
@@ -306,7 +308,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Registro de Activos</h3>
 
-              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+              <div className="overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/bgAssetRegister.webp"
                   alt="Registro de activos"
@@ -317,25 +319,25 @@ export default function Home() {
               </div>
 
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
-                Base de datos confiable para decisiones de mantenimiento
+                Tu planta ordenada, desde el DTI hasta el equipo
               </h3>
 
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
-                Estructura tus activos siguiendo principios como ISO 14224, asegurando relaciones correctas y base sólida para indicadores.
+                Jerarquía de plantas, ubicaciones técnicas y equipos bajo principios ISO 14224, con la documentación técnica de cada activo en su lugar.
               </p>
 
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Relaciones correctas padre-hijo</span>
+                  <span>DTIs navegables con tus equipos marcados en el plano</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Consistencia en el registro con plantillas</span>
+                  <span>Criticidad configurable con los niveles de tu empresa</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Exportación a tu CMMS</span>
+                  <span>Exportación de equipos y ubicaciones a tu CMMS</span>
                 </li>
               </ul>
 
@@ -345,7 +347,7 @@ export default function Home() {
             </div>
 
             {/* RCM Card */}
-            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+            <div className="border border-gray-300 p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
 
               <div className="flex items-center gap-2 mb-2">
@@ -353,7 +355,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">RCM</h3>
 
-              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+              <div className="overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/fondo-landing-rcm.webp"
                   alt="Módulo RCM"
@@ -364,25 +366,25 @@ export default function Home() {
               </div>
 
               <h3 className="text-xl font-bold text-gray-900 mb-3 min-h-[3.5rem]">
-                Reliability Centered Maintenance estructurado
+                Planes de mantenimiento que se justifican solos
               </h3>
 
               <p className="text-sm text-gray-600 mb-6 leading-relaxed min-h-[4.5rem]">
-                Centraliza el proceso RCM en un entorno estructurado que permite relacionar activos, funciones y modos de falla sin duplicaciones.
+                Análisis estructurado con las 7 preguntas del RCM, del modo de falla directo a la tarea del plan.
               </p>
 
               <ul className="space-y-2 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Análisis estructurado con las 7 preguntas del RCM</span>
+                  <span>Cada tarea del plan trazada a los modos de falla que ataca</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Estrategias de mantenimiento definidas con árbol de decisión</span>
+                  <span>Plantillas por familia de equipo: analiza una vez, replica en el resto</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-gray-700">
                   <CheckmarkFilled size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span>Plan de mantenimiento exportable a CMMS</span>
+                  <span>RPN con escalas de tu empresa y plan exportable a CMMS</span>
                 </li>
               </ul>
 
@@ -392,7 +394,7 @@ export default function Home() {
             </div>
 
             {/* RCA Card */}
-            <div className="border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
+            <div className="border border-gray-300 p-8 hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600" />
 
               <div className="flex items-center gap-2 mb-2">
@@ -400,7 +402,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">Análisis de Causa Raíz</h3>
 
-              <div className="rounded-lg overflow-hidden mb-6 border border-gray-100">
+              <div className="overflow-hidden mb-6 border border-gray-100">
                 <Image
                   src="/assets/bgACR.webp"
                   alt="Análisis de causa raíz"
@@ -440,7 +442,7 @@ export default function Home() {
           </div>
 
           {/* CTA después de módulos */}
-          <div className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-10 border border-gray-100">
+          <div className="mt-16 text-center bg-gradient-to-br from-gray-50 to-blue-50 p-10 border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-3">¿No sabes por dónde empezar?</h3>
             <p className="text-gray-600 mb-6 max-w-7xl mx-auto">
               Te ayudamos a identificar el módulo que más impacto tendrá en tu operación. Sin compromiso.
@@ -468,7 +470,7 @@ export default function Home() {
 
       {/* AI SECTION */}
       <section id="ia" className="py-8 md:py-12 bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto relative z-10 text-center">
           <motion.h2
@@ -484,7 +486,7 @@ export default function Home() {
             </span>
           </motion.h2>
           <p className="text-lg md:text-xl text-white/80 max-w-7xl mx-auto mb-16">
-            IA en cada módulo para acelerar análisis y reducir errores humanos
+            IA integrada al análisis de causa raíz: sugiere, tú decides
           </p>
 
           <motion.div
@@ -494,42 +496,42 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+            <motion.div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
                 <Lightning size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
-                RCA
-              </div>
-              <h4 className="text-lg font-semibold mb-2 text-white">Hipótesis automáticas</h4>
-              <p className="text-sm text-white/70 leading-relaxed mb-0">
-                Genera causas raíz probables según historial de fallas similares en equipos del mismo tipo
-              </p>
-            </motion.div>
-
-            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
-                <CloudApp size={24} className="text-blue-400" />
-              </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
-                RCM
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+                RCA · Árbol
               </div>
               <h4 className="text-lg font-semibold mb-2 text-white">Modos de falla sugeridos</h4>
               <p className="text-sm text-white/70 leading-relaxed mb-0">
-                Predice modos de falla basados en ISO 14224 y datos históricos de equipos equivalentes
+                Describe cómo se manifestó la falla y la IA propone los modos de falla del evento, con el contexto de tu equipo.
               </p>
             </motion.div>
 
-            <motion.div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+            <motion.div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
+                <CloudApp size={24} className="text-blue-400" />
+              </div>
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+                RCA · Hipótesis
+              </div>
+              <h4 className="text-lg font-semibold mb-2 text-white">Hipótesis probables</h4>
+              <p className="text-sm text-white/70 leading-relaxed mb-0">
+                Para cada modo de falla, la IA genera hipótesis de causa clasificadas y con método de verificación sugerido.
+              </p>
+            </motion.div>
+
+            <motion.div className="bg-white/5 border border-white/10 p-8 text-left hover:bg-white/10 transition-all duration-300 hover:-translate-y-1" variants={cardItemVariants}>
+              <div className="w-12 h-12 bg-blue-500/20 flex items-center justify-center mb-5">
                 <DataStructured size={24} className="text-blue-400" />
               </div>
-              <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
-                Registro de activos
+              <div className="inline-block px-3 py-1 bg-blue-500/20 text-xs font-bold uppercase tracking-wider text-blue-300 mb-3">
+                RCA · Validación
               </div>
-              <h4 className="text-lg font-semibold mb-2 text-white">Clasificación inteligente</h4>
+              <h4 className="text-lg font-semibold mb-2 text-white">Tareas de verificación propuestas</h4>
               <p className="text-sm text-white/70 leading-relaxed mb-0">
-                Sugiere categorías y niveles jerárquicos automáticamente al importar tus activos
+                La IA sugiere las tareas para confirmar o descartar cada hipótesis; tú asignas responsable y fecha.
               </p>
             </motion.div>
           </motion.div>
@@ -537,13 +539,14 @@ export default function Home() {
           {/* CTA después de IA */}
           <div className="mt-16 text-center">
             <p className="text-white/80 mb-6">¿Quieres ver la IA en acción con tus propios datos?</p>
-            <Link 
-              href="#contacto" 
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3.5 rounded-lg font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
+            <button
+              type="button"
+              onClick={() => setShowContactModal(true)}
+              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3.5 font-semibold inline-flex items-center gap-2 transition-all hover:-translate-y-0.5"
             >
               Empieza Ahora
               <ArrowRight size={20} />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -566,13 +569,14 @@ export default function Home() {
           
           {/* CTA después de stats */}
           <div className="mt-12 text-center">
-            <Link 
-              href="#contacto" 
+            <button
+              type="button"
+              onClick={() => setShowContactModal(true)}
               className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-2 transition-colors group"
             >
               Únete a las empresas que ya confían en Reliaplant
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -595,7 +599,7 @@ export default function Home() {
           {plansLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="bg-white border border-gray-200 rounded-2xl p-6 h-[420px] animate-pulse" />
+                <div key={i} className="bg-white border border-gray-300 p-6 h-[420px] animate-pulse" />
               ))}
             </div>
           ) : (
@@ -606,14 +610,14 @@ export default function Home() {
               return (
                 <div
                   key={plan.id}
-                  className={`bg-white rounded-2xl p-6 flex flex-col relative transition-shadow ${
+                  className={`bg-white p-6 flex flex-col relative transition-shadow ${
                     isRecommended
                       ? "border-2 border-blue-600 shadow-xl shadow-blue-600/10"
-                      : "border border-gray-200 hover:shadow-lg"
+                      : "border border-gray-300 hover:shadow-lg"
                   }`}
                 >
                   {isRecommended && (
-                    <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                    <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 uppercase tracking-wider whitespace-nowrap">
                       Recomendado
                     </div>
                   )}
@@ -627,13 +631,13 @@ export default function Home() {
                       {isFree ? " / para siempre" : `/año${plan.features.pricedPerPlant ? " + precio por planta" : ""}`}
                     </span>
                   </div>
-                  <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 rounded-lg px-2 py-3 w-full mt-2 mb-4">
+                  <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 px-2 py-3 w-full mt-2 mb-4">
                     <div className="flex flex-col items-center gap-1">
                       <UserMultiple size={20} className="text-gray-400" />
                       <span className="font-semibold text-gray-900">{fmtNum(plan.limits.maxUsers)}</span>
                       <span>{plan.features.pricedPerPlant ? "usuarios/planta" : "usuarios"}</span>
                     </div>
-                    <div className="flex flex-col items-center gap-1 border-x border-gray-200">
+                    <div className="flex flex-col items-center gap-1 border-x border-gray-300">
                       <Asset size={20} className="text-gray-400" />
                       <span className="font-semibold text-gray-900">{fmtNum(plan.limits.maxActivos)}</span>
                       <span>{plan.features.pricedPerPlant ? "activos/planta" : "activos"}</span>
@@ -678,25 +682,33 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* CTA SECTION */}
-      <div id="contacto" className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto">
-        <DemoRequestSection />
-      </div>
-      {/* Modal Contactar Asesor */}
+      {/* Modal de contacto — formulario unificado (mismo popup que todo el sitio) */}
       {showContactModal && (
         <div
-          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm"
           onClick={(e) => { if (e.target === e.currentTarget) setShowContactModal(false); }}
+          role="dialog"
+          aria-modal="true"
         >
-          <div className="relative w-full max-w-7xl mx-auto my-8">
-            <button
-              onClick={() => setShowContactModal(false)}
-              className="absolute top-4 right-4 z-[101] bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
-              aria-label="Cerrar"
-            >
-              <Close size={24} />
-            </button>
-            <DemoRequestSection />
+          <div className="relative bg-white p-8 shadow-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto">
+            <div className="mb-6 flex flex-row justify-between items-center">
+              <span className="font-ZenDots text-gray100 text-xl">RELIAPLANT</span>
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+                aria-label="Cerrar"
+              >
+                <Close size={24} />
+              </button>
+            </div>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold text-gray-900">Solicita una demo</h2>
+            </div>
+            <FormularioContacto
+              type="demo"
+              btnText="Solicitar demo"
+              especial="Contacto - home"
+            />
           </div>
         </div>
       )}

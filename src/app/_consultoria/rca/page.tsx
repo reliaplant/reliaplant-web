@@ -76,25 +76,25 @@ export default function AnalisisRCA() {
               <h3 className="mb-4">Fundamentos de nuestro enfoque</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Basado en normas ASME, ISO 55000, API 689
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Enfoque en evidencias verificables
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Árbol Lógico de Fallas como método central
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-blue60 mt-2 flex-shrink-0"></div>
                   <p className="text-gray60">
                     Análisis de factores técnicos y humanos
                   </p>
@@ -115,7 +115,7 @@ export default function AnalisisRCA() {
             <div className="p-6 sm:p-8">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -136,7 +136,7 @@ export default function AnalisisRCA() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -157,7 +157,7 @@ export default function AnalisisRCA() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -178,7 +178,7 @@ export default function AnalisisRCA() {
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="p-1 bg-blue60 text-white rounded-full flex-shrink-0 mt-1">
+                  <div className="p-1 bg-blue60 text-white flex-shrink-0 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -212,7 +212,7 @@ export default function AnalisisRCA() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
-            <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
+            <div className="flex items-center justify-center h-14 w-14 bg-blue60 text-white mb-6">
               <Number_1 size={28} />
             </div>
             <h3 className="mb-3">Notificación y Preparación</h3>
@@ -235,7 +235,7 @@ export default function AnalisisRCA() {
           </div>
 
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
-            <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
+            <div className="flex items-center justify-center h-14 w-14 bg-blue60 text-white mb-6">
               <Number_2 size={28} />
             </div>
             <h3 className="mb-3">Investigación y Análisis</h3>
@@ -256,7 +256,7 @@ export default function AnalisisRCA() {
           </div>
 
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
-            <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
+            <div className="flex items-center justify-center h-14 w-14 bg-blue60 text-white mb-6">
               <Number_3 size={28} />
             </div>
             <h3 className="mb-3">Recomendaciones y Plan de Acción</h3>
@@ -278,7 +278,7 @@ export default function AnalisisRCA() {
           </div>
 
           <div className="border p-6 pb-8 relative hover:shadow-lg transition-all duration-300">
-            <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue60 text-white mb-6">
+            <div className="flex items-center justify-center h-14 w-14 bg-blue60 text-white mb-6">
               <Number_4 size={28} />
             </div>
             <h3 className="mb-3">Implementación y Seguimiento</h3>
@@ -425,7 +425,7 @@ export default function AnalisisRCA() {
             <h2 className="mb-6">Herramientas y formatos especializados</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 bg-blue60 rounded-full flex-shrink-0">
+                <div className="p-2 bg-blue60 flex-shrink-0">
                   <SyncSettings size={20} className="text-white" />
                 </div>
                 <div>
@@ -441,7 +441,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="p-2 bg-blue60 rounded-full flex-shrink-0">
+                <div className="p-2 bg-blue60 flex-shrink-0">
                   <DataVolume size={20} className="text-white" />
                 </div>
                 <div>
@@ -457,7 +457,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="p-2 bg-blue60 rounded-full flex-shrink-0">
+                <div className="p-2 bg-blue60 flex-shrink-0">
                   <QuestionAnswering size={20} className="text-white" />
                 </div>
                 <div>
@@ -471,7 +471,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="p-2 bg-blue60 rounded-full flex-shrink-0">
+                <div className="p-2 bg-blue60 flex-shrink-0">
                   <Inspection size={20} className="text-white" />
                 </div>
                 <div>
@@ -490,7 +490,7 @@ export default function AnalisisRCA() {
             <h2 className="mb-6">Beneficios comprobados</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Reducción de hasta un 85% en la recurrencia de fallas en
                   equipos críticos.
@@ -498,7 +498,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Disminución significativa de horas de mantenimiento no
                   planificado.
@@ -506,7 +506,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Optimización de procedimientos de operación y mantenimiento
                   basados en hallazgos de las investigaciones.
@@ -514,7 +514,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Desarrollo de capacidades internas para identificación
                   temprana de condiciones de falla potencial.
@@ -522,7 +522,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Transformación cultural hacia un enfoque basado en evidencias
                   para la solución de problemas.
@@ -530,7 +530,7 @@ export default function AnalisisRCA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-blue60 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-3 h-3 bg-blue60 mt-2 flex-shrink-0"></div>
                 <p>
                   Integración efectiva de las lecciones aprendidas en la gestión
                   de activos y procesos.

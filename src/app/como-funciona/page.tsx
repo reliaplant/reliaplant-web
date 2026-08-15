@@ -35,7 +35,7 @@ export default function ComoFuncionaPage() {
         </div>
         {/* Scrim: fondo oscuro uniforme para garantizar CR ≥ 7:1 (WCAG AAA) */}
         <div className="absolute inset-0 z-[1] bg-gradient-to-br from-gray-900/80 via-[#1a1a2e]/75 to-blue-900/70" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl z-[1]" />
         
         <div className="max-w-7xl mx-auto relative z-[2]">
           <div className="flex items-center gap-3 mb-6">
@@ -55,7 +55,7 @@ export default function ComoFuncionaPage() {
             mejorando la calidad de datos y reduciendo el tiempo administrativo técnico.
           </p>
 
-          <div className="bg-white/10 border border-white/20 rounded-xl p-8 max-w-7xl">
+          <div className="bg-white/10 border border-white/20 p-8 max-w-7xl">
             <p className="text-lg text-white/90 font-semibold mb-4">El objetivo es simple:</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -83,7 +83,7 @@ export default function ComoFuncionaPage() {
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -119,7 +119,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Datos confiables para análisis y decisiones.
@@ -128,7 +128,7 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg">
               <Image
                 src="/assets/bgAssetRegister.webp"
                 alt="Taxonomía de activos industriales"
@@ -139,7 +139,7 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo de Registro de Activos</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5">Módulo de Registro de Activos</span>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function ComoFuncionaPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg md:order-1">
               <Image
                 src="/assets/bgACR.webp"
                 alt="Análisis de causa raíz en planta industrial"
@@ -162,13 +162,13 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCA</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5">Módulo RCA</span>
               </div>
             </div>
 
             <div className="md:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-blue-600">2</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -216,7 +216,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Menos fallas recurrentes y mejor aprendizaje organizacional.
@@ -233,7 +233,7 @@ export default function ComoFuncionaPage() {
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-blue-600">3</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -277,7 +277,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Estrategias de mantenimiento más claras y ejecutables.
@@ -286,7 +286,7 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg">
               <Image
                 src="/assets/fondo-landing-rcm.webp"
                 alt="Proceso RCM estructurado"
@@ -297,7 +297,7 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Módulo RCM</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5">Módulo RCM</span>
               </div>
             </div>
           </div>
@@ -309,7 +309,7 @@ export default function ComoFuncionaPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg md:order-1">
               <Image
                 src="/assets/Interaccion Progresiva.webp"
                 alt="Integración de sistemas industriales"
@@ -320,13 +320,13 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Integración progresiva</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5">Integración progresiva</span>
               </div>
             </div>
 
             <div className="md:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-blue-600">4</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -356,7 +356,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Lo importante:</p>
                 <p className="text-gray-700">
                   No necesitas cambiar todo tu ecosistema tecnológico.
@@ -373,7 +373,7 @@ export default function ComoFuncionaPage() {
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-green-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-green-600">5</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -409,7 +409,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+              <div className="bg-green-50 border-l-4 border-green-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">Resultado:</p>
                 <p className="text-gray-700">
                   Ingeniería de confiabilidad enfocada en resultados, no en papeleo.
@@ -418,7 +418,7 @@ export default function ComoFuncionaPage() {
             </div>
             
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg">
               <Image
                 src="/assets/bgPerformance.webp"
                 alt="KPIs e indicadores de confiabilidad"
@@ -429,7 +429,7 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Impacto operativo</span>
+                <span className="bg-green-600 text-white text-xs font-bold px-3 py-1.5">Impacto operativo</span>
               </div>
             </div>
           </div>
@@ -441,7 +441,7 @@ export default function ComoFuncionaPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-stretch">
             {/* Image */}
-            <div className="relative min-h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-lg md:order-1">
+            <div className="relative min-h-[400px] overflow-hidden border border-gray-300 shadow-lg md:order-1">
               <Image
                 src="/assets/bgCapacitacion.webp"
                 alt="Capacitación e implementación"
@@ -452,13 +452,13 @@ export default function ComoFuncionaPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">Implementación acompañada</span>
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5">Implementación acompañada</span>
               </div>
             </div>
 
             <div className="md:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-blue-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-blue-600">6</span>
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -488,7 +488,7 @@ export default function ComoFuncionaPage() {
               </ul>
 
               {/* Resultado */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                 <p className="text-gray-900 font-semibold text-lg mb-1">El objetivo:</p>
                 <p className="text-gray-700">
                   Adopción real, no solo instalación.

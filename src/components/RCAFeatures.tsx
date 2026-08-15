@@ -130,10 +130,10 @@ export default function RCAFeatures() {
             {features.map((feature, index) => {
               const isEven = index % 2 === 0;
               const textPanel = (
-                <div className={`flex flex-col h-full ${isEven ? "border-r" : "border-l"} border-gray-200 bg-white`}>
+                <div className={`flex flex-col h-full ${isEven ? "border-r" : "border-l"} border-gray-300 bg-white`}>
 
                   {/* Top: number watermark + title + description */}
-                  <div className="relative px-8 pt-8 pb-7 border-b border-gray-200 overflow-hidden flex-shrink-0">
+                  <div className="relative px-8 pt-8 pb-7 border-b border-gray-300 overflow-hidden flex-shrink-0">
                     {/* Number watermark */}
                     <span
                       className="absolute top-0 right-4 font-black leading-none select-none pointer-events-none"
@@ -199,7 +199,7 @@ export default function RCAFeatures() {
               return (
                 <div
                   key={feature.id}
-                  className="grid lg:grid-cols-2 gap-0 bg-white border border-gray-200 h-[460px]"
+                  className="grid lg:grid-cols-2 gap-0 bg-white border border-gray-300 h-[460px]"
                 >
                   {isEven ? <>{textPanel}{animationPanel}</> : <>{animationPanel}{textPanel}</>}
                 </div>

@@ -42,12 +42,12 @@ export default function RCMPage() {
         </div>
         {/* Scrim científico: lleva fondo efectivo a L≈0.034 para garantizar CR≥7:1 en texto normal */}
         <div className="absolute inset-0 z-[1] bg-blue-950/55" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-3xl z-[1]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-3xl z-[1]" />
         
         {/* Botón Volver en esquina superior izquierda */}
         <div className="max-w-7xl mx-auto relative z-[2]">
           <div className="absolute -top-16 left-0">
-            <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+            <Link href="/#modulos" className="inline-flex items-center justify-center w-10 h-10 bg-white/10 hover:bg-white/20 transition-colors">
               <ArrowLeft size={24} className="text-white" />
             </Link>
           </div>
@@ -71,9 +71,9 @@ export default function RCMPage() {
       {/* El problema hoy */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto">
-        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-300">
         {/* Left: text content */}
-        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
           <span
             className="block font-bold uppercase text-red-500 mb-4"
             style={{ fontSize: '0.6875rem', letterSpacing: '0.12em' }}
@@ -113,7 +113,7 @@ export default function RCMPage() {
                   color: '#991b1b',
                   background: '#fff1f2',
                   border: '1px solid #fecaca',
-                  borderRadius: 999,
+                  borderRadius: 0,
                   padding: '4px 12px',
                 }}
               >
@@ -157,9 +157,9 @@ export default function RCMPage() {
       {/* Beneficios operativos */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto">
-        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-200">
+        <div className="max-w-7xl mx-4 sm:mx-6 lg:mx-auto grid lg:grid-cols-2 border border-gray-300">
         {/* Left: text + benefit items */}
-        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-200">
+        <div className="flex flex-col justify-center px-6 py-10 bg-white border-b lg:border-b-0 lg:border-r border-gray-300">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3 block">
             Beneficios operativos
           </span>
@@ -246,7 +246,7 @@ export default function RCMPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Plantas con Mantenimiento Reactivo Dominante */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Restart size={24} className="text-blue-600" />
@@ -272,7 +272,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 2: Empresas que Intentaron RCM pero No Lograron Continuidad */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Renew size={24} className="text-blue-600" />
@@ -298,7 +298,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 3: Organizaciones con Múltiples Activos Similares */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Copy size={24} className="text-blue-600" />
@@ -324,7 +324,7 @@ export default function RCMPage() {
             </div>
             
             {/* Card 4: Equipos con Poco Tiempo para Análisis Profundo */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 transition-colors group">
+            <div className="bg-white border border-gray-300 p-6 hover:border-blue-400 transition-colors group">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Time size={24} className="text-blue-600" />
@@ -366,7 +366,7 @@ export default function RCMPage() {
       {/* Consultoría Section */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-12 border-2 border-blue-200">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-12 border-2 border-blue-200">
             <div className="text-center mb-8">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-4 block">
                 Servicio de consultoría
@@ -380,8 +380,8 @@ export default function RCMPage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <DataStructured size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Desarrollo de RCM</h3>
@@ -390,8 +390,8 @@ export default function RCMPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <Education size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Capacitación incluida</h3>
@@ -400,8 +400,8 @@ export default function RCMPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <TaskComplete size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Revisión de PM existente</h3>
@@ -410,8 +410,8 @@ export default function RCMPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-6 text-center">
+                <div className="w-12 h-12 bg-blue-600 flex items-center justify-center mx-auto mb-4">
                   <Settings size={24} className="text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Implementación en CMMS</h3>

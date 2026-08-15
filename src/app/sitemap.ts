@@ -31,31 +31,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  // Rutas de consultoría
-  const consultoriaRoutes = [
-    "/consultoria",
-    "/consultoria/registro-activos",
-    "/consultoria/sistema-indicadores",
-    "/consultoria/diagnostico-gestion",
-    "/consultoria/estrategia-gestion-activos",
-    "/consultoria/manuales-corporativos",
-    "/consultoria/analisis-ram",
-    "/consultoria/analisis-lcc",
-    "/consultoria/analisis-obsolescencia",
-    "/consultoria/asesoria-continua",
-    "/consultoria/capacitacion",
-    "/consultoria/mantenibilidad",
-    "/consultoria/matriz-responsabilidades",
-    "/consultoria/optimizacion-mro",
-    "/consultoria/rcm",
-    "/consultoria/rca",
-  ].map((route): MetadataRoute.Sitemap[0] => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
   // Rutas de artículos/posts desde Firebase
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
@@ -83,5 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Combinamos todas las rutas
-  return [...mainRoutes, ...moduloRoutes, ...consultoriaRoutes, ...blogRoutes, ...legalRoutes];
+  return [...mainRoutes, ...moduloRoutes, ...blogRoutes, ...legalRoutes];
 }

@@ -100,7 +100,7 @@ export default async function BlogPage({ params }: any) {
                 <Link
                   href={`/blog/${postSlug}`}
                   key={post.id}
-                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-white border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="relative h-48 w-full">
                     {post.coverImage ? (
@@ -133,10 +133,10 @@ export default async function BlogPage({ params }: any) {
                           width={32}
                           height={32}
                           loading="lazy"
-                          className="rounded-full mr-2 object-cover w-8 h-8"
+                          className="mr-2 object-cover w-8 h-8"
                         />
                       ) : (
-                        <div className="w-8 h-8 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gray-200 mr-2 flex items-center justify-center">
                           <span className="text-gray-500 font-medium text-xs">
                             {post.author.charAt(0)}
                           </span>
@@ -161,7 +161,7 @@ export default async function BlogPage({ params }: any) {
                         {post.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full"
+                            className="bg-gray-100 text-gray-600 text-xs px-2 py-1"
                           >
                             {tag}
                           </span>
@@ -191,7 +191,7 @@ export default async function BlogPage({ params }: any) {
         </p>
         <Link
           href="/"
-          className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+          className="px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-700"
         >
           Volver al inicio
         </Link>

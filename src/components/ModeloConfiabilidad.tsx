@@ -49,12 +49,12 @@ interface SimplePopupProps {
 const SimplePopup = ({ title, description, onClose }: SimplePopupProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-opacity-50">
-      <div className="bg-white p-6 rounded-md shadow-md w-[80%] max-w-md">
+      <div className="bg-white p-6 shadow-md w-[80%] max-w-md">
         <h3 className="text-lg font-bold mb-2">{title}</h3>
         <p>{description}</p>
         <button
           onClick={onClose}
-          className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md"
+          className="mt-4 px-4 py-2 bg-red-500 text-white"
         >
           Cerrar
         </button>
@@ -91,7 +91,7 @@ export default function ModeloConfiabilidad() {
           className="absolute z-100 skeleton-loading"
         />
 
-        <div className="p-[4vw] px-[6vw] w-full h-[42vw] grid grid-cols-4 gap-[4vw] gap-y-[3vw] borderIA shadow-md rounded-lg relative">
+        <div className="p-[4vw] px-[6vw] w-full h-[42vw] grid grid-cols-4 gap-[4vw] gap-y-[3vw] borderIA shadow-md relative">
           <button className="h-fit z-200 absolute right-[12px] bottom-[12px] ">
             Conoce como iniciar{" "}
           </button>

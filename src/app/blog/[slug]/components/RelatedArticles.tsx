@@ -28,7 +28,7 @@ export default function RelatedArticles({ posts }: { posts: BlogPost[] }) {
             <Link
               href={`/blog/${postSlug}`}
               key={post.id}
-              className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              className="bg-white border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="relative h-36 w-full">
                 {post.coverImage ? (

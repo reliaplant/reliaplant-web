@@ -146,6 +146,10 @@
 
   .font-ZenDots {
     font-family: var(--font-zen-dots) !important;
+    /* Zen Dots solo existe en un peso (400); se engrosa con text-stroke del mismo
+       color para que se vea un poco más negrita, respetando el color de cada lugar */
+    -webkit-text-stroke: 0.4px currentColor;
+    text-stroke: 0.4px currentColor;
   }
 
   /* Blog article: anchor headings not hidden under the fixed header, and ✅/❌ callouts */

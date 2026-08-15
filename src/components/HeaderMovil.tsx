@@ -21,16 +21,6 @@ const AbrirFormContacto = dynamic(() => import("./AbrirFormContacto"), {
   ssr: false,
 });
 
-interface ConsultingCard {
-  title: string;
-  link: string;
-}
-
-interface ConsultingCategory {
-  title: string;
-  items: ConsultingCard[];
-}
-
 interface SoftwareItem {
   title: string;
   description: string;
@@ -41,71 +31,8 @@ interface SoftwareItem {
 interface Section {
   id: string;
   title: string;
-  data: ConsultingCategory[] | SoftwareItem[];
+  data: SoftwareItem[];
 }
-
-const gestion: ConsultingCard[] = [
-  {
-    title: "Construcción del Registro de Activos en CMMS (Taxonomía)",
-    link: "/consultoria/registro-activos ",
-  },
-  {
-    title: "Desarrollo del sistema de indicadores",
-    link: "/consultoria/sistema-indicadores",
-  },
-  {
-    title: "Diagnóstico de la Gestión de Mantenimiento",
-    link: "/consultoria/diagnostico-gestion",
-  },
-  {
-    title: "Estrategia de gestión de activos",
-    link: "/consultoria/estrategia-gestion-activos",
-  },
-  {
-    title: "Desarrollo de manuales corporativos y procedimientos",
-    link: "/consultoria/manuales-corporativos",
-  },
-];
-
-const MejorasEconomicas: ConsultingCard[] = [
-  {
-    title: "Mantenimiento Centrado en Confiabilidad (RCM)",
-    link: "/consultoria/rcm",
-  },
-  { title: "Análisis RAM", link: "/consultoria/analisis-ram" },
-  {
-    title: "Análisis de Costo de Ciclo de Vida",
-    link: "/consultoria/analisis-lcc",
-  },
-  {
-    title: "Evaluación y manejo de la obsolescencia",
-    link: "/consultoria/analisis-obsolescencia",
-  },
-  {
-    title: "Análisis Causa Raíz (Investigación de fallas)",
-    link: "/consultoria/rca",
-  },
-  { title: "Análisis de Mantenibilidad", link: "/consultoria/mantenibilidad" },
-  {
-    title: "Optimización de Inventario ",
-    link: "/consultoria/optimizacion-mro",
-  },
-];
-
-const PersonalEspecialista: ConsultingCard[] = [
-  {
-    title: "Asesoría continua y asignación de personal",
-    link: "/consultoria/asesoria-continua",
-  },
-  {
-    title: "Capacitación Técnica en Confiabilidad",
-    link: "/consultoria/capacitacion",
-  },
-  {
-    title: "Definición de responsabilidades y competencias",
-    link: "/consultoria/matriz-responsabilidades",
-  },
-];
 
 export default function HeaderMovil() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -138,15 +65,6 @@ export default function HeaderMovil() {
   }, [menuOpen]);
 
   const sections: Section[] = [
-    {
-      id: "servicios",
-      title: "Servicios de Consultoría",
-      data: [
-        { title: "Gestión", items: gestion },
-        { title: "Metodologías de Confiabilidad", items: MejorasEconomicas },
-        { title: "Personal", items: PersonalEspecialista },
-      ] as ConsultingCategory[],
-    },
     {
       id: "software",
       title: "Software",
@@ -234,7 +152,7 @@ export default function HeaderMovil() {
             <div className="px-4 py-2">
               {/* Menu Items */}
               {sections.map((section) => (
-                <div key={section.id} className="border-b border-gray-200">
+                <div key={section.id} className="border-b border-gray-300">
                   <button
                     className="flex justify-between items-center w-full py-4 px-2"
                     onClick={() => toggleSection(section.id)}
@@ -253,59 +171,33 @@ export default function HeaderMovil() {
                   {/* Section Content */}
                   {activeSection === section.id && (
                     <div className="p-2 mb-4">
-                      {section.id === "servicios" ? (
-                        // Servicios de Consultoría content
-                        (section.data as ConsultingCategory[]).map(
-                          (category, idx) => (
-                            <div key={idx} className="mb-6">
-                              <h3 className="text-lg mb-4 font-bold text-black border-b border-black pb-2 p">
-                                {category.title}
-                              </h3>
-                              <ul className="space-y-3 pl-2">
-                                {category.items.map((item, itemIdx) => (
-                                  <li key={itemIdx}>
-                                    <Link
-                                      href={item.link}
-                                      className="text-gray-600 text-sm block py-1"
-                                      onClick={handleLinkClick}
-                                    >
-                                      {item.title}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
+                      {/* Software content */}
+                      <div className="space-y-4 mt-2">
+                        {section.data.map((item, idx) => (
+                          <Link
+                            href={item.link}
+                            key={idx}
+                            className="flex items-start border-gray-100"
+                            onClick={handleLinkClick}
+                          >
+                            <div className="bg-gray10 w-full p-2">
+                              <p className="font-medium text-2xl mb-0">
+                                {item.title}
+                              </p>
+                              <p className="text-gray-500 text-xs mb-0">
+                                {item.description}
+                              </p>
                             </div>
-                          )
-                        )
-                      ) : (
-                        // Software content
-                        <div className="space-y-4 mt-2">
-                          {(section.data as SoftwareItem[]).map((item, idx) => (
-                            <Link
-                              href={item.link}
-                              key={idx}
-                              className="flex items-start border-gray-100"
-                              onClick={handleLinkClick}
-                            >
-                              <div className="bg-gray10 w-full p-2 rounded">
-                                <p className="font-medium text-2xl mb-0">
-                                  {item.title}
-                                </p>
-                                <p className="text-gray-500 text-xs mb-0">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
               ))}
 
               {/* Cómo funciona Link */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-gray-300">
                 <Link
                   href="/como-funciona"
                   className="flex justify-between items-center w-full py-4 px-2"
@@ -316,7 +208,7 @@ export default function HeaderMovil() {
               </div>
 
               {/* Industrias Link */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-gray-300">
                 <Link
                   href="/industrias"
                   className="flex justify-between items-center w-full py-4 px-2"
@@ -327,7 +219,7 @@ export default function HeaderMovil() {
               </div>
 
               {/* ROI Link */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-gray-300">
                 <Link
                   href="/roi"
                   className="flex justify-between items-center w-full py-4 px-2"
@@ -338,7 +230,7 @@ export default function HeaderMovil() {
               </div>
 
               {/* Pricing Link */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-gray-300">
                 <Link
                   href="/pricing"
                   className="flex justify-between items-center w-full py-4 px-2"
@@ -349,7 +241,7 @@ export default function HeaderMovil() {
               </div>
 
               {/* Blog Link */}
-              <div className="border-b border-gray-200">
+              <div className="border-b border-gray-300">
                 <Link
                   href="/blog"
                   className="flex justify-between items-center w-full py-4 px-2"

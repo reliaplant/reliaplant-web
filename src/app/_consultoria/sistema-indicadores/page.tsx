@@ -123,7 +123,7 @@ export default function SistemaIndicadoresPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 relative border">
-            <div className="absolute top-8 left-8 bg-blue10 p-2 rounded">
+            <div className="absolute top-8 left-8 bg-blue10 p-2">
               <Number_1 size={24} className="text-blue60" />
             </div>
             <h3 className="mb-6 mt-12">Nivel Estratégico</h3>
@@ -144,7 +144,7 @@ export default function SistemaIndicadoresPage() {
           </div>
 
           <div className="bg-white p-8 relative border">
-            <div className="absolute top-8 left-8 bg-blue10 p-2 rounded">
+            <div className="absolute top-8 left-8 bg-blue10 p-2">
               <Number_2 size={24} className="text-blue60" />
             </div>
             <h3 className="mb-6 mt-12">Nivel Táctico</h3>
@@ -164,7 +164,7 @@ export default function SistemaIndicadoresPage() {
           </div>
 
           <div className="bg-white p-8 relative border">
-            <div className="absolute top-8 left-8 bg-blue10 p-2 rounded">
+            <div className="absolute top-8 left-8 bg-blue10 p-2">
               <Number_3 size={24} className="text-blue60" />
             </div>
             <h3 className="mb-6 mt-12">Nivel Operativo</h3>
@@ -314,7 +314,7 @@ export default function SistemaIndicadoresPage() {
       {/* Example of Indicator Card */}
       <div className="contentSection">
         <h2>Ejemplo de ficha de indicador</h2>
-        <div className="rounded-lg overflow-hidden border">
+        <div className="overflow-hidden border">
           <div className="bg-blue10 text-white py-4 px-6">
             <h4 className="font-bold !mb-0">
               Tiempo Medio de Reparación (MTTR)
@@ -337,7 +337,7 @@ export default function SistemaIndicadoresPage() {
 
                 <div className="mb-6">
                   <h5 className="text-gray90 mb-2">Fórmula de cálculo</h5>
-                  <div className="p-4 rounded border text-center bg-gray10">
+                  <div className="p-4 border text-center bg-gray10">
                     <p className="mb-0">
                       MTTR = Σ (Tiempo total de reparaciones) ÷ (Número de
                       fallas)
@@ -384,15 +384,15 @@ export default function SistemaIndicadoresPage() {
                 <div className="mb-6">
                   <h5 className="text-gray90 mb-2">Meta y umbrales</h5>
                   <div className="grid grid-cols-3 gap-1 mb-2">
-                    <div className="bg-green-100 p-2 text-center rounded">
+                    <div className="bg-green-100 p-2 text-center">
                       <span className="text-green-800">Óptimo</span>
                       <p className="text-green-800 mb-0">≤ 3h</p>
                     </div>
-                    <div className="bg-gray-100 p-2 text-center rounded">
+                    <div className="bg-gray-100 p-2 text-center">
                       <span className="text-gray-800">Aceptable</span>
                       <p className="text-gray-800 mb-0">4-5h</p>
                     </div>
-                    <div className="bg-red-100 p-2 text-center rounded">
+                    <div className="bg-red-100 p-2 text-center">
                       <span className="text-red-800">Crítico</span>
                       <p className="text-red-800 mb-0">{">"}5h</p>
                     </div>
@@ -510,7 +510,7 @@ export default function SistemaIndicadoresPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           <div className="flex items-start gap-4">
-            <div className="bg-blue20 p-3 rounded flex-shrink-0">
+            <div className="bg-blue20 p-3 flex-shrink-0">
               <IdManagement size={24} className="text-blue60" />
             </div>
             <div>
@@ -531,7 +531,7 @@ export default function SistemaIndicadoresPage() {
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <div className="bg-blue20 p-3 rounded flex-shrink-0">
+            <div className="bg-blue20 p-3 flex-shrink-0">
               <DocumentImport size={24} className="text-blue60" />
             </div>
             <div>
