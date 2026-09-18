@@ -5,10 +5,12 @@ import AbrirFormContacto from "@/components/AbrirFormContacto";
 import { Headset } from "@carbon/icons-react";
 import { processContentHeadings, styleCallouts, estimateReadingTime } from "@/lib/utils/blogContent";
 import BlogToc from "./BlogToc";
+import RelatedArticles from "./RelatedArticles";
 
 interface BlogPostContentProps {
   post: BlogPost;
   contributor: BlogContributor | null;
+  relatedPosts?: BlogPost[];
 }
 
 function formatDate(dateString: string): string {
@@ -24,7 +26,7 @@ function formatDate(dateString: string): string {
   }
 }
 
-export default function BlogPostContent({ post, contributor }: BlogPostContentProps) {
+export default function BlogPostContent({ post, contributor, relatedPosts = [] }: BlogPostContentProps) {
   const { html: htmlWithIds, toc } = processContentHeadings(post.content);
   const processedContent = styleCallouts(htmlWithIds);
   const readingTime = estimateReadingTime(post.content);
@@ -168,6 +170,9 @@ export default function BlogPostContent({ post, contributor }: BlogPostContentPr
             />
           </div>
         </div>
+
+        {/* Artículos relacionados */}
+        <RelatedArticles posts={relatedPosts} />
 
         {/* Bottom back link */}
         <div className="mt-8 mb-4 text-center">

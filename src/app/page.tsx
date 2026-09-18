@@ -628,7 +628,7 @@ export default function Home() {
                       {isFree ? "$0" : `$${plan.annualPrice?.toLocaleString("es-MX")}`}
                     </span>
                     <span className="text-gray-500">
-                      {isFree ? " / para siempre" : `/año${plan.features.pricedPerPlant ? " + precio por planta" : ""}`}
+                      {isFree ? " / para siempre" : `/año${plan.features.pricedPerPlant ? "/planta" : ""}`}
                     </span>
                   </div>
                   <div className="grid grid-cols-3 gap-1 text-xs text-gray-600 bg-gray-50 px-2 py-3 w-full mt-2 mb-4">
@@ -644,7 +644,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col items-center gap-1">
                       <Industry size={20} className="text-gray-400" />
-                      <span className="font-semibold text-gray-900">{fmtPlants(plan.limits.maxPlants)}</span>
+                      <span className="font-semibold text-gray-900">{plan.features.pricedPerPlant ? "Bajo demanda" : fmtPlants(plan.limits.maxPlants)}</span>
                       <span>plantas</span>
                     </div>
                   </div>

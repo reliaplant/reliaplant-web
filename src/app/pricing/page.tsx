@@ -103,7 +103,7 @@ export default async function PricingCompare() {
                   </span>
                   {!isFree && (
                     <span className="text-sm text-gray-500 mb-1">
-                      /año{plan.features.pricedPerPlant ? " + precio por planta" : ""}
+                      /año{plan.features.pricedPerPlant ? "/planta" : ""}
                     </span>
                   )}
                 </div>
@@ -113,7 +113,7 @@ export default async function PricingCompare() {
                   {[
                     { val: fmtNum(plan.limits.maxUsers), label: plan.features.pricedPerPlant ? "usuarios/planta" : "usuarios" },
                     { val: fmtNum(plan.limits.maxActivos), label: plan.features.pricedPerPlant ? "activos/planta" : "activos" },
-                    { val: fmtPlants(plan.limits.maxPlants), label: "plantas" },
+                    { val: plan.features.pricedPerPlant ? "Bajo demanda" : fmtPlants(plan.limits.maxPlants), label: "plantas" },
                   ].map((item) => (
                     <div key={item.label} className="flex-1">
                       <div className="text-base font-bold text-gray-800">{item.val}</div>
@@ -218,7 +218,7 @@ export default async function PricingCompare() {
                   </tr>
                   <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Plantas</td>
-                    {plans.map((p) => <td key={p.id} className="text-center">{fmtPlants(p.limits.maxPlants)}</td>)}
+                    {plans.map((p) => <td key={p.id} className="text-center">{p.features.pricedPerPlant ? "Bajo demanda" : fmtPlants(p.limits.maxPlants)}</td>)}
                   </tr>
                   <tr className="hover:bg-gray-50">
                     <td className="py-2 px-2">Almacenamiento de archivos adjuntos</td>
