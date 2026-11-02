@@ -1,126 +1,26 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
-import { getContributor } from "@/lib/firebase/blog/contributor";
-import BlogPostContent from "./components/BlogPostContent";
+import { articuloPorSlug } from "@/lib/blog-datos";
+import { VistaArticulo, metadataArticulo, paramsArticulos } from "../../blog-vistas";
+import { VistaAnterior, metadataAnterior, postAnterior } from "../anteriores";
 
-const BASE_URL = process.env.HOST_URL || "https://reliaplant.com";
+// Los artículos se prerenderizan al compilar; uno nuevo se genera en su primera visita
+// y todos se regeneran cada hora.
+export const revalidate = 3600;
 
-export const revalidate = 60;
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  try {
-    const { slug } = await params;
-    const posts = await getPublishedBlogPosts();
-    const post = posts.find((p) => p.slug === slug || p.id === slug);
-
-    if (!post) {
-      return {
-        title: "Artículo no encontrado",
-        description: "El artículo que buscas no existe o ha sido eliminado.",
-      };
-    }
-
-    const description =
-      post.metaDescription ||
-      post.summary ||
-      `${post.title} - Artículo por ${post.author}`;
-    const canonicalSlug = post.slug || post.id;
-
-    return {
-      title: post.seoTitle || post.title,
-      description,
-      keywords: post.keyPhrases?.join(", ") || post.tags.join(", "),
-      alternates: {
-        canonical: `${BASE_URL}/blog/${canonicalSlug}`,
-      },
-      openGraph: {
-        title: post.seoTitle || post.title,
-        description,
-        type: "article",
-        publishedTime: post.publishDate,
-        modifiedTime: post.updatedAt || post.publishDate,
-        authors: [post.author],
-        images: post.coverImage
-          ? [{ url: post.coverImage, alt: post.title }]
-          : [],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: post.seoTitle || post.title,
-        description,
-        images: post.coverImage ? [post.coverImage] : [],
-      },
-    };
-  } catch (error) {
-    console.error("Error generating metadata:", error);
-    return {
-      title: "Error",
-      description: "Hubo un error al cargar este artículo",
-    };
-  }
+export function generateStaticParams() {
+  return paramsArticulos("es");
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const posts = await getPublishedBlogPosts();
-  const post = posts.find((p) => p.slug === slug || p.id === slug);
+  return (await articuloPorSlug("es", slug)) ? metadataArticulo("es", slug) : metadataAnterior(slug);
+}
 
-  if (!post) notFound();
-
-  const contributor = post.contributorId
-    ? await getContributor(post.contributorId).catch(() => null)
-    : null;
-
-  const relatedPosts = posts
-    .filter((p) => p.id !== post.id)
-    .sort((a, b) => {
-      const aShared = a.tags?.some((t) => post.tags?.includes(t)) ? 1 : 0;
-      const bShared = b.tags?.some((t) => post.tags?.includes(t)) ? 1 : 0;
-      if (aShared !== bShared) return bShared - aShared;
-      return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
-    })
-    .slice(0, 3);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.seoTitle || post.title,
-    description: post.metaDescription || post.summary || "",
-    ...(post.coverImage && { image: post.coverImage }),
-    datePublished: post.publishDate,
-    dateModified: post.updatedAt || post.publishDate,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Reliaplant",
-      url: BASE_URL,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/blog/${post.slug || post.id}`,
-    },
-    ...(post.keyPhrases?.length && { keywords: post.keyPhrases.join(", ") }),
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <BlogPostContent post={post} contributor={contributor} relatedPosts={relatedPosts} />
-    </>
-  );
+export default async function Articulo({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  if (await articuloPorSlug("es", slug)) return <VistaArticulo idioma="es" slug={slug} />;
+  // Post del blog anterior (colección "blogPosts").
+  const anterior = await postAnterior(slug);
+  if (!anterior) notFound();
+  return <VistaAnterior post={anterior.post} posts={anterior.posts} />;
 }

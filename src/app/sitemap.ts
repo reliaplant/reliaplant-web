@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
+import { versiones } from "@/lib/blog";
+import { entradasSitemap } from "./blog-vistas";
 
 export const revalidate = 3600; // Regenerar el sitemap cada hora
 
@@ -31,7 +33,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  // Rutas de artículos/posts desde Firebase
+  // Artículos del blog (colección "articulos"), cada uno con sus versiones por idioma (hreflang)
+  const articuloRoutes: MetadataRoute.Sitemap = (await entradasSitemap()).flatMap((a) => {
+    const rutas = versiones(a);
+    const languages = Object.fromEntries(Object.entries(rutas).map(([i, r]) => [i, `${baseUrl}${r}`]));
+    return Object.values(rutas).map((r) => ({
+      url: `${baseUrl}${r}`,
+      lastModified: a.actualizado ?? a.fecha,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      alternates: { languages },
+    }));
+  });
+
+  // Rutas de artículos/posts del blog anterior (colección "blogPosts")
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
     const posts = await getPublishedBlogPosts();
@@ -58,5 +73,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // Combinamos todas las rutas
-  return [...mainRoutes, ...moduloRoutes, ...blogRoutes, ...legalRoutes];
+  return [...mainRoutes, ...moduloRoutes, ...articuloRoutes, ...blogRoutes, ...legalRoutes];
 }

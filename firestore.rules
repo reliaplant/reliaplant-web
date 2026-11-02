@@ -6,6 +6,13 @@ service cloud.firestore {
       allow read: if true;
     }
     
+    // Blog (colección "articulos"): cualquiera lee lo publicado; nadie escribe desde el cliente
+    // (los artículos se escriben con el Admin SDK desde el conector MCP).
+    match /articulos/{id} {
+      allow read: if resource.data.publicado == true;
+      allow write: if false;
+    }
+
     match /{document=**} {
       allow read, write: if true;
     }
