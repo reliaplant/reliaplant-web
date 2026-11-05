@@ -10,7 +10,8 @@
     "release:patch": "npm version patch",
     "release:minor": "npm version minor",
     "release:major": "npm version major",
-    "deploy": "firebase deploy --only hosting,functions"
+    "deploy": "firebase deploy --only hosting,functions",
+    "publicar": "rm -rf .next/cache/fetch-cache && npx -y firebase-tools@14 deploy --only hosting --project reliaplant-2c104 --non-interactive"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
