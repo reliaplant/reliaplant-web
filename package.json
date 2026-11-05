@@ -14,7 +14,6 @@
     "publicar": "rm -rf .next/cache/fetch-cache && npx -y firebase-tools@14 deploy --only hosting --project reliaplant-2c104 --non-interactive"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.115.0",
     "@carbon/icons-react": "^11.58.0",
     "@tiptap/extension-image": "^2.11.9",
     "@tiptap/extension-link": "^2.11.9",

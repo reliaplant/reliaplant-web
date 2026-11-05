@@ -35,75 +35,6 @@ export default function BlogForm({
   const [submitting, setSubmitting] = useState(false);
   const [contributors, setContributors] = useState<BlogContributor[]>([]);
   const [loadingContributors, setLoadingContributors] = useState(true);
-  const [loadingAI, setLoadingAI] = useState<string | null>(null);
-
-  // Generación de borrador completo con IA
-  const [aiTopic, setAiTopic] = useState("");
-  const [aiKeyword, setAiKeyword] = useState("");
-  const [aiNotes, setAiNotes] = useState("");
-  const [generatingDraft, setGeneratingDraft] = useState(false);
-
-  const generateDraftWithAI = async () => {
-    if (!aiTopic.trim()) {
-      toast.error("Describe el tema del artículo primero");
-      return;
-    }
-    setGeneratingDraft(true);
-    try {
-      const res = await fetch("/api/generate-post", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic: aiTopic, keyword: aiKeyword, notes: aiNotes }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Error desconocido");
-      setBlogPost((prev) => ({
-        ...prev,
-        title: data.title,
-        content: data.content,
-        summary: data.summary,
-        tags: data.tags?.length ? data.tags : prev.tags,
-        seoTitle: data.seoTitle,
-        slug: data.slug,
-        metaDescription: data.metaDescription,
-        keyPhrases: data.keyPhrases,
-        published: false,
-      }));
-      toast.success("Borrador generado — revísalo antes de publicar");
-    } catch (err: any) {
-      toast.error(err.message || "Error al generar el borrador");
-    } finally {
-      setGeneratingDraft(false);
-    }
-  };
-
-  const suggestWithAI = async (field: string) => {
-    if (!blogPost.title && !blogPost.content) {
-      toast.error("Añade al menos un título o contenido antes de usar IA.");
-      return;
-    }
-    setLoadingAI(field);
-    try {
-      const res = await fetch("/api/seo-suggest", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: blogPost.title, content: blogPost.content, field }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Error desconocido");
-      if (field === "keyPhrases") {
-        const phrases = data.suggestion.split(",").map((p: string) => p.trim()).filter(Boolean);
-        setBlogPost((prev) => ({ ...prev, keyPhrases: phrases }));
-      } else {
-        setBlogPost((prev) => ({ ...prev, [field]: data.suggestion }));
-      }
-      toast.success("Sugerencia generada");
-    } catch (err: any) {
-      toast.error(err.message || "Error al generar sugerencia con IA");
-    } finally {
-      setLoadingAI(null);
-    }
-  };
 
   useEffect(() => {
     getAllContributors()
@@ -223,51 +154,6 @@ export default function BlogForm({
       {/* Basic Tab */}
       {activeTab === "basic" && (
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          {!isEditing && (
-            <div style={{ padding: 16, background: "var(--a-ui-01)", border: "1px solid var(--a-ui-03)" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                <span style={{ fontSize: 13, fontWeight: 600 }}>✦ Generar borrador completo con IA</span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <input
-                  className="admin-input"
-                  type="text"
-                  value={aiTopic}
-                  onChange={(e) => setAiTopic(e.target.value)}
-                  placeholder="Tema del artículo (ej. cómo calcular MTBF con taxonomía ISO 14224)"
-                />
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                  <input
-                    className="admin-input"
-                    type="text"
-                    value={aiKeyword}
-                    onChange={(e) => setAiKeyword(e.target.value)}
-                    placeholder="Palabra clave SEO (opcional)"
-                  />
-                  <input
-                    className="admin-input"
-                    type="text"
-                    value={aiNotes}
-                    onChange={(e) => setAiNotes(e.target.value)}
-                    placeholder="Notas adicionales (opcional)"
-                  />
-                </div>
-                <button
-                  type="button"
-                  onClick={generateDraftWithAI}
-                  disabled={generatingDraft}
-                  className="abtn abtn-primary abtn-sm"
-                  style={{ alignSelf: "flex-start" }}
-                >
-                  {generatingDraft ? "Generando…" : "Generar borrador"}
-                </button>
-                <p style={{ fontSize: 11, color: "var(--a-text-02)", margin: 0 }}>
-                  Esto rellena título, contenido, tags y campos SEO. Siempre queda como borrador — revisa y edita antes de publicar.
-                </p>
-              </div>
-            </div>
-          )}
-
           <div className="admin-field">
             <label className="admin-field-label" htmlFor="title">Título *</label>
             <input
@@ -409,16 +295,10 @@ export default function BlogForm({
       {/* SEO Tab */}
       {activeTab === "seo" && (
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          {/* Info banner */}
-          <div style={{ padding: "10px 16px", background: "var(--a-ui-02)", borderLeft: "3px solid var(--a-blue)", fontSize: 13, color: "var(--a-text-02)" }}>
-            Usa <strong style={{ color: "var(--a-text-01)" }}>Sugerir con IA</strong> para generar sugerencias basadas en el título y contenido del artículo.
-          </div>
-
           {/* SEO Title */}
           <div className="admin-field">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
               <label className="admin-field-label" style={{ marginBottom: 0 }}>Título SEO</label>
-              <AIButton field="seoTitle" loadingAI={loadingAI} onSuggest={suggestWithAI} />
             </div>
             <input
               className="admin-input"
@@ -435,7 +315,6 @@ export default function BlogForm({
           <div className="admin-field">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
               <label className="admin-field-label" style={{ marginBottom: 0 }}>URL amigable (slug)</label>
-              <AIButton field="slug" loadingAI={loadingAI} onSuggest={suggestWithAI} />
             </div>
             <div className="admin-slug-field">
               <span className="admin-slug-prefix">/blog/</span>
@@ -453,7 +332,6 @@ export default function BlogForm({
           <div className="admin-field">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
               <label className="admin-field-label" style={{ marginBottom: 0 }}>Resumen</label>
-              <AIButton field="summary" loadingAI={loadingAI} onSuggest={suggestWithAI} />
             </div>
             <textarea
               className="admin-input"
@@ -470,7 +348,6 @@ export default function BlogForm({
           <div className="admin-field">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
               <label className="admin-field-label" style={{ marginBottom: 0 }}>Meta descripción</label>
-              <AIButton field="metaDescription" loadingAI={loadingAI} onSuggest={suggestWithAI} />
             </div>
             <textarea
               className="admin-input"
@@ -500,7 +377,6 @@ export default function BlogForm({
           <div className="admin-field">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
               <label className="admin-field-label" style={{ marginBottom: 0 }}>Frases clave</label>
-              <AIButton field="keyPhrases" loadingAI={loadingAI} onSuggest={suggestWithAI} label="Sugerir 5 con IA" />
             </div>
             <div style={{ display: "flex", gap: 8 }}>
               <input
@@ -557,39 +433,6 @@ export default function BlogForm({
 }
 
 // Sub-components
-function AIButton({ field, loadingAI, onSuggest, label = "Sugerir con IA" }: {
-  field: string;
-  loadingAI: string | null;
-  onSuggest: (f: string) => void;
-  label?: string;
-}) {
-  const busy = loadingAI === field;
-  return (
-    <button
-      type="button"
-      onClick={() => onSuggest(field)}
-      disabled={busy}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 5,
-        fontSize: 11,
-        fontFamily: "inherit",
-        cursor: busy ? "wait" : "pointer",
-        background: busy ? "var(--a-ui-03)" : "var(--a-blue)",
-        color: busy ? "var(--a-text-02)" : "#fff",
-        border: "none",
-        padding: "4px 10px",
-        fontWeight: 500,
-        opacity: busy ? 0.7 : 1,
-        letterSpacing: "0.02em",
-      }}
-    >
-      {busy ? "Generando…" : `✦ ${label}`}
-    </button>
-  );
-}
-
 function CharCount({ current, max }: { current: number; max: number }) {
   const over = current > max;
   return (

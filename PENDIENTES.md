@@ -27,7 +27,7 @@
 
 ## Pendientes de sesiones anteriores
 
-- [ ] **`BREVO_LIST_ID`** — los leads se sincronizan a Brevo pero no entran a ninguna lista todavía, así que ninguna automatización de correo dispara.
+- [x] **Brevo** — quitado (2026-11-04, decisión de Andrés): los leads quedan solo en Firestore `form_contact`.
 - [ ] **Automatización de email en Brevo** — crear la secuencia en sí (estrategia/copy la define Tomas).
 - [x] **`OPENAI_API_KEY` real** — obsoleto: el generador de posts con IA se migró a Claude (`ANTHROPIC_API_KEY`, ver entrada del 2 de agosto abajo), ya no usa OpenAI.
 - [x] **Desplegar reliaplant-app** — desplegado a `app.reliaplant.com` (hosting target `ramacombinada`). Verificado en el origen (Cloud Run) que los links de Términos/Privacidad ya apuntan a la web. La caché de CDN de algunas rutas tardó en propagarse pero el contenido servido es correcto.
@@ -63,6 +63,7 @@
 - [ ] **No se pudo probar el flujo completo en vivo** (crear post con imagen → verificar en Firestore/Storage) porque el panel admin requiere login real y no tengo credenciales. Verificado a nivel de código (tipos limpios, build limpio, trace lógico del flujo corregido) pero recomiendo que Tomas lo pruebe una vez desplegado.
 - [ ] Blog sigue con **cero posts publicados** — la parte de contenido (escribir artículos reales) sigue pendiente, esto solo fue la parte de mecánica/SEO del editor.
 - [x] **Generador de blog con IA reconectado** — estaba roto (usaba OpenAI con `OPENAI_API_KEY` placeholder). Migrado a Claude (`@anthropic-ai/sdk`), reusando la misma `ANTHROPIC_API_KEY` que ya funciona en reliaplant-app (decisión de Tomas: reusar en vez de key separada). `openai` quitado de package.json (ya no se usa). Ambas rutas (`/api/generate-post`, `/api/seo-suggest`) probadas en vivo contra la API real de Claude — funcionando, buena calidad de contenido en español. De paso encontré y arreglé que `claude-sonnet-5` ya no acepta el parámetro `temperature` (deprecado para este modelo) — no afecta a la app porque sus rutas activas nunca lo pasaban.
+- [x] **Generador de blog con IA quitado** (2026-11-04, decisión de Andrés) — `/api/generate-post`, `/api/seo-suggest` y `@anthropic-ai/sdk` eliminados: estaban abiertos sin login. Los artículos se escriben con el MCP `contenido`.
 
 ## 3 de agosto — CRM de leads (form-manager) y rediseño del blog
 

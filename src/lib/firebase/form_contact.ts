@@ -16,13 +16,6 @@ export const saveFormContact = async (data: FormContactData) => {
     date: new Date(),
   });
 
-  // Sincroniza con Brevo sin bloquear ni romper el guardado si falla
-  fetch("/api/brevo-contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).catch((err) => console.error("Error al sincronizar con Brevo:", err));
-
   return docRef.id;
 };
 
