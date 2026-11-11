@@ -42,7 +42,7 @@ const MODULOS = [
     resumen: "Cada equipo con su UT, su DTI, sus fotos y sus datos.",
     titulo: "Cada equipo con su ubicación, su DTI y sus fotos.",
     texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, levanta en campo con la app y marca cada equipo en su DTI.",
-    puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
+    puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a Excel para SAP PM o tu CMMS."],
     pantalla: TABLA, enlace: "/producto/taxonomia",
   },
   {
