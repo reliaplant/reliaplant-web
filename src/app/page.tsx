@@ -125,7 +125,7 @@ export default function Home() {
               <span className="ok">
                 <svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </span>
-              <div><div style={{ fontWeight: 600 }}>6 fotos registradas</div><div className="s">Sin señal · se suben al volver · GPS ±4 m</div></div>
+              <div><div style={{ fontWeight: 600 }}>Planta Compresión Norte</div><div className="s">1.284 equipos · 46 DTIs · 92% con fotos</div></div>
             </div>
           </div>
         </div>
