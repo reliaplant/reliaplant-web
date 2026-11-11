@@ -6,7 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
 import FormularioContacto from "@/components/FormularioContacto";
 import ModalDemo from "@/components/ModalDemo";
-import { VENTANA, TABLA, RCM, RCA, PM, RBI, GMAO, INVENTARIO, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
+import { VENTANA, TABLA, RCM, RCA, PM, RBI, GMAO, INVENTARIO, CHAT, MAPA } from "@/components/home/piezas";
 import "./home.css";
 
 const APP = "https://app.reliaplant.com";
@@ -230,29 +230,6 @@ export default function Home() {
               <Image src="/sitio/mapa-procesos.jpg" alt="Vista satelital de otra planta de la empresa" fill sizes="260px" style={{ objectFit: "cover" }} />
               <figcaption><b>Planta Procesos Sur</b><span>2.416 equipos · 9 áreas</span></figcaption>
             </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* App de campo */}
-      <section className="sec campo" id="campo">
-        <div className="env">
-          <div className="sec-cab" style={{ marginBottom: 0 }}>
-            <span className="chip-sec"><i />App de campo · Android</span>
-            <h2>El levantamiento se hace en planta, <span className="gris">aunque no haya señal.</span></h2>
-            <p>Descarga la planta al teléfono antes de bajar. Registra equipos, toma fotos y graba notas de voz. Al recuperar señal, todo se sube solo.</p>
-            <ul className="lista">
-              <li>Fotos en calidad original, con GPS y fecha.</li>
-              <li>Los DTIs de la planta guardados en el teléfono, con zoom.</li>
-              <li>Equipos nuevos directo en su ubicación técnica.</li>
-              <li>Si la señal se cae a mitad de una subida, no se pierde ni se duplica nada.</li>
-            </ul>
-          </div>
-          <div className="campo-vis">
-            <div className="foto">
-              <Image src="/sitio/campo-placa-motor.jpg" alt="Técnico fotografiando la placa de un motor con el celular" fill sizes="(max-width: 900px) 100vw, 520px" style={{ objectFit: "cover" }} />
-            </div>
-            <Pieza html={TELEFONO} />
           </div>
         </div>
       </section>

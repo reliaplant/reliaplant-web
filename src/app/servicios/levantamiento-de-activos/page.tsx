@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PaginaProducto, { DatosPagina } from "@/components/producto/PaginaProducto";
+import { TELEFONO } from "@/components/home/piezas";
 
 export const metadata: Metadata = {
   title: { absolute: "Levantamiento de activos y censo de equipos | ReliaPlant" },
@@ -44,6 +45,20 @@ const datos: DatosPagina = {
   pantalla: PANTALLA,
   pantallaPie:
     "TAX → Recorrido: lo que marca el equipo de campo llega a la plataforma con sus fotos y notas de voz. Los equipos nuevos entran con código provisional (N-00014) hasta tener el definitivo.",
+  destacado: {
+    etiqueta: "App de campo · Android",
+    titulo: "El levantamiento se hace en planta,",
+    tituloGris: "aunque no haya señal.",
+    texto: "Nuestro equipo descarga la planta al teléfono antes de bajar. Registra equipos, toma fotos y graba notas de voz en cada UT. Al recuperar señal, todo se sube solo a tu plataforma.",
+    puntos: [
+      "Fotos en calidad original, con GPS y fecha.",
+      "Los DTIs de la planta guardados en el teléfono, con zoom.",
+      "Equipos nuevos directo en su ubicación técnica.",
+      "Si la señal se cae a mitad de una subida, no se pierde ni se duplica nada.",
+    ],
+    foto: { src: "/sitio/campo-placa-motor.jpg", alt: "Técnico fotografiando la placa de un motor con el celular" },
+    pantalla: TELEFONO,
+  },
   problema: {
     titulo: "El listado de equipos dice una cosa.",
     tituloGris: "La planta dice otra.",

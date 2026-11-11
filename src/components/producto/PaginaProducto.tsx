@@ -20,6 +20,11 @@ export interface DatosPagina {
   /** Réplica HTML de la pantalla real de la app (de components/home/piezas.ts o propia, solo con clases existentes). */
   pantalla?: string;
   pantallaPie?: string;
+  /** Sección opcional destacada (foto + pantalla HTML al lado), p. ej. la app de campo en Levantamiento. */
+  destacado?: {
+    etiqueta: string; titulo: string; tituloGris: string; texto: string; puntos: string[];
+    foto: { src: string; alt: string }; pantalla: string;
+  };
   problema: { titulo: string; tituloGris: string; puntos: { titulo: string; texto: string }[] };
   pasos: { titulo: string; texto: string }[];
   capacidades: { titulo: string; texto: string }[];
@@ -93,6 +98,26 @@ export default function PaginaProducto({ d }: { d: DatosPagina }) {
           <div className="env">
             <div dangerouslySetInnerHTML={{ __html: d.pantalla }} />
             {d.pantallaPie && <p className="pp-pie">{d.pantallaPie}</p>}
+          </div>
+        </section>
+      )}
+
+      {/* Destacado opcional */}
+      {d.destacado && (
+        <section className="sec campo">
+          <div className="env">
+            <div className="sec-cab" style={{ marginBottom: 0 }}>
+              <span className="chip-sec"><i />{d.destacado.etiqueta}</span>
+              <h2>{d.destacado.titulo} <span className="gris">{d.destacado.tituloGris}</span></h2>
+              <p>{d.destacado.texto}</p>
+              <ul className="lista">{d.destacado.puntos.map((x) => <li key={x}>{x}</li>)}</ul>
+            </div>
+            <div className="campo-vis">
+              <div className="foto">
+                <Image src={d.destacado.foto.src} alt={d.destacado.foto.alt} fill sizes="(max-width: 900px) 100vw, 520px" style={{ objectFit: "cover" }} />
+              </div>
+              <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: d.destacado.pantalla }} />
+            </div>
           </div>
         </section>
       )}
