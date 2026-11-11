@@ -200,12 +200,7 @@ export default function Home() {
                 </div>
                 <ul className="lista dos-col">{m.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
               </div>
-              <div className="mod-vis">
-                <div className="mod-foto-caja">
-                  <Image src={m.foto} alt={m.alt} fill sizes="(max-width: 900px) 100vw, 380px" style={{ objectFit: "cover" }} />
-                </div>
-                <div className="mod-pant"><Pieza html={m.pantalla} /></div>
-              </div>
+              <div className="mod-pant"><Pieza html={m.pantalla} /></div>
             </div>
           ))}
         </div>
