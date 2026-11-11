@@ -216,7 +216,7 @@ export default function Home() {
         <div className="env mapa-grid">
           <div className="sec-cab" style={{ marginBottom: 0 }}>
             <span className="chip-sec"><i />Map view</span>
-            <h2>Tu planta vista desde arriba, <span className="gris">con cada equipo en su lugar.</span></h2>
+            <h2>Cada equipo en su lugar, <span className="gris">identificado.</span></h2>
             <p>Sobre la imagen satelital dibujas las áreas de la planta, las asocias a sus ubicaciones técnicas y ubicas cada equipo. Desde el mapa vas directo a su ficha.</p>
             <ul className="lista">
               <li>Áreas dibujadas sobre el satélite y ligadas a sus UTs.</li>
