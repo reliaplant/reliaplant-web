@@ -50,8 +50,8 @@ const MODULOS = [
     alt: "Ingeniero de mantenimiento trabajando en su análisis",
     resumen: "Modos de falla, consecuencias y la tarea correcta para cada uno.",
     titulo: "Planes de mantenimiento que se justifican solos.",
-    texto: "Las 7 preguntas del RCM, del modo de falla a la tarea, con las escalas de riesgo de tu empresa.",
-    puntos: ["Cada tarea trazada al modo de falla que ataca.", "Plantillas por familia de equipo: analiza una vez, replica en el resto.", "NPR o matriz de riesgo, con tus umbrales.", "Plan exportable a SAP PM."],
+    texto: "Las 7 preguntas del RCM, de la función a la tarea, con las escalas de NPR de tu empresa.",
+    puntos: ["Cada tarea trazada al modo de falla que ataca.", "Plantillas: analiza una vez, replica en equipos parecidos.", "NPR con las escalas y umbrales de tu empresa.", "Plan exportable a Excel con plantilla para tu CMMS."],
     pantalla: RCM, enlace: "/producto/rcm",
   },
   {
