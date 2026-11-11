@@ -6,7 +6,7 @@ import { Close } from "@carbon/icons-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
 import FormularioContacto from "@/components/FormularioContacto";
-import { VENTANA, DTI, RCM, RCA, PM, RBI, GMAO, INVENTARIO, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
+import { VENTANA, TABLA, RCM, RCA, PM, RBI, GMAO, INVENTARIO, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
 import "./home.css";
 
 const APP = "https://app.reliaplant.com";
@@ -43,7 +43,7 @@ const MODULOS = [
     titulo: "Cada equipo con su ubicación, su DTI y sus fotos.",
     texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, levanta en campo con la app y marca cada equipo en su DTI.",
     puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
-    pantalla: DTI, enlace: "/modulos/registro-activos",
+    pantalla: TABLA, enlace: "/modulos/registro-activos",
   },
   {
     id: "rcm", paso: "Analiza", nombre: "RCM", sigla: "RCM", foto: "/sitio/planificador-oficina.jpg",
@@ -184,37 +184,34 @@ export default function Home() {
             <h2>Siete módulos, <span className="gris">un solo ciclo.</span></h2>
             <p>Lo que descubres en un análisis llega al plan, a la orden de trabajo y al almacén. Todo trabaja sobre los mismos equipos, con su tag y su ubicación.</p>
           </div>
-          <div className="ciclo">
+          <div className="ciclo" role="tablist" aria-label="Módulos de la suite">
             {MODULOS.map((m, i) => (
-              <button key={m.id} type="button" className="paso" aria-pressed={modulo === m.id} onClick={() => setModulo(m.id)}>
+              <button key={m.id} type="button" className="paso" role="tab" id={`t-${m.id}`}
+                aria-selected={modulo === m.id} aria-controls={`p-${m.id}`} onClick={() => setModulo(m.id)}>
+                <span className="punto" aria-hidden="true" />
                 <span className="n">{String(i + 1).padStart(2, "0")}</span>
                 <span className="v">{m.paso}</span>
                 <span className="m">{m.nombre}</span>
-                <span className="d">{m.resumen}</span>
-              </button>
-            ))}
-          </div>
-          <p className="ciclo-nota">Y vuelve a empezar: cada orden cerrada alimenta el historial del equipo, y el historial mejora el siguiente análisis.</p>
-          <div className="mods" role="tablist" aria-label="Módulos">
-            {MODULOS.map((m) => (
-              <button key={m.id} type="button" className="mod-btn" role="tab" id={`t-${m.id}`}
-                aria-selected={modulo === m.id} aria-controls={`p-${m.id}`} onClick={() => setModulo(m.id)}>
-                {m.nombre}{m.sigla !== m.nombre && <span className="s">{m.sigla}</span>}
               </button>
             ))}
           </div>
           {MODULOS.map((m) => (
             <div key={m.id} className="mod-panel" role="tabpanel" id={`p-${m.id}`} aria-labelledby={`t-${m.id}`} hidden={modulo !== m.id}>
-              <div className="mod-txt">
+              <div className="mod-top">
+                <div className="mod-txt">
+                  <span className="mod-eti">{m.paso} · {m.nombre}</span>
+                  <h3>{m.titulo}</h3>
+                  <p>{m.texto}</p>
+                  {m.enlace && <a className="mas-link" href={m.enlace}>Ver {m.nombre} →</a>}
+                </div>
+                <ul className="lista dos-col">{m.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
+              </div>
+              <div className="mod-vis">
                 <div className="mod-foto-caja">
                   <Image src={m.foto} alt={m.alt} fill sizes="(max-width: 900px) 100vw, 380px" style={{ objectFit: "cover" }} />
                 </div>
-                <h3>{m.titulo}</h3>
-                <p>{m.texto}</p>
-                <ul className="lista">{m.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
-                {m.enlace && <a className="mas-link" href={m.enlace}>Ver el módulo {m.nombre} →</a>}
+                <div className="mod-pant"><Pieza html={m.pantalla} /></div>
               </div>
-              <Pieza html={m.pantalla} />
             </div>
           ))}
         </div>
