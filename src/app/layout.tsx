@@ -11,6 +11,7 @@ import { IBM_Plex_Sans, Zen_Dots } from "next/font/google";
 const IbmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-plex",
 });
 
 const ZenDots = Zen_Dots({
@@ -151,7 +152,7 @@ export default async function RootLayout({
           </Script>
         )}
       </head>
-      <body className={`${IbmPlexSans.className} ${ZenDots.variable} antialiased text-gray-700 bg-white`}>
+      <body className={`${IbmPlexSans.className} ${IbmPlexSans.variable} ${ZenDots.variable} antialiased text-gray-700 bg-white`}>
         {GTM_ID && (
           <noscript>
             <iframe
