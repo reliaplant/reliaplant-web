@@ -40,7 +40,7 @@ const MODULOS = [
     alt: "Patín de bombeo con cada componente etiquetado",
     titulo: "Cada equipo con su ubicación, su DTI y sus fotos.",
     texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, y márcalos sobre el PDF original de cada DTI.",
-    puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "Tus DTIs en PDF, con cada equipo marcado en el plano.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
+    puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
     pantalla: DTI, enlace: "/modulos/registro-activos",
   },
   {
