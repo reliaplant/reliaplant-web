@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export type BotonVariant = "primary" | "outline" | "outline-light" | "white" | "dark";
+export type BotonVariant = "primary" | "outline" | "outline-light" | "white" | "dark" | "borde";
 export type BotonSize = "sm" | "md" | "lg";
 
 interface BotonBaseProps {
@@ -35,10 +35,11 @@ const variantClasses: Record<BotonVariant, string> = {
   "outline-light": "bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-gray-900 text-gray-300 hover:text-white",
   white: "bg-white hover:bg-gray-100 text-blue-600",
   dark: "bg-gray-900 hover:bg-black text-white",
+  borde: "bg-white border border-solid border-gray-300 hover:border-gray-400 text-gray-900",
 };
 
 const sizeClasses: Record<BotonSize, string> = {
-  sm: "px-4 py-2 text-xs",
+  sm: "px-4 h-9 text-[13.5px]",
   md: "px-5 py-2.5 text-sm",
   lg: "px-8 py-3.5 text-base",
 };
@@ -55,7 +56,7 @@ export default function Boton({
 }: BotonProps) {
   const classes = [
     "inline-flex items-center justify-center gap-2",
-    "font-semibold transition-all whitespace-nowrap rounded-md",
+    "font-semibold transition-all whitespace-nowrap rounded-lg",
     variantClasses[variant],
     sizeClasses[size],
     fullWidth ? "w-full" : "",

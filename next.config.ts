@@ -36,6 +36,11 @@ const nextConfig: NextConfig = {
         destination: "/pricing",
         permanent: true,
       },
+      // Páginas de módulo viejas → páginas de producto nuevas (conservan el SEO ganado).
+      { source: "/modulos/registro-activos", destination: "/producto/taxonomia", permanent: true },
+      { source: "/modulos/rcm", destination: "/producto/rcm", permanent: true },
+      { source: "/modulos/rca", destination: "/producto/rca", permanent: true },
+      { source: "/consultoria/registro-activos", destination: "/servicios/levantamiento-de-activos", permanent: true },
     ];
   },
 

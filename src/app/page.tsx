@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Close } from "@carbon/icons-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
 import FormularioContacto from "@/components/FormularioContacto";
+import ModalDemo from "@/components/ModalDemo";
 import { VENTANA, TABLA, RCM, RCA, PM, RBI, GMAO, INVENTARIO, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
 import "./home.css";
 
@@ -43,7 +43,7 @@ const MODULOS = [
     titulo: "Cada equipo con su ubicación, su DTI y sus fotos.",
     texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, levanta en campo con la app y marca cada equipo en su DTI.",
     puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
-    pantalla: TABLA, enlace: "/modulos/registro-activos",
+    pantalla: TABLA, enlace: "/producto/taxonomia",
   },
   {
     id: "rcm", paso: "Analiza", nombre: "RCM", sigla: "RCM", foto: "/sitio/planificador-oficina.jpg",
@@ -52,7 +52,7 @@ const MODULOS = [
     titulo: "Planes de mantenimiento que se justifican solos.",
     texto: "Las 7 preguntas del RCM, del modo de falla a la tarea, con las escalas de riesgo de tu empresa.",
     puntos: ["Cada tarea trazada al modo de falla que ataca.", "Plantillas por familia de equipo: analiza una vez, replica en el resto.", "NPR o matriz de riesgo, con tus umbrales.", "Plan exportable a SAP PM."],
-    pantalla: RCM, enlace: "/modulos/rcm",
+    pantalla: RCM, enlace: "/producto/rcm",
   },
   {
     id: "rca", paso: "Aprende", nombre: "RCA", sigla: "RCA", foto: "/sitio/equipo-rca.jpg",
@@ -61,25 +61,25 @@ const MODULOS = [
     titulo: "Causa raíz con método, sin burocracia.",
     texto: "Del evento al árbol lógico: modos de falla, hipótesis, verificación y causas raíz, con la IA proponiendo y tú decidiendo.",
     puntos: ["Modos de falla e hipótesis sugeridos por IA.", "Tareas de verificación con responsable y fecha.", "Causas físicas, humanas y de gestión.", "Reporte PDF listo para el comité."],
-    pantalla: RCA, enlace: "/modulos/rca",
+    pantalla: RCA, enlace: "/producto/rca",
   },
   {
     id: "pm", paso: "Planifica", nombre: "Planes de mantenimiento", sigla: "PM", foto: "/sitio/preventivo-engrase.jpg",
     alt: "Técnico haciendo mantenimiento preventivo a una bomba",
-    resumen: "Rutinas, frecuencias y el calendario anual con horas por especialidad.",
-    titulo: "Del análisis al calendario, sin pasar por otro Excel.",
-    texto: "Las tareas del RCM se vuelven rutinas por equipo y un plan maestro anual, con la carga de horas de cada especialidad mes a mes.",
-    puntos: ["Rutinas por equipo o por familia, con frecuencia por tiempo u horas.", "Plan maestro anual y calendario por equipo.", "Horas-hombre por especialidad y por mes.", "Carga masiva de rutinas y hojas de ruta."],
-    pantalla: PM,
+    resumen: "Rutinas por tipo de equipo, plan maestro del año y carga por puesto de trabajo.",
+    titulo: "Tu preventivo, con horas-hombre y calendario del año.",
+    texto: "Arma rutinas por tipo de equipo, asígnalas a cada tag de tu taxonomía y mira el plan maestro del año mes a mes, con la carga por puesto de trabajo.",
+    puntos: ["Rutinas con tareas, personas y horas.", "Una frecuencia por tarea.", "Plan maestro anual mes a mes.", "Carga desde Excel o SAP."],
+    pantalla: PM, enlace: "/producto/planes-de-mantenimiento",
   },
   {
     id: "rbi", paso: "Protege", nombre: "Integridad", sigla: "RBI", foto: "/sitio/integridad-ultrasonido.jpg",
     alt: "Inspector midiendo espesor de tubería con ultrasonido",
-    resumen: "Riesgo por mecanismo de daño y un plan de inspección que lo ataca.",
+    resumen: "Lazos de corrosión, mecanismos de daño y la inspección que corresponde.",
     titulo: "Inspecciona donde está el riesgo, no donde toca por costumbre.",
-    texto: "Inspección basada en riesgo para recipientes y líneas: lazos de corrosión, mecanismos de daño, probabilidad y consecuencia, y la técnica y fecha de cada inspección.",
-    puntos: ["Lazos de corrosión ligados a equipos y líneas.", "Mecanismos de daño por lazo y por componente.", "Matriz de riesgo con probabilidad y consecuencia.", "Plan de inspección con técnica y fecha."],
-    pantalla: RBI,
+    texto: "Integridad mecánica para recipientes, intercambiadores, tanques y líneas: lazos de corrosión, mecanismos de daño según API 581 y la actividad de inspección de cada uno, con su efectividad y frecuencia.",
+    puntos: ["Equipos, piping y lazos en una sola vista.", "Catálogo de mecanismos de daño API 581.", "Efectividad A–D y técnicas END por tarea.", "Carga masiva y plan RBI exportable."],
+    pantalla: RBI, enlace: "/producto/integridad-rbi",
   },
   {
     id: "gmao", paso: "Ejecuta", nombre: "Gestión de mantenimiento", sigla: "GMAO", foto: "/sitio/gmao-orden-bomba.jpg",
@@ -88,16 +88,16 @@ const MODULOS = [
     titulo: "Del aviso en campo a la orden cerrada.",
     texto: "El técnico reporta la falla desde la app, aun sin señal. El supervisor la aprueba, la vuelve orden de trabajo, asigna ejecutores y registra el cierre técnico.",
     puntos: ["Avisos con fotos desde la app de campo.", "Prioridad, impacto y equipo parado en cada aviso.", "Órdenes con operaciones, horas, materiales y ejecutores.", "Historial completo por equipo para el próximo análisis."],
-    pantalla: GMAO,
+    pantalla: GMAO, enlace: "/producto/cmms",
   },
   {
     id: "inv", paso: "Abastece", nombre: "Inventario", sigla: "INV", foto: "/sitio/inventario-almacen.jpg",
     alt: "Almacén de repuestos industriales",
     resumen: "Repuestos críticos con mínimo y máximo sugeridos.",
     titulo: "El repuesto correcto, antes de que falle el equipo.",
-    texto: "Cada material ligado a los equipos que lo usan. ReliaPlant sugiere mínimo y máximo según la criticidad del equipo, el tiempo de entrega y las fallas esperadas.",
-    puntos: ["Materiales ligados a sus equipos y a su criticidad.", "Stock sugerido por tiempo de entrega y consumo esperado.", "Alertas de compra para repuestos críticos.", "Carga masiva desde Excel."],
-    pantalla: INVENTARIO,
+    texto: "Cada material sabe en qué equipos va instalado. Con la criticidad, el tiempo de entrega, el consumo y el MTBF, ReliaPlant sugiere el mínimo y el máximo de tus repuestos críticos y te dice qué comprar.",
+    puntos: ["Repuestos por equipo, con cantidad instalada.", "Política por criticidad y rotación.", "Mínimo y máximo sugerido, aun sin historial.", "Stock disponible, reservado y kardex."],
+    pantalla: INVENTARIO, enlace: "/producto/inventario",
   },
 ];
 
@@ -124,12 +124,6 @@ export default function Home() {
     return () => { cancelado = true; };
   }, []);
 
-  useEffect(() => {
-    if (!demo) return;
-    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setDemo(false); };
-    window.addEventListener("keydown", esc);
-    return () => window.removeEventListener("keydown", esc);
-  }, [demo]);
 
   const abrirDemo = (e: React.MouseEvent) => { e.preventDefault(); setDemo(true); };
   const recomendado = plans.length > 2 ? plans[plans.length - 2].id : undefined;
@@ -366,19 +360,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Formulario de demo (el mismo de todo el sitio) */}
+      {/* Formulario de demo (el mismo popup de todo el sitio) */}
       {demo && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm"
-          onClick={(e) => { if (e.target === e.currentTarget) setDemo(false); }} role="dialog" aria-modal="true" aria-label="Solicita una demo">
-          <div className="relative bg-white p-8 shadow-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto md:rounded-2xl">
-            <div className="mb-6 flex flex-row justify-between items-center">
-              <span className="font-ZenDots text-gray-900 text-xl">RELIAPLANT</span>
-              <button onClick={() => setDemo(false)} className="text-gray-500 hover:text-gray-900" aria-label="Cerrar"><Close size={24} /></button>
-            </div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Solicita una demo</h2>
-            <FormularioContacto type="demo" btnText="Solicitar demo" especial="Contacto - home" />
-          </div>
-        </div>
+        <ModalDemo titulo="Solicita una demo" onCerrar={() => setDemo(false)}>
+          <FormularioContacto type="demo" btnText="Solicitar demo" especial="Contacto - home" />
+        </ModalDemo>
       )}
     </div>
   );

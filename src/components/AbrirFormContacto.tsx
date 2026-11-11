@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { FiX } from "react-icons/fi";
 import FormularioContacto from "./FormularioContacto";
 import { RequestQuote } from "@carbon/icons-react";
 import Boton, { BotonVariant, BotonSize } from "./Boton";
+import ModalDemo from "./ModalDemo";
 
 interface AbrirFormContactoProps {
   buttonText?: string;
@@ -35,31 +35,12 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
 
   // El modal se monta vía portal al body; evita SSR mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        setShowModal(false);
-      }
-    };
-
-    if (showModal) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showModal]);
 
   // Bloquea el scroll del body mientras el modal está abierto
   useEffect(() => {
@@ -85,36 +66,9 @@ const AbrirFormContacto: React.FC<AbrirFormContactoProps> = ({
       </div>
 
       {mounted && showModal && createPortal(
-        <div
-          className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/40 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-label={modalTitle}
-        >
-          <div
-            ref={modalRef}
-            className="relative bg-white p-8 shadow-2xl md:w-[480px] w-full md:h-fit h-screen md:max-h-[90vh] overflow-y-auto"
-          >
-            <div className="mb-6 flex flex-row justify-between items-center">
-              <span className="font-ZenDots text-gray100 text-xl">RELIAPLANT</span>
-              <FiX
-                size={28}
-                className="cursor-pointer text-gray-500 hover:text-gray-900 transition-colors"
-                onClick={() => setShowModal(false)}
-                aria-label="Cerrar"
-              />
-            </div>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">{modalTitle}</h2>
-            </div>
-            <FormularioContacto
-              type={type}
-              interes={interes}
-              btnText={btnText}
-              especial={especial || "cotizacion"}
-            />
-          </div>
-        </div>,
+        <ModalDemo titulo={modalTitle} onCerrar={() => setShowModal(false)}>
+          <FormularioContacto type={type} interes={interes} btnText={btnText} especial={especial || "cotizacion"} />
+        </ModalDemo>,
         document.body
       )}
     </>

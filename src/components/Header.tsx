@@ -1,177 +1,79 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-
-import {
-  Category,
-  ChevronDown,
-  DecisionNode,
-  ArrowUpRight,
-} from "@carbon/icons-react";
+import { ChevronDown } from "@carbon/icons-react";
 import AbrirFormContacto from "./AbrirFormContacto";
 import HeaderMovil from "./HeaderMovil";
 import Boton from "./Boton";
+import { APP_URL, ENLACES_SUELTOS, MENU } from "./menuSitio";
 
+// Cabecera blanca y limpia (estilo de la home). Menús desplegables por hover o clic.
 export default function Header() {
-  const [softwareMenuOpen, setSoftwareMenuOpen] = useState(false);
+  const [abierto, setAbierto] = useState<string | null>(null);
   const pathname = usePathname();
+  const cierre = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => { setAbierto(null); }, [pathname]);
   useEffect(() => {
-    setSoftwareMenuOpen(false);
-  }, [pathname]);
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setAbierto(null); };
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, []);
+
+  const entrar = (id: string) => { if (cierre.current) clearTimeout(cierre.current); setAbierto(id); };
+  const salir = () => { cierre.current = setTimeout(() => setAbierto(null), 120); };
 
   return (
-    <div className="left-0 w-full z-50 sticky top-0 bg-white/95 backdrop-blur-md">
-      <header className="bg-white/95 w-full z-50 shadow-sm hidden md:block h-[56px] border-b border-gray-100">
-        <nav className="flex flex-row justify-between px-[3vw] h-full">
-          <ul className="flex items-center p-0 m-0 h-full gap-1">
-            <div className="h-full flex items-center pr-6">
-              <Link href="/">
-                <span className="text-gray100 text-xl cursor-pointer font-ZenDots tracking-tight hover:opacity-80 transition-opacity">
-                  RELIAPLANT
-                </span>
-              </Link>
-            </div>
-            <div className="h-px w-px bg-gray-200 self-center mx-2" style={{height: '24px'}} />
+    <div className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-solid border-gray-200">
+      <header className="hidden md:block">
+        <nav className="max-w-[1180px] mx-auto px-5 h-16 flex items-center gap-8" aria-label="Principal">
+          <Link href="/" className="font-ZenDots text-gray-900 text-[19px] tracking-wide hover:opacity-80">RELIAPLANT</Link>
 
-            <div
-              className="mb-0 text-sm relative h-full"
-              onMouseLeave={() => setSoftwareMenuOpen(false)}
-            >
-              <button
-                type="button"
-                onClick={() => setSoftwareMenuOpen((open) => !open)}
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 transition-colors mx-0.5"
-                aria-haspopup="menu"
-                aria-expanded={softwareMenuOpen}
-              >
-                <span className="font-medium text-[13px] tracking-wide">SOFTWARE</span>
-                <ChevronDown
-                  size={16}
-                  className={`ml-1 transform transition-transform duration-200 text-gray-400 ${
-                    softwareMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {softwareMenuOpen && (
-                <div className="mt-[42px] absolute left-0 top-2 p-3 bg-white shadow-xl border border-gray-300 text-black z-50">
-                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer transition-colors">
-                    <Link
-                      href="/modulos/registro-activos"
-                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                      onClick={() => setSoftwareMenuOpen(false)}
-                    >
-                      <div className="bg-blue-50 p-3">
-                        <Category size={28} className="text-blue-600" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-gray-900 font-semibold text-sm">Registro de Activos (Taxonomía)</span>
-                        <span className="text-gray-500 text-[.85rem]">
-                          Base de datos estructurada con jerarquía ISO 14224
-                        </span>
-                      </div>
-                    </Link>
+          <ul className="flex items-center gap-1 m-0 p-0 list-none h-full">
+            {MENU.map((g) => (
+              <li key={g.id} className="relative m-0" onMouseEnter={() => entrar(g.id)} onMouseLeave={salir}>
+                <button
+                  type="button"
+                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-[14.5px] transition-colors ${abierto === g.id ? "text-gray-900 bg-gray-100" : "text-gray-600 hover:text-gray-900"}`}
+                  aria-expanded={abierto === g.id}
+                  aria-haspopup="true"
+                  onClick={() => setAbierto(abierto === g.id ? null : g.id)}
+                >
+                  {g.titulo}
+                  <ChevronDown size={14} className={`text-gray-400 transition-transform ${abierto === g.id ? "rotate-180" : ""}`} />
+                </button>
+                {abierto === g.id && (
+                  <div className="absolute left-0 top-full pt-2">
+                    <div className={`bg-white border border-solid border-gray-200 rounded-xl shadow-[0_24px_60px_-20px_rgba(15,17,21,0.35)] p-2 ${g.items.length > 4 ? "w-[640px] grid grid-cols-2" : "w-[360px] grid grid-cols-1"}`}>
+                      {g.items.map((it) => (
+                        <Link key={it.href} href={it.href} className="block rounded-lg px-3 py-2.5 hover:bg-gray-50 no-underline">
+                          <span className="block text-[14px] font-semibold text-gray-900">{it.titulo}</span>
+                          {it.texto && <span className="block text-[13px] text-gray-500 leading-snug mt-0.5">{it.texto}</span>}
+                        </Link>
+                      ))}
+                      {g.pie && (
+                        <Link href={g.pie.href} className="col-span-2 mt-1 border-t border-solid border-gray-100 px-3 pt-3 pb-2 text-[13.5px] font-semibold text-blue-600 hover:text-blue-700 no-underline">
+                          {g.pie.titulo} →
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer transition-colors">
-                    <Link
-                      href="/modulos/rcm"
-                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                      onClick={() => setSoftwareMenuOpen(false)}
-                    >
-                      <div className="bg-blue-50 p-3">
-                        <DecisionNode size={28} className="text-blue-600" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-gray-900 font-semibold text-sm">RCM</span>
-                        <span className="text-gray-500 text-[.85rem]">
-                          Planes de mantenimiento para equipos críticos y no críticos
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="px-3 py-3 flex flex-row items-center w-[40vw] gap-4 hover:bg-blue-50 hover:cursor-pointer transition-colors">
-                    <Link
-                      href="/modulos/rca"
-                      className="no-underline hover:no-underline flex flex-row items-center gap-4 w-full"
-                      onClick={() => setSoftwareMenuOpen(false)}
-                    >
-                      <div className="bg-blue-50 p-3">
-                        <DecisionNode size={28} className="text-blue-600" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-gray-900 font-semibold text-sm">RCA</span>
-                        <span className="text-gray-500 text-[.85rem]">
-                          Eliminación de defectos mediante Análisis Causa Raíz
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="px-3 pt-2">
-                    <a
-                      href="https://app.reliaplant.com/"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
-                      onClick={() => setSoftwareMenuOpen(false)}
-                    >
-                      Ir al software
-                      <ArrowUpRight size={16} />
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="/como-funciona"
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors mx-0.5"
-              >
-                CÓMO FUNCIONA
-              </Link>
-            </div>
-
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="/industrias"
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors mx-0.5"
-              >
-                INDUSTRIAS
-              </Link>
-            </div>
-
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="/roi"
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors mx-0.5"
-              >
-                ROI
-              </Link>
-            </div>
-
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="/pricing"
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors mx-0.5"
-              >
-                PRICING
-              </Link>
-            </div>
-
-            <div className="mb-0 text-sm relative group h-full">
-              <Link
-                href="/blog"
-                className="h-full px-4 hover:bg-blue-50 flex items-center text-gray-600 font-medium text-[13px] tracking-wide transition-colors mx-0.5"
-              >
-                BLOG
-              </Link>
-            </div>
+                )}
+              </li>
+            ))}
+            {ENLACES_SUELTOS.map((e) => (
+              <li key={e.href} className="m-0">
+                <Link href={e.href} className="block px-3 py-2 rounded-md text-[14.5px] text-gray-600 hover:text-gray-900">{e.titulo}</Link>
+              </li>
+            ))}
           </ul>
-          <div className="flex flex-row items-center h-full gap-2">
-            <AbrirFormContacto especial="header" />
-            <Boton href="https://app.reliaplant.com/" variant="dark" icon={<ArrowUpRight size={18} />}>
-              Ir a Software
-            </Boton>
+
+          <div className="ml-auto flex items-center gap-3">
+            <a href={APP_URL} className="text-[14.5px] text-gray-600 hover:text-gray-900 px-2">Entrar</a>
+            <AbrirFormContacto buttonText="Solicita una demo" variant="borde" size="sm" icon={null} especial="header" />
+            <Boton href={APP_URL} variant="primary" size="sm">Prueba gratis</Boton>
           </div>
         </nav>
       </header>

@@ -20,9 +20,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Rutas de módulos / producto
   const moduloRoutes = [
-    "/modulos/rca",
-    "/modulos/rcm",
-    "/modulos/registro-activos",
+    "/producto/taxonomia",
+    "/producto/rcm",
+    "/producto/rca",
+    "/producto/planes-de-mantenimiento",
+    "/producto/integridad-rbi",
+    "/producto/cmms",
+    "/producto/inventario",
+    "/servicios/levantamiento-de-activos",
+    "/servicios/taxonomia-iso-14224",
     "/pricing",
   ].map(
     (route): MetadataRoute.Sitemap[0] => ({

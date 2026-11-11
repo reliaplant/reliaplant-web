@@ -199,7 +199,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/registro-activos" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
+              <Link href="/producto/taxonomia" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -236,7 +236,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
+              <Link href="/producto/rcm" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
@@ -273,7 +273,7 @@ export default function HomePageContent() {
                 </li>
               </ul>
               
-              <Link href="/modulos/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
+              <Link href="/producto/rca" className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 font-medium text-sm transition-colors mt-auto">
                 Ver módulo
                 <ArrowRight size={16} />
               </Link>
