@@ -6,7 +6,7 @@ import { Close } from "@carbon/icons-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
 import FormularioContacto from "@/components/FormularioContacto";
-import { VENTANA, DTI, RCM, RCA, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
+import { VENTANA, DTI, RCM, RCA, PM, RBI, GMAO, INVENTARIO, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
 import "./home.css";
 
 const APP = "https://app.reliaplant.com";
@@ -34,30 +34,70 @@ function incluye(p: PlanTemplate): string[] {
   return items.slice(0, 3);
 }
 
+// La suite, en el orden del ciclo de confiabilidad (paso = verbo del ciclo).
 const MODULOS = [
   {
-    id: "tax", nombre: "Taxonomía", sigla: "TAX", foto: "/sitio/skid-etiquetado.jpg",
+    id: "tax", paso: "Registra", nombre: "Registro de activos", sigla: "TAX", foto: "/sitio/skid-etiquetado.jpg",
     alt: "Patín de bombeo con cada componente etiquetado",
+    resumen: "Cada equipo con su UT, su DTI, sus fotos y sus datos.",
     titulo: "Cada equipo con su ubicación, su DTI y sus fotos.",
-    texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, y márcalos sobre el PDF original de cada DTI.",
+    texto: "Carga miles de equipos desde Excel con vista previa de cada cambio, levanta en campo con la app y marca cada equipo en su DTI.",
     puntos: ["Jerarquía de ubicaciones técnicas según ISO 14224.", "DTIs con equipos marcados.", "Mapa satelital con equipos y áreas de la planta.", "Exporta a SAP PM o a tu CMMS."],
     pantalla: DTI, enlace: "/modulos/registro-activos",
   },
   {
-    id: "rcm", nombre: "Mantenimiento centrado en confiabilidad", sigla: "RCM", foto: "/sitio/planificador-oficina.jpg",
-    alt: "Planificador de mantenimiento trabajando en su plan",
+    id: "rcm", paso: "Analiza", nombre: "RCM", sigla: "RCM", foto: "/sitio/planificador-oficina.jpg",
+    alt: "Ingeniero de mantenimiento trabajando en su análisis",
+    resumen: "Modos de falla, consecuencias y la tarea correcta para cada uno.",
     titulo: "Planes de mantenimiento que se justifican solos.",
     texto: "Las 7 preguntas del RCM, del modo de falla a la tarea, con las escalas de riesgo de tu empresa.",
     puntos: ["Cada tarea trazada al modo de falla que ataca.", "Plantillas por familia de equipo: analiza una vez, replica en el resto.", "NPR o matriz de riesgo, con tus umbrales.", "Plan exportable a SAP PM."],
     pantalla: RCM, enlace: "/modulos/rcm",
   },
   {
-    id: "rca", nombre: "Análisis de causa raíz", sigla: "RCA", foto: "/sitio/equipo-rca.jpg",
+    id: "rca", paso: "Aprende", nombre: "RCA", sigla: "RCA", foto: "/sitio/equipo-rca.jpg",
     alt: "Equipo de confiabilidad analizando una causa raíz",
+    resumen: "Cuando algo falla, la causa raíz y las acciones para que no se repita.",
     titulo: "Causa raíz con método, sin burocracia.",
     texto: "Del evento al árbol lógico: modos de falla, hipótesis, verificación y causas raíz, con la IA proponiendo y tú decidiendo.",
     puntos: ["Modos de falla e hipótesis sugeridos por IA.", "Tareas de verificación con responsable y fecha.", "Causas físicas, humanas y de gestión.", "Reporte PDF listo para el comité."],
     pantalla: RCA, enlace: "/modulos/rca",
+  },
+  {
+    id: "pm", paso: "Planifica", nombre: "Planes de mantenimiento", sigla: "PM", foto: "/sitio/preventivo-engrase.jpg",
+    alt: "Técnico haciendo mantenimiento preventivo a una bomba",
+    resumen: "Rutinas, frecuencias y el calendario anual con horas por especialidad.",
+    titulo: "Del análisis al calendario, sin pasar por otro Excel.",
+    texto: "Las tareas del RCM se vuelven rutinas por equipo y un plan maestro anual, con la carga de horas de cada especialidad mes a mes.",
+    puntos: ["Rutinas por equipo o por familia, con frecuencia por tiempo u horas.", "Plan maestro anual y calendario por equipo.", "Horas-hombre por especialidad y por mes.", "Carga masiva de rutinas y hojas de ruta."],
+    pantalla: PM,
+  },
+  {
+    id: "rbi", paso: "Protege", nombre: "Integridad", sigla: "RBI", foto: "/sitio/integridad-ultrasonido.jpg",
+    alt: "Inspector midiendo espesor de tubería con ultrasonido",
+    resumen: "Riesgo por mecanismo de daño y un plan de inspección que lo ataca.",
+    titulo: "Inspecciona donde está el riesgo, no donde toca por costumbre.",
+    texto: "Inspección basada en riesgo para recipientes y líneas: lazos de corrosión, mecanismos de daño, probabilidad y consecuencia, y la técnica y fecha de cada inspección.",
+    puntos: ["Lazos de corrosión ligados a equipos y líneas.", "Mecanismos de daño por lazo y por componente.", "Matriz de riesgo con probabilidad y consecuencia.", "Plan de inspección con técnica y fecha."],
+    pantalla: RBI,
+  },
+  {
+    id: "gmao", paso: "Ejecuta", nombre: "Gestión de mantenimiento", sigla: "GMAO", foto: "/sitio/gmao-orden-bomba.jpg",
+    alt: "Técnicos ejecutando una orden de trabajo en una bomba",
+    resumen: "Avisos desde campo, órdenes de trabajo y cierre técnico.",
+    titulo: "Del aviso en campo a la orden cerrada.",
+    texto: "El técnico reporta la falla desde la app, aun sin señal. El supervisor la aprueba, la vuelve orden de trabajo, asigna ejecutores y registra el cierre técnico.",
+    puntos: ["Avisos con fotos desde la app de campo.", "Prioridad, impacto y equipo parado en cada aviso.", "Órdenes con operaciones, horas, materiales y ejecutores.", "Historial completo por equipo para el próximo análisis."],
+    pantalla: GMAO,
+  },
+  {
+    id: "inv", paso: "Abastece", nombre: "Inventario", sigla: "INV", foto: "/sitio/inventario-almacen.jpg",
+    alt: "Almacén de repuestos industriales",
+    resumen: "Repuestos críticos con mínimo y máximo sugeridos.",
+    titulo: "El repuesto correcto, antes de que falle el equipo.",
+    texto: "Cada material ligado a los equipos que lo usan. ReliaPlant sugiere mínimo y máximo según la criticidad del equipo, el tiempo de entrega y las fallas esperadas.",
+    puntos: ["Materiales ligados a sus equipos y a su criticidad.", "Stock sugerido por tiempo de entrega y consumo esperado.", "Alertas de compra para repuestos críticos.", "Carga masiva desde Excel."],
+    pantalla: INVENTARIO,
   },
 ];
 
@@ -100,10 +140,10 @@ export default function Home() {
       <section className="hero">
         <div className="env">
           <div className="hero-txt">
-            <span className="chip-sec"><i />Taxonomía ISO 14224 · RCM · RCA</span>
-            <h1>Tu planta ordenada, <span className="gris">equipo por equipo.</span></h1>
+            <span className="chip-sec"><i />Suite de confiabilidad industrial</span>
+            <h1>Toda la confiabilidad de tu planta, <span className="gris">en una sola plataforma.</span></h1>
             <p className="hero-sub">
-              ReliaPlant reúne ubicaciones técnicas, equipos, DTIs y fotos de campo en un solo lugar, y sobre eso haces tus análisis RCM y RCA.
+              Registro de activos, RCM, RCA, planes de mantenimiento, integridad, gestión de mantenimiento e inventario, sobre los mismos equipos. Hazlo tú, o déjanos el trabajo a nosotros.
             </p>
             <div className="ctas">
               <a className="btn btn-azul" href={APP}>Prueba gratis</a>
@@ -140,15 +180,26 @@ export default function Home() {
       <section className="sec suave" id="modulos">
         <div className="env">
           <div className="sec-cab">
-            <span className="chip-sec"><i />Módulos</span>
-            <h2>Tres módulos, <span className="gris">una sola planta.</span></h2>
-            <p>Cada módulo trabaja sobre la misma taxonomía. El modo de falla del RCM y la causa del RCA apuntan al equipo real, con su tag y su ubicación.</p>
+            <span className="chip-sec"><i />La suite</span>
+            <h2>Siete módulos, <span className="gris">un solo ciclo.</span></h2>
+            <p>Lo que descubres en un análisis llega al plan, a la orden de trabajo y al almacén. Todo trabaja sobre los mismos equipos, con su tag y su ubicación.</p>
           </div>
+          <div className="ciclo">
+            {MODULOS.map((m, i) => (
+              <button key={m.id} type="button" className="paso" aria-pressed={modulo === m.id} onClick={() => setModulo(m.id)}>
+                <span className="n">{String(i + 1).padStart(2, "0")}</span>
+                <span className="v">{m.paso}</span>
+                <span className="m">{m.nombre}</span>
+                <span className="d">{m.resumen}</span>
+              </button>
+            ))}
+          </div>
+          <p className="ciclo-nota">Y vuelve a empezar: cada orden cerrada alimenta el historial del equipo, y el historial mejora el siguiente análisis.</p>
           <div className="mods" role="tablist" aria-label="Módulos">
             {MODULOS.map((m) => (
               <button key={m.id} type="button" className="mod-btn" role="tab" id={`t-${m.id}`}
                 aria-selected={modulo === m.id} aria-controls={`p-${m.id}`} onClick={() => setModulo(m.id)}>
-                {m.nombre} <span className="s">{m.sigla}</span>
+                {m.nombre}{m.sigla !== m.nombre && <span className="s">{m.sigla}</span>}
               </button>
             ))}
           </div>
@@ -161,7 +212,7 @@ export default function Home() {
                 <h3>{m.titulo}</h3>
                 <p>{m.texto}</p>
                 <ul className="lista">{m.puntos.map((p) => <li key={p}>{p}</li>)}</ul>
-                <a className="mas-link" href={m.enlace}>Ver el módulo {m.sigla} →</a>
+                {m.enlace && <a className="mas-link" href={m.enlace}>Ver el módulo {m.nombre} →</a>}
               </div>
               <Pieza html={m.pantalla} />
             </div>
