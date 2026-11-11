@@ -6,7 +6,7 @@ import { Close } from "@carbon/icons-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
 import FormularioContacto from "@/components/FormularioContacto";
-import { VENTANA, DTI, RCM, RCA, TELEFONO, CHAT } from "@/components/home/piezas";
+import { VENTANA, DTI, RCM, RCA, TELEFONO, CHAT, MAPA } from "@/components/home/piezas";
 import "./home.css";
 
 const APP = "https://app.reliaplant.com";
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
           <div className="foto-hero">
             <div className="foto">
-              <Image src="/sitio/portada-ingeniera.jpg" alt="Ingeniera de confiabilidad revisando una tablet junto a un tren de bombas" fill priority sizes="(max-width: 900px) 100vw, 520px" style={{ objectFit: "cover" }} />
+              <Image src="/sitio/portada-ingeniero.jpg" alt="Ingeniero de confiabilidad revisando una tablet junto a un tren de bombas" fill priority sizes="(max-width: 900px) 100vw, 520px" style={{ objectFit: "cover" }} />
             </div>
             <div className="flota flota-1">
               <div><div className="t">P-211A</div><div className="s">Bomba centrífuga de condensado</div></div>
@@ -166,6 +166,29 @@ export default function Home() {
               <Pieza html={m.pantalla} />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Mapa satelital */}
+      <section className="sec mapa-sec" id="mapa">
+        <div className="env mapa-grid">
+          <div className="sec-cab" style={{ marginBottom: 0 }}>
+            <span className="chip-sec"><i />Map view</span>
+            <h2>Tu planta vista desde arriba, <span className="gris">con cada equipo en su lugar.</span></h2>
+            <p>Sobre la imagen satelital dibujas las áreas de la planta, las asocias a sus ubicaciones técnicas y ubicas cada equipo. Desde el mapa vas directo a su ficha.</p>
+            <ul className="lista">
+              <li>Áreas dibujadas sobre el satélite y ligadas a sus UTs.</li>
+              <li>Equipos ubicados con un clic, o desde la app de campo.</li>
+              <li>Vista guardada por planta, con el giro que tú elijas.</li>
+            </ul>
+          </div>
+          <div className="mapa-vis">
+            <Pieza html={MAPA} />
+            <figure className="mapa-2">
+              <Image src="/sitio/mapa-procesos.jpg" alt="Vista satelital de otra planta de la empresa" fill sizes="260px" style={{ objectFit: "cover" }} />
+              <figcaption><b>Planta Procesos Sur</b><span>2.416 equipos · 9 áreas</span></figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
