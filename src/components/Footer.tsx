@@ -1,130 +1,64 @@
 "use client";
 import Link from "next/link";
-import { RequestQuote } from "@carbon/icons-react";
-import AbrirFormContacto from "./AbrirFormContacto";
-import Boton from "./Boton";
+
+// Pie del sitio: blanco y limpio (mismo estilo que la home).
+const COLUMNAS: { titulo: string; enlaces: [string, string][] }[] = [
+  {
+    titulo: "Plataforma",
+    enlaces: [
+      ["Taxonomía y registro de activos", "/modulos/registro-activos"],
+      ["RCM", "/modulos/rcm"],
+      ["Análisis de causa raíz", "/modulos/rca"],
+      ["Planes y precios", "/pricing"],
+      ["Cómo funciona", "/como-funciona"],
+    ],
+  },
+  {
+    titulo: "Recursos",
+    enlaces: [
+      ["Blog", "/blog"],
+      ["Calculadora ROI", "/roi"],
+      ["Sobre Reliaplant", "/about"],
+    ],
+  },
+  {
+    titulo: "Legal",
+    enlaces: [
+      ["Términos de uso", "/terminos-de-uso"],
+      ["Política de privacidad", "/legal/privacidad"],
+      ["Política de cookies", "/legal/cookies"],
+    ],
+  },
+];
 
 export default function Footer() {
-  const styles = {
-    sectionTitle:
-      "text-white font-semibold mb-4 text-left pb-2 border-b border-gray-700 text-sm uppercase tracking-wider",
-    link: "font-light text-gray-300 text-sm hover:text-white transition-colors duration-200",
-    section: "w-full md:w-1/4 mb-6 md:mb-0",
-    list: "pl-0 text-white80 space-y-2.5 text-left",
-  };
-
   return (
-    <>
-      <footer className="px-4 sm:px-[4vw] lg:px-[3vw] py-10 sm:py-14 lg:py-16 text-sm text-gray-300 bg-gray-950">
-        {/* Top: Logo + tagline */}
-        <div className="mb-10 pb-8 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <span className="font-ZenDots text-white text-xl block">RELIAPLANT</span>
-            <p className="text-gray-500 text-xs mt-1">Confiabilidad industrial y gestión de activos</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Boton href="https://app.reliaplant.com/" variant="primary">
-              Ir al software &rarr;
-            </Boton>
-            <AbrirFormContacto
-              buttonText="Solicita una demo"
-              variant="outline-light"
-              icon={<RequestQuote size={16} />}
-              modalTitle="Solicita una demo"
-              btnText="Solicitar demo"
-              especial="Solicitud de demo - footer"
-            />
-          </div>
+    <footer className="bg-white border-t border-solid border-gray-200 text-sm text-gray-600">
+      <div className="max-w-[1140px] mx-auto px-5 py-12 sm:py-14 grid gap-10 grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
+          <Link href="/" className="font-ZenDots text-gray-900 text-lg tracking-wide w-fit">RELIAPLANT</Link>
+          <p className="max-w-[34ch] text-gray-500">Gestión de activos y confiabilidad industrial.</p>
+          <a href="mailto:comercial@reliaplant.com" className="text-gray-700 hover:text-gray-900 w-fit">comercial@reliaplant.com</a>
+          <a href="https://app.reliaplant.com/" className="text-blue-600 font-semibold hover:underline w-fit mt-1">Entrar a ReliaPlant →</a>
         </div>
-
-        {/* Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
-          {/* Plataforma */}
-          <div>
-            <h6 className={styles.sectionTitle}>Plataforma</h6>
-            <ul className={styles.list}>
-              <li>
-                <Link className={styles.link} href="/modulos/registro-activos">
-                  Registro de Activos
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/modulos/rcm">
-                  Módulo RCM
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/modulos/rca">
-                  Análisis de Causa Raíz
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/pricing">
-                  Planes y precios
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/como-funciona">
-                  Cómo funciona
-                </Link>
-              </li>
+        {COLUMNAS.map((c) => (
+          <div key={c.titulo}>
+            <h6 className="text-gray-900 font-semibold text-[13px] mb-3">{c.titulo}</h6>
+            <ul className="pl-0 m-0 list-none flex flex-col gap-2">
+              {c.enlaces.map(([texto, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-gray-500 hover:text-gray-900 transition-colors">{texto}</Link>
+                </li>
+              ))}
             </ul>
           </div>
-
-          {/* Recursos */}
-          <div>
-            <h6 className={styles.sectionTitle}>Recursos</h6>
-            <ul className={styles.list}>
-              <li>
-                <Link className={styles.link} href="/blog">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/roi">
-                  Calculadora ROI
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/about">
-                  Sobre Reliaplant
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h6 className={styles.sectionTitle}>Legal</h6>
-            <ul className={styles.list}>
-              <li>
-                <Link className={styles.link} href="/terminos-de-uso">
-                  Términos de uso
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/legal/privacidad">
-                  Política de privacidad
-                </Link>
-              </li>
-              <li>
-                <Link className={styles.link} href="/legal/cookies">
-                  Política de cookies
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-gray-800 text-center md:text-left">
-          <p className="!text-sm text-gray-500">
-            © {new Date().getFullYear()} Reliaplant. Todos los derechos
-            reservados.
-          </p>
-        </div>
-      </footer>
-
-    </>
+        ))}
+      </div>
+      <div className="border-t border-solid border-gray-200">
+        <p className="max-w-[1140px] mx-auto px-5 py-5 !text-[13px] text-gray-400">
+          © {new Date().getFullYear()} Reliaplant. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
   );
 }

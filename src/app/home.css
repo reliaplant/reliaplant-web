@@ -278,3 +278,5 @@
 .rph .ficha { height: auto; overflow: visible; }
 .rph .ficha-cuerpo { overflow: visible; }
 .rph .tab-ficha td { white-space: normal; }
+/* Botones más cuadrados (pedido de Andrés). */
+.rph .btn, .rph .mod-btn { border-radius: 6px; }
