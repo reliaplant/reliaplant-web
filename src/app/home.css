@@ -273,3 +273,8 @@
 .rph .mas-link { color: var(--azul); font-weight: 600; font-size: 15px; margin-top: 4px; }
 .rph .mas-link:hover { text-decoration: underline; }
 .rph .chip-sec i { font-style: normal; }
+/* La ventana crece con su contenido (antes tenía alto fijo y cortaba la ficha). */
+.rph .rp-cuerpo { height: auto; min-height: 520px; }
+.rph .ficha { height: auto; overflow: visible; }
+.rph .ficha-cuerpo { overflow: visible; }
+.rph .tab-ficha td { white-space: normal; }
