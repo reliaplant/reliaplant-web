@@ -35,7 +35,6 @@ export const MENU: GrupoMenu[] = [
     titulo: "Recursos",
     items: [
       { titulo: "Blog", texto: "Guías de confiabilidad y mantenimiento", href: "/blog" },
-      { titulo: "Calculadora ROI", texto: "Cuánto te cuesta no tener la planta ordenada", href: "/roi" },
       { titulo: "Cómo funciona", texto: "De la carga inicial al día a día", href: "/como-funciona" },
     ],
   },

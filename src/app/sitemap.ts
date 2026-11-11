@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.HOST_URL || "https://reliaplant.com";
 
   // Rutas principales
-  const mainRoutes = ["/", "/about", "/blog", "/como-funciona", "/roi", "/industrias"].map(
+  const mainRoutes = ["/", "/about", "/blog", "/como-funciona", "/industrias"].map(
     (route): MetadataRoute.Sitemap[0] => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date(),

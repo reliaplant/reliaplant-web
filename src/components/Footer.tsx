@@ -28,7 +28,6 @@ const COLUMNAS: { titulo: string; enlaces: [string, string][] }[] = [
     titulo: "Recursos",
     enlaces: [
       ["Blog", "/blog"],
-      ["Calculadora ROI", "/roi"],
       ["Sobre Reliaplant", "/about"],
       ["Términos de uso", "/terminos-de-uso"],
       ["Política de privacidad", "/legal/privacidad"],

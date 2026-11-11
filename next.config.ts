@@ -40,6 +40,7 @@ const nextConfig: NextConfig = {
       { source: "/modulos/registro-activos", destination: "/producto/taxonomia", permanent: true },
       { source: "/modulos/rcm", destination: "/producto/rcm", permanent: true },
       { source: "/modulos/rca", destination: "/producto/rca", permanent: true },
+      { source: "/roi", destination: "/", permanent: false },
       { source: "/consultoria/registro-activos", destination: "/servicios/levantamiento-de-activos", permanent: true },
     ];
   },
