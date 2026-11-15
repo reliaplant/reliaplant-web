@@ -11,8 +11,6 @@ const COLUMNAS: { titulo: string; enlaces: [string, string][] }[] = [
       ["Análisis de causa raíz", "/producto/rca"],
       ["Planes de mantenimiento", "/producto/planes-de-mantenimiento"],
       ["Integridad (RBI)", "/producto/integridad-rbi"],
-      ["Gestión de mantenimiento", "/producto/cmms"],
-      ["Inventario de repuestos", "/producto/inventario"],
     ],
   },
   {

@@ -25,8 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/producto/rca",
     "/producto/planes-de-mantenimiento",
     "/producto/integridad-rbi",
-    "/producto/cmms",
-    "/producto/inventario",
     "/servicios/levantamiento-de-activos",
     "/servicios/taxonomia-iso-14224",
     "/pricing",

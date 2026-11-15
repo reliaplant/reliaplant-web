@@ -15,8 +15,6 @@ export const MENU: GrupoMenu[] = [
       { titulo: "Análisis de causa raíz", texto: "Árbol lógico, hipótesis y acciones con IA", href: "/producto/rca" },
       { titulo: "Planes de mantenimiento", texto: "Rutinas, plan maestro y horas-hombre", href: "/producto/planes-de-mantenimiento" },
       { titulo: "Integridad (RBI)", texto: "Lazos de corrosión y mecanismos de daño", href: "/producto/integridad-rbi" },
-      { titulo: "Gestión de mantenimiento", texto: "Avisos y órdenes de trabajo (CMMS)", href: "/producto/cmms" },
-      { titulo: "Inventario de repuestos", texto: "Mínimos y máximos sugeridos por criticidad", href: "/producto/inventario" },
     ],
     pie: { titulo: "Ver la suite completa", href: "/#modulos" },
   },

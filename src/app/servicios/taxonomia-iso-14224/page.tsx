@@ -643,10 +643,10 @@ export default function Page() {
               <b>RCM sobre tu taxonomía</b>
               <span>Las funciones salen de los sistemas; los modos, del catálogo.</span>
             </a>
-            <a className="sig" href="/producto/cmms">
-              <span className="s-eti">En el día a día</span>
-              <b>Avisos y órdenes codificados</b>
-              <span>El GMAO usa las mismas clases y el mismo catálogo de fallas.</span>
+            <a className="sig" href="/producto/rca">
+              <span className="s-eti">Cuando algo falla</span>
+              <b>RCA con el mismo catálogo</b>
+              <span>Las fallas se investigan con las mismas clases y códigos de falla.</span>
             </a>
           </div>
         </div>

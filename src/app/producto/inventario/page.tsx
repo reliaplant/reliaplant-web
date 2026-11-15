@@ -10,7 +10,9 @@ import {
 import "@/app/home.css";
 import "./estilos.css";
 
+// Módulo aún no disponible en la app: página fuera del índice y del menú hasta su lanzamiento.
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Inventario de repuestos críticos | ReliaPlant" },
   description:
     "Gestión de inventario de repuestos ligada a tus equipos: política por criticidad y rotación, mínimo y máximo con Poisson o lote económico, y qué comprar.",

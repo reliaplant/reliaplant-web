@@ -432,7 +432,7 @@ export default function Page() {
             </div>
           </div>
           <p className="enlaces">
-            También en la suite: <a href="/producto/rcm">RCM</a> para justificar cada tarea, <a href="/producto/cmms">gestión de mantenimiento</a> para ejecutarla e <a href="/producto/inventario">inventario</a> para tener el repuesto.
+            También en la suite: <a href="/producto/rcm">RCM</a> para justificar cada tarea y <a href="/producto/rca">RCA</a> para investigar las fallas que se repiten. La gestión de mantenimiento y el inventario llegan muy pronto.
           </p>
         </div>
       </section>

@@ -35,7 +35,9 @@ function incluye(p: PlanTemplate): string[] {
 }
 
 // La suite, en el orden del ciclo de confiabilidad (paso = verbo del ciclo).
-const MODULOS = [
+// Gestión de mantenimiento e Inventario aún no están en producción: se muestran como "Próximamente"
+// y sin enlace a sus páginas. Al lanzarlos, quitar `proximamente` y volver a poner su `enlace`.
+const MODULOS: { id: string; paso: string; nombre: string; sigla: string; foto: string; alt: string; resumen: string; titulo: string; texto: string; puntos: string[]; pantalla: string; enlace?: string; proximamente?: boolean }[] = [
   {
     id: "tax", paso: "Registra", nombre: "Registro de activos", sigla: "TAX", foto: "/sitio/skid-etiquetado.jpg",
     alt: "Patín de bombeo con cada componente etiquetado",
@@ -88,7 +90,7 @@ const MODULOS = [
     titulo: "Del aviso en campo a la orden cerrada.",
     texto: "El técnico reporta la falla desde la app, aun sin señal. El supervisor la aprueba, la vuelve orden de trabajo, asigna ejecutores y registra el cierre técnico.",
     puntos: ["Avisos con fotos desde la app de campo.", "Prioridad, impacto y equipo parado en cada aviso.", "Órdenes con operaciones, horas, materiales y ejecutores.", "Historial completo por equipo para el próximo análisis."],
-    pantalla: GMAO, enlace: "/producto/cmms",
+    pantalla: GMAO, proximamente: true,
   },
   {
     id: "inv", paso: "Abastece", nombre: "Inventario", sigla: "INV", foto: "/sitio/inventario-almacen.jpg",
@@ -97,7 +99,7 @@ const MODULOS = [
     titulo: "El repuesto correcto, antes de que falle el equipo.",
     texto: "Cada material sabe en qué equipos va instalado. Con la criticidad, el tiempo de entrega, el consumo y el MTBF, ReliaPlant sugiere el mínimo y el máximo de tus repuestos críticos y te dice qué comprar.",
     puntos: ["Repuestos por equipo, con cantidad instalada.", "Política por criticidad y rotación.", "Mínimo y máximo sugerido, aun sin historial.", "Stock disponible, reservado y kardex."],
-    pantalla: INVENTARIO, enlace: "/producto/inventario",
+    pantalla: INVENTARIO, proximamente: true,
   },
 ];
 
@@ -137,7 +139,7 @@ export default function Home() {
             <span className="chip-sec"><i />Suite de confiabilidad industrial</span>
             <h1>Toda la confiabilidad de tu planta, <span className="gris">en una sola plataforma.</span></h1>
             <p className="hero-sub">
-              Registro de activos, RCM, RCA, planes de mantenimiento, integridad, gestión de mantenimiento e inventario, sobre los mismos equipos. Hazlo tú, o déjanos el trabajo a nosotros.
+              Registro de activos, RCM, RCA, planes de mantenimiento e integridad sobre los mismos equipos; y muy pronto, gestión de mantenimiento e inventario. Hazlo tú, o déjanos el trabajo a nosotros.
             </p>
             <div className="ctas">
               <a className="btn btn-azul" href={APP}>Prueba gratis</a>
@@ -176,7 +178,7 @@ export default function Home() {
           <div className="sec-cab">
             <span className="chip-sec"><i />La suite</span>
             <h2>Siete módulos, <span className="gris">un solo ciclo.</span></h2>
-            <p>Lo que descubres en un análisis llega al plan, a la orden de trabajo y al almacén. Todo trabaja sobre los mismos equipos, con su tag y su ubicación.</p>
+            <p>Lo que descubres en un análisis llega al plan de mantenimiento y, muy pronto, a la orden de trabajo y al almacén. Todo trabaja sobre los mismos equipos, con su tag y su ubicación.</p>
           </div>
           <div className="ciclo" role="tablist" aria-label="Módulos de la suite">
             {MODULOS.map((m, i) => (
@@ -186,6 +188,7 @@ export default function Home() {
                 <span className="n">{String(i + 1).padStart(2, "0")}</span>
                 <span className="v">{m.paso}</span>
                 <span className="m">{m.nombre}</span>
+                {m.proximamente && <span className="prox">Próximamente</span>}
               </button>
             ))}
           </div>
@@ -193,7 +196,7 @@ export default function Home() {
             <div key={m.id} className="mod-panel" role="tabpanel" id={`p-${m.id}`} aria-labelledby={`t-${m.id}`} hidden={modulo !== m.id}>
               <div className="mod-top">
                 <div className="mod-txt">
-                  <span className="mod-eti">{m.paso} · {m.nombre}</span>
+                  <span className="mod-eti">{m.paso} · {m.nombre}{m.proximamente && " · Próximamente"}</span>
                   <h3>{m.titulo}</h3>
                   <p>{m.texto}</p>
                   {m.enlace && <a className="mas-link" href={m.enlace}>Ver {m.nombre} →</a>}

@@ -414,9 +414,9 @@ export default function Page() {
               <a className="btn btn-borde" href={APP}>Prueba gratis</a>
             </div>
           </div>
-          <a className="siguiente" href="/producto/cmms">
-            <span>Siguiente paso del ciclo</span>
-            <b>Gestión de mantenimiento: del aviso en campo a la orden cerrada →</b>
+          <a className="siguiente" href="/producto/planes-de-mantenimiento">
+            <span>También en la suite</span>
+            <b>Planes de mantenimiento: el preventivo de los equipos rotativos →</b>
           </a>
           <div className="otras">
             {OTRAS.map((o) => (

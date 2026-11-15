@@ -9,7 +9,9 @@ import {
 import "@/app/home.css";
 import "./estilos.css";
 
+// Módulo aún no disponible en la app: página fuera del índice y del menú hasta su lanzamiento.
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Software de mantenimiento CMMS / GMAO | ReliaPlant" },
   description:
     "CMMS / GMAO para plantas: avisos desde campo aun sin señal, prioridad por criticidad, órdenes con horas y técnicos, calendario y cierre técnico ISO 14224.",

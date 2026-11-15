@@ -398,3 +398,4 @@
 .rph .ficha-cab > div[style*="min-width"] { align-self: stretch; display: flex; flex-direction: column; }
 .rph .ficha-cab .mini-fotos { margin-top: auto; }
 .rph .mini-fotos i { width: 48px; height: 48px; }
+.rph .paso .prox { font: 600 10px var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--azul); background: #eef3fe; padding: 2px 6px; }
