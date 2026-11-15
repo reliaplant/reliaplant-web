@@ -6,10 +6,10 @@ import Markdown, { type Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import type { Idioma } from "@/lib/i18n";
-import { CalculadoraDisponibilidad, CtaDemo, CurvaWeibull } from "./blog-piezas";
+import { CalculadoraDisponibilidad, CtaDemo, CurvaWeibull, Descarga, IntervaloPF, MatrizCriticidad } from "./blog-piezas";
 
 /** Etiquetas propias disponibles en los artículos (nombre en minúsculas, como las deja el HTML). */
-export const PIEZAS = ["cta-demo", "calculadora-disponibilidad", "curva-weibull"] as const;
+export const PIEZAS = ["cta-demo", "calculadora-disponibilidad", "curva-weibull", "intervalo-pf", "matriz-criticidad", "descarga"] as const;
 
 type Atributos = Record<string, string | undefined>;
 type Nodo = { type: string; tagName?: string; value?: string; children?: Nodo[] };
@@ -27,6 +27,9 @@ export function ContenidoArticulo({ texto, idioma }: { texto: string; idioma: Id
     "cta-demo": ({ titulo, texto, boton }: Atributos) => <CtaDemo idioma={idioma} titulo={titulo} texto={texto} boton={boton} />,
     "calculadora-disponibilidad": ({ mtbf, mttr }: Atributos) => <CalculadoraDisponibilidad mtbf={mtbf} mttr={mttr} />,
     "curva-weibull": ({ beta, eta }: Atributos) => <CurvaWeibull beta={beta} eta={eta} />,
+    "intervalo-pf": ({ pf, respuesta }: Atributos) => <IntervaloPF pf={pf} respuesta={respuesta} />,
+    "matriz-criticidad": ({ equipo }: Atributos) => <MatrizCriticidad equipo={equipo} />,
+    descarga: ({ archivo, titulo, texto, formato }: Atributos) => <Descarga archivo={archivo} titulo={titulo} texto={texto} formato={formato} />,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     iframe: ({ node, ...props }: Atributos & { node?: unknown }) => (
       <span className="not-prose my-8 block aspect-video overflow-hidden border border-gray-200">

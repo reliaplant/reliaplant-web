@@ -9,6 +9,7 @@ import {
   RUTAS_BLOG,
   fechaLarga,
   minutosLectura,
+  preguntasFrecuentes,
   rutaArticulo,
   versiones,
   type Articulo,
@@ -180,9 +181,19 @@ export async function VistaArticulo({ idioma, slug }: { idioma: Idioma; slug: st
     keywords: articulo.etiquetas?.join(", "),
   };
 
+  const faq = preguntasFrecuentes(texto.contenido);
+  const faqLd = faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faq.map((p) => ({ "@type": "Question", name: p.pregunta, acceptedAnswer: { "@type": "Answer", text: p.respuesta } })),
+      }
+    : null;
+
   return (
     <div lang={t.lang} className="min-h-screen bg-gray-100 px-4 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd).replace(/</g, "\\u003c") }} />}
 
       <div className="mx-auto max-w-4xl">
         <Link href={RUTAS_BLOG[idioma]} className="mb-6 inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-800">
@@ -198,7 +209,11 @@ export async function VistaArticulo({ idioma, slug }: { idioma: Idioma; slug: st
           <article className="px-6 py-10 md:px-14">
             <p className="text-sm text-gray-500">
               {articulo.categoria && <span className="mr-2 font-semibold uppercase tracking-wide text-blue-600">{articulo.categoria}</span>}
-              <time dateTime={articulo.fecha}>{fechaLarga(articulo.fecha, idioma)}</time> · {minutosLectura(texto.contenido)} {t.blog.minutos}
+              <time dateTime={articulo.fecha}>{fechaLarga(articulo.fecha, idioma)}</time>
+              {articulo.actualizado && articulo.actualizado > articulo.fecha && (
+                <> · Actualizado el <time dateTime={articulo.actualizado}>{fechaLarga(articulo.actualizado, idioma)}</time></>
+              )}{" "}
+              · {minutosLectura(texto.contenido)} {t.blog.minutos}
             </p>
             <h1 className="mt-3 text-3xl font-bold leading-tight text-gray-900 md:text-4xl">{texto.titulo}</h1>
             <p className="mt-5 text-lg text-gray-600">{texto.resumen}</p>

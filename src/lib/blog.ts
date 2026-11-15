@@ -46,3 +46,25 @@ export const minutosLectura = (texto: string) => Math.max(1, Math.round(texto.sp
 export function fechaLarga(fecha: string, idioma: Idioma) {
   return new Date(`${fecha}T12:00:00Z`).toLocaleDateString(idioma, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 }
+
+/** Preguntas de la sección "## Preguntas frecuentes" (cada una un "### ..."), para el JSON-LD FAQPage. */
+export function preguntasFrecuentes(contenido: string) {
+  const seccion = contenido.split(/^## +Preguntas frecuentes\s*$/im)[1]?.split(/^## /m)[0];
+  if (!seccion) return [];
+  const plano = (md: string) =>
+    md
+      .replace(/<[^>]+>/g, "")
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .replace(/[*_`>]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  return seccion
+    .split(/^### +/m)
+    .slice(1)
+    .map((bloque) => {
+      const [pregunta, ...resto] = bloque.split("\n");
+      return { pregunta: plano(pregunta), respuesta: plano(resto.join("\n")) };
+    })
+    .filter((p) => p.pregunta && p.respuesta);
+}
