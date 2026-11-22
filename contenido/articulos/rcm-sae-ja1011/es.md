@@ -89,6 +89,6 @@ El resultado es un plan donde **cada tarea existe por una razón documentada**. 
 
 ## RCM sin hojas de cálculo infinitas
 
-El RCM suele vivir en hojas de cálculo enormes que nadie vuelve a abrir. En Reliaplant el [módulo de RCM](/modulos/rcm) parte del registro de activos y guía el análisis función por función: fallas funcionales, modos de falla, consecuencias y tareas, con la lógica de decisión de la SAE JA1011 y el plan resultante listo para exportar.
+El RCM suele vivir en hojas de cálculo enormes que nadie vuelve a abrir. En Reliaplant el [módulo de RCM](/producto/rcm) parte del registro de activos y guía el análisis función por función: fallas funcionales, modos de falla, consecuencias y tareas, con la lógica de decisión de la SAE JA1011 y el plan resultante listo para exportar.
 
 <cta-demo titulo="¿Tu RCM vive en Excel?" texto="Haz tus análisis RCM sobre tu registro de activos y genera el plan de mantenimiento con su justificación." boton="Probar Reliaplant"></cta-demo>

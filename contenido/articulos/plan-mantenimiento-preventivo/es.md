@@ -128,6 +128,6 @@ Un plan de mantenimiento no se termina nunca. Revísalo:
 
 ## Del plan en papel al plan vivo
 
-El riesgo de todo plan es que quede desconectado de su justificación: dentro de tres años nadie sabrá por qué una tarea es mensual y no trimestral. En Reliaplant, el plan nace del [registro de activos](/modulos/registro-activos) y del [análisis RCM](/modulos/rcm): cada tarea queda vinculada al modo de falla que previene y se exporta a tu GMAO con su frecuencia y procedimiento.
+El riesgo de todo plan es que quede desconectado de su justificación: dentro de tres años nadie sabrá por qué una tarea es mensual y no trimestral. En Reliaplant, el plan nace del [registro de activos](/producto/taxonomia) y del [análisis RCM](/producto/rcm): cada tarea queda vinculada al modo de falla que previene y se exporta a tu GMAO con su frecuencia y procedimiento.
 
 <cta-demo titulo="Un plan preventivo con su porqué" texto="Construye tu plan desde el registro de activos y el análisis de modos de falla, con cada tarea justificada y lista para cargar en tu GMAO." boton="Probar Reliaplant"></cta-demo>

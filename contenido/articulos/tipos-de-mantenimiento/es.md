@@ -100,7 +100,8 @@ Pasar de un plan dominado por el correctivo o por el preventivo por tiempo a una
 1. **Empieza por los equipos críticos.** Revisa sus modos de falla y elimina o ajusta las tareas por tiempo que no previenen ningún modo de falla con desgaste por edad.
 2. **Introduce tareas a condición donde haya falla potencial detectable**, empezando por técnicas simples: rondas de operador con criterios escritos, termografía, vibraciones básicas.
 3. **Planifica el correctivo que decidas aceptar**: repuestos, procedimientos y prioridades definidos de antemano.
-4. **Mide antes y después**: fallas no previstas, horas de emergencia y disponibilidad de los equipos intervenidos. Si no mejoran, revisa la tarea y no solo su cumplimiento.
+4. **Lleva las decisiones al plan**: cada tarea con su modo de falla, su frecuencia y su responsable, como explicamos en [cómo armar un plan de mantenimiento preventivo](/blog/como-hacer-un-plan-de-mantenimiento-preventivo).
+5. **Mide antes y después**: fallas no previstas, horas de emergencia y disponibilidad de los equipos intervenidos. Si no mejoran, revisa la tarea y no solo su cumplimiento.
 
 ## Errores frecuentes al elegir la estrategia
 
@@ -112,6 +113,6 @@ Pasar de un plan dominado por el correctivo o por el preventivo por tiempo a una
 
 ## De la teoría al plan
 
-Elegir bien el tipo de mantenimiento requiere conocer los modos de falla de cada equipo y su comportamiento real. Esa es justamente la tarea del [AMEF](/blog/amef-fmea-en-mantenimiento-paso-a-paso) y del RCM. En Reliaplant, el [módulo de RCM](/modulos/rcm) aplica la lógica de decisión a cada modo de falla y genera un plan donde cada tarea, sea predictiva, preventiva, de búsqueda de fallas o correctiva planificada, tiene su justificación.
+Elegir bien el tipo de mantenimiento requiere conocer los modos de falla de cada equipo y su comportamiento real. Esa es justamente la tarea del [AMEF](/blog/amef-fmea-en-mantenimiento-paso-a-paso) y del RCM. En Reliaplant, el [módulo de RCM](/producto/rcm) aplica la lógica de decisión a cada modo de falla y genera un plan donde cada tarea, sea predictiva, preventiva, de búsqueda de fallas o correctiva planificada, tiene su justificación.
 
 <cta-demo titulo="La tarea correcta para cada modo de falla" texto="Aplica la lógica de decisión del RCM modo por modo y obtén un plan que combina predictivo, preventivo y correctivo planificado con su justificación." boton="Probar Reliaplant"></cta-demo>

@@ -6,8 +6,11 @@
     "ISO 14224",
     "taxonomía de activos",
     "jerarquía de equipos",
-    "registro de activos",
+    "clases de equipo",
+    "modos de falla",
     "datos de falla",
     "gestión de activos"
-  ]
+  ],
+  "imagen": "/sitio/landing/iso-jerarquia-capas.jpg",
+  "actualizado": "2026-11-22"
 }

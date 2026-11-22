@@ -91,6 +91,6 @@ Esta es la razón por la que la [criticidad](/blog/analisis-de-criticidad-de-act
 - **MTTR alto** → revisar repuestos, procedimientos, herramientas y tiempos de espera; casi siempre el problema está en la logística y no en la reparación.
 - **Disponibilidad baja en equipos críticos** → evaluar redundancia, monitoreo de condición y [mantenimiento predictivo](/blog/mantenimiento-predictivo-curva-p-f).
 
-Los indicadores son tan buenos como el registro de fallas que los alimenta. En Reliaplant las fallas se registran sobre cada equipo del [registro de activos](/modulos/registro-activos), con modo y causa de falla normalizados, para que el MTBF y la disponibilidad salgan de datos consistentes y se conecten con los análisis [RCA](/modulos/rca) y [RCM](/modulos/rcm).
+Los indicadores son tan buenos como el registro de fallas que los alimenta. En Reliaplant las fallas se registran sobre cada equipo del [registro de activos](/producto/taxonomia), con modo y causa de falla normalizados, para que el MTBF y la disponibilidad salgan de datos consistentes y se conecten con los análisis [RCA](/producto/rca) y [RCM](/producto/rcm).
 
 <cta-demo titulo="Indicadores que salen de datos limpios" texto="Registra las fallas de cada equipo con códigos normalizados y calcula MTBF, MTTR y disponibilidad sin hojas de cálculo." boton="Probar Reliaplant"></cta-demo>

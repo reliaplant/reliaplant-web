@@ -77,7 +77,7 @@ Ejemplo: se programaron 320 horas para la semana y se ejecutaron 256 de esas hor
 
 Su complemento útil es el **porcentaje de trabajo no planificado o de emergencia**. Juntos muestran si la cuadrilla controla su trabajo o el trabajo la controla a ella.
 
-**Trampa**: un porcentaje de preventivo alto no significa que el plan sea bueno. Si las tareas no previenen los modos de falla reales, se puede tener un 80 % de preventivo y la misma cantidad de fallas. Por eso este indicador debe mirarse junto al MTBF. La elección del tipo de tarea correcto la tratamos en [preventivo, predictivo y correctivo](/blog/mantenimiento-preventivo-predictivo-correctivo-cuando-usar-cada-uno).
+**Trampa**: un porcentaje de preventivo alto no significa que el plan sea bueno. Si las tareas no previenen los modos de falla reales, se puede tener un 80 % de preventivo y la misma cantidad de fallas. Por eso este indicador debe mirarse junto al MTBF, y el [plan de mantenimiento preventivo](/blog/como-hacer-un-plan-de-mantenimiento-preventivo) debe partir de los modos de falla y no del calendario. La elección del tipo de tarea correcto la tratamos en [preventivo, predictivo y correctivo](/blog/mantenimiento-preventivo-predictivo-correctivo-cuando-usar-cada-uno).
 
 ### Costo de mantenimiento sobre RAV
 
@@ -128,6 +128,6 @@ Para cada indicador, define una ficha con fórmula, fuente de datos, responsable
 
 La mayoría de los problemas con los KPIs de mantenimiento no están en las fórmulas, sino en los datos: equipos duplicados, fallas registradas como texto libre, órdenes cerradas sin causa. Una [taxonomía de activos ISO 14224](/blog/taxonomia-de-activos-iso-14224) y un [catálogo de fallas](/blog/elaboracion-de-un-catalogo-de-fallas-para-la-industria-del-gas-y-petroleo) bien definido son la base para que los indicadores signifiquen algo.
 
-En Reliaplant, las fallas se registran sobre cada equipo del [registro de activos](/modulos/registro-activos) con modo y causa normalizados, y las fallas repetitivas que mueven los indicadores se pueden llevar directo a un [análisis causa raíz](/modulos/rca).
+En Reliaplant, las fallas se registran sobre cada equipo del [registro de activos](/producto/taxonomia) con modo y causa normalizados, y las fallas repetitivas que mueven los indicadores se pueden llevar directo a un [análisis causa raíz](/producto/rca).
 
 <cta-demo titulo="KPIs que puedes defender" texto="Registra fallas con modo y causa normalizados sobre tu jerarquía de activos y obtén MTBF, MTTR y disponibilidad de tus equipos críticos con datos consistentes." boton="Probar Reliaplant"></cta-demo>

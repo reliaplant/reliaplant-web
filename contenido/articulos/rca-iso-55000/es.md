@@ -127,6 +127,6 @@ La falla más común no es la falta de análisis, sino la **falta de trazabilida
 
 En el marco de la ISO 55000, el RCA deja de ser un informe técnico para convertirse en un **proceso del sistema de gestión**: se dispara con criterios definidos, se ejecuta con el método adecuado a lo que se investiga, produce acciones con seguimiento, verifica su eficacia y modifica el sistema. Si construyes ese ciclo, cumplir con la norma es una consecuencia, no un objetivo.
 
-En Reliaplant, el [módulo de RCA](/modulos/rca) vincula cada investigación al activo de tu [registro de activos](/modulos/registro-activos), sigue las acciones hasta su verificación y conecta los resultados con los análisis [RCM](/modulos/rcm), para que la evidencia para la auditoría esté siempre en un solo lugar.
+En Reliaplant, el [módulo de RCA](/producto/rca) vincula cada investigación al activo de tu [registro de activos](/producto/taxonomia), sigue las acciones hasta su verificación y conecta los resultados con los análisis [RCM](/producto/rcm), para que la evidencia para la auditoría esté siempre en un solo lugar.
 
 <cta-demo titulo="RCA con trazabilidad lista para auditoría" texto="Vincula cada investigación al activo afectado, sigue sus acciones correctivas hasta verificar su eficacia y lleva los resultados a tu plan de mantenimiento." boton="Probar Reliaplant"></cta-demo>

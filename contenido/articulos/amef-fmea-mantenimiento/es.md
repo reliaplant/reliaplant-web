@@ -128,6 +128,6 @@ Si ya tienes un AMEF bien hecho, tienes más de la mitad de un RCM. Y cuando un 
 
 ## Del AMEF al plan, sin perder el hilo
 
-El problema habitual no es hacer el AMEF, sino mantenerlo vivo y conectado con el plan de mantenimiento. En Reliaplant, el [módulo de RCM](/modulos/rcm) trabaja sobre el [registro de activos](/modulos/registro-activos): los modos de falla se toman de catálogos por clase de equipo, el RPN se calcula con las escalas de tu empresa y cada tarea queda vinculada al modo de falla que la justifica.
+El problema habitual no es hacer el AMEF, sino mantenerlo vivo y conectado con el plan de mantenimiento. En Reliaplant, el [módulo de RCM](/producto/rcm) trabaja sobre el [registro de activos](/producto/taxonomia): los modos de falla se toman de catálogos por clase de equipo, el RPN se calcula con las escalas de tu empresa y cada tarea queda vinculada al modo de falla que la justifica.
 
 <cta-demo titulo="Un AMEF que termina en tareas" texto="Analiza modos de falla con tus propias escalas de severidad, ocurrencia y detección, y convierte cada acción en una tarea del plan de mantenimiento." boton="Probar Reliaplant"></cta-demo>

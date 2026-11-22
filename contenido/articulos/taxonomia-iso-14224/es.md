@@ -1,105 +1,272 @@
-titulo: Taxonomía de activos según ISO 14224: guía práctica para armar tu jerarquía de equipos
+titulo: Taxonomía ISO 14224: 9 niveles, ejemplos y plantilla Excel
 slug: taxonomia-de-activos-iso-14224
-resumen: Los 9 niveles de la taxonomía ISO 14224, cómo definir los límites de cada equipo y qué datos de falla registrar para que tu RCM y tus KPI tengan sentido.
+resumen: Guía completa de la taxonomía ISO 14224: 9 niveles, clases de equipo, límites, códigos de modo de falla y ejemplos reales. Con plantilla Excel gratis.
+imagenAlt: Jerarquía de una planta en capas: instalación, sistema, equipo y componentes según ISO 14224
 ---
-Casi todos los problemas de un programa de confiabilidad empiezan en el mismo lugar: **el registro de activos**. Si una bomba aparece tres veces con nombres distintos, si nadie sabe si el motor "pertenece" a la bomba o es un equipo aparte, o si las fallas se cargan a la planta completa en vez de al componente que falló, ningún análisis posterior va a ser confiable. Ni el MTBF, ni la criticidad, ni el RCM.
+La **taxonomía ISO 14224** es la forma estándar de organizar los equipos de una planta en **9 niveles**: los niveles 1 a 5 dicen **dónde y para qué** se usa un equipo (industria, categoría de negocio, instalación, planta y sistema) y los niveles 6 a 9 dicen **qué es y de qué está hecho** (unidad de equipo, subunidad, ítem mantenible y parte). Junto con los niveles, la norma fija los **límites de cada clase de equipo** y unas **listas cerradas de códigos** para registrar modos, mecanismos y causas de falla.
 
-La norma **ISO 14224** resuelve justamente eso: define una forma estándar de organizar los equipos y de registrar sus datos de falla y mantenimiento. Nació en la industria del petróleo y gas, pero su lógica se usa hoy en minería, energía, química, alimentos y casi cualquier industria con activos físicos. En este artículo explicamos **cómo está armada la taxonomía, cómo aplicarla a tu planta y qué errores evitar**.
+Si tu registro de activos sigue esa estructura, los indicadores (MTBF, disponibilidad, tasa de falla) salen comparables entre plantas y a lo largo de los años, y los análisis de [criticidad](/blog/analisis-de-criticidad-de-activos), [RCM](/blog/rcm-mantenimiento-centrado-en-confiabilidad-sae-ja1011) y [causa raíz](/blog/pasos-para-hacer-un-analisis-causa-raiz) parten de datos limpios.
 
-## ¿Qué es ISO 14224 y para qué sirve?
+En esta guía tienes los 9 niveles explicados, la tabla de clases de equipo con sus códigos, los límites y subunidades de una bomba, un compresor, un motor eléctrico y una turbina de gas, un ejemplo completo de jerarquía, ejemplos para minería, alimentos y energía, la tabla de modos de falla con su traducción y una **plantilla Excel gratuita** lista para llenar.
 
-ISO 14224 (*Petroleum, petrochemical and natural gas industries — Collection and exchange of reliability and maintenance data for equipment*) es la norma internacional para **recolectar e intercambiar datos de confiabilidad y mantenimiento**. Su edición vigente es la de 2016.
+## Qué es ISO 14224
 
-Su objetivo no es decirte cómo mantener un equipo, sino asegurar que los datos que registras sean **comparables**: entre plantas, entre empresas y a lo largo del tiempo. Para eso define tres cosas:
+ISO 14224 (*Petroleum, petrochemical and natural gas industries — Collection and exchange of reliability and maintenance data for equipment*) es la norma internacional para **recolectar e intercambiar datos de confiabilidad y mantenimiento de equipos**. No dice cómo mantener un equipo: dice **cómo registrar** lo que le pasa para que esos datos se puedan comparar y usar.
 
-1. **Una taxonomía**: cómo se descompone una instalación en sistemas, equipos, subunidades y componentes.
-2. **Límites de equipo** (*boundaries*): qué incluye y qué no incluye cada clase de equipo.
-3. **Datos mínimos**: qué información registrar sobre el equipo, sus fallas y sus intervenciones de mantenimiento, con listas de códigos para modos, mecanismos y causas de falla.
+Algunos datos para ubicarla:
 
-Bases de datos de referencia como OREDA se construyen con esta misma estructura, lo que permite comparar tus tasas de falla con las de la industria.
+- **Ediciones:** 1999, 2006 y **2016 (tercera edición, la vigente)**. En Europa se adoptó como EN ISO 14224:2017.
+- **Origen:** nació del proyecto **OREDA** (*Offshore and Onshore Reliability Data*), una base de datos de confiabilidad que comparten operadoras de petróleo y gas desde los años ochenta. La taxonomía de OREDA y la de ISO 14224 están alineadas.
+- **Normas hermanas:** ISO 14224 tiene como referencia normativa a **ISO 20815** (aseguramiento de la producción y gestión de la confiabilidad), y se complementa con ISO/TR 12489 para el modelado de confiabilidad de sistemas de seguridad.
+- **Alcance:** está escrita para petróleo, petroquímica y gas natural, pero su lógica se usa en minería, energía, química, alimentos y cualquier industria con equipos rotativos y estáticos.
 
-## Los 9 niveles de la taxonomía
+La norma cubre tres cosas: la **taxonomía** (niveles y clases de equipo), los **límites** de cada clase (qué incluye y qué no) y los **datos mínimos** que hay que registrar sobre el equipo, sus fallas y su mantenimiento.
 
-La taxonomía ISO 14224 tiene nueve niveles jerárquicos. Los cinco primeros describen **dónde y para qué se usa** el equipo; los cuatro últimos describen **el equipo en sí**.
+## Los 9 niveles de la taxonomía ISO 14224
 
-| Nivel | Nombre | Ejemplo |
+<figure><img src="/blog/taxonomia-iso-14224/niveles-iso-14224.svg" alt="Diagrama de los 9 niveles de la taxonomía ISO 14224, desde industria hasta parte, con ejemplos de una estación de compresión" loading="lazy" /><figcaption>Los niveles 1 a 5 describen el uso y la ubicación; los niveles 6 a 9, el equipo y sus piezas.</figcaption></figure>
+
+| Nivel | Nombre en la norma | Nombre en español | Ejemplo | Grupo |
+|---|---|---|---|---|
+| 1 | Industry | Industria | Petróleo y gas | Uso / ubicación |
+| 2 | Business category | Categoría de negocio | Midstream (transporte) | Uso / ubicación |
+| 3 | Installation | Instalación | Estación de compresión Norte | Uso / ubicación |
+| 4 | Plant / Unit | Planta / unidad | Tren de compresión 1 | Uso / ubicación |
+| 5 | Section / System | Sección / sistema | Compresión de gas | Uso / ubicación |
+| 6 | Equipment unit | Unidad de equipo | Compresor centrífugo K-101 | Subdivisión del equipo |
+| 7 | Subunit | Subunidad | Sistema de lubricación | Subdivisión del equipo |
+| 8 | Component / Maintainable item | Componente / ítem mantenible | Bomba de aceite de lubricación | Subdivisión del equipo |
+| 9 | Part | Parte | Sello mecánico de la bomba de aceite | Subdivisión del equipo |
+
+### Niveles 1 a 5: uso y ubicación
+
+Son los niveles que ubican al equipo en el negocio. Los niveles 1 y 2 (industria y categoría de negocio) casi nunca cambian dentro de una empresa; el trabajo real está en los niveles 3, 4 y 5.
+
+El **nivel 5 (sistema)** merece cuidado: debe agrupar equipos que cumplen **una función** del proceso. "Compresión de gas de 5 a 40 bar" es un buen sistema; "Área de compresores" no, porque es un lugar y no una función. Esta diferencia importa cuando llegas al RCM, que analiza funciones de sistemas.
+
+### Nivel 6: la unidad de equipo, el corazón de la taxonomía
+
+El nivel 6 es donde se asigna la **clase de equipo** (compresor, bomba, motor, intercambiador…) y donde se calculan los indicadores de confiabilidad: **tasa de falla, MTBF, MTTR y disponibilidad**. Si hay un solo nivel que tienes que hacer bien, es este.
+
+Una unidad de equipo es un conjunto que cumple una función principal y que se puede tratar como un todo: una bomba, un compresor, un motor eléctrico, un recipiente a presión, una válvula.
+
+### Niveles 7 a 9: subunidades, ítems mantenibles y partes
+
+- **Subunidad (7):** un conjunto dentro del equipo que cumple una función necesaria para él: sistema de lubricación, transmisión de potencia, control y monitoreo.
+- **Ítem mantenible (8):** lo que normalmente se repara o se reemplaza como un todo. Es el nivel donde tiene sentido registrar **qué falló**.
+- **Parte (9):** una pieza del ítem mantenible. La norma no lo desarrolla en detalle; úsalo solo cuando aporte, por ejemplo, para gestionar repuestos críticos.
+
+## Ubicación funcional frente a equipo físico: el error más caro
+
+Una distinción que casi ningún artículo explica, y que define si tu historial sirve o no:
+
+- La **ubicación funcional** (o ubicación técnica) es el **puesto** en el proceso: "la bomba de condensado A del tren 1", con tag **P-201A**. Existe aunque esté vacío.
+- El **equipo físico** es la máquina concreta, con su número de serie, que hoy está instalada en ese puesto.
+
+<figure><img src="/sitio/valvula-placa.jpg" alt="Válvula en planta con placa metálica de identificación colgada, que muestra el tag del equipo" loading="lazy" /><figcaption>El tag en la placa identifica el puesto; el número de serie identifica la máquina. Son dos registros distintos.</figcaption></figure>
+
+¿Por qué importa? Supón que la bomba con serie 12345 falla, se manda a taller y en su lugar se instala la bomba de repuesto 67890. Si tu sistema solo conoce "P-201A":
+
+- el historial de la bomba 12345 se mezcla con el de la 67890;
+- cuando la 12345 vuelve reparada y se instala en otro puesto, llega "sin historia";
+- el MTBF de "P-201A" ya no describe a ninguna máquina real.
+
+La regla práctica: **los niveles 1 a 5 y el puesto del nivel 6 son ubicaciones; el equipo físico se monta y desmonta en esas ubicaciones**, y cada movimiento queda registrado. Los buenos CMMS y EAM manejan las dos cosas (en SAP PM son la *ubicación técnica* y el *equipo*). Lo explicamos con más detalle en la guía de [jerarquía de activos en el CMMS](/blog/jerarquia-de-activos-ubicacion-tecnica-y-equipo).
+
+## Clases de equipo y sus códigos
+
+La norma asigna a cada clase un **código de dos letras** (Anexo A, tabla A.4). Estas son las clases de las cuatro categorías que más se usan en planta:
+
+| Categoría | Código y clase |
+|---|---|
+| **Rotativos** | BL soplantes y ventiladores · CE motores de combustión · CO compresores · CF centrífugas · EG generadores eléctricos · EM motores eléctricos · GT turbinas de gas · LE expansores de líquido · MI mezcladores · PU bombas · ST turbinas de vapor · TE turboexpansores · CV transportadores y elevadores |
+| **Mecánicos** | CR grúas · FS filtros y coladores · HE intercambiadores de calor · HB calentadores y calderas · LA brazos de carga · PI tuberías · VE recipientes a presión · SE eyectores de vapor · PL ductos (pipelines) · SI silos · TA tanques de almacenamiento · SW swivels · TU turrets · WI winches |
+| **Eléctricos** | FC variadores de frecuencia · PC cables de potencia · PT transformadores de potencia · SG tableros de distribución (switchgear) · UP sistemas UPS |
+| **Seguridad y control** | CL unidades lógicas de control · EC comunicación de emergencia · ER escape, evacuación y rescate · FG detectores de fuego y gas · FF equipos contra incendio · IG gas inerte · IP dispositivos de entrada (sensores) · LB botes salvavidas · NO boquillas · TC telecomunicaciones · VA válvulas |
+
+Además hay categorías de equipos submarinos, terminación de pozos, perforación, marinos, servicios y auxiliares (por ejemplo, HVAC), que se usan sobre todo en upstream.
+
+**¿Y si tu equipo no tiene clase?** Un molino SAG, un pasteurizador o una prensa no aparecen en la tabla. La norma permite definir clases propias: crea la clase siguiendo la misma lógica (código, límite escrito, subunidades e ítems mantenibles) y documéntala. Lo que no hay que hacer es meterla a la fuerza en una clase que no le corresponde.
+
+## Límites del equipo: qué entra y qué no
+
+<figure><img src="/blog/taxonomia-iso-14224/limite-bomba-iso-14224.svg" alt="Diagrama del límite de una bomba según ISO 14224: dentro quedan transmisión de potencia, unidad de bomba, control, lubricación, enfriamiento y misceláneos; el motor eléctrico queda fuera como otra unidad de equipo" loading="lazy" /><figcaption>En ISO 14224 el motor de una bomba es otra unidad de equipo (clase EM). Las válvulas de entrada y salida también quedan fuera.</figcaption></figure>
+
+Cada clase de equipo tiene un **diagrama de límites** que define qué subunidades forman parte de la unidad. El caso que más confusión genera es el **accionador**: en bombas y compresores, el motor eléctrico o la turbina que los mueve **no es una subunidad**, sino **otra unidad de equipo** con su propia clase (EM, GT, ST) y su propio historial de fallas.
+
+Parece un detalle, pero cambia los números. Si en una planta el motor se registra dentro de la bomba y en otra como equipo aparte, la tasa de falla de "bombas" de las dos plantas no es comparable. Y si las válvulas de aislamiento se cargan a la bomba, sus fallas bajan el MTBF de una bomba que nunca falló.
+
+### Subunidades de los cuatro equipos más comunes
+
+| Equipo (clase) | Subunidades según el Anexo A | Ítems mantenibles típicos (nivel 8) |
 |---|---|---|
-| 1 | Industria | Petróleo y gas |
-| 2 | Categoría de negocio | Upstream (producción) |
-| 3 | Instalación | Plataforma marina A |
-| 4 | Planta / unidad | Tratamiento de gas |
-| 5 | Sección / sistema | Compresión de gas |
-| 6 | Unidad de equipo | Compresor centrífugo C-101 |
-| 7 | Subunidad | Sistema de lubricación |
-| 8 | Componente / ítem mantenible | Bomba de aceite de lubricación |
-| 9 | Parte | Sello mecánico |
+| **Bomba (PU)** | Transmisión de potencia · Unidad de bomba · Control y monitoreo · Sistema de lubricación · Enfriamiento / calefacción · Misceláneos | Acople, impulsor, sello mecánico, rodamientos, carcasa, instrumentos de vibración y temperatura |
+| **Compresor (CO)** | Transmisión de potencia · Compresor · Control y monitoreo · Sistema de lubricación · Sistema de sellos del eje · Misceláneos | Caja de engranes, rotor e impulsores, rodamientos radiales y de empuje, sellos secos de gas, bombas y filtros de aceite |
+| **Motor eléctrico (EM)** | Motor eléctrico · Control y monitoreo · Sistema de lubricación · Sistema de enfriamiento · Misceláneos | Estator, rotor, rodamientos, ventilador, caja de conexiones, detectores de temperatura (RTD) |
+| **Turbina de gas (GT)** | Sistema de arranque · Entrada de aire · Sistema de combustión · Compresor · Turbina de alta presión · Turbina de potencia · Control y monitoreo · Lubricación · Combustible · Escape · Protección contra fuego y gas · Misceláneos, entre otras | Filtros de aire, cámaras y toberas de combustión, álabes, válvulas de combustible, encendedores |
 
-Algunas claves para leer la tabla:
+<figure><img src="/sitio/skid-etiquetado.jpg" alt="Bomba centrífuga y motor eléctrico sobre un patín, con etiquetas en la válvula de succión, la descarga, la bomba y el motor" loading="lazy" /><figcaption>Bomba y motor sobre el mismo patín: dos unidades de equipo distintas, cada una con su tag.</figcaption></figure>
 
-- **El nivel 6 (unidad de equipo) es el corazón de la taxonomía.** Es el nivel donde se calculan los indicadores de confiabilidad (tasa de falla, MTBF, disponibilidad) y donde se asigna la **clase de equipo**: compresores, bombas, motores eléctricos, turbinas, intercambiadores de calor, recipientes, válvulas, etc.
-- **El nivel 8 es el ítem mantenible**: lo que normalmente se repara o se reemplaza como un todo. Es el nivel donde tiene sentido registrar qué falló.
-- **El nivel 9 (parte) es opcional** para muchos fines. Úsalo cuando la información realmente aporte (por ejemplo, para gestionar repuestos críticos), no por completar la tabla.
+## Ejemplo completo: jerarquía de una estación de compresión
 
-En plantas que no son de petróleo y gas, los niveles 1 a 3 se adaptan sin problema: industria (minería), categoría de negocio (concentración), instalación (planta concentradora Norte). Lo importante es **mantener la lógica**: arriba la ubicación y la función, abajo el equipo y sus piezas.
+Así queda la jerarquía de una estación de compresión de gas, con una **ubicación técnica** que agrega un segmento por nivel. Es el mismo ejemplo que trae la plantilla Excel.
 
-## Límites del equipo: la decisión que más se olvida
+| Código (ubicación técnica) | Nivel | Descripción | Clase |
+|---|---|---|---|
+| MX-EC1 | 3 · Instalación | Estación de compresión Norte | |
+| MX-EC1-T1 | 4 · Planta / unidad | Tren de compresión 1 | |
+| MX-EC1-T1-CMP | 5 · Sistema | Compresión de gas (5 a 40 bar) | |
+| MX-EC1-T1-CMP-K101 | 6 · Unidad de equipo | Compresor centrífugo K-101 | CO |
+| MX-EC1-T1-CMP-K101-LU | 7 · Subunidad | Sistema de lubricación | |
+| MX-EC1-T1-CMP-K101-LU-01 | 8 · Ítem mantenible | Bomba principal de aceite | |
+| MX-EC1-T1-CMP-K101-SS-01 | 8 · Ítem mantenible | Sello seco de gas lado acople | |
+| MX-EC1-T1-CMP-GT101 | 6 · Unidad de equipo | Turbina de gas que acciona al K-101 | GT |
+| MX-EC1-T1-CMP-P201A | 6 · Unidad de equipo | Bomba de condensado A | PU |
+| MX-EC1-T1-CMP-P201A-PU-01 | 8 · Ítem mantenible | Sello mecánico de la bomba | |
+| MX-EC1-T1-CMP-PM201A | 6 · Unidad de equipo | Motor eléctrico de la bomba P-201A | EM |
+| MX-EC1-T1-CMP-P201B | 6 · Unidad de equipo | Bomba de condensado B (respaldo) | PU |
 
-La norma define, para cada clase de equipo, un **diagrama de límites**: qué subunidades forman parte de la unidad de equipo y qué queda fuera. Por ejemplo, en una bomba centrífuga el límite suele incluir la bomba, el accionador (motor), la transmisión, el sistema de lubricación y los controles e instrumentos propios; las válvulas de entrada y salida y la tubería de proceso quedan fuera.
+Fíjate en tres decisiones:
 
-Parece un detalle, pero cambia los números:
+1. La **turbina GT-101** y el **motor PM-201A** son unidades de equipo propias, no subunidades del compresor y de la bomba.
+2. Las **bombas A y B** son dos unidades distintas aunque sean idénticas: cada una tiene su historial, y que una sea respaldo de la otra se registra como dato de operación (sirve para la criticidad).
+3. Bajo cada equipo solo se bajó a nivel 8 donde hay algo que mantener o registrar. No hace falta llegar al tornillo.
 
-- Si un equipo de mantenimiento incluye el motor dentro de la bomba y otro lo registra como un motor independiente, **la tasa de falla de "bombas" no es comparable** entre ambos.
-- Si las válvulas de aislamiento se cuentan dentro de la bomba, sus fallas inflarán el MTBF de la bomba aunque la bomba nunca haya fallado.
+<descarga archivo="/descargas/plantilla-jerarquia-iso-14224.xlsx" titulo="Plantilla Excel de jerarquía ISO 14224" texto="El ejemplo completo de la estación de compresión, listas desplegables con las clases de equipo, los modos de falla, las causas y los métodos de detección, y una hoja para registrar fallas." formato="Excel"></descarga>
 
-**Recomendación práctica:** antes de cargar un solo equipo, define por escrito los límites de cada clase que tengas en planta y compártelos con todo el equipo. Es una página por clase y evita años de datos mezclados.
+## Ejemplos en otras industrias
 
-## Qué datos registrar en cada nivel
+La lógica es la misma en cualquier planta; lo que cambia son los sistemas y las clases que aparecen. Tres ejemplos resumidos, del nivel 3 al 6:
 
-ISO 14224 agrupa los datos en tres categorías:
+| Industria | Instalación (3) | Planta / unidad (4) | Sistema (5) | Unidades de equipo (6) |
+|---|---|---|---|---|
+| **Minería** | Planta concentradora | Molienda | Bombeo de pulpa a ciclones | Bombas de pulpa (PU) y sus motores (EM), variador (FC), correa de alimentación (CV); el molino, con clase propia |
+| **Alimentos** | Planta de lácteos | Proceso de leche fluida | Pasteurización | Intercambiador de placas (HE), bombas sanitarias (PU) y sus motores (EM), tanque de balance (TA) |
+| **Alimentos** | Planta de lácteos | Servicios | Refrigeración con amoníaco | Compresores de tornillo (CO) y sus motores (EM), condensadores (HE), recipiente recibidor (VE), detectores de amoníaco (FG) |
+| **Energía** | Central de ciclo combinado | Bloque 1 | Generación con turbina de gas | Turbina de gas (GT), generador (EG), transformador elevador (PT), tablero (SG) |
+| **Energía** | Central de ciclo combinado | Bloque 1 | Agua de alimentación de caldera | Bombas de alimentación (PU), motores (EM), calentador (HB) |
 
-### Datos del equipo
+Dos aprendizajes que se repiten en las plantas que no son de petróleo y gas:
 
-Identificación (tag, número de serie), clase y tipo de equipo, fabricante y modelo, datos de diseño (potencia, velocidad, presión, caudal) y datos de operación (modo de operación normal, servicio, redundancia). Estos datos son los que permiten luego filtrar: "todas las bombas centrífugas de más de 100 kW en servicio continuo".
+- **Los servicios también son sistemas.** Aire comprimido, refrigeración, vapor y agua de enfriamiento suelen tener equipos críticos que se olvidan porque "no son del proceso".
+- **Los equipos sin clase ISO** (molinos, prensas, envasadoras) necesitan una clase propia con su límite escrito antes de cargarlos. Es una tarde de trabajo que evita años de datos mezclados.
 
-### Datos de falla
+<figure><img src="/sitio/landing/taxonomia-planta-etiquetada.jpg" alt="Vista aérea de una planta industrial al atardecer con etiquetas sobre los equipos principales" loading="lazy" /><figcaption>Cada equipo etiquetado en campo debe corresponder a una sola fila de la jerarquía.</figcaption></figure>
 
-Para cada falla, la norma pide como mínimo:
+## Datos de falla: modo, mecanismo y causa
 
-- **Fecha** y equipo afectado.
-- **Modo de falla**: cómo se manifiesta la falla a nivel de unidad de equipo. Cada clase tiene su lista; algunos ejemplos típicos son *falla al arrancar*, *fuga externa de fluido de proceso*, *vibración*, *salida baja* o *parada en operación*.
-- **Mecanismo de falla**: el proceso físico que la produjo (desgaste, corrosión, fatiga, falla eléctrica, falla de instrumento…).
-- **Causa de falla**: el origen (diseño, fabricación o instalación, operación o mantenimiento, causa administrativa).
-- **Método de detección**: cómo se descubrió (inspección, monitoreo de condición, prueba funcional, en operación, por demanda).
-- **Impacto**: en la función del equipo, en la planta y en la seguridad.
-- **Ítem mantenible afectado** (nivel 8).
+La segunda mitad de la norma (Anexo B) define **qué registrar cada vez que algo falla**, con listas cerradas de códigos. La diferencia entre los tres conceptos es lo que más se confunde:
 
-La diferencia entre modo, mecanismo y causa es lo que más se confunde. Una forma rápida de recordarlo: el **modo** es *lo que ves* ("la bomba fuga por el sello"), el **mecanismo** es *lo que pasó físicamente* ("desgaste de las caras del sello") y la **causa** es *por qué pasó* ("operación en seco por falta de NPSH").
+- **Modo de falla:** cómo se manifiesta la falla en el equipo, *lo que ves*. Ejemplo: "fuga externa de fluido de proceso" (ELP).
+- **Mecanismo de falla:** el proceso físico que la produjo, *lo que pasó*. Ejemplo: "fuga" (1.1) por desgaste de las caras del sello.
+- **Causa de falla:** el origen, *por qué pasó*. Ejemplo: "servicio fuera de diseño" (3.3), porque la bomba operó con NPSH insuficiente.
 
-### Datos de mantenimiento
+### Modos de falla de equipos rotativos
 
-Para cada intervención: tipo (correctivo o preventivo), actividad (reemplazo, reparación, ajuste, inspección, prueba), ítem intervenido, recursos (horas-hombre, especialidad), tiempos (tiempo de parada, tiempo activo de reparación) y repuestos usados. Con los tiempos bien registrados salen solos el MTTR y la disponibilidad.
+Estos son los códigos de tres letras para equipos rotativos (bombas, compresores, motores, turbinas). No todos aplican a todas las clases: la norma marca cuáles corresponden a cada una.
+
+| Código | En la norma | En español |
+|---|---|---|
+| AIR | Abnormal instrument reading | Lectura anormal de instrumento |
+| BRD | Breakdown | Avería grave |
+| DOP | Delayed operation | Operación retardada |
+| ELF | External leakage – fuel | Fuga externa de combustible |
+| ELP | External leakage – process medium | Fuga externa de fluido de proceso |
+| ELU | External leakage – utility medium | Fuga externa de fluido de servicio (aceite, agua) |
+| ERO | Erratic output | Salida errática |
+| FTS | Failure to start on demand | No arranca cuando se requiere |
+| HIO | High output | Salida alta |
+| INL | Internal leakage | Fuga interna |
+| LOO | Low output | Salida baja |
+| NOI | Noise | Ruido anormal |
+| OHE | Overheating | Sobrecalentamiento |
+| PDE | Parameter deviation | Desviación de parámetro |
+| PLU | Plugged / choked | Obstruido |
+| SER | Minor in-service problems | Problemas menores en servicio |
+| STD | Structural deficiency | Deficiencia estructural |
+| STP | Failure to stop on demand | No se detiene cuando se requiere |
+| UST | Spurious stop | Paro espurio (se detiene sin que se pida) |
+| VIB | Vibration | Vibración |
+| OTH / UNK | Other / Unknown | Otro / desconocido |
+
+Ojo con **STP y UST**: en español es común encontrar STP traducido como "paro espurio", y no lo es. STP es *no se detiene cuando se le pide*; el paro espurio es **UST**.
+
+### Mecanismos, causas y método de detección
+
+| Lista | Grupos principales |
+|---|---|
+| **Mecanismos** | 1 Mecánico (fuga, vibración, holgura o alineación, deformación, aflojamiento, agarrotamiento) · 2 Material (cavitación, corrosión, erosión, desgaste, rotura, fatiga, sobrecalentamiento, estallido) · 3 Instrumento · 4 Eléctrico · 5 Influencia externa · 6 Misceláneo |
+| **Causas** | 1 Diseño · 2 Fabricación o instalación · 3 Operación o mantenimiento (desgaste esperado, error de operación, servicio fuera de diseño, error de mantenimiento) · 4 Gestión (documentación, gestión) · 5 Misceláneo |
+| **Detección** | Mantenimiento periódico · prueba funcional · inspección · monitoreo de condición periódico o continuo · prueba de presión · interferencia con la producción · observación casual · mantenimiento correctivo · por demanda |
+
+### Un registro de falla bien hecho
+
+> **14-mar-2026 · P-201A (PU) · ítem: sello mecánico**
+> Modo **ELP** · mecanismo **1.1** (fuga por desgaste de caras) · causa **3.3** (servicio fuera de diseño: bajo NPSH en arranques) · detección **8** (observación casual del operador) · impacto en planta: ninguno, entró la P-201B · 6 h de parada.
+
+Con 50 registros así puedes contestar en segundos cuántas fugas de sello hubo por clase de equipo, cuántas vienen de operación fuera de diseño y cuántas detectó el monitoreo y no el operador. Con texto libre ("se cambió sello"), no. Para armar la lista de fallas de tu planta, mira cómo [elaborar un catálogo de fallas con ISO 14224](/blog/elaboracion-de-un-catalogo-de-fallas-para-la-industria-del-gas-y-petroleo).
+
+<cta-demo titulo="Tu jerarquía ISO 14224, lista en ReliaPlant" texto="Carga tus equipos con sus clases, límites y catálogos de falla normalizados, y úsalos directo en criticidad, RCM y RCA." boton="Probar ReliaPlant gratis"></cta-demo>
 
 ## Cómo implementar la taxonomía paso a paso
 
-1. **Define el alcance.** Empieza por un área o una unidad, no por la planta completa. Es mejor una unidad bien hecha que una planta entera a medias.
-2. **Arma los niveles 1 a 5** con los diagramas de proceso (PFD y DTI). Cada sistema debe tener una función clara: "comprimir gas de 5 a 40 bar", no "área de compresores".
-3. **Identifica las unidades de equipo (nivel 6)** recorriendo los DTI: cada tag principal es candidato. Asígnale su clase ISO 14224.
-4. **Aplica los límites** de cada clase para decidir qué subunidades y componentes van dentro de cada equipo.
-5. **Baja a subunidades e ítems mantenibles** solo hasta donde vayas a usar la información: planes de mantenimiento, repuestos, análisis de fallas.
-6. **Normaliza la nomenclatura**: una sola regla de codificación de tags, un solo catálogo de clases, listas cerradas de modos y causas de falla. Los campos de texto libre son el enemigo de los datos comparables.
-7. **Valida en campo.** Un recorrido de verificación siempre encuentra equipos que no están en los planos, y equipos en los planos que ya no existen.
+1. **Define el alcance.** Empieza por una unidad o un área, no por toda la planta.
+2. **Escribe la regla de codificación** de la ubicación técnica antes de cargar nada: separadores, segmentos por nivel, cómo se nombran los respaldos. Si ya usas tags ISA o KKS, decide cómo conviven (lo vemos en [cómo codificar equipos: tags ISA, KKS y RDS-PP](/blog/codificacion-de-equipos-tags-isa-kks-rds-pp)).
+3. **Arma los niveles 3 a 5** a partir de los diagramas de proceso (PFD y DTI), con un sistema por función.
+4. **Identifica las unidades de equipo** recorriendo los DTI: cada tag principal es candidato a nivel 6. Asigna su clase.
+5. **Escribe los límites** de cada clase que tengas en planta (una página por clase) y aplícalos.
+6. **Baja a subunidades e ítems mantenibles** solo hasta donde vayas a usar el dato: planes, repuestos, fallas.
+7. **Cierra las listas** de modos, mecanismos, causas y detección. Nada de texto libre en esos campos.
+8. **Valida en campo.** Un levantamiento siempre encuentra equipos que no están en los planos y equipos en los planos que ya no existen.
+
+<figure><img src="/sitio/landing/levantamiento-cuadrilla.jpg" alt="Dos técnicos con casco y tableta recorren una planta verificando placas y tags de los equipos" loading="lazy" /><figcaption>El levantamiento en campo es el paso que más errores corrige: placas, tags y equipos que no coinciden con los planos.</figcaption></figure>
+
+Si no tienes gente para el levantamiento, ReliaPlant hace el [levantamiento de activos con taxonomía ISO 14224](/servicios/taxonomia-iso-14224) en planta.
 
 ## Errores comunes
 
-- **Mezclar ubicación con equipo.** El tag de la posición (P-101) y el equipo físico que está instalado (bomba con serie 12345) no son lo mismo. Si la bomba se envía a taller y se instala una de repuesto, el historial de fallas debe seguir a quien corresponde.
-- **Ir demasiado profundo.** Llegar al nivel de tornillo en todos los equipos multiplica el trabajo de carga y mantenimiento de datos sin mejorar ninguna decisión.
-- **Listas de modos de falla abiertas.** Si cada técnico describe la falla con sus palabras, nunca podrás contar cuántas veces ocurrió el mismo modo.
-- **No registrar fallas pequeñas.** Las fallas que no detienen la planta también cuentan para la confiabilidad del equipo, y suelen ser las primeras señales de un problema mayor.
+- **Mezclar ubicación con equipo:** el historial se pierde en cada cambio de máquina.
+- **Meter el accionador dentro de la bomba o del compresor:** rompe la comparación de tasas de falla.
+- **Sistemas que son lugares y no funciones:** "Nave 2" no sirve para un RCM.
+- **Bajar a nivel de tornillo en todo:** multiplica el trabajo de carga y mantenimiento de datos sin mejorar ninguna decisión.
+- **Listas abiertas de modos de falla:** cada técnico escribe distinto y nunca se pueden contar.
+- **Forzar clases ISO** en equipos que no las tienen, en vez de crear una propia documentada.
+- **Copiar la jerarquía del ERP contable:** los activos fijos de contabilidad no siguen la lógica de mantenimiento (un "activo" contable puede ser media planta).
 
-## De la taxonomía al RCM y la criticidad
+## Preguntas frecuentes
 
-Una taxonomía bien armada es la base de todo lo demás: el [análisis de criticidad](/blog/analisis-de-criticidad-de-activos) se hace sobre las unidades de equipo, el [RCM](/blog/rcm-mantenimiento-centrado-en-confiabilidad-sae-ja1011) analiza las funciones de los sistemas y los modos de falla de sus ítems mantenibles, y los [indicadores como MTBF y MTTR](/blog/mtbf-mttr-disponibilidad-como-calcularlos) solo tienen sentido cuando las fallas están bien asignadas.
+### ¿Qué es la taxonomía ISO 14224?
 
-En Reliaplant el [registro de activos](/modulos/registro-activos) sigue la jerarquía de ISO 14224 y se construye a partir de los DTI de la planta, con clases de equipo y catálogos de falla normalizados, para que el registro quede listo para los análisis RCM y RCA desde el primer día.
+Es la clasificación jerárquica de equipos que define la norma ISO 14224 para recolectar datos de confiabilidad y mantenimiento. Tiene 9 niveles: industria, categoría de negocio, instalación, planta o unidad, sección o sistema, unidad de equipo, subunidad, componente o ítem mantenible, y parte.
 
-<cta-demo titulo="Arma tu jerarquía ISO 14224 sin hojas de cálculo" texto="Carga tus equipos, sus subunidades y sus datos de falla en una estructura normalizada y lista para RCM." boton="Probar Reliaplant"></cta-demo>
+### ¿Cuál es la edición vigente de ISO 14224?
+
+La tercera edición, ISO 14224:2016, que reemplazó a la de 2006. En Europa se publicó como EN ISO 14224:2017.
+
+### ¿ISO 14224 solo aplica a petróleo y gas?
+
+Está escrita para petróleo, petroquímica y gas natural, pero su estructura de niveles, límites y códigos de falla se usa en minería, energía, química, alimentos y otras industrias. Para equipos que no tienen clase en la norma se crea una clase propia con la misma lógica.
+
+### ¿Cuántos niveles debo usar?
+
+Los que necesites para tomar decisiones. En la práctica casi todas las plantas usan del 3 al 8: los niveles 1 y 2 son iguales para toda la empresa y el 9 (parte) solo se usa para repuestos críticos.
+
+### ¿El motor de una bomba es parte de la bomba?
+
+No en ISO 14224. El motor eléctrico es otra unidad de equipo (clase EM) con su propio historial; la bomba (clase PU) incluye la transmisión de potencia, la unidad de bomba, el control y monitoreo, la lubricación, el enfriamiento y los misceláneos.
+
+### ¿Qué diferencia hay entre taxonomía y jerarquía de activos?
+
+La taxonomía es la regla (qué niveles existen, qué clases y qué límites); la jerarquía es tu planta organizada con esa regla. Dos plantas con la misma taxonomía tienen jerarquías distintas.
+
+### ¿Qué es OREDA y qué relación tiene con ISO 14224?
+
+OREDA es un proyecto conjunto de operadoras de petróleo y gas que recopila datos de confiabilidad de equipos y publica un manual con tasas de falla. ISO 14224 nació de ese proyecto y ambas usan la misma taxonomía, por eso puedes comparar tus tasas de falla con las de OREDA.
+
+## Siguiente paso
+
+Una taxonomía bien armada es la base de todo lo demás: la [criticidad](/blog/analisis-de-criticidad-de-activos) se evalúa por unidad de equipo, el [RCM](/blog/rcm-mantenimiento-centrado-en-confiabilidad-sae-ja1011) analiza las funciones de los sistemas y los modos de falla de sus ítems mantenibles, y los [indicadores como MTBF y MTTR](/blog/mtbf-mttr-disponibilidad-como-calcularlos) solo sirven si las fallas están bien asignadas.
+
+En ReliaPlant el [registro de activos](/producto/taxonomia) sigue la jerarquía de ISO 14224 y se construye desde los DTI de la planta, con clases de equipo, límites y catálogos de falla normalizados, para que criticidad, RCM y RCA trabajen sobre los mismos equipos desde el primer día.
+
+<cta-demo titulo="Arma tu jerarquía ISO 14224 sin hojas de cálculo" texto="Importa la plantilla o empieza desde tus DTI. Hay plan gratuito." boton="Probar ReliaPlant gratis"></cta-demo>

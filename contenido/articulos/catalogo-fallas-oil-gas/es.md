@@ -58,7 +58,7 @@ La norma (edición vigente: 2016) no es un catálogo listo para usar, pero sí d
 
 El nivel 8 de la taxonomía es el **componente o ítem mantenible**: el grupo de piezas que se repara o reemplaza como un todo (rodamiento, sello, impulsor, actuador). Para cada clase de equipo, el anexo A de la norma define el **límite del equipo**, sus subunidades y sus ítems mantenibles. Usa esa subdivisión como punto de partida y evita bajar al nivel de pieza (perno, junta) salvo que tengas un motivo concreto, como la gestión de repuestos críticos.
 
-Si aún no tienes clara la jerarquía, empieza por nuestra guía de [taxonomía de activos según ISO 14224](/blog/taxonomia-de-activos-iso-14224).
+Si aún no tienes clara la jerarquía, empieza por nuestra guía de [taxonomía de activos según ISO 14224](/blog/taxonomia-de-activos-iso-14224) y por cómo [armar la jerarquía en tu CMMS, separando ubicación técnica y equipo](/blog/jerarquia-de-activos-ubicacion-tecnica-y-equipo).
 
 ### Mecanismos de falla
 
@@ -152,6 +152,6 @@ Con un catálogo bien construido y en uso:
 - Los [indicadores MTBF, MTTR y disponibilidad](/blog/mtbf-mttr-disponibilidad-como-calcularlos) se pueden calcular por clase de equipo, por modo de falla o por componente.
 - El [análisis de criticidad](/blog/analisis-de-criticidad-de-activos) puede apoyarse en frecuencias de falla reales en lugar de estimaciones.
 
-En Reliaplant, el [registro de activos](/modulos/registro-activos) sigue la taxonomía ISO 14224 e incluye catálogos de falla normalizados por clase de equipo, de modo que cada falla registrada queda lista para los análisis [RCM](/modulos/rcm) y [RCA](/modulos/rca).
+En Reliaplant, el [registro de activos](/producto/taxonomia) sigue la taxonomía ISO 14224 e incluye catálogos de falla normalizados por clase de equipo, de modo que cada falla registrada queda lista para los análisis [RCM](/producto/rcm) y [RCA](/producto/rca).
 
 <cta-demo titulo="Un catálogo de fallas que tu equipo sí usa" texto="Registra modos, mecanismos y causas con códigos ISO 14224 por clase de equipo y detecta tus fallas repetitivas sin limpiar datos." boton="Probar Reliaplant"></cta-demo>

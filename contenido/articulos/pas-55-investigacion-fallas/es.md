@@ -108,6 +108,6 @@ Si estás armando o revisando el procedimiento de RCA desde cero, estos artícul
 
 La PAS 55 fue retirada y ya no es una referencia normativa válida, pero su guía sobre investigación de fallas e incidentes sigue siendo una de las más claras que se han escrito para la gestión de activos: investigar en proporción a las consecuencias, priorizar lo crítico y lo repetitivo, agrupar lo menor para ver tendencias, registrar bien y verificar la eficacia. Todo eso cabe, sin contradicciones, dentro de un sistema ISO 55001.
 
-En Reliaplant, el [módulo de RCA](/modulos/rca) registra cada investigación sobre el equipo afectado de tu [registro de activos](/modulos/registro-activos), con sus evidencias, causas y acciones, y da seguimiento a su cierre.
+En Reliaplant, el [módulo de RCA](/producto/rca) registra cada investigación sobre el equipo afectado de tu [registro de activos](/producto/taxonomia), con sus evidencias, causas y acciones, y da seguimiento a su cierre.
 
 <cta-demo titulo="Investiga en proporción al riesgo" texto="Define criterios de disparo por criticidad, documenta cada RCA con su evidencia y sigue las acciones hasta verificar su eficacia." boton="Probar Reliaplant"></cta-demo>

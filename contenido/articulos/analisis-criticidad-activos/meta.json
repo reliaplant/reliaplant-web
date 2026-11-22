@@ -4,9 +4,12 @@
   "autor": "Andrés González",
   "etiquetas": [
     "análisis de criticidad",
-    "matriz de riesgo",
+    "matriz de criticidad",
+    "criticidad total por riesgo",
     "priorización de activos",
     "gestión de activos",
-    "ISO 55000"
-  ]
+    "ISO 14224"
+  ],
+  "imagen": "/sitio/equipo-rca.jpg",
+  "actualizado": "2026-11-22"
 }
