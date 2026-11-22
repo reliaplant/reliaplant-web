@@ -1,5 +1,4 @@
 import { MetadataRoute } from "next";
-import { getPublishedBlogPosts } from "@/lib/firebase/blog/blog";
 import { versiones } from "@/lib/blog";
 import { entradasSitemap } from "./blog-vistas";
 
@@ -53,6 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Rutas de artículos/posts del blog anterior (colección "blogPosts")
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
+    // Import dinámico: si el SDK web de Firebase no puede iniciar (p. ej. sin NEXT_PUBLIC_FIREBASE_API_KEY en el
+    // servidor), solo faltan estas rutas y el sitemap sigue respondiendo.
+    const { getPublishedBlogPosts } = await import("@/lib/firebase/blog/blog");
     const posts = await getPublishedBlogPosts();
     blogRoutes = posts
       .filter((post) => post.slug || post.id)
